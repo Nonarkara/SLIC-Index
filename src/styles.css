@@ -247,6 +247,14 @@ section[id] {
   padding-top: clamp(5.75rem, 10vw, 7rem);
 }
 
+@media (max-width: 760px) {
+  .hero,
+  .methodology-hero,
+  .rankings-hero {
+    padding-top: 8.5rem;
+  }
+}
+
 .world-clock-strip {
   padding: 0.15rem 0 1.65rem;
 }
@@ -3525,21 +3533,73 @@ section[id] {
     width: min(var(--max-width), calc(100% - 1.25rem));
   }
 
-  .site-masthead-row-primary,
+  .site-masthead {
+    padding-top: 0.4rem;
+  }
+
+  .site-masthead-row-primary {
+    grid-template-columns: 1fr auto;
+    min-height: auto;
+  }
+
   .site-masthead-row-secondary {
-    grid-template-columns: 1fr;
+    display: none;
   }
 
   .site-masthead-row {
-    gap: 0.7rem;
-    padding-inline: 0.8rem;
+    gap: 0.4rem;
+    padding: 0.4rem 0.7rem;
+  }
+
+  .masthead-brand-copy span {
+    display: none;
+  }
+
+  .masthead-brand-copy strong {
+    font-size: 0.72rem;
+  }
+
+  .masthead-logo {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .masthead-logo img {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .masthead-brand {
+    gap: 0.45rem;
+  }
+
+  .masthead-nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-content: flex-start;
+    gap: 0.15rem;
+  }
+
+  .masthead-nav-link {
+    font-size: 0.75rem;
+    min-height: 1.75rem;
+    padding: 0 0.15rem;
   }
 
   .masthead-locale {
-    justify-content: flex-start;
+    grid-row: 1;
+    grid-column: 2;
+    justify-content: flex-end;
   }
 
-  .topbar,
+  .locale-switch {
+    gap: 0.25rem;
+  }
+
+  .topbar {
+    display: none;
+  }
+
   .section-heading,
   .city-row,
   .city-header,
