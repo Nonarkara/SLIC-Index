@@ -1,0 +1,112 @@
+Strategic Smart Living Expansion Roadmap
+Mr.
+Pornchai
+Ieamsuksai
+Chief Executive Officer
+Siam
+Inno
+City Co., LTD.
+The Smart City Company LLC
+Confidential Information: The content of this document is privileged and confidential, intended solely for the use of NEC and Siam
+Inno
+City LLC. Unauthorized use, disclosure, or reproduction of this material is strictly prohibited.
+
+Nakhon Si Thammarat Municipality
+
+Nakhon Si Thammarat Municipality
+
+Nakhon Si Thammarat Municipality
+
+Suphanburi
+Provincial Administrative Organization
+
+Nonthaburi Provincial Administrative Organization
+Confidential Information: The content of this document is privileged and confidential, intended solely for the use of NEC and Siam
+Inno
+City LLC. Unauthorized use, disclosure, or reproduction of this material is strictly prohibited.
+
+Nonthaburi Provincial Administrative Organization
+Confidential Information: The content of this document is privileged and confidential, intended solely for the use of NEC and Siam
+Inno
+City LLC. Unauthorized use, disclosure, or reproduction of this material is strictly prohibited.
+
+Provide overview of national smart city masterplan progress and pain points
+
+Vendor ecosystems
+HIGH QUALITY
+LOW QUALITY
+HIGH
+PRICE
+LOW
+PRICE
+Company A
+Company C
+Company B
+NEC
+Company A :
+Huawei
+Company B : Hitachi, Fujitsu
+Company C :
+-
+
+Pain points :
+Nakhon Si Thammarat Municipality
+1. Some groups of people have poor health care behaviors, lack of protection against various diseases
+2. The problem of slum communities lacking primary health care.
+3. There are few specialized doctors at the hospital. There are not all types of medical equipment.
+4. The proportion of staff providing services in the healthcare facility is less than the number of visitors to the healthcare facility.
+5. The Hospital on Wheels project cannot connect to the internet signal covering all areas.
+
+Pain points :
+Suphanburi
+Provincial Administrative Organization
+1. There is a very clear change in the structure of age groups, the proportion of the young population (0-14 years) has decreased, while the proportion of the elderly population (60 years and over) has increased.
+2. Personnel problems such as there are few civil servant personnel. Personnel are not performing their duties in the correct position, etc.
+3. The work is not yet fully integrated by all parties.
+4. Policy changes causing continuous work, plan new operations and performance indicators are not clear.
+5. Budgets are being decrease and government subsidies are not a specified criteria.
+
+Pain points :
+Nonthaburi Provincial Administrative Organization
+1. The budget of local government organizations is limited.
+2. The increase in the elderly group. This will affect the living conditions and quality of life of the people in Nonthaburi Province. The proportion of elderly people (aged 60 years and over) increases every year, while the proportion of working age people and children decreases.
+3. Problems with overcrowding in nursing units, such as the number of beds being insufficient for the number of patients, etc.
+4. The budget is high, but the demand for the budget is also very high.
+
+5. Self-funded and sponsored budgets are still not enough to solve the problems of the people.
+6. Income collected by the Provincial Administrative Organization itself is small. Compared to income from government subsidies The revenue received from the government is uncertain.
+7. Revenue collection still does not receive as much cooperation from the private sector as it should.
+Pain points :
+Nonthaburi Provincial Administrative Organization
+
+Matching NEC solutions to surfaced gaps
+The service system consists of,
+Public address system
+AV system
+CCTV System and AI
+Digital TV/IPTV/Signage
+IP-PBX
+Access Control
+Fire alarm system
+EV Charger
+
+Matching NEC solutions to surfaced gaps
+Suitable system for Nakhon Si Thammarat Municipality
+Suphanburi
+Provincial Administrative Organization and the Nonthaburi Provincial Administrative Organization are divided into 2 groups as follows:
+Group 1
+is Smart Building work which is a group of audiovisual systems within buildings, as in the example of Smart City proposals from 3 cities that are “building projects”. The nature of these project groups will be opportunities for work in this group.
+Group 2
+is CCTV and analysis system work, as in the example of Smart Living or Smart Mobility projects in 3 cities.
+
+Thailand Smart City’s Challenge Deep-Drive:
+
+Key strategies include:
+
+Budget realities
+Nakhon Si Thammarat Municipality
+14,760,500
+THB
+Suphanburi
+Provincial Administrative Organization 196,700,000 THB
+Nonthaburi Provincial Administrative Organization 46,963,200 THB

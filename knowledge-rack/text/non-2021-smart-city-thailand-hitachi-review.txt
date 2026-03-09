@@ -1,0 +1,397 @@
+106.
+EXTRA CONTRIBUTION
+1. Introduction
+In recent years, the term “smart city” is heard being used 
+in diff erent ways. Many federal and local governments can 
+often be heard proclaiming the need to expedite the econ-
+omy “through smart cities.” Also witnessable are private 
+enterprises’ advertising their new plans to boost growth 
+with the keyword “smart city.” It is undeniable the term 
+has gained signifi cant traction in the global socioeconomic 
+lexicon. Events including everything from an international 
+exhibition to a local college’s hackathon use “smart city” as 
+the key branding strategy. But what exactly is a “smart city?” 
+A smart city is commonly understood as an urban envi-
+ronment that makes use of technology and innovation to 
+enhance its capacity, managerial effi ciency, and resource 
+utilization. In contrast to a “traditional city,” which operates 
+based primarily upon the existing physical infrastructure 
+and laborious non-digital processes, a smart city makes 
+use of data to drive automation, enhancing the livelihood 
+of the residents. As a result, a smart city helps to decrease 
+the unnecessary spending of its residents, emphasizing good 
+design and participation from all sectors in society. Th e key 
+urban development concept is to make the city more resil-
+ient, with the development goal of sustainably improving 
+the quality of life (QoL).
+As a global trend, cities around the globe are in high 
+demand due to the shifting of the global economic mode 
+from producing goods to providing services. While many 
+would agree that cities are hotbeds of innovation, it is unde-
+niable that cities also create trash, pollution, and consume 
+an insurmountable amount of energy. Once and for all, this 
+article aims to outline the concept of a smart city based 
+on the research and development of the Digital Economy 
+Promotion Agency of Th ailand (known internationally as 
+“depa”) and the Smart City Th ailand Offi ce. Th is article, it 
+is hoped, will serve as a springboard for everyone, not only 
+for those who are interested in better understanding such an 
+important and popular concept, but also for those who may 
+want to “join forces” in positively shaping and re-shaping 
+the world in which people live. 
+2. Three Concepts
+First and foremost, it is important to agree on one thing 
+— that a “smart city” is a process, and not a result. Th e idea 
+is that no city reaches the status of a smart city by simply 
+ticking all the boxes. As with humans, “smart” refers to the 
+ability to comprehend a situation in a meaningful way, such 
+as in adapting and transforming, to cope with and improve 
+the changing world. Th e idea of a smart city “as a pro-
+cess,” therefore, entails a set of milestones and conceptual 
+Nuttapon Nimmanphatcharin, Ph.D.
+Passakon Prathombutr, Ph.D.
+Supakorn Siddhichai, Ph.D.
+Non A, Ph.D.
+Wichai Treethidtaphat
+Based on strategies such as Thailand 4.0 started in 2017, Thailand is now accelerat-
+ing digitalization in various fields. This extra contribution from the Digital Economy 
+Promotion Agency of Thailand (depa) introduces what a smart city is and Thailand’s 
+initiatives to achieve it.
+Smart City Initiatives in Thailand: 
+Key Concepts and Methods
+
+Hitachi Review Vol. 70, No. 1 106–107 107.
+framework pertaining to systematic, consistent, and proxi-
+mal development. 
+By this defi nition, all cities are already “smart” in some 
+ways since the idea of “smart” is part and parcel of the 
+ability to survive in a changing world. Cities, however, can 
+always improve to which the understanding of the idea of 
+smart city “as a process” is crucial. Boiling down to a magic 
+number of three, here are the three basic concepts encom-
+passing the smart city:
+(1) Citizens at the center, technology in the background;
+(2) People-public-private-partnership (PPPP); and,
+(3) Simultaneous development 
+Cities are for people. If not for people, then there is no 
+need for cities to exist at all. So, contrary to some popular 
+perceptions that cities are all about technology, the belief 
+is that it is about the needs of the residents. A “smart city” 
+is one where its residents get access to abundant livelihood, 
+employment, lifelong learning, and entertainment — as in 
+the LLWP or “Live-Learn-Work-Play” concept. 
+So, by placing citizens at the center, it might not always 
+be the case that cities need the most cutting-edge technol-
+ogy. What cities need, instead, may be as technological as 
+appropriate. A smart city should not be an urban environ-
+ment whereby residents confront the dilemma of technol-
+ogy daily. For example, cities that require residents to be 
+hooked on their smartphones 12+ hours a day in order to 
+be “smart” cannot be good for the health and wellbeing of 
+the residents. 
+On the other hand, smart cities are those that use the 
+appropriate technologies to enhance the quality of life in 
+the background, such as automated traffi c, energy effi ciency, 
+and integrated healthcare systems. Residents may not feel 
+that “something” is working for them and on their behalf, 
+which is fi ne as long as their level of wellbeing and liveli-
+hood is increasing. In this sense, the evidence of success 
+lies in the measurable indicators such as less travel time, 
+worry-free access to healthcare, and more spare time. 
+To expedite the process, it is important to synergize the 
+“superpower” of the people, public, and private sectors in 
+the fashion of “People-Public-Private-Partnership” (PPPP). 
+Th e commonly used term is just PPP , but the “P for the 
+People” is included in the equation, as many recent instances 
+of the successes, and especially the failures, of smart city 
+projects worldwide have demonstrated the crucial need to 
+communicate with the people, therefore galvanizing their 
+support in the process (see 
+Figure 1). 
+Finally, as tempting as it may be to think of a smart city 
+in terms of a series of “data-driven digital platforms,” cities 
+still consist of connected physical spaces. So, the simulta-
+neous development of both the physical and digital infra-
+structures is required so that the demands and supplies of 
+physical goods can travel to meet one another after the 
+price and the service have been agreed upon on the digital 
+platforms. 
+In the context of Th ailand, the government realizes the 
+importance of improving cities as places for productive 
+residents. It, hence, places a great emphasis upon the distri-
+bution of growth in all regions of the country, as evident in 
+the Twenty-Year National Strategy, the 12th Economic and 
+Social Development Plan, Th ailand 4.0 Driving Model and 
+the Digital Th ailand for Economy and Society Development 
+Plan. Building smart cities is Th ailand’s urgent national 
+agenda with the goals of lessening inequality and boosting 
+growth in all regions. 
+With the “people fi rst” mindset, a smart city is a liv-
+able urban environment, eff ective in its organization and 
+management. Each city will choose the type of smart city it 
+aspires to become, whether that be a modern city, a livable 
+city, or a city with a traditional sense of identity and culture, 
+all with the basic infrastructure that provides citizens with 
+the sense of convenience in transportation, water, and elec-
+tricity systems — as well as digital technology. All of these 
+eff orts will lead to a transition to 100 smart cities that foster 
+well-being, livelihood, and sustainability by the year 2022.
+Figure 1 — Identifying Citizen’s Needs 
+for Smart Cities
+“Because citizens are at the center”; there-
+fore most crucial to the People-Public-
+Private-Partnership (PPPP) process is 
+always defining the needs of the citizens 
+“from their own perspectives. ” This photo-
+graph shows how tools such as design think-
+ing and business model canvas are used to 
+identify the needs of citizens. 
+
+108.
+3. Smart City “Two-Five-Seven” 
+Currently housed at depa, the Smart City Th ailand Offi ce 
+has been set up to oversee the operation and progress of 
+smart cities in Th ailand. Under the guidance of the National 
+Steering Committee on Smart City currently chaired by a 
+Deputy Prime Minister, the Offi ce bundles various forms 
+of incentives for interested cities, such as tax benefi ts from 
+the Board of Investment (BOI) of Th ailand and non-tax 
+benefi ts such as the Smart Visa for a skilled foreign work-
+force, technological sandbox for new technologies, and 
+incubation and accelerator programs for both cities and 
+solution providers. 
+A city with smart city aspirations, therefore, would 
+propose to the Smart City Th ailand Offi ce to engage in 
+the smart city program with the ultimate goals of being 
+endorsed by the National Steering Committee on Smart 
+City. To get there, these cities will be lively and dynamically 
+incubated by depa and partners through various programs 
+and measures. Currently (October 2020), there are propos-
+als from 40 cities who are offi cially in “depa Smart City 
+Promotional Areas.” 
+As the “depa Smart City Promotional Areas” process 
+goes, it sets up a mnemonic device “Two-Five-Seven” to 
+help people remember key information about the process. 
+Th e next section starts with the fi rst number, “Two.”
+4. Two Types of Smart Cities — Smart 
+Livable and Smart New Cities 
+Smart city candidates are fi rst asked to determine which 
+type of smart city they aspire to become. Determining 
+which type is a result of both the citizen-centric under-
+standing of the city and the evaluation of its potential in 
+development, whether that be socioeconomic, educational, 
+or industrial. To be developed into a “Smart Livable City,” 
+the existing city needs to incorporate and integrate the 
+technologies and innovations, as needed by its residents, 
+that vary by the city’s specifi c contexts, such as infrastructure, 
+social services, housing, recreational areas, and commercial 
+resources, including the design of urban spaces contributing 
+to the rich existing culture, tradition, and identity of the 
+city as a whole. 
+While a Smart Livable City makes use of technology 
+and innovation as needed by its specifi c contexts, a “New 
+Smart City” focuses on development based on land (e.g., 
+greenfi eld or brownfi eld), labor, and ample opportunity for 
+new development in line with certain national policies, such 
+as in the case of the Eastern Economic Corridor (EEC) of 
+Th ailand (see Figure 2). 
+5. Five Criteria for Smart 
+City Development 
+Based on the extensive research and development of the 
+Smart City Th ailand Offi ce, there are fi ve criteria for mea-
+suring the potential of a city’s proposed smart city program:
+(1) Identifying geographical boundaries, Smart City type, 
+Smart City visions and goals. Th is process requires the deep 
+and active participation of the residents to ensure that the 
+visions and goals fi t well with the needs of the city and sit 
+well with the core competency of the city in a long term;
+(2) Formulating an infrastructural development and invest-
+ment plan for both digital and basic infrastructure such as 
+transportation, energy, and public services;
+(3) Designing a data storage and management platform 
+(also commonly known as City Data Platform or CDP) 
+as well as cybersecurity for the city and its residents. 
+Synergizing with the physical infrastructure, the design of 
+the digital infrastructure fosters the use of big data analytics 
+in the operation of IT services in the city (see Figure 3);
+(4) Building urban systems, activities, and projects per the 
+proposed type of Smart City, encompassing both the man-
+datory and other services as appropriate; and, 
+(5) Creating a management model and process of public 
+participation incubation for a sustainable operation.
+Often, cities are encouraged to use tools from both the 
+Design Th inking and Business Model Canvas (BMC) 
+schools of thought that are widely used among creative 
+entrepreneurs. Th ese tools are useful as they facilitate not 
+only productive communication among the stakeholders, 
+but also provide a layout of the overall process of smart city 
+development and promotion.
+Figure 2 — Smart Livable City and Smart New City
+Illustrations comparing dominant characteristics of the 
+Smart Livable City to those of the Smart New City.
+
+Hitachi Review Vol. 70, No. 1 108–109
+EXTRA CONTRIBUTION
+109.
+6. Seven Smarts 
+As a process, the smart city is characterized by seven domains, 
+which serve both to guide operation and to benchmark suc-
+cess (see Figure 4). Also based on extensive research, these 
+seven domains of smart city are seen to encompass all value, 
+virtue, and viability of a smart city program. 
+(1) Smart Environment: As the must-have and most 
+important domain of a smart city, the guiding question is 
+how to improve the ecological quality of a sustainable urban 
+environment. Th e goal is to minimize the negative impact 
+of urban living on the environment and climate change 
+through the systematic use of technology, such as, in water 
+resource management, climate monitoring, waste manage-
+ment, and disaster watch, including public participation in 
+the conservation of natural resources.
+(2) Smart Economy: How can technology be used to help 
+improve the economy and manage available resources more 
+effi ciently? Th e goal is to make full use of digital technology 
+to eff ectively increase value-addedness in the economic sys-
+tem as well as resource management, such as a smart agro-
+city and a smart tourism city.
+(3) Smart Mobility: How can technology be used to solve 
+traffi c problems in the city so people can travel conveniently, 
+effi ciently, sustainably, and safely? Th is domain places an 
+emphasis on the development of traffi c and transportation 
+systems in driving the country forward. By enhancing the 
+connectedness of a variety of traffi c and transportation sys-
+tems, urban residents benefi t from enhanced convenience 
+and safety, and by becoming friendlier to the environment.
+(4) Smart Energy: How can conserving the use of non-
+renewable energy be balanced with producing alternative 
+sources of clean energy? Th is domain spearheads eff ective 
+energy management and the building of a fi ne balance 
+between the production and usage of energy to enhance 
+energy security and decrease reliance on the traditional 
+channels of energy distribution.
+(5) Smart People: How can the skills of people in the 
+city be developed to boost creativity and create more jobs? 
+Th e goal is to improve the knowledge base, skill sets, and 
+!
+CDP Ecosystem
+Laws, 
+standards, 
+and
+frameworks
+Manpower
+development
+(skill)
+Data exchange
+IoTs
+Digital 
+Infrastructures
+Digital city 
+accelerator 
+platforms
+Devices Internet Data center
+Data catalog Data governance
+Security
+PaaS
+IaaS Compute
+service
+Message 
+queue Blockchain Integrations API 
+management
+Analytics / AI 
+/ ML
+Event
+processing
+Applications
+Open data
+for Citizen and Business
+IOC API marketplaceSmart solutions Business 
+intelligence
+Storage
+service
+Network
+service
+Server
+Figure 3 — CDP Diagram
+The City Data Platform, commonly 
+known as “CDP” or in diff erent con-
+texts as Urban Data Platform or Data 
+Analytic Platform, is a system that 
+integrates the large amount of data 
+in cities to give a holistic view of a 
+city’s condition so that the services 
+to meet the needs of the citizens 
+can be provided in a timely man-
+ner – ideally in real time. Collecting 
+data from demand-side, supply-
+side, and analytical and standard-
+ization streams, CDP is one of the 
+five criteria for Thailand’s smart city 
+development. 
+Figure 4 — Seven Domains Logo 
+This figure shows the design of the logos of the 
+seven domains of Smart City Thailand.
+CDP: city data platform IOC: intelligent operation center API: application programming interface PaaS: platform as a service 
+IaaS: infrastructure as a service AI: artificial intelligence ML: machine learning IoT: Internet of Things
+
+110.
+environment that are conducive to the life-long learning of 
+urban residents to decrease social and economic inequality 
+and provide new opportunities for creativity, innovation, 
+and public participation.
+(6) Smart Living: How can innovation be used and the 
+QoL of people in the city be improved to make them safe 
+and happy? Hence, the goal is to maximize health, safety, 
+and the QoL of urban residents through universal design.
+(7) Smart Governance: How can a digital system be 
+designed where people can benefi t from big data, improving 
+public service in the city? Th e goal is to develop the system 
+of public services to benefi t the residents whose access to 
+data and trust in the accountability of such a system are 
+key to their livelihood and wellbeing. Th e system shall be 
+consistently improved through applied service innovation.
+7. Conclusions
+Th is article serves both to provide the ground for the 
+understanding of Th ailand’s smart city eff ort and an open 
+invitation to join forces to foster positive socio-environ-
+mental change. Th e hope is that this paper has highlighted 
+the importance of the concept of a smart city as the “key 
+umbrella” both in promoting the innovation industry and 
+in supporting the rapidly changing society. In this context, 
+depa serves as “the hub” in the development of both digital 
+manpower and technology, including standards, regulations, 
+and guidelines in materializing smart cities. 
+To close, it is useful to be reminded that smart cities 
+are citizen-centric. Contrary to some popular perceptions, 
+smart cities do not always have to be ultra-high-tech. 
+Instead, smart cities prefer “practical technology” that fos-
+ters people’s wellbeing and livelihood (see Figure 5). 
+Th e key to a successful building of smart cities, therefore, 
+is the understanding of the demands and needs of residents 
+“from within.” As the hub, depa connects the central and 
+local governments, private sectors including startups, aca-
+demic and research institutions, and external partners in 
+both the ASEAN region and beyond. 
+Figure 5 — Process of Understanding 
+“Smart City Two-Five-Seven”
+In the end, a smart city is where everyone 
+who is involved in the process is happy with 
+the process as well as the result. This pho-
+tograph represents the process of under-
+standing the “Smart City Two-Five-Seven” 
+with the citizens by engaging and empow-
+ering them to create the future of the cities 
+in which they themselves would like to live.
+Authors
+Nuttapon Nimmanphatcharin, Ph.D.
+President and CEO of the Digital Economy Promotion 
+Agency of Thailand (depa)
+Passakon Prathombutr, Ph.D. 
+Senior Executive Vice President and CTO of depa
+Supakorn Siddhichai, Ph.D.
+Executive Vice President of depa
+Non A, Ph.D.
+Senior Expert in Digital Economy Promotion in the 
+Smart City Promotion Department of depa
+Wichai Treethidtaphat
+Team Leader in the Digital Platform and Service 
+Promotion Department of depa

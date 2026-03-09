@@ -1,0 +1,3547 @@
+EDITORIAL TEAM
+Executive Editors
+H.E.Mr. Chaiwut Thanakamanusorn 
+Minister of Digital Economy and Society
+Ms.Ajarin Pattanapanchai 
+Permanent Secretary of the Ministry of 
+Digital Economy and Society
+Mr.Teeranun Srihong 
+Chairman of the Board of Commissioners 
+Digital Economy Promotion Agency
+Dr.Nuttapon Nimmanphatcharin 
+President / CEO 
+Digital Economy Promotion Agency
+Editors
+Dr.Kasititorn Pooparadai 
+Senior Executive Vice President 
+Digital Economy Promotion Agency
+Dr.Passakon Prathombutr 
+Senior Executive Vice President 
+Digital Economy Promotion Agency
+Dr.Supakorn Siddhichai 
+Group Executive Vice President 
+Digital Economy Promotion Agency
+Dr.Orachat Leingpeboon 
+Vice President for Smart City Promotion 
+Digital Economy Promotion Agency
+Dr.Non Arkaraprasertkul 
+Senior Expert, Smart City Promotion 
+Digital Economy Promotion Agency
+For enquiries, please contact
+SMART CITY THAILAND OFFICE 
+(DIGITAL ECONOMY PROMOTION 
+AGENCY) 
+Ladprao Hills building, 80 Ladprao 
+4 Alley, Chom Phon, Chatuchak, 
+Bangkok 10900
+Email:
+scp@depa.or.th , 
+info@smartcitythailand.or.th
+Website: 
+www.smartcitythailand.or.th
+Tel: 
++66 2026 2333 ext. 5101-5111
+All rights reserved. No part of this 
+publication may be reproduced, 
+distributed, or transmitted in any 
+form or by any means, including 
+photocopying, recording, or other 
+electronic or mechanical methods, 
+without the prior written permission 
+of the publisher.
+Every effort has been made to trace 
+all sources and copyright holders of 
+news articles, figures and information 
+in this book before publication. If 
+any have been inadvertently over -
+looked, Smart City Thailand Office 
+will ensure that full credit is given 
+at the earliest opportunity.
+
+ The Ministry of Digital Economy 
+and Society has played a leading role 
+in promoting “Smart City” development 
+in Thailand under the supervision of the 
+National Steering Committee chaired by 
+a deputy prime minister, and with the 
+Digital Economy Promotion Agency (depa) 
+as the Committee’s Secretariat.
+ “Smart City Thailand” is a model for 
+modern cities capitalizing on the use of 
+technology and digital innovation to en -
+hance the efficiency of city management 
+and build a sustainable urban ecosystem. 
+Aiming to improve the people’s quality 
+of life, the proactive and concrete action 
+plan is grounded in several factors, such 
+as the diverse needs of the local citizens, 
+the readiness of resources, and the iden-
+tity of each city. In doing so, the Ministry 
+is considering robust methods, measures 
+and mechanisms stemmed from productive 
+synergy among sectors and long-term re-
+lations with trusted international partners.
+ Thanks to the prior commitments, 
+this “Smart City Thailand” model is showing 
+strong signs of progress, especially among 
+cities that have recently been endorsed 
+as future smart cities. For instance, the 
+development of a tourism revitalization 
+plan in Phuket Province, known as the 
+“Phuket Sandbox,” is a clear manifesta -
+Preface
+tion that integrates technology and digital 
+innovation in different systems, including 
+but not limited to the vaccine management 
+system, public transportation, the applica-
+tion of 5G communication technology, the 
+facial recognition system, as well as the 
+internationally renowned safety system 
+that safeguards international tourists in 
+the city. Khon Kaen Province, also, is being 
+promoted as a “Living Lab” with a clear 
+objective to modernize health service 
+technology and infrastructure. Another 
+area worth highlighting is the Electricity 
+Generating Authority of Mae Moh District 
+in Lampang Province which has been 
+designated and developed to become a 
+clean energy hub for its community. Simi-
+larly, Wang Chan Valley, located in Rayong 
+Province in the Eastern Economic Corridor 
+(EEC), and the Samyan District in Bangkok 
+are other key examples that are employing 
+the use of technology and digital innovation, 
+together with their vigorous roadmap, to 
+become innovative smart cities.
+ To close, I am confident that the 
+development of smart cities in Thailand 
+will be a vital leap forward and become 
+a fundamental mechanism helping to 
+distribute prosperity to the locals, facilitates 
+convenience, fosters public safety, and 
+builds a strong and sustainable community 
+going forward.
+H.E. Mr.Chaiwut Thanakamanusorn 
+Minister of Digital Economy and Society 
+3
+
+ The development of “Smart 
+City” is one of the key themes of 
+economic development and social 
+transformation globally. In Thailand, 
+Smart City refers to the mutual 
+efforts and collaboration between 
+the citizens—as the space owners, 
+the government, and the private 
+sector—to create a livable and 
+modern city and enhance people’s 
+quality of life. As a crucial driver of 
+this initiative, the Digital Economy 
+Promotion Agency (depa) has 
+implemented the “Smart City Plan” 
+and aligned it with the 20-year 
+National Strategy. Such a plan aims 
+to build 100 smart cities in Thailand 
+and drive three of them to be inter-
+nationally accredited smart cities. At 
+the same time, the Ministry of Digital 
+Economy and Society has vigorously 
+worked towards building efficient 
+digital infrastructure to cover all 
+of Thailand. Furthermore, as part 
+of Thailand’s 4.0 Digital Strategy, 
+the development of smart cities is 
+recognized as an essential 
+apparatus of the Thai government to 
+help reduce inequality and decen-
+tralize prosperity to other areas. As 
+such, Thailand Smart City Week 2020 
+had been organized by taking 
+into account the importance of 
+connecting smart urban networks 
+domestically and internationally. 
+The purposes of the event were 
+to navigate Thailand to becoming 
+one of the future global smart 
+cities, to bridge people and digital 
+technology, thereby leading to 
+sustainable economic development 
+and social transformation. Last but 
+not least, the event would manifest the 
+persistent commitment and 
+promptness of Thailand and its 
+government in moving, with 
+confidence and ample investment 
+opportunities, towards the digital 
+age. 
+Mr.Teeranun Srihong
+Chairman of the Board of Commissioners 
+Digital Economy Promotion Agency
+Preface
+4
+
+3
+ “Thailand Smart City Week 
+2020” is the first hybrid event that 
+encompasses the idea of smart city 
+development. As a human-centric 
+initiative, we have realized the 
+potential of awareness-raising. 
+Thus, we invite the participants to 
+partake and directly experience 
+digital technology via different 
+online platforms available across 
+regions. They would learn how 
+to use digital technology, apply 
+digital knowledge, build credibility, 
+and bring investment opportunities 
+into Thailand—all of which would 
+manifest the zealous commitment 
+of Thailand in embracing digitali- 
+zation. Moreover, the smart city 
+initiative will enhance modern 
+technology and digital innovation 
+to bolster the efficiency of city 
+Foreword
+services and city management 
+systems. Furthermore, the initiative 
+will help save costs and maximize 
+public resources, which will 
+subsequently facilitate the 
+cooperation of the public and 
+private sectors. This can pave 
+the way for people to live a good, 
+happy, and sustainable life under 
+the modern and livable smart city 
+paradigm. 
+Dr.Nuttapon Nimmanphatcharin 
+President / CEO 
+Digital Economy Promotion Agency
+5
+
+ Due to the Covid-19 pandemic, 
+citizen’s lifestyles and economic 
+activities have drastically changed 
+all over the world.
+ In addition, nowadays ICT plat-
+form which is developed by applying 
+new technologies such as AI and 
+IoT is essential for daily life of the 
+citizens, it is already recognized that 
+the world is shifting to the life with 
+“New Normal” such as working-
+from-home and online-shopping, 
+ and these trends have the potential 
+to bring new light in solving various 
+social issues in the future. 
+ It is also required all urban 
+functions such as transportation, 
+commerce, business, medical care, 
+energy, and government to be 
+greatlytransformed to harmonize with 
+digitalization by Digital Transformation 
+(DX).
+ Thailand Smart City Week 2020 
+which was held last year under the 
+leadership of depa achieved an 
+outstanding success in capturing 
+these trends and further accelerating 
+Smart City Policy in Thailand. 
+ Promoting Smart City Policy 
+will make it possible to improve 
+management system such as 
+planning, development, opera -
+tion, and maintenance by utilizing 
+new technologies, to solve social 
+issues that each city faces, and to 
+implement sustainable city by 
+creating new values. 
+ Japan has been supporting 
+implementation of Smart Cities 
+in the ASEAN Region, especially 
+in Bangkok, Chonburi, Phuket in 
+the Kingdom of Thailand under the 
+framework of ASEAN-Japan Smart 
+Cities Network. 
+ Japan would like to contribute 
+to Thailand’s economy by deepening 
+Thailand-Japan relationship 
+under Smart City Policy which will 
+contribute to promote Thailand’s 
+National Policy such as Digitalization, 
+Sustainable Development Goals 
+(SDGs) and Bio-Circular-Green (BCG) 
+economy.
+Testimony
+H.E.Ambassador NASHIDA Kazuya
+Ambassador Extraordinary and Plenipotentiary 
+of Japan to the Kingdom of Thailand 
+6
+
+ The British Embassy Bangkok 
+is greatly honored to collaborate 
+with the Digital Economy Promotion 
+Agency (depa) on 2020 Smart City 
+Week. Spearheaded by the initial 
+launch of the UK-Thailand Smart 
+City Handbook, our collaborative 
+effort in promoting smart cities 
+between the UK and Thailand 
+exceled during the Smart City Week. 
+The UK’s partnership with depa 
+continued with a series of Smart 
+City Workshops, where the British 
+Embassy Bangkok met with local 
+authorities in Chiang Mai, Khon Kaen 
+and Chonburi to explore potential 
+areas for smart city collaborations. 
+The partnership between depa 
+and the Britis Embassy Bangkok 
+led to the UK-Thailand Tech Export 
+Academy virtual trade mission in 
+May 2021, with over 200 business 
+matching sessions between the 
+British and Thai businesses. 
+ The UK and Thailand are also 
+working to deepen and strengthen 
+its trading relationship across all 
+sectors following the completion of 
+a Joint Trade Review. In March 
+2021, the UK and Thailand signed a 
+Memorandum of Understanding 
+(MoU) which commits us to further 
+strengthening trade and invest -
+ment ties through a new joint trade 
+dialogue. The Joint Economic and 
+Trade Committee (JETCO) offers a 
+significant new opportunity for the 
+UK and Thailand to work together to 
+improve bilateral trade, including by 
+addressing market access barriers 
+affecting businesses. 
+ We value the professional and 
+supportive partnership from depa’s 
+team and look forward to further 
+collaboration with depa for many 
+more years to come.
+Testimony
+Ms. Alexandra McKenzie
+Deputy Head of Mission of the British Embassy Bangkok 
+7
+
+Ms. Aileen Chew
+Area Country Manager, Thailand and Myanmar, 
+Mastercard 
+ Reimagining cities and readying 
+them for tomorrow’s challenges is 
+an enormous undertaking, especially 
+in times of great uncertainty. Yet, 
+that is exactly what Thailand Smart 
+City Week 2020 set out to do. The 
+tremendously successful event has 
+given a voice to the thinkers who are 
+engineering future-ready cities and 
+a timely opportunity for the private 
+and public sectors to drive meaningful 
+change. 
+ Through the event’s live webinars 
+ that attracted audience from all 
+around the world, Mastercard was able 
+to share our vision and solutions for a 
+Smart Thailand across many areas: from 
+how blockchain can be used to support 
+governance and efficiency in supply 
+chains, to how technology can play 
+a role in managing the movement of 
+people in a post-pandemic world. 
+ Beyond the event, Mastercard 
+has been supporting depa with 
+capability-building initiatives, 
+such as educating and training 
+for Smart City Officers, and ensuring 
+the sustainability of turnkey pro- 
+jects across cities and municipalities 
+through Public-Private Partnerships. 
+Most importantly, depa is a proud 
+member of City Possible, a part -
+nership and co-creation initiative 
+pioneered by Mastercard, that brings 
+cities, companies and communities 
+together to advance inclusive and 
+sustainable urban development. 
+ We look forward to continuing 
+this momentum into 2022 and 
+beyond. 
+Testimony
+8
+
+03
+05
+10
+22
+48
+36
+8006
+86
+Preface
+- H.E. Mr.Chaiwut Thanakamanusorn 
+ Minister of Digital Economy and 
+ Society
+- Mr.Teeranun Srihong 
+ Chairman of the Board of 
+ Commissioners, Digital Economy 
+ Promotion Agency
+Foreword
+- Dr.Nuttapon Nimmanphatcharin 
+ President / CEO, Digital Economy 
+ Promotion Agency
+An Overview of Thailand 
+Smart City Week 2020
+Smart City PLAYs
+Smart City LEARNs
+Smart City HACKs
+Smart City MEETsTestimonies
+- H.E. Ambassador NASHIDA Kazuya 
+ Ambassador Extraordinary and 
+ Plenipotentiary of Japan to the 
+ Kingdom of Thailand
+- Alexandra McKenzie 
+ Deputy Head of Mission of the 
+ British Embassy Bangkok
+- Aileen Chew 
+ Area Country Manager, Thailand 
+ and Myanmar, Mastercard
+Current Status and 
+Smart City Thailand 
+Initiatives
+CONTENT
+
+An Overview of Thailand 
+Smart City Week 2020 
+
+ The “Thailand Smart City Week 
+2020” is the first mega event that pro -
+motes smart city technologies and 
+the first opportunity for Thai people to 
+experience a REAL Digital Event in the 
+field of Smart City. The event, which took 
+place between October 16 to 22, 2020, 
+aimed to drive smart city initiatives, make 
+smart-city lifestyles more accessible, and 
+encourage people to become vital drivers 
+of smart cities. The Ministry of Digital 
+Economy and Society, as well as the 
+Digital Economy Promotion Agency 
+(depa), play critical roles in steering 
+Thailand toward Smart City development.
+ Thailand take advantage of modern 
+technology and digital innovation, 
+improve service efficiency and city 
+management system, and improve 
+people’s living quality under a modern 
+and livable city paradigm. The success 
+of this event is a milestone result of the 
+mutual efforts between governmental 
+organizations, the private sector, the 
+education sector, and civic engagement. 
+Furthermore, it is the first time that 
+Thailand is focusing on developing a 
+concrete idea of smart cities, which 
+is stemmed from the REAL Solutions 
+for REAL People in REAL Smart Cities 
+concept. 
+ There were four main pillars high -
+lighted throughout the seven days of the 
+event, in which the information is also 
+available on scw.smartcitythailand.or.th
+11
+
+ It is widely accepted that “playing” 
+is the most productive and enjoyable 
+way to learn. As a result, the Smart 
+City PLAYs is a tool that demonstrates 
+how we can apply technology and 
+digital innovation in a real-world setting 
+where participants can actually use it. 
+Similar to the “Smart City Playground” 
+concept, Smart City PLAYs is the result 
+of collaboration between the public and 
+private sectors, specifically the Samyan 
+Smart City of Chulalongkorn University, 
+Flower Labs of Silpakorn University, and 
+Creator Space on the 6th Floor of True 
+Digital Park—all of which are designed 
+to increase public engagement and help 
+tailor their smart city experiences.
+ Smart City LEARNs focuses 
+on sharing activities, exchanging 
+experiences, and expanding city- 
+development knowledge through 
+online seminars led by 24 experts 
+from various fields. The training 
+is intended to help people gain 
+access to limitless learning resources 
+and embark on a lifelong learning 
+journey.
+Smart City PLAYs
+Smart City LEARNs
+12
+
+ A hackathon is a design sprint-
+style event that encourages technology 
+and digital innovation with the goal of 
+creating innovative solutions to urban 
+city problems. The event is open to 
+young innovators, who will participate 
+in an intensive workshop with experts 
+from various fields. The hackathon, 
+which is described as a non-stop 
+marathon-style competition, would 
+require participants to come up 
+with imaginative solutions to solve 
+real-world urban problems. These solu-
+tions could be marketed for commercial 
+purposes.
+ Smart City MEETs is a virtual 
+exhibition of smart city development 
+hosted by more than 50 technology 
+entrepreneurs. For the first time, the 
+event gives Thais the opportunity to 
+interact with smart city development 
+technology from around the world. 
+Furthermore, the virtual world-class 
+exhibition hall would facilitate business 
+negotiations among entrepreneurs, 
+agencies, and business owners via 
+chats and a real-time information 
+processing system.
+Smart City HACKs
+Smart City MEETs
+13
+
+Thailand 
+Smart City
+Week 2020
+Highlights at
+“Smart City Promotion Zones” 
+Certificate Award Ceremony 
+ During Thailand Smart City Week 
+2020, the Smart City Thailand Office 
+was honored by Mr.Teeranun Srihong, 
+Chairman of the Board of Commissioners 
+of the Digital Economy Promotion 
+Agency, who presented “Smart City 
+Promotional Zones” certificates to 
+representatives from 12 cities whose 
+project proposals have been accepted 
+by the Office. In addition to the 27 
+cities recognized during the previous 
+“Digital Thailand Big Bang” event in 2019, 
+these “second batch” of Smart City 
+Promotional Zone include:
+Samyan Smart City
+by Property Management Office, 
+Chulalongkorn University 
+Smart City in Rama 4
+by Chulalongkorn University and 
+ASEAN Smart City Network 
+Krabi Smart City 
+by Krabi Province 
+14
+
+ Smart City Promotional Zones are areas 
+announced and designated by the Digital 
+Economy Promotion Agency (depa) with 
+specific objectives, namely: 
+ 1. To promote the use of digital techno- 
+logy and innovation to improve the economy, 
+society, culture, and security in the agricul-
+ture, manufacturing, and service sectors; 
+ 2. To strengthen workforce develop -
+ment and digital citizenship in said areas; and, 
+ 3. To promote the use of digital techno- 
+logy and innovation to improve the economy, 
+society, culture, and security in aforemen -
+tioned areas.
+ In doing so, preparation activities 
+include consulting on planning and 
+implementation, technology selection, 
+appropriate development guidelines 
+for City Data Platform (commonly abbre- 
+viated as CDP), personnel development, 
+and cooperation from domestic and 
+international agencies.
+Highlights at
+Saen Suk Smart City
+by Saensuk Municipality
+Saha Group Smart City 
+by Saha Pathana Inter-Holding 
+(SPI) Public Company Limited
+Nakhon Si Thammarat 
+Smart City
+by Nakhon Si Thammarat Province
+Phang Nga Province to 
+Smart City
+by Phang Nga Province
+Phitsanulok Smart City
+by Phitsanulok Province
+NU Smart City
+by Naresuan University 
+Ban Chang Smart City
+by Bann Chang Subdistrict 
+Municipality 
+Wangchan Valley 
+Smart City
+by PTT Public Company Limited
+Origin Smart City Rayong
+by Origin EEC (Eastern Economic 
+Corridor) Company Limited
+Nongkhai Smart City
+by Nong Khai Province
+15
+
+The Launch of UK-Thailand 
+Smart City Handbook 
+ At Thailand Smart City Week 
+2020, the UK and the Thai Ministry of 
+Digital Economy and Society jointly 
+launched the “‘UK-Thailand Smart City 
+Handbook’.” As the representative, Mr. 
+Teeranun Srihong, Chairman of the 
+Board of Commissioners of Digital 
+Economy Promotion Agency, received 
+the Hhandbook from H.E. Mr.Brian 
+Davidson, the UK ambassador to Thai-
+land. The Hhandbook’s content covers 
+an overview of smart city development 
+in Thailand, along with examples of 
+interesting UK smart city projects and 
+expertise, including a series of collab-
+orative activities between the UK and 
+Thailand in promoting smart cities 
+development. The ongoing projects 
+consist of the following: 
+ “I hope the launch of the ‘UK-Thai-
+land Smart City Handbook’ and the 
+on-ground expertise as part of the 
+Digital Trade Network will provide the 
+foundations for future cooperation, 
+sharing of experience and expertise 
+between the UK and Thailand in the 
+areas of smart cities. We look forward 
+to hosting British companies for the 
+Tech Export Academy trade mission 
+next year,” said H.E. Mr. Brian Davidson, 
+the UK ambassador to Thailand.
+Those who are interested in 
+the “UK-Thailand Smart City Handbook” 
+can access it at:
+The UK’s Global Future Cities 
+Programme with the Bangkok 
+Metropolitan Administration to 
+create an improved flood man -
+agement system for Lad Phrao; 
+to plan a Data Centre to support 
+the collection and use of data for 
+decision-making in Bangkok; and 
+to create a development master-
+plan for the Khlong Bang Luang 
+region and Bang Wa BTS Station. 
+UK hosted smart city workshops 
+in Chiang Mai, Chonburi and Khon 
+Kaen provinces;
+Thailand is also chosen as the 
+focal market under the UK’s Tech 
+Export Academy for Asia Pacific, 
+which will see 30 British smart 
+city companies undertake a trade 
+mission to Thailand in 2021.
+16
+
+17
+
+18
+
+Joining Forces: Smart City 
+Global Partnerships in Action
+ Cooperation with various 
+partners is another critical factor 
+that strengthens Thailand's smart 
+city development and propels its 
+global development path. Thailand 
+has received extensive assistance 
+from international partners such as 
+MasterCard and other agencies from 
+the United Kingdom, the United 
+States, and Australia. As part of the 
+ongoing partnership and commit- 
+ment, each party has actively 
+provided valuable perspectives and 
+constructive discussions on the panel 
+from:
+ Moreover, Thailand had received 
+immense support from governments, 
+private companies, institutions, and 
+the public sector, which is significant 
+for devising innovative solutions and 
+driving smart cities forward.
+Mr. Andrew Beirne
+Economic & Prosperity Counsellor 
+and UK Permanent Representative to 
+United Nations Economic and Social 
+Commission for Asia and the Pacific 
+(UNESCAP)
+Mr. Noah Geesaman
+Deputy Economic Counselor, 
+US Embassy Bangkok 
+Ms. Karen Surmon
+Trade Commissioner & Counsellor 
+(Commercial) 
+Ms. Aileen Chew
+Country Manager of MasterCard
+19
+
+Thailand Smart City 
+Week 2020’s Success
+ Throughout the event, Thai -
+land Smart City Week 2020 offered 
+thought-provoking awareness of 
+smart city development in Thailand 
+to over 300,000 people, in turn 
+generating more than 300 million 
+baht from business negotiations. 
+This has led to depa Thailand 
+continuing with its excellent plan 
+to promote the development of 
+smart cities in 2021 through the 
+“Smart City Ambassadors” initiative. 
+This program has selected over 
+30 young individuals who have 
+unique connections with their 
+hometown and come from cities 
+actively promoting smart city 
+development. The main objective 
+of such a selection is for talents 
+from 30 cities across 26 provinces 
+in Thailand to promote and enhance 
+any essential skills required for smart 
+and sustainable urban development. 
+These activities will be initiated with 
+representatives of city development 
+agencies or the so-called “Captains.”
+ The key activity is “Bootcamp,” 
+a one-year program that promotes 
+livable smart cities through intensive 
+ masterclasses and fieldwork. The 
+Bootcamp also aims to improve 
+different dimensions of the cities 
+in order to boost the quality of 
+life of the people and bring for- 
+ward innovative solutions to city 
+problems. In doing so, the project 
+will be supported by a network of 
+digital startups and technology 
+service providers. These providers 
+will be involved either in the tech -
+nological change for over 200 
+communities or no less than 2,000 
+business technology projects and 
+the upskilling of the workforce, such 
+as building new careers in artificial 
+intelligence (A.I) and drone techno- 
+logy. Besides, the providers will help 
+develop at least ten infrastructure 
+projects in health services, tourism, 
+transportation, public security, and 
+the City Data Platform. As a result, 
+investments valued at more than 
+500 million baht between the public 
+and the private sectors will be 
+contributed towards this project.
+20
+
+21
+
+PLAYs
+Smart City
+Why should you “experience” 
+a smart city?
+ What difficulties or complications 
+do you frequently face in your city these 
+days? Whether it is a pollution problem, 
+travel inconvenience, or waste and 
+environmental problems, it is hard to 
+deny that the more populated the city, 
+the more “problems” will follow. Today, 
+the word “smart” seems to offer an 
+alternative for handling these collective 
+city issues. “Smart” refers to using digital 
+innovation and technology to help solve 
+problems in a faster and more convenient 
+way. With new management approaches, 
+such technology has become a crucial 
+and effective mechanism in handling and 
+solving city problems. One realization that 
+may contribute to the smart city develop-
+ment is that it is not only an obligation of 
+government agencies or local authorities 
+to carry out initiatives; instead, it is the 
+mutual efforts of the private sector and 
+the public that are of tremendous impor-
+tance. Moreover, every sector should be 
+resilient in its efforts to create a culture 
+of openness to ideas, experimentation, 
+and innovative digital technology. Besides, 
+new management and investment models 
+will eventually engender the sharp and 
+concrete development of smart cities. 
+Regardless of who you are, wealth, status, 
+or career paths, every human is entitled to 
+a good life with less social inequality and 
+disparity. Achieving a good life may not 
+22
+
+be an easy task and developing a smart 
+city can be even more challenging. Yet, it 
+is not an impossible mission.
+ Thailand Smart City Week 2020 
+transformed Samyan Mitrtown Hall into 
+a space for activities like “Building a 
+Tangible Smart City” and “Making the 
+REAL Smart Cities,” encouraging people 
+to experience and broaden their perspec-
+tives of an actual smart city. The event 
+was hosted by Wan Thanakrit Panichwit, 
+a young, talented Host from the Pracha-
+chuen TV show, and Suchada Cotesin from 
+depa Thailand. It included four simulating 
+activities in 4 different zones:
+ • Smart City HACKs: Providing 
+the opportunities for smart city innovators, 
+Gen-Z and participants to share creative 
+solution ideas through the Idea Wall;
+ • Smart City LEARNs: Offering 
+online public training courses on smart 
+cities; people have unlimited access to 
+these lifelong learning courses anytime 
+and anywhere to strengthen their know- 
+ledge in smart city development (regis -
+tration is open via https://www.courses-
+quare.co/depa). This Smart City LEARNs 
+is one of the mechanisms of the Chief 
+Smart City Officer (CSCO) program, a key 
+capacity building mandate of the ASEAN 
+Smart Cities Network (ASCN);
+ • Smart City MEETs: Enhancing 
+productive dialogues among city leaders, 
+city developers, smart city offices, and 
+technology service providers, and citizens;
+ • Smart City PLAYs: Showcasing 
+technological application to transform 
+smart cities, improve the quality of life, and 
+solve the city’s problems. The platform 
+is led by partner agencies of SAMYAN 
+Smart City, including BANPU NEXT, MuvMi, 
+HAUPCAR, Leaf e-Scooter, ViaBus, Impact 
+Solar, TEAM Consulting, and UN-Habitat, 
+to reinforce the idea of “tangible” or “REAL 
+Smart City.”
+23
+
+Opening to Technological 
+Experience of the Smart City 
+Development
+ To drive smart city development, 
+access to all digital innovation techno- 
+logies remains one of the essential 
+ requirements to all parties, particularly 
+the central government agencies as well 
+as local governments, the private sector, 
+the education sector, and the public. 
+Therefore, “Thailand Smart City Week 
+2020” is an important event that shares 
+knowledge of technology and digital 
+innovation and ensures the practical 
+application in smart city innovation. As 
+a result, the event is recognized as a tool 
+to enhance the quality of life in various 
+dimensions. Furthermore, participants 
+would acquire hands-on experience in 
+using technology to solve urban problems. 
+In this context, Thailand’s depa has coop-
+erated with its partners both in public and 
+private sectors to showcase the examples 
+of 15 smart city areas—ten of which are 
+located in Samyan.
+By transforming the area of Samyan 
+to become a smart city pilot, the 
+space of at least 291 rai (116 acres) 
+in the city center is required. This 
+exciting transformation will develop 
+Samyan into an innovation district 
+creating shared values for the community 
+and society and reflecting the unity of 
+life and business. The ten locations 
+surrounding the Samyan area are currently 
+under the projects that follow the Smart 
+Energy, Smart Environment, and Smart 
+Mobility paradigms, as detailed below:
+1. CU Centenary Park 
+ Considered as the lungs of Bangkok, 
+CU Centenary Park is an ample green 
+space located at the center of the Suan 
+Luang-Samyan area. The Park is covered 
+by large trees, various plants, and several 
+species of animals. Also found in the Chula 
+Centenary Park, the famous pond acts as 
+a recycling reservoir that redirects water 
+purified by the wastewater management 
+process at the CU Terrace & CU iHouse 
+building to water the plants in the park. 
+Furthermore, the air-quality monitoring 
+devices will ensure that everyone can enjoy 
+clean air while exercising as the air quality 
+real-time monitoring and pollution detec-
+tion systems give them both the peace of 
+mind as well as the data-driven decision.
+ • Samyan Smart City
+24
+
+2. Mobility Hub 3. Energy Hub
+ The Mobility Hub, located at CU 
+Terrace and CU iHouse, provides a variety 
+of transportation services to connect 
+your journey before and after changing 
+vehicles, also known as the “First Mile” 
+and “Last Mile” journeys. Specifically, the 
+hub offers electric vehicles (EV) as public 
+transportation or EV Shuttle Bus, as well 
+as EV “Tuk-Tuk” Sharing, EV Car Sharing, 
+and E-Scooter. In addition, EV Car Rental 
+services are available for travel between 
+areas. Despite their disparate offerings, 
+these modes of transportation share a 
+common goal: to provide services using 
+convenient and environmentally friendly 
+electric vehicles. Users can access these 
+services via the services’ respective 
+applications as well as a community ap-
+ As the energy hub, Pathum Wan 
+Station and Samyan Station are the 
+primary substations of the Suan Luang-
+Samyan area, which are very important for 
+electricity generation. Moreover, to supply 
+energy to Chulalongkorn University, there 
+is another Solar Energy project located at 
+the top of the roof of Samyan Market (or 
+on roof block number 28 and parking lot 
+number 28). This project aims to generate 
+ a total of 13 megawatts of electricity 
+production capacity by 2022.
+plication via CU Next, which allows you to 
+effectively plan your trip using the EV 
+Shuttle Bus’s location-finding feature.
+25
+
+4. Startup Village
+6. Samyan Creative District
+5. Public Service and Cashless 
+Society 
+ A new central startup district is 
+located on “Block 28,” connecting creative 
+lifestyles with a community emphasizing 
+innovation and business connectivity. 
+Such a district is an underlying factor 
+in creating a startup ecosystem where 
+several high-quality restaurants are being 
+selected.
+ Chula-Samyan, named one of the 
+“40 Coolest Neighborhoods in the World” 
+by Timeout.com in 2020, is an innovative 
+area that encourages artists to express 
+ideas freely by sharing community stories 
+through art. Artists gather to help pro -
+mote the neighborhood by displaying 
+and distributing various artworks 
+throughout the community in order to 
+attract passersby, create new excitement, 
+and boost economic activity in the area. 
+Another highlight of this neighborhood 
+is Samyan’s art corners, which include 
+Chula Art Town, Art4C, White Space, and 
+the shophouse 1527xLabyrinth Cafe.
+ The promotion of Public Service 
+and Cashless Society lies in the heart 
+of Samyan Market—a fresh market that 
+is highly required for its “diamond level” 
+food safety standards and has acquired 
+many awards. Moreover, as a public prem-
+ise, the market remains one of the most 
+necessary service facilities for the locals 
+and non-locals to visit and enjoy their 
+spending. Therefore, it has actively 
+encouraged all the stalls to use cashless 
+and contactless spending to improve 
+convenience and the flexibility of the 
+shopping experience. Similar public 
+service facilities within the same area 
+include police stations, fire stations, and 
+health stations.
+26
+
+9. Park @Siam
+10. Walkable City
+7. Chula Art Town
+8. Siam Square Re-Landscaping
+ The small green space in the heart 
+of Siam Square is a lung in the middle 
+of the city covered with large trees and 
+plants. In addition to reducing pollution, 
+the space is open to the public with 
+an easy-access location near a public 
+transportation terminal.
+ A walkable city refers to a city 
+designed around people and pedestrian 
+activity to encourage the community’s 
+well-being. The project entailed building 
+a 5-meter-wide pedestrian lane/walk -
+way with an environmentally friendly 
+atmos-phere within Chulalongkorn 
+Centenary Road, i.e., Soi Chula 5. Besides 
+encouraging people to walk more, the 
+project also seeks to provide convenience 
+and safe public spaces to create happi- 
+ness and security among the community.
+ Chula Art Town signifies the urban 
+arts surroundings or “Street Art.” During 
+the 36th anniversary of the Faculty of Fine 
+and Applied Arts, Chulalongkorn University 
+and the faculty—in collaboration with 
+Chula Property Management Office 
+(PMCU), Urai Commercial Company Limited 
+(ATM SPRAY), and 50 most famous artists 
+both domestically and internationally 
+—came together to create street art for 
+the community around Suan Luang- 
+Samyan areas and Siam Square. It is 
+the creation of art on the buildings and 
+community walls around Chulalongkorn 
+University that strongly mirrors the life in 
+the community as an open-air museum 
+that is accessible to all.
+ Siam Square’s new look has 
+become “wireless” thanks to the project 
+that brought communication cables and 
+power cables underground in the central 
+commercial district. With the cooperative 
+efforts between the Metropolitan Elec -
+tricity Authority and telecommunication 
+partners, the area has been transformed 
+into a beautiful scenery with strengthened 
+public safety for visitors. 
+27
+
+Samyan Smart City is an example 
+of a “Smart Economy,” or a city that 
+uses digital technology to create 
+value-added services in its economy, 
+management, and efficient use of 
+resources, such as smart agricultural 
+and smart tourism cities. The essen-
+tial purposes of the smart economy 
+are to reduce the economic disparity 
+of city residents, create economic 
+opportunities for all groups of people 
+and seamlessly integrate the supply 
+and demand. 
+28
+
+For the first time, Thailand has inte -
+grated art, technology, physical envi -
+ronments, and AR (Augmented Reality) 
+together by utilizing software and other 
+connecting devies. For instance, computers, 
+smart cameras or images, videos, and 
+sounds processed from computers, 
+mobile phones, or wearable devices. 
+Such integration will not only improve 
+the process of purchasing flowers at 
+Pak Khlong Talat, but it will also help 
+connect the people and communities. 
+Moreover, it can better consolidate the 
+basic information/knowledge of flowers, 
+leaves, and handicrafts inherited by the 
+Thai community who have been asso -
+ciated with the Pak Khlong Talat Flower 
+Market community. Last but not least, 
+the integration will help create networking 
+opportunities and innovation in the future. 
+More details can be found at https://flow-
+erhub.space/.
+Located on the 6th floor of True Digital 
+Park Building, Punnawithi District, Creator 
+Space is an innovative area that enables 
+idea sharing, cultivates innovation, and 
+helps create new startups. The space 
+is jointly developed by King Mongkut’s 
+Institute of Technology Ladkrabang, 
+Krung Thai Bank, and True Digital Park to 
+generate idea exchanges and knowledge 
+transfer on modern technology for young 
+talents. Also, the Creator Space offers 
+opportunities for the younger generations 
+to experiment and truly work on building 
+their startup businesses. They will learn 
+how to develop solutions and solve 
+problems through digital innovation, 
+which has been an essential part of an 
+urban and livable smart city ecosystem 
+in Thailand.
+ • Flower Hub Space • Creator Space (NEXT) 
+29
+
+At the same time, city leaders and city 
+developers will visit the demonstration 
+sites of digital technology and innova -
+tion—a collaboration between government 
+agencies and the world-class technology 
+leaders, which include:
+spending, transportation, and sustain -
+ability. More information can be found at 
+https://www.futuretaleslab.com/. 
+Experience 5G technology at the Thai -
+land 5G Ecosystem Innovation Center at 
+depa Thailand, where innovations from 
+laboratories and applications of 5G for 
+businesses and services are unveiled, 
+particularly 5G Medical Care, 5G Smart 
+Agriculture, 5G Port, 5G Remote Education, 
+and 5G Smart Security. Located in the G Tower, Rama IX district, 
+CSIC is Southeast Asia’s most significant 
+technology research and development 
+center. By focusing on innovation deve- 
+lopment, collaborations, and new solu -
+tions between customers and business 
+partners in Thailand and Southeast Asia, 
+CSIC’s focuses are public safety, Smart 
+Grid, Finance, Education, Transportation, 
+and Internet Service Providers. Besides, 
+it also supports government policies, 
+stimulates growth among Thai startups, 
+and promotes Thailand’s education 
+system. If every province can adjust and 
+fully develop into smart cities, Thailand 
+would have higher leverage on information 
+connectivity, well-developed public trans-
+portation systems, robust economy and 
+technology, environmental benefits, and 
+tourism growth. Consequently, this would 
+encourage a higher level of social equality 
+and make Thailand grow sustainably in 
+the future.
+ • Thailand 5G Ecosystem 
+ Innovation Center @depa
+ • Huawei OpenLab Bangkok and 
+ Customer Solution Innovation 
+ & Integration Experience 
+ Center (CSIC)
+FutureTales Lab is a learning space that 
+focuses on future foresight and data 
+analytics. Moreover, it creates a collab -
+oration platform for futurists worldwide 
+to engage in and reflect on the way of 
+living, working, learning, leisure time 
+ • FutureTales Lab by MQDC
+30
+
+31
+
+SPOTLIGHT
+“ViaBus” A Thai Startup that 
+Responds to Lifestyles and 
+Cracks City Logistics Problems 
+ Public transport plays a vital 
+role in the urban development agenda. 
+Today, different forms of public trans-
+portation are offered in Thailand, 
+including buses, minibusses, BTS 
+Skytrain, MRT metros, express boats, 
+and interprovincial vans. Undoubtedly, 
+if everyone can equally and effectively 
+access these well-integrated trans -
+portation systems, life in urban cities 
+would be much easier, faster, and 
+more convenient in planning and 
+traveling. “ViaBus” is a platform that 
+has brought about innovative ways 
+of traveling in the country. Now an 
+internationally recognized platform, 
+ViaBus had been selected as one of 
+the most-watched thirty innovators 
+under the age of 30 by “Forbes 30 
+under 30 Asia – 2021.” As such, 
+Mr.Intouch Maswongpakorn, CEO and 
+co-founder of Viabus, also received 
+the honorary award for Asians under 
+30.
+32
+
+Get to know ViaBus
+ ViaBus is Thailand’s first transit 
+tracking and navigation application that 
+offers a rapid data processing or real-time 
+system that connects all forms of public 
+transportation networks in Bangkok, for 
+example, buses, minibusses, BTS Sky 
+trains, trains, express boats, commercial 
+boats, vans, and interprovincial buses 
+offered by the Transport Co., Ltd. The 
+ViaBus services thus far have covered at 
+least 70 provinces with more than 2 million 
+users in Thailand.
+ However, the key objective of ViaBus 
+is not only about expanding coverage 
+areas or the number of users; it also aims 
+to provide the precise locations of public 
+transports, bus numbers, the nearest 
+bus stations, and the fastest travel route. 
+Moreover, provided that the application is 
+available in both Thai and English, it serves 
+as an efficient tour guide for both Thais 
+and foreigners unfamiliar with the travel 
+route. In addition, the application also 
+displays real-time updates on relevant 
+information, traffic conditions, canceling 
+status, vehicle rest areas, or road block-
+ages.
+“More importantly, we also take into 
+account the accessibility of public 
+transport for persons with reduced 
+mobility and/or with disabilities. With 
+its unique features, ViaBus can specify 
+vehicles with exceptional services, 
+particularly for those in wheelchairs or 
+visually impaired persons.”
+33
+
+ViaBus’s Journey
+ The beginning of ViaBus can be 
+traced back to 2013 when Mr. Intouch had 
+missed the bus during his freshman year 
+at Chulalongkorn University. By missing 
+the CU Shuttle Bus (commonly known as 
+the “Chula Pop Bus”), Mr.Intouch and his 
+friends were driven by the idea of tackling 
+the waiting time paradox. Subsequently, 
+he and his team jointly developed a Chula 
+Pop Bus application and found that the 
+number of application users skyrocketed, 
+exceeding the whole population of Chu-
+lalongkorn University in less than a year. 
+As a result, it has remained prevalent 
+among shop owners, food sellers, and 
+outsiders ever since.
+ One justification for the booming 
+of the Chula Pop Bus application is the 
+fact that the application is user-friendly 
+and has helped students and staff travel 
+with convenience. Shortly after becoming 
+a superstar of Chulalongkorn University, 
+Mr. Intouch had foreseen its potential and 
+decided to include new features to fulfill 
+the extensive needs of the public. Two 
+years later, the first version of the ViaBus 
+application was launched with his other 
+two friends—Thanatset Horwattanaphan 
+and Thanit Suenghataiporn. Thanks to the 
+immense financial support from different 
+sectors, particularly the CU Innovation 
+Hub’s adept vision of new startups, ViaBus 
+grew rapidly. ViaBus later formed new col-
+laborations with depa Thailand, Ministry of 
+Higher Education, Science, Research and 
+Innovation, and the Bangkok Mass Transit 
+Authority (BMTA).
+34
+
+ViaBus is a model of Smart Mobil-
+ity, one of the seven areas of the 
+smart city development plan. Smart 
+mobility implies developing and 
+improving traffic and smart trans-
+portation systems, convenience, 
+travel, transportation safety, and 
+environmental issues.
+The Next Step of ViaBus
+ In addition to the renowned ViaBus 
+application, another successful initiative is 
+called “Campus Program”—a system that 
+tracks and navigates the routes particularly 
+for university buses. The program is designed 
+to specifically facilitate internal transpor -
+tation systems, such as in large factories. 
+Furthermore, it oversees the “Smart Bus 
+Shelter” project, which offers real-time 
+updates of the bus schedule and has now 
+been installed in over 350 locations in 
+Bangkok.
+ The underlying reason that contri- 
+buted to the rapid growth of ViaBus over the 
+years is that it can effectively address exten-
+sive problems and potentially fulfill the needs 
+of users. To be specific, more than 99% of 
+the ViaBus features have been developed 
+based on real-life experiences/issues. As 
+such, ViaBus represents a huge success that 
+has brought about new impactful changes 
+to society—all of which can be reflected 
+from the awards we received over the years. 
+These accolades shall remind us of how far 
+we have come and remain a guiding light of 
+where we want to go. That being said, ViaBus 
+is merely the beginning of more impactful 
+changes. Our next steps are to maximize 
+the benefits for passengers and operators 
+through planning, developing, and enhancing 
+the transport ecosystem. Furthermore, we 
+plan to connect every public transportation 
+system and streamline it as one single 
+system. We will increase the number and 
+types of vehicles, such as local vans, and 
+expand the application coverage areas to 
+cover the whole country. This will encourage 
+people to use public transport more, in turn 
+alleviating traffic congestion and reducing 
+energy consumption in Thailand.
+35
+
+Why Do We Need a Smart City 
+Hackathon?
+4 Questions with Smart City 
+HACKs Advisor, 
+Dr. Supakorn Siddhichai
+ When we try to solve a city problem, 
+there are usually many stakeholders 
+involved. So getting to the root of the 
+problem is key. For example, when 
+I was working on a project to reduce 
+traffic accidents in a city. Our first 
+job was to understand the nature of 
+those accidents — these would usually 
+include the cause, the people involved, 
+the location, the time, and so on. Once 
+these details have been established, we 
+stepped back to look at the bigger picture 
+to identify the heat map of traffic accident 
+in that particular city. Perhaps we could 
+prioritize them so that we utilize the available 
+resources in the best possible way.
+ Then we explored what solutions 
+were available to reduce or eliminate 
+accidents at these top priority locations. 
+In this particular example, we identified 
+10 locations and 5 causes — namely, red 
+light running, bikers not wearing a helmet, 
+illegal parking, not travelling on the proper 
+traffic lane — or driving/riding in the 
+opposite direction to the traffic flow, 
+and last but not least, speeding. At each 
+location, we installed different types of 
+sensors to detect these traffic violations. 
+And we implemented an automated 
+traffic ticketing system where all the law 
+enforcement officers need to do was to 
+confirm the violations on the computer 
+at the end of each day before printing out 
+the tickets and sending them through the 
+post. We all thought this would bring down 
+the traffic accidents significantly. But 
+what we didn’t realize was that there was 
+a law which states that each traffic ticket 
+must be sent by a specially registered 
+post and this cost more money. After 3 
+months of running the automated traffic 
+ticketing system, the law enforcement 
+offices ran out of money to pay for the 
+postage.
+HACKs
+Smart City
+36
+
+What is the most important ingre-
+dient of a successful hackathon? 
+Can you tell us a little bit of your 
+background? 
+ I wanted to emphasize that the user 
+journey is extremely important to help us 
+understand the nature of the problem. 
+Also, a variety of ideas are crucial. The 
+goal of a Hackathon is to come up with 
+new ways to solve a problem. That’s why 
+we like to see participants with different 
+backgrounds so we have better perspec-
+tive to the problem we are solving.
+ When I was working as a research 
+scientist, my work was mostly involved 
+with developing algorithms and software 
+for image and video analytics. So, I got to 
+work with medical doctors, law enforce -
+ment officers, and academics, on problems 
+in their respective fields. Back in 2015, 
+the Thai government launched smart city 
+initiative and selected Phuket, our famous 
+tourist destination, as the pilot site. I had 
+an opportunity to lead a few projects there. 
+Since then I’ve been involved with smart 
+city development and promotion in other 
+parts of Thailand with the Digital Economy 
+Promotion Agency or depa. 
+37
+
+Any words for the future 
+hackathoners? 
+ Fail fast and pick yourself up fast. 
+So, keep testing your prototype and keep 
+improving it. That’s how I’d approach this 
+Hackathon. As an engineer by training, I’m 
+excited to see new ideas and solutions 
+coming out of this Hackathon. I wish 
+everyone a successful and enjoyable 
+days to come.
+38
+
+“Hacking a Human-Centric 
+Smart City”
+What is a “Hackathon”?
+ Technology may not always be 
+a panacea to smart city development, 
+but it does play a significant role in 
+simplifying tasks and demystifying 
+conundrums for human beings. Des- 
+pite such a fact, technology should 
+be developed along with the “Design 
+Thinking” paradigm that puts “people” 
+at the center of the creative deve- 
+lopment process. People remain an 
+indispensable factor to technology 
+because technology can digitally 
+sense, understand, and interpret hu-
+man problems on a deeper level and 
+unbiasedly than non-humans. There-
+fore, this is the main reason why depa 
+Thailand, in collaboration with Tech-
+sauce, had jointly held the “Thailand 
+Smart City Week 2020 Hackathon.” 
+The event lasted four days or 96 
+hours between October 15-18, 2020. 
+As a challenging yet resilient virtual 
+hackathon, it has been a good “test 
+run” for all future activities that may 
+need to fully embrace digital transfor-
+mation and new everyday lifestyles 
+owing to the ongoing situation the 
+world is facing. 
+ The term “hackathon” is derived 
+from the words “hack,” which means 
+“to gain access to something new, 
+agile, and innovative,” and “marathon,” 
+which refers to a long-distance race. 
+A hackathon, when combined, would 
+imply an event in which people work 
+continuously to develop the most in-
+novative solutions, product concepts, 
+or inventions. Participants in a hack-
+athon, according to depa Thailand, 
+would be required to brainstorm and 
+develop innovations under a specific 
+theme in a limited amount of time. 
+The hackathon winner will be the team 
+with the most innovative solutions/
+answers.
+ “By hosting a hackathon, the 
+organizers have realized the impor -
+tance of time and the cost of waiting 
+for new technology to transpire. Thus, 
+a hackathon is simply a shortcut 
+that can lead to creativity and rapid 
+innovation development, which will be 
+primarily required to address smart 
+city problems.”
+ The theme of this hackathon will 
+bewas different from other forums 
+since searching for solutions was is 
+not the main priority, nor just simply 
+putting citizen-centered agenda as 
+its core approach. Instead, the partic-
+ipants must develop prototypes that 
+couldan effectively tackle the city 
+problems. With 70 teams participating 
+in the event, the judges will only se-
+lected 12 teams from the first round to 
+continue in the following stages along 
+a 4-day competing journey.
+39
+
+Intense Competition, Full-House Experts
+ “Thailand Smart City Week 2020 Hackathon” comprised more than 15 professional 
+staff, including speakers, experts, and consultants that engaged in knowledge and 
+experiences exchange and thought-provoking workshops, namely:
+Certified Design Thinking Expert from Stan-
+ford d. School Head of Business Develop -
+ment, AI and Robotics Venture
+CEO and Co-founder of Hubba Thailand
+Managing Director of SpeakPro Training
+UX/UI/Web Designer and Founder 
+of Magnetolabs
+Co-founder of Khon Kaen City 
+Development (KKTT)
+By Panunya Charoensawadpong
+By Charle Charoenphan
+By Managing Director of SpeakPro Training
+By UX/UI/Web Designer and Founder 
+of Magnetolabs
+By Kungwan Laovirojjanakul
+• Design Thinking
+• Business Model Blueprint
+• Talk Pitching Techniques
+• UX Design & Rapid Prototype
+• Thailand Smart City: 
+Understanding The Challenges 
+and Opportunities
+40
+
+Vilawan Layanun 
+Service Designer of BridgeAsia 
+Sitthiphorn Anthawonksa 
+Head of CX of Kaidee 
+Soranun Choochut 
+Founder and CEO of etran 
+Suradech Taweesaengsakulthai 
+Co-founder of Khon Kaen City Develop-
+ment (KKTT) 
+Amarit Jarasjindarat
+Lead Innovation Developer of SCG 
+Warit Wanwithu
+Developer Relations of LINE Thailand 
+Dr.Asama Kulvanitchaiyanunt 
+CEO and Co-Founder of Coraline 
+Kungwan Laovirojjanakul
+Co-founder of Khon Kaen City Develop-
+ment (KKTT) 
+Kanpassorn Suriyasangpetch 
+CEO and Founder of Ooca Telemedia 
+Kanisara Kanjanawong 
+Senior Business Incubation Manager of 
+Beacon 
+ In addition, the event was joined by mentors 
+—the experts in driving smart city development 
+agenda, developers, forefront designers from 
+leading companies, and potential investors. They 
+offered helpful advice and recommendations 
+to each of the 12 teams on a case-by-case 
+basis so that the participants further built 
+on such knowledge and polish their prototypes. 
+Then, these prototypes would be used to 
+target thecountry’s problems and developed 
+into a commercialized project. Expert consul-
+tants were:
+•
+•
+•
+•
+•
+•
+•
+•
+•
+•
+41
+
+The Last Day on Stage for Solution Mavericks
+ On the last day, each team present its 
+prototypes to the panel of experts. The main 
+criterion for determining the winner was 
+to offer innovative solutions that had never 
+existed before nor had ever been applied in 
+any existing innovations. The winners also 
+consider market competitiveness, business 
+planning, and user-friendly design that priori-
+tizes users’ experience. Furthermore, the team 
+operation should be resilient, convincing all the 
+judges on the panel, consisting of:
+Dr. Non A 
+Senior Expert in Smart City Promotion 
+of Digital Economy Promotion Agency 
+Mr. Pongsak Limpornpipat 
+Former Senior Team Leader and Acting 
+Director of the Digital Startup Institute at 
+Digital Economy Promotion Agency 
+Mr. Jirapat Janjerdsak 
+Chief Technology Officer of Siri Ventures 
+Mr. Kampanat Vimolnoht 
+Head of Investment, Krungsri Finnovate 
+Mr. Pirachai Bencharongkul 
+Deputy managing director of United 
+Technology Enterprise (UTE) and Investment 
+Director of BCH VenturesSenior Business 
+Incubation Manager of Beacon 
+•
+•
+•
+•
+•
+42
+
+43
+
+ Finally, we identified the top 
+three Thailand Smart City Week 2020 
+Hackathon teams, each of which 
+received a combined 180,000-baht 
+prize. The following are the winners:
+ Indoor Air Conditioning Energy 
+Management System that engages 
+all employees staff in the organi -
+zation to interactively engage in 
+the use of big data and artificial 
+intelligence (A.I.). The team, in par -
+ticular, used such technologies to 
+monitor energy levels by allowing 
+each building to compete to reduce 
+energy consumption. During the 
+competition, anyonefrom the public 
+and private sectors can access the 
+Smart City Center to check the energy 
+-saving information of each building 
+participates. 
+AltoTech
+The Winner
+44
+
+ This team created a platform 
+that provides training to people who 
+are unemployed or whose jobs have 
+changed. While the event’s purpose is 
+to facilitate customer seeking oppor-
+tunities, it also serves as a mechanism 
+to increase the business’s efficiency 
+level.
+ This team built a platform called 
+“Trashare” to connect environmen -
+tally-minded people and ensure that 
+waste is being collected and managed 
+in an appropriate and sustainable way.
+ In addition to the prize money, 
+the winners also receive the opportu-
+nity to test their prototypes in real life 
+by participating in smart city devel-
+opment projects. As a key supporter, 
+depa Thailand will work with its smart 
+city networks to apply the winning 
+solutions to the problems in each city 
+and help improve the quality of life of 
+the residents. 
+Workforce for Smart Labor 
+Matching Platform
+The Tinder for Trash
+The First Runner-up The Second Runner-up
+45
+
+SPOTLIGHT
+“Smart Energy,” one of 
+the seven core areas of smart 
+city development, promotes 
+energy efficiency, reduces 
+unnecessary energy consumption, 
+and encourages the use of 
+renewable energy.
+ Profits are expected by en -
+trepreneurs in the business world. 
+As a result, most of them focus on 
+increasing production volumes, 
+sales, and marketing in order to 
+maximize profits from their invest -
+ments. However, there is another way 
+to increase profits while decreasing 
+costs, particularly variable costs.
+Thanks to its volatility, would it 
+be better for us to use technology 
+and control energy consumption 
+effectively? For example, would it be 
+easier to calculate water usage and 
+electricity bills by user-friendly, high 
+quality, and affordable technology? 
+ AltoTech, the Thailand Smart 
+City Week 2020 Hackathon’s winner, 
+developed an innovative “Artificial 
+intelligence of things” (or AIoT) Energy 
+Management platform that helps 
+manage energy consumption in 
+hotels and office buildings. By com-
+bining Artificial Intelligence (A.I.) and 
+the Internet of Things (IoT), hotels 
+and office buildings could keep track 
+of energy control, saving approxi -
+mately 20-30 percent per month. 
+The AI and IoT systems of AltoTech 
+can be directly connected to air 
+conditioning systems, chillers, elec-
+trical systems, CCTV of the building, 
+including the solar cells generated 
+power system. The primary purpose 
+of such connections is to boost 
+the efficient use of energy in 
+each building and transform it 
+into a Net-Zero Energy Building 
+with Net-Zero Carbon Emissions. 
+ Aside from that, AltoTech’s plat-
+form can help building owners save 
+money on operating expenses and 
+equipment maintenance. In short, 
+such innovation will transform ordi-
+nary buildings into smart buildings 
+that can function autonomously by 
+analyzing big data using Artificial 
+Intelligence (A.I.) technology that is 
+fully aware of the needs of buildings’ 
+owners.
+Dr.Warodom Khamphanchai 
+CEO and Co-founder of AltoTech
+46
+
+47
+
+Smart People are key to
+Smart Cities.
+”
+“
+LEARNs
+Smart City
+ Nowadays, the majority of people 
+live in cities, where creativity and 
+innovation are prevalent. Furthermore, 
+urban areas are gathering places for 
+various people, ideas, ideologies, and 
+interests that can drive the economy 
+on a regular basis. As a result, we can 
+assert that innovation that has an 
+impact on our way of life stems from 
+the ecosystem of ‘cities.’ As a result, 
+a city that promotes equality for 
+its residents would benefit from 
+cultivating a “homey” atmosphere, 
+regardless of where the residents 
+come from. Furthermore, an equal 
+city would benefit the majority of 
+people in a variety of ways, including 
+improved quality of life, the economy, 
+and society.
+ As a result, the concept of 
+driving smart city development is 
+analogous to having two sides of a 
+coin. Residents will feel fulfilled and 
+thrive in better living conditions if 
+a city exudes the vibe of a modern 
+and livable home. There will be fewer 
+relocations. Technology can play 
+an important role to solve the city’s 
+problems. As a result, the role of 
+technology in this context entails 
+the term “smart,” which refers to 
+technological intelligence. That said, 
+technology that people does not 
+want to adopt may be detrimental 
+to the development of a socially 
+sustainable urban community. To 
+achieve sustainability, technology 
+should eventually be aligned with a 
+human-centered design and involve 
+community participation from various 
+sectors.
+ People should learn, accept, 
+adapt, and participate in designing 
+and developing a city since no one 
+knows what the city needs better 
+than the local dwellers. This has 
+led to the success of the Thailand 
+Smart City Week 2020 Webinar, also 
+known as “Smart City LEARNs,” which 
+encourages the participants to 
+access new knowledge and ideas 
+about urban development through 
+online seminars with experts, 
+thinkers, and city developers from 
+Thailand and abroad. Before we 
+move on to the Smart City LEARNs 
+event, I’d like to prepare everyone for 
+“The Fundamentals of Smart City,” 
+a free online course that shares 
+basic knowledge in concepts and 
+48
+
+Dr.Passakon Prathombutr 
+Senior Executive Vice President 
+Digital Economy Promotion Agency 
+One of the seven agendas driving 
+smart city development in Thailand 
+is “Smart People.” It focuses 
+on increasing knowledge and 
+skills while also making the 
+environment more conducive 
+to lifelong learning. Furthermore, 
+it seeks to reduce social and 
+economic inequality while also 
+encouraging creativity, innovation, 
+and public participation.
+methods of smart city development 
+within and outside of Thailand, as 
+well as the use of information in 
+city management, including the 
+analysis of the feasibility of popular 
+projects. Those who complete the 
+course will receive a certificate upon 
+completion. Registration is open via 
+https://www.coursesquare.co/depa. 
+ Becoming a smart city does not 
+imply having the most advanced and 
+cutting-edge technology available. 
+Rather, it could be a method that 
+provides innovative solutions to the 
+unique problems of each city. As a 
+result, city leaders and developers 
+must be open to learning new 
+processes and embracing new 
+knowledge in order to be aware 
+of the stages of city development 
+at all times.
+49
+
+The Right Way to Build 
+a Smart City
+Hearing perspectives of smart cities from 3 experts 
+in urban development
+ If the city’s residents only want a livable environment, a 
+decent urban development should suffice. There is no need to 
+“jump into becoming a smart city.” On the other hand, if people 
+believe they require a smart city, they must be aware of the 
+investment required. Furthermore, “people” cannot be ignored 
+because a city is built on the shifting paradigms of economy, 
+environment, and sustainable growth. If we only produce based 
+on ideas without considering “people,” those ideas may 
+resurface and harm the people themselves, rendering the city 
+unsustainable in any way.
+Assoc. Prof. Dr.Jittisak Thammapornpilas
+Assistant to the President Chulalongkorn University
+50
+
+ Smart City Development should not be framed or sought 
+by the best technology or a one-size-fits-all model to address 
+urban problems. Instead, such a development should start 
+from exploring the actual issues of the people in the area and 
+examining the city’s context. At times, being smart does not 
+necessarily mean having clear boundaries around the city. Being 
+smart can also be applied to one road or twenty-five families in 
+a community. However, the most important thing is to learn, 
+explore, and understand the people’s real problems before 
+searching for any solutions or applying them without knowing 
+the potential contexts of the community. Thus, it is vital to un -
+derstand a smart city from the eyes of those who live in the 
+community. 
+ Cities are made up of people. A city is made up of many 
+people who live together and participate in various activities. So, 
+what constitutes a “Smart City?” First, you must investigate the 
+issues that a specific group of people faces, because even the 
+best and most innovative technology may not be designed to 
+address specific issues or meet everyone’s needs. However, what 
+everyone requires is a tool that can help alleviate or resolve 
+problems. For example, Bangkok City’s problems are not linear; 
+there is the complication of space, people, and sub-communities. 
+As a result, listening to people’s problems and tailoring the most 
+appropriate solution(s) to their needs would be beneficial.
+Smart Governance refers to a city that has an advanced governmental service 
+system in place to meet the needs of its citizens. Residents have the right to 
+equal access to government-provided sources of information based on trans -
+parency, active participation, and consistent improvement through the use of 
+new technology and digital innovation as key stakeholders in the city.
+Chatpong Chuenrudeemol 
+Silpathorn Artist, Architecture of the Year 2020
+Principal of CHAT Architects
+Kwanchai Dumrongkwan
+The Owner of the Bangkok Human Page
+51
+
+4 Days, 24 Topics
+Broadening new perspectives on smart city development 
+International Outlook on Smart Cities Part IDAY 1:
+“Learn to be smart” with Smart City LEARNs and broaden perspectives 
+on the development of smart cities from Thai and international experts. 
+With more than 24 topics of knowledge sharing, the public can access 
+the knowledge hub, and embark on a lifelong learning process journey via 
+https://scw.smartcitythailand.or.th/.
+52
+
+Professor Laura P. Spinadel
+Urban Menus (http://www.urbanmenus.com/)
+Hendrik van den Berg
+Managing Director, Neos IT Services
+URBAN MENUS Smart City Platform
+Smooth Operator: Managing Smart City 
+Infrastructure with Data and Tech
+ “URBAN MENUS Smart City Platform” delves into the 
+process of transforming Vienna, a city with arguably the best 
+urban design and planning, into a smart city. The process 
+employs computer programs, rather than the traditional 
+method of design, to test city elements such as streets, 
+buildings, and shops. Furthermore, the Platform investigates 
+the feasibility of the prototypes and how a city can improve 
+people’s quality of life. To build a livable and economically 
+influential smart city, it is necessary to have interdisciplinary 
+knowledge of urban planning, socioeconomic development, 
+and architectural design.
+ Neos IT Services is a well-known German company that 
+creates a ground-breaking system that converts an organi-
+zation’s internal working arrangements to a digital-oriented 
+system. The system educates users on digital transformation 
+and advises them on potential steps that their organization 
+can/should take. It does so by focusing on a reliable source of 
+information, keeping the information up to date, and enabling 
+feasible solutions/tools that help facilitate users’ safe and 
+efficient access to information.
+53
+
+Tobias Puehse
+Vice President, Innovation, Mastercard
+Professor Alan Kin Tak LAU
+Pro Vice-Chancellor of Research Performance and 
+Development, Swinburne University of Technology
+Driving Contactless Payments 
+in a Post-COVID World
+Digital Transformation and Innovation via 
+International Partnership
+ MasterCard, as a leader in cashless payment, is in -
+vesting in its brand-new technology, which is currently in 
+development. This innovation’s underlying goal is to improve 
+people’s well-being through contactless information trans-
+fer. As part of one ecosystem of touchless experience, this 
+in-development technology will allow users to witness the 
+entire payment and service process, which can lead to a 
+better economic system and a better environment—thanks 
+to the convenience, transparency, and equal accessibility 
+provided to people.
+ Professor Alan Kin Tak LAU, a researcher and executive 
+at a leading university in Australia, indicates that the process 
+of sustainable digital transformation consists of three major 
+elements: ecosystem creation, device creation, and human 
+development, based on extensive research, experimentation, 
+and science-based hypotheses. As a result, educational 
+systems must integrate research, development, and design 
+in order to foster new opportunities for future A.I.-inspired 
+smart cities, drive industrial market growth, and generate 
+more environmentally friendly solutions.
+54
+
+Calum Handforth
+Advisor, Digitalization and Smart Cities, United Nation 
+Development Program (UNDP)
+Calvin Chu 
+Managing Partner, Eden Strategy Institute
+How can cities recover “greener” and 
+“smarter” after having been affected 
+by the COVID-19?
+Smart City Ranking: Why Should Every 
+City Care About it?
+ As the global development network of the United 
+Nations, the United Nations Development Program (UNDP) 
+views smart city development as a tool that encourages 
+equal participation of everyone in every aspect of society. 
+Through the application of “design thinking,” the cities are 
+expected to grasp a better understanding of the underlying 
+problems and subsequently address the real needs of the 
+people. At the same time, the use of technology will help 
+facilitate people’s access to the economy, health system, 
+and education, which in turn, will lead to the reduction of 
+social inequality and the increase in participation as the 
+basis of economic growth and sustainable smart cities in 
+the long run.
+ As one of the partner agencies of the Digital Economy 
+Promotion Agency (depa Thailand), Eden Strategy Institute 
+plays an important role in conducting research and con -
+sulting leading government and leading private sectors 
+across the globe. The Institute is internationally known for 
+its pioneering work on “Top 50 Smart City Government rank-
+ings” that explicitly focuses on the most important driver of 
+smart city development or governments. During Smart City 
+LEARNsS, Eden Strategy Institute had shed light on “why 
+do we need to prioritize smart city rankings?” as a common 
+strategy for each city would hinge upon its ways of develop- 
+ment. Nevertheless, the aspects discussed during this lecture 
+have increased our awareness of rankings, particularly
+55
+
+Jeroen Kok
+Director, Rebel Group
+Shoubhik Ganguly
+Principal, Rebel Group International, South Asia
+Private-Public Partnerships to Enable 
+Smart Cities
+ Smart city investments take many forms, depending on 
+the type of project. Municipalities, for example, frequently in-
+vest entirely in projects that are primarily concerned with the 
+public’s interests and are less concerned with profit-making. 
+On the other hand, the private sector, typically represented 
+by a city development company, would prioritize investing 
+in profit-driven projects. Ultimately, “PPPs,” or Public-Private 
+Partnerships, are the third most well-known type of invest-
+ment. PPP is frequently a collaboration between the private 
+and public sectors, reinforcing each sector’s comparative 
+advantage. The public sector, in particular, would have greater 
+clout on policy issues and legal proceedings. Despite its 
+status as a central authority, the public sector frequently 
+faces budget constraints, a lack of expertise in various fields, 
+and a lack of incentives to develop a sustainable business. At 
+the same time, despite having greater capabilities in terms 
+of technology, digital literacy, innovation, and marketing, the 
+private sector frequently encounters administrative bottle-
+necks from the government. As a result, the PPP is a perfect 
+marriage of each sector’s comparative advantage. PPP has 
+been proven to deliver tremendous success around the world, 
+according to two experts from the Rebel Group. For example, 
+based on their experience, the design and development 
+ in the standard-setting process and the understanding of 
+Smart City Ranking’s mechanism. Undoubtedly, both factors 
+can genuinely drive positive impacts in various dimensions 
+of smart city development; The more international tourists 
+we can attract, the better we can promote tourism and 
+encourage confidence-building, leading to a more sustain-
+able approach to developing smart cities.
+56
+
+process of a “smart pole” would necessitate. According to 
+their experience, the design and development of a “smart 
+pole” would necessitate advanced technological features 
+such as wireless connectivity, online knowledge transfer, 
+or the ability to detect PM2.5—all of which can be primarily 
+supported by the private sector. Meanwhile, the government 
+may help the project by enacting a taxation policy that allows 
+for experimentation while also lowering production costs. As 
+a result, as development, research, and technology become 
+more competitive, the price will be forced to fall.
+International Outlook on Smart Cities Part IIDAY 2:
+57
+
+Miguel Gamiño Jr
+Executive Vice President, Global Cities – Enterprise 
+Partnerships, Mastercard
+Making Tech Work for People Across 
+the Globe
+ MasterCard is widely regarded as the world’s sec -
+ond-largest credit card management firm. Today, however, 
+MasterCard is striving for better transformation in order to 
+avoid being disrupted by new technology brought about 
+by new market players. Simultaneously, the company has 
+positioned itself as a global tech company that sees oppor-
+tunities in the challenges that cities face, such as health 
+concerns and economic meltdown, which can primarily be ad-
+dressed through multi-sectoral cooperation from all sectors 
+around the world. As a result, MasterCard decided to collab-
+orate with various organizations to implement projects such 
+as donation platforms and contactless shopping technology. 
+ Based on these motives, MasterCard has initiated the 
+“City Possible” program that aims to create powerful techno-
+logical tools to help improve the economy and the people’s 
+quality of life. In doing so, the project will assist the people 
+in connecting with a global network of city leaders, indus-
+tries, businesses, educational institutions, and government 
+and private organizations across the globe. Furthermore, 
+another project mandate is to encourage project members to 
+exchange knowledge and innovation in particular seminars. 
+Finally, several workshops will be held to constantly explore 
+new challenges and examine the problems facing different 
+cities in the hope of implementing the most sustainable 
+solutions.
+ Miguel Gamiño Jr., Mastercard’s Executive Vice Presi-
+dent for Global Cities , has addressed issues and challenges 
+global cities are experiencing. As such, it is the intention of 
+the company that the City Possible project would serve as 
+a third party that is highly committed to connecting global 
+city members through information and resources, which, in 
+58
+
+turn, will accelerate the pace of smart city development. 
+Last but not least, Mr. Gamiño Jr emphasized that creating 
+a smart city is possible through three major factors: a global 
+network, urban co-creation, and a scale co-created solution 
+or collaboration between tech providers.
+Mona Mourshed
+President & CEO of Generation
+Poon King Wang
+Director of the Lee Kuan Yew Centre for Innovative 
+Cities National University of Singapore 
+Parag Mehta
+Executive Director, Center for Inclusive Growth, 
+Mastercard
+Future of Work
+ People are becoming increasingly concerned about 
+their jobs being taken away as technology advances. In 
+reality, however, humans are constantly striving to improve 
+and challenge themselves. As a result, claiming that new 
+technology will replace human jobs is a fallacy. Work patterns 
+must evolve in tandem with technological advancements. As 
+a result, what remains critical is the development of skills 
+and the acquisition of new knowledge in order to align them 
+with new technology in the future.
+59
+
+Innovation for Life: An Inclusive Smart City 
+on the Cloud
+ Cloud computing is yet another remarkable technology 
+in city management. Because of the highly secure and 
+accessible system, cloud computing allows users to choose 
+whether to keep their data privately in a personal server, 
+which prevents data leakage, or to open them up for public 
+use, which can be accessed from anywhere. Furthermore, 
+cloud computing can alter the size of data storage based on 
+the nature of the data or the needs of the users. Furthermore, 
+the system introduces five game-changing technologies that 
+work well in the cloud and will be the future of a better world. 
+These technologies are as follows:
+Kwei Foong Koh
+ASEAN Smart Nation Business Lead, Worldwide Public 
+Sector, Amazon Web Services (AWS) 
+Felix Tze Ghim Goh
+Program Manager, AWS Educate, Amazon Web 
+Services (AWS)
+Head of Living Solution Business, SCG
+Digital Transformation, Innovation, 
+and Enterprise
+ Office buildings in many cities usually consume more 
+than 60% of energy usage. Thus, the acceleration of new 
+and modern construction techniques can help reduce the 
+problem of overconsumption with the support of the govern-
+ment. Notably, the government policy can monitor the cost 
+of technology so that ordinary people can equally access 
+it, potentially leading to sustainable city development. For 
+instance, provided that buildings are primarily powered by 
+electricity that releases a large amount of carbon dioxide 
+into the atmosphere, SCG has presented a technological 
+solution to air quality that is being released from air condi-
+tioners, which is to reutilize such air through the cleaning 
+and monitoring systems.
+Wachirachai Koonamwattana
+60
+
+Artificial Intelligence (AI): technology that enables computer 
+systems to learn by themselves from machine learning and 
+deep learning;
+ 1) Augmented Reality (AR): technology that connects 
+the actual world and the virtual world through various soft-
+ware systems and other connecting devices;
+ 2) Internet of Thing (IoT): the connection of smart 
+devices through the Internet;
+ 3) Data Lake: mass storage with a better management 
+system; and,
+ 4) Voice Command: technology that connects cloud 
+from Voice Control.
+Peggy Liao 
+Senior Sales Manager of FETC, Taiwan
+Taiwan Smart City Solution Showcase
+ The widely used e-Payment platform in Taiwan serves 
+as a model for many cities. In particular, all types of public 
+transportation in Taiwan can be paid for with a single card, 
+simplifying all steps into a single streamlined system. How-
+ever, implementing this type of system is difficult because 
+it necessitates commitment, a desire for convenience, and 
+a determination to provide equal access to customers and 
+lower ticket prices. It also entails combining psychological 
+and technological developments from both the private and 
+public sectors in order to create this single platform.
+61
+
+Jamie Fu
+Vice President, Global Cities, Mastercard
+The Role of Technology in Realizing 
+the new Normal for Public Transit
+ Mastercard has introduced a technology that will em-
+ploy blockchain technology in the public transport system. 
+When implemented, the consumers will be able to access 
+product information, trace the production line, and make a 
+payment with the blockchain data. Moreover, the technology 
+will improve public transport by installing a contactless 
+payment system or e-tickets as one of the modern measures 
+to help prevent the spread of COVID-19. However, provided 
+that this blockchain technology is advanced and can be 
+costly, not every city can afford it owing to concerns over 
+investment, break-even points, local demand, and people’s 
+openness in adopting new technology.
+Ashok Venkateswaran
+Vice President, New Payment Flows, 
+Mastercard Labs, Mastercard
+How Blockchain Can Support Efficiency 
+and Governance
+ “Trust” is blockchain’s keyword. As the number of inter-
+net transactions increases, blockchain technology adoption 
+is critical for improving efficiency and building trust. Previ-
+ously, we were used to an identity verification system that 
+required a hard copy of an ID card; however, with blockchain, 
+all personal information would be stored in a decentralized 
+blockchain system, and only the owner of the data would be 
+able to access and use such data. Consider how much easier 
+life will be when trust is always guaranteed. The emergence 
+of this technology will undoubtedly alter how we conduct 
+transactions.
+62
+
+The Local Context: Smart City for Everyone Part IDAY 3:
+63
+
+The Hands that Bring the Brightest Future: How 
+Teachers Inspire the New Thinkers
+Nopporn Insawang
+Founder of Dynamic School Thailand
+ This session discussed how educational policies should 
+be adjusted to remain relevant in the digital era. Today, the 
+importance of institution names or grade point average has 
+been replaced by the relevancy of digital literacy. Students 
+should be equipped with digital skills so that they can use 
+their talents to design and pursue career paths. Furthermore, 
+students would be vulnerable to future trends or essential 
+skill sets required in the labor market if they did not have 
+strong digital literacy. As a result, the Dynamic School 
+Thailand, as a modern classroom, will provide students with 
+both theoretical and technical knowledge to prepare them 
+for future transformations in the twenty-first century.
+Growing Smart: The City for “Smart and Active” Aging
+Dr. Warot Chotphithayasunon 
+Deputy Spokesman of the Ministry of Public Health 
+Assoc. Prof. Dr. Duangjai Lorthanavanich 
+Director of Ageing Business & Care Development Centre (ABCD), 
+Thammasat Business School 
+Dr. Jaruwan Sripakdee 
+Department of Older Persons (DOP) 
+Thanakorn Phromyos 
+CEO & Co-founder of Young Happy Co., Ltd.
+64
+
+ This session focused on exchanging views of smart 
+city design for the elderly, particularly in terms of universal 
+design, convenience, safety, and environmental concerns. 
+Also, it encourages and supports the elderly to have good 
+health and lifelong happiness. In part thanks to the advance-
+ment of technology and medical innovations, people can 
+live longer with an average life expectancy of 77 years in 
+Thailand, thereby making it essential for the elderly to have 
+their retirement life planned, especially in the New Normal 
+era where digital technology is a big part of our daily life. 
+As such, raising awareness of digital media and proposing 
+guidance on how to become ‘smart’ people with good health, 
+recreation, integrity, cognition, and peacefulness remains a 
+prominent agenda. Last but not least, support from govern-
+ment agencies, the private sector, and civil society is crucial 
+to help the elderly adjust to an appropriate level of digital 
+literacy and help cultivate post-retirement jobs, generate 
+income, or facilitate access to health and safety services. 
+Consequently, the elderly would be able to grow with confi-
+dence and stability in this fast-changing digital era.
+65
+
+Smart City: Smart อย่างไรให้เท่าเทียม
+Manop Iam-saard 
+Manager of The Social Enterprise Development Center, 
+The Redemptorist Foundation for People with Disabilities 
+Suchart Owatwunasakul 
+Chairman of Disabilities Thailand (DTH) 
+Torphong Selanon 
+President of Thailand Association of the Blind (TAB)
+Siriporn Praserdchat 
+Logistics Officer of Asia-Pacific Development Center on Disability 
+(APCD)
+ Most people with disabilities have difficulty navigating 
+public spaces, traveling, and communicating in their daily 
+lives. As a result, when designing and building a livable 
+smart city for all, smart city development should take these 
+concerns into account. Four major elements must be 
+reviewed and taken into account:
+ 1) Smart Living – a place designed for people with 
+disabilities to accommodate their activities and safety;
+ 2) Smart Mobility - a public transportation system that 
+supports people with special needs and helps them navigate 
+their commute;
+ 3) Smart Governance – a space that allows people with 
+disabilities to participate in policymaking and decision- 
+making process related to urban development planning; and,
+ 4) Smart People – a concept that encourages the 
+change in attitudes towards people with disabilities; in 
+particular, it facilitates their access to technology, which in 
+turn, can lead to employment opportunities in various ways.
+66
+
+Smart Gen-Z City: The Future is in Their Hands
+Pet Journey (Sripatum University) 
+Expact (Thammasat University) 
+New Past Story (Sripatum University) 
+ The activity introduces three presentations from ‘Gen-Z 
+youth’ winners of Digital Ideas Contest under the theme of 
+“Design Your Future, Gen-Z wants to tell.” Smart Gen-Z City 
+is a space designed for young talents to freely express their 
+creative ideas, broaden perspectives on digital transforma-
+tion, and build new inspirations. Moreover, it also helps those 
+talents tailor their new career paths, opportunities, and smart 
+cities for future generations. The first presentation belongs 
+to the ‘Pet Journey’ initiative from Sirpatum University. 
+The project introduces ways to connect applications to the 
+tourism database to allow journey planning with your favorite 
+pets. The second presentation is the ‘Expact’ project from 
+Thammasat University that showcases how digital techno- 
+logy can help improve the teaching experience through an 
+interactive learning system. Expact is expected to encour-
+age and enable more children and youths to learn through 
+the digital world. Last but not least is the presentation of 
+the “New Past Story” project from Sirpatum University. The 
+initiative applies digital technology in narrating the stories of 
+Thai and other cultures. It aims to communicate with future/
+aspiring talents and encourage their learning experience in 
+the field of culture and history of Thailand through online 
+channels.
+67
+
+Rungsun Promprasith
+CEO of QueQ Thailand
+Startups x Cities: Pain Points to Solutions
+ The ideas of the QQ’s application manager can be 
+used to build a smart city in 3 areas. The first idea is related 
+to the application design or software. Initially, the QQ was 
+designed to manage queues at restaurants. However, in 
+light of the pandemic, the application has since shifted 
+its strategy, or PIVOT, to also operate different kinds of 
+appointments, such as embassy appointments, hospital 
+appointments for the treatment of patients, and visitors’ 
+appointments at government offices. This shift of strategy 
+turned out to be highly beneficial in reducing the risks of 
+contracting COVID-19. 
+ The second area is related to solution finding or 
+designing products and services that address pain points. 
+This focuses on the “People First” principle, product testing, 
+and prototype creation, which may take several stages to 
+develop and become the most appropriate models. 
+ The third topic is how to behave like a “pirate.” This 
+refers to how a startup use technology to bypass the red 
+tape-filled process by which government agencies and the 
+private sector work in concert to solve city problems.
+68
+
+Chatpong Chuenrudeemol
+Silpathorn Artist, Architecture of the year 2020 and Chief 
+Executive Officer CHAT Architects
+ Architecture is an essential element of urbanization. The 
+role of architecture in urbanization cannot be overstated. Most 
+people think of architecture as the creation of new structures, 
+such as oddly shaped buildings or the distorted use of space. 
+In reality, architecture is a mindset or inspiration influenced 
+by our surroundings that can aid in the creation of designs. 
+Vernacular architecture, for example, is a style of architecture 
+built with local materials, local wisdom, and local people’s 
+hands. It places a premium on craftsmanship and design to 
+meet the needs of the residents. Furthermore, vernacular archi-
+tecture fosters community participation, activity engagement, 
+and human connection.
+ Therefore, becoming a smart city does not imply several 
+buildings; instead, it focuses on every dimension in a city. 
+Architecture is about connecting the community and patterns 
+of life for the people. In the eyes of Mr. Chatphong, who led 
+design research called “Bangkok Bastards” or “Uncompromising 
+Architecture,” he noted that the architecture of impermanent 
+housing, such as those of construction workers, slum com -
+munities, or illegal markets, are stemmed spontaneously from 
+“city people.” Often regarded as the garbage dumps, the sad 
+reality is that they do not have access to the urban economic 
+cycle, and they must struggle for their survival, living on left-
+over, cheap materials like scrap metal, zinc, old wood, campaign 
+signs, Fanta posters, or pictures of celebrities that are cut into 
+wallpapers. However, from an architectural perspective, it is 
+the art of recycling that serves the most meaningful purposes. 
+Mr. Chatpong emphasized that as you delve deeper into this 
+type of story, you will discover pure magic in these people’s 
+spatial arrangements. It is a wonderful realization that cities 
+belong to everyone.
+Open House: A Call for Accessible Architecture 
+and Urbanism for All
+69
+
+Social Entrepreneurship: Bridging Business, Society 
+and Happiness
+Peangploy Jitiyatham 
+Co-founder of Locall Thailand 
+Winyoo Srisupachok
+We are Volunteer English Bangkok
+ The link between people, communities, macroeconomics, 
+and national policies can help generate businesses within a 
+community. “Locall” is an excellent example of a charitable 
+business that provides delivery services to local food stalls. 
+Despite several challenges in pricing, competitiveness, 
+and quality, Locall, with the help of other agencies, has 
+helped fulfill the growth of local food providers and sustain 
+their businesses during the pandemic. Another example 
+is “We Are Volunteer English Bangkok,” which enters the 
+community and assists locals in managing and balancing 
+their school, leisure, and family lives. Based on these two 
+examples, it is critical for any community-based project 
+to thoroughly understand the needs of the locals and be 
+prepared to address the city’s pain points.
+70
+
+The Local Context: Smart City for Everyone Part IIDAY 4:
+71
+
+Next-Gen Agro-Commerce: Taking Thai Agriculture 
+to the Next Level with Digital Economy
+Dr. Preesarn Rakwatin 
+Vice President for Digital Agriculture Development and Pro-
+motion of Digital Economy Promotion Agency 
+Krittha Bhokharsathit 
+President of E-Commerce Committee of MOAC 
+Thanain Toomhiran 
+E-commerce and Online Marketing Consultant 
+ The COVID-19 global pandemic has profoundly caused 
+labor shortages in the agricultural sector due to the 
+repatriation of migrant workers. The farmers are forced to 
+adopt the Internet of Things or IIoT technology an innova-
+tion that embeds electronic circuits, software, sensors, and 
+network connections in digital devices and equipment. By 
+doing so, the farmers can utilize the IoT to create automatic 
+watering systems, automatic power on and off systems, and 
+help distribute agricultural products via an accessible and 
+affordable online platform, such as Facebook Live. Digital 
+Economy Promotion Agency, as a critical stakeholder in 
+smart city development, has also implemented several 
+supporting measures, such as the depa Mini Transformation 
+Voucher, which allows farmers to purchase digital products 
+or services and assist them in applying modern agricultural 
+techniques to their traditional farming methods.
+72
+
+Tackling Crisis like a Pro: How Medical Technology 
+Take Us Through and Beyond COVID-19
+Beyond the Cash World: Digital Currency and the New 
+Opportunity
+Assoc. Prof. Dr.Cherdchai Nopmaneejumruslers 
+Vice Director of Siriraj Hospital 
+Dr.Chokchai Suwanakijboriharn 
+Advisor of Bangkok Dusit Medical Services (BDMS)
+ During COVID especially, medical technology has signifi -
+cantly helped Thai people provide public health services. For 
+example, Siriraj Hospital has developed a drug dispensing system 
+using automated robotic technology, a drive-thru blood collection 
+service, and a telemedicine service for patients with mild symp-
+toms via video call. For the latter, medicines would be distributed 
+to the patients after the consultation session. In addition, the 
+system also helps facilitate the patients who have been treated 
+or diagnosed abroad. As we progress, the future of the medical 
+and public health industry will be using artificial intelligence (AI) 
+technology to do a preliminary assessment of symptoms and 
+diagnose disease with fewer errors and a higher level of precision.
+Jirayut Srupsrisopa
+Founder & Group Chief Executive Officer of Bitkub.com
+ In the future, money will no longer be paper. Instead, it will 
+come in digital form. People will no longer have to carry cash, and 
+they will be able to complete transactions via digital systems, as 
+can be seen from Bitcoin's blockchain system that has transformed 
+the world's financial system. Furthermore, banks in some countries 
+have already stopped offering bank account services to their 
+citizens, owing to the high costs of management, building a branch, 
+and installing ATMs. With the emergence of digital currency, 
+transactions can now be done via mobile applications, thereby 
+allowing more people to easily access loans, personal accounts, 
+or complete financial transactions anywhere and anytime.
+73
+
+Turning a Crisis into an Opportunity: 
+Living in the Changing Post-Pandemic World
+Dr.Udomthipok Praikaset 
+Vice President of Thai e-Commerce Association 
+Assoc. Prof. Dr.Peter Ractham 
+Associate Dean for Research and International Affairs, 
+Thammasat Business School
+ The pandemic crisis is an accelerator of the rapid decline in 
+the Thai economy. In particular, the tourism industry--which is the 
+most significant contribution to the economy--has been severely 
+hit by COVID-19. On the one hand, retail businesses, fresh markets, 
+grocery stores have been deeply affected while on the other hand, 
+the e-Commerce business is growing exponentially, thanks to the 
+behavioral change of the consumers and the availability of online 
+platforms. At the same time, we are witnessing the growth of 
+the IT business as it highly fulfills the needs of work-from-home 
+lifestyles. With these examples, entrepreneurs are encouraged to 
+look for more opportunities in crises, adopt new strategies, and 
+take advantage of each moment not only for survival, but also for 
+a more thriving future.
+“A city belongs to everyone, whether 
+you are a child, a working-age person, 
+an elderly, or a person with disabilities. 
+Therefore, everyone must build their 
+smart city because central to this 
+development is the fact that the city 
+must address the common problems 
+and meet the needs of all people living 
+in the city.” 
+SPOTLIGHT
+74
+
+Turning Gen-Z 
+into Digital Citizens
+ It is vital to start building and deve- 
+loping the digital workforce to support 
+the country’s development process. Yet, 
+at the same time, it is even more signifi- 
+cant to bring out the best potential of 
+the so-called ‘Gen-Z’ talents, who are the 
+hope of inclusive and equitable digital 
+transformation and make the most of 
+those capabilities through the creation 
+of digital awareness and fundamental 
+digital literacy. 
+ depa Thailand, under the supervision 
+of the Ministry of Digital Economy and 
+Society, together with GU-Creative and 
+partner agencies, had launched innovative 
+products for Gen-Z people at the “Digital 
+Your Life 2020: Digital World and the 
+Lifestyles of the New Generation” event, 
+moving forward with its commitment to 
+cultivating digital citizens of the 21st 
+century. The event aimed to promote 
+digital literacy and propel the youth into 
+becoming digital citizens who can use 
+technology in a creative, beneficial way 
+which, in turn, will improve the quality of 
+life of many people in the city.
+75
+
+ Another noteworthy activity is the “Digital Idea Contest: Design Your Future, 
+GEN-Z Want To Tell,” an activity for youngsters to pitch ideas/solutions and share 
+perspectives on country development in different fields, such as education, agriculture, 
+health-beauty, tourism, and culture. Moreover, these young talents would be able to 
+participate in Gen-Z MEETUP activities so that they can sharpen their digital skills 
+and pick up great advice from digital experts. Eventually, there were three best ideas 
+selected from 54 teams, consisting of the following:
+The Winner: The Pet Journey Project 
+from Sripatum University introduces the 
+idea of using applications to connect with 
+the tourism database, which can lead to 
+the creation of a traveling journey with 
+your favorite pets in the future.
+Thanks to these remarkable projects, the 
+future of developing digital citizens of 
+Thailand is brighter and more promising 
+than ever. These citizens will not only be 
+the main driving force of the country’s 
+digital transformation, but they will also 
+steer the society and economy, creating 
+more than 50 million baht in economic 
+value.
+The First Runner-Up: The Expact Project 
+from Thammasat University presents how 
+digital technology can help improve the 
+teaching experience through an interac-
+tive learning system. Expact is expected 
+to encourage and enable more children 
+and youths to learn through the digital 
+world.
+The Second Runner-Up: The New Past 
+Story project from Sripatum University 
+applies digital technology in narrating 
+the stories of Thai and other cultures. 
+The project aims to communicate with 
+the new generation and encourage their 
+learning experience in cultural and his -
+torical fields through online channels.
+76
+
+Smart Cities that Fulfill Everyone’s Needs
+ “Smart City Week Gen-Z Hackathon” is a collaborative event hosted 
+by Thailand Smart City Office, Digital Economy Promotion Agency, and the 
+NEXT– Creatorspace Center of KMITL Research and Innovation Service (KRIS). 
+The event aims to nurture and develop innovators to become startup entre -
+preneurs in digital business, with 30 creative-minded Gen-Z individuals and 
+urban development experts from Thailand and international agencies, namely 
+Korea Trade-Investment Promotion Agency (KOTRA), Amazon Web Services 
+(AWS), and City Possible Pioneered by MasterCard.
+77
+
+ With the scope of innovation development 
+limited to four areas in digital technology, bio -
+technology, logistics and energy, and creative 
+economy, the challenge of this hackathon is 
+to come up with an innovative design within 48 
+hours. Based on the “No One Is Left Behind” 
+paradigm, the plan must address the people’s 
+needs, especially the visually impaired persons 
+and residents of local slums. The developers are 
+given information on the people’s pain points 
+with disabilities by a group of qualified speakers 
+from the Thailand Association of the Blind (TAB), 
+the Four Regions Slum Network, and the United 
+Nations Human Settlement Programme (UN- 
+Habitat). With such challenges, the Gen-Z 
+developers must become Gen-Z hackers by 
+coming up with the best solutions. Undoubtedly, 
+they would need to have an in-depth under -
+standing of the problem to create a cutting-edge 
+prototype for the residents, based on the design 
+thinking approach and empathy.
+78
+
+The prototypes developed by the Gen-Z talents 
+help open our eyes to thought-provoking ex -
+amples of Smart Living, which refers to the city 
+development of Universal Design facilities to 
+improve people’s health and well-being so that 
+they can live safely and happily in the future.
+79
+
+Digital Economy Promotion Agency as a Hub
+Smart City Office Thailand was established in 2019 under the supervi-
+sion of depa Thailand. It is a government agency that plays an essen-
+tial role in promoting and supporting the development of smart cities. 
+Moreover, it is the hub that connects people in smart city development, 
+such as government agencies, the private sector, the education sector, 
+foreign partners, and smart city areas in Thailand. Under the collabora- 
+tion of these partners, the goals of Smart City Office Thailand are to 
+create an agile ecosystem with strategic plans, apply technology and 
+digital innovations to solve problems, and develop cities that meet the 
+needs of everyone.
+MEETs
+Smart City
+80
+
+3 Supporting and Promoting Strategies 
+of Smart City Development
+As the bridge of smart city development projects, Smart 
+City Office Thailand has come up with three strategies 
+in three activities to build and support the smart city 
+industrial market: 
+The development of policies, regulations, and reward 
+systems
+The creation of demand by building “Smart City Pro-
+motion Zone” around the areas supported by both the 
+public and private sectors across the country
+The matching of services through the development of 
+startup businesses and the support of SME businesses
+81
+
+As the Center 
+of Connectivity
+ Under the supervision of depa 
+Thailand, Smart City Office Thailand 
+remains central to various collabora -
+tions domestically and internationally. 
+It is the stepping stone for those who 
+want to be involved in the smart city 
+development ecosystem or those 
+looking for opportunities to participate, 
+build or expand the smart city industrial 
+market in Thailand. Thailand Smart City 
+Week 2020 is an opportunity for future 
+growth and plays a vital role as a hub of 
+business connections in the smart city 
+industrial market. As a result, the Smart 
+City MEETS activity was initiated to 
+exhibit digital technology and bring 
+about solutions for smart city deve- 
+lopment from 50 entrepreneurs in 
+urban development. It is the first virtual 
+exhibition for Thai people to experience 
+the technology of smart city develop-
+ment from every corner. Furthermore, 
+it can drive the business matching 
+opportunities through real-time conver-
+sations via https://scw.smartcitythai-
+land.or.th/.
+ The information on digital techno- 
+logy and solutions from entrepreneurs 
+that participated in the Smart City 
+MEETs initiatives are as follows:
+Smart City MEETs
+82
+
+What makes Khon Kaen special?
+What is Khon Kaen pursuing? 
+ As one of Thailand’s pilot smart cities, Khon Kaen aims at becoming 
+the showcase of “a citizen-centric smart city” where technology meets local 
+culture to improve the physical wellbeing and socioeconomic livelihood of the 
+citizens.
+ We value both local and international knowledge exchange, knowledge 
+transfer, and proactive capacity building. We are particularly keen to embark 
+on a Proof-of-Concept (or Poc) and the demonstration of the solutions that 
+both the Handbook and this workshop may propose. The goal of this PoC is 
+to test out the digital services for smart cities, especially in how they may 
+be localized to fit the needs of the aforementioned citizen-centric Smart City 
+of Khon Kaen. The benefits of the PoC also include the scalability of these 
+services to other cities. We believe that Khon Kaen can be a great site for pilot 
+projects. We believe in the benefits of digital technology which has proven to 
+be effective in enhancing urban livability.
+MEETs
+The Governor of Khon Kaen: A Smart City Champion
+83
+
+What’s Khon Kaen known for?
+What are Khon Kaen’s 
+Long-Term Goals? 
+ Khon Kaen is internationally 
+known for its “3M” smart initia -
+tives – Medical (and Wellness), 
+Mobility, and MICE (Meetings, 
+Incentives, Conferences and Exhi -
+bitions) – such as healthcare such 
+as the Khon Kaen Living Lab, Smart 
+Ambulance, and Khon Kaen Mass 
+Transit. Khon Kaen is working with 
+many international partners such 
+as the Ministry of Land, Infrastruc-
+ture, and Transport of the Republic 
+of Kore on the joint-study of the 
+Mobility-as-a-Service system with 
+the K-City Network International 
+Collaboration Program and the 
+British Embassy Bangkok through 
+the Future Cities Program as well 
+as the UK Tech Export Academy. 
+ First, to enhancing resiliency 
+and sustainability for Khon Kaen’s 
+industry by creating an integrated 
+data-oriented platform in all domains 
+of a smart city; and, Second, to 
+scaling up the successful “Khon 
+Kaen Smart City ‘’ model to other 
+cities, utilizing effective and 
+cost-saving digital big data- 
+oriented platforms to further 
+enhance Thailand and ASEAN’s 
+smart city ecosystem.
+Dr.Somsak Changtrakul 
+Governor of Khon Kaen Province
+84
+
+Frequently Asked Questions (FAQ) 
+Q: Does it only have to be a province to be developed into a smart city?
+Q: Is it necessary to develop a solution that covers all seven areas 
+of smart city development?
+Q: What would be the benefits of becoming a smart city? 
+Q: How long does a Smart City badge last? 
+Q: What are the criteria for becoming a smart city? 
+A: No, two types of areas can be developed into smart cities: (a) the develop-
+ment area at the provincial/ district/sub-district or municipality levels and 
+(b) the area developed by the private sector or other government agencies. 
+A: No, it is not necessary to provide services in all seven areas, but at least 
+two areas are required, i.e., Smart Environment and any other area depending 
+on the context of the space.
+A: The private sector that invests in the development process will receive an 
+8-year tax exemption privilege (with limitations) from the BOI. Details can be 
+found at
+A: It is valid for two years. However, the applicants must report the progress 
+every six months within two years.
+A: There are five criteria: 
+1. Having clear goals and precise areas of development 
+2. Having guidelines for urban infrastructure development 
+3. Having a secure city data collection and management system 
+4. Having smart city services in two of the seven dimensions of smart city 
+5. Having a sustainable management approach
+85
+
+“Smart City”
+is a word that everyone might be familiar with. How -
+ever, not everyone truly understands its underlying 
+meanings. What is a smart city? What does a smart 
+city look like? Can smart cities genuinely improve 
+the quality of life for urban residents?
+ Climate change, pandemics, the growth of populations, 
+and mega-urban migration have accelerated the pace of 
+development in many megacities. Thus, preparing and 
+handling these situations have become an essential and 
+urgent matter in different areas, such as infrastructure 
+management, environmental and housing management, 
+social services, public health services, and education. 
+Given such challenges, traditional technology might not 
+be adequate to carry out innovative solutions. At the same 
+time, to bend with the force of urbanization, digitalization 
+has become a new dimension for urban citizens. Therefore, 
+smart city development is one of the resolutions that can 
+help many cities cope with their concerns and serve as 
+another crucial factor of smart city development.
+86
+
+Livable City
+Definition of “Smart City” 
+Through technology and innovations, a livable 
+city refers to a city developed in a variety of 
+fields to fulfill the diverse needs of the resi -
+dents. For instance, basic infrastructures, pub-
+lic utilities, housing, resting areas, worksites, 
+commercial spaces, and the arrangement of the 
+city’s space should be developed in the most 
+compatible way with the city’s identity, culture, 
+and traditions. Therefore, this type of smart city 
+development focuses mainly on addressing 
+pain points according to the city’s needs. 
+ Smart City is a city that capitalizes on modern technology and digital 
+innovation to enhance the efficiency of city services and management 
+systems. Such technology will help reduce costs and maximize resources, 
+emphasizing a friendly design and active engagement between the business 
+and public sectors. All in all, the main goal of developing a smart city lies in the 
+creation of a livable and modern city, which, in turn, will improve the quality 
+of life of the people and generate sustainable happiness for all.
+New City refers to a city that is completely 
+redeveloped and transformed into a modern 
+city. Similar toLike the livable city concept, 
+technology and innovation remainremains at 
+the core of the development, covering seven 
+areas of the smart city development agenda. 
+In other words, the city should be developed 
+in all fields, including basic infrastructures, 
+public utilities, housing, resting areas, 
+worksites, commercial spaces, and the proper 
+allocation of city spaces. An example of this 
+type of smart city is Wang Chan Valley in 
+Rayong Province, which was built from scratch 
+by PTT. Specifically, the city was completely 
+transformed from a no man’s land into a brand-
+new capital.
+New City 
+87
+
+A city that takes into consideration the 
+environmental impacts and climate 
+change conditions. It focuses on using 
+technology to systematically support 
+water management, climate, waste 
+management, and disaster surveillance 
+and increase people’s engagement in 
+conserving natural resources.
+A city that can manage energy efficiently, 
+balancing between the production and 
+energy usage to foster energy security and 
+reduce interdependence on the power from 
+the main grid.
+A city that uses digital technology to create 
+added value in the economy and manage 
+resources efficiently. Examples include 
+smart agricultural cities and smart tourism 
+cities.
+A city built by taking into account the 
+Universal Design, thereby improving the 
+people’s health, safety, and well-being.
+A city that develops government services 
+to better facilitate the people and 
+stakeholders in accessing government 
+information and services. It places a great 
+emphasis on transparency, participation, 
+and consistent improvement through ser-
+vice innovations.
+A city that focuses on developing smart 
+traffic and transportation systems to drive 
+the country. Moreover, it increases the 
+efficiency and connectivity of various trans-
+portation and traffic systems, improves the 
+convenience and safety of transportation, 
+and cares for environmental impacts.
+A city that aims to cultivate knowledge, 
+improve skills and build an environment 
+conducive to lifelong learning. Moreover, 
+it intends to reduce social and economic 
+inequality and foster creativity, innovation, 
+and participation.
+7 Smarts
+7 Dimension of Thailand 
+Smart City
+88
+
+Special Article: 
+The Making of an Innovative 
+Governmental Organization 
+and the Development of 
+Smart Cities in Thailand
+The Importance of Cities and 
+Innovation Development 
+ According to the United Nations, 
+a “city” is recently redefined as an area 
+where more than 55 percent of the world’s 
+inhabitants reside. The cause of this change 
+in definition is a result of the change in 
+economic systems, particularly the re -
+placement of traditional agriculture and 
+manufacturing sectors with the services 
+sector that generates higher economic 
+value. Thanks to this, the economy has 
+grown by leaps and bounds. Furthermore, 
+coupled with technological advancements, 
+machines and automation can now, in 
+some part, replace the work of humans 
+with higher precision and better efficiency 
+than human labor in agriculture. As a result, 
+the traditional manufacturing sector is 
+dwindling. Both contexts are the push and 
+pull factors that cause the movement of 
+urban migration for severala number of 
+reasons, particularly working, study -
+ing, or residing. As a result, this forms 
+the centralization of infrastructure, 
+economic, social, and cultural invest -
+ments of the urban areas—all of which 
+can be denoted by the density, com -
+pactness, and cultural diversity. 
+ This “urbanity” is what many 
+thinkers and researchers regard as 
+the source of creativity, an essential 
+element of innovation, particularly of 
+technological change. Provided that 
+a city is an area filled with expertise, 
+common problems, density, and space 
+constraints, ideas and interests are 
+being gathered and transformed into 
+solutions, which are the main driving 
+force of the economy or the so-called 
+innovative ecosystem. Undoubtedly, 
+the continuous development of inno -
+vation fulfills the needs of the people 
+89
+
+during different times, eras, and con -
+texts of society. Therefore, almost 
+all innovations that have influenced 
+our lives from the past to the present 
+stem from this “urbanity.”
+ A city with a better environment 
+and higher equality would positively 
+influence innovation development. Pro -
+vided that the number of urban inhabi -
+tants in the world will rise about 68 per-
+cent (more than two-thirds of the world) 
+in the next three decades, “the future of 
+cities, therefore, is the future of innova-
+tion development.” The development of 
+such innovations is seemingly the future 
+of the majority of people. In Thailand, if 
+we analyze the Thai economic system, 
+we could witness that the importance 
+of the cities has increased over time in 
+almost every area, such as society, ways 
+of living, economic development and 
+commerce, and geopolitics of Thailand, 
+to name a few. 
+ Apart from being a place of in -
+cubation, a city can also be a source 
+of pollution and negative externalities. 
+Often, the development of a city worsens 
+environmental issues, mainly due to 
+90
+
+the reckless use of resources by urban 
+residents and economic activities. For ex-
+ample, urban buildings usually consume 
+more than half of the total urban energy. 
+As long as the business system is service- 
+related, these buildings would consume 
+a considerable amount of power for a 
+long time. 
+ In addition, the source of electricity 
+stems from the production of unclean 
+energy with poor circulation. Thus, 
+this wasteful use of electricity directly 
+accelerates the greenhouse effect and 
+generates various pollution problems 
+such as dust, air, and water pollution. 
+Moreover, it also leads the urban residents 
+to turn into global consumers, causing 
+harmful environmental impacts that may 
+take centuries to rebuild a livable com -
+monplace for all. 
+91
+
+The development of city potential is both 
+supporting and nurturing factors of inno-
+vation incubator and ecosystem—both of 
+which are important to drive innovation 
+and are the main components of city 
+development. Smart City is one of the 
+approaches that use technology in city 
+management to fulfill the needs of the 
+residents. Different types of technologies 
+are needed to build a Smart City, but 
+most importantly, big data. Specifically, 
+it can be used to analyze and translate 
+raw data into a set of information that 
+facilitates decision-making in the most 
+precise and targeted manner. 
+ One crucial point to note is that a 
+smart city is not a fixed output but rather 
+a process that brings out the potential of 
+a city through the continuous develop -
+ment process. It starts with setting up a 
+framework for the development process 
+to be carried out in stages later. How- 
+ever, for a city to be fully developed into 
+a sustainable smart city, it should consist 
+of these components:
+ 1) The boundaries and vision of the 
+city are based on the economic, social, 
+environmental, cultural, and other rele -
+vant factors of the area;
+ 2) Smart city infrastructure invest-
+ment approaches cover basic digital 
+infrastructure, transportation infrastruc- 
+ture, energy infrastructure, public 
+utilities, and any other infrastructure 
+corresponding to the goals, objectives, 
+forms, and types of the smart cities;
+ 3) Guidelines on the development 
+of City Data Platform (CDP) by linking or 
+using information for management. This 
+also includes providing services in smart 
+city areas, cybersecurity management 
+guidelines related to smart city systems, 
+and the safety of personal data;
+ 4) Details of the of smart city 
+services, including activities or projects 
+corresponding to the type and charac -
+Innovation and Smart Cities
+92
+
+teristic of smart city development as 
+requested for consideration under (1); 
+and,
+ 5) Sustainable management guide-
+lines of smart city development in the 
+form of public sector only, or a hybrid 
+of private and public sectors, or other 
+private sectors as designated by the 
+Smart City Development Steering Com -
+mittee.
+ Given that each city has different 
+needs, readiness, and willingness to 
+develop may be the first factors to con-
+sider when deciding to become a smart 
+city. Overall, Thailand’s Smart City policy 
+is aimed at guiding Thailand toward 
+becoming a developed, high-income 
+country where people can enjoy a high 
+quality of life with less inequality in all 
+aspects. Based on such expectations, 
+governments recognize the importance 
+of digital technology by prioritizing 
+people’s digital literacy and assisting 
+them in effectively accessing digital 
+technology.
+ It is important to note that “Smart 
+City” development is only a process, not a 
+technological outcome. Instead, the most 
+important technology provides measurable 
+livelihood to citizens. Therefore, it is essen-
+tial that a city develops its framework and 
+prioritizes the needs of its citizens. Further- 
+more, if a city can accommodate the 
+needs of the residents, there will be less 
+investment cost, thanks to the efficient 
+allocation of resources; otherwise, this 
+development process could be overpriced. 
+Thailand can learn from both lessons to 
+determine which studies would maximize 
+benefits as we advance.
+93
+
+ Currently, Thailand is striving for 
+“Thailand 4.0 Policy,” which aims to drive 
+a value-based economy rather than a 
+quantifiable one. Therefore, innovations 
+that can effectively fulfill economic, 
+social, and environmental should follow 
+a “Bottom-Up” development approach 
+or a people-centric framework. With this 
+model, if the cities grow, the country 
+would rise accordingly. Today, the 
+development of a smart city is led by the 
+National Steering Committee on Smart 
+City, appointed by the Prime Minister 
+of Thailand and chaired by the Deputy 
+Prime Minister. They have begun to 
+implement the smart city development 
+plan and tasked depa Thailand as the 
+Committee Secretariat to set the criteria 
+for the smart city development.
+ Applications can be submitted to 
+depa Thailand to receive special pro- 
+motions and benefits offered by the 
+government, such as tax benefits offered 
+by the Thailand’s Board of Investment 
+(BOI), Sandbox benefits (Sandbox refers 
+to an experimental area that can freely 
+apply technologies) provided by the 
+Office of the Broadcasting Commission 
+and the National Telecommunications 
+Commission (NBTC). However, the word 
+“city” is not always restricted to govern-
+ment agencies. Any private sector that 
+can offer spaces in industrial estates, 
+educational institutions, or any coopera- 
+tion between the private sector and 
+the city can submit a proposal to depa 
+Thailand to receive support for devel -
+oping a smart city. Typically, the goal 
+of Thailand is to reach 100 cities by 
+2022--47 of which already have been 
+implemented a smart city development 
+plan. More information can be found at 
+www.smartcitythailand.or.th
+ Despite clear visions, active govern- 
+ment support, and innovation develop -
+ment, the development of “Smart City” 
+in Thailand has opportunities and chal -
+lenges. As such, the leading role of depa 
+Thailand is to ensure that those challeng-
+es are addressed, and opportunities are 
+protected. Furthermore, provided that the 
+Promotion of “Smart City” 
+by the Governmental Sector
+94
+
+Dr.Supakorn Siddhichai 
+Group Executive Vice President 
+Digital Economy Promotion Agency 
+development of smart cities is relatively 
+new, depa Thailand’s primary responsi -
+bility is to create shared understanding 
+across all sectors, including both on 
+the demand side (or the city itself), and 
+on the supply side (or the producer of 
+technology). Thus, such a challenge will 
+allow both the supply and demand sides 
+to collaborate, experiment, and test out 
+the technology.
+ Furthermore, Depa has designed a 
+course named “Chief Smart City Officer” 
+(CSCO) to build smart city developers. 
+The course focuses on building prac -
+tical knowledge such as key concepts, 
+rationale, and digital technology in urban 
+development. Moreover, it will assess 
+the project’s feasibility as the develop -
+ment frameworks usually involve new 
+investments, such as establishing a city 
+development company and a Public-Pri-
+vate Partnership (PPP). For those who 
+are interested, CSCO is now open for 
+registration. The course would begin 
+in August 2020. To inquire for further 
+information, please contact depa Thai -
+land’s Smart City Promotion Department 
+at scp@depa.or.th.
+ Finally, to raise awareness of smart, 
+livable cities both in Thailand and abroad, 
+depa Thailand organized “Thailand Smart 
+City Week 2020, which took place during 
+October 2020. This event is part of the 
+strategies that promote knowledge shar-
+ing, particularly among cities aiming to 
+become smart cities and technological 
+providers from Thailand and abroad.
+ Furthermore, the event intends to 
+incorporate digital innovation into smart 
+city development in order to improve peo-
+ple’s quality of life. Furthermore, Thailand 
+Smart City Week serves as a platform for 
+Thailand to become the global leader in 
+driving smart cities, particularly in the 
+Southeast Asian region. Last but not 
+least, the event is committed to encour-
+aging collaboration in the development 
+of smart city projects, particularly 
+through public-private partnerships, and 
+to continuing to build a stable learning 
+platform, such as the CSCO course in 
+smart cities.
+95
+
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+Smart City Promotion Zone
+47 Cities
+Phitsanulok Smart City
+Phitsanulok Safe and Smart Tourism City
+Naresuan University Smart City
+Udon Thani Smart City
+Khon Kaen Smart City
+Mukdahan Smart City
+Nakhon Sawan Smart City
+Korat Smart City
+Ubon Ratchathani Smart City
+Nonthaburi Smart City
+Rama 4 Smart City
+Samyan Smart City
+Chumphon Municipality Smart and Sustainable City
+Koh Samui Municipality Smart and Sustainable City
+Surat Thani Municipality Smart and Sustainable City
+ Phangnga Smart City
+Nakhon Si Thammarat Smart City
+Phuket Smart City
+Krabi Smart City
+Hat Yai Green Smart City 2567
+Satun Smart City
+Pattani Smart City
+Yala Smart City
+96
+
+1
+2
+3
+4
+5
+6
+7 8
+9
+10
+12
+11
+13
+14
+29
+30
+32
+34
+37
+40
+38
+39
+33
+36
+15
+16
+17 18
+19
+20
+21
+23
+22
+24 25
+27
+2826
+31
+35
+19
+1
+2
+4
+5
+6
+3
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+41
+42
+43
+44
+45
+46
+47
+47
+45
+Saha Group Smart City
+Livable City New City
+Chiang Mai Old Town Municipality Smart City
+Nan Smart City
+Mae Moh Livable City
+Nongkhai Smart City
+Chonburi Smart City
+Saensuk Smart City
+Origin Smart City
+Chanthaburi Smart City
+Sri Trang Smart City
+Rattanakosin (Bangkok’s Old City Area) 
+Model Smart City Development Project
+Makkasan High-Speed Trainopolis 
+Smart City
+Chachoengsao Smart City
+Surat Thani Smart City
+Khlong Phadung Krung Kasem Smart 
+City Development Project
+Sri Saket Smart City
+Banchang Smart City
+Wangchan Valley Smart City
+Develop and upgrade 
+the entertainment district in Rayong
+WHA Smart
+Industrial Estate
+Phanusnikhom Smarter City
+Independent Life 5.0 in 
+the Redemption Smart City 
+Society
+Chiang Rai Smart City
+Chiang Mai University Smart City
+13
+36
+11
+10
+5
+16
+17 18
+97
+
+The goal of Phuket 
+Smart City is to be 
+a sustainable city for 
+tourism, education, 
+innovation, and services 
+at international 
+standards.
+Smart City Thailand
+In light of the assessment of the seven dimensions of smart city, 
+the working group has put forward a smart city development 
+plan to the National Smart City. Sub-Committee and National 
+Smart City Steering Committee. The first batch of 
+the qualified cities are:
+Phuket
+Smart City
+5 Pilot Smart Cities 
+98
+
+7 
+Smarts
+ Phuket will have smart city services and solutions in all 7 dimensions, with a total of 42 
+smart city projects. Among these, flagship projects include the comprehensive integration of 
+the artificial intelligence-powered closed-circuit cameras (CCTV), serving as the city’s robust 
+security surveillance system. To help reduce crime and prevent accidents, both face and 
+license plate recognition systems will be concurrently deployed. Promoting community-based 
+tourism through the Phuket Tourism Information Management system will also enable service 
+providers to boost demand and attract visitors. In addition, there are also digital projects for 
+the tourism of the adjacent Andaman coast, i.e., the so-called “Andaman Tourism Digital Twin” 
+project which will help to distribute growth in the sustainable tourism economy throughout 
+the region. Renowned legacy projects such as the Phuket Smart Bus will continue to operate 
+synergistically with novel projects like the Mobility-as-a-Service (MaaS) platforms to serve 
+both the residents and visitors.
+99
+
+This project aims to develop 
+itself to become a livable 
+metropolis and an innovative 
+city that connects all 
+economies in the Greater 
+Mekong Subregion (GMS).
+Khon Kaen
+Smart City
+5 Pilot Smart Cities 
+Smart City Thailand
+100
+
+7 
+Smarts
+ The total number of smart city services that will 
+be in operation stands at 28, covering all 7 dimensions. 
+Notable projects include the maximization of green 
+areas by using the Internet-of-Thing (IoT) technology to 
+manage ecological resources and mitigate community 
+waste problems. By using IoT sensors to monitor the 
+amount and condition of waste as well as provide com-
+plete analytics of the collection route, the streamlining 
+of this end-to-end waste management process can 
+enhance the already-world-renowned urban landscape 
+and improve the wellbeing of the citizens. In the domain 
+of the smart economy, Khon Kaen will continue to build 
+an ecosystem for entrepreneurs, especially SMEs and 
+Startups in the IoT or digital industry. Medical and 
+healthcare applications for comprehensive public health 
+services are being designed to foster the city’s 3M value 
+proposition: Mobility, Medical and MICE (Meetings, 
+Incentives, Conferences and Exhibitions). The connec- 
+tivity of transport networks through information techno- 
+logy, such as the light rail transit, is staged to become 
+an important component of the city’s growth through 
+transit-oriented development (TOD).
+101
+
+This project aims to transform 
+Mae Moh into an eco-friendly 
+city (“Mae Moh Eco Town”) and 
+support the local community 
+including social enterprises and 
+start-ups. Improving the quality 
+of life of the people in Lampang 
+Province.
+Mae Moh 
+Smart and Pleasant City
+5 Pilot Smart Cities 
+Smart City Thailand
+102
+
+3 
+Smarts
+ Mae Moh will have smart city services and 
+solutions in 3 domains, with a total of 10 smart 
+city projects, including those of smart environ-
+ment and smart energy which are EGAT’s general 
+expertise. The flagship projects of “Mae Moh 
+Smart and Pleasant City” include rehabilitating 
+20,000 rai (7,907 acres) of community forests, 
+building 100 water management prototypes, 
+and introducing robust climate sensors. State-
+of-the-art Geographic Information System (GIS) 
+will prompt results for effective environmental 
+management. Moreover, digital payment ser -
+vices will be introduced to generate income for 
+the community by promoting and community 
+products. As an Eco Town, it will adopt a smart 
+grid technology using a smart metering system 
+and installing solar power generation on the roof 
+to reduce the use of fossil-based electricity and 
+therefore increase the use of renewable energy.
+Smart Environment 
+A city that takes into consideration 
+the environmental impacts and climate 
+change conditions. It focuses on using 
+technology to systematically support 
+water management, climate, waste 
+management, and disaster surveillance 
+and increase people’s engagement in 
+conserving natural resources.
+103
+
+Samyan Smart City is operated 
+by Chulalongkorn University, 
+Thailand’s most prestigious 
+university. It is natural for 
+Samyan to aspire to become 
+an “Innovation District,” 
+creating both innovation and 
+shared values for communities 
+and Bangkok’s urban society.
+Samyan 
+Smart City
+5 Pilot Smart Cities 
+Smart City Thailand
+104
+
+7 
+Smarts
+ There are going to be 42 smart city projects 
+across all 7 domains, including a comprehen -
+sive water management system and wastewater 
+recycling system (both systems are set to be 
+built around the award-winning Centennial 
+Park). Furthermore, the Centralized cold room 
+control system and area energy management 
+system (AEMS) will enhance the efficiency of the 
+overall management of both energy production 
+and consumption. The use of renewable energy 
+through solar roofs and solar parking will become 
+a norm of this eco-urban campus and vibrant 
+community. In addition, the “Creative & Startup 
+Village “ is a conceptual pilot project aimed at 
+creating Thailand’s first innovation district, to 
+be located at the historical Block28 where the 
+legacy of the Old Samyan Market stands. There 
+will also be a variety of end-to-end, door-to-door, 
+mobility-on-demand services, ranging from 
+electric vehicle (EV) car-sharing, bike-sharing, 
+Tuk-Tuk-sharing, and E-Scooter-sharing, as well 
+as an EV car rental platform. Such services will 
+effectively increase travel options and enhance 
+the efficiency of public transport, while also 
+reducing road accidents and greenhouse gas 
+emissions within the area.
+105
+
+Wangchan Valley Smart City will be built 
+around the value created by research and 
+development for innovation (R&D). This 
+new city will have infrastructure that meets 
+international standards, allowing people 
+to live in a better quality of life and in a 
+healthier environment. Located in Rayong 
+Province’s scenic Wang Chan District.
+Wangchan Valley
+Smart City
+5 Pilot Smart Cities Smart City Thailand
+106
+
+There will be smart city systems across all 
+7 domains, totaling a remarkable number of 
+55 projects. The flagship projects include 
+a comprehensive solid waste management 
+system, real-time weather monitoring 
+system, air quality monitoring system, and 
+energy management system (EMS). As a 
+national energy provider, PTT shall utilize 
+this site to promote its renewable energy 
+production using big data analytics. Addi-
+tionally, innovation is welcomed through 
+the research and development sandbox, 
+world-class innovation center, intellectual 
+property consulting center, and an innova-
+tion incubator for SMEs and startups. There 
+will be an electric bus service (EV Bus and 
+EV Shuttle Bus) with an integrated CCTV 
+camera system that provides real-time 
+monitoring of driving behavior and connects 
+to an automated dispatch system for the 
+emergency ambulance and remote medical 
+services (also known as telemedicine).
+7 
+Smarts
+107
+
+Image Credits
+Page No. Copyright owner
+The publishers would like to express their gratitude to the following copyright holders, 
+whose images were used on the specified pages. All other images, unless otherwise 
+noted, are the property of Smart City Thailand Office.
+Chatbot of Smart City Thailand Office
+https://scw.smartcitythailand.or.th
+SmartCityThailandOffice
+@smartcityth
+9, 36, 38, 47, 79, 86, 87,
+98, 100, 102, 103, 104
+80, 81
+106, 107
+107
+Image license from Shutterstock.com
+UK-Thailand Smart City Handbook by UK Foreign, 
+Commonwealth and Development Office (FCDO), 
+page no. 39
+http://a49.co.th/projects/view/242
+www.facebook.com/DGAThailand
+LINE Official Chatbot
+Nong Nayoo
+Add friend
+108
+
+Organizers
+Co-organizers
+Partners
+Media Partners
+109

@@ -1,0 +1,1315 @@
+Smart City Primer
+Selected ASEAN Experiences
+Insights from the 2021 YSEALI Smart Cities Regional Workshop
+
+The United States and Thailand have a long-standing 
+friendship and strong government-to-government 
+relations. Exchange programs are the cornerstone 
+of the educational and cultural ties between the 
+two nations.
+The Young Southeast Asian Leadership Initiative 
+(YSEALI) Smart Cities Regional Workshop provided 
+opportunities for young leaders to make an impact 
+in their communities through their participation in 
+this exchange. The program offered participants 
+networking opportunities with other emerging 
+leaders, mentorship, hands-on training, and resources 
+to address shared economic, environmental, 
+educational, and civic participation challenges. In addition, young leaders develop greater 
+cross-cultural understanding by traveling to one of the 11 YSEALI nations, including Brunei, 
+Cambodia, Indonesia, Laos, Malaysia, Myanmar, Philippines, Singapore, Thailand, 
+Timor-Leste, and Vietnam.
+The YSEALI Smart Cities Regional Workshop engaged young leaders on smart city 
+development and design, with the underlying idea that design can be for the purpose of 
+enhancing communities’ daily lives – it’s about putting people first. The workshop also 
+explored ways to integrate civil society and small and medium-sized businesses in smart 
+city development across the region.
+To this end, we believe that this primer, which summarizes the ideas compiled through the 
+YSEALI Smart Cities Regional Workshop, will continue to raise awareness about smart 
+cities and about our participants’ innovative work.
+The U.S. Embassy in Bangkok is excited about our collaboration with C asean because it 
+developed and expand emerging leaders’ skills and fostered cross-border collaboration 
+to address regional and global concerns. We are certain that with the combined efforts of 
+all YSEALI members and the commitment of the C asean team, youth across ASEAN 
+will continue to demonstrate their potential to bring the region closer and make it stronger. 
+We are pleased that this program not only enhances the U.S.-Thai relationship, but the 
+U.S.-ASEAN relationship as well.
+Lydia Barraza
+Cultural Attaché
+U.S. Embassy Bangkok
+
+Foreword
+ASEAN Smart Cities Network (ASCN) is the regional collaborative platform for ASEAN Member 
+States to collaborate, address issues, share best practices, and explore potential solutions 
+for smart city. In line with ASEAN’s effort to build a people-oriented and people-centered 
+community, ASCN’s primary goal is to improve the quality of life of ASEAN citizens by utilizing 
+technology as an enabler to support smart and sustainable urban development. Since its 
+establishment in 2018, ASCN Members and external partners have been collaborating to 
+develop action plans and implement smart urban development projects throughout the region. 
+In 2022, Cambodia has the honor of serving as ASEAN Chair and ASCN Chair. We are 
+excited to explore the progress and key achievements, and continue our collective endeavor 
+for the lives of ASEAN people by leaving no one behind. To attain this common goal of smart 
+cities, we actually require multi-sectoral and multi-stakeholder engagements. This primer is 
+among those efforts to introduce the general public to smart city and raise awareness about 
+this overarching people-focused issue. 
+Established with an aim to strengthen regional conversations, connectivity and collaboration, 
+C asean recognizes the power of youth in leading our community towards a sustainable 
+future. Since 2015, together with a wide range of programs and partnerships, C asean has 
+been firmly committed to fostering young ASEAN talents with emphases on social 
+entrepreneurship, sustainability, leadership development, and arts & culture. 
+Throughout the years, we are honored for opportunities to collaborate with the U.S. 
+Department of State and the U.S. Embassy in Bangkok on one of their flagship leadership 
+development programs, Young Southeast Asian Leaders Initiative (YSEALI). Our most recent 
+collaboration, the 2021 YSEALI Smart Cities Regional Workshop, was a program to invite 
+young leaders to learn about smart city concept and develop sustainable solutions to 
+urbanization challenges in their respective communities. 
+My appreciation is extended to the U.S. Embassy Bangkok and C asean for this initiative. I truly hope that this book, which compiles 
+smart city concepts, ideas and practices from public and private sectors as well as our young leaders, will provide a thorough 
+understanding of smart cities and inspire all the readers. 
+H.E. Ngy Chanphal 
+Chair 
+ASEAN Smart Cities Network 
+In our view, “Smart Cities” are not limited to those metropolises which are equipped with high technology, but should ultimately refer 
+to cities that are inclusive and supportive to the wellbeing of all their inhabitants. Based on this approach to “Smart Cities,” this book 
+distills key insights from expert lecturers in our Workshop, as well as case studies from ASEAN cities and selected solutions proposed 
+by our youth participants. 
+We hope you will find inspiration and few thought-provoking ideas from this book! 
+Tongjai Thanachanan 
+Managing Director 
+C asean 
+
+6 C asean 
+
+C asean 1
+Table of Contents
+Introduction 
+Setting the Stage 
+ Why Cities 
+ Enter Smart(er) Cities 
+What is a Smart City? 
+ A Smart City is Citizen-Centric 
+ Snapshot: ONE BANGKOK 
+ A Smart City Incorporates the 4Ps 
+ Snapshot: District 2020 in Dubai 
+ A Smart City is Powered by Data 
+ Snapshot: Smart City Iskandar Malaysia 
+Design Thinking as an Approach to Smart Cities 
+Innovation from YSEALI Talents 
+ Wasterant 
+ Zappy 
+ E-Wise 
+Putting It All Together 
+Guidelines for Smart City Development
+Resources on Smart Cities 
+Acknowledgements 
+Contributors
+2
+4
+12
+22
+26
+30
+31
+34
+36
+38
+
+2 C asean 
+This book is a “primer” or a defining introduction to smart cities. 
+The need for a primer arises from the fact that there isn’t a universally accepted definition of 
+the term “smart cities,” and this leads to confusion. While some believe the term is apt 
+because it conjures up images of how technology and urban life are linked, others believe 
+it is only applicable to technologists and professionals. We are living in a very special time 
+where half of the world’s population is currently living in an urban environment, resulting in 
+opportunities for both innovative success and unforeseen failure. It is therefore necessary for 
+us to understand why and how cities can be smarter when catering to their citizens’ quality 
+of life. 
+The ultimate goal of this primer is to make the general public aware of the importance of 
+smart cities. 
+This primer starts by exploring why we’re talking about cities and smart cities in the first 
+place and why now is the right time to discuss how to make cities more appropriate for how 
+we live, learn, work, and play. Then, as we investigate this new concept of “smart cities” 
+together, this primer introduces how the smart city trend is being utilized, as well as how it is 
+shaped and reshaped by innovation. This primer urges readers to consider problems from 
+both the perspective of the general public as well as those professionals who are in the midst 
+of solving urban problems. The primer concludes with a discussion of what we can do to 
+help with this critical effort, which has far-reaching implications for our lives and livelihood. 
+Introduction 
+
+C asean 3
+Earth from space. The lit areas indicate cities where the largest portion of humanity’s innovation and challenges are created. 
+Photo by NASA on Unsplash 
+The content of this primer is based on the 2021 Young Southeast Asian Leaders Initiative 
+(YSEALI) Smart Cities Regional Workshop , a program run by U.S. Embassy Bangkok, 
+in partnership with the Foundation for the Institute of Social Enterprise Development 
+(FINSEDT) and C asean to encourage meaningful interaction among emerging leaders 
+in Southeast Asia. Emerging leaders aged 20-35 from all 10 ASEAN member nations 
+and Timor-Leste gathered online to learn about the diverse sectors on which the concept 
+of smart city is based, such as environmental design, digitalization, and urban planning. 
+Digital solutions-aided smart city development was the theme of 2021 YSEALI Workshop. 
+Future leaders discussed both the opportunities and challenges that new technology 
+presents in the field of urban development, as well as how to ensure transparency, 
+resiliency, privacy, security, sustainability, and interoperability, as well as how to include all 
+segments of the population so that no one is left behind. 
+These brilliant young individuals teamed up to work on capstone projects with experienced 
+mentors, resulting in real projects that resemble the professional “agile startups” currently 
+reshaping the global business environment. The knowledge collected, captured, and 
+highlighted throughout the Workshop established a firm basis for future thinkers to use in 
+order to contribute to the creation of a better urban environment. 
+Brief descriptions of winning ideas from participants in the YSEALI Smart Cities Regional 
+Workshop are highlighted as part of this primer, along with thought-provoking insights from 
+experts sharing their experience and ideas at the Workshop, including a former minister, 
+program manager, international coordinator, design thinking specialist, current president of 
+a technology university, and senior expert in smart city promotion.
+ 
+The goal of this primer is to provide a concise and clear introduction to smart cities. This 
+introduction to smart cities may be your first, but it should not be your last! In fact, the 
+success of this primer will depend on the manner in which it encourages and prepares you 
+for your journey into the world of smart cities. 
+Let’s dive right in.
+
+4 C asean 
+Setting the Stage 
+Let us start with a small exercise. 
+You are about to read a term. After which, imagine whatever that term evokes. Try to remember 
+as much detail as possible from whatever picture that pops up in your mind. Close your eyes 
+if it helps. 
+Are you ready? 
+The term is “Smart Cities.” 
+Take your time. 
+If you are like two-thirds percent of people taking part in this exercise, the image that just 
+popped up in your head is probably similar to this:
+A skyline of the city of Dubai in the United Arab Emirates, whose economy represents a gross domestic product (GDP) of 
+US$417.22 billion before the pandemic in 2019. Contrary to popular belief, Dubai does not have an oil-based economy. Only 
+in the 1990s did Dubai begin to diversify its economic portfolio, building new cities as seen in this photo. Photo by David 
+Rodrigo on Unsplash
+
+C asean 5
+Drones may become the future 
+of delivery. In the comfort of 
+our couch and at the tips of 
+our fingers, we have anything 
+delivered to us. Many seem 
+to think that this is an image 
+of a “smart city,” but it is only 
+one aspect. Photo by Goh 
+Rhy Yan on Unsplash 
+Many think that a “smart city” 
+is where everyone is hooked 
+on their smartphones in 
+order to get services. Has 
+anyone thought about how 
+smart and un-smart we would 
+be when those smartphones 
+run out of battery? What is the 
+risk of this kind of over-reliance? 
+Photo by camilo jimenez on 
+Unsplash
+You are not alone if one of these images has suddenly come into your mind upon hearing 
+the term “smart cities.” Indeed, these are images representing what is both in front of and 
+behind some of the most awe-inspiring cities in the world, where urbanization is fueled by 
+cutting-edge technology, but there is much more to smart cities.
+We’ve done this exercise hundreds of times and most of the time the results are exactly 
+what we have just described. On the one hand, it is undeniable that the term “smart city” 
+conjures up images of high-tech urban environments. On the other hand, these depictions 
+make “smart cities” seem very high-tech and perhaps inaccessible and incomprehensible 
+to the average person. 
+Let’s turn to another picture here:
+Some of you might picture something like Dubai or New York City, where high-rises 
+dominate the skyline, and highways weave around buildings conveying vehicles at hyper speed.
+ 
+Some of you might see a city where self-flying drones fly through the skies, robots walk the 
+streets, and autonomous cars transport people and products wherever they choose to go: 
+a metropolis where cutting-edge technology makes hyper-convenience possible. Others 
+might imagine a city with a robust communications network that controls key infrastructure 
+in the city and makes life more convenient for its residents. 
+Some of you might see a high-tech intelligent operation room with numerous screens and 
+dashboards displaying what is happening in key public locations in real-time. Perhaps it’s an 
+image similar to a scene in a film in which a superhero (say Batman or Iron Man) analyzes the 
+complex visual information on the screen to help him figure out how to apprehend a bad guy. 
+Some of you might have imagined a city that opts for an all-in-one smartphone app that handles 
+everything from payment to ride hailing to restaurant reservations to public transport.
+
+6 C asean 
+Aspern Seestadt is consistently ranked among the best places in the world in terms of how 
+technology enhances livability. What you see here are not robots, drones, or a lot of high-tech 
+equipment; instead, you see regular people having fun. Aspern intends for you to be unable 
+to see those technologies. 
+In Aspern Seestadt, technology works in the background to provide a sense of security, 
+convenience, efficiency, and environmental friendliness to the citizens. The traffic lights use 
+real-time traffic data to optimize vehicle movement, getting drivers and riders to their 
+destinations faster and safer. Smart energy systems and intelligent buildings work together 
+to reduce energy consumption while maximizing physical comfort. The robust waste 
+management system is connected end-to-end from the household to the waste-to-energy 
+plant to ensure that the streets are clean and pollution is minimized. The consequence of 
+these technologies is the residents’ improved livelihood and well-being. 
+A true smart city will most likely be similar to Aspern Seestadt, where the key performance 
+indicators (KPIs) aren’t the number of skyscrapers, sensors, robots, or drones. Instead, true 
+smart city’s KPIs are the lowering number of traffic accidents, shorter commute times, and 
+easier access to goods and services, to name a few. These KPIs represent an improved 
+quality of life and well-being as a result of the strategic application of behind-the-scenes 
+technology. Aspern Seestadt is also a “living laboratory” for smart-home research, a topic 
+which we’ll return to later in this primer. 
+If you recall the images of awe-inspiring skylines or a city where people are served by robots 
+in the previous page, you’ll realize that while those were impressive, they aren’t necessarily 
+smart cities - especially if citizens don’t benefit from their presence. Many cities claim to be 
+“smart,” but they breed structural inequality among their citizens. Many cities also use 
+advanced technology to monitor residents and instead make them feel uneasy rather than 
+safe. A true smart city prioritizes the citizens’ livelihood and well-being. Smart cities are 
+urban environments that encourage us to stay healthy, succeed in our chosen professions, 
+learn new things, and engage in constructive leisure activities. 
+With many examples and ideas similar to Aspern Seestadt, we will take you on a ride to 
+better understand how to achieve smart cities in this primer. 
+Let’s start from the very top.
+A photograph of Aspern Seestadt on Smart City Vienna social media page, emphasizing the livelihood of the citizens rather 
+than showcasing technological prowess. Photo by Ludwig Schedl, Smart City Wien 
+
+C asean 7
+Why Cities? 
+Why are cities important? 
+You’re probably already living in a city if you’re reading this primer. Why? The short answer 
+is that cities are fertile ground and incubators for new ideas. Generally speaking, cities often 
+provide a more tolerant atmosphere, freely expressed thoughts, innovative solutions, and 
+access to publications containing new ideas. Talent is often drawn to cities because of the 
+sense of freedom cities offer, as opposed to non-urban areas where close-knit communities 
+may prefer existing values and norms. We can almost certainly expect changes in the way 
+we live when talent comes together to exchange ideas in a tolerant space with the right 
+technology. 
+Although these three Ts – tolerance, talent, and technology, as economist Richard Florida 
+calls them, appear to be in a linear progression at first, they are in fact working in symbiosis. 
+There can’t be just one or two of the three Ts in a successful city.1
+Shanghai, China’s largest city, has a gross domestic product (GDP) of around 5-8% per annum. Like Dubai, Shanghai’s new 
+central business district has been built to add economic value to an existing city. Photo by Robynne Hu on Unsplash 
+Cities have been the world’s economic engine for the past few decades, accounting for 
+nearly 80% of global gross domestic product (GDP) despite their smaller footprint of only 2 
+percent of the earth’s surface.2 People are naturally drawn to places where there are plenty 
+of employment opportunities and economic activities. Just as those who are born in the late 
+1990s might not be able to comprehend a world without the internet, many might presume 
+that cities have always been the norm for how we live today. But what if we told you that 
+cities weren’t always so important? 
+1 Richard Florida, 2004, Cities and the Creative Class (London: Taylor & Francis Group) 
+2 “Urban Development,” The World Bank, 20 April 2020, https://www.worldbank.org/en/topic/urbandevelopment/
+
+8 C asean 
+In fact, human beings only made cities the dominant living environment about a decade 
+ago.3 For more than 2 million years prior to that, most humans had been living in non-urban 
+areas. Only around 12,000 years ago did we begin to meet and live in groups, establishing 
+communities primarily for agriculture. The earliest towns were constructed circa 7500 B.C. 
+in a historical region known as Mesopotamia. Since then, group living has been the primary 
+driver of global economic and population expansion. Not only did collaboration breed more 
+productivity, but it also provided the in-group with the sense of physical and social activities. 
+While the magnificent city of Rome had a peak population of one million people during its 
+heyday around the beginning of the common era, major cities today easily can contain tens 
+of millions (we call them “mega cities”). There are around 8 billion people on the planet now, 
+which has more than doubled in just a decade. 
+Cities are the norm of modern inhabitation, as they house more than half of the population. 
+Cities not only define how people interact with one another, but they also create our 
+relationship with the environment and shape our future as a species. But is that a good thing? 
+Cities are, in general, more energy efficient than villages and vast towns, but energy is also 
+consumed and lost more carelessly. While the compact form of cities aids in the preservation 
+of natural ecology, they are also – by some estimates – using 78% of our global energy 
+resources, much of which is not always clean or renewable, and producing more than 60 
+percent of greenhouse gas emissions.4
+Often going hand in hand with this massive energy consumption are environmental 
+problems such as air and water pollution, as well as household waste. In an urban environment 
+without a clean water supply or robust recycling program, for example, the average citizen 
+may need to purchase bottled water whose plastic container will ultimately wind up in a landfill. 
+Similarly, a lack of access to farmer’s markets in lower-income areas of a city may lead to the 
+purchase of processed food in disposable containers, which affects both the bodily health 
+of the citizen as well as the civic infrastructure.
+Consumption is urban nature. Urban household waste has always been a problem. With less than 10% recyclable, most 
+household waste goes straight to landfills. Some of the substances absorb into underground water and return to us, e.g., 
+micro plastic and harmful chemicals. This isn’t how a city — the apex of human civilization — should be, don’t you think? Photo 
+by Antoine GIRET on Unsplash
+3 “68% of the World Population Projected to Live in Urban Areas by 2050, Says UN,” United Nations, 16 May 2018. https://www.un.org/development/desa/en/news/population
+/2018-revision-of-world-urbanization-prospects.html
+4 “Generating Power,” United Nations, Date Accessed 1 April 2022, https://www.un.org/en/climatechange/climate-solutions/cities-pollution
+
+C asean 9
+Studies show that traffic congestion leads to emotional health effects, such as stress, nervousness, and aggressiveness. 
+Long driving hours also lead to physical health effects. such as back pain, leg pain, headaches, and dizziness. This isn’t an 
+ideal way to live. Photo by shun idota on Unsplash
+And in addition to a citizen’s physical health, cities can pose challenges to their mental and 
+emotional state as well. Proximity to people and ideas incubate invention, but fast-paced 
+and high-pressure environments can often take a psychological toll. The diversity of a city’s 
+population can foster wonderful interactions, but can also require a delicate navigation of 
+social and cultural norms. Inequality, too, can be a stressor, with economic, racial, or other 
+social disparities existing side-by-side.
+According to the United Nations Human Settlements Programme (UN-Habitat), cities pose 
+many paradoxes for our time. As cities are now the norm, addressing development challenges 
+with effective interventions can have wide-ranging cumulative impacts.
+ 
+So, by now, you might be wondering if cities are good or bad for people, but that’s not 
+the focus of this primer. The reality is that as populations continue to grow, the urban 
+environment will only continue to grow with them. With cities expected to house more than 
+two-thirds of the world’s population by 2050, the goal of smart cities and this primer is to 
+better understand how this increasingly common living environment can best accommodate 
+those who will inevitably make it their home.
+
+10 C asean 
+Enter Smart(er) Cities 
+We began the previous segment asking why cities – with all their pros and cons – will continue 
+to be an important part of the human condition. The term “Smart City” has been met with 
+skepticism because it often evokes a laundry list of equally sophisticated-sounding 
+technological subterms such as “artificial intelligence” (A.I.), “Internet-of-Things” (IoT), “cloud 
+computing,” and “blockchain,” just to name a few that will no doubt leave the average 
+listener confused and possibly uneasy. 
+In fact, many smart cities fail because they focus on the technology rather than the needs 
+of the citizens, a key point which we address in this primer. It is important to approach 
+technology from the standpoint of the citizen. Smart cities use technology as a means to an 
+end – the end being to solve the “pain points” of those living in cities. 
+In the previous segment, we touched on how and why innovation and consumption are 
+defining characteristics of cities. While innovation and consumption have always been a 
+primary characteristic of urbanism, the explosion of cities today can be traced historically 
+back to another characteristic: Industrialization.
+Historically, there have been four stages to industrialization. The “First Industrial Revolution” 
+kicked off in Britain with the mechanization of the textile industry in the mid to late 1700s. 
+The use of new energy sources such as electricity, gas, and oil, as well as mass-production 
+assembly lines, characterized the “Second Industrial Revolution.” This revolution was 
+centered on a new industrial and economic model based on large factories. The “Third 
+Industrial Revolution,” also known as the “Digital Revolution,” began in the late 1990s and is 
+marked by the widespread use of electronics and computers, as well as the invention of the 
+Internet and the discovery of nuclear energy. 
+We are now in the era of the “Fourth Industrial Revolution” (also known as “Industry 4.0”), 
+which takes advantage of new technology’s limitless potential, including high-speed mobile 
+and internet communications, digitalization, big data analytics, automation, and machine 
+learning. This “Fourth Industrial Revolution” is an era whereby the boundaries between the 
+physical, digital, and biological worlds are blurring, while industries all over the world are 
+being uprooted by new technologies and the opportunities they present. 
+Products and services have become more efficient as a result of the wide and fast spread 
+of Industry 4.0 technologies. For example, it is difficult to envision urban living without the 
+at-the-fingertip ease of ride-hailing and e-commerce, which in turn would not be conceivable 
+without high-speed mobile technology, a secure digital platform, robust electronic payment, 
+automated on-demand delivery, and so on. 
+
+C asean 11
+Electrification and mass-production assembly lines were hallmarks of the Second Industrial Revolution. As new 
+technological advancements and the development of the combustion engine system ushered in the use of new energy 
+sources, everything grew in scale. Photo by Museums Victoria on Unsplash 
+The concept of a “smarter city” emerged in the 2000s when information technology (IT) 
+companies were actively hunting for a new market for their wares. IBM announced a $50 
+million “Smarter Cities Campaign” in 2009 to investigate how the corporation could employ 
+sophisticated computer technologies to assist cities in optimizing their operations. Along 
+with IBM, many other companies aimed not at a definitively smart city, but a “work-in-progress” 
+city that would test which technology could best increase the quality of life and efficiency of 
+the urban environment (and with it, create marketing opportunities for themselves).
+In fact, many argue that we should have stuck with the term “smarter city” rather than just 
+“smart city” since “smarter” implies an ongoing process of improvement, rather than “smart” 
+which sounds like an end result. In any case, the term “smart city” stuck, so we’ll roll with it. 
+As IT companies increasingly contributed their prowess to the urban landscape, educational 
+institutions, too, got into the mix. Home to the world’s most prestigious engineering and 
+urban planning schools, the Massachusetts Institute of Technology (MIT) was in fact an early 
+proponent of research and development in smart cities. For instance, MIT’s “Senseable City 
+Lab” was one of the first proponents of the use of data-collection sensors to “feel” a city’s 
+nervous system in a manner akin to that of human beings. Roads, buildings, public spaces 
+could embrace the use of sensors in order to pinpoint areas of the city that required 
+attention. In addition, as early as the mid-2000s, MIT students were developing smart 
+economy and e-governance systems that used traditional mobile phone short messages 
+(SMS) to transfer and receive money and to share crowdsourced data with authorities. 
+Anyone with a basic mobile phone (even a flip phone) could send a text message to make a 
+financial transaction, locate employment, or communicate with local government authorities 
+ranging from accessing public services to disaster warnings, accidents, and emergency 
+situations. 
+Today, many educational institutions are collaborating with businesses to accelerate 
+innovation. Graduates from these institutions go on to work for other companies, while others 
+launch their own businesses. As a result, the collaboration between cutting-edge industry 
+and higher education produces a workforce and new ideas that help to improve the urban 
+environment. 
+
+12 C asean 
+What is a Smart City?
+Can you show me a smart city? 
+This is one of the most often asked questions among smart city practitioners. When asked, 
+the smart city historian Anthony M. Townsend puts it: 
+5 Anthony M. Townsend, 2013, Smart Cities: Big Data, Civic Hackers, and the Quest for a New Utopia (New York, NY: W.W. Norton & Company), 320.
+My answer is always the same. “The one you live in.” It sounds 
+glib, but I’m serious. The idea of a single, utopian design for the 
+smart city has kept us from the hard work of building a rich and 
+varied collection of ones that we can actually live with.5
+What he’s implying is quite brilliant. People, as we’ve seen previously, are the most 
+important component of smart cities. If you already live in one, the city you live in is smart in 
+some way as well. The other components, such as technology or operations management, 
+are secondary. 
+Although the term “smart city” is quite popular, there has yet to be a universally accepted 
+definition. Many people assume that “smart” implies “technology” or “optimization.” 
+However, we’ve learned quite a bit from the failures of many “smart city hopefuls” that 
+technology isn’t the place to start.
+
+C asean 13
+Many “micro mobility” services want to make cities flow better for everyone. With a strong focus on how technology 
+(hardware + software) can enhance efficiency and livelihood. For instance, the micro mobility startup Beam works with cities 
+and communities to deliver the world’s safest and most comfortable ride to connect the mobility infrastructure with last-mile 
+mobility. Photo: Beam
+To have a common understanding, let’s say that we need a definition. We think that it would 
+be useful to start from the top – that “smart city” is a process rather than an end result 
+(remember that we discussed earlier how “smarter” is probably a better adjective than “smart”). 
+A working definition of a smart city that incorporates essential ideas from popular definitions 
+would look like this: 
+1. Step 1 – Bird’s Eye View: What does it mean for a city to be smart? A smart 
+city is a process (not an outcome) for how a city makes use of appropriate 
+technology to enhance the wellbeing of its citizens. 
+2. Step 2 – Framework of Implementation: How can the city best serve its 
+citizens? A smart city focuses on the effective integrations of physical and digital 
+systems to increase its capacity, managerial efficiency and resource utilization.
+ 
+3. Step 3 – Operational Sustainability: How do we make smart city operation 
+sustainable, especially when the benefits of digital technology are not as easily 
+seen as other physical improvements like roads or bridges? Smart cities, after all, 
+make the most optimal use of available interconnected information that enables 
+the scalability of the products and services to solve common urban problems. 
+Smart cities, therefore, are urban areas that are developing and evolving to become smarter 
+through the use of purposeful and appropriate technology. Vienna (i.e., Aspern Seestadt), 
+Singapore, and Amsterdam, for example, have all been scored relatively high in numerous 
+smart city rankings as a result of their ongoing efforts to come up with innovative solutions 
+to existing problems. 
+Although the smart city trend is quite new, many cities around the world have experimented 
+with creating them. Based on how some succeeded and failed, there are principles that 
+have proven to be effective. 
+Smart cities prioritize the following concepts: Citizen-Centricity, Technology in the Background, 
+People-Public-Private-Partnership (4Ps), and Data-Driven Decision Making.
+
+14 C asean 
+A Smart City is 
+Citizen-Centric 
+Six common mistakes made by cities that want to be “smart.” All of these can be boiled down to one issue: a mismatch 
+between the top-down and the bottom-up; in other words, the grand vision from the top doesn’t fit with the needs of the 
+citizens who would be living in them. Photo credit: Eden Strategy Institute 
+6 Calvin Chu, “Ranked to Grow: Impact of Smart City Ranking” (Presentation, 2019 ASEAN Smart Cities Network (ASCN) Annual Meeting in Bangkok, Thailand, 24 August 2019); 2019 ASCN 
+Summary can be downloaded from https://asean.org/wp-content/uploads/2021/08/ASCN2019-Report.pdf
+“A Citizen-Centric Approach to Smart Cities” means that the key performance indicators 
+(KPIs) of a city should always be its people’s well-being, not the features and benefit sets that 
+technology vendors tend to market. 
+Calvin Chu, a smart city expert from the global consulting firm Eden Strategy Institute, 
+summarizes several reasons many smart city initiatives fail.6 
+The most common reason for many smart city failures is that technology has taken 
+precedence over people. It may be tempting to use the most up-to-date technology available, 
+but this may not be effective if there is no real need for it. Furthermore, assuming that people 
+will accept new technology and adapt their lifestyles and behaviors to align with the technology 
+can erode trust in the role and intentions of the implementer – in most cases, the local 
+government – and incur opportunity costs.
+A typical example of this could be when a city relies too heavily on a mobile app to access 
+various services. While mobile apps can be extremely helpful, they can also be susceptible 
+to rushed launches, confusing interfaces, glitches, management issues, high traffic, and a 
+host of other problems that will ultimately leave citizens feeling frustrated and underserved. 
+In such aggregator apps, a single point of failure will disrupt a wide range of city services.
+Smart city projects also fail when city planners pay insufficient attention to operating and 
+business models. It’s usually the business and operating model, not the product or service, 
+that makes a new product or service revolutionary. The magic lies in the business model, 
+as seen in how Spotify and Apple Music revolutionized how we enjoy music. Listeners no 
+longer purchase a CD to “own” a collection of songs so they can enjoy the music. Instead, 
+they “subscribe” to a service that allows them to listen to any song they want, whenever they 
+want, without having to own it. 
+
+C asean 15
+This shift from owning to subscribing is clever because appreciating intangible forms of 
+entertainment like music and movies has never been about “owning” in the first place. Some 
+cities have attempted to implement similar Mobility-as-a-Service (MaaS) models for services 
+such as bicycles and electric scooters. We don’t need to own them as long as we can use 
+them when we need them, just like we don’t need to own music. In fact, not owning a single 
+bike allows users flexibility should they choose different modalities on a single commute, or 
+different commutes to and from a destination.
+Several companies saw an opportunity in this market and brought in a bicycle-sharing 
+program that promised to simultaneously solve urban mobility and health issues. 
+However, fueled carelessly by venture funds, they did not invest in attractive marketing or 
+loyalty programs but focused instead on dominating “distribution channels” by outspending 
+each other to place more bicycle units on the streets. Rather than developing sustainable 
+business models, they lowered the price per use to untenable levels, in hopes of winning 
+market share. These companies ended up being perceived as “dumping” large numbers of 
+bicycles on the streets, resulting in oversupply, causing eyesores, and creating obstacles 
+to pedestrians when the bikes were strewn about messily. Their operating models did not 
+include adequate monitoring and penalties for improperly parked or damaged bicycles, and 
+the disarray devalued their utility and ultimately also saw the abuse. The entire program 
+was discontinued within months, creating tremendous shareholder, environmental, and 
+reputational damage that could have easily been avoided with more forethought.
+Problems arise in the blurry lines between the right to ride and public safety. In this case, 
+an operation like this could have started with a “sandbox” or confined testing environment, 
+which would have allowed service providers to gauge in stages if the service is in fact 
+operable, scalable, or if it could present any problems. Challenges can then be identified and 
+dealt with early on before they become too widespread.
+Finally, a lack of transparency in the public-participation plan can be a problem. The most 
+well-known example of this is Sidewalk Labs’ decision to halt the construction of a smart 
+city on a 12-acre plot of land in Quayside, Toronto. Mass housing, heated and illuminated 
+sidewalks, public Wi-Fi, and a slew of cameras and other sensors to monitor traffic and 
+street life were planned for this ambitious US$1.3 billion project. The company envisioned 
+this network of sensors collecting data on energy use and citizen behavior, which could 
+then be used to automate public infrastructure and improve citizens’ well-being. Residents, 
+however, criticized the company’s approach to privacy and intellectual property, questioning 
+how much of their private information was compromised. While this vision initially seems 
+revolutionary and transformative, the lack of trust between the residents and the company 
+ultimately led to the program’s failure. 
+All of these examples lead to one important point: smart cities deploy appropriate technology, 
+such as automation and Internet-of-Things (IoT) sensors, so that citizens may benefit from 
+increased wellbeing, such as having more time to spend with their families as automation 
+takes care of more tedious tasks. Citizens in a mobility-focused smart city, for example, may 
+be able to arrive home sooner and in a healthier state, because traffic lights operate 
+seamlessly to reduce congestion, prevent accidents, and reduce air pollution. Citizen-Centric 
+“technology in the background” could therefore look at the increased number of hours these 
+citizens get to spend with their families as a potential performance metric. 
+
+16 C asean 
+Snapshot: ONE BANGKOK 
+ONE BANGKOK is the premier mixed-use district in the heart of the city, consisting of five 
+hotels, five office towers, three residential towers and four retail precincts. Combined with 
+large green outdoor areas, the district brings a fully integrated community environment to 
+the center of Bangkok. 
+ 
+Thailand’s largest fully integrated district is the 120-billion-baht fully-integrated district and the largest private sector 
+property development in Thailand’s history. It’s hoped to be the “model smart city” of the world. Photo by ONE BANGKOK
+The design of ONE BANGKOK implements lessons learned from the architecture and urbanism 
+of Old Bangkok, yielding an improved and timeless urban form that is meant to address 
+environmental, social, and cultural concerns of both the present and future. Along with 
+its plazas, parks and open spaces, the character and distinctly lush greenery of ONE 
+BANGKOK’s public realm continues vertically up into the towers within the district. Amenity 
+spaces, terraces and sky gardens will create a unique identity, connect occupants with 
+nature and improve the quality of life for workers, residents, hotel guests and visitors. 
+The density of ONE BANGKOK, paired with the thoughtful execution and striking 
+composition of its vertical amenities, make it a prominent and lasting addition to 
+Bangkok’s skyline. The signature tower, with a crown touching the sky, will look over the 
+whole district, Lumpini Park, and other areas of the city. 
+Core Values 
+People-Centric: Inspired by the city’s rich culture and history, ONE BANGKOK will 
+be integrated, accessible and inclusive. An exemplary center promoting new forms of 
+public participation, ONE BANGKOK is set to become a dynamic reflection of the city’s 
+bright and bold future; 
+Sustainability: Almost half of ONE BANGKOK is dedicated to green or open space. 
+With towers built to LEED Platinum (Leadership in Energy and Environmental Design) 
+and WELL (building standards backed by the latest scientific research) Standards, the 
+development sets new benchmarks for sustainability in Bangkok, aiming to become 
+the first LEED-Neighborhood Development (LEED-ND) development in Thailand. 
+These sustainability efforts create a circular society that understands the impact of 
+climate change on the environment and the evolving demographics of society. Smart 
+technology and sustainable practices allow people to enjoy the environment, clean air, 
+clean water and improved living conditions; appreciating what the world has to offer 
+today while also preparing a better environment for future generations. The goal is to 
+lessen the impact of climate change by reducing its carbon footprint and minimizing 
+CO2 emissions; and, 
+Smart City Living: ONE BANGKOK integrates smart technologies throughout the 
+district, pioneering efforts in cyber-security and facilitating the way people work, live, 
+and play. Smart city innovations in parking and traffic management, as well as 
+centralized utilities, security and safety, enhance the visitor and resident experience. 
+●
+●
+●
+
+C asean 17
+To speed up the process, it is critical to combine the “superpowers” of the people, public, 
+and private sectors under the People-Public-Private-Partnership model (or the 4Ps model). 
+The commonly used term is “Public-Private-Partnership” (or PPP), but we have decided to 
+include the “P for the People” in the equation because many recent examples of success, as 
+well as failure, of smart city projects around the world have demonstrated the critical need to 
+communicate with the people, thus galvanizing their support in the process. Because most 
+smart city solutions are novel solutions to open-ended challenges, their economic models 
+must be redesigned as well. We have recently witnessed the emergence of the so-called 
+“sharing economy” for vehicles, office spaces, equipment, services, and even homes. 
+Smart city investments take many forms, depending on the type of project. Municipalities, for 
+example, frequently invest entirely in projects that are primarily concerned with the public’s 
+interests and are less concerned with profit-making. On the other hand, the private sector 
+would prioritize investing in profit-driven projects. Ultimately, the “4Ps Model” is the third 
+most well-known type of investment. The 4Ps Model is a collaboration between the private 
+and public sectors in order to serve the needs of the people, reinforcing each sector’s 
+comparative advantage. 
+The public sector, in particular, would have greater clout on policy issues and legal 
+proceedings. Despite its status as a central authority, the public sector frequently faces 
+budget constraints, a lack of expertise in various fields, and a lack of incentives to develop 
+a sustainable business. At the same time, despite having greater capabilities in terms of 
+technology, digital literacy, innovation, and marketing, the private sector frequently 
+encounters administrative bottlenecks from the government. As a result, the 4Ps Model is a 
+perfect marriage of each sector’s comparative advantage. 
+The 4Ps Model has been proven to deliver tremendous success around the world, 
+A well-known example is a free high-speed wifi service. The private sector’s expertise in 
+delivering this service could help the public sector to provide broadband wifi to the citizens 
+to increase their engagement with the digital economy as well as provide safety. Often the 
+case is the local government’s lack of funding to implement such a project at an effective 
+scale; hence, the 4Ps Model comes into play in a form of the local government’s allowing the 
+private company to provide such service at no cost to the citizens. 
+The private implementing system integrator, instead, makes up for their investment in the 
+service via advertisements. In this case, everyone wins. Often, this service can be extended 
+to the domain of a “smart pole” whereby not only the high-speed wireless internet 
+connectivity is provided, but also other utilities such as air quality monitoring sensors, 
+closed-circuit cameras, electricity chargers, and so on. As the local government allows the 
+private system integrator to install these smart pools on the sidewalks and public spaces, 
+services can be provided whose cost is off-set by the revenue collected from advertisement, 
+limited use to citizens’ consensual data, and the real estate on the smart polls for various 
+services. The local government can also help the project by enacting a taxation policy 
+enabling experimentation while also lowering production costs.
+A Smart City 
+Incorporates the 4Ps 
+
+18 C asean 
+Some of the Expo’s most inspiring architecture will anchor the new District 2020 community. Photo: https:// 
+virtualexpodubai.com/sustainability-district/district-2020 
+Unlike previous Expos where pavilions and most buildings were erected only for the 
+duration of the proceedings, Expo 2020 plans to keep at least two-thirds of the buildings 
+to use after the event. The site of Expo 2020 will be transformed into “District 2020,” a 
+world-class innovation hub for startups and worldwide players in advanced technology. 
+Several influential corporations such as Siemens, Terminus, and DP World have already 
+agreed to be long-term tenants of District 2020. With an ambitious objective and strong 
+advantages like tax and rent-free business setup, it is easy to see how the project will 
+attract the “best and brightest” of the global startups. Expo 2020 Dubai cooperated with 
+world-class technology companies to design cutting-edge infrastructure that will easily 
+transition to use in research and development for digital innovation.
+A dashboard showing the ‘digital twin’ of the Expo 2020 (and soon to be District 2020) site whereby the industrial 
+internet-of-things platform collects data from sensors located across the site to maintain every aspect of the operation 
+e.g., energy, water supply, electricity, traffic, and incidents. Photo credit: Siemens
+Snapshot: District 2020 
+Every five years, nations gather in one location for a special six-month event called the 
+“World Expo.” The host city invites these nations to build “pavilions” — physical structures 
+that house exhibitions showcasing their unique selling points. This year’s Expo took place 
+at the city of Dubai in the United Arab Emirates (UAE). Though the global pandemic 
+pushed the event back a year to 2021, organizers stuck to its original name, “Expo 2020 
+Dubai.” It represents the first time that the Middle East, Africa, and South Asia held a major 
+event of this scale.
+
+C asean 19
+From the ground up, global technology company Siemens helped design a site that will 
+last beyond the Expo itself. The 4.6 square kilometer site has thousands of Internet of 
+Things (IoT) sensors that connect buildings, machines and facilities. Through the 
+company’s industrial IoT-as-a-service solution, the site is a smart city whose infrastructure 
+is digitally managed, optimized and automated. The IoT-as-a-service solution runs in the 
+background, but everyone who visits Expo and ultimately lives in District 2020 will benefit 
+from its operation. 
+In addition to the optimization of the operations, the solution will also reduce carbon 
+emissions, conserve water and energy and enhance comfort and security. For instance, 
+optimized decisions are automated by the system using data collected and stored in 
+the cloud to increase energy efficiency in buildings and water usage. This is especially 
+important in the Middle East, where buildings can consume up to 80% of the energy 
+supply. In other words, District 2020 is a model “smart city” for innovation where 
+technology works in the background and the KPIs of the cities are the wellbeing and 
+quality of life of the citizens. 
+For more information: https://www.district2020.ae/ 
+A Smart City is 
+Powered by Data 
+When Harvard Professor of Psychology Steven Pinker was asked what is “the one thing 
+that is wrong” with the world that he would change, he didn’t think twice before pointing 
+to the fact that “we humans are not perfect” and are therefore prone to surrender to the 
+cognitive bias of assessing the world through anecdotes and images rather than data and 
+facts. In other words, we tend to take “anecdotes as data,” and that which can’t be good.7
+Cities are fundamentally physical environments. We have discussed how technology must 
+work in the background to enable a better urban environment for the citizens. To do so, this 
+in-the-background technology needs data as a fuel. Whether that be an automated traffic 
+light or energy efficient algorithms, data is key. In the past when data was not easily 
+collected, we leveraged our beliefs, biases, and familiarity to make decisions. That’s the 
+best we could do. Today we are living in an era where we have the technology to collect 
+data in a fast, accurate and comprehensive way. 
+What we expect from technology is to use that data to make decisions better than we 
+humans can do. The use of digital technology connects data in order to benefit those living 
+in physical space. Many cities are developing their digital infrastructure to seamlessly work 
+with the physical one. 
+This intermediary “smart city platform” layer, which permits interactions between new 
+technologies and the physical environment, plays a key role in the smart city. An apt 
+metaphor of this smart city platform is a marketplace. A marketplace is created for the 
+demand to find the supply and vice versa. In this analogy, the demand is the need for smart 
+city services, while the supply is the services to be provided to the citizens. The smart city 
+platform is where the demand for and supply of data meets. In this sense, the job of this 
+“platform” or marketplace is to establish a data integration standard, allowing any services 
+to be easily “plugged and played” to serve the city. For instance, a delivery service that has 
+access to the traffic data can better service their customers. Cities, too, that know exactly 
+where the needs of the citizens are can provide those services quickly and effectively. 
+7 “One Thing to Change: Anecdotes Dren’t Data,” Harvard Gazette. 21 June 2019, https://news.harvard.edu/gazette/story/2019/06/focal-point-harvard-professor-steven-pinker-says-the-truth-lies-in-the-data/
+
+20 C asean 
+Making data open securely is an urban innovation in itself. Innovators profit from the open 
+data made available by this platform, allowing them to create new goods and services. In 
+contrast to the time it takes to develop a new building or city, we can establish a digital 
+service from the ground up in a matter of days or weeks, allowing people to reap the biggest 
+benefits from digital technology in the shortest amount of time. In the UK, for instance, the 
+government open data program publishes data to help better policy-making and continuous 
+improvement of services. Since the launch in 2018, open data has reduced massive amounts 
+of waste, created countless innovations and enhanced public services to the citizens. 
+It only makes sense to be protective of data, for it is gold in today’s Industry 4.0 era. Even 
+though users benefit from apps that collect their data, they are also increasingly aware of 
+their rights, and of the value of their data. No one would like to see their personal data 
+being abused, and no measure of benefits would compensate for severe data breaches and 
+cybersecurity attacks. Successful smart cities projects not only openly communicate these 
+concerns with the citizens, but pay close attention to addressing issues of personal data 
+protection and cybersecurity. For instance, the European Union’s General Data Protection 
+Regulation (GDPR) restricts the use of facial recognition in smart cities. Data collection needs 
+to be limited to essential services. High standards of data collection need to be established, 
+and citizens are asked to give meaningful consent to processing of personal data and analysis. 
+The layer-structure of smart city infrastructure, data, and service. Illustration: Korea Agency for Infrastructure Technology 
+Advancement (KAIA) 
+
+C asean 21
+Snapshot: 
+Smart City Iskandar Malaysia 
+Iskandar’s smart city program began in 2012 when the city was chosen as a pilot smart 
+city in Malaysia alongside four other significant cities. This effort is based on the Iskandar 
+Malaysia Development Framework which aims to improve the quality of life in Malaysia’s 
+first economic corridor. By transforming Iskandar into “A Strong and Sustainable Metropolis 
+of International Standing,” Iskandar Malaysia Smart City presents a ‘policy-to-practicality’ 
+(P2P) framework with a range of short, medium, and long-term co-development goals with 
+the citizens who are both the beneficiaries and drivers of the smart and sustainable city.
+In line with the notion outlined in this Primer, Iskandar Malaysia Smart City Framework 
+pragmatically places citizens at the core of smart city as a techno-social problem-solving 
+instrument. Through the use of data, purposeful digital technology works in the 
+background to create new services and solve existing problems. Prioritization tasks boost 
+the capacity of existing physical infrastructure and service fleets, freeing up resources 
+for more demanding jobs. Solutions include the use of drone and close-circuit cameras 
+(CCTV) for surveillance and enforcement, traffic management, as well as smart bins, and 
+IoT-powered streetscape.
+For example, Iskandar digital-led Community Crisis Preparedness Program makes extensive 
+use of the integrated data system pertaining to flood warning and water level monitoring to 
+identify sites and times when preventative and evacuation protocols should be in place. 
+Integrated with the river monitoring and management tools, Iskandar’s Urban Observatory 
+System serves as a central data platform for collaboration to solve issues in this flood-prone 
+area. Iskandar is creating a “digital twin” with data that will enable city management units to 
+see the capacity of water infrastructure in the case of flooding, leading to better preparedness.
+Iskandar’s IM Journey Planner is an another important project, which makes public 
+transportation more comprehensive, convenient, and inexpensive. The IM Journey Planner 
+connects commuters with service providers from the first to the last mile, leveraging data 
+collection and big data analytics as a “game changer” for urban transportation. Key traffic 
+infrastructure, such as the smart traffic signal system, is being created concurrently with 
+the development of big data analytics for the IM Journey Planner. The success is based 
+on the continued development of both services and infrastructure.
+Photo credit: Iskandar Regional Development Authority
+
+22 C asean 
+Design Thinking 
+as an Approach 
+to Smart Cities
+Over the past decades, “design thinking” has dominated the field of innovation. Experts 
+argue that what makes design thinking special and unique as a method to derive innovative 
+ideas is its focus on the users. 
+One might think, where else would you focus if not the customers? You would be surprised 
+to know that just a few decades ago, designers used to prioritize functionality over 
+user-friendliness. 
+The “design thinking turn” took place in the 1980s when designers began to embrace a 
+multi-disciplinary approach to innovation. For example, a mechanical engineer who knew 
+about psychology could design a machine that was both functional and viscerally attractive. 
+Even better, a mechanical engineer who knew about psychology and business could come 
+up with a product complete with a business model for bringing that product to the masses. 
+So, let’s dive in – what exactly is design thinking? 
+We have touched roughly on how design thinking is user-centric, but how so? 
+At the highest level, design thinking is a structured problem-solving process. Unlike the 
+previous era where functions were the focus, design thinking’s process doesn’t start with 
+what the designers want. Instead, it focuses on understanding the needs of the users, 
+creating solutions by leveraging knowledge from many fields, and constantly testing those 
+solutions. 
+At Stanford University, home to the “D-School” where design thinking is heavily incubated, 
+design thinking is thought of as a process whereby designers continue to learn and improve 
+upon initial ideas consisting of several stages: 
+
+C asean 23
+Empathizing: Designers assume the role of an anthropologist who religiously 
+observes potential users and works with them to fully understand their experience 
+of the problem. These problems – or “pain points” – initially appear unsolvable to 
+the user, consequently being treated as a given issue to work around. Designers 
+do not get ahead of themselves and jump to the conclusion as if they know what 
+to design. They accept that they don’t know and therefore use observation and 
+interaction with the user in order to understand the problems from the user’s 
+perspective. 
+Defining: Once understood from the perspective of the users, designers work 
+through the outputs of the empathizing stage to form a user’s point of view that 
+will be addressed in the solution design. Designers may make a list of pain points 
+they extracted from the previous stage, and then reorganize and prioritize them 
+in the most methodological way possible. 
+Ideating: Designers usually gather up all their friends specializing in a variety 
+of fields to explore lots and lots of ideas and generate a wide range of possible 
+solutions. 
+Prototyping: Designers have learned from previous-generations that it is risky 
+to take an idea directly into production without first creating a prototype. Designers 
+work with the so-called “rapid prototypes” to test their ideas with the users. 
+Through low fidelity, rapid prototypes, designers can learn a great deal about a 
+product’s practicality, efficacy, and ease of use. They will then take this information 
+to create a simple version of the product to test in the market. 
+Testing: This testing phase requires designers to put their prototypes to the 
+test with real users. The most crucial part of this stage is not to expect success 
+outright, but to receive feedback in order to reconsider. This feedback will enable 
+designers to improve the solution and test again. Many interesting products and 
+services fail not because of any fault of their own, but rather because they were 
+rushed to the market. As they say in Silicon Valley, it’s better to fail fast and fail 
+forward! 
+1. 
+2.
+3.
+4. 
+5. 
+
+24 C asean 
+A cartoon illustrating the importance of design thinking. Photo: https://vk.com/piterskii_punk_wall
+When following the above stages, it’s important to keep the following two points in mind.
+First, these five stages have to be followed in a consecutive order. For example, if you skip 
+from empathizing to ideating without defining your problem, you may find yourself ideating 
+on the wrong pain points, wasting valuable time and resources in the process. The most 
+calamitous outcomes are often the result of a designer skipping the fourth and fifth stages 
+(prototyping and testing) and going right to manufacturing for the market. There are numerous 
+examples of these failures and major companies and cities are not immune to this type of 
+failures. 
+Second, these five stages do not necessarily run in a straight-line progression. Many designers 
+may have to go back and forth between steps based on the continuous discoveries they 
+make along the way. For example, the testing stage may yield new information that could 
+send a designer back to ideating in order to prototype a better solution. 
+There is a comic strip that summarizes all the key points of design thinking. Why are these 
+parents cherishing a mobile sculpture that their toddler doesn’t benefit from the way the 
+parents do? 
+
+C asean 25
+Parents who follow the five steps will purchase a mobile that benefits the toddler. Citizens, 
+like toddlers, may not always have a channel through which to connect with city’s authorities. 
+While it’s natural for city officials to believe that they “know what’s best for the citizens,” this 
+approach runs the risk of completely missing the point as these parents in the comic strip 
+did. It’s always useful to begin with empathizing with the position from which the toddler is 
+experiencing the mobile. 
+Design thinking is a useful approach for cities to come up with a solution that works. In the 
+last two stages of design thinking, cities need to create a “sandbox” to test the solutions. 
+Vienna’s Aspern Seestadt positions itself as a “living lab” where new products and services 
+can be tested on real people in a true urban environment. As one of the largest and 
+most technologically advanced urban developments in Europe, over 100 researchers from a 
+range of different fields use vast quantities of real-time data from Aspern Seestadt to analyze 
+interactions and between the behavior of the residents and building technology especially in 
+energy-efficient buildings and cities. 
+Conducting applied research at the Aspern Seestadt urban development area since 2013 
+is Aspern Smart City Research (ASCR), which is a research consortium among partners in 
+both the public and private sectors namely Siemens Österreich, Wien Energie, Wiener Netze 
+and the City of Vienna (Vienna Business Agency and Wien 3420). The “living lab” concept 
+has increasingly received recognition as the most efficient way of testing new technologies, 
+which Aspern Seestadt isn’t shy of trying out in order to derive the most livable outcomes 
+for the residents.
+
+26 C asean 
+Innovation from 
+YSEALI Talents
+The 2021 Young Southeast Asian Leaders Initiative (YSEALI) Smart Cities Regional Workshop is a program 
+funded by the U.S. Department of State, organized by the U.S. Embassy Bangkok, in partnership with 
+the Foundation for the Institute of Social Enterprise Development (FINSEDT) and C asean, to encourage 
+meaningful interaction among emerging leaders in Southeast Asia. With “Digital Solutions-Aided Smart City 
+Development” as the theme for the workshop, 20-35 future leaders from all ten ASEAN member nations 
+and Timor-Leste teamed up with experienced mentors to discuss both the opportunities and challenges 
+that new technology presents to urban development. Participants also generated and presented projects 
+in the form of professional “agile startups” that proposed potential solutions to very real issues. Although 
+the Workshop has concluded, the projects are continuing in various stages of implementation. Below are 
+three winners’ project summaries, as well as comments from the expert panel reviewing the projects.
+
+C asean 27
+Wasterant
+Cities consume, but this does not have to be a bad thing. 
+Wasterant is a digital platform that automates the sorting of food 
+waste into regions where it may be repurposed, is based on 
+circular economy concepts. All types of waste are included: food 
+scraps, kitchen garbage, and biodegradable waste; commercial 
+waste, such as plastics, cardboard, paper, and glass; building 
+and demolition waste, such as scrap metal, surplus wood, and 
+rubble; clothing and fabrics; and electronic waste. The idea is to 
+breathe new life into these items. The key to this solution’s success 
+is awareness. Through a constant informational effort, this project 
+reinforces local knowledge of reusable materials.
+Next Steps:
+Wasterant is an online platform for waste management 
+providing business solution to transform almost all types of 
+wastes to be tradable for reuse. 
+Through raising awareness on garbage sorting and upcycling 
+the sorted waste, the trash will be reused as raw materials 
+to create new products, thus reduce the operation costs 
+and generate lower environmental impact because less 
+virgin materials will be extracted to create new products 
+and less waste will be ended up in the landfill or incinerator. 
+However, collaboration among stakeholders, including 
+Producers (Shops, Restaurants, Offices, Hotels, Homes, 
+Processors, Gardeners/Farmers, Municipal Services, local 
+government, activists etc.), as well as data transparency, 
+and a balance between waste producers and the 
+processors of the wastes are critical to the success of this 
+initiative. The program will not only bring economic benefit 
+to the local government in term of lower waste collection rate 
+but also provide additional income to garbage sorter plus job 
+opportunities to local communities. 
+Location: Minglanilla, Cebu, Philippines 
+YSEALI Alumni:
+Angelica Añabeza 
+Ilman Hanifa Yunardi 
+Jean Sonia P Langi 
+SORTING
+WASTE
+When segregated properly, waste has 
+plenty of potential for reuse. We aim to 
+target businesses as the main users of the 
+app, encouraging them to sort their waste 
+for an additional source of revenue stream.
+PICK UP AND
+DELIVERY
+Once transactions are made, the app 
+will facilitate pick up and delivery through 
+ride-hailing services. This optimizes waste 
+collection to your specific needs, making it 
+highly flexible and convenient.
+ONLINE
+COMMERCE
+The app acts as an online marketplace for 
+all prospective consumers and suppliers. 
+We hope to offer a huge variety of wastes 
+which can all be traded for reuse.
+UPCYCLING
+Once the waste is received by the buyer, 
+it can now be reused through upcycling 
+into new materials and goods. This in turn 
+reduces overall costs as it’s cheaper than 
+sourcing them newly made.
+
+28 C asean 
+Zappy 
+Zappy essentially functions as a “Tripadvisor” for public transport. It is a public 
+transportation feedback company that gives travelers peace of mind by providing 
+information through a web app. Transit operators can use the analytics platform to 
+visualize data-driven mobility insights that can be used to improve their services and 
+provide a better customer experience. By combining data expertise and domain 
+knowledge in public transportation, we hope to improve the urban transit 
+experience with the web application www.zappytrip.com. The finalized user journey 
+for Zappy is as follows: 1) The route can be chosen by the user (From location A to 
+location B); 2) Users can choose from a variety of public transportation options (bus, 
+train) and see the feedback and ratings for the chosen route and public transportation 
+which the users themselves can provide; and 3) the user can see a carbon footprint 
+calculator. All of this makes Zappy a unique experience for commuting.
+Next Steps:
+In brief, Zappy is an “Integrated Public Transportation System” 
+solution via a web application (www.zappytrip.com), that shows 
+choices of routes with different modes of transportation 
+(bus and train). Features like the “Journey Planner,” the 
+“Feedback System” and “Carbon Footprint Calculator” make 
+this solution interesting that they create new experience for 
+the customers and are useful for the government since the 
+feedback on public transportation can be used to improve 
+terms of reference or conditions in the subsequent concession 
+tender. 
+Therefore, public private partnership is critical to the success 
+of this initiative since the collaboration will allow the growing 
+numbers of riders to get synchronized and analyzed data, 
+e.g., bus & train locations (through GPS tags), traffic 
+information, etc. in real time of City Data Platform. 
+It is hoped that Zappy can improve urban transit experience 
+for customers by coming up with new practical features 
+including one single page feature for all actions from 
+searching and comparing routes to payment.
+Location: Kuala Lumpur, Malaysia
+YSEALI Alumni:
+Arden Linh Nguyen 
+Danesya Ananda Rahmat 
+Hoh Jia Da 
+Krister Roquel 
+Namtip Pornchokchai 
+Sackdavong Mangkhaseum 
+
+C asean 29
+E-Wise 
+E-wise is an e-waste recycling initiative aimed at encouraging citizens to adopt a 
+green lifestyle through correct e-waste recycling practices. We’re working on an 
+online application as an innovative solution to help end-users, merchants, and 
+manufacturers recycle e-waste and close the loop on electrical and electronic trash. 
+Our business strategy entails a variety of functions, with our web program serving as 
+the backbone for tracking e-waste recycling operations. When consumers need to 
+dispose of e-waste, an app is available at their fingertips that allows them to find the 
+closest convenient collection sites, such as electronics and mobile phone retail 
+establishments. E-waste will then be transferred to authorized recycling locations. 
+With E-wise, users can track their waste or volunteer to be a shipper, collecting up 
+other people’s e-waste in exchange for a promotional voucher for their social contribution. 
+E-wise is a scalable approach that aids producers in fulfilling their extended producer 
+obligations (EPRs) and society in taking joint environmental.
+Next Steps:
+E-Wise is an Integrated Mobile Application designed to 
+become a reliable digital platform for Electronic Waste 
+(e-waste) collecting activities (segregation, collection, and 
+treatment activities). Users can search for nearby drop-off 
+points, or possibly schedule a professional pick-up at home. 
+The benefits for both end users are clear and obvious, but 
+additional incentives like coupons and rewards programs 
+could be incorporated as the platform develops. 
+Collaboration between stakeholders and efficient logistics 
+are the key enablers because their contributions will allow 
+cost minimization for recycling process for manufacturer, 
+daily e-waste storage for retailers, and convenient stores. 
+Since daily usage and amount of e-waste in unpredictable, 
+thus a take-back program of manufacturers might be initiated 
+as a subsidy from manufacturers who wish to reduce carbon 
+emissions in their products’ life cycle. Most importantly, 
+personal data protection should be strictly implemented 
+throughout the process. 
+ 
+Location: Ho Chi Minh City, Vietnam
+YSEALI Alumni:
+Brenda Nathania Passandaran 
+Mohammad Wahyu 
+SiddArtha Valle 
+Thanakorn Thanasujaree 
+Vo Hong Phung 
+
+30 C asean 
+Putting It All Together
+8 Jennifer Clark, “What Cities Need Now,” MIT Technology Review, 28 April 2021, https://www.technologyreview.com/2021/04/28/1023104/smart-cities-urban-technology-pandemic-covid/ 
+Realizing that the future will demand three things. First, creators of smart city 
+technology must draw on specialized knowledge of the local context. Second, 
+we need a framework for data governance: agreements on how data is collected, 
+shared, and used. And finally, public participation is essential. Simply put, the way 
+forward is to respond to the needs of the community, not the motives of industry.8 – 
+Dr. Jennifer Clark, Professor of City and Regional Planning at Ohio State University 
+First, it is the people, not the technology, that are at the heart of a smart city. This is an 
+extremely important point that cannot be overstressed. Most, if not all, failures are caused 
+by a mismatch between user demand and available technology vendors. Tech corporations 
+may desire to impose on citizens, whether or not they are relevant or acceptable to the setting. 
+Second, we must focus on value rather than optimization. Many organizations can be 
+understandably preoccupied with optimization, however over-optimizing can lead to cheap 
+products and services with no value to the end user. 
+Third, there is a genuine need to facilitate the discourse among all important players in the 
+smart city, including private entrepreneurs and potential investors with the technology and 
+business model to drive smart cities; all of them should be present at the same time. 
+Fourth, we need more open data for all citizens, which has been proven to promote 
+confidence and transparency among beneficiaries and the government, as well as to spark 
+innovation that could lead to robust solutions in the future. 
+Fifth, because leadership drives the process, we want to collaborate with cities that have 
+effective governance through visionary and practical leadership. This does not always mean 
+strong leadership but rather “empathetic leadership” capable of inspiring everyone at the 
+table to fulfill their greatest potential. 
+It is hoped that this little primer has convinced you that all of us have a meaningful responsibility 
+not only to the environment we all share, but also to the people for whom our designs are meant. 
+Because of economical and effective technologies, we can now accomplish far more with less 
+time, resources, and effort. We can serve more people while minimizing the negative impact 
+on what we all value. 
+Let’s do this together.
+
+C asean 31
+Guidelines for Smart 
+City Development
+From 2015 to 2025, urbanization is predicted to continue throughout all ASEAN Member 
+States, resulting in an additional 70 million urban dwellers in the area. Urbanization has 
+dominated mid-sized metropolitan centers with populations of 500,000 to 5 million people, 
+as well as megacities like Bangkok and Jakarta. Rapid urbanization has created problems 
+and challenges in ASEAN Member States, affecting areas such as people’ quality of life, the 
+environment, and infrastructure.
+In 2018, ASEAN nations came together to establish the ASEAN Smart Cities Network 
+(ASCN), a collaborative platform where cities from the ten ASEAN Member States address 
+such concerns and challenges and give new value to citizens by leveraging data and digital 
+infrastructure. By focusing on our people, ASCN adopts an inclusive approach to smart city 
+development that respects human rights and basic freedoms as stipulated in the ASEAN 
+Charter and helps to improve cross-cultural understanding.
+On a conceptual level, ASCN’s main concepts for smart city development cast a wider net, 
+namely, facilitating smart city development collaboration, catalyzing bankable initiatives with 
+the private sector, and garnering finance and assistance from ASEAN’s external partners. 
+Practical recommendations have also been developed to help speed up the development 
+process. The overall goal of development begins with the classification of the type 
+of development. The “Five Things to Consider” assists the city in developing a complete 
+strategy to avoid making the mistakes addressed in the Smart City Is Citizen-Centric 
+section. Finally, the “Seven Domains of Smart City” breaks down the smart city program into 
+solution-oriented tasks, making it easier for the assessment. 
+
+32 C asean 
+Two Types of Smart City Development 
+First and foremost, smart city candidates should determine which type of smart city they 
+aspire to become. Determining which type is a result of both the citizen-centric understanding 
+of the city and an evaluation of its potential for development, whether that be socioeconomic, 
+educational, or industrial. 
+To be developed into a “Smart Livable City,” the existing city needs to incorporate and 
+integrate technology and innovation, as needed by its residents, that vary by the city’s 
+specific contexts, including infrastructure, social services, housing, recreational areas, and 
+commercial resources, as well as the design of urban spaces contributing to the rich existing 
+culture, tradition, and identity of the city as a whole. 
+While a “Smart Livable City” makes use of technology and innovation as needed by its 
+specific contexts, a “New Smart City” focuses on development based on land (e.g., greenfield 
+or brownfield), labor, and ample opportunity for new development in line with certain national 
+policies.
+Five Steps to Consider 
+There are five criteria for measuring the potential of a smart city program: 
+1. Identifying geographical boundaries, smart city type, smart city vision and goals. This 
+process requires the active participation of the citizens to ensure that the visions and goals 
+fit well with the needs of the city and sit well with the core competency of the city in a long term; 
+2. Formulating an infrastructural development and investment plan for both digital and 
+basic infrastructure such as transportation, energy, and public services; 
+3. Designing a data storage and management platform (also commonly known as City 
+Data Platform or CDP) as well as cybersecurity for the city and its residents. Synergizing with 
+the physical infrastructure, the design of the digital infrastructure fosters the use of big data 
+analytics in the operation of IT services in the city; 
+4. Building urban systems, activities, and projects per the proposed type of Smart City, 
+encompassing both mandatory and supplementary services as appropriate; and 
+5. Creating a management model and process of public participation incubation for a 
+sustainable operation. 
+Often, cities are encouraged to use tools from both the Design Thinking and Business 
+Model Canvas (BMC) schools of thought that are widely used among creative 
+entrepreneurs. These tools are useful as they facilitate not only productive communication 
+among the stakeholders, but also provide a layout for the overall process of smart city 
+development and promotion. 
+
+C asean 33
+Seven Domains of Smart City 
+As a process, the smart city is characterized by seven domains, which serve both to guide 
+operation and to benchmark success. Also based on extensive research, these seven 
+domains of smart city are seen to encompass all value, virtue, and viability of a smart city 
+program: 
+Smart Environment: As the must-have and most important domain of a smart city, 
+the guiding question is how to improve the ecological quality of a sustainable urban 
+environment? The goal is to minimize the negative impact of urban living on the environment 
+and climate change through the systematic use of technology as applied to water resource 
+management, climate monitoring, waste management, and disaster watch, including public 
+participation in the conservation of natural resources. 
+Smart Economy: How can technology be used to help improve the economy and 
+manage available resources more efficiently? The goal is to make full use of digital technology 
+to effectively increase value-add in the economic system as well as resource management, 
+such as a smart agro-city and a smart tourism city. 
+Smart Mobility: How can technology be used to solve traffic problems in the city so 
+people can travel conveniently, efficiently, sustainably, and safely? This domain places an 
+emphasis on the development of traffic and transportation systems in driving the country 
+forward. By enhancing the connectedness of a variety of traffic and transportation systems, 
+urban residents benefit from enhanced convenience and safety, and by becoming friendlier 
+to the environment. 
+Smart Energy: How can conserving the use of non-renewable energy be balanced with 
+producing alternative sources of clean energy? This domain spearheads effective energy 
+management and the building of a fine balance between the production and usage of energy 
+to enhance energy security and decrease reliance on the traditional channels of energy 
+distribution. 
+Smart People: How can the skills of people in the city be developed to boost creativity 
+and create more jobs? The goal is to improve the knowledge base, skill sets, and 
+environment that are conducive to the life-long learning of urban residents to decrease 
+social and economic inequality and provide new opportunities for creativity, innovation, and 
+public participation. 
+Smart Living: How can innovation be used and the quality of life of people in the city be 
+improved to make them safe and happy? Hence, the goal is to maximize health, safety, and 
+the quality of life of urban residents through universal design. 
+Smart Governance: How can a digital system be designed where people can benefit from 
+big data, improving public service in the city? The goal is to develop the system of public 
+services to benefit the residents whose access to data and trust in the accountability of such 
+a system are key to their livelihood and wellbeing. The system shall be consistently improved 
+through applied service innovation.
+
+34 C asean 
+Books: 
+British Embassy Bangkok and Digital Economy Promotion Agency. 2020. Smart City Thailand Handbook. https://eu.eventscloud.
+com/ehome/index.php?eventid=200214113& 
+Caminos, Horacio, and Reinhard Goethert. 1978. Urbanization Primer. Cambridge, Mass: MIT Press. 
+Cusumano, Michael A., Annabelle Gawer, and David B. Yoffie. 2019. The Business of Platforms : Strategy in the Age of Digital 
+Competition, Innovation, and Power. First edition. New York, NY: HarperCollins Publishers. 
+Glaeser, Edward L. 2011. Triumph of the City : How Our Greatest Invention Makes Us Richer, Smarter, Greener, Healthier, and 
+Happier. New York: Penguin Press. 
+Green, Ben. 2019. The Smart Enough City. Cambridge: MIT Press. 
+Gassmann, Oliver, Jonas Böhm, and Maximilian Palmié 2019. Smart Cities : Introducing Digital Innovation to Cities. Bingley, 
+England: Emerald Publishing. 
+Florida, Richard. 2017. The New Urban Crisis. London: Oneworld Publications.
+Furlonger, David, and Christophe Uzureau. 2019. The Real Business of Blockchain : How Leaders Can Create Value in a New 
+Digital Age. Boston: [Harvard Business School Publishing Corporation]. 
+Halegoua, Germaine R. 2020. Smart Cities. Cambridge, Massachusetts: The MIT Press. 
+Kelley, Tom, and Jonathan Littman. 2007. The Art of Innovation. The Art of Innovation : Lessons in Creativity from IDEO, America’s 
+Leading Design Firm. 1st ed. Westminster: Crown/Archetype.
+Kelley, Tom, and Jonathan Littman. 2005. The Ten Faces of Innovation : IDEO’s Strategies for Beating the Devil’s Advocate & Driv -
+ing Creativity Throughout Your Organization. New York: Currency/Doubleday.
+Krishnan, Saravanan, Valentina E Balas, Julie Golden, Y. Harold Robinson, and Raghvendra Kumar Kumar. 2021. Blockchain for 
+Smart Cities. San Diego: Elsevier.
+Sklair, Leslie. 2017. The Icon Project : Architecture, Cities, and Capitalist Globalization. New York, NY: Oxford University Press. 
+Montgomery, Charles. 2013. Happy City : Transforming Our Lives through Urban Design. First edition. New York: Farrar, Straus and Giroux. 
+Reichental, Jonathan. 2020. Smart Cities for Dummies. Newark: John Wiley & Sons, Incorporated. 
+Sautoy, Marcus Du. 2019. The Creativity Code : Art and Innovation in the Age of AI. Cambridge, Massachusetts: The Belknap 
+Press of Harvard University Press.
+Speck, Jeff. 2012. Walkable City : How Downtown Can Save America, One Step at a Time. 1st ed. New York: Farrar, Straus and Giroux. 
+Townsend, Anthony M. 2013. Smart Cities : Big Data, Civic Hackers, and the Quest for a New Utopia. First edition. New York, NY: 
+W.W. Norton & Company, Inc. 
+Vives, Antoni. 2018. Smart City Barcelona : the Catalan Quest to Improve Future Urban Living. Brighton; Portland: Sussex Academic Press. 
+Resources on Smart Cities 
+
+C asean 35
+Online Resources:
+ASEAN Smart Cities Network: https://asean.org/our-communities/asean-smart-cities-network/ 
+Aspern Seestadt: https://www.aspern-seestadt.at/en 
+Bee Smart City: https://www.beesmart.city/ 
+Behavioral Insights: https://www.bi.team/
+Bentley Digital Twins: https://www.bentley.com/en/products/product-line/digital-twins
+Bloomberg CityLab: https://www.bloomberg.com/citylab 
+City Possible: https://citypossible.com/ 
+District 2020: https://www.district2020.ae/
+Top 50 Smart City Governments: https://www.smartcitygovt.com/top50-smartcitygovernments 
+International WELL Building Institute: https://www.wellcertified.com/ 
+MIT Technology Review: https://www.technologyreview.com/topic/smart-cities/ 
+MIT Senseable City Lab: https://senseable.mit.edu/ 
+Open Learn Smart Cities: https://www.open.edu/openlearn/mod/oucontent/view.php?id=67877 
+Smart Cities on Open Learn: https://www.open.edu/openlearn/mod/oucontent/view.php?id=67877 
+Smart Cities World: https://www.smartcitiesworld.net/home 
+Smart Cities Dive: https://www.smartcitiesdive.com/ 
+Smart Cities Council: https://www.smartcitiescouncil.com/ 
+Startup Estonia: https://startupestonia.ee/en 
+
+36 C asean 
+
+C asean 37
+Acknowledgements
+ 
+This book features the insights from the 2021 YSEALI Smart Cities Regional Workshop, which brought together 50 participants who 
+are between the ages of 20-35 and are registered YSEALI network members from all ASEAN member nations as well as Timor-Leste. 
+Funded by the U.S. Department of State, organized by the U.S. Embassy Bangkok, in partnership with the Foundation 
+for the Institute of Social Enterprise Development (FINSEDT) and C asean, the Workshop aimed to enhance participants’ 
+knowledge of smart cities as well as to explore how to involve civil society and small and medium enterprises (SMEs) in smart city 
+development in the region. The ultimate goal is to foster a strong network among participants and to encourage greater involvement 
+from young leaders, civil society, and SMEs in smart city development, while increasing capacity of future leaders to develop 
+sustainable solutions to urbanization challenges in the region, using digital and other tools.
+
+38 C asean 
+Executive Editors:
+Tongjai Thanachanan
+Sansana Malaiarisoon 
+Content Editors:
+Non A 
+Reilly Paul Rabitaille
+Content Support:
+ASEAN Smart Cities Network
+Calvin Chu, Eden Strategy Institute
+Digital Economy Promotion Agency (depa) and Smart City Thailand Office
+Fraser Property Holdings (Thailand) Company Limited
+One Bangkok Company Limited
+TCC Assets (Thailand) Company Limited
+TedX Siriraj Faculty of Medicine, Bangkok
+U.S. Embassy Bangkok
+2021 YSEALI Smart Cities Regional Workshop
+Speakers Delivering Presentations from Which Ideas in 
+this Primer are Extracted:
+Agapol Na Songkhla, Ami Valdemoro, Hugh Lim, and Khwanjira Ponsree. 
+Future Leaders in ASEAN Smart City.
+Audrey Maximillian Herli. Smart City Lab Workshop: 
+Strategic Planning & Sustainable Development for Smart Cities–Health.
+Chadchart Sittipunt. Infrastructure of ASEAN’s Future Smart Cities.
+Hanh Le. Smart City Lab Workshop: Strategic Planning & Sustainable Development 
+for Smart Cities – Built Infrastructure.
+Helen Santiago Fink. Urban System Integration and Nature-based Solutions 
+for Sustainability.
+Irza Suprapto and Valerie Tan. Smart City Lab Workshop: Strategic Planning and 
+Sustainable Development for Smart Cities – Industry.
+Lisa Teo. Smart City Lab Workshop: Strategic Planning & Sustainable Development 
+for Smart Cities–Quality Environment.
+Maimunah Jaffar. Strategic Planning and Sustainable for Smart Cities.
+Contributors
+
+C asean 39
+Non Arkaraprasertkul. Trends Affecting the Development of a Smart City.
+Sanon Wangsrangboon. Smart City Lab Workshop: Strategic Planning & Sustainable 
+Development for Smart Cities–Civil & Social.
+Suchatvee Suwansawat. City for All – Social Well-Being in Smart Cities.
+Tham Borg Tsien. ASEAN Smart Cities Network.
+Triyuth Promsiri. Design Thinking.
+Yudhistira Nugraha. Smart City Lab Workshop: Strategic Planning & Sustainable 
+Development for Smart Cities–Safety.
+2021 YSEALI Smart Cities Regional Workshop
+Alumni: 
+Angelica Añabeza 
+Arden Linh Nguyen 
+Brenda Nathania Passandaran 
+Danesya Ananda Rahmat 
+Hoh Jia Da 
+Ilman Hanifa Yunardi 
+Jean Sonia P . Langi 
+Krister Roquel 
+Mohammad Wahyu 
+Namtip Pornchokchai 
+Sackdavong Mangkhaseum 
+SiddArtha Valle 
+Thanakorn Thanasujaree 
+Vo Hong Phung 
+Coordinator: 
+Pasita Marukee
+Artwork:
+Bhornmon Tunmhasmut
+
+40 C asean 
+About C asean 
+C asean is a not-for-profit organization established in 2013. Our vision is “Collaboration for the better of ASEAN’s 
+connectivity.” C asean strives to be a hub for ASEAN entrepreneurs and ASEAN future generations focusing on business, 
+arts and culture. In the business arena, we aim to promote sustainable development practices across all segments of 
+the economy, ranging from large corporations to entrepreneurs and youth. Through our various activities, we also play a 
+part in leadership & talent development for the region while fostering integration of business leaders into wider regional 
+ASEAN network. Equally important, C asean serves as a platform for ASEAN art and cultural dialogues, as we believe 
+that art is an essential tool to blend our heritages and create a special bond of harmonious friendship as well as a 
+distinctive ASEAN identity. 
+
+C asean 41
+
+42 C asean

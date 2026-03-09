@@ -1,0 +1,101 @@
+city_id,cohort,manifest_status,city_type,country,inclusion_rationale
+th-bangkok,Southeast Asia,locked,primary,Thailand,"User anchor and regional benchmark for hospitality, economic dynamism, and affordability-pressure tradeoffs."
+sg-singapore,Southeast Asia,locked,primary,Singapore,"Global convenience benchmark included to test how systems quality interacts with pressure, cost, and meaning."
+my-kuala-lumpur,Southeast Asia,locked,primary,Malaysia,"User anchor and regional economic core with strong competitiveness, connectivity, and mixed affordability."
+id-jakarta,Southeast Asia,provisional,primary,Indonesia,"Necessary Southeast Asian benchmark for scale, competitiveness, and infrastructure-pressure tradeoffs."
+ph-makati,Southeast Asia,provisional,primary,Philippines,"Metro-core Philippine test case included for business density, services, and lived-affordability stress."
+my-george-town,Southeast Asia,locked,secondary,Malaysia,"User anchor for semiconductor economy, cultural texture, and secondary-city livability."
+th-phuket,Southeast Asia,locked,secondary,Thailand,"User anchor and tourism-livability stress test for cost, safety, and service quality."
+th-chiang-mai,Southeast Asia,locked,secondary,Thailand,"User anchor for creativity, secondary-city ambition, and lifestyle viability."
+my-kuching,Southeast Asia,locked,secondary,Malaysia,User anchor included as a calmer secondary-city comparator with strong everyday livability appeal.
+th-hat-yai,Southeast Asia,provisional,secondary,Thailand,Southern Thai trade and services challenger included to test regional depth beyond capital-city bias.
+tw-taipei,East Asia,locked,primary,Taiwan,"High-systems, high-street-life benchmark aligned with earlier SLIC discussion."
+kr-busan,East Asia,locked,primary,South Korea,"User anchor for second-city infrastructure quality, coastal livability, and economic competence."
+cn-shanghai,East Asia,provisional,primary,China,Economic gravity benchmark included to test how mega-city capability meets affordability and civic-pressure tradeoffs.
+cn-shenzhen,East Asia,provisional,primary,China,Innovation and manufacturing benchmark included for productive economic strength and high-pressure urban modernity.
+jp-hiroshima,East Asia,provisional,primary,Japan,Provisional Japanese primary candidate with stronger everyday scale than megacity peers.
+kr-jeju-city,East Asia,locked,secondary,South Korea,"User anchor for lifestyle quality, hospitality, and island-scale livability."
+jp-fukuoka,East Asia,locked,secondary,Japan,"User anchor and strong challenger city for innovation, access, and livability balance."
+jp-kobe,East Asia,locked,secondary,Japan,User anchor included as a port-city benchmark with strong urban form and quality-of-life reputation.
+jp-sapporo,East Asia,locked,secondary,Japan,User anchor and climate-diversified challenger with strong everyday manageability.
+cn-tianjin,East Asia,provisional,secondary,China,"Secondary East Asian challenger included for industrial relevance, port-city utility, and relief from capital-city prestige bias."
+in-bengaluru,South Asia,locked,primary,India,Primary South Asian innovation benchmark included despite affordability and infrastructure pressures.
+in-hyderabad,South Asia,locked,primary,India,Paired with Bengaluru as a competitiveness and opportunity benchmark for South Asia.
+lk-colombo,South Asia,locked,primary,Sri Lanka,Regional capital-city comparator with manageable scale and stronger coastal livability potential.
+bd-dhaka,South Asia,provisional,primary,Bangladesh,High-pressure megacity included provisionally as a contrast case inside the South Asian universe.
+pk-karachi,South Asia,provisional,primary,Pakistan,Provisional large-metro comparator included to keep the South Asian candidate field honest and broad.
+pk-lahore,South Asia,locked,secondary,Pakistan,Secondary challenger included for cultural weight and regional importance.
+bd-chattogram,South Asia,locked,secondary,Bangladesh,Secondary port-city comparator for industrial relevance and everyday-scale testing.
+np-kathmandu,South Asia,provisional,secondary,Nepal,Provisional cultural and tourism-weighted challenger with strong environmental tradeoffs.
+bt-thimphu,South Asia,locked,secondary,Bhutan,"Smaller-scale South Asian challenger included for governance, environment, and lifestyle contrast."
+mv-male,South Asia,locked,secondary,Maldives,"Island-city comparator included for service quality, compactness, and extreme spatial constraints."
+fr-paris,Western and Northern Europe,locked,primary,France,User anchor and global cultural capital included as a prestige city that SLIC can re-score through affordability and pressure.
+at-vienna,Western and Northern Europe,locked,primary,Austria,User anchor included as a conventional benchmark that SLIC can test against pressure and creative vitality.
+ch-zurich,Western and Northern Europe,locked,primary,Switzerland,High-convenience benchmark included so SLIC can visibly penalize cost where necessary.
+nl-amsterdam,Western and Northern Europe,provisional,primary,Netherlands,"Provisional benchmark for global talent pull, openness, and cost pressure."
+dk-copenhagen,Western and Northern Europe,provisional,primary,Denmark,"Provisional systems-quality comparator included for mobility, governance, and cost tradeoffs."
+at-graz,Western and Northern Europe,locked,secondary,Austria,User anchor and secondary Austrian challenger with lower prestige bias than Vienna.
+pt-porto,Western and Northern Europe,locked,secondary,Portugal,"Secondary-city benchmark for cultural pull, walkability, and relative affordability."
+pt-braga,Western and Northern Europe,locked,secondary,Portugal,Secondary Portuguese challenger with strong everyday livability and university-city energy.
+ee-tallinn,Western and Northern Europe,locked,secondary,Estonia,Digitally competent northern-European challenger with manageable scale.
+fi-helsinki,Western and Northern Europe,provisional,secondary,Finland,"Provisional Nordic comparator included for systems quality, climate, and cost balance."
+ru-moscow,Southern/Eastern Europe and Eurasia,locked,primary,Russia,"User anchor included for scale, culture, infrastructure depth, and Eurasian comparability."
+hu-budapest,Southern/Eastern Europe and Eurasia,locked,primary,Hungary,"User anchor with strong urban form, culture, and affordability relative to western peers."
+pl-krakow,Southern/Eastern Europe and Eurasia,locked,primary,Poland,"User anchor and strong central-European benchmark for heritage, education, and secondary-scale quality."
+ro-bucharest,Southern/Eastern Europe and Eurasia,locked,primary,Romania,Regional capital included for affordability-competitiveness balance and infrastructure trajectory.
+rs-belgrade,Southern/Eastern Europe and Eurasia,locked,primary,Serbia,"Regional challenger included for dynamism, hospitality, and lower-cost competitiveness."
+ru-nizhny-novgorod,Southern/Eastern Europe and Eurasia,provisional,secondary,Russia,User-referenced Russian challenger included provisionally as a second-tier Eurasian comparator.
+pl-katowice,Southern/Eastern Europe and Eurasia,locked,secondary,Poland,User anchor included for industrial-transition competitiveness and metro-scale livability.
+pl-gdansk,Southern/Eastern Europe and Eurasia,locked,secondary,Poland,User anchor included for port-city vitality and Baltic urban quality.
+pl-torun,Southern/Eastern Europe and Eurasia,provisional,secondary,Poland,User-referenced university-city challenger retained provisionally for follow-up data testing.
+sk-bratislava,Southern/Eastern Europe and Eurasia,provisional,secondary,Slovakia,"Secondary central-European challenger included for affordability, cross-border access, and competitiveness."
+us-chicago,North America,locked,primary,United States,"U.S. control city included for scale, connectivity, and relative affordability within the American field."
+mx-mexico-city,North America,locked,primary,Mexico,"North American megacity benchmark included for urban energy, culture, and affordability tension."
+ca-toronto,North America,provisional,primary,Canada,High-cost North American comparator included to test whether strong services can offset pressure.
+pa-panama-city,North America,locked,primary,Panama,"Regional gateway benchmark included for connectivity, investment, and logistics-driven vitality."
+cr-san-jose,North America,locked,primary,Costa Rica,"Smaller North American capital benchmark included for education, healthcare, and relative stability."
+us-pittsburgh,North America,locked,secondary,United States,"Secondary U.S. challenger included for education, healthcare, and value relative to coastal hubs."
+ca-montreal,North America,locked,secondary,Canada,"Secondary Canadian benchmark with strong culture, transit, and urban texture."
+mx-guadalajara,North America,locked,secondary,Mexico,"Secondary Mexican challenger for entrepreneurship, liveability, and cost competitiveness."
+pr-san-juan,North America,provisional,secondary,Puerto Rico,"Caribbean urban challenger included provisionally for climate, connectivity, and services testing."
+mx-merida,North America,provisional,secondary,Mexico,Lower-pressure Mexican challenger included provisionally for safety and lifestyle contrast.
+br-sao-paulo,Latin America,locked,primary,Brazil,User anchor and Latin American scale benchmark for competitiveness and opportunity.
+ar-buenos-aires,Latin America,locked,primary,Argentina,"Primary benchmark for culture, human capital, and urban texture across Latin America."
+cl-santiago,Latin America,locked,primary,Chile,Regional systems-quality benchmark included to compare efficiency against cost and social strain.
+co-bogota,Latin America,locked,primary,Colombia,"Primary comparator for scale, transit reform, education, and competitiveness."
+pe-lima,Latin America,provisional,primary,Peru,Provisional Pacific-capital comparator included for scale and coastal livability tradeoffs.
+br-curitiba,Latin America,locked,secondary,Brazil,"Secondary benchmark for planning reputation, mobility, and relative affordability."
+co-medellin,Latin America,locked,secondary,Colombia,"Secondary challenger for entrepreneurship, hillside transit, and urban transformation."
+uy-montevideo,Latin America,locked,secondary,Uruguay,Lower-pressure South American benchmark with strong civic and social indicators.
+ar-cordoba,Latin America,provisional,secondary,Argentina,"Secondary Argentine challenger included provisionally for education, cost, and regional depth."
+cl-valparaiso,Latin America,provisional,secondary,Chile,Port-city challenger included provisionally for culture and coastal public-life potential.
+ae-dubai,Middle East,locked,primary,United Arab Emirates,Regional convenience and connectivity benchmark included to test cost and social texture tradeoffs.
+ae-abu-dhabi,Middle East,locked,primary,United Arab Emirates,Systems-quality comparator with strong state capacity and high service competence.
+qa-doha,Middle East,locked,primary,Qatar,"High-capacity Gulf benchmark included for infrastructure, safety, and cost testing."
+sa-riyadh,Middle East,provisional,primary,Saudi Arabia,"Provisional primary comparator included for scale, investment, and administrative reform testing."
+il-tel-aviv,Middle East,provisional,primary,Israel,"Provisional innovation benchmark included for startup intensity, openness, and high cost."
+om-muscat,Middle East,locked,secondary,Oman,Lower-pressure Gulf challenger with strong everyday service quality potential.
+bh-manama,Middle East,locked,secondary,Bahrain,"Secondary Gulf comparator for openness, compactness, and service-led economy."
+sa-jeddah,Middle East,locked,secondary,Saudi Arabia,"Coastal Saudi challenger included for commerce, lifestyle, and second-city comparison."
+kw-kuwait-city,Middle East,locked,secondary,Kuwait,Compact Gulf benchmark included for service quality and economic strength.
+jo-amman,Middle East,provisional,secondary,Jordan,"Provisional Levantine challenger included for education, services, and regional resilience."
+za-cape-town,Africa,locked,primary,South Africa,"African benchmark for environment, urban form, and inequality tradeoffs."
+za-johannesburg,Africa,provisional,primary,South Africa,Provisional large-metro comparator included for competitiveness and safety-pressure contrasts.
+ke-nairobi,Africa,locked,primary,Kenya,"Primary East African benchmark for entrepreneurship, services, and regional gravity."
+rw-kigali,Africa,locked,primary,Rwanda,"Primary challenger included for cleanliness, public order, and service reliability."
+ma-casablanca,Africa,provisional,primary,Morocco,"Provisional north-African benchmark for scale, port economy, and urban vitality."
+mu-port-louis,Africa,locked,secondary,Mauritius,"Island-city challenger included for service quality, openness, and governance stability."
+bw-gaborone,Africa,locked,secondary,Botswana,Lower-pressure southern-African challenger with cleaner administrative profile.
+na-windhoek,Africa,locked,secondary,Namibia,Secondary challenger included for manageable scale and baseline service competence.
+gh-accra,Africa,locked,secondary,Ghana,"West African benchmark for talent, services, and regional connectivity."
+sn-dakar,Africa,provisional,secondary,Senegal,Provisional francophone west-African challenger with cultural and regional pull.
+nz-auckland,Oceania,locked,primary,New Zealand,"Primary Oceanian benchmark for human-capital quality, openness, and cost pressure."
+au-sydney,Oceania,provisional,primary,Australia,Global city control included so SLIC can test whether systems quality survives extreme cost pressure.
+au-melbourne,Oceania,provisional,primary,Australia,Prestige benchmark included to compare mainstream rankings against SLIC's pressure logic.
+au-brisbane,Oceania,locked,primary,Australia,Primary Australian challenger with lower cost pressure than Sydney and Melbourne.
+nz-wellington,Oceania,locked,primary,New Zealand,"Compact capital benchmark included for services, education, and public-life quality."
+au-perth,Oceania,locked,secondary,Australia,"Western Australian challenger included for lifestyle, wages, and geographic isolation tradeoffs."
+au-adelaide,Oceania,locked,secondary,Australia,Secondary challenger with strong everyday scale and relatively lower housing pressure.
+au-hobart,Oceania,locked,secondary,Australia,Smaller-scale challenger included for lifestyle quality and public-environment strength.
+nz-christchurch,Oceania,provisional,secondary,New Zealand,Provisional challenger included for rebuild-era infrastructure and lower-pressure urban living.
+fj-suva,Oceania,locked,secondary,Fiji,Pacific regional challenger included so Oceania is not reduced to Australia and New Zealand alone.

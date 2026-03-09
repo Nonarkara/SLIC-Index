@@ -1,0 +1,3484 @@
+1
+CLOSING THE LOOP 
+ON PLASTIC POLLUTION IN 
+NAKHON SI THAMMARAT, 
+THAILAND
+Baseline Report 
+
+2 3
+Acknowledgement
+This report was prepared by the United Nations Economic and Social Commission for Asia 
+and the Pacific (ESCAP) in collaboration with the Division of Public Health and Environment, 
+Nakhon Si Thammarat City Municipality City Municipality and its development partners. 
+The editorial team consists of:
+• ESCAP – Mr. Andrew Charles, Mr. Alexander David Lee
+• IGES – Dr. Premakumara Jagath Dickella Gamaralalage, Ms. Miho Hayashi, 
+Ms. Chochoe Devaporihartakula, 
+• University of Leads (UOL) – Dr. Costas Velis, Dr. Josh Cottom
+• Mahidol University – Dr. Jutamas Kaewsuk
+The authors also extend their sincere gratitude to Dr. Kanop Ketchart, Dr. Vongvachira 
+Ovararin and Mr. Kammoon Nasompong from Nakhon Si Thammarat City Municipality 
+City Municipality for their leadership, tremendous support and coordination throughout 
+the project implementation. It would not have been possible to make this publication 
+without their support.
+This publication may be reproduced in whole or in part for educational or non-profit 
+purposes without special permission from the copyright holder, provided that the source 
+is acknowledged. The ESCAP Publications Office would appreciate receiving a copy of 
+any publication that uses this publication as a source. 
+No use may be made of this publication for resale or any other commercial purpose 
+whatsoever without prior permission. Applications for such permission, with a statement 
+of the purpose and extent of reproduction, should be addressed to the Secretary of 
+the Publications Board, United Nations, New York. The mention of firm names and 
+commercial products does not imply the endorsement of the United Nations. 
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND
+
+4 5CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND TABLE OF CONTENTS
+02 City Profile
+2.1 Population
+2.2 Topography and Flooding
+2.3 Economic Development
+2.4 Governance
+01 Introduction
+1.1 Background
+1.2 Aims
+1.3 Methodology
+1.3.1 The Plastic Pollution Calculator (PPC) 
+1.3.2 Review of Governance Aspects
+1.3.3 Data Collection
+1.4 Limitations 
+Summary
+Statement from Nakhon Si Thammarat City 
+Municipality City Municipality
+Executive Summary
+Key Findings on Plastic Waste in Nakhon Si Thammarat 
+City Municipality City Municipality
+Plastic Management Recommendations
+Policy Recommendations 03 Status of Plastic Waste Management, 
+Leakage and Hotspots
+3.1 Municipal Solid Waste (MSW) Generation 
+3.1.1 MSW Generation by Sub-Sub-Districts 
+3.1.2 MSW Generation by Source Activity 
+3.2 Plastic Waste Generation 
+3.2.1 Plastic Waste Composition 
+3.3 Plastic Emissions to the Environment 
+3.3.1 Key Sources of Plastic Pollution 
+3.3.2 Composition of Plastic Emissions to the Environment 
+3.3.3 Plastic Emissions with Time 
+3.3.4 Spatial Distribution of Plastic Pollution Emissions 
+3.4 River and Marine Plastic Pathways 
+3.4.1 Pathways of River and Marine Plastic with Time 
+3.5 Fate of Plastic Waste 
+3.5.1 Plastic Recycling 
+3.5.2 Retained at Disposal Site 
+3.5.3 Retained on Land and Drains 
+3.5.4 River and Marine Plastic Pollution
+Table of Contents
+P12
+P14
+P44
+P46
+P48
+P49
+P28
+P30
+P31
+P40
+P52
+P57
+P61
+P72
+P75
+
+6 7CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND ABBREVIATION
+04 A Review of Governance Aspects
+4.1 Institutional Setup
+4.1.1 National/ Provincial Institutions Responsible for 
+ Implementing Plastic Waste/ Marine Litter
+4.1.2 Local (City) Institution Responsible for Implementing 
+Plastic Waste/ Marine Plastic Management 
+4.2 Key Policies and Regulations
+4.2.1 National Policies and Legislations
+4.2.2 Nakhon Si Thammarat City Municipality City 
+ Municipality’s Policies
+4.3 Financial Capacity
+4.3.1 Revenue and Expenditure of Nakhon Si Thammarat 
+ City Municipality City Municipality
+05 A Level of Digital Readiness
+06 Conclusions and Recommendations
+6.1 Management-Level Recommendations 
+6.2 Policy-Level Recommendations
+P84
+P94
+P104
+P115
+P122
+
+8 9
+Abbreviation
+Reduce, Reuse, Recycle
+Asia-Pacific Economic Cooperation
+The Association of Southeast Asian Nations
+Buddhist Era
+Civil Society Organization
+Closing the Loop
+Digital Evaluation Model
+Department of Marine and Coastal Resources
+Electricity Generating Authority of Thailand
+Extended Producer Responsibility
+Environmental Impact Mitigation Plan
+United Nations Economic and Social Commission for Asia and the Pacific
+European Commission Global Human Settlement Layer
+Global Positioning System
+Information and Communication Technology
+Institute for Global Environmental Strategies
+International Standard Industrial Classifications of All Economic Activities
+International Solid Waste Association
+3Rs
+APEC
+ASEAN
+B.E.
+CSO
+CTL
+DEM
+DMCR
+EGAT
+EPR
+EIMP
+ESCAP
+GHSL
+GPS
+ICT
+IGES
+ISIC
+ISWA
+Local Administrative Organisations
+Material Flow Analysis
+Ministry of Industry
+Ministry of Natural Resources and Environment
+Ministry of Public Health
+Municipal Solid Waste
+Metric tonne
+Provincial Administration Organisation
+Pollution Control Department
+Plastic Pollution Calculator
+Public-Private Partnership
+Sub-Sub-District Administrative Organisations
+Sustainable Development Goals
+Small Power Producer
+Solid Waste Management
+Single-Use Plastics
+Thai Baht
+University of Leeds
+LAOs
+MFA
+MOI
+MONRE
+MOPH
+MSW
+Mt
+PAO
+PCD
+PPC
+PPP
+SAOs
+SDG
+SPP
+SWM
+SUPs
+THB
+UOL
+
+10 11
+Statement from Nakhon Si Thammarat 
+City Municipality City Municipality
+P 12
+P14
+SUMMARY
+Executive Summary
+Key Findings on Plastic Waste in Nakhon Si Thammarat 
+City Municipality City Municipality
+Plastic Management Recommendations
+Policy Recommendations
+CLOSING THE LOOP ON PLASTIC POLLUTION
+IN NAKHON SI THAMMARAT CITY MUNICIPALITY , THAILAND
+
+12 13
+Statement from Nakhon Si 
+Thammarat City Municipality
+Nakhon Si Thammarat City Municipality is a cultural and commercial city with historic 
+surroundings. We are one of the most livable cities in Thailand in terms of healthcare, 
+culture, environment, education, and infrastructure. In 2021, we embarked on a journey 
+to transform Nakhon Si Thammarat City Municipality into a smart city with a focus 
+toward Sustainable Development Goals (SDGs) and long-term financing for sustainable 
+development.
+It is vital for Nakhon Si Thammarat City Municipality to align our local priorities particularly 
+on an effective waste management program with the National Roadmap for Plastic Waste 
+Management 2018 – 2030 and the ASEAN Framework of Action on Marine Debris. This 
+Baseline Assessment Report contributes greatly to the future changes of the Nakhon Si 
+Thammarat City Municipality and also shared important results that will be utilised into 
+our City Action Plan on Plastic Waste Management that is currently being developed 
+with the support from United Nations Economic and Social Commission for Asia and 
+the Pacific (UNESCAP) and Institute for Global Environmental Strategies (IGES). Thus, we 
+believe that the Closing the Loop Project will greatly address challenges of mismanaged 
+plastic waste that is emitted to land, canals and the ocean as well as support Nakhon Si 
+Thammarat City Municipality to develop holistic integrated plastic waste management.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND
+We aim at closing the loop of plastic waste at the rate of 100% by 2027 while also 
+encouraging public involvement and participation among stakeholders to have better 
+understanding on plastic waste management. This ambitious goal, of course, could not 
+be accomplished by Nakhon Si Thammarat City Municipality alone – We can only achieve 
+this through collective efforts by governmental agencies, the public, private sector, 
+education institutions, civil society organisations and international organisations. 
+I want to thank again UNESCAP , IGES, University of Leeds, Dr. Jutamas Kaewsuk and 
+Ms. Chochoe Devaporihartakula for their partnership and continued support on this 
+journey. The success of the city development on plastic waste management towards a 
+circular economy approach will very much rely on corporative operations of key local 
+and international players and I look forward to collaborating with you all in the years to 
+come.
+Sincerely,
+Dr. Kanop Ketchart 
+Mayor, Nakhon Si Thammarat City Municipality
+STATEMENT FROM NAKHON SI THAMMARAT CITY MUNICIPALITY CITY MUNICIPALITY
+
+14 15
+Executive Summary
+Thailand is one of the top ten largest world contributors to plastic waste in the ocean. 
+While it generates approximately 2 million tonnes of plastic waste each year, only around 
+500,000 tonnes are properly managed. The remaining 1.5 million tonnes ended up in 
+the marine environment. 1 The National Roadmap for Plastic Waste Management 2018 – 
+20302 serves as the framework for Thailand to move towards sustainable plastic man-
+agement by transitioning to a more circular economy. Three main measures will be put 
+in place to achieve this, 1) reduction of plastic production; 2) reduction of single-use 
+plastic consumption; and 3) proper plastic waste management after consumption. Per 
+The Roadmap, three plastic products were banned in 2019, 1) cap seal, 2) oxo-degrad-
+able plastic and 3) plastic microbeads. Many single-use plastics (SUPs) will be banned 
+in 2022, such as plastic bags less than 36 microns in thickness, styrofoam food boxes, 
+plastic straws and plastic cups.
+Starting in January 2020, major retailers, plastic manufacturers and department stores 
+nationwide banned single-use plastic bags. In addition to that, Thailand Public-Private 
+Partnership for Sustainble Plastic and Waste Management (Thailand PPP Plastic) was estab-
+lished in 2018, to achieve plastic waste reduction goals of at least 50% and to increase 
+recycling to 100% by 2027. In 2021, PPP Plastics has scaled up and included 39 part-
+nered organisations from various sectors including government, public, private sector, 
+international organisations and educational institutions.3
+Achieving these national goals depends on the contribution of all layers of governments, 
+particularly cities. To support this, Nakhon Si Thammarat City Municipality City Munici-
+pality has been working with The United Nations Economic and Social Commission for 
+Asia and the Pacific (ESCAP) project Closing the Loop to develop this baseline study. This 
+report analyzes the current plastic waste management system in Nakhon Si Thammarat 
+City Municipality City Municipality and identifies key recommendations to address while 
+developing the Plastic Waste Management Action Plan. 
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND
+1 Pollution Control Department. (2019). Booklet of Thailand State of Pollution 2018. Bangkok.
+2 The Government Public Relations Department. (19 April 2019). “Roadmap on Plastic Waste Management.” 
+http://thailand.prd.go.th/mobile_detail.php?cid=4&amp;nid=7831. 
+3 PPP Plastics. (2021). “Role of Public Private Partnership for Sustainable Plastic and Waste Management (PPP 
+Plastics) for solving the plastic waste problem in Thailand.”
+Key Findings on Plastic Waste in Nakhon Si Thammarat 
+City Municipality City Municipality
+KEY FINDINGS ON PLASTIC WASTE IN NAKHON SI THAMMARAT CITY MUNICIPALITY CITY MUNICIPALITY
+4 KAZA, S., L. YAO, P . BHADA-TATA and F.V. WOERDEN. What a Waste 2.0: A Global Snapshot of Solid Waste 
+Management to 2050. Urban Development Series, Washington, DC: World Bank, 2018.
+5 KAZA, S., L. YAO, P . BHADA-TATA and F.V. WOERDEN. What a Waste 2.0: A Global Snapshot of Solid Waste 
+Management to 2050. Urban Development Series, Washington, DC: World Bank, 2018.
+Key results of the Plastic Pollution Calculator (PPC) for 
+Nakhon Si Thammarat City Municipality City Municipality
+• 39,000 tonnes/year
+• 1.05 kg/capita/day (national average = 1.08 kg/capita/
+day)4 
+• 383 kg/capita/year
+• 9,000 tonnes of plastic waste is generated each year
+• 23% of MSW is plastic (national average = 17.6%)5
+• Plastic bags make up 48% by mass of all plastic waste
+• 448 tonnes/year of plastic is emitted into 
+the environment
+• Leakage whilst waiting for collection is the largest 
+source of plastic pollution (47%), followed by littering 
+(34%) and emissions from the dumpsite (8%).
+• 90 tonnes/year of plastic enters waterways
+• Whilst only 1% of plastic waste this is equivalent to 
+many millions of plastic items
+• 362 tonnes/year of plastic waste is retained 
+uncontrolled on land or in drains
+
+16 17
+14
+3KAZA, S., L. YAO, P . BHADA-TATA and F .V. WOERDEN. What a Waste 2.0: A Global Snapshot of Solid Waste 
+Management to 2050. Urban Development Series, Washington, DC: World Bank, 2018.
+How much plastic waste? 
+161,000 tons of plastic waste are generated 
+per year, which is 16% of the total MSW 
+generation in the city. The highest quantities 
+of plastic waste are generated by multi-
+family dwellings, followed by single-family 
+dwellings, retail and wholesale and office 
+and other services.
+Which products? 
+35% of the plastic waste is plastic bags, 
+19% is plastic bottles, 15% is plastic 
+film, and 12% is single use food service 
+plastics. With the exception of drink 
+bottles, the largest portions of plastic 
+waste are comprised of low value plastic, 
+making this a high priority.
+Plastic Waste
+How much waste? 
+Around 1,000,000 tons/year of MSW 
+(1.52 kg per person per day, excluding 
+tourists). This is slightly higher than values 
+for Malaysia as a whole, with the World 
+Bank What a Waste 2.0 report suggesting 
+a 2016 waste generation rate of 1.21 kg/
+Where is it from?
+58% of the waste comes from residential 
+areas, 23% from commercial activities, 
+2% from institutional establishments, 
+and remaining 17% from other activities 
+(recyclables sold to informal sector, litter 
+and uncollected fly-tipped waste).
+Municipal Solid Waste (MSW)
+How much waste?
+39,000 tonnes of municipal solid waste 
+per year (1.05kg per person per day). 
+This average is comparable with the 
+national per capita waste generation 
+(1.08 kg/capita/day). 
+Where is it from?
+The residential waste accounts for 66% 
+of MSW generation, with a further 23% 
+of MSW being generated by commer-
+cial activities, 6% from institutional es-
+tablishments, whilst the remaining 5% 
+of waste originates from ‘other’ activi-
+ties.
+Municipal Solid Waste (MSW)
+14
+3KAZA, S., L. YAO, P . BHADA-TATA and F .V. WOERDEN. What a Waste 2.0: A Global Snapshot of Solid Waste 
+Management to 2050. Urban Development Series, Washington, DC: World Bank, 2018.
+How much plastic waste? 
+161,000 tons of plastic waste are generated 
+per year, which is 16% of the total MSW 
+generation in the city. The highest quantities 
+of plastic waste are generated by multi-
+family dwellings, followed by single-family 
+dwellings, retail and wholesale and office 
+and other services.
+Which products? 
+35% of the plastic waste is plastic bags, 
+19% is plastic bottles, 15% is plastic 
+film, and 12% is single use food service 
+plastics. With the exception of drink 
+bottles, the largest portions of plastic 
+waste are comprised of low value plastic, 
+making this a high priority.
+Plastic Waste
+How much waste? 
+Around 1,000,000 tons/year of MSW 
+(1.52 kg per person per day, excluding 
+tourists). This is slightly higher than values 
+for Malaysia as a whole, with the World 
+Bank What a Waste 2.0 report suggesting 
+a 2016 waste generation rate of 1.21 kg/
+Where is it from?
+58% of the waste comes from residential 
+areas, 23% from commercial activities, 
+2% from institutional establishments, 
+and remaining 17% from other activities 
+(recyclables sold to informal sector, litter 
+and uncollected fly-tipped waste).
+Municipal Solid Waste (MSW)
+Plastic Waste
+How much plastic waste? 
+9,018 tonnes of plastic waste are pro-
+duced per year, about 23% of the total 
+MSW generation in the city. The highest 
+quantities of plastic waste are generat-
+ed by single-family dwellings followed 
+by offices and other services, retail and 
+wholesalers, food and beverage sec-
+tors and the accommodation sector. 
+Which products?
+48% of the plastic waste is plastic bags. 
+In addition, drink bottles (8%), sanitary 
+products (7%), single-use food services 
+(5%) and other plastic film (4%) can be 
+found in the plastic waste. 
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND
+Plastic Pollution
+How much marine litter? 
+1% of plastic waste generation or 90 
+tonnes of plastic waste becomes ma-
+rine litter annually. 
+How much land-based 
+pollution? 
+4% of plastic waste is retained on land, 
+though it may end up as water pollution 
+in the future, particularly as it breaks 
+down into smaller pieces that can be 
+dislodged and washed away in floods. 
+How does it become 
+pollution? 
+The largest emission source is leakage 
+from the collection system whilst waste 
+is waiting to be collected (210 tonnes/
+year). This is followed by littering (151 
+tonnes/year) and final disposal site (38 
+tonnes/year). 
+Which products become 
+pollution? 
+Plastic bags presents the largest share 
+of plastic pollution (57%) in the city. 
+Other small dense items (11%), drink 
+bottles (6%) other plastic film (5%), sin-
+gle sue food service (5%) and other 
+plastic bottles (5%) are major types of 
+products emitted into the environment.
+Which products specifically 
+become marine litter? 
+54% plastic bags, 18.5% plastic film, 
+8.1% bottles, 12% food service and 
+packaging, 4.7% sanitary products. 
+Which sub-districts? 
+Nai Mueang sub-district is the highest 
+area contribute for aquatic plastic de-
+bris with an estimated 34.7 tonnes of 
+plastic waste annually. This is because 
+of having the largest amounts of plastic 
+waste emissions into the environment 
+and because an estimated 65% of the 
+population live within 500 metres of a 
+waterway
+How does it get to the water? 
+59% of the plastic waste enters the wa-
+ter by land-based sources, like being 
+blown by the wind or moved by surface 
+runoff. It is seen that 28% of aquatic 
+plastic debris enters waterways directly 
+via dumping and another 12% from dif-
+ferent waterways. 
+When? 
+The peak season for marine plastic lit-
+ter is the months of November to Janu-
+ary, matching the winter monsoon sea-
+son in Thailand. 
+BASELINE REPORT 15
+How much marine litter?
+0.4% of plastic waste generation or 653 
+tons of plastic waste enters waterways 
+each year, of which 42% is plastic bags 
+by weight. 
+How much land based 
+pollution? 
+22% (147 tons) of marine plastic litter 
+enters waterways via land. This waste 
+may end up as water pollution in the 
+future, particularly as it breaks down into 
+smaller pieces and microplastic that can 
+be dislodged and washed away from 
+flooding. 
+How does it become pollution? 
+1,958 tons/year of pollution comes from 
+littering. Illegal dumping to avoid charges 
+(‘fly-tipping’) accounts for 454 tons/year. 
+Plastic that escapes while waiting for 
+collection accounts for 448 tons/year, 
+and plastic waste emissions from the 
+collection, sorting and transportation 
+of recyclables by the informal sector 
+accounts for 92 tons/year. 
+Which products become 
+pollution?
+Plastic bags increase their share of 
+plastic pollution (35%) compared to their 
+share of plastic waste (46%), because 
+they are lightweight, used while out of 
+home and too low value to be of interest 
+Which products specifically 
+become marine litter? 
+42% plastic bags, 15% plastic film, 
+17% bottles, 20% food service and 
+packaging, sanitary products are 3%.
+How does it get to the water? 
+71% (463 tons) of marine plastic litter 
+enters waterways via storm drains, 
+where plastic waste that has escaped 
+from waste bins is blown or washed 
+into the drains and transported to 
+waterways. A further 22% (147 tons) of 
+marine plastic litter enters waterways 
+via land, representing litter blown across 
+land and into waterways. 7% (43 tons) 
+of marine plastic litter is dumped directly 
+into rivers.
+When? 
+The peak season for marine plastic 
+litter is during the months of April and 
+November, corresponding with periods 
+Plastic Pollution
+KEY FINDINGS ON PLASTIC WASTE IN NAKHON SI THAMMARAT CITY MUNICIPALITY CITY MUNICIPALITY
+
+18 19
+16
+How much is recycled?
+10.1% of plastic waste (16,300 tons) is 
+sorted for recycling, largely conducted 
+by individual households and businesses 
+taking their recyclable waste to bring sites 
+and selling it to waste traders. 12.7% of all 
+recyclables collected are plastic by weight, 
+which is subsequently aggregated, sorted, 
+and sold on to re-processors. 
+How much goes to landfill?
+88% of plastic waste goes to the Bukit 
+Tagar Sanitary Landfill, which is a sanitary 
+landfill located 55 km away from Kuala 
+Plastic ManagementPlastic Management
+How much is recycled? 
+Only 0.7% of plastic waste is recycled 
+in the City, which is practiced by both 
+informal and semi-formal recyclers. 
+These businesses are functioned at 
+both door-to-door collection of valu-
+able recyclable materials from homes 
+and businesses and scavenging at the 
+disposal site.
+How much goes to landfills? 
+94.3% of plastic waste is retained at the 
+final disposal site of the city.
+Plastic Management Recommendations
+BASELINE REPORT 17
+PLASTIC MANAGEMENT RECOMMENDATIONS
+Why?
+First and second largest point sources 
+of pollution.
+How?
+Encourage the public reporting on 
+littering and fly-tipping, display signs 
+on fines, enforce penalties, increase the 
+number of public bins, promote regular 
+city clean-ups of designated sites raise 
+awareness, increase street sweeping. 
+Reduce littering and fly-
+tipping
+Target high emissions 
+plastics (plastic bags, other 
+plastic film, drink bottles 
+and single use food service 
+Why? 
+Largest sources of plastic waste 
+generation; targeted under Action Plan 
+of the Roadmap towards Zero Single-
+Use Plastics in Malaysia 
+How?
+Reduce the usage of the plastic through 
+bans, tax/levy, support for alternatives, 
+producing voluntary agreements in retail 
+and commercial sectors (e.g. restaurant, 
+hawkers etc), and promoting Extended 
+Producer Responsibility.
+Improve waste storage for 
+residential dwellings
+Why?
+Leakage whilst waste is waiting for 
+collection estimated as joint second 
+highest emission source of plastic 
+alongside fly tipping.
+How?
+Improve the quantity and quality of 
+existing waste containers (right size, 
+easy loading to truck, lids securely 
+fastened, protection from animals/rain/
+wind, durable, maintained).
+Ensure all storm drains are 
+covered
+Why?
+Many storm drains are open to the 
+environment, allow plastic items to 
+enter easily and into nearby waterways.
+How?
+Enclosing or covering storm drains, 
+regular cleanup of drains, surveillance, 
+positioning of litter traps, regular clean 
+ups, monitoring of street sweeping 
+activities. 
+Reduce Use of Single-Use Plastic Bags 
+Why? 
+Largest type of marine litter and tar-
+gets are set to address in the National 
+Action Plan on Plastic Waste Manage-
+ment Phase 1 (2020-2022) in Thailand. 
+How? 
+Bans, tax/levy, support alternatives, 
+voluntary agreement in the retail sec-
+tor, Extended Producer Responsibility 
+(EPR) schemes.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND
+Why? 
+Second largest emission source, ac-
+counting for 34% of all plastic emis-
+sions.
+How? 
+More public bins, frequent evacua-
+tion, signs about fines, enforce penal-
+ties, raise awareness, increase street 
+sweeping. 
+Target Littering
+BASELINE REPORT 17
+PLASTIC MANAGEMENT RECOMMENDATIONS
+Why?
+First and second largest point sources 
+of pollution.
+How?
+Encourage the public reporting on 
+littering and fly-tipping, display signs 
+on fines, enforce penalties, increase the 
+number of public bins, promote regular 
+city clean-ups of designated sites raise 
+awareness, increase street sweeping. 
+Reduce littering and fly-
+tipping
+Target high emissions 
+plastics (plastic bags, other 
+plastic film, drink bottles 
+and single use food service 
+Why? 
+Largest sources of plastic waste 
+generation; targeted under Action Plan 
+of the Roadmap towards Zero Single-
+Use Plastics in Malaysia 
+How?
+Reduce the usage of the plastic through 
+bans, tax/levy, support for alternatives, 
+producing voluntary agreements in retail 
+and commercial sectors (e.g. restaurant, 
+hawkers etc), and promoting Extended 
+Producer Responsibility.
+Improve waste storage for 
+residential dwellings
+Why?
+Leakage whilst waste is waiting for 
+collection estimated as joint second 
+highest emission source of plastic 
+alongside fly tipping.
+How?
+Improve the quantity and quality of 
+existing waste containers (right size, 
+easy loading to truck, lids securely 
+fastened, protection from animals/rain/
+wind, durable, maintained).
+Ensure all storm drains are 
+covered
+Why?
+Many storm drains are open to the 
+environment, allow plastic items to 
+enter easily and into nearby waterways.
+How?
+Enclosing or covering storm drains, 
+regular cleanup of drains, surveillance, 
+positioning of litter traps, regular clean 
+ups, monitoring of street sweeping 
+activities. 
+Improve Waste Storage
+Why? 
+Leakage while waiting for collection 
+accounted for the highest emission 
+source at 47%.
+How? 
+Provide separate collection containers 
+to households and improve existing 
+waste containers' quality (right size, 
+easy loading to truck, tapered shape, 
+protection from animals/rain/wind, du-
+rable, well maintained).
+KEY FINDINGS ON PLASTIC WASTE IN NAKHON SI THAMMARAT CITY MUNICIPALITY CITY MUNICIPALITY
+
+20 21
+BASELINE REPORT 17
+PLASTIC MANAGEMENT RECOMMENDATIONS
+Why?
+First and second largest point sources 
+of pollution.
+How?
+Encourage the public reporting on 
+littering and fly-tipping, display signs 
+on fines, enforce penalties, increase the 
+number of public bins, promote regular 
+city clean-ups of designated sites raise 
+awareness, increase street sweeping. 
+Reduce littering and fly-
+tipping
+Target high emissions 
+plastics (plastic bags, other 
+plastic film, drink bottles 
+and single use food service 
+Why? 
+Largest sources of plastic waste 
+generation; targeted under Action Plan 
+of the Roadmap towards Zero Single-
+Use Plastics in Malaysia 
+How?
+Reduce the usage of the plastic through 
+bans, tax/levy, support for alternatives, 
+producing voluntary agreements in retail 
+and commercial sectors (e.g. restaurant, 
+hawkers etc), and promoting Extended 
+Producer Responsibility.
+Improve waste storage for 
+residential dwellings
+Why?
+Leakage whilst waste is waiting for 
+collection estimated as joint second 
+highest emission source of plastic 
+alongside fly tipping.
+How?
+Improve the quantity and quality of 
+existing waste containers (right size, 
+easy loading to truck, lids securely 
+fastened, protection from animals/rain/
+wind, durable, maintained).
+Ensure all storm drains are 
+covered
+Why?
+Many storm drains are open to the 
+environment, allow plastic items to 
+enter easily and into nearby waterways.
+How?
+Enclosing or covering storm drains, 
+regular cleanup of drains, surveillance, 
+positioning of litter traps, regular clean 
+ups, monitoring of street sweeping 
+activities. 
+Improve the Quality of Existing Waste Containers
+Why? 
+Overflowing waste containers and 
+poorly maintained or damaged con-
+tainers are significant reasons for plas-
+tic escaping the collection system.
+How? 
+Plan collection system to avoid over-
+capacity and well-designed containers 
+with the proper size, loading shape 
+and durability considering the local sit-
+uation. 
+BASELINE REPORT 17
+PLASTIC MANAGEMENT RECOMMENDATIONS
+Why?
+First and second largest point sources 
+of pollution.
+How?
+Encourage the public reporting on 
+littering and fly-tipping, display signs 
+on fines, enforce penalties, increase the 
+number of public bins, promote regular 
+city clean-ups of designated sites raise 
+awareness, increase street sweeping. 
+Reduce littering and fly-
+tipping
+Target high emissions 
+plastics (plastic bags, other 
+plastic film, drink bottles 
+and single use food service 
+Why? 
+Largest sources of plastic waste 
+generation; targeted under Action Plan 
+of the Roadmap towards Zero Single-
+Use Plastics in Malaysia 
+How?
+Reduce the usage of the plastic through 
+bans, tax/levy, support for alternatives, 
+producing voluntary agreements in retail 
+and commercial sectors (e.g. restaurant, 
+hawkers etc), and promoting Extended 
+Producer Responsibility.
+Improve waste storage for 
+residential dwellings
+Why?
+Leakage whilst waste is waiting for 
+collection estimated as joint second 
+highest emission source of plastic 
+alongside fly tipping.
+How?
+Improve the quantity and quality of 
+existing waste containers (right size, 
+easy loading to truck, lids securely 
+fastened, protection from animals/rain/
+wind, durable, maintained).
+Ensure all storm drains are 
+covered
+Why?
+Many storm drains are open to the 
+environment, allow plastic items to 
+enter easily and into nearby waterways.
+How?
+Enclosing or covering storm drains, 
+regular cleanup of drains, surveillance, 
+positioning of litter traps, regular clean 
+ups, monitoring of street sweeping 
+activities. 
+Reduce Fly-Tipping and Illegal Dumping
+Why? 
+The fourth-largest source of plastic 
+emissions into the environment ac-
+counting for 6% of all plastic emissions. 
+How? 
+Signboards alerting polluters, regular 
+clean up of known sites, surveillance, 
+free/affordable waste collection for 
+bulky items, cooperation between the 
+local authority and land owners.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND
+18
+Why?
+88% of all plastic waste ends up at the 
+disposal site where it is retained (142,000 
+tons), whereas only 10.1% of plastic is 
+recycled. 
+How?
+Capacity building including by 
+disseminating information on the status 
+of recycling activities in Kuala Lumpur, 
+develop digital applications on the status 
+of individual recycling, and promote 
+open-source data sharing on recycling in 
+Kuala Lumpur, Community based waste 
+management, implementation of source 
+separation synchronously, neighborhood 
+collection stations, awareness raising, 
+waste sorting units
+Increase recyclingIncrease Recycling
+Why? 
+Only 0.7% of plastic is recycled, mainly 
+by the informal sector
+How? 
+Community-based waste manage-
+ment, implementation of source sepa-
+ration synchronously, neighbourhood 
+collection stations, awareness-raising, 
+waste sorting units and integration of 
+informal sector.
+Improve Capacity at Disposal Site/ Upgrading 
+Solid Waste Treatment Technologies
+Why? 
+The disposal site is uncontrolled and, 
+in particular, does not have any form 
+of litter mitigation techniques. There-
+fore, it is at high risk of emitting plastic 
+waste into the environment.
+How? 
+Reduce wind-blown leakage by ap-
+plying daily covers, controlled waste 
+placement to ensure site stability, pe-
+rimeter fencing, wind protection in dis-
+charge zones, waste compaction and 
+flood mitigation measures. In addition, 
+the City should consider investment 
+projects on solid waste treatment to 
+replace landfill solutions by advancing 
+clean solid waste treatment technolo-
+gies.
+KEY FINDINGS ON PLASTIC WASTE IN NAKHON SI THAMMARAT CITY MUNICIPALITY CITY MUNICIPALITY
+
+22 23
+Policy Recommendations
+Move from Policies to Actions 
+Why? 
+A number of policies and strategic 
+plans are in place and ready to trans-
+late into action on the ground.
+How? 
+A Nakhon Si Thammarat City Munici-
+pality City Municipality Action Plan on 
+Plastic Waste Management with a time-
+bound implementation plan, coordina-
+tion and monitoring mechanisms can 
+help to translate them to tangible ac-
+tions.
+BASELINE REPORT 19
+POLICY RECOMMENDATIONS:
+Implementation of policy 
+Why? 
+A number of policy goals and action 
+plans are in place and ready to translate 
+into action on the ground.
+How?
+A Kuala Lumpur Plastic Waste 
+Management Action plan with 
+a time-bound implementation 
+plan, coordination and monitoring 
+Move from waste 
+management to 3Rs
+Why?
+Preventing plastic waste through 
+reduce, reuse and recycling strategies 
+will reduce waste management costs 
+and prevent pollution. 
+How?
+Coordinate with other plans, 
+programmes to reduce single use 
+plastics, awareness on responsible 
+consumption and production, increase 
+Strengthen capacity of local 
+bodies
+Why?
+SWCorp and DBKL is responsible for 
+waste management.
+How?
+Short to medium term training 
+programmes, strengthen institutional 
+set up.
+Public participation
+Why?
+Littering and fly-tipping are key 
+sources of plastic pollution, and source 
+separation is needed to increase 
+recycling.
+How? 
+Awareness raising campaigns, support 
+to community programs.
+Promote 3Rs (Reduce, Reuse and Recycle)
+Why? 
+Preventing plastic waste through re-
+duce, reuse and recycling strategies 
+will reduce waste management costs 
+and prevent pollution. 
+How? 
+Coordinate with other plans, pro-
+grammes to reduce single use plastics, 
+awareness on responsible consump-
+tion and production, increase recycling.
+BASELINE REPORT 19
+POLICY RECOMMENDATIONS:
+Implementation of policy 
+Why? 
+A number of policy goals and action 
+plans are in place and ready to translate 
+into action on the ground.
+How?
+A Kuala Lumpur Plastic Waste 
+Management Action plan with 
+a time-bound implementation 
+plan, coordination and monitoring 
+Move from waste 
+management to 3Rs
+Why?
+Preventing plastic waste through 
+reduce, reuse and recycling strategies 
+will reduce waste management costs 
+and prevent pollution. 
+How?
+Coordinate with other plans, 
+programmes to reduce single use 
+plastics, awareness on responsible 
+consumption and production, increase 
+Strengthen capacity of local 
+bodies
+Why?
+SWCorp and DBKL is responsible for 
+waste management.
+How?
+Short to medium term training 
+programmes, strengthen institutional 
+set up.
+Public participation
+Why?
+Littering and fly-tipping are key 
+sources of plastic pollution, and source 
+separation is needed to increase 
+recycling.
+How? 
+Awareness raising campaigns, support 
+to community programs.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND
+Strengthen Capacity of Local Bodies
+Why? 
+Nakhon Si Thammarat City Municipal-
+ity City Municipality is responsible for 
+waste management.
+How? 
+Short to medium term training pro-
+grams, strengthen institutional set up.
+BASELINE REPORT 19
+POLICY RECOMMENDATIONS:
+Implementation of policy 
+Why? 
+A number of policy goals and action 
+plans are in place and ready to translate 
+into action on the ground.
+How?
+A Kuala Lumpur Plastic Waste 
+Management Action plan with 
+a time-bound implementation 
+plan, coordination and monitoring 
+Move from waste 
+management to 3Rs
+Why?
+Preventing plastic waste through 
+reduce, reuse and recycling strategies 
+will reduce waste management costs 
+and prevent pollution. 
+How?
+Coordinate with other plans, 
+programmes to reduce single use 
+plastics, awareness on responsible 
+consumption and production, increase 
+Strengthen capacity of local 
+bodies
+Why?
+SWCorp and DBKL is responsible for 
+waste management.
+How?
+Short to medium term training 
+programmes, strengthen institutional 
+set up.
+Public participation
+Why?
+Littering and fly-tipping are key 
+sources of plastic pollution, and source 
+separation is needed to increase 
+recycling.
+How? 
+Awareness raising campaigns, support 
+to community programs.
+Encourage Public Participation
+Why? 
+Public participation in the deci-
+sion-making processes is highlighted 
+in the Thai laws and ensure the success 
+of waste management activities. 
+How? 
+Awareness raising campaigns, pub-
+lic feedback mechanisms, behaviour 
+change and support to community 
+programs.
+BASELINE REPORT 19
+POLICY RECOMMENDATIONS:
+Implementation of policy 
+Why? 
+A number of policy goals and action 
+plans are in place and ready to translate 
+into action on the ground.
+How?
+A Kuala Lumpur Plastic Waste 
+Management Action plan with 
+a time-bound implementation 
+plan, coordination and monitoring 
+Move from waste 
+management to 3Rs
+Why?
+Preventing plastic waste through 
+reduce, reuse and recycling strategies 
+will reduce waste management costs 
+and prevent pollution. 
+How?
+Coordinate with other plans, 
+programmes to reduce single use 
+plastics, awareness on responsible 
+consumption and production, increase 
+Strengthen capacity of local 
+bodies
+Why?
+SWCorp and DBKL is responsible for 
+waste management.
+How?
+Short to medium term training 
+programmes, strengthen institutional 
+set up.
+Public participation
+Why?
+Littering and fly-tipping are key 
+sources of plastic pollution, and source 
+separation is needed to increase 
+recycling.
+How? 
+Awareness raising campaigns, support 
+to community programs.
+KEY FINDINGS ON PLASTIC WASTE IN NAKHON SI THAMMARAT CITY MUNICIPALITY CITY MUNICIPALITY
+
+24 25
+20
+Cost recovery
+Cost recovery
+Why? 
+Current fees and charges do not cover 
+plastic waste management operations.
+How?
+Increase coverage of existing fee, 
+gradual increases as service improves, 
+cost saving in waste management 
+operations, polluter-pay-principles.
+Informal and Private sector 
+participation
+Why? 
+Informal sector plastic a critical role 
+in collection of plastic for recycling 
+and can be scaled up to introduce 
+operational efficiency. 
+How?
+Establish clear scope and specifications 
+in contracts, assess qualifications and 
+monitor performance. Informal sector: 
+Use of digital tools, data 
+management
+Why? 
+To increase the regularity of data 
+updates, automate plastic waste 
+monitoring and management, and 
+provide cost effective monitoring tools.
+How? 
+Integration of the Digital Tool developed 
+under Closing the Loop into plastic 
+waste action plan monitoring plans. 
+POLICY RECOMMENDATIONS:
+Why? 
+Current fees and charges do not cover 
+plastic waste management operations.
+How? 
+Increase coverage of existing fee, grad-
+ual increases as service improves, cost 
+saving in waste management opera-
+tions, polluter-pay-principles.
+Sustainable Financing and Cost Recovery
+Integrate Informal and Private Sector 
+Participation
+Why? 
+Informal sector plays a critical role in 
+collection of plastics for recycling and 
+can be scaled up; private sector in-
+volvement currently limited and could 
+introduce operational efficiency. 
+How? 
+Private sector: Competitive bidding, es-
+tablish clear scope and specifications 
+in contracts, assess qualifications and 
+monitor performance. Informal sector: 
+TBC
+20
+Cost recovery
+Cost recovery
+Why? 
+Current fees and charges do not cover 
+plastic waste management operations.
+How?
+Increase coverage of existing fee, 
+gradual increases as service improves, 
+cost saving in waste management 
+operations, polluter-pay-principles.
+Informal and Private sector 
+participation
+Why? 
+Informal sector plastic a critical role 
+in collection of plastic for recycling 
+and can be scaled up to introduce 
+operational efficiency. 
+How?
+Establish clear scope and specifications 
+in contracts, assess qualifications and 
+monitor performance. Informal sector: 
+Use of digital tools, data 
+management
+Why? 
+To increase the regularity of data 
+updates, automate plastic waste 
+monitoring and management, and 
+provide cost effective monitoring tools.
+How? 
+Integration of the Digital Tool developed 
+under Closing the Loop into plastic 
+waste action plan monitoring plans. 
+POLICY RECOMMENDATIONS:
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND
+Use of Digital Tools, Data Management
+Why? 
+To increase the regularity of data up-
+dates, automate plastic waste moni-
+toring and management, and provide 
+cost effective monitoring tools.
+How? 
+Integration of the Digital Tool devel-
+oped under Closing the Loop into plas-
+tic waste action plan monitoring plans. 
+20
+Cost recovery
+Cost recovery
+Why? 
+Current fees and charges do not cover 
+plastic waste management operations.
+How?
+Increase coverage of existing fee, 
+gradual increases as service improves, 
+cost saving in waste management 
+operations, polluter-pay-principles.
+Informal and Private sector 
+participation
+Why? 
+Informal sector plastic a critical role 
+in collection of plastic for recycling 
+and can be scaled up to introduce 
+operational efficiency. 
+How?
+Establish clear scope and specifications 
+in contracts, assess qualifications and 
+monitor performance. Informal sector: 
+Use of digital tools, data 
+management
+Why? 
+To increase the regularity of data 
+updates, automate plastic waste 
+monitoring and management, and 
+provide cost effective monitoring tools.
+How? 
+Integration of the Digital Tool developed 
+under Closing the Loop into plastic 
+waste action plan monitoring plans. 
+POLICY RECOMMENDATIONS:
+KEY FINDINGS ON PLASTIC WASTE IN NAKHON SI THAMMARAT CITY MUNICIPALITY CITY MUNICIPALITY
+
+26 27
+Introduction
+CHAPTER 1
+Background
+Aims
+Methodology
+The Plastic Pollution Calculator (PPC) 
+Review of Governance Aspects
+Data Collection
+Limitations 
+P28
+P30
+P 31
+P40
+CLOSING THE LOOP ON PLASTIC POLLUTION
+IN NAKHON SI THAMMARAT CITY MUNICIPALITY , THAILAND
+
+28 29
+Introduction
+CHAPTER 1
+1.1 Background
+Plastic pollution is one of the serious environmental challenges that require an urgent 
+global response. It is estimated that about 8,300 million tonnes (Mt) of virgin plastics 
+have been produced to date. By 2015 approximately 6,300 Mt of plastic waste had been 
+generated, of which only 9% had been recycled. The rest of this plastic was incinerated 
+(12%) or accumulates in landfills and the natural environment (79%). If current produc-
+tion, consumption and waste management trends continue, roughly 12,000 Mt of plastic 
+waste will end up in landfills or the natural environment by 2050 6. Fast-growing cities 
+with weak waste management systems in Southeast Asia, South Asia and China are re-
+sponsible for about 60% of plastic waste leakage7. Ocean plastics also cost the tourism, 
+fishing and shipping industries in the Asia-Pacific Economic Cooperation (APEC) region 
+alone US$ 1.3 billion a year8, while good management and recycling of plastic can save 
+consumer goods companies US$ 4 billion per year. 
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 1
+6 Jambeck, J. R., Geyer, R., Wilcox, C., Siegler, T. R., Perryman, M., Andrady, A., Law, K. L. (2015). Plastic waste 
+inputs from land into the ocean. Science, 347(6223), 768-771. doi:10.1126/science.1260352
+7 Ocean Conservancy. (2015). Stemming the tide: Land-based strategies for a plastic-free ocean. McKinsey. 
+Ocean Conservancy, Washington, D.C.
+8 A., Campbell H. F. and Rule M. J. (2008). Understanding the Economic Benefits and Costs of controlling 
+marine debris in the APEC region (MRC 02/2007). SOM Steering Committee on Economic and Technical 
+Cooperation(SCE), Ocean and Fisheries Working Group(OFWG). National Marine Science Centre.
+9 UNEP (2014) Valuing Plastics: The Business Case for Measuring, Managing and Disclosing Plastic Use in the 
+Consumer Goods Industry.
+The lack of effective policies, technologies and capacities to manage plastic waste at the 
+local level has regional and global implications. More actions are required to address 
+plastic application and waste management in the region, including policy coherence on 
+the various aspects, including plastic ban and use regulations, influencing consumer 
+behaviour to limit the use of single-use plastics and building circularity across the waste 
+value chain. Tackling plastic waste also has positive impacts on the ocean. It creates op-
+portunities for development within the 2030 Agenda for Sustainable Development Goals 
+(SDGs) framework, which requires integrated approaches across all SDGs. For reducing 
+marine plastic debris, the main targets addressed are Sustainable Cities and Commu-
+nities (SDG 11), Responsible Consumption and Production (12) and, most critically Life 
+Below Water (SDG 14) which calls for preventing and significantly reducing marine pollu-
+tion of all kinds (Target 14.1). 
+Figure 1
+Regional Overview of the Closing the Loop Project
+Da Nang, Viet Nam
+Nakhon Si Thammarat,
+Thailand
+Kuala Lumpur, Malaysia
+Surabaya, Indonesia
+INTRODUCTION
+
+30 31
+1.2 Aims
+The project Closing the Loop: Scaling up Innovation to Tackle Marine Plastic Pollution in 
+Cities aims to reduce the environmental impact of cities in the Association of Southeast 
+Asian Nations (ASEAN) by addressing plastic waste pollution in the marine environment. 
+In line with the ASEAN framework of Action on Marine Debris, G20 Osaka Blue Vision 
+and national policies and action plans, this project assists four cities in the ASEAN region 
+(Figure 1): Da Nang, Viet Nam, Kuala Lumpur, Malaysia, Surabaya, Indonesia and 
+Nakhon Si Thammarat City Municipality, Thailand by developing city action plans to 
+address plastic litter, make plastic waste management more circular and reduce the 
+amount of plastic waste entering the marine environment from land-based sources. 
+As shown in Figure 2, the project also builds capacities and technical expertise on in-
+novative data collection methods and digital tools to allow local governments and their 
+partners to monitor and visualise plastic waste and identify hotspots to improve man-
+agement. It also raises awareness of marine litter and city-driven solutions for better 
+plastic value chain management, promoting behavioural change among consumers and 
+the industry and creating an enabling space for policy development. 
+Figure 2
+Project activities and outcomes
+Baseline Status Reports
+• Review policy and 
+institutional environment
+• Capacity assessment 
+of cities (e.g. waste 
+management services 
+and digital readiness)
+• Develop a plastic waste 
+flow using the PPC tool
+Digital Mapping Tool
+• Data review
+• Design digital tool 
+architecture and platform
+• Map marine plastic 
+hotspots in 4 cities and 
+catchment areas
+• Train, use, and apply the 
+digital tool
+City Action Plans
+• Define the action planning 
+and investment strategy
+• Identify policy intervention 
+areas based on the waste 
+hierarchy
+• Develop local action plans 
+and investment strategies
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 1
+1.3 Methodology
+This baseline report presents and analyzes the current plastic waste management sys-
+tem in Nakhon Si Thammarat City Municipality City Municipality. Considering the im-
+portance of addressing both the physical (hardware) components and the governance 
+(software) features10 for sustainable waste management, it covers data related to both 
+aspects, as shown in Figure 3. 
+Figure 3
+Data collection
+Physical Assessment Governance Assessment
+Here, the plastic waste generation 
+is examined, collection, recycling, 
+treatment and the opportunity for 
+a leakage into the environment 
+and water systems are assessed 
+by using the Plastic Pollution 
+Calculator (PPC)
+Here, we examined the existing 
+plans, policies and regulation, 
+institutional capacity, stakeholder 
+landscape, financial sustainability, 
+and digital readiness in managing 
+plastic waste in the city
+INTRODUCTION
+10 Scheinberg et al., 2010b
+
+32 33
+1.3.1 Plastic Pollution Calculator (PPC) Tool
+Material Flow Analysis Approach
+The study applied a toolkit call the Plastic Pollution Calculator (PPC), 11 designed by The 
+International Solid Waste Association (ISWA) and the University of Leeds. This toolkit 
+models land-based plastic pollution at the local and regional levels to measure the 
+item-specific plastic waste generation and its subsequent movement throughout the 
+waste management system and the environment at an intra-urban granularity. The tool-
+kit includes quantification of macro-plastics that leak into the environment and become 
+unmanaged. This is achieved by relating the local infrastructure quality, socio-economic 
+conditions and waste management practices to the likelihood of plastic emission. The 
+tool is based on the Material Flow Analysis (MFA) approach and breaks down to 11 main 
+plastic item types (i.e. bottles, bags), 16 waste generating sources (i.e. land uses and 
+activities that produce waste) and is calculated at daily intervals over a defined period of 
+time (e.g. the year 2020). 
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 1
+11 https://plasticpollution.leeds.ac.uk/wp-content/uploads/sites/89/2020/07/Plastic-Pollution-Calculator-Summa-
+ry.pdf
+Figure 4
+Generalized material flow analysis (MFA) approach used in the Plastic Pollution Calculator 
+(PPC) and visualization of some essential factors at each stage of the solid waste management 
+system are included in the conceptual models for determining transfer coefficient
+INTRODUCTION
+
+34 35
+Calculation of Plastic Emissions into the Environment
+As shown in Figure 4, all major components of the solid waste management system 
+are modelled to balance the plastic item flows across each process. Acknowledging the 
+challenge in calculating plastic waste emissions to the environment due to variations in 
+time and space/location, the PPC uses conceptual models to relate all factors import-
+ant in estimating plastic emissions based on available data and expert opinions. The 
+relationships are assigned a number to estimate the quantitative influence based on 
+available data and expert opinion and are then converted to mathematical algorithms. 
+Input data on waste management infrastructure, practices and other influencing factors 
+are also combined to estimate the possible amount of plastic waste emitted into the 
+environment. The transfer coefficients, an ability to be moved by wind or surface runoff, 
+probability of collection for recycling and likelihood of becoming entangled in vegetation 
+once released into the environment are also calculated for each plastic item type within 
+the MFA.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 1
+Spatial Distribution of Plastic Emissions and Leakage
+The PPC is applied at the sub-city-sub-district or neighbourhood level, assuming that the 
+lowest administrate areas have relatively homogeneous features for key plastic waste 
+emission factors (e.g. waste management infrastructure, socio-economic, geographical 
+characteristics). This allows a reasonably accurate picture of plastic flows across a whole 
+city or region (also accounting for any transboundary flows). However, sub-districts and 
+neighbourhoods are not entirely homogenous. Thus, the PPC estimates the spatial dis-
+tribution of plastic emissions within a sub-district by allocating each emission source to 
+one of five grids, including 1) residential activity grid (e.g. population density), 2) on-res-
+idential activity grid (e.g. shops, tourist sites, parks), 3) all grid activity (e.g. combined 
+residential and non-residential activities), 4) roads grid and 5) waste infrastructure grid 
+(e.g. dumpsites, transfer stations). These grids are overlaid to provide an overall spatial 
+representation (hotspot map) of plastic emissions at the sub-sub-district level. The PPC 
+also identifies the important factors influencing the likelihood of a plastic item being 
+transported in the environment (e.g. distance to waterways, meteorological conditions, 
+the geographical and built landscape). A conceptual model is created to estimate plastic 
+emissions entering waterways by assigning a relative weighting to each factor depend-
+ing on its perceived influence and relationship with other variables. The PPC uses a dig-
+ital elevation model (DEM) and flow routing algorithms to map the routes that plastic 
+waste emitted into the environment can travel due to surface runoff and the locations 
+where plastic released into the environment may eventually reach waterways and the 
+ocean. 
+INTRODUCTION
+
+36 37
+1.3.2 Review of Governance Aspects
+One of the significant reasons for the failure of solid waste management in the cities is poor 
+governance due to lack of 1) existing solid waste management policies and regulations, 
+2) financial capacity to introduce new solid waste management (SWM) technology/infra-
+structure, 3) appropriate institutions and capacities, 4) the development of the private 
+sector and recycling industries, 5) finance and cost recovery systems, 6) strategic plan-
+ning/ directions, looking at waste management as an end-of-pipe issue, 7) political will 
+and 8) stakeholder participation and partnership 12. None of this is exceptional for plastic 
+waste management in developing cities. In examining governance aspects, the focus was 
+placed on proactive policies and sound institutions, stakeholder participation and inclu-
+sivity, financial sustainability and digital readiness13. 
+Proactive Policies and Sound Institutions
+Strong policies and sound institutions are key to a sustainable plastic waste manage-
+ment system. Without them, plastic waste management systems will not work well over 
+the long term. So, the adequacy of the national/ local policies/ legal framework and mea-
+sures of the institutional strength and coherence of the city’s solid waste management 
+has been assessed. 
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 1
+12 Marshall and Farahbakhsh 2013; McDougall et al. 2001; Premakumara and Maeda 2014
+13 Wilson et, al, 2015
+Stakeholder Participation and Inclusivity
+Even though municipal governments are responsible for managing solid waste, includ-
+ing plastic litter and marine debris, they cannot provide adequate service in isolation. 
+Sustainable plastic waste management systems need to incorporate all key stakeholders 
+in planning, implementing and monitoring changes, particularly three main groups of 
+stakeholders, 1) the service providers, including both formal and informal sectors, who 
+actually offer the service, 2) the users, who are the clients; and the external agents in 
+the enabling environment, including national and 3) local governments, who organize 
+the boundary conditions and make change possible. Thus, here, the key stakeholders 
+involved in the plastic waste management system in the city were assessed and the de-
+gree of their inclusion and methods/ mechanisms available to involve in the planning, 
+policy formation and implementation and evaluation were considered. 
+Financial Sustainability
+Securing financial sustainability in solid waste management (SWM) is a major city issue. 
+In developing cities, SWM, in general, represents a significant proportion of their total 
+recurrent budget, yet despite relatively high budgets, collection service coverage is often 
+low, and disposal standards remain poor. Thus, the degree to which a city’s SWM service 
+is financially sustainable was assessed. 
+Digital Readiness 
+Having an appropriate digital system in cities opens new ways to prevent, reduce and 
+even eliminate waste from specific sectors and streams, advance resource recovery, 
+achieve high standards of treatment and disposal and substantially reduce pollution and 
+its environmental impacts. At the same time, it provides new tools to stimulate stake-
+holders’ interaction, awareness and citizens’ participation, to be able to enforce a “pol-
+luter pays” model and apply extended producer responsibility (EPR) principles towards 
+smart cities. 
+INTRODUCTION
+
+38 39
+1.3.3 Data Collection
+The structure of the report consists of five major sections, including (1) introduction, (2) 
+city profile, (3) plastic waste management, plastic leakages and hotspots, (4) governance 
+review and (5) recommendations and conclusions. Data collection is based on the fol-
+lowing activities. 
+Establishment of Local Project Teams
+A lead local partner was designated, and a local research team was mobilized with a 
+team of members, working with the city and familiar with the local situation. They func-
+tioned both as a lead researcher and as a point of contact with the city authorities and 
+key stakeholders. 
+Desk Research
+A desk review includes collecting secondary information and data from existing resourc-
+es, open sources, government published data and other reports from stakeholders.
+Field Surveys and Observations: Field surveys and observations were used to under-
+stand current situations and problems of the city's MSW management and plastic waste 
+management. Due to the lack of secondary data on plastic waste generation, charac-
+teristics and management to PPC, primary data related to different sources such as 
+households (multi- and single-family dwellings), public areas, informally collected waste, 
+littered waste, commercial areas, institutional areas, transportation areas, food and ac-
+commodation waste, recreation waste, health and social care, recycling activities, and at 
+the disposals have carried out. In addition, images were taken as evidence.
+Interviews
+An open-ended questionnaire about the municipal waste management system and cur-
+rent waste management practice was used to gather information from key stakehold-
+ers, including municipal staff, local government agencies, and communities. Both formal 
+and informal private sectors dealing with plastic waste and academia and Civil Society 
+Organization (CSO) that have been involved in awareness-raising activities and skill-up 
+training to promote 3Rs (reduce, reuse, recycle) of plastic waste were also included. 
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 1
+Mapping Method
+The distribution of residents along the water body and the coast by the distance was de-
+scribed in the cadastral map of Nakhon Si Thammarat City Municipality City Municipality.
+Sampling Survey
+Waste sampling and sorting methodology were applied to 13 different sectors, as shown 
+in Figure 5. A total of 155 samples were collected at kerbside bin(s), communal bin(s), 
+storage room or were existing from each waste source and transferred to the sorting 
+area. Sorting procedures were conducted following the guidance of 12-plastic item char-
+acterization developed by the University of Leeds.
+Figure 5
+Waste Sampling Sources
+Input Data/Waste Sources
+Multi-family dwellings Transportation/storage waste
+Single-family dwellings Food, drink, accommodation
+Public Waste Office and other services
+Informally Collected Waste Recreation waste
+Littered Waste Public administration
+Fly-tipped Waste Education
+Retail and Wholesale Waste Health and social care
+INTRODUCTION
+
+40 41
+1.4 Limitations
+The Plastic Pollution Calculator (PPC) functions by performing material flow analysis 
+(MFA) to map plastic waste flows across each sub-district in the city, with emissions of 
+plastic waste determined via analysing the waste management infrastructure, practices 
+and linking it to the PPCs conceptual models. However, this approach relies on there be-
+ing sufficient reliable data available to perform the MFA. For the case of Nakhon Si Tham-
+marat City Municipality City Municipality, some input data was not directly available, and 
+the model had to either assume using proxies or estimate using expert opinion from the 
+local teams guided by the University of Leeds. Data that proved challenging to obtain 
+included understanding the amounts of littering, dumping and open burning present. 
+These data needs are discussed more in the following section.
+Similarly, reliability was occasionally lacking even when data was available, leading to po-
+tential irregularities in the results. For example, the waste generated by households was 
+calculated to be significantly lower than the total waste arriving at the landfill. Whilst this 
+is possible, it is thought that potential inconsistencies between the literature data used 
+for household waste generation rates and the official data of waste arriving at landfills 
+may lead to this difference being exaggerated. Whilst it would have been preferable 
+not to use literature data for the household waste generation rates and instead use the 
+waste characterisation study performed here, this was not possible due to COVID-19 
+restrictions. These restrictions meant household surveys could not be undertaken to 
+ascertain household size, and therefore per capita generation. 
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 1
+Another limitation of the study was that it assumed that the waste management within 
+a sub-district was homogeneous. This was done in order to describe the waste man-
+agement systems in a simple way. Other efforts were made to account for differences 
+in waste management by allowing for specified land use, however likely to have some 
+variance. For example, compactor trucks were reported as the main method used to 
+collect waste from households. Alternately, auto-rickshaws may be used instead in some 
+hard to access areas. Within this study, only the dominant waste management practice 
+is assigned. Similarly, behavioural practices (i.e. dumping waste in rivers) is known to be 
+highly spatially dependent. However, within the PPC, probabilities of direct dumping to 
+water are assigned based on the average distance of the population within that sub-dis-
+trict to waterways, and therefore does not account for the specific locations within the 
+sub-district that may lack waste collection services.
+Lastly, whilst the interventions provided are linked to the plastic pollution source, items, 
+pathways, and sinks in Nakhon Si Thammarat City Municipality City Municipality were 
+unable to estimate the impact of these interventions. This is due to sensitivity analysis 
+required to account for the complex relationship that upstream and downstream inter-
+ventions may show, which was out of this project's scope.
+
+42 43
+City Profile
+Population
+CHAPTER 2
+Topography and Flooding
+Economic Development
+Governance
+P44
+P46
+P48
+P49
+CLOSING THE LOOP ON PLASTIC POLLUTION
+IN NAKHON SI THAMMARAT CITY MUNICIPALITY , THAILAND
+
+44 45
+City Profile
+CHAPTER 2
+2.1 Population
+Nakhon Si Thammarat City Municipality City is the capital of the Nakhon Si Thammarat 
+City Municipality Province in Southern Thailand. The Tapi River runs for 230 km from 
+the Khao Luang Mountains to Surat Thani. The Pak Phanang River travels 156 km from 
+the Khao Bantad Mountains into Pak Nakhon Bay. Most of the province is rural, with ur-
+ban development concentrated in the Mueang Nakhon Si Thammarat City Municipality 
+Sub-district, a lowland region located on the province’s eastern coast.
+Nakhon Si Thammarat City Municipality Province is home to 1.56 million people largely 
+residing in rural villages and small settlements. Nakhon Si Thammarat City Municipality 
+City Municipality is the urban area with the highest density with a population of approxi-
+mately 102,152 across 46,165 households14 in an area of 22.56 sq.km. The average pop-
+ulation density is 4,528 people/sq. km, which is higher than Bangkok (4,363 people/sq. 
+km). The population has remained fairly stable with little migration or growth (0 - 1% per 
+year). The city exhibits a clear linear urban morphology, concentrated along two main 
+roads: Ratchadamnoen Rd. and Highway 401, which connects Nakhon Si Thammarat 
+City Municipality to Surat Thani Province. 
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 2
+14 Department of Provincial Administration (DOPA), 2019. Nakhon Si Thammarat City Municipality City 
+Municipality: Population and Housing Statistics Report 2019
+15 Ibid. 
+Figure 6-7
+Sub-sub-districts in Nakhon Si Thammarat City Municipality City Municipality
+Table 1
+The population and households of sub-sub-districts in Nakhon Si Thammarat City Municipality 
+City Municipality15
+Sub-Sub-district Category Population Households
+Naimueang Urban 42,398 18,832
+Klang Urban 17,040 8,226
+Thawang Urban 16,854 7,563
+Phosadet Urban 24,664 11,052
+Nakhian Rural 1,196 472
+Total 102,152 46,165
+CITY PROFILE 
+
+46 47
+2.2 Topography and Flooding
+ The City is located at the foot of the Khao Luang Mountain range, a site of deforestation 
+for over a decade. This loss of forest cover has resulted in significant changes in environ-
+mental conditions, such as temperature, humidity, and increased run-off. 
+A sizeable urban canal network binds the City, and canals run directly through com-
+mercial and residential zones. These then empty into the Gulf of Thailand via several 
+branching rivers, primarily the Plai Bang Khwai, Pak Nakhon and Tha Sak. Since the City is 
+vulnerable to flood events due to population growth and deforestation in the upstream 
+catchment, flood water flows quickly from the top of the mountain to this network of 
+canals before reaching the sea.
+Efforts have been made to mitigate flooding for the province. Take, for example, the 
+canal networks developed in Southern Thailand in response to an extreme flood sea-
+son in 1988, 50 years, of significant infrastructure investment by the Office of the Royal 
+Development Projects Board (ORDPB) that completed over 69 projects since 197416 and 
+the major flood mitigation project was completed in 2018 by creating a series of new 
+diversion channels and floodgates to control drainage. 
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 2
+16 Office of the Royal Development Projects Board, 2020. Summary of Royal Development Project in Nakhon Si 
+Thammarat City Municipality. 
+http://www.rdpb.go.th/rdpb/projectData/files/south/summary_roy_southProject62.pdf 
+Figure 7-8
+The distribution of rivers and streams in Mueang Nakhon Si Thammarat City Municipality, 
+and the Terrain of Nakhon Si Thammarat City Municipality province, respectively. 
+Key environmental challenges for Nakhon Si Thammarat City Municipality are water qual-
+ity degradation driven by wastewater, municipal waste and agricultural pollution 17. In 
+addition, high flood often washes waste off the land and into nearby water bodies and 
+discharges into the ocean. Across the city, 71% of the population live within 500 metres 
+of one of these waterways, whilst a further 24% live within a kilometre. The topography 
+of Nakhon Si Thammarat City Municipality City Municipality is thus predominantly flat 
+with heavy precipitation during the wet season of October until December often leading 
+to localised flooding. The impact of these flood events on the movement of plastic litter 
+within the city and beyond is outside the scope of this baseline report and should be an 
+area for further investigation.
+CITY PROFILE 
+17 Steele, C. L., Pumphrey, L. M., Longnecker, N. W., & Gelin, R. M. (2014). Development and Initiation of 
+Sustainable Wastewater Management in Nakhon Si Thmmarat, Thailand. 
+https://digitalcommons.wpi.edu/iqp-all/2187
+
+48 49
+2.3 Economic Development
+Nakhon Si Thammarat City Municipality Province has a total economic production esti-
+mated at US $5.4 billion, which grows at around 2.2% per year. The regional economy 
+is driven by their thriving tourism industry, receiving about 4 million domestic and in-
+ternational visitors in 2019, which generated over US $554 million in revenue. However, 
+most people are employed in the agriculture sector through plantations, fisheries and 
+livestock production19. Agriculture accounts for 48.7% of land coverage20 in the province. 
+Several mining operations in the upland regions play a relatively smaller role in the pro-
+vincial economy (tin, tungsten, barite, feldspar). 
+Nakhon Si Thammarat City Municipality City Municiaplity is a regional hub for commercial 
+activity, tourism, education and culture. The tourism industry, in particular, has played a 
+significant role in driving economic development. 
+2.4 Governance
+Nakhon Si Thammarat City Municipality Province is part of the Southern Region and the 
+second largest of the 14 provinces. It is subdivided into 23 sub-districts which vary in size 
+and population. Governance is overseen by the Provincial Administration Organisation 
+(PAO) and 54 municipal management organisations, including Nakhon Si Thammarat 
+City Municipality City Municipality and the adjacent, Tha Sala, Prom Khiri, Lan Saka, Phra 
+Phrom, Chaloem Phra Kiat and Pak Phanang Municipalities. Non-municipal areas are 
+governed by 130 Sub-Sub-District Administrative Organisations (SAOs), and for local 
+administration, sub-districts are further divided into 170 sub-sub-districts and 1,428 
+villages.
+Nakhon Si Thammarat City Municipality City Municipality covers five sub-sub-districts 
+and 67 communities and is governed by the Provincial Office for Local Administration.
+Figure 9
+Administrative Governance of Thailand
+Source: Compiled by IGES - Chochoe Devaporihartakula
+CITY PROFILE 
+
+50 51
+CHAPTER 3
+Status of Plastic Waste 
+Management, Leakage 
+and Hotspots
+P52
+P57
+P61
+P72
+P75
+Municipal Solid Waste (MSW)Generation
+MSW Generation by Sub-Sub-Districts
+MSW Generation by Source Activity
+Plastic Waste Generation
+Plastic Waste Composition 
+Plastic Emissions to the Environment
+Key Sources of Plastic Pollution 
+Composition of Plastic Emissions to the Environment
+Plastic Emissions with Time
+Spatial Distribution of Plastic Pollution Emissions
+River and Marine Plastic Pathways
+Pathways of River and Marine Plastic with Time
+Fate of Plastic Waste
+Plastic Recycling
+Retained at Disposal Site
+Retained on Land and Drains
+River and Marine Plastic Pollution
+CLOSING THE LOOP ON PLASTIC POLLUTION
+IN NAKHON SI THAMMARAT CITY MUNICIPALITY , THAILAND
+
+52 53
+CHAPTER 3
+Status of Plastic Waste 
+Management, Leakage 
+and Hotspots
+3.1 Municipal Solid Waste (MSW) 
+ Generation
+Nakhon Si Thammarat City Municipality Province generates approximately 368,388 
+tonnes of municipal solid waste (MSW) annually. Out of that, about 39,118 tonnes of 
+MSW is generated in the urban area of Nakhon Si Thammarat City Municipality City Mu-
+niciaplity each year. With a residential population of 102,152 people, this equates to an 
+average waste generation rate of 1.05 kg per resident per day. This average is very sim-
+ilar to the reported value for Thailand as a whole, with the World Bank What a Waste 2.0 
+report suggesting a 2016 waste generation rate of 1.08 kg/capita/day18. Tourists contrib-
+ute to some of this waste, with Nakhon Si Thammarat City Municipality City Municipality 
+receiving an estimated 488,000 tourists each year with an average length of stay of 1.5 
+days. Accounting for these tourists, the waste generation rate per person (i.e. residents 
++ tourists) reduces to 1.03 kg/person/day. However, this does not account for the likeli-
+hood that tourists have higher waste generation rates than residents.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+18 KAZA, S., L. YAO, P . BHADA-TATA and F.V. WOERDEN. What a Waste 2.0: A Global Snapshot of Solid Waste 
+Management to 2050. Urban Development Series, Washington, DC: World Bank, 2018.
+3.1.1 MSW Generation by Sub-Sub-Districts
+Figure 10 shows that waste generation across the sub-districts of Nakhon Si Tham-
+marat City Municipality City Municiaplity is spatially diverse, with the more populated and 
+commercially active sub-districts generating higher quantities of MSW. Namely, the Nai 
+Mueang sub-district generates the most significant amount of MSW at 16,231 tonnes 
+per year, whilst the sub-district of Na Khian generates the least at only 457 tonnes per 
+year. This result is primarily due to the disparity in population between the sub-sub-dis-
+tricts, as the associated waste generation rates are believed to be similar.
+Figure 10
+Map of MSW generation (tonnes/year) by sub-district.
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+
+54 55
+3.1.2 MSW Generation by Source Activity
+The MSW generating activities that produce this waste can be thought of broadly as 
+residential waste, commercial waste, institutional waste (e.g. schools, healthcare, public 
+administration) and other waste (e.g. street sweepings, litter that remains uncollected, 
+flushing of sanitary waste, recyclables sold directly to the informal sector). Figure 11 
+shows that residential waste accounts for 66% of MSW generation, with a further 23% 
+of MSW being generated by commercial activities, 6% from institutional establishments, 
+whilst the remaining 5% of waste originates from ‘other’ activities. The ‘other’ waste cat-
+egory is kept separate from the remaining sources, as its origin cannot be fully known. 
+However, it is likely that some of this category also originates from household activities 
+(e.g. flushing sanitary waste, selling recyclables to the informal sector).
+Figure 11
+MSW generation by broad sectors
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+The non-household generated MSW can be further divided by the detailed sectors ac-
+cording to the International Standard Industrial Classifications of All Economic Activities 
+(ISIC), Rev. 4 19, as shown in Figure 12 and Figure 13 20. It can be seen that the major 
+contributions to the commercial sector come from retail, food, drink and accommoda-
+tion and office and other services. On the other hand, institutional waste generation is 
+weighted more towards public administration and education than health and social care.
+Figure 12
+MSW generation by detailed activity
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+19 UNITED NATIONS. International Standard Industrial Classification of All Economic Activities (ISIC), Rev. 4. 
+Statistical Papers, New York: United Nations, 2008
+20 As no Nakhon Si Thammarat City Municipality specific data was found for the distribution of commercial and 
+institutional waste generation by detailed sectors, the PPC used national Gross Value Added (GVA) data for 
+Thailand as a proxy for waste generation. The relative percentages for this GVA was averaged for each land use 
+to the relative land use percentages specified for Nakhon Si Thammarat City Municipality.
+
+56 57
+Figure 13
+MSW generation in tonnes per year by detailed activity
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+Single-family dwellings
+Office and other services
+Transportation and storage
+Multi-family dwellings
+Food, drink and accommodation
+Retail andd wholesale
+Informal door-to-door collected waste
+Uncollected litter
+Flushed sanitary waste
+Street cleansing
+Education
+Health and social care
+Public administration
+Uncollected fly-tipped waste
+Recreational
+0 5,000 10,000 15,000 20,000
+Waste generation (tonnes/year)
+3.2 Plastic Waste Generation
+Each of the detailed MSW generating activities shown in Figure 13 has a unique waste 
+composition, with the amount and composition of plastic waste generated varying for 
+each. Applying these compositions to the waste generation quantities shown in the pre-
+vious section calculates 9,018 tonnes of plastic waste is generated per year. The dis-
+tribution of this plastic waste is largely consistent with the overall MSW quantities for 
+each detailed activity, as shown in Figure 14. The highest quantities of plastic waste are 
+generated by single-family dwellings, followed by office and other services, retail and 
+wholesale and food, drink and accommodation sectors.
+Figure 14
+Plastic waste generation by detailed activity
+Plastic waste generation (tonnes/year)
+3,000 4,000 5,000
+0 1,000 2,000 3,000 4,000 5,000
+Single-family dwellings
+Office and other services
+Transportation and storage
+Multi-family dwellings
+Food, drink and accommodation
+Retail andd wholesale
+Retail andd wholesale
+Informal door-to-door collected waste
+Uncollected litter
+Flushed sanitary waste
+Street cleansing
+Education
+Health and social care
+Public administration
+Uncollected fly-tipped waste
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+
+58 59
+3.2.1 Plastic Waste Composition 
+In order to understand the fate of plastic waste released into the environment, it is es-
+sential to account for the physical properties of common items. For example, knowing 
+if an item is easily transported by wind or if it floats are key in predicting the transporta-
+tion of uncontrolled waste plastic in the environment. Likewise, the economic value of 
+that item further dictates its likelihood of being collected by informal waste pickers for 
+recycling. 
+The overall composition of the plastic waste generated is shown in Figure 15, whilst 
+a more comprehensive breakdown by each detailed activity is shown in Figure 16, as 
+obtained through a waste characterisation study performed in Nakhon Si Thammarat 
+City Municipality in November 2020. As this waste characterisation was performed 
+during the COVID-19 pandemic, waste generating patterns may have altered due to 
+behavioural changes or sanitary practices. The waste characterisation study added a 
+separate category for COVID-19-related plastic items (e.g. face masks) to adjust for this 
+abnormality. However, this category only accounted for 0.4% of MSW sampled or 1.5 % 
+of plastic waste sampled by mass. Therefore, the COVID-19-related waste was included 
+within the sanitary products category to accurately reflect waste generation in 2020. As 
+this is deemed negligible in size, the composition is not anticipated to vary considerably 
+from non-COVID-19 years, and therefore these results are potentially applicable to other 
+years.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+It can be seen from Figure 15 that plastic bags dominate the plastic waste generation, 
+accounting for 48%. This extremely high value becomes even more influential consid-
+ering that these plastic bags weigh considerably less than other typical plastic items 
+such as drink bottles, and therefore by count, represent an even higher percentage. 
+In addition to plastic bags, other plastic film makes up 4% of plastic waste generation. 
+Combined, over half of the plastic waste generated is comprised of flexible plastic film, 
+which commonly has low value and is susceptible to leaking and becoming marine litter 
+due to its ease of transportation by the wind. 
+Following plastic bags, the next highest category of plastic item generated is ‘other small 
+dense items’ (all dimensions less than 20cm), accounting for 15% of plastic waste gen-
+eration. This category includes items like pens, lighters, toys, non-food packaging (i.e. 
+toothpaste tubes and brushes). Higher value plastic items commonly targeted for re-
+cycling, such as plastic bottles, represent only 11% of plastic waste generation, thereby 
+inherently limiting the potential for recycling. 
+Figure 15
+Plastic waste item composition
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+
+60 61
+The dominance of plastic bags in waste composition holds for most waste generating 
+activities, as seen in Figure 16. Interestingly, in single-family dwellings, 52% of their 
+plastic waste was plastic bags, whereas this percentage was even higher for retail and 
+wholesale and recreation waste composition. Food, drink and accommodation sectors 
+had particularly large proportions of plastic bottles (39%), as did the educational sector 
+(23%), suggesting these sectors may have a high potential for recycling.
+Figure 16
+Plastic waste composition by detailed activity
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+Plastic waste generation (tonnes/year)
+Education
+Multi-family dwellings
+Retail and wholesale
+Single-family dwellings
+Office and other services
+Transportation and storage
+Food, drink and accommodation
+Informal door-to-door collected waste
+Uncollected litter
+Flushed sanitary waste
+Street cleansing
+Health and social care
+Public administration
+Uncollected fly-tipped waste
+Recreational
+0 1,000 2,000 3,000 4,000 5,000
+Plastic bags
+Other plastic film
+Drink bottles
+Other plastic bottles
+Pots, trays and tubs
+Expanded PS packaging
+Single-use food service
+Cigarette butts
+Sanitary products
+Other small dense items
+Other large dense items
+3.3 Plastic Emissions to the Environment
+Plastic emissions to the environment (i.e. plastic leakage) are hereby defined as plastic 
+waste, which escapes from the MSW management system to become uncontrolled in 
+the environment. Although formally managed dumpsites often lack sound practices, the 
+very nature of collecting and dumping the waste in a defined location is counted here as 
+control and therefore is not included in our definition of plastic emissions. However, any 
+plastic that blows off these disposal sites or is emitted at other stages of MSW manage-
+ment, including that which remains uncollected, is included.
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+
+62 63
+3.3.1 Key Sources of Plastic Pollution 
+The plastic emission sources to the environment for Nakhon Si Thammarat City Mu-
+nicipality are shown in Figure 17. It is seen that the largest emission source for plastic 
+uncontrollably entering the environment is directly from leakage in the collection system 
+whilst waste is waiting to be collected. Annually, this source releases an estimated 210 
+tonnes of plastic waste into the environment across the City.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+Figure 17
+Key source of plastic pollution
+Plastic emissions to the environment (tonnes/year)
+Littered waste
+Fly-tipped waste
+Waiting for collection (residual stream)
+During collection (residual stream)
+Informal sector (value chain)
+Disposal
+Primary transportation (residual stream)
+0 50 100 150 200
+This large amount of plastic emission from the collection system is due to two reasons. 
+Firstly, although waste collection containers are provided in the form of wheelie bins, 
+these were largely dilapidated, showing frequent signs of damage and misuse. For ex-
+ample, Figure 18a shows a typical waste container in Nakhon Si Thammarat City Munic-
+ipality whereby the lid is missing, and the container itself shows signs of damage, both 
+of which increase the likelihood of plastic release into the environment. Secondly, the 
+waste containers are not provided to each household but are shared between approx-
+imately 4 to 6 households. Although these collection containers are supposed to be 
+collected daily by the waste collection teams, it is reported that bins or streets are often 
+skipped and collected from the following day instead. Unfortunately, as demonstrated 
+the images in Figure 18, this has led to many collection containers being of insufficient 
+capacity to hold all of the waste from the community. This results in waste overflowing 
+or being placed in bin bags or makeshift containers nearby. 
+Although it is expected that much of this waste placed at the side or overflowing from 
+the containers will still be collected along with the bin, the containment level of this 
+waste is drastically reduced. Meaning this waste has a high probability of it escaping 
+and dispersing into the environment, particularly during periods of high wind or rainfall, 
+which can mobilise large amounts of loose plastic into nearby drains or rivers (Figure 
+18c). The next highest emission source for plastic is littering, with 151 tonnes per year 
+of plastic litter, excluding litter discarded to the ground but later collected street sweep-
+ing, was released into the environment. Street sweeping activities are often targeted at 
+key areas around commercial hubs or touristic sites and landmarks. However, suburban 
+areas are often much less frequently swept, leading to more litter remaining uncollected 
+in these locations. 
+The 151 tonnes of litter, which is estimated to go uncollected in Nakhon Si Thammarat 
+City Municipality each year, represents 1.48 kg of plastic per resident each year (4.1 g/
+capita/day). When including the presence of tourists in Nakhon Si Thammarat City Mu-
+nicipality, this reduces slightly to 1.45 kg of plastic per person each year (4 g/capita/day). 
+These relatively large numbers indicate that littering is a large problem in the city and 
+that action needs to be taken to limit this as a source of plastic pollution, for example, 
+by encouraging behavioural change or providing more public waste containers. Further 
+information on recommended interventions can be reviewed later in this report.
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+
+64 65
+Figure 18
+Examples of plastic emissions whilst waiting for collection due to A) Damaged waste containers, 
+B) Overflowing waste containers, c) Overflowing waste containers with plastic accumulating 
+in an adjacent storm drain, D) Overflowing waste container with fly-tipping evident in the 
+background. 
+Photo credit: Chochoe Devaporihartakula
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+Following leakage whilst waiting for collection and littering, the disposal site forms the 
+third-largest source of plastic pollution, releasing an estimated 38 tonnes of plastic into 
+the environment each year. This value relates only to the plastic waste originating from 
+Nakhon Si Thammarat City Municipality. Therefore, as the dumpsite also receives waste 
+from other municipalities, the total amount emitted to the environment is predicted to 
+be more. The dumpsite operates with minimal management. Typically, waste is dumped 
+in a pile and remains exposed to the elements. This is evidenced by the dumpsite's re-
+cent history of regular flooding (2011, 2016, 2017, 2020) during the rainy season. In this 
+sense, the vast majority of the plastic waste which is predicted as escaping to the envi-
+ronment comes about due to flooding events that impact the dumpsite.
+The fourth highest source of plastic pollution in Nakhon Si Thammarat City Municipality 
+is due to fly-tipped waste, which is defined as illegally dumped waste on a large scale 
+(multiple items) by residents or businesses, often as a means to avoid paying disposal 
+fees. While the legality of dumping is often complex, this report defines fly-tipping as 
+illegal dumped waste when alternate disposal options are available (e.g. pay the munic-
+ipality to collect). As such, the open dumping of waste by residents who lack any form of 
+waste collection service is not considered fly-tipping but instead is represented by un-
+collected waste. This illegal dumping of waste often constitutes large bulk items, which 
+are difficult or costly for individuals to dispose of. An example of a potential fly-tipping 
+site can be seen in the background of Image 18d. It is unlikely that this waste would be 
+collected along with the collection containers and, therefore, may disperse over time. 
+However, as fly-tipping items are often bulky and weigh large amounts, the probability 
+of these reaching the aquatic environment is lower than smaller items such as plastic 
+bottles or bags.
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+A) B)
+C) D)
+
+66 67
+3.3.2 Composition of Plastic Emissions to the 
+ Environment
+The composition of plastic emitted to the environment varies compared to that gener-
+ated. This is due to an increased likelihood of specific items leaking based on the waste 
+management practices of their source activity and their inherent material form (i.e., mak-
+ing them more susceptible to movement). However, unsurprisingly, due to their high 
+use, low value, and ease of being blown by the wind, plastic bags still dominate plastic 
+emissions to the environment accounting for 57% of all releases. Small dense plastic 
+items account for 11%, followed by plastic drink bottles at 6%. 
+Figure 19
+Item composition of plastic emissions to the environment
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+3.3.3 Plastic Emissions with Time
+The emissions of plastic waste can often vary across the different months of the year. 
+This is particularly the case when emission sources result from wind or surface runoff, 
+which can show seasonal patterns. This time dependence for emissions can be seen in 
+the results for Nakhon Si Thammarat City Municipality, City Municipality with peak emis-
+sions occurring during the rainy season (Figure 20). This main source for increased 
+emissions during this period is ‘waiting for collection’, with any waste placed in or around 
+waste bins having a higher likelihood of movement due to increased rainfall. In addition, 
+the emissions from the disposal site are also predicted to increase during this period 
+of flooding. On the other hand, the other prominent emission sources of littering and 
+fly-tipping do not display a temporal dependence and therefore occur throughout the 
+year in large amounts, as seen by the dry season still having considerable emissions. 
+The smaller peaks are due to the Plastic Pollution Calculator (PPC) considering the time-
+frame when waste will likely build up within collection containers and overflow, leading 
+to higher emissions (Figure 20). Breaking the above result down by item type, plastic 
+bags, in particular, show the most seasonal fluctuation due to their high occurrence in 
+the waste stream and their strong affinity to be moved by wind and surface runoff. Other 
+items also show small fluctuations with time, but not as significant. 
+Figure 20
+Plastic emissions into the environment by item type with time
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+Plastic bags
+Other plastic film
+Drink bottles
+Other plastic bottles
+Pots, trays and tubs
+Expanded PS packaging
+Single-use food service
+Cigarette butts
+Sanitary products
+Other small dense items
+Other large dense items
+Jan 2020 Mar 2020 May 2020 Jul 2020 Sep 2020 Nov 2020
+Plastic emissions to the environment (tonnes/day)
+0
+1
+
+68 69
+3.3.4 Spatial Distribution of Plastic Pollution 
+ Emissions
+Whilst the results so far have shown the plastic emission results for Nakhon Si Tham-
+marat City Municipality City Municiaplity as a whole, here we examine the plastic emis-
+sions to the environment by spatial location, made possible by running the PPC across 
+each sub-sub-district of the five sub-sub-districts and assigning emissions based on the 
+process outlined in the methodology section. Figure 21 shows the total plastic emis-
+sions to the environment in tonnes per year for each sub-sub-district. Nai Mueang, Pho 
+Sadet and Klang are the top three sub-sub-districts for plastic emissions at 146, 104 and 
+78 tonnes/year, respectively. These sub-sub-districts have similar waste management 
+conditions but higher emissions because they have the highest. Alongside the five sub-
+sub-districts of Nakhon Si Thammarat City Municipality City Municipality, the disposal 
+site is also included as a location of plastic pollution. This is kept separate from the 
+other sub-districts as it falls outside of the city boundaries. However, it is still essential 
+to consider this location because it receives the waste from Nakhon Si Thammarat City 
+Municipality City Municipality, therefore is affected by what happens in the urban centre. 
+Figure 21
+Plastic emissions to the environment in tonnes per year by sub-district
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+Nai Mueang Pho Sadet Klang Tha Wang Disposal site Nakian
+0
+20
+40
+60
+80
+100
+120
+140
+Plastic emissions to the environment (tonnes / year)
+Na khian sub-sub-district has the lowest plastic emissions at 23 tonnes per year because 
+of its small population of just 1,196. However, for completeness, it is also important to 
+consider the plastic emissions on a per capita basis to fairly compare the volumes in sub-
+sub-districts (Figure 22). On a per-capita basis, Na Khian has the highest emissions at 
+20 kg/capita/year. This is due to the sub-sub-district being a likely hotspot for fly-tipping 
+activities due to its low population density. In contrast, a densely populated urban centre 
+such as Klang is unlikely to have as much fly-tipping because there is less land in this 
+area for people to dump waste illegally without being noticed.
+Figure 22
+Per capita plastic emissions to the environment by sub-district including (light blue) and 
+excluding (dark blue) tourists in the per-capita calculation.
+Nai MueangPho SadetKlang Tha WangNakian
+0
+5
+10
+15
+20
+Per capita plastic emissions to the environment 
+(kg/capita /year)
+
+70 71
+Lastly, the plastic emissions by location of emittance are shown in Figure 23, mapped for 
+each pixel (~500 m x 500 m) in kg/year. This spatial representation of plastic emissions is 
+achieved by mapping the waste management infrastructure, residential population and 
+commercial activity before allocating the associated emissions from each sub-district to 
+each, as explained in the methodology section. For the case of Nakhon Si Thammarat 
+City Municipality, only the disposal site location was available for the waste management 
+infrastructure. Therefore, the emissions from residential populations were allocated ac-
+cording to the population distribution reported by the European Commission Global 
+Human Settlement Layer (GHSL) population distribution21. 
+21 PESARESI, M., A. FLORCZYK, M. SCHIAVINA, M. MELCHIORRI and L.J.E.C. MAFFENINI, JOINT RESEARCH 
+CENTRE. GHS settlement grid, updated and refined regio model 2014 in application to ghs-built r2018a and 
+ghs-pop r2019a, multitemporal (1975-1990-2000-2015) r2019a. 2019.
+Figure 23
+Spatial distribution of plastic emissions in kg per year. This is visualised per 450 m x 450 m 
+pixel.
+Tha Wang, Khlang and Nai Mueang appear to have a higher concentration of plastic 
+emissions due to their increased population densities. Interestingly, Tha Wang was the 
+second from the bottom in terms of total emissions, as shown previously in Figure 21; 
+however, its small area suggests plastic emissions may be in a similarly high concentra-
+tion to Nai Mueang, which has considerably more emissions in total. This signifies the 
+importance of considering different types of hotspots, such as total emissions per capita 
+and concentration. Lastly, the disposal site is a source for emissions (Figure 23); howev-
+er, it occurs outside the city boundaries.
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+
+72 73
+3.4 River and Marine Plastic Pathways
+As plastic entering waterbodies has the potential to cause harm to aquatic life, the Plas-
+tic Pollution Calculator (PPC) assumes a broad definition for its aquatic plastic debris that 
+encompasses all MSW derived macroplastic waste (over 5mm in size) entering aquatic 
+environments (i.e. permanent rivers and waterbodies). Of course, depending on the lo-
+cation and in-river characteristics, not all this plastic waste may enter the ocean. How-
+ever, this broad definition is deemed preferable to account for all potential harm. It is 
+essential to note that the term ‘plastics pollution’ encompasses all damaging aspects of 
+plastic emissions into the environment, accounting for aquatic plastic debris and plastic 
+retained on land, retained in drains or openly burnt.
+Figure 24
+Key aquatic plastic debris pathways in Nakhon Si Thammarat City Municipality
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+The pathways that plastic waste emitted takes to reach waterways is shown in Figure 24. 
+28% of aquatic plastic debris enters waterways directly via dumping, mainly through 
+fly-tipping, followed by littering alongside rivers. A further 59% of aquatic plastic debris 
+enters waterways by moving overland, such as blown by the wind or moved by surface 
+runoff. Storm drains are another common pathway for aquatic plastic debris to move. 
+Within Nakhon Si Thammarat City Municipality storm drains are largely enclosed which 
+significantly reduces the ability for plastic waste to enter and transfer to waterways, 
+however 12% of aquatic plastic debris still enters waterways via storm drains due to 
+poor maintenance, lack of regular cleaning, and aging of the infrastructure. In addition, 
+the presence of a wastewater treatment plant in Nakhon Si Thammarat City Municipality 
+ensures that plastic waste that enters the sewage system is removed, and therefore this 
+is not included as a pathway.
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+
+74 75
+3.4.1 Pathways of River and Marine Plastic with 
+ Time
+Plastic movement strongly correlates with meteorological conditions. For Nakhon Si 
+Thammarat City Municipality this is studied during the months of November to January, 
+matching that of the rainy season in Figure 25. The plastic emissions to water from the 
+city peak during November to January, matching the rainy season. As previously de-
+scribed in Figure 20, the rainy season results in more plastic emissions and increases 
+the likelihood of plastic being transported into rivers and the ocean overland or through 
+drains.
+Figure 25
+Plastic emissions to water with time in Nakhon Si Thammarat City Municipality
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+Jan 2020 Mar 2020 May 2020 Jul 2020 Sep 2020 Nov 2020
+Plastic emissions to water (tonnes/day)
+0.0
+0.2
+0.4
+0.6
+0.8
+1.0
+Directly to water
+Pathway
+Drains to water
+Land to water
+3.5 Fate of plastic waste
+An overview of the fate of plastic waste within Nakhon Si Thammarat City Municipality 
+is summarised in the Sankey Diagram of Figure 26. It can be seen that of all the plastic 
+waste generated, 94.3% ends up at the disposal site where it remains, and only 0.7% of 
+the plastic is sorted for recycling. Together these fates represent the managed plastic, 
+whereas the remaining 5% of plastic is deemed mismanaged. This mismanaged plastic 
+waste differs from other definitions as it relates only to uncontrolled waste in the envi-
+ronment that can transfer to waterbodies with a high potential to cause damage to the 
+environment and ecosystems. As such, waste retained at the disposal site is deemed 
+managed regardless of the level of control at that site.
+Of the 5% of mismanaged plastic waste, 362 tonnes/year (4%) of the plastic waste gener-
+ated is deemed to be retained on land or in drains, whereby it becomes entangled. Over 
+time, without clean-up activities, this plastic will degrade and break down into innumera-
+ble microplastics, many of which will contaminate the nearby environment, including wa-
+terways. A further 1.0% enters waterways becoming aquatic plastic debris. No evidence 
+found suggests open burning of waste occurs in Nakhon Si Thammarat City Municipali-
+ty; however, this is often very hard to quantify, and data on its existence is scarce. Despite 
+this, open burning is often occurring, even in areas with 100% waste collection (e.g. via 
+garden bonfires), but the level of this could not be ascertained in this study.
+Figure 26
+Fate of plastic waste in Nakhon Si Thammarat City Municipality
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+
+76 77
+3.5.1 Plastic Recycling
+Although the municipality provides source segregated collection containers in Nakhon 
+Si Thammarat City Municipality to collect recyclable materials, major issues were found 
+in their use, suggesting they are ineffective. For example, residents do not typically prac-
+tice waste separation or use the different containers appropriately. Instead, they tend 
+to put their mixed waste in any of the bins. An example of this is seen in Figure 27. This 
+can happen due to a lack of understanding of the system, behavioural habits or issues 
+relating to insufficient capacity of the containers, as discussed previously.
+Figure 27
+Colour coordinated collection containers in Nakhon Si Thammarat City Municipality. The yel-
+low containers are designated for recyclables only, but this is not occurring in practice. 
+Photo credit: Chochoe Devaporihartakula, Programme Manager at IGES.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+This lack of a functioning formal system for plastics recycling is counteracted somewhat 
+by the activities of the informal recycling sector. The 0.7% of plastic recycled is entirely 
+performed by these informal recyclers, sometimes known as waste pickers. This sec-
+tor operates at the door-to-door level, collecting valuable recyclables from homes and 
+businesses and at the disposal site, extracting any valuable materials from the waste 
+deposited there (Figure 28). However, the amount of plastic collected for recycling by 
+the informal recycling sector is minimal. The waste characterisation study performed 
+in Nakhon Si Thammarat City Municipality suggests that only 5% of the recyclables they 
+collect by mass is plastic, of which plastic bottles (drink or otherwise) represent 53% of 
+this plastic collected.
+Figure 28
+Nakhon Si Thammarat City Municipality dumpsite showing unmanaged disposal and activities 
+of the informal recycling sector.
+Photo credit: Chochoe Devaporihartakula
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+
+78 79
+3.5.2 Retained at Disposal Site
+The vast majority of plastic waste generated in Nakhon Si Thammarat City Municipality 
+ends up at the disposal site. The activities at this disposal site are largely uncontrolled, 
+leading to a high potential for plastic emissions. For example, measures employed in 
+well-managed disposal sites such as daily cover and compaction do not occur here. 
+Additionally, the site is regularly exposed to flooding events leading to potentially signif-
+icant releases of plastic into the environment and other potentially harmful pollutants. 
+This is exasperated by the location of the disposal site, which is adjacent to several canals 
+that facilitate the transport of pollutants into natural waterbodies.
+3.5.3 Retained on Land and Drains 
+An estimated 4% of plastic waste is predicted to be retained dispersedly across land and 
+in drains. This plastic waste may become trapped in vegetation and urban infrastructure. 
+Whilst it is assumed that this plastic waste does not become aquatic debris within the 
+modelling timeframe of a year, it is likely that some of this plastic may enter waterways 
+in subsequent years. This is particularly the case if the plastic begins to degrade and 
+fragment into microplastics, making transportation by surface runoff or contaminating 
+soils more likely. Likewise, plastic retained in the storm drain network poses risks of local 
+flooding by obstructing the channels leading to potential flooding.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+3.5.4 River and Marine Plastic Pollution
+About 87 tonnes of plastic waste (0.96% of plastic waste generation) is predicted to be-
+come aquatic debris every year in Nakhon Si Thammarat City Municipality. Although this 
+percentage may sound small compared to other flows, the lightweight nature of plastic 
+means that this represents many millions of items. The composition of aquatic debris is 
+56% plastic bags by weight (Figure 29). Assuming a plastic bag weighs approximately 
+5g, this would represent 10 million plastic bags entering aquatic environments each 
+year! Likewise, although only 8% of the aquatic debris is plastic bottles, assuming an 
+approximate average mass of 20 grams per bottle, this would represent 348 thousand 
+bottles entering aquatic environments per year.
+Figure 29
+Composition of plastic waste entering waterways in Nakhon Si Thammarat City Municipality
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+
+80 81
+In the previous section, Figure 21 detailed the sub-districts according to their contri-
+bution to plastic emissions; here, a similar approach is taken for only aquatic plastic 
+debris instead. This aquatic plastic debris by source sub-district is shown in Figure 30. 
+The sub-district that contributes the most aquatic plastic debris is Nai Mueang, with an 
+estimated 34.7 tonnes of plastic waste entering aquatic environments each year. This 
+sub-district ranks top for aquatic plastic debris partially because it also has the largest 
+amounts of plastic waste emissions into the environment and because an estimated 
+65% of the population live within 500 metres of a waterway.
+Figure 30
+Contribution towards aquatic plastic debris by sub-district
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 3
+Although the Plastic Pollution Calculator does not model the flows of plastic waste once 
+in waterways, here likely hotspot locations are presented showcasing where the aquatic 
+plastic debris would enter the ocean. This is achieved by overlaying the river basins 22 
+with sub-district aquatic plastic debris and noting the outlet of where that river basin 
+drains to, as seen in Figure 31. 36% of the aquatic plastic debris is predicted to enter 
+into the Pak Nakhon river basin on the South side of Nakhon Si Thammarat City Mu-
+nicipality. The remaining 64% of aquatic plastic debris is predicted to go to the more 
+Northern Tha Phae river basin, although it is believed the majority of this actually leaves 
+through the Tha Sak River.
+Figure 31
+Aquatic plastic debris by river mouth
+STATUS OF PLASTIC WASTE MANAGEMENT, LEAKAGE AND HOTSPOTS
+22 River basins are sourced according to the Hydrosheds level 9 definition. These basins are seen to not include 
+some of the small drainage canals and waterways in Nakhon Si Thammarat City Municipality (e.g. Tha Sak River), 
+therefore the actual outlet of these waterways may be slightly different.
+
+82 83
+CHAPTER 4
+A Review of Governance Aspects
+P84
+P94
+P104
+Institutional Setup
+National/ Provincial Institutions Responsible for 
+Implementing Plastic Waste/ Marine Litter
+Local (City) Institution Responsible for Implementing 
+Plastic Waste/ Marine Plastic Management 
+Key Policies and Regulations
+National Policies and Legislations
+Nakhon Si Thammarat City Municipality City 
+Municipality’s Policies
+Financial Capacity
+Revenue and Expenditure of Nakhon Si Thammarat 
+City Municipality City Municipality
+CLOSING THE LOOP ON PLASTIC POLLUTION
+IN NAKHON SI THAMMARAT CITY MUNICIPALITY , THAILAND
+
+84 85
+A Review of Governance 
+Systems 
+4.1 Institutional Setup
+4.1.1 National/ Provincial Institutions Responsible 
+ for Implementing Plastic Waste/ Marine 
+ Litter 
+CHAPTER 4
+At the national level, the Pollution Control Department (PCD) of the Ministry of Natural 
+Resources and Environment (MONRE) is mainly responsible for policy planning, including 
+municipal solid waste (MSW) and hazardous waste management. There are also other 
+important line ministries, departments and agencies that regulate waste management. 
+The Ministry of Public Health (MOPH) is responsible for infectious waste from hospitals, 
+clinics and healthcare centres, while the Ministry of Industry (MOI) is responsible for 
+industrial waste. 
+The Department of Marine and Coastal Resources (DMCR) of MONRE deals with marine 
+debris management, including collecting discarded waste from coastal areas. Their 
+responsibility includes beaches, mangroves and coral reefs, along with awareness-raising 
+campaigns (non-smoking on beaches), installation of the waste traps at major river 
+mouths and canals and survey and evaluation. In line with this, the Marine Department of 
+the Ministry of Transport is tasked with setting rules and regulations for safe navigation 
+in the Thai waters, including controlling marine pollution.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 4
+Table 2
+Key national ministries and agencies involved in waste management are described below.
+Name of the Ministry Key Roles and Responsibilities
+Ministry of Natural Resources 
+and Environment (MONRE)
+• formulation of policies, guidelines, programmes, regulations and 
+standards.
+Office of Natural Resources 
+and Environmental Policy 
+and Planning 
+• policy planning and administering the environment fund.
+Pollution Control Department 
+(PCD)
+• developing laws and policies concerning plastic waste 
+management.
+• developing infrastructure planning for solid waste disposal and 
+treatment.
+• providing overall control, supervision and monitoring of solid 
+waste and hazardous waste.
+• issuing environmental regulations, laws associated with solid 
+waste management.
+Department of Environment 
+Quality Promotion (DEQP)
+• enhancing environmental quality through research, development, 
+training, and public awareness.
+• promoting and disseminating information on MSW management.
+Department of Marine and 
+Coastal Resources (DMCR)
+• formulating policies, planning and processing laws and legislation 
+and its enforcement.
+• managing marine debris.
+Ministry of Public Health (MOPH) • provision of waste management and disposal services.
+Department of Public Health 
+(DOH)
+• issuing ministerial regulations to stipulate service charges.
+Ministry of Industry (MOI) • management of industrial waste.
+Department of Industrial Work, 
+Ministry of Industry 
+and the Industrial Estate 
+Authority of Thailand (IEAT),
+• policy guidance, compliance and enforcement.
+Ministry of Interior (MOI) • supervision of finances and waste management of Local Govern-
+ment Organisations (LAOs).
+• support for the preparation of Local Development Plans.
+Department of Local 
+Administration (DOLA)
+• providing overall guidance to local authorities on waste handling 
+and administering financial matters of Local Administrative 
+Organisations (LAOs)
+Marine Department of 
+the Ministry of Transport
+• setting rules and regulations for safe navigation in the Thai waters 
+which also includes controlling marine pollution.
+Department of Fisheries, Ministry 
+of Agriculture and Cooperatives
+• regulating and controlling fisheries resources for sustainable 
+utilisation and maintaining diversity.
+Port Authority of Thailand • administration of main ports, i.e. Bangkok Port, Laem Chabang 
+Port, Chiang Saen Port, Chiang Khong Port and Ranong Port. 
+• providing relevant information to the vessel at a port on solid 
+waste management.
+A REVIEW OF GOVERNANCE ASPECTS
+
+86 87
+Although several line ministries and agencies deal with waste management, duties and 
+responsibilities do not overlap among competent authorities. However, coordination 
+among inter-ministerial/agency should be strengthened towards achieving the national 
+goals. 
+Figure 10
+Administrative Structure of Waste Management in Thailand
+Source: Compiled by Chochoe Devaporihartakula
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 4
+4.1.2 Local (City) Institution Responsible for 
+ Implementing Plastic Waste/ Marine Plastic 
+ Management 
+A. Municipal Government
+The Public Cleanliness and Orderliness Act B.E.2535 (1992) was amended in 2017 ((No. 2), 
+B.E. 2560) to decentralise the power to the Local Administrative Organisations (LAOs) in 
+dealing with waste collection and management under the supervision of the provinces 
+and the Ministry of Interior (MOI). In addition, the National Government also initiated 
+the Clean Province Action Plan to support the local government with the enforcement 
+of the new law. Along with the Municipal Act B.E. 2496 (1953) amended (No. 19) 2019, 
+the Municipal Government has become the official entity in charge of the whole range 
+of waste management activities, including solid waste collection and disposal within its 
+governed areas and is entitled to both generate income through public services and 
+receive funding from central government ministries.
+Out of 184 LAOs responsible for collecting and managing solid waste, only 7 have san-
+itary disposal facilities.23 Thailand’s State of Municipal Solid Waste Management – 2017 
+revealed that more than 1.13 million tonnes of solid waste have accumulated, out of 
+which 1.11 million tonnes has been dumped in Nakhon Si Thammarat City Municipality 
+province. As a result, the Province has become the country’s number one province for 
+accumulating unmanaged solid waste. Since provincial collection coverage is estimat-
+ed at around 63.5%, increasing collection coverage has become a priority issue to be 
+solved24.
+A REVIEW OF GOVERNANCE ASPECTS
+23 Ibid.
+24 Pollution Control Department. (2018). รายงานสถานการณ์สถานที่กำาจัดขยะมูลฝอยชุมชนของประเทศไทย ปี พ.ศ. 2560 
+[Thailand State of Municipal Solid Waste Management 2017]. Waste and Hazardous Substance Management 
+Bureau. Bangkok.
+
+88 89
+Unlike many other cities in Thailand, Nakhon Si Thammarat City Municipality City Munic-
+ipality manages its waste without outsourcing it to a third party or involving the private 
+sector. Solid waste is collected daily by the municipal waste trucks and then sent to the 
+landfill, where accumulated solid waste of over 1.13 million tonnes so far. This is in part 
+due to the local management that permits other LAOs to dispose of their solid waste 
+at their landfill25. The 22.16 Ha landfill site is located within Somdej Phra Srinagarindra 
+84 Park (Thung Thalad), Nakhon Si Thammarat City Municipality City Municipality. It has 
+been operational since 1977 and receives approximately 261 tonnes of municipal solid 
+waste each day26, with over half imported from 58 neighbouring municipalities who are 
+permitted to dispose there by Nakhon Si Thammarat City Municipality City Municipali-
+ty. A lack of formal management or waste segregation has created significant health and 
+environmental concerns among residents and those who work at the landfill, including 
+waste pickers, and even kills aquatic animals. These effects are particularly harmful to 
+the estimated 120 waste pickers who rely on the landfill as their primary income source.
+25 Ibid.
+26 Pollution Control Department. (2020) โครงการพัฒนาระบบสารสนเทศ ด้านการจัดการขยะมูลฝอยชุมชน [Waste Genera-
+tion Data of Nakhon Si Thammarat City Municipality City Municipality in 2019], 
+http://thaimsw.pcd.go.th/provincedetail.php?id=80.
+A-1 Waste-to-Energy27
+In response to the city’s growing waste problem, the Ministry of Interior (MOI) approved 
+a 2,900-million Thai Baht (THB) public-private partnership (PPP) for a waste-to-energy 
+project proposed by Nakhon Si Thammarat City Municipality City Municipality in July 
+2018. With this funding a 20-megawatts stoker-type incineration plant is under devel-
+opment that will be able to process up to 1,000 tonnes of municipal solid waste per day 
+and generate electricity. This includes daily municipal solid waste estimated about 350 
+tonnes collects by the city and another 650 tonnes per day municipal solid waste exca-
+vated from the landfill site. It was estimated that the installed capacity will help the city 
+manage and dispose of all accumulated waste, including plastic waste, within 11 years, 
+to support them in meeting targets. 
+A waste-to-energy incineration plant will be provided by the Nakhon Si Thammarat City 
+Municipality City Municipality and will be located at the current landfill site in Nakhian. 
+It covers the area of approx. 50 rai (8 hectares), where 30 rai (4.8 hectares) will be allo-
+cated for waste disposal plant, and 20 rai (3.2 hectares) will be allocated for wastewater 
+treatment.
+A REVIEW OF GOVERNANCE ASPECTS
+27 Hoon. (17 March 2021) “Super ลุงโรงไฟฟ้าขยะนครศรีธรรมราช 20 MW คาดรายได้ 500-600 ลบ./ปี.” 
+https://hoonsmart.com/archives/175165.
+
+90 91
+Under the build–own–operate–transfer (BOOT) agreement signed with Nakhon Si Tham-
+marat City Municipality City Municipality on 16 March 2021, Green Power Energy Compa-
+ny Limited will exclusively invest, finance, design, build, operate, maintain and manage 
+the incineration plant for 20 years. The Company is considered as a Small Power Pro-
+ducer (SPP) and will supply 16 megawatts of power generation through a 115 kilovolt 
+(kV) transmission line to the state-owned enterprise, Electricity Generating Authority of 
+Thailand (EGAT). The feed-in tariff of 3.66 THB per kWh will be applied for 20 years. In 
+addition, the Company also charges a waste disposal fee of 350 THB/tonne. It is expect-
+ed that the Company will generate income of approx. 500 – 600 million THB/year with a 
+more than 7 – 8% return on investment. The construction will commence in 2022 and to 
+be completed by 2024.
+Under the agreement, Nakhon Si Thammarat City Municipality City Municipality still plays 
+a vital role in solid waste management. Some of the items the City remains responsible 
+for are; providing waste collection services; coordinating with other Local Authority or-
+ganisations (LAOs); keeping records of waste generation; collecting management fees; 
+carrying out land acquisition for the incineration plant; monitoring the Company’s per-
+formance under the agreement; environmental inspection at the implementation site; 
+managing the Energy Development Fund and Environmental Development Fund; as-
+sessing potential impacts of and mitigation for humans who live nearby and; developing 
+environmental impact mitigation plan (EIMP).
+Air Pollutants Units Incinerator 
+Capacity 
+ >50 tonnes/day
+Total Suspended Particles (TSP) mg/m3 70
+Sulfur Dioxide (SO2) ppm 30
+Nitrogen Oxide (NOx) as Nitrogen Dioxide 
+(NO2)
+ppm 180
+Hydrochloric Acid (HCI) ppm 25
+Mercury (Hg) mg/m3 0.05
+Cadmium (Cd) mg/m3 0.05
+Lead (Pb) mg/m3 0.5
+Polychlorinated dibenzo-p-dioxins (PCDDs), 
+polychlorinated dibenzofurans (PCDFs)
+ng/ m3 0.1
+Opacity % 10
+Table 3
+Air Emission Standard for Municipal Solid Waste Incinerator28
+The incineration plant must comply with the Thai laws and regulations applicable to de-
+sign criteria, environmental quality standards and pollution control systems. The emis-
+sions limits for specific pollutants that occur in the combustion process will be observed 
+by the Continuous Emissions Monitoring System (CEMs), which measures emissions 
+from the power station's stack using real-time data (See table x). 
+A REVIEW OF GOVERNANCE ASPECTS
+28 Notification of the Ministry of Natural Resources And Environment: The Emission Standard For A Waste 
+Incinerator (16 July 2010). 
+http://infofile.pcd.go.th/law/2_106_air.pdf?CFID=1123669&CFTOKEN=67875427 
+
+92 93
+B. Other Key Stakeholders
+In addition to the Municipal Government, the informal sector, particularly waste pickers 
+and collectors, plays a significant role in managing plastic waste in Nakhon Si Tham-
+marat City Municipality. There are approx. Sixty waste pickers work in the landfill, which 
+is open 24 hours a day. The collected waste/recyclable waste is sold to waste dealers. 
+In terms of recycling, 23 licensed waste dealers in Nakhon Si Thammarat City Munici-
+pality buy recyclable and plastic wastes and sell them to other recycling companies out-
+side Nakhon Si Thammarat City Municipality. However, there is no collaboration or joint 
+programme among the Municipal Government, waste dealers, waste pickers, and waste 
+collectors. 
+For community-based management, the Municipal Government usually follows the 
+waste management policies from the central government. It has encouraged local com-
+munities from time to time to come up with awareness-raising campaigns as well as see 
+the importance of waste separation at source and 3R activities. However, despite several 
+attempts, little attention has been given to the issue as there is a lack of incentives and 
+enforcement. 
+Stakeholder Responsibilities
+Private sector
+Waste Dealers There are 23 licensed waste dealers who buy recyclables, 
+including plastic waste and sell the aggregated waste to 
+recycling companies outside the City.
+Waste Pickers There are approx. 60 waste pickers working at the landfill 
+that collect plastic/recyclable wastes and sell them to the 
+waste dealers.
+Waste collectors (in-
+cluding municipal waste 
+collection workers)
+Collect plastic/recyclable wastes and sell them to the 
+waste dealers.
+Thailand Public-Private 
+Partnership for Plastic 
+and Waste Management 
+(PPP-Plastic)
+PPP-Plastic has secured support from over 30 
+organisations, including some leading global companies 
+such as DOW, Coca Cola, PTT, etc. Their common goals 
+are to reduce at least 50% aquatic plastic debris by 
+2027 through solutions such as sustainable waste 
+management, the Circular Economy, and applying the 
+3Rs activities.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 4
+Table 3
+Key Stakeholders involved in Plastic Waste Management in Nakhon Si Thammarat City Munic-
+ipality 
+Stakeholder Responsibilities
+Any other (international agencies/ academic/ research institute)
+Thailand Greenhouse 
+Gas Management 
+Organization (TGO)
+Greenhouse Gas Emission Reporting for Local 
+Government (2020 – 2022) project has started to 
+strengthen the capacity of Local Administrative 
+Organisations (LAOs) to calculate the organisation’s 
+carbon footprint as a pathway forward to a Low-Carbon 
+city. In Nakhon Si Thammarat City Municipality, the 
+Division of Public Health and Environment is the project's 
+focal point and has given a special focus on wastewater 
+and solid waste management.
+Deutsche Gesellschaft 
+für Internationale 
+Zusammenarbeit (GIZ)
+The Project on Support to the Development and 
+Implementation of the Thai Climate Change Policy (CCA) 
+Project (2014 – 2017) was a collaboration between 
+the Ministry of Natural Resources and Environment, 
+Thailand, through the Office of the Natural Resources 
+and Environment Policy and Planning (ONEP) and the 
+German Federal Ministry for the Environment, Nature 
+Conservation, Building and Nuclear Safety (BMUB) 
+through GIZ. The project lasted four years, from 2014 to 
+2017, to support the development and implementation 
+of climate change policy at the regional and sub-national 
+levels. The aim was to elaborate the Thailand Climate 
+Change Master Plan 2015-2050 and develop climate 
+change action plans significantly consistent with each 
+region's context and development directions. This also 
+included wastewater and solid waste management of the 
+Nakhon Si Thammarat City Municipality City Municipality.
+A REVIEW OF GOVERNANCE ASPECTS
+
+94 95
+4.2 Key Policies and Regulations
+4.2.1 National Policies and Legislation
+Thailand has ranked as one of the top ten largest world contributors to plastic waste in 
+the ocean and continues to be a challenge for the country. Because of this, waste man-
+agement has been considered as a national priority since 2014. As a result, the Thai gov-
+ernment initiated a series of waste management policies, including Road Map on Waste 
+and Hazardous Waste Management 2014, National Master Plan for Waste Management 
+2016-2021, and the Action Plan on Thailand Zero Waste (2016 – 2017)” 29 were introduced 
+to initiate proper waste management throughout the country. 
+The National Master Plan for Waste Management 2016 – 2021 30 mainly focuses on waste 
+generation and collection systems, particularly on 3R Strategies (reduce, reuse, recycle) 
+and the improvement of waste disposal sites. 
+Table 4
+National Master Plan for Waste Management 2016 - 2021
+Targets By 2019 By 2020 By 2021
+Municipal solid waste is disposed 
+of properly
+- - >75% 
+(19.6 mt)
+All accumulated waste is disposed 
+of properly
+100% 
+(30.5 mt)
+-
+Household hazardous waste is 
+collected and disposed of properly
+- - >30% 
+(0.17 mt)
+All infectious waste is collected 
+and disposed of properly
+- 100% 
+(0.05 mt)
+-
+All hazardous industrial waste 
+management collected and 
+disposed of properly
+- 100% 
+(2.06 mt)
+-
+Local governments have systems 
+for waste separation at the source 
+(households)
+- - >50% 
+(3,889 LGs)
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 4
+The amount of plastic waste ending up in landfills, being openly burnt or dumped and 
+entering the marine environment is increasing and has become a serious and urgent is-
+sue for the Thai Government. The Thai Government initiated the establishment of three 
+working groups, including 1) the Development of Plastic Waste Management and Elec-
+tronic Waste Working Group; 2) Campaign and Public Relations of Plastic Waste Manage-
+ment and Electronic Waste Working Group; 3) the Development of Plastic Waste Utilisa-
+tion Working Group under the National Environment Board (NEB) where the first working 
+group proposed the National Roadmap for Plastic Waste Management 2018 – 2030 to be 
+included as part of the framework for Thailand to move towards sustainable plastic man-
+agement through a circular economic model. There are three measures, including 1) re-
+duction of plastic production; 2) reduction of single-use plastic consumption; 3) proper 
+plastic waste management system after consumption. 
+29 Simachaya W. (2017). National Policies, Initiatives and Best Practices for Solid Waste Management in Thailand. 
+https://www.dmcr.go.th/dmcr/fckupload/upload/147/file/ppt1/ms2-01.pdf.
+30 Pollution Control Department. (2016). National Solid Waste Management Master Plan 2016-2021. Bureau of 
+Waste Management and Hazardous Substances. Bangkok.
+
+96 97
+Figure 11
+Plastic Waste Management Mechanism in Thailand to Achieve the Roadmap Goals
+Source: Department of Environmental Quality Promotion
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 4
+Table 5
+Roadmap on Plastic Waste Management 2018 - 2030
+PPP Plastic’s Goal: To reduce plastic marine debris by at least 50% by 2027
+Goals Base-
+line
+2018 2019 2020 2021 2022 2027
+1. Waste plastics return into 
+the manufacturing system – 
+circular economy
+21% 22% 25% 30% 40% 50% 100%
+2. Reduce the usage of seven 
+plastic packaging targets
+2.1 Plastic microbead 100%
+2.2 Cap seal
+2.3 OXO bag
+2.4 <36 microns shopping bag 25% 50% 75% 100%
+2.5 Styrofoam food packaging
+2.6 Single-use plastic cup
+2.7 Straw
+Source: Pollution Control Department (PCD)31
+In addition to that, Public-Private Partnership for Plastic and Waste Management or Thai-
+land PPP Plastic was also established in 2018 to address plastic waste with the aims of 
+achieving plastic waste reduction goals by at least 50% and to be recycled at the rate of 
+100% by 2027. In 2021, PPP Plastics has scaled up and included 39 partnered organi-
+sations from various sectors including government, public, private sector, international 
+organisations and educational institutions.32
+A REVIEW OF GOVERNANCE ASPECTS
+31 https://www.pcd.go.th/wp-content/uploads/2021/10/pcdnew-2021-10-19_08-59-54_995414.pdf
+32 PPP Plastics. (2021). “Role of Public Private Partnership for Sustainable Plastic and Waste Management (PPP 
+Plastics) for solving the plastic waste problem in Thailand.”
+
+98 99CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 4
+Table 6
+Action Plan on Plastic Waste Management Phase I (2020 – 2022)
+Goals Baseline in 2019 2022
+1. Reduce and stop using 4 types of plastic 
+by replacing them with environmentally 
+friendly materials
+Plastic consumption from 
+3 types of products was 
+384,024 tonnes. Most 
+were plastic bags. 
+100%1.1 <36 microns shopping bag
+1.2 Styrofoam food packaging 
+1.3 Single-use plastic cup (<100 microns)
+1.4 Straw (Except for use in cases of 
+necessity e.g. children, the elderly, and 
+patients etc.
+2. Recycle or reuse 50% of 7 types of 
+ plastic by 2022
+Plastic consumption from 
+7 types of products were 
+1,341,668 tonnes. 50% of 
+this should be recycled 
+and/or reused. 
+50%
+2.1 Thick plastic bags (HDPE, LLDPE, LDPE, 
+and PP)
+2.2 plastic utensils 
+2.3 plastic bottle
+2.4 Plastic box, tray
+2.5 Plastic film packaging (HDPE, LL/LDPE)
+2.6 Thick plastic cup
+2.7 Plastic lid
+Starting in January 2020, giant retailers such as CPALL Pcl that operates over 10,000 
+7-Eleven convenience stores in Thailand, major plastic manufacturers and leading de-
+partment stores including the Mall Group, Robinson Plc, Big C Supercentre Plc, Siam 
+Makro Plc, Tesco Lotus and the country’s largest retailer, Central Group, signed up to the 
+government programme in banning single-use plastic bags and agreed to stop giving 
+out plastic bags to customers. 33 However, this government programme is conducted 
+voluntarily and not mandated by law. Therefore, some retailers still give plastic bags for 
+free. Although billions of plastic bags were significantly reduced from the waste stream, 
+34 there is still a long way to go to meet targets.
+33 Ibid.
+34 Prapan Chankaew. (1 January 2020). “Thailand kicks off 2020 with plastic bag ban.” Reuters. 
+https://www.reuters.com/article/us-thailand-environment-plastic-idUSKBN1Z01TR 
+To achieve concrete goals with tangible results, the Thai Cabinet approved the Action 
+Plan on Plastic Waste Management Phase I (2020 – 2022) 35 in February 2021 to support 
+sustainable plastic waste management through circular economic approaches under 
+the Roadmap for Plastic Waste Management 2018 – 2030. According to the Action Plan, 
+approximately 780,000 tonnes of plastic waste can be reduced, saving approximately 
+3,900 million THB/year in waste management fees. It will also help reduce landfill use 
+by up to 400 hectares and reduce greenhouse gas emissions equivalent to 1.2 million 
+tonnes of carbon dioxide.36 All of these can be achieved through following measures 1) 
+reduction of plastic waste at source; 2) reduction of the use of single-use plastic at con-
+sumption process; 3) post-consumption plastic waste management. However, single-use 
+plastic consumption of products like food containers, food wrappers, plastic bottles, 
+plastic cups, cutlery, straws and foams have increased during the COVID-19 pandemic. 
+This could be due to change in consumption patterns with hygiene consciousness and 
+increased purchasing and delivery through online platforms (i.e., Grabfood, FoodPanda, 
+LINEMAN, Lazada, Shopee, JDCentral). Subsequently, the amount of plastic waste is pro-
+jected to continuously increase, hindering the plastic waste reduction goals under the 
+Roadmap for Plastic Waste Management 2018 – 2030.
+In addition to the policies already discussed, Thailand also has several other policies 
+and legislations supporting waste management, as detailed in Table 7.
+35 Royal Thai Government. (15 February 2021) “สรุปข่าวการประชุมคณะรัฐมนตรี 15 กุมภาพันธ์ 2564.” 
+http://www.thaigov.go.th/news/contents/details/39110?fbclid=IwAR1FPyzmM7FLqNtLE-bwS61ui_MP8MUH-
+VD9dfprhVkx6IJfb0m3TJuzTcB4.
+36 https://www.nationthailand.com/news/30402739 
+
+100 101
+Policy, regulation and 
+strategic plans
+Any specific explanation/ target/ strategies addressing plastic 
+waste and/or marine plastic in the plan, policy and regulation. 
+Navigation in the Thai 
+Waters Act B.E. 2456 
+(1913)37
+One of the first laws that set rules and regulations for safe navigation in 
+the Thai Waters also includes provisions on the control of marine pollution. 
+While this Act does not specifically mention plastic waste/marine plastic, 
+Section 119 aims at preventing marine pollution by regulating the dumping 
+of wastes and other matters into any rivers, canals, marshes, reservoirs, 
+lakes, or any sea within the Thai Waters.
+Due to the growing problems of plastic waste in the ocean, the Government 
+of Thailand is now in preparation for acceding to the MARPOL Annex V. In 
+line with this, the public consultation process for amending the existing 
+Act was conducted in September 2020 to include setting regulations 
+for the prevention of pollution by plastic and garbage from all vessels. 
+If endorsed, this will be the first Thai law that specifically addresses the 
+discharge of plastic waste in the marine environment.
+State Irrigation Act B.E. 
+2485 (1942)38
+This Act provides regulations, management, and control of state irrigation 
+to ensure proper execution. It prohibits discarding solid waste, including 
+carcass, waste crops, ashes, plastic waste into irrigation waterways. 
+The Enhancement and 
+Conservation of National 
+Environmental Quality 
+Act B.E.2535 (1992)39
+One of the most comprehensive laws that covers a wide range of 
+environmental quality, management, protection and pollution control 
+functions. It also helps to decentralise the administrative authorities 
+from the central government to provincial authorities, encourage 
+public participation process of private sector and NGOs, establish the 
+Environmental Fund and promote the ‘Polluter-Pays’ principle. Section 
+78 mentions procedures of collection and transportation of solid and 
+hazardous waste and sources of pollution. It also includes preventing and 
+controlling pollution caused by littered wastes and other matters in the 
+sea.
+Fisheries Act B.E. 2558 
+(2015)40
+This Act lays down the general principles relating to the fishing industry, 
+including cultivation, registration and permits, as well as statistics, 
+inspections, penalties, and establishment of the National Fisheries 
+Committee. Section 26 (Part 5) prohibits pouring, throwing away, draining 
+or disposing that may cause any pollutant in any fishing grounds unless it 
+is for experimental and military purposes.
+Public Cleanliness and 
+Orderliness Act B.E.2535 
+(1992) amended (No. 2), 
+B.E. 2560 (2017)41 
+This Act deals with the maintenance of public sanitation measures and 
+waste disposal throughout the country. It prohibits the dumping of 
+refuse or waste in public surface areas or waterways. It is one of the 
+important laws that decentralises the local administrative organisations' 
+(LAOs) power in dealing with waste collection and management under 
+the supervision of the provinces and the Ministry of Interior (MOI). In 
+addition, the amendment (2017) also includes an amended collection fee 
+to reflect the actual cost. Stricter enforcement for violation is also applied.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 4
+37 Navigation in the Thai Waters Act B.E. 2456 (1913) 
+http://web.krisdika.go.th/data/document/ext810/810051_0001.pdf
+38 State Irrigation Act B.E. 2485 (1942). http://web.krisdika.go.th/data//document/ext810/810051_0001.pdf
+39 The Enhancement and Conservation of National Environmental Quality Act B.E.2535 (1992). 
+http://web.krisdika.go.th/data/document/ext809/809866_0001.pdf 
+40 Fisheries Act B.E. 2558 (2015). http://extwprlegs1.fao.org/docs/pdf/tha159734.pdf 
+41 Public Cleanliness and Orderliness Act B.E.2535 (1992) amended (No. 2), B.E. 2560 (2017). 
+http://www.thailandntr.com/en/trade-in-services/laws/organization/download/283?file=Law_TIS_512_EN.pdf
+Policy, regulation and 
+strategic plans
+Any specific explanation/ target/ strategies addressing plastic 
+waste and/or marine plastic in the plan, policy and regulation. 
+Public Health Act 
+B.E.2535 (1992) and 
+amended (No. 3), B.E. 
+2560 (2017)42
+This Act aims to protect public health, ensure living conditions of 
+the people, facilitate the implementation of environmental health 
+programmes, improve the power of the Local Administration 
+Organisations (LAOs) or the local government, and set strict penalties. 
+Section 20 shows that the power is given to the LAOs or local 
+government to manage waste and sewage collection, transportation and 
+disposal within their governed areas, and issue local ordinances that can 
+prohibit dumping/discharging of solid waste and sewage to the public 
+areas in order to maintain cleanliness and regulate waste and sewage 
+management.
+The amended No.3 (2017) also emphasises law enforcement and 
+principles of public participation. Section 26 (Part 5) prohibits pouring, 
+throwing away, draining or disposing of that may cause any pollution in 
+any fishing grounds unless it is for experimental and military purposes. 
+Thailand Environmental 
+Quality Management 
+Plan (2017 – 2021)43
+It highlights four strategic priorities: 1) Balancing Natural Resources 
+Management; 2) Environmental Quality Management, Protection & 
+Rehabilitation; 3) Increasing Efficiency of Natural Resources Uses; 
+4) Climate Change & International Cooperation. The 5-year targets 
+include achieving a proper municipal solid waste management of no 
+less than 75% and a recycling rate of no less than 30% of the total solid 
+waste generated in the country. In addition, it includes marine debris 
+management measures by controlling coastal activities such as fishing, 
+tourism, shipping and sea freight. This also includes controlling the 
+amount of solid waste from land to sea by introducing a new legislation 
+related to waste.
+Thailand 12th Economic 
+and Social Development 
+Plan 2017-202144
+The overarching framework to guide Thailand’s development trajectory 
+produced by the Office of the Prime Minister. This is the first 5-year plan 
+of the 2017-2036 National Strategy and sets out national economic, so-
+cial and environmental goals. It includes a target of 75% waste treatment 
+or reuse and nationwide improvements in river water quality. 
+National Strategy 2018 – 
+2027 (20 Years)45
+It aims to promote efficient reuse of waste, utilise innovation and 
+technology to reduce pollution and environmental impact, set targets 
+from cradle to grave with the 3R goal and a supervision system to track 
+waste and pollution management. It also encourages zero-waste targets 
+and sustainable waste management, particularly in the agricultural sector 
+and marine debris. The Department of Marine and Coastal Resources 
+has continuously implemented marine debris management projects 
+since 2016 by enacting new legislation and conducting environmental 
+campaigns to ensure sustainable marine and coastal resources in the 
+Thai waterways.
+Table 7
+Other key national policies and plans for waste management in Thailand
+A REVIEW OF GOVERNANCE ASPECTS
+42 Public Health Act B.E.2535 (1992) and amended (No. 3), B.E. 2560 (2017). 
+http://web.krisdika.go.th/data/document/ext838/838066_0001.pdf
+43 Office of Natural Resources and Environmental Policy and Planning. แผนจัดการคุณภาพสิ่งแวดล้อม พ.ศ. ๒๕๖๐ – 
+๒๕๖๔ [Thailand Environmental Quality Management Plan (2017 – 2021)]. 
+https://www.onep.go.th/ebook/spd/environment-plan-2560-2564.pdf 
+44 Office of the National Economic and Social Development Board (NESDB). The Twelfth National Economic and 
+Social Plan. https://www.nesdc.go.th/nesdb_en/ewt_dl_link.php?nid=4345
+45 Office of the National Economic and Social Development Board (NESDB). National Strategy 2018 – 2027 (20 
+Years). http://nscr.nesdb.go.th/wp-content/uploads/2019/10/National-Strategy-Eng-Final-25-OCT-2019.pdf
+
+102 103
+4.2.2 Nakhon Si Thammarat City Municipality 
+ City Municipality’s Policies
+In Nakhon Si Thammarat City Municipality City Municipality, there is currently no robust 
+policy, legislation, or action plans on plastic waste. All of the local plans, such as Nakhon 
+Si Thammarat City Municipality City Municipality 4-year Development Plan, Nakhon Si Tham-
+marat City Municipality 4-year Provincial Development Plan and Clean Province Action Plan, 
+mainly promote 3R activities and waste separation at source. The Clean Province Action 
+Plan requires participating LAOs to implement their plans and policies based on the Na-
+tional Master Plan for Waste Management 2016 – 2021 (See Table 9).
+Policy, regulation and 
+strategic plans
+Any specific explanation/ target/ strategies 
+addressing plastic waste and/or marine plastic 
+in the plan, policy and regulation. 
+Municipal Act B.E. 2496 
+(1953) amended (No. 19) 
+201946
+This Act sets out rules for duties and functions of the Municipal 
+Government, including maintaining city cleanliness and providing 
+solid waste and sewage disposal management. 
+Municipal Ordinance of 
+Nakhon Si Thammarat 
+City Municipality City 
+Municipality on Solid Waste 
+and Sewage Disposal B.E. 
+2538 (1995)47
+It gives the powers to the Municipal Government to manage and 
+regulate solid waste collection and disposal within its boundaries. 
+It prohibits dumping/discharging solid waste and sewage to public 
+areas, including streets, rivers, canals, drainage systems, ponds and 
+lakes.
+Nakhon Si Thammarat 
+City Municipality 4-year 
+Provincial Development 
+Plan 2018 - 202248
+Nakhon Si Thammarat City Municipality Province has appointed the 
+committee to manage and regulate municipal solid waste. All LAOs in 
+the Province have been grouped into six different clusters. Nakhon Si 
+Thammarat City Municipality City Municipality has been grouped into 
+Cluster 1 and also plays the role of a host for Cluster 1. Some of the 
+waste management campaigns/activities of the Nakhon Si Thammarat 
+City Municipality City Municipality includes promotion of plastic 
+bags reduction in 8 markets under the municipality, projects related 
+to solid waste management in schools, implementation of public 
+awareness campaigns on hazardous waste collection and promotion 
+of “Zero Waste Community” competition supported by Regional 
+Environment Office 14 (Suratthani)
+Nakhon Si Thammarat 
+City Municipality City 
+Municipality 4-Year 
+Development Plan49
+One of Nakhon Si Thammarat City Municipality Municipality's 
+development strategies is moving towards “Green Municipality” by 
+creating more green spaces, improving landscape and architecture, 
+and managing solid waste and sewage properly. 
+Clean Province Action Plan50 The Clean Province Action Plan focuses mainly on 1) minimizing waste 
+by separation at source where 3R principle can be applied; 2) efficient 
+collection and transportation of solid waste to the disposal site; 3) 
+waste is appropriately managed (i.g. sanitary landfill). Each LAOs will 
+be required to implement the plans based on indicators of National 
+Master Plan for Waste Management 2016 – 2021 (See Table 9).
+Table 9
+Targets of National Master Plan for Waste Management 2016 - 2021
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 4
+Table 8
+Other key local policies and plans for waste management in Nakhon Si Thammarat City 
+Municipality
+Targets By 2016 By 2017 By 2018 By 2019 By 2020 By 2021
+Municipal solid waste are 
+disposed properly
+50% 55% 60% 65% 70% 75%
+All accumulated waste are 
+disposed properly
+75% 85% 95% 100% 100% 100%
+Household hazardous waste 
+are collected and disposed 
+properly
+5% 10% 15% 20% 25% 30%
+All infectious waste are 
+collected and disposed 
+properly
+80% 85% 90% 95% 100% 100%
+All hazardous industrial 
+waste management collected 
+and disposed properly
+60% 70% 80% 90% 100% 100%
+Local governments 
+have systems for waste 
+separation at the source 
+(households)
+5% 10% 20% 30% 40% 50%
+46 พระราชบัญญัติเทศบาล (ฉบับที่ ๑๔) พ.ศ. ๒๕๖๒ [Municipal Act B.E. 2496 (1953) amended (No. 19) 2019]. 
+http://www.ratchakitcha.soc.go.th/DATA/PDF/2562/A/050/T_0164.PDF
+47 เทศบัญญัติเทศบาลนครนครศรีธรรมราช เรื่อง การกำาจัดขยะมูลฝอยและสิ่งปฏิกูล พ.ศ. ๒๕๓๘. [Municipal Ordinance of Nak-
+hon Si Thammarat City Municipality City Municipality on Solid Waste and Sewage Disposal B.E. 2538 (1995)]. 
+48 แผนพัฒนาจังหวัดนครศรีธรรมราช (พ.ศ. ๒๕๖๑ ๒๕๖๕) [Nakhon Si Thammarat City Municipality 4-year Provincial 
+Development Plan 2018 - 2022]. 
+http://www.nakhonsithammarat.go.th/web_52/datacenter/doc_download/plan_devel2561_2565_n.rar
+49 แผนพัฒนาท้องถิ่น
+(พ.ศ.2561 – 2565) เทศบาลนครนครศรีธรรมราช [Nakhon Si Thammarat City Municipality City Municipality 4-Year 
+Development Plan]. https://www.nakhoncity.org/document/plan/2561%20-%2025651.pdf
+50 แผนปฏิบัติการจัดการขยะมูลฝอยชุมชน "จังหวัดสะอาด" ประจำาปี พ.ศ. ๒๕๖๓ [Clean Province Action Plan 2020]. 
+https://www.nakhonlocal.go.th/detail.php?id=10494
+A REVIEW OF GOVERNANCE ASPECTS
+
+104 105
+4.3 Financial Capacity
+4.3.1 Revenue and Expenditure of Nakhon Si 
+ Thammarat City Municipality City 
+ Municipality
+According to the Municipal Act of 1953, the Municipal Government revenue comes from 
+taxes, fees and fines, income from assets, public services fees, revenue from bond issu-
+ance and borrowing (prior to municipal bond issuance and borrowing they must receive 
+approval from the municipal council and the Ministry of Interior), borrowing from central 
+ministries, departments, organizations and other public entities, subsidies from central 
+government and Provincial Administration Organisation (PAO), donation and other rev-
+enue as indicated by law. 
+Figure 12
+Nakhon Si Thammarat City Municipality City Municipality’s Budget in FY 2021
+Source: City Ordinance Budget FY2021, Nakhon Si Thammarat City Municipality City 
+Municipality
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 4
+For waste management, the Division of Public Health and Environment receives the al-
+located annual budget from the Municipal Government based on their proposed activ-
+ities, including purchasing waste trucks, waste bins and other associated management 
+fees. In addition, the Division of Public Health and Environment also received the overall 
+budget of 25 million THB and 27 million THB that were allocated for waste management 
+purposes, including waste collection and disposal activities in the fiscal year 2018 and 
+2019, respectively. 
+The Municipal Government provides waste collection services without outsourcing to 
+the private sector. Also, it permits other LAOs to ship and dispose of their solid waste 
+at the Nakhon Si Thammarat City Municipality City Municipality’s landfill, provided that a 
+management fee of 400 THB/tonne is charged. The city residents pay a waste collection 
+fee of 10 THB per household per month, which is included in the water bill monthly. In 
+FY2018 and 2019, the Municipal Government collected fees of 6,008,720 THB, 5,930,140 
+THB, respectively. The breakdown of the latter is summarised as follows:
+• 30,698 households (or 68.36%) out of a total of 44,908 households. 
+• 816 users from other sectors (52.8%) out of a total of 1,601 users. (See more details 
+below).
+A REVIEW OF GOVERNANCE ASPECTS
+
+106 107
+Table 8
+Waste Generators and Collection Fees in Nakhon Si Thammarat City Municipality City 
+Municipality
+Type of Waste 
+Generator(s)
+Waste Collection Fee
+Markets 100 – 65,000 THB per month
+Industry 20 – 200 THB per month
+Hotels/Resorts 10 – 5,000 THB per month
+Education 10 – 2,550 THB per month
+Government Offices 10 – 2,000 THB per month
+Temples/Mosques 10 – 3,000 THB per month
+Restaurant 10 – 3,000 THB per month
+Shopping Malls 200 – 14,000 THB per month
+Apartments/Condos 10 – 5,000 THB per month
+Source: Division of Public Health, Nakhon Si Thammarat City Municipality City Municipality
+It is also important to note that the Municipal Government has been using the Municipal 
+Act on Solid Waste and Sewage Disposal B.E. 2538 (1995) amended B.E. 2543 (2000) until 
+now without any revisions in the past 20 years, which is not in line with the Act on the 
+Maintenance of the Cleanliness and Orderliness of the Country B.E. 2560 (2017). The waste 
+collection fee for households in the latter law is 150 THB per month, while the city resi-
+dents must pay only 10 THB per household per month under the current Municipal Act.
+In FY2019, it was reported that the Municipal Government was only able to collect waste 
+management fees from 815 users (or 52.8%) - out of a total of 1,601 users from several 
+sectors. Waste management fees for each sector is summarised as follows:
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 4
+Table 9
+Nakhon Si Thammarat City Municipality City Municipality’s Budget in FY2020-2021 (Unit: THB 
+millions)
+Item FY2020 FY2021
+1. General Administration
+1.1 Generation Administration 122,041,100 115,400,100
+1.2 Safety and Security 36,344,800 29,097,000
+2. Community and Social Services
+2.1 Education 525,317,500 519,017,000
+2.2 Public Health 81,698,300 83,601,200
+2.3 Social Welfare 2,735,400 2,435,400
+2.4 Housing and Community 100,609,000 103,089,800
+2.5 Community Empowerment 15,147,700 17,181,100
+2.6 Religions, Culture and 
+Recreation
+16,312,100 13,825,700
+3. Economic
+3.1 Industry and Public Works 128,069,400 115,623,100
+3.2 Commerce 3,609,100 3,586,100
+4. Other Implementation Plans
+4.1 Central Budget 168,115,600 197,143,500
+5. Budget Paid by Income
+5.1 Specific Purposes Expenses 148,309,000 147,241,700
+Total 1,348,309,000 1,347,241,700
+Source: City Ordinance Budget FY2020-2021, Nakhon Si Thammarat City Municipality City 
+Municipality
+A REVIEW OF GOVERNANCE ASPECTS
+
+108 109
+CHAPTER 5
+A Level of Digital Readiness
+CLOSING THE LOOP ON PLASTIC POLLUTION
+IN NAKHON SI THAMMARAT CITY MUNICIPALITY , THAILAND
+
+110 111
+A Level of Digital 
+Readiness
+Digital technologies are becoming increasingly important in both business and society 
+in Nakhon Si Thammarat City Municipality. Therefore, the Municipal Government has 
+created new pathways for citizens to better communicate and share information with 
+the city government as follows: 
+• Developing a municipal website: www.nakhoncity.org, where the citizen can easily 
+access municipal news/activities, PR news, procurement and bidding news.
+• Providing a 24-hour One-Stop Service for the citizen to submit a service request and/
+or file a complaint through https://onestop.nakhoncity.org/
+• Establishing the Information and Communication Technology (ICT) Centre that can 
+track 300 CCTVs available throughout the city.
+• Allocating budget to develop a website and provide internet coverage for ten munic-
+ipal schools.
+• Using IT to promote educational and learning activities in science, arts, technology, 
+culture and ASEAN-related issues for youth and citizens through City Learning Park 
+(CLP): https://web.facebook.com/CLPcitylearningpark/.
+• Promoting municipal activities via City-owned radio: https://www.nakhoncity.org/
+radio.php and social networking platforms: Facebook (https://web.facebook.com/
+pr.nakhoncity1), Youtube (https://www.youtube.com/channel/UCB5t255etCMHr-
+5mOQZEor5A).
+CHAPTER 5
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 5
+For solid waste management, the Division of Public Health and Environment is the re-
+sponsible agency and sometimes uses a drone to monitor solid waste at the landfill site 
+during flooding situations and has a plan to introduce Global Positioning System (GPS)
+tracking for waste collection services to optimise routing and reduce energy consump-
+tion. However, human resources and capacity are still very limited and need to be further 
+explored.
+In addition, the Municipal Government also includes the Thailand 4.0 Model initiated by 
+the Thai Government in the local development plan and is striving to become a smart 
+city, although not much progress has been made. Currently, there are no existing regula-
+tions and financial/tax incentives to use the digital innovations in Nakhon Si Thammarat 
+City Municipality.
+
+112 113
+CHAPTER 6
+Conclusions and 
+Recommendations
+Management-Level Recommendations
+Policy-Level Recommendations
+P 115
+P 122
+CLOSING THE LOOP ON PLASTIC POLLUTION
+IN NAKHON SI THAMMARAT CITY MUNICIPALITY , THAILAND
+
+114 115
+Conclusions and 
+Recommendations
+CHAPTER 6
+Solid waste management in general and plastic pollution, in particular, is a massive chal-
+lenge for Nakhon Si Thammarat City Municipality City Municipality, thus need to address 
+immediately more strategically and holistically to mitigate the plastic pollution and ma-
+rine litter from land-based sources. Based on the report’s analysis and assessment, the 
+recommendations should be considered. 
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 6
+6.1 Management-Level Recommendations
+1. Target High Emission Single-Use Plastics - Such as Plastic 
+Bags
+Plastic bags are a severe problem in Nakhon Si Thammarat City Municipality, being the 
+plastic item generated in the largest quantities (48% of plastic waste stream), and found 
+to be emitted to the environment (57%) and entering waterways (56%) at the greatest 
+proportions. Potential interventions to address these plastic bags could therefore sig-
+nificantly reduce plastic pollution and include:
+• Introduce bans on light-weight plastic bags
+• Introduce a tax or levy for single-use plastic bags. The tax referred to customer 
+charges for the targeted single-use plastic products or taxes paid by the stores that 
+sell them. 
+• Assess the availability of alternatives to consumers such as paper bags/containers, 
+reusable bags, biodegradable bags/containers., and ensure preconditions for their 
+uptake in the market. 
+• Sign a voluntary agreement with the retail sector to encourage them to take mea-
+sures to reduce their distribution of plastic bags freely.
+• Introduction of extended producer responsibility (EPR) schemes, even if just volun-
+tarily. 
+CONCLUSIONS AND RECOMMENDATIONS
+
+116 117
+2. Improve Storage Containers
+While waste is waiting for collection, leakage is the highest emission source of plastic in 
+Nakhon Si Thammarat City Municipality, accounting for 47% of emissions. Interventions 
+to address this include:
+• Provision for dedicated waste storage for every household. Dedicated containers for 
+every household can alleviate some of the problems often seen when residents are 
+forced to share waste containers. For example, residents may care less about where 
+they place their waste if the container is off their property and shared between mul-
+tiple households because of a lack of accountability.
+• Improve the quality of existing waste containers. Overflowing waste containers and 
+poorly maintained or damaged containers were some of the major reasons for plas-
+tic escaping the collection system. To reduce this, the waste containers provided 
+should be as secure as possible. Important qualities of waste containers are:
+• Size: The storage volume should be sufficient to allow waste to be stored in be-
+tween collection days. As seen in the images of Figure 18, many containers over-
+flowing with waste in Nakhon Si Thammarat City Municipality. Storage size should 
+account for the number of people using the container, waste generation rate 
+per capita, bulk density of the waste in the container and the number of days 
+between collections. Storage capacities required for commercial and institutional 
+premises can be determined according to the size and nature of the activities and 
+the number of people involved. If the calculated size of the container exceeds 
+practicalities, collection coverage must be increased. 
+• Loading: The waste loading into the collection vehicle should be economical and 
+consider the labour required and timing for vehicles. It also needs to be hygienic 
+and safe to mitigate risks to workers’ during collection.
+• Shape: Containers should be tapered (having bigger plan dimensions at the top 
+than at the bottom) so that they are easy to empty when tipped, even if the waste 
+has been compacted into them.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 6
+• Isolating: There should be no access to the waste for flies, animals, wind and 
+rain, but these objectives may be difficult to achieve in practice, especially if many 
+people use the container. A well-fitting lid can be practical for these purposes, 
+provided that the lid is kept closed most of the time.
+• Durability: The containers should be sufficiently durable, resistant to mechani-
+cal damage and corrosion.
+• Maintenance: Old and damaged waste containers should be replaced. Many 
+containers are seen to be damaged within Nakhon Si Thammarat City Municipal-
+ity.
+• Reduce the need for waste to be stored next to bins. If bins are overflowing, waste 
+will often be placed next to the bins by residents. This can cause problems such as: 
+• Plastic bags are easily torn open by dogs and cats, and sharp objects can easily 
+pierce them to cause injury to the person who is carrying them or release waste 
+into the street.
+• Cardboard boxes lose their strength when they become wet because of the waste 
+they contain or when coming into contact with rain or moisture from the ground.
+• Some improvised metal containers have sharp edges which can cut hands that lift 
+them or may be difficult to load into the collection vehicle when full, particularly 
+if they are not portable.
+• The use of larger and more durable containers with sufficient capacity should be 
+provided to ensure waste is not stored next to the bins, thereby limiting plastic emis-
+sions. Additionally, designated areas or services should be allocated to collect bulky 
+waste items to avoid these being placed in collection containers or fly-tipped nearby.
+CONCLUSIONS AND RECOMMENDATIONS
+
+118 119
+3. Reduce Littering/ Improve Street Sweeping
+Littering was highlighted as the second-largest emission source in Nakhon Si Tham-
+marat City Municipality, accounting for 34% of all plastic emissions, equivalent to around 
+4 grams of plastic litter per person per day. Interventions to address this include:
+• Establish a sufficient network of public litter bins and provide frequent evacuation 
+of bins. Litter bins should be provided at regular intervals in streets where there are 
+many pedestrians and where there are no community bins into which passers-by can 
+drop unwanted items.
+• Place signboards alerting polluters on fines for littering and fly-tipping. Introduce 
+fixed penalty notices on littering incidents and small-scale fly-tipping.
+• Establish comprehensive and targeted street sweeping to remove any littered items 
+and promote a clean living environment.
+• Organise awareness and education campaigns around littering.
+4. Ensure Disposal Site Is Run as an Engineered, Controlled 
+Landfill
+The disposal site in Nakhon Si Thammarat City Municipality is mainly uncontrolled and, in 
+particular, does not have any form of litter mitigation techniques being practised. There-
+fore it is at high risk of emitting plastic waste into the environment. This is evidenced by 
+it ranking third in the Plastic Pollution Calculator (PPC) for emissions, accounting for 8% 
+of all plastic emissions. The leakage from the disposal site is significant during the rainy 
+season, where the disposal site is known to regularly flood, leading to large amounts 
+of plastic emitted into neighbouring waterways. Possible interventions to address the 
+disposal site include:
+• If a suitable budget exists, the existing dumpsite should be closed and a new sani-
+tary landfill built in a suitable location, not at risk from flooding. Alternative options 
+include ensuring flood mitigation measures are put in place around the disposal site 
+to stop any future flooding.
+• To reduce wind-blown leakage from the disposal site, ensure controlled measures 
+are introduced and adhered to such as:
+• Regular (daily) cover applied to waste
+• Control of waste placement to ensure site stability
+• Installation of perimeter fencing
+• Allocated discharge zones with protection from wind
+• Compaction of waste (subject to a check of bulk density currently achieved)
+CONCLUSIONS AND RECOMMENDATIONS
+
+120 121
+5. Reduce Fly-Tipping/ Illegal Dumping
+Fly-tipping was the fourth-largest source of plastic emissions into the environment ac-
+counting for 6% of all plastic emissions. Interventions to address this include:
+• Place signboards alerting polluters on fines for fly-tipping. Introduce fixed penalty 
+notices on fly-tipping incidents.
+• Perform regular clean-up of fly-tipping sites and, if possible, install surveillance to 
+catch perpetrators. 
+• Establish a free or affordable collection of bulky household items for residents.
+• Ensure cooperation between the local authority and private landowners for preven-
+tion and clean-up of fly-tipping.
+6. Increase Plastics Recycling (Collection for and Supply 
+Chain)
+The informal recycling sector currently carries out all plastics recycling in Nakhon Si 
+Thammarat City Municipality. Therefore any interventions must support their efforts 
+and protect their livelihoods. Unfortunately, only 0.7% of plastic is recycled in Nakhon Si 
+Thammarat City Municipality. Therefore interventions should be applied to increase this 
+substantially. For instance, three models to enhance the inclusion of the informal sector 
+are:
+• Incentive the inclusion of the informal sector through associations and cooperatives. 
+• Enhance the inclusion of the informal sector through microenterprises.
+• Enhance the inclusion of the informal sector through public-private partnerships. 
+In such partnerships, the municipality may, for instance, provide infrastructure and 
+equipment while waste pickers provide labour. Alternatively, the municipality may 
+choose to provide the operation of a sorting plant to the informal sector.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 6
+• Recycling can be boosted by encouraging community-based waste management 
+schemes, involving the beneficiaries and waste collectors as the main actors. Finan-
+cial and managerial support is often provided by formal and informal community 
+leaders, who work mainly voluntarily. The responsible municipality, which plays a mi-
+nor role, is active only as the initiator of a scheme. It is entrusted with issuing regula-
+tions or as a supporter in terms of providing access to handcarts or loans.
+• Encourage source separation of waste (dry recyclables and wet/biodegradable waste). 
+Although source-separated bins are provided in Nakhon Si Thammarat City Munic-
+ipality, these are not used by residents in an intended manner, with instead mixed 
+waste being placed in all bins. Source separation is often a fundamental prerequisite 
+for achieving high recycling rates and, therefore, should be prioritised within the city. 
+Likewise, currently, the municipality treats the recyclables collection containers the 
+same as regular bins, simply being taken directly to the disposal site. If source sep-
+aration can be achieved, this needs to be combined with suitable infrastructure and 
+practices of the formal sector to adequately further sort this source-separated waste 
+for recycling.
+• Establish neighbourhood collection stations and urge residents to bring recyclable 
+materials to the stations where they are bought at fixed prices or exchange them 
+with lottery coupons that give discounts at department stores. In order to increase 
+interest in residents’ participation, run a campaign to raise awareness of the value of 
+recycling among many of the worst affected and most vulnerable communities.
+• When recyclable materials are not recovered at the household level, it is advised to 
+sort waste for recycling at waste sorting units (material recovery facilities) or transfer 
+stations prior to disposal.
+CONCLUSIONS AND RECOMMENDATIONS
+
+122 123
+6.2 Policy-Level Recommendations
+1. Public Participation and Consultation
+Public participation in the decision-making processes is highlighted in Thai laws. The 
+Constitution of the Kingdom of Thailand B.E. 2550 (2007) included promoting public par-
+ticipation in various aspects and arrangements of a public hearing of relevant stake-
+holders. The Ministry of Interior’s Regulation on Local Administrative Organisation Devel-
+opment Planning requires the public to participate in the planning process and prioritise 
+the projects in the 3-year development plan. The Ministry of Interior also requires the 
+provincial development planning to seek the public opinions during the drafting process 
+and return the draft to the people before it is finalised. However, there are some limita-
+tions because some critical decisions are often made prior to getting public involvement.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 6
+2. Level of Public Involvement 
+The Thai government has set solid waste management as part of the National Agenda, 
+which requires support and involvement from all sectors. However, the public, includ-
+ing local communities, plays little or no role in decision-making processes in Nakhon Si 
+Thammarat City Municipality City Municipality. Instead, the municipal government sup-
+ports the national policy through collaborating with other Local Administrative Organisa-
+tions (LAOs) under the solid waste cluster management system. Further collaborations 
+between the municipal government and the public are needed, particularly on waste at 
+source, awareness-raising and incentive measures.
+3. Public Feedback Mechanisms
+• A 24-hour One-Stop Service for the citizen to submit a service request and/or file a 
+complaint: https://onestop.nakhoncity.org/
+• Webboard: https://www.nakhoncity.org/home.php 
+• City-owned radio (FM 88.5 MHz): https://www.nakhoncity.org/radio.php 
+• Facebook: https://web.facebook.com/pr.nakhoncity1
+• Telephone: +66-7534-2880 
+CONCLUSIONS AND RECOMMENDATIONS
+
+124 125
+4. Public Education & Awareness 
+The Municipal Government does not have any programmes that address plastic waste 
+and marine litter directly. However, 3R campaigns have been encouraged and promot-
+ed through the Low Carbon School Programme in all ten municipal schools. In addition, 
+the Municipal Government has also determined to focus more on how to put existing 
+modules/contents into practice and educate the young generation to understand the 3R 
+activities and increase their quality of life. The Municipal Government would also like to 
+include the environmental education curriculum in their development plan as well.
+5. Effectiveness in Achieving Behaviour Change
+While waste separation at source and 3R initiatives have widely been addressed and 
+promoted to support sustainable practices, these initiatives did not affect the waste 
+management behaviour of local communities in Nakhon Si Thammarat City Municipality. 
+This failure is due to factors like traditional beliefs/practices, inefficient waste collection 
+system (solid waste gets mixed up by waste collection trucks although some households 
+practice waste separation.), lack of incentives, and low value of plastic waste due to the 
+reduce of export after the banning of plastic waste import by China.
+CLOSING THE LOOP ON PLASTIC POLLUTION IN NAKHON SI THAMMARAT CITY MUNICIPALITY, THAILAND | CHAPTER 6
+6. Effectiveness in Waste Separation at Source
+Waste separation at source methods have not widely been practised not only in NST 
+but also throughout the nationwide. This is in large part due to lack of understanding of 
+people on how to make use of waste as a resource and create value from it. A guideline 
+should be in place for people to understand types of waste, separation at source, waste 
+value, and channels where waste can be sold. Therefore, the local government can play a 
+key role in developing waste separation guidelines/toolkit and disseminate it to the pub-
+lic to ensure waste separation practices. In addition, logistics mechanism for purchasing 
+recyclable waste should be developed, especially those that have potential to create 
+value but no markets. The public should be provided with information on value of waste 
+to promote waste separation at source. In order to achieve this, public involvement is 
+very crucial. Groups of community leaders and work teams (or youth groups) should be 
+established to support the municipality’s waste separation at source. Educational insti-
+tutions can fill gaps by improving environmental courses and adding contents on solid 
+waste management including plastic waste for communities, classrooms or outdoor ac-
+tivities. This can be done in collaboration with the local government and private sector to 
+encourage young students to sustainably manage their wastes while also implementing 
+waste separation activities in educational institutions. Waste separation at source should 
+be encouraged for the private sector as well by providing attractive incentives such as 
+tax reduction or applying Polluter Pay Principle (PPP) to enhance their participation. 
+CONCLUSIONS AND RECOMMENDATIONS
+
+126 127
+7. Strengthening Recycling Businesses 
+• Register waste collectors, saleng (scrap collectors on tricycles), and junk shops.
+• Organize training to provide knowledge about health and environmental protec-
+tion.
+• Provide an annual health check-up and health and accident welfare for regis-
+trants. 
+• Issue certification cards for people who have completed training and regulatory 
+development to motivate registrants to receive training. 
+• Make sure recycling business is located at a suitable place away from residential 
+areas to prevent contamination to communities. 
+• Develop standards for recycling businesses and offer reduction fees for those who 
+meets the standards. 
+• Prepare a manual for handling hazardous substances from waste separation. 
+9. Cost Recovery
+The Municipal Government has been using the existing Municipal Act on waste collection 
+fee without any revisions for over 20 years which does not cover waste management op-
+erations and also not align with the National Act. As a result, the Municipal Government 
+has to allocate its own budget for waste collection and disposal activities. A new waste 
+collection fee system should be introduced by incorporating polluter-pay-principles and 
+actual operational costs.
+8. Effectiveness in Waste Collection System
+• Zero waste bins in communities project. 
+• Provide garbage bags with different colours for different types of waste (e.g. general 
+waste, recyclable waste, organic waste, hazardous waste, infectious waste etc.).
+• Schedule collection time by types of waste such as non-recyclable waste, recyclable 
+waste, hazardous waste, and heavy trash.
+• Develop channels for communication between communities and the municipality re-
+lating to waste management issues. 
+CONCLUSIONS AND RECOMMENDATIONS
+
+128
+Disclaimer
+This publication may be reproduced in whole or in part for educational or non-prof-
+it purposes without special permission from the copyright holder, provided that 
+the source is acknowledged. The ESCAP Publications Office would appreciate 
+receiving a copy of any publication that uses this publication as a source. 
+No use may be made of this publication for resale or any other commercial 
+purpose whatsoever without prior permission. Applications for such permission, 
+with a statement of the purpose and extent of reproduction, should be addressed 
+to the Secretary of the Publications Board, United Nations, New York. The mention 
+of firm names and commercial products does not imply the endorsement of the 
+United Nations. 
+The designations employed and the presentation of the material in this Working 
+Paper do not imply the expression of any opinion whatsoever on the part of the 
+Secretariat of the United Nations concerning the legal status of any country, 
+territory, city, or area, or of its authorities, or concerning the delimitation of its 
+frontiers or boundaries
+Contact Us
+www.unescap.org 
+facebook.com/unescap 
+twitter.com/unescap|@unescap
+instagram.com/unitednationsescap|@unitednationsescap
+youtube.com/unescap
+linkedin.com/company/united-nations-escap
+Get connected. Follow us.

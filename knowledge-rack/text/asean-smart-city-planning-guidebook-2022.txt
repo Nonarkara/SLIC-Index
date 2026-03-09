@@ -1,0 +1,5376 @@
+ASEAN Smart City Planning Guidebook
+March 2022
+Prepared by Ministry of Land, Infrastructure, Transport and Tourism (MLIT) in Japan
+In Consultation with the ASEAN Smart Cities Network (ASCN) and the ASEAN Secretariat (ASEC)
+
+1
+The guidebook has been developed, by leveraging insights from discussions with 
+ASEAN cities, in addition to leveraging reports developed in ASEAN and Japan.
+How to develop the ASEAN Smart City Planning Guidebook
+Introduction
+2. Priority Areas for 
+Development of Smart 
+Cities 
+3. Process and 
+Enablers for Smart City 
+Development
+1. Basic Understanding 
+of Smart Cities 
+ASEAN Smart City Planning Guide Book: Table of Contents Key Information Source
+• Introduction (e.g. objective, expected readers, structure) 
+• How to use the guidebook
+1.1 Background and Objectives for Smart City Development
+1.2 Principles and Frameworks for Smart City Development
+2.1 Overview and Examples for the Priority Areas
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+Chapter
+●
+● 〇
+● ●
+● ● 〇
+〇 ● ●
+〇 ● ●
+Concept Note
+(ASEAN 
+Secretariat-MLIT) 
+Reports by 
+Association of 
+Southeast 
+Asian Nations 
+(ASEAN) 1 
+Interviews with 
+ASEAN Cities
+Reports from 
+Japan 2Subchapter
+〇● Primary Source Supplementary
+Source
+Note:
+1 Key reports includes the ‘ASEAN Sustainable Urbanisation Strategy (ASUS)’
+2 Key reports includes the ‘Smart City Guidebook’ and ‘Smart City Reference Architecture Whitepaper’ 
+Insights provided in the interviews with the 
+ASEAN cities has been primarily used for 
+the examples in each section.
+
+2
+The guidebook will include both the framework and examples, regarding the 
+priority areas, processes, and enablers for smart city development.
+Table of Contents
+Table of Contents Key Contents
+Introduction • Introduction (objective of guidebook, expected readers, structure of guidebook)
+• How to use the guidebook
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development • Background of smart city development
+• Objective and definition of smart city development
+1.2 Principles and Frameworks for Smart City Development
+• Key Principles and Guidelines for Smart City Development
+• Framework for smart city development
+o Framework 1: ASEAN Smart Cities Framework
+o Framework 2: ASUS 
+o Framework 3: Process and Enablers for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Examples for the Priority Areas
+• Overview of the Priority Areas
+• Example for Inclusive & Equitable Growth
+• Example for Housing & Home 
+• Example for Personal Safety & Security
+• Example for Water, Waste & Sanitation 
+• Example for Mobility
+• Example for Urban Resilience 
+• Example for Education
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development • Overview of Business Process for Smart City Development
+• Example of Smart City Development by Development Phase
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations
+• Overview of Stakeholders for Smart City Development
+• Stakeholder Role by Player Type
+• Functions of Primary Promoter
+• Example for Primary Promoter
+3.2.2 Financial Sustainability
+• Overview of Smart City by Business Model (Revenue Stream)
+• Example for Smart City by Business Model (Revenue Stream)
+• Overview of Smart City Monetization
+• Example for Smart City Monetization
+• Overview of Smart City Costing Allocation
+3.2.3 Citizen Participation • Overview of Enhancement for Citizen Participation
+• Example for Citizen Participation
+3.2.4 Digital Infrastructure (City Operating System (City OS)
+• Overview of Digital Infrastructure Development
+• Characteristic of Smart City OS
+• Basic Functions of Smart City OS
+• Example for Smart City OS
+• Overview of Digital Model Technology for Smart Cities
+• Example for Digital Model Technology and Geographic Information System (GIS) Data Usage
+3.2.5 Evaluation and Key Performance Indicators (KPIs) • Overview of Evaluation KPIs in ASEAN
+• Example for Evaluation / KPIs
+Conclusion
+Appendix • City Profile
+
+3
+Agenda
+Introduction
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development in ASEAN 
+1.2 Principles and Frameworks for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Examples for the Priority Areas
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations 
+3.2.2 Financial Sustainability
+3.2.3 Citizen Participation 
+3.2.4 Digital Infrastructure (City OS)
+3.2.5 Evaluation and KPIs 
+Conclusion
+Appendix
+P7
+P3
+P7
+P10
+P14
+P14
+P34
+P34
+P50
+P50
+P58
+P64
+P69
+P77
+P82
+P84
+
+4
+Concept Note for the ASEAN Smart City Planning Guidebook
+Introduction
+Background and Objectives:
+• The Master Plan on ASEAN Connectivity (MPAC) 2025 sets out ASEAN’s vision to achieve a seamlessly and comprehensively connected and integrated 
+ASEAN that will promote competitiveness, inclusiveness and a greater sense of Community.
+• MPAC 2025 identifies “Sustainable Infrastructure” as a strategic area, with increasing the deployment of sustainable urbanisation models across ASEAN to 
+address the challenges and opportunities associated with rapid urbanisation as one of its strategic objectives. In this context, the ASEAN Smart Cities 
+Network (ASCN) can contribute to the achievement of this objective by enabling the sharing of best practices in sustainable urbanisation within the ASEAN 
+region, such as the ASEAN Sustainable Urbanisation Strategy (ASUS).*1
+• The ASCN was established by the ASEAN Leaders at the 32nd ASEAN Summit in April 2018. It is a collaborative platform where cities work together towards 
+the common goal of smart and sustainable urban development. The ASCN has 26 pilot cities, including the capitals, from all ASEAN Member States.
+• In light of this situation, this project aims to develop a guidebook that can be used as a reference for ASEAN cities to promote “Smart and Sustainable 
+Urbanisation” by introducing best practices in the ASEAN region.
+In preparing the guidebook, the following points will be taken into consideration:
+• The ASEAN Smart Cities Framework, including its six development focus areas, as the overarching structure of the document.
+• Smart cities planning and development require an integrated approach to physical, digital and human systems. 
+• As digital technology is expected to be used as an enabler to solve urban problems, the guidebook would consider data generation, distribution and 
+management.
+• From the perspective of attracting investment in the project, it is important to include consideration of multilateral banks and investors as well as the local 
+community.
+• The guidebook could address common barriers or challenges identified under the ASUS, such as information failures, return on investment, fiscal capacity, 
+implementation capacity, and coordination.
+• The preliminary draft guidebook was shared at the 3rd ASEAN-Japan Smart Cities Network High-Level Meeting held in October 2021.
+• Case Studies (examples) will also be conducted for this project, including by using the guidebook, to deepen the knowledge onthe implementation of 
+smart and sustainable urbanisation across the region. The Case Studies (examples) can be based on the 7 priority sub-areas and 8 priority actions for 
+sustainable urbanisation identified under the ASUS*2. 
+o ASUS 7 priority sub-areas are: (1) Inclusive & Equitable Growth; (2) Housing & Home; (3) Personal Safety & Security; (4) Water, Waste, and 
+Sanitation; (5) Mobility; (6) Urban Resilience; (7) Education.
+*1 For more information on the Strategic Area of Sustainable Infrastructure, please see https://connectivity.asean.org/strategic-area/connecting-asean-an-overview/ 
+*2 For more information on the ASUS priority sub-areas and actions as well as the common barriers to implement sustainable urbanisation actions, please see 
+https://asean.org/storage/2018/11/ASEAN-Sustainable-Urbanisation-Strategy-ASUS.pdf
+
+5
+The guidebook aims to provide practical insights including frameworks and 
+examples, to support stakeholders involved in smart city development in ASEAN.
+Introduction
+Expected Readers 
+• This guidebook was developed, primarily for the following 
+readers which are involved in smart city development in 
+the ASEAN region:
+o Local government members
+o National government members
+o Other members in the public sector involved in 
+smart city development
+o State owned enterprises
+o Stakeholders in the private sector for smart cities
+(e.g. Primary Promoters, Service Providers, and 
+Investors)
+Guidebook Structure
+• Section 1: Provides a basic understanding of what a smart 
+city is, including the background, objectives, core 
+principles, and frameworks for smart cities.
+• Section 2: Provides examples based on the 7 sub-priority 
+areas in the ASUS Framework.
+• Section 3: Provides an overview of the business process 
+and the key enablers for smart city development, and best 
+practices for each process and enabler.
+
+6
+Basic Questions regarding Smart Cities
+This guidebook will address various questions regarding smart city development,
+ranging from what a smart city is, to the efficient ways of developing smart city.
+How to Use the Guidebook
+Example of Use Cases
+What is a smart city?
+Where should I start, 
+for smart city 
+development?
+How to develop smart 
+cities efficiently?
+Relevant Contents in Guidebook
+1.1 Background and Objectives
+for Smart City Development 
+1.2 Principles and Frameworks for 
+Smart City Development 
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City 
+Development
+2.1 Overview and Examples for the 
+Priority Areas
+Background and objectives on why a smart city 
+needs to be developed in the ASEAN Member 
+States. 
+Principles and frameworks for smart city 
+development, and examples from actual cities.
+Step-by-step explanation on how to develop 
+smart cities, and examples for each of the steps.
+Overview and examples of the effective usage of 
+the 5 key enablers for smart city development.
+Overview on the priority areas, actions which can 
+be taken in the priority areas, and examples.
+Level of Progress
+
+7
+Agenda
+Introduction
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development in ASEAN 
+1.2 Principles and Frameworks for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Examples for the Priority Areas
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations 
+3.2.2 Financial Sustainability
+3.2.3 Citizen Participation 
+3.2.4 Digital Infrastructure (City OS)
+3.2.5 Evaluation and KPIs 
+Conclusion
+Appendix
+P7
+P3
+P7
+P10
+P14
+P14
+P34
+P34
+P50
+P50
+P58
+P64
+P69
+P77
+P82
+P84
+
+8
+Share of 
+Real GDP 
+(2015)
+Compound Annual Growth Rate (CAGR) 
+of Real Gross Domestic Product (GDP) 
+Growth (Unit: %)
+Urbanisation is expected to continue across ASEAN Member States, which will be 
+primarily driven by the growth in middleweight regions.
+Background of Smart City Development
+Urban Share of Country’s Population (Unit: %) Economic Growth by Size of Region
+Background: 
+Rising 
+Urbanisation in 
+ASEAN
+• Urbanisation is expected to continue across all ASEAN Member States in the future, resulting in an additional 70 
+million urban residents from 2015 to 2025 in total within the ASEAN region.
+• In particular, urbanisation is rising in middleweight regions with population between 500,000 and 5 million, in 
+addition to mega cities such as Bangkok* and Jakarta.
+*Note: The Office of the Royal Society (ORST) has recently (specifically on February 16, 2022) announced the change of the official name of Thailand’s capital, from Bangkok to "Krung Thep Maha Nakhon."
+Source: ASEAN Sustainable Urbanisation Strategy
+100
+77 74
+53
+48 46
+34 33 30
+22
+47
+100
+80 80
+60
+55
+49
+41 40
+33
+27
+53
+Brunei
+Vietnam
+Singapore
+Indonesia
+Malaysia
+Thailand
+Philippines
+Laos
+Myanmar
+Cambodia
+ASEAN Total
+2015 2025
+5.0
+5.7
+4.8
+5.0
+4.2
+5.1
+5.5
+6.9
+5.8
+6.0
+5.5
+6.0
+Mega Regions 
+(5 mn people and above)
+Large Middleweights 
+(1-5 mn people)
+Small Middleweights 
+(500K-1 mn people)
+Small Regions 
+(300K-500K people)
+Rural Regions 
+(Below 300K people)
+Total
+2010-2015 2015-2020
+33%
+Share of 
+Population
+(2015)
+32%
+16%
+8%
+11%
+11%
+48%
+22%
+9%
+10%
+Additional 
+70 mn people 
+from 2015-2025 
+
+9
+Issues and Challenges caused by Rapid Urbanisation
+A smart city leverages digital infrastructure across business areas, to address the 
+urban challenges observed across ASEAN Member States.
+Objectives and Definition of Smart City Development
+Objectives and 
+definition of 
+smart city
+• Rapid urbanisation has caused issues and challenges in the ASEAN Member States, for areas including the quality of 
+life for the residents, environment, and infrastructure.
+• Smart cities in ASEAN aims to address such issues and challenges and provide new value to the citizens, by leveraging 
+digital infrastructure and data as an enabler. 
+Other Cities
+Usage of Data 
+Across Cities
+Education
+Urban Resilience Personal Safety 
+& Security
+Housing 
+& Homes
+Inclusive & 
+Equitable Growth
+Water, Waste &
+SanitationMobility
+Digital 
+Infrastructure
+Source: Smart City Guidebook (Japan), ASEAN Sustainable Urbanisation Strategy
+Overview of Smart Cities in ASEAN
+City 
+Congestion
+Water / Air
+Quality
+Security and 
+Safety
+Urban / Rural 
+Divide
+Rising 
+Inequalities
+Insufficient public transport infrastructure 
+and services, and traffic congestions.
+Increased water demand causing strains on 
+the existing water infrastructure.
+In addition to traditional threats, non-
+traditional threats such as cyber threats. 
+Less opportunities for residents residing in 
+rural areas compared to urban residents.
+Economic inequality, further accelerated by 
+the digital technology adoption as a result 
+of the Corona Virus Disease (Covid-19).
+
+10
+Agenda
+Introduction
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development in ASEAN 
+1.2 Principles and Frameworks for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Examples for the Priority Areas
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations 
+3.2.2 Financial Sustainability
+3.2.3 Citizen Participation 
+3.2.4 Digital Infrastructure (City OS)
+3.2.5 Evaluation and KPIs 
+Conclusion
+Appendix
+P7
+P3
+P7
+P10
+P14
+P14
+P34
+P34
+P50
+P50
+P58
+P64
+P69
+P77
+P82
+P84
+
+11
+3 Key Principles
+Smart city should be developed in alignment with the key principles and 
+guidelines, to ensure that the city enhances the quality of life for the citizens.
+Basic Concept for Smart City Development
+5 Key Guidelines
+Key Principles and Guidelines for Smart City Development
+Work across different business areas and cities, to 
+address challenges which are complex and arise 
+across cities.
+Collaborate across Business Areas and Cities
+Focus on the well-being of the citizens, 
+and promote the participation by the 
+citizens.
+Prioritize the Citizens
+Aim not only to implement new 
+technology, but focus on solutions which 
+resolves the issues.
+Focus on the Vision and Issues
+Develop digital infrastructure which the data 
+can be used in a transparent and 
+interoperable manner.
+Transparent and Interoperable
+Achieve a smart city which all citizens can 
+participate and access the service equally.
+Fair and Inclusive
+Ensure that the privacy of citizens is 
+maintained, when using data.
+Ensure Privacy
+Secure sustainable finance and 
+management system, to ensure that the 
+city can grow sustainably.
+Sustainable Finance and Management
+Ensure that security is maintained, and a 
+resilient infrastructure is developed, for 
+emergency situations.
+Security and Resilience
+Source: World Economic Forum: Global Smart Cites Alliance, Smart City Guidebook (Japan)
+
+12
+ASEAN Smart Cities Framework and ASUS below provide key components for the 
+guidebook. Both frameworks share the 6 Focus Areas, in which ASUS further 
+defines 7 Priority Sub-Areas and 8 Priority Actions.
+ASEAN Smart Cities & ASUS
+ASEAN Smart Cities Framework and ASUS used in the ASEAN Smart City Planning Guidebook
+Source: The ASEAN Secretariat Jakarta - ASEAN Sustainable Urbanisation Strategy
+7 Priority 
+Sub-
+Areas
+8 Priority 
+Actions
+• Inclusive & 
+equitable 
+growth
+• Introduce and 
+improve 
+access to 
+digital 
+payment 
+solutions to 
+enhance 
+financial 
+inclusion.
+• Housing & 
+home
+• Develop and 
+expand 
+affordable 
+housing 
+solutions.
+• Personal 
+safety & 
+security
+• Introduce 
+digital 
+solutions to 
+enhance 
+safety and 
+security in 
+cities.
+• Water, waste 
+& sanitation
+• Enhance solid 
+waste 
+management 
+systems.
+• Mobility
+• Urban 
+resilience
+• Introduce and 
+improve Bus 
+Rapid Transit 
+(BRT) systems.
+• Develop and 
+enhance 
+traffic 
+management 
+systems.
+• Develop flood 
+management 
+systems.
+• Education
+• Develop 
+digital skills
+through 
+“industry boot 
+camps.”
+Civic & Social Health & 
+Well-being Security Quality 
+Environment
+Built 
+Infrastructure
+Industry & 
+Innovation
+Key components for ASEAN Sustainable Urbanisation
+6 Focus Areas
+ASEAN Smart Cities Framework
+ASUS
+
+13
+The framework on the approach to smart city development is also provided, to 
+support the ASEAN Smart Cities Framework and ASUS.
+Smart City Development Framework (Process and Enablers)
+• Information in this guidebook is organized by the key frameworks "Five Steps for Smart City Development" and the "Six Points 
+(Enablers) for Smart City Development", to summarize the issues and solutions for the development of smart cities in ASEAN cities.
+Conceptual
+Phase
+Preparation 
+Phase
+Plan (Strategy)
+Development
+Phase
+Pilot and 
+Implementation
+Phase
+Enhancement
+Phase
+Entire Project Development
+Organizations
+Financial 
+Sustainability
+Citizen 
+Participation
+Digital 
+Infrastructure
+(City OS)
+Evaluation and 
+KPI
+Point:
+Does the city have 
+a clear vision?
+Point:
+Has a functional 
+and flexible 
+organization been 
+established?
+Points:
+Are financial plans 
+reviewed to 
+ensure financial 
+sustainability?
+Also, is the 
+concept of 
+beneficiaries and 
+cost sharing 
+organized?
+Point:
+Are the actions 
+based on the 
+needs of the 
+citizens?
+Point:
+Are there plans to 
+build a City OS?
+Point:
+Are there 
+appropriate 
+evaluation and KPI 
+for the project?
+Point: Are the 
+plans (strategy) 
+developed based 
+on a vision?
+Point:
+Is the smart city 
+developed based 
+on the vision and 
+plan?
+Point:
+Does the 
+organization 
+consider various 
+stakeholders to 
+participate?
+Point:
+Are there efforts 
+to foster 
+understanding 
+from the citizens?
+Point:
+Are integration 
+and technological 
+advancement of 
+service and data 
+considered?
+Six Points (Enablers) for Smart City Development
+Five Steps for Smart City Development
+Framework on Approach to Smart City Development used in the ASEAN Smart City Planning Guidebook 
+
+14
+Agenda
+Introduction
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development in ASEAN 
+1.2 Principles and Frameworks for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Examples for the Priority Areas
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations 
+3.2.2 Financial Sustainability
+3.2.3 Citizen Participation 
+3.2.4 Digital Infrastructure (City OS)
+3.2.5 Evaluation and KPIs 
+Conclusion
+Appendix
+P7
+P3
+P7
+P10
+P14
+P14
+P34
+P34
+P50
+P50
+P58
+P64
+P69
+P77
+P82
+P84
+
+15
+Priority sub-areas and actions have been identified based on common needs.
+Overview of the Priority Areas
+• Inclusive & 
+Equitable 
+Growth
+• Housing & 
+Home
+• Personal 
+Safety & 
+Security
+• Water, 
+Waste & 
+Sanitation
+• Mobility
+• Education
+Civic & Social
+Health & 
+Well-being
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry & 
+Innovation
+Source: The ASEAN Secretariat Jakarta - ASEAN Sustainable Urbanisation Strategy
+• Introduce and improve access 
+to digital payment solutions
+to enhance financial inclusion.
+• Develop and expand 
+affordable housing solutions.
+• Introduce digital solutions to 
+enhance safety and security 
+in cities.
+• Enhance solid waste 
+management systems.
+• Introduce and improve Bus 
+Rapid Transit (BRT) systems.
+• Develop digital skills through 
+“industry boot camps.”
+• Develop and enhance traffic 
+management systems.
+• Urban 
+Resilience
+• Develop flood management 
+systems.
+• Increase the number of city residents with access to financial services 
+through digital financial instruments.
+• Improve access to adequate, safe and affordable housing in the city.
+• Take advantage of relevant digital technologist to help reduce the 
+incidence of crime and threats to public safety.
+• Improve the overall management of waste collection, segregation, 
+treatment, and recovery in cities.
+• Improve the quality and efficiency of public transport and reduce 
+congestion.
+• Increase the level of digital skills amongst the population in line with 
+requirements of the local industry, resulting in a reduction in skills gaps, 
+fewer vacancies, and more placements in higher value-added 
+employment.
+• Reduce traffic congestion and the incidence of traffic accidents in the 
+city.
+• Reduce the incidence, damage and disruption caused by flooding 
+across a city through introducing, or improving, integrated urban 
+flood management and other flood management solutions.
+6 Focus Areas 7 Priority Sub-Areas 8 Priority Actions Objectives
+
+16
+Real-time payment system via QR code and mobile numbers, and enabling 
+mobile apps for top-ups can help drive cashless payment in every-day lives.
+Example: Inclusive & Equitable Growth
+• Consumers and business entities can send and receive money 
+directly from the bank account, by using a quick response (QR) 
+code, entering the mobile number / unique entity number (UEN), 
+etc., in an easy, fast, and safe manner.
+• Cross-border payment to Thailand was introduced in 2021 by 
+connecting with PromptPay, Thailand’s payment system, and 
+linkage with Unified Payments Interface (UPI), India’s payment 
+system, is planned in 2022.
+Source: The Association of Banks in Singapore, the Straits Times, Wing Bank 
+Singapore: PayNow – Online Banking System Phnom Penh: City Bus Card – Cashless Bus Payment
+• Phnom Penh developed the City Bus Card in 2018, which enables 
+cashless electronic payment within the bus through the card.
+• The card can be charged digitally, including top-up by phones, 
+bill payment, online payment.
+• Through the mobile app, the remaining balance can be easily 
+observed as well. 
+
+17
+Aiming to be ASEAN information technology (IT) and innovative hub, Thailand 
+Digital Valley with 5 digital infrastructures will be established.
+Example: Inclusive & Equitable Growth
+Digital infrastructure Image Objective Size (sqm.)
+Digital One Stop 
+Service
+• Serve as one stop service for investor, intelligent 
+operation center and office of Digital Economy 
+Promotion Agency.
+• 1,500
+Digital Startup
+Knowledge Exchange 
+Center
+• Become a center for digital knowledge exchange 
+including co-working space, office and commercial 
+area.
+• 4,500
+Digital Innovation 
+Center
+• Serve as a center of digital innovative facilities; next-
+generation telecommunication testing lab, A.I. 
+(artificial intelligence) lab, mixed reality center, 
+Internet of Things (IoT) design center, Prototyping 
+fabrication lab and mechatronics & robotics lab.
+• 40,000
+Digital Edutainment
+Complex
+• Provide space for education and entertainment 
+activities including robotic school, robot fighting 
+area, drone school and drone racing arena.
+• 20,000
+Digital Go Global 
+Center
+• Enable designing and testing of technology and 
+innovation and become a startup incubator for 
+global expansion through product innovation and 
+development.
+• 20,000
+Source: Thailand Digital Economy Promotion Agency (DEPA) 
+Chonburi: Thailand Digital Valley
+
+18
+Digital technology will help enhance the local payment system, by promoting a 
+cash-less and convenient transaction experience for the residents and visitors.
+Example: Inclusive & Equitable Growth
+Nanki-Shirahama (Wakayama): Face Recognition Payment Okaya City (Nagano): Local Cashless Payment System
+• By registering your face and credit card details, the user can 
+make payment through facial recognition system, without a 
+wallet and smart phone.
+• The payment service can be used in the airport, hotel, 
+restaurants, amusement parks, etc. 
+• Payment system is digitalized into a local payment ecosystem, 
+which enhances cashless payment and the development of the 
+local economy.
+Source: NEC, Toppan Printing
+Residents
+• Card 
+• Mobile app
+Merchants
+• POS Terminal
+• Smartphone / tablet
+• E-commerce
+Service Providers
+• Business applications
+• Report summary
+• Inquiry on results
+Cashless Payment 
+System
+• Local credits
+• Shopping points
+• E-vouchers
+• Local points
+• Tourism cards
+Stakeholders System
+
+19
+Providing digital platforms such as mobile apps and websites, can support the 
+easy access to information regarding affordable housing programs. 
+Example: Housing & Home
+• Department of Public Housing and Settlement Areas within DKI 
+Jakarta government works together with several developers and 
+banks, to rent out affordable housing for low-income residents 
+within Jakarta.
+• Citizens can communicate and obtain information about 
+Rusunawa housings through the mobile app and website 
+‘Sirukim’. 
+• Platform can be used to obtain information on billing for 
+Rusunawa rentals, registering for rental units, and to provide 
+complaints. 
+DKI Jakarta: Rusunawa – Affordable Housing Program
+Source: DKI Jakarta Government
+Leverages Mobile App and Websites for Easy Usage
+
+20
+Energy management can enhance energy efficiency within residences through 
+visualization of usage patterns, and interconnectivity within the area.
+Example: Housing & Home
+• Leverages Home Energy Management System (HEMS), for the 
+households in the city to have the function of creating, storing, 
+and utilizing energy efficiently.
+• The system visualizes the energy flow through monitors in digital 
+devices.
+• Leverages Area Energy Management System (AEMS) to visualize 
+the usage of utilities, to make the entire area including 
+residences, offices, and commercial buildings energy efficient.
+• Also, it allowed electrical power to interchange across city and 
+ward lines for the first time in Japan, in which solar power and 
+batteries were leveraged as the energy source.
+Fujisawa City (Kanagawa): Home Energy Management System (HEMS) Kashiwa-no-ha (Chiba): Area Energy Management System (AEMS)
+Source: Fujisawa SST, Hitachi
+
+21
+Providing a centralized office with digital and intelligent solutions will help 
+reduce the incidence of crime and threats to public safety.
+Example: Personal Safety & Security
+Davao City: Public Safety and Security Command Center (PSSCC) 
+• Public Safety and Security Command Center (PSSCC) is a division under the Office of the City Mayor, developed to provide protection, 
+security, safety and risk management to the people of Davao City.
+• The organization operates through coordinative approach to address the different issues of safety and security by leveraging 
+information, people, technology, and intelligent solutions. As part of the service, the organization provides closed-circuit television 
+(CCTV) viewing or a copy of CCTV footages for video requests.
+• PSSCC collaborates with various organizations including the Davao City Police Office (DCPO), the Task Force Davao (TFD), the Traffic 
+Management Center (TMC), the Central 911, the Davao City Disaster Risk Reduction and Management Council (DCDRRMC), the 
+Barangay Officials and other law enforcement agencies.
+Source: Davao City
+Coordination Structure
+
+22
+Leveraging items and services which are used within daily lives as a means to 
+identify the location and condition of vulnerable residents can enhance safety.
+Example: Personal Safety & Security
+Sensor Tags Sensor Detectors
+Kakogawa City (Hyogo): Location Services by 
+Sensor Tags and Detectors Ina City (Nagano): Monitoring Service by Cable TVs
+• Sensor tags are provided to children and elderly residents, and 
+sensor detectors are placed throughout the city, including 
+cameras and cars.
+• The sensor detectors help provide the location of the children 
+and elderly residents to the families, in which the location can 
+be viewed in a mobile app. 
+Location 
+information will be 
+notified to the 
+mobile app of 
+families.
+Mobile App
+• For cable TV subscribers, if the elderly subscriber has not 
+viewed cable TV for a specific amount of time, a message will 
+be delivered to the families.
+• Also, messages from the family can be viewed on the TV screen 
+as well, for easy and efficient communication regarding the 
+safety of the residents.
+Source: Kakogawa City, Smart City Guidebook (Japan)
+
+23
+To enhance waste management, engagement and education of the citizens will 
+drive transformation.
+Example: Water, Waste & Sanitation
+Battambang: Programs to Improve Waste Management System 
+Source: UN Environment Program, NRI based on interview and questionnaire
+• In 2011, Battambang launched a participatory waste 
+management initiative, aimed at setting up community-based 
+planning and implementation of waste management based on 
+a reduction, reuse and recycle (3R) approach.
+• The above resulted in the waste management situation in 
+Battambang gradually improving over the years.
+• Currently, there is another ongoing pilot project ‘Battambang 
+Smart Solid Waste Financial Management (Phase 1)’ to further 
+enhance the waste management in the city.
+• In the participatory waste management initiative launched 
+in 2011, a series of programs to raise awareness was 
+conducted, including distribution of brochures, 
+announcements, and community workshops. 
+• A street cleaning campaign was also organized with the 
+participation of students from local schools, staff from 
+public organizations and local business enterprises as 
+volunteers, to engage the citizens.
+Initiatives to Raise Citizen Awareness and Engagement
+
+24
+Digital technologies to monitor the water consumption, can help the city to 
+utilize water resources more efficiently, and improve costing within the city. 
+Example: Water, Waste & Sanitation
+Bandar Seri Begawan: Smart Meters for Efficient Water Consumption
+• To increase financial sustainability of several public services, the city strives to improve cost controllability. 
+• An example of proposed initiatives includes the consolidation of water and electricity meters, allowing households to monitorand 
+manage their usage online as well as potentially reducing government subsidies.
+Source: The 3rd ASEAN - Japan Smart Cities Network High Level Meeting
+
+25
+Efficient waste management, waste-to-energy, and waste reduction schemes can 
+be considered as a solution to solve issues regarding waste within the cities.
+Example: Water, Waste & Sanitation
+Kota 
+Kinabalu
+Chonburi
+Makassar
+Waste 
+Management
+• As a sub-plan of the smart city, the city has developed the Green City Action Plan, which includes 
+integrated waste management and green energy. 
+• The project for integrated solid waste management system was initiated, with an aim to transform the city 
+into a clean, green and livable city, which has a sustainable waste management system. 
+• There are also initiatives to enhance citizen participation in waste management by gathering 
+opinions/issues from the citizen in the targeted areas.
+Waste-to-
+Energy
+Waste 
+Reduction
+• In 2019, the feasibility study of a waste-to-energy power plant in worth THB 1.8 billion was initiated, to sell 
+electricity to Provincial Electricity Authority (PEA) and other buyers. 
+• The target is to convert non-hazardous industrial waste of 100,000 tons per year, using environmentally 
+sustainable waste burning technology, and high-standard air emission control systems. 
+• The city developed Makassar Waste Bank Program, which waste management is conducted by 
+purchasing recycled waste at the ‘Waste Bank Units’, which are located in every sub-district in Makassar 
+City. 
+City Name Activity Type Description
+Source: NRI based on interview and questionnaire results, ASCN Smart City Action Plans, Bangkok Post
+
+26
+To reduce traffic congestion and increase efficiency, Bus Rapid Transit and traffic 
+monitoring system are introduced in Makassar City.
+Example: Mobility
+Source: Asian Development Bank, Telkomseliot
+Purpose : To reduce traffic congestion problem in the city.
+Operator : Perum Damri, a state-owned enterprise.
+Launch year : 2015.
+Passenger : 70 people.
+Fare : Rp. 5,000 per corridor.
+Feature : With control center, WiFi / global positioning system (GPS) equipped, the vehicle 
+can be monitored centrally and data is collected to solve traffic congestion.
+Bus Rapid Transit 
+by Makassar City
+Purpose : Government can now get data about the best routes, vehicle 
+usage hours, driver behaviour and speed limit which increases overall security, 
+effectiveness, and operational efficiencies. 
+Operator : Telkomsel.
+System : Telkomsel IoT FleetSight.
+Feature : 1. Driver Status Monitor (DSM)s
+An advanced driver behaviour warning artificial intelligence (AI) mechanism.
+2. Advanced Driver Assistance System (ADAS)
+A real-time situation detector and warning system.
+Traffic monitoring system 
+Makassar: Bus Rapid Transit (BRT) 
+
+27
+MaaS applications can enhance the tourist’s experience in the city, by providing 
+a more flexible and efficient mobility infrastructure via digital technologies. 
+Example: Mobility
+Phuket and Siem Reap: MaaS Application to Enhance Tourism Experience 
+Phuket
+Siem Reap
+City Name Mobility Issues MaaS Solutions
+• Public transport system is not very convenient, whist traffic 
+congestion are a major issue.
+• Although there is a data platform, the data platform is not 
+efficiently interconnected with the public services.
+• Partnered with Japanese companies through the Smart City 
+supported by Japan ASEAN Mutual Partnership (Smart JAMP) 
+initiative by MLIT, to create a robust platform and mobile application 
+that integrates real-time data from multiple types of transportation in 
+order to optimize urban mobility from the first to last mile.
+• Aims to expand the service to include land, sea, and air travel 
+throughout the Andaman area, including Krabi and Pang-Nga 
+Provinces.
+• Room for improvement regarding the flexibility of tourist 
+itineraries, since most go through the recommended route.
+• The service providers and the government are not getting enough 
+information on the movements and flow of the tourists.
+• Partnered with Japanese companies and Japan External Trade 
+Organization (JETRO) to introduce a tourism MaaS application in 
+Siem Reap, which allows a flexible itinerary, especially as visitors 
+prefer to travel in small groups during Covid-19.
+Application Image for MaaS Solution in Siem Reap
+Source: NRI based on interview and questionnaire results, MLIT, AMEICC
+
+28
+Digital technology such as smart traffic lights and database infrastructure will 
+help address traffic issues such as traffic congestion and violations. 
+Example: Mobility
+• Installed smart traffic light, in which during early 2021, the first phase has been implemented where the light was installedat around 50 
+junctions within the city.
+• Also, the city has completed the construction of integrated operation center facility, with a plan to install more CCTVs. Thecenter is 
+equipped with the computing power of big data to assist on several smart city tasks related to traffic, security and disastermonitoring etc.
+• Traffic management systems includes 63 automatic number plate recognition (ANPR) systems. 
+• According to budget allocation, plans on expanding the traffic management system to the whole city, which includes the planning to 
+enhance the ANPR CCTV systems to monitor the traffic violations.
+City Name Description
+• The city has issues with traffic congestion, in which the efforts to address this challenge includes the establishment of smart traffic control 
+systems through procurement of intelligent traffic light systems. 
+• Other digital technology leveraged includes sensors, monitoring equipment and database infrastructure to operate an intelligent traffic 
+control system, improve traffic regulation enforcement, information collection and sharing, aiming to ultimately enhance public safety.
+Source: NRI based on interview and questionnaire results, ASCN Report by Centre for Liveable Cities, JETRO, Da Nang Today 
+• Developed an Intelligent Operation Center (IOC), which functions as the hub to collect and analyze information from the CCTV,which 
+enables facial recognition, action towards traffic accidents, as well as managing information on utilities (e.g. electricity)through GIS system.
+• CCTV and surveillance systems are being implemented, with new functions such as vehicle and people counting, leveraging the usage of AI 
+technology.
+Kuching
+Mandalay
+Cebu City
+Ho Chi 
+Minh City 
+Da Nang
+Vientiane
+• An expressway in Vientiane is being developed to mitigate the congestion in the city center.
+• Also, a rapid transit system is being designed, along with a organized parking area to reduce the on-street parking within the city.
+
+29
+Leveraging mobile applications and autonomous driving technology can 
+enhance the convenience of the residents within the city. 
+Example: Mobility
+Kawasaki City (Kanagawa) – Shinyuri MaaS Town of Sakai (Ibaraki) – Autonomous Bus Vehicles
+• Tourism 
+Information
+• Transportation 
+Information
+Search
+Residents
+Education and 
+Commercial 
+Facilities
+Visit
+Coupons for 
+Transportation 
+Information Sharing
+• Residents can search for real-time information of schedule and 
+congestion regarding the transportation, and also request for 
+transportation through the app.
+• Also, the city will partner with education and commercial facilities, in 
+to promote the usage of public transportation within the city. 
+Mobile app: 
+EMot
+• First autonomous bus which run on a fixed schedule and stops in 
+Japan. 
+• The bus runs automatically in a distance of approximately 6km, as a 
+round trip, in which the bus is free of charge.
+Source: MLIT, Town of Sakai
+
+30
+Infrastructure to manage flooding can be used as a solution to resolve other 
+issues and challenges such as traffic congestion. 
+Example: Urban Resilience
+• The SMART tunnel was built to alleviate the flood problem in 
+Kuala Lumpur.
+• The tunnel diverts the water to go through the tunnel, to reduce 
+the amount of water entering flood prone areas within the city.
+Kuala Lumpur: Stormwater Management and Road Tunnel (SMART) – Solution to Mitigate Flooding
+• In addition to mitigating flood issues, the tunnel also helps 
+reduce traffic congestion, by providing an alternative route for 
+motorists, to travel around the city centre. 
+Source: SMART webpage 
+Impact on Traffic Congestion Reduction
+
+31
+Leveraging a 3D city model, can help understand how disasters may impact the 
+city, and what is the optimal escape route for citizens, to minimize the risks
+Example: Urban Resilience
+MLIT and Various Cities in Japan – Project Plateau 
+• MLIT provides a 3D urban city model in Japan, in which the platform is open publicly as open data. The data for each city can be accessed freely by 
+the cities, and can be used for various use cases, which includes simulation to enhance urban resilience.
+Tottori City (Tottori) – Use Case: Simulation for Flooding 
+• Pilot program for simulation on how the water spreads during 
+flooding was conducted, using Plateau data platform.
+• Results were shared in a seminar which included local university, city 
+office, and local residents, in which discussion on how to optimize the 
+escape route leveraging the technology was discussed.
+Toranomon Area (Tokyo) – Use Case: Escape Route Simulations
+• In the business district Toranomon area, 3D visuals on the building 
+data by the construction year (e.g. red: built before 1970) was 
+developed, using the Plateau data platform. 
+• The data was used to understand what is the optimal escape route, 
+as data to support companies, when conducting disaster escape 
+practice.
+Source: MLIT
+
+32
+Partnership with external organizations in terms of funding and expertise, will 
+help drive the development and implementation for digital skills. 
+Example: Education
+DKI Jakarta, Kuala Lumpur, and Manila: Education Programs to Enhance Digital Skills 
+City Name Program Name Program ContentsOrganizers
+DKI 
+Jakarta
+Kuala 
+Lumpur
+Manila
+Reducing digital & 
+information and 
+communication 
+technology
+(ICT) gap for the 
+community 
+Online marketing 
+upskilling program
+Providing tablets 
+and wifi for public 
+schools
+• Program to help citizens from marginalized groups such as single 
+mothers and low-income households, by providing skills to sell 
+products online.
+• Robotics education for kids.
+• SASBADI Online - Software sponsored by Bank Rakyat as ICT-based 
+learning aid for students from B40 groups.
+• 110,000 tablet devices equipped with Globe SIM cards and 11,000 
+laptops paired with Globe pocket WiFis were provided for the city 
+educators, in partnership with Globe telecom.
+• LA21KL (Unit from the City Hall of Kuala Lumpur)
+• External partners
+o NGOs 
+o Bank Rakyat Foundation 
+o Malaysian Communication and Multimedia 
+Commission
+JSC Academy 
+JakPreneur
+• Program for provision and development of digital platforms in the 
+field of education and training to support digital transformation.
+• Program for the creation, facilitation, and collaboration of MSME 
+(micro, small & medium enterprises) development through the 
+entrepreneurial ecosystem, such as start-ups, educational 
+institutions, and financing institutions.
+• Jakarta Smart City 
+• External Partners
+o Private companies (e.g. PT Telkom, Go-Jek, Grab)
+o NGOs 
+o Universities
+o International Organizations
+• Department of Social
+• External Partners
+o Private companies (e.g. Go-Jek, Grab, Shopee, 
+Tokopedia)
+o Financial Institutions
+• City Government of Manila
+• Globe Telecom
+Source: NRI based on interview and questionnaire; Globe Telecom
+
+33
+Partnering with the local universities will help increase local digital talents, and 
+address local issues by leveraging data and digital partnerships.
+Example: Education
+Aizuwakamatsu City (Fukushima) – IT Skills Improvement 
+Osaka City (Osaka) – Partnership Platform between 
+Academic and Public Sector
+• Collaborates with Aizu University, a university specialized in the 
+research, innovation, and development of analytics talent for ICT, to 
+educate analytics talents in the city. 
+• Many of the graduates are recruited to work in the city office as well.
+Osaka Prefecture / Osaka City / 
+University Joint-Platform
+Data Management 
+Center 
+• Store, analyze, 
+and utilize data Project 
+XXX
+Project 
+XXX
+Project 
+XXX
+Data Cleansing
+Data • Data Source: Osaka Prefecture / Osaka City
+Budget and facility 
+is allocated for 
+each project. 
+• Osaka City University and Osaka Prefecture University plans on 
+becoming integrated into a new university, in which a joint platform 
+between the new university and the local administration is planned to 
+be developed, to leverage data to address local challenges.
+Source: Laboratory for leading-edge ICT (LICTiA), Osaka Prefecture, Smart City Guidebook (Japan) 
+
+34
+Agenda
+Introduction
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development in ASEAN 
+1.2 Principles and Frameworks for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Examples for the Priority Areas
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations 
+3.2.2 Financial Sustainability
+3.2.3 Citizen Participation 
+3.2.4 Digital Infrastructure (City OS)
+3.2.5 Evaluation and KPIs 
+Conclusion
+Appendix
+P7
+P3
+P7
+P10
+P14
+P14
+P34
+P34
+P50
+P50
+P58
+P64
+P69
+P77
+P82
+P84
+
+35
+Business process for smart city development can be categorized into 5 key steps,
+spanning from the conceptual phase to the enhancement phase.
+Process for Smart City Development
+Conceptual
+Phase
+Preparation
+Phase
+Plan (Strategy)
+Development
+Phase
+Pilot and 
+Implementation
+Phase
+Enhancement
+Phase
+Five Steps for Smart City Development
+Actions to be taken within each stepOverview of the steps
+To initiate smart city development, and align on the 
+objectives of building the smart city.
+• Clarify the background and objectives of smart city 
+development.
+• Strengthen the organizational structure within local 
+government.
+To decide on the overall direction, and share the 
+vision with the citizens.
+• Develop the partnership structure of core 
+stakeholders.
+• Share the structure and vision to the citizens of the 
+city.
+To develop the organizational structure for smart city 
+development, and share the vision with the citizens.
+• Develop the primary promoter for the smart city 
+project.
+• Develop the detailed plan to achieve smart city 
+development.
+To conduct pilot projects, and gradually implement 
+the solutions within the smart city. 
+• Conduct pilot programs, to enhance the plan, check 
+the feasibility, and receptiveness by the community.
+• Implement the plan, based on the plan and the pilot 
+project results.
+To monitor the implementation and enhance the 
+services.
+• Monitor the implementation, to ensure that the 
+services take root in the community.
+• Continuously update and refine the services, based 
+on the monitoring results.
+Source: Smart City Guidebook (Japan)
+Process for Smart City Development
+
+36
+Johor Bahru identify the issue / difficulty, capability, funding, and outcome at 
+first.
+Example: Conceptual Phase
+• Overview of the phase: To initiate smart city development, and align on the objectives of building the smart city.
+• General actions: 1. Clarify the background and objectives of smart city development.
+2. Strengthen the organizational structure within local government.
+Johor Bahru: Actions in the Conceptual Phase
+Issue / difficulty
+Capability readiness
+Funding
+Outcome
+Overview of the actions
+• Use focus group discussions to ask each city what are the issues or difficulties the city is facing which can be 
+mitigated using smart city solutions.
+• Current 3 key projects: 
+o 1) Big data platform: utilized in healthcare sector, transportation etc.
+o 2) Integrated transportation system. 
+o 3) River monitoring and management tool: a consultant is currently doing feasibility study. 
+• Consider capability readiness.
+• The strategy to drive the smart city development is to encourage public and private collaboration where the private 
+sector provides fund and public sector facilitates operation. 
+• Consider funding.
+• The strategy for each city depends on their size and economic / financial conditions in which the development can be 
+divided into 3 categories; 
+o 1) Small project - focus on low-cost development such as green sustainability project e.g. recycling program. 
+o 2) Intermediate – add in technology but may not necessarily connected to the operation center / device. 
+o 3) Big program – the project where every equipment / infrastructure being developed is connected to the city 
+data platform e.g. smart traffic light whose data is gathered at the center and used to form decision. 
+• Consider outcome (level of impact).
+• Current situation: Pilot projects are being implemented on a small scale where successful projects could be expanded 
+to other cities.
+Items to consider
+Source: NRI based on interview and questionnaire
+
+37
+A government-wide support system for the dispatch of experts have been 
+established, and some municipalities have set up a DX strategy office.
+Example: Conceptual Phase
+Support system for the dispatch of experts by Government
+Features of the system
+1. Covering 26 fields 
+including open data, 
+network 
+infrastructure and 
+human resources 
+(HR) development
+2. A total of 207 
+people were 
+appointed in 2020
+Website of the association
+• The Ministry of Internal Affairs and Communications (MIC) has 
+commissioned experts who are familiar with solving regional 
+issues through ICT and data utilization as "Regional 
+Informatization Advisors" and dispatches them upon request 
+from local governments.
+• Applicants can receive up to three days of dispatch per 
+application, without bearing the burden of travel expenses and 
+honorarium for the expert.
+Bandai Town (Fukushima): 
+Digital Transformation (DX) Strategy Office
+• In order to promote digital transformation (DX), the Digital 
+Transformation Strategy Office was established as a cross-
+agency organization under the direct control of the Deputy 
+Mayor, in accordance with the Town Comprehensive Plan and 
+the Town Division Establishment Ordinance.
+• This is a time-limited organization that assumes three years to 
+promote DX. In three years, they aim to make the 
+management structure of the office in principle for the whole 
+organization.
+Mayor Deputy 
+Mayor
+Accountant 
+General
+General Affairs Division
+Policy Division
+Civic Section
+Agriculture and Forestry Division
+Construction Division
+Commerce, Industry and Tourism 
+Division
+Accounting Office
+Chief Digital 
+Officer
+Digital Transformation Strategy 
+Office 
+Organization 
+Structure 
+in Bandai Town
+Source: Smart City Guidebook (Japan), Bandai Town website
+
+38
+• Overview of the phase: To decide on the overall direction, and share the vision with the citizens.
+• General actions: 1. Develop the partnership structure of core stakeholders.
+2. Share the structure and vision to the citizens of the city.
+In cities that did not have a master plan, the master plan is currently under 
+development by leveraging international support.
+Example: Preparation Phase
+Source: NRI based on interview and questionnaire, ASCN Smart City Action Plans 2018
+Lao PDR: Leveraging international support for master plan development
+OverviewCity
+• Vientiane has not had a smart city master plan yet. 
+• It is in the process of developing a master plan supported by MLIT and the consulting team, which will take 5-6 months to 
+complete the draft plan and to propose to the governor. 
+• Strategic targets and issues are below:
+o Good public healthcare system.
+o Easy access to public services with e-government applications.
+o Affordable housing schemes.
+o Clean environment.
+o Urban resilience with fewer flooding incidents.
+Vientiane
+• Luang Prabang has not had a smart city master plan yet. 
+• It is in the process of developing a master plan by cooperating with the Ministry of Public Work and Transportation and 
+external consulting company (OCG Consulting). Expected to complete by March 2022. 
+o Master Plan Study for Smart City Development in Luang Prabang City was launched as the first project of the Smart 
+JAMP project by MLIT.
+• Within the plan, the strategy follows the Lao PDR national policy. 
+• Strategic targets and issues are below:
+o Implement a replicable urban waste management and sewage solution on a public private partnership (PPP) mode.
+o Develop proper solid waste treatment systems.
+o Restore all wetlands in the city and preserve natural spaces along the Mekong River and Namkhan River.
+o Accommodate the expected growth in tourism industry while preserving the values of the world heritage site.
+Luang Prabang
+
+39
+Some municipalities have developed a smart city vision and shared it with local 
+citizens through town meetings and smart city declaration by the mayor.
+Example: Preparation Phase
+Aizuwakamatsu City (Fukushima): Sharing through town meetings Kaga City (Ishikawa): Smart City Declaration
+• In the 7th Comprehensive Plan of Aizuwakamatsu City, which is 
+the city's top-level plan (FY2017~2026), "Smart City 
+Aizuwakamatsu" is positioned as one of the 3 major 
+perspectives in order to promote the creation of a strong 
+community with sustainability and resilience and a safe and 
+comfortable place to live in the future.
+• In formulating the Comprehensive Plan, the city has conducted 
+citizen questionnaires and town meetings to share its policies 
+with citizens and reflect their opinions in the plan.
+Vision for Urban Development
+Walking Together, Creating Together "Onko Soshin" 
+in Aizuwakamatsu
+Basic concept in the comprehensive plan
+Theme 1
+Theme 2
+Towards a town where 
+people shine
+Towards a town where 
+we build together
+Theme 3 Towards a town that 
+continues to connect
+Perspective 1: Smart City Aizuwakamatsu
+Perspective 2: Job Creation
+Perspective 3: Optimization of public 
+facilities and administrative services
+• Kaga City announced the "Kaga City Smart City Declaration," 
+which sets the basic philosophy of "realizing a human-
+centered future society" and the principles of operation on 
+March 30, 2020.
+• At the same time, the "Smart City Kaga Concept" and the 
+"Kaga City Public-Private Data Utilization Promotion Plan" 
+were formulated, setting forth the direction for realization and 
+the basic policy for the utilization of various data.
+Public
+sector
+Private 
+sector
+Human-centered
+(citizens, visitors, tourists)
+Transformation from government-led urban 
+planning optimized for individual fields to 
+human-centered urban planning optimized for 
+the whole, based on public-private partnerships.
+Source: Smart City Guidebook (Japan), Aizuwakamatsu city website, Kaga city presentation material
+
+40
+In Viet Nam, city-level master plans have developed based on national-level 
+plan.
+Example: Plan (Strategy) Development Phase
+• Overview of the phase: To develop the organizational structure for smart city development, and share the vision with the citizens.
+• General actions: 1. Develop the primary promoter for the smart city project.
+2. Develop the detailed plan to achieve smart city development.
+Viet Nam (Da Nang, Hanoi, Ho Chi Minh City): Master Plans at National and City Level
+• Viet Nam's Sustainable Smart City Development Plan for 2018-2025 and 2030 Vision:
+o The plan and vision was announced by the Prime Minister in 2018.
+o Goal: To develop at least 6 smart cities in Viet Nam by developing 4 pilot smart cities and linking networks. 
+o Phase: Planning (~2020), Implementation (~2025), and Networking (~2030).
+• 10 group of tasks, solutions: (1) Reviewing, researching, and improving policies, (2) Improving the system of standards and 
+regulations, (3) Establishing a database system, (4) Applying smart technology in urban planning and management, (5) Developing 
+smart urban infrastructure, (6) Developing smart utilities, (7) Developing capacity for smart city, (8) Increasing mobilization of 
+resources, (9) Promoting international cooperation and technology transfer, (10) Raising awareness.
+National level
+City 
+level
+Da Nang Hanoi Ho Chi Minh City
+Vision
+Master Plan
+Focus Area
+• By 2030, aim to become a smart, 
+liveable and sustainable city, while 
+ensuring economic growth and 
+competitiveness.
+• By 2030, aim to be a green, culturally 
+rich, civic and modern city with 
+sustainable development to improve 
+people's lives.
+• By 2025, achieve rapid and 
+sustainable economic development 
+through optimal resource use and 
+citizen-centred governance.
+• Da Nang's construction plan has a 
+vision for the target year of 2050 and 
+a comprehensive construction plan 
+up to 2030.
+• There is a comprehensive plan for 
+the construction of the capital city of 
+Hanoi with a target year of 2030 and 
+a vision for 2050.
+• In 2008, the Ho Chi Minh City 
+Metropolitan Region Plan was 
+approved, which covers eight central 
+municipalities and provinces.
+• Smart Governance
+• Smart Life
+• Smart Mobility
+• Smart Environment
+• Smart Citizens
+• Smart Economy
+• Smart Transport
+• Smart Travel
+• Intelligent Operation Centres (IOCs)
+• Smart Governance
+• Smart Environment
+• Smart Transport
+Source: Ministry of Information and Communications and MLIT report
+
+41
+Kuala Lumpur Smart City Master Plan (2021-2025) focuses on 7 components 
+under 3 phases of development.
+Example: Plan (Strategy) Development Phase
+Source: NRI based on interview and questionnaire result
+Kuala Lumpur: Smart City Master Plan (2021-2025) 
+Smart City Component
+1. Smart Economy
+2. Smart Living
+3. Smart Environment
+4. Smart People
+5. Smart Government
+6. Smart Mobility
+7. Smart Digital Infrastructure
+Sept 2020 Launch Kuala Lumpur Smart City Master Plan
+Q1 2021 Short term (3-6 months)
+◦Quick win deployment
+Q4 2021 Medium term (6-12 months)
+◦Performance review: quick win
+◦Medium term projects deployment
+Q2 2023 Long term (12-18 months)
+◦Long term projects deployment
+◦Performance review: Middle term projects
+Q3 2025 Master plan revision
+Implementation Roadmap
+Smart City Vision and Strategy
+
+42
+Brunei Darussalam set up a Smart City Steering Committee to monitor the smart 
+city development.
+Example: Plan (Strategy) Development Phase
+Bandar Seri Begawan: Consideration in the Plan (Strategy) Development Phase
+Source: NRI based on interview and questionnaire
+Digital Economy CouncilConsideration item
+• Digital Economy Council is co-chaired by Minister of 
+Finance and Economy II and Minister of Transport and 
+Infocommunications, and provides the direction and 
+steer on digital economy initiatives for Brunei Darussalam.
+• A Digital Economy Masterplan 2025 was launched in 
+2020.
+Committee
+• The Council focuses on the implementation of projects 
+under ten priority clusters:
+1) Logistics and transportation;
+2) Energy;
+3) Business services;
+4) Tourism;
+5) Financial services;
+6) Health;
+7) Agri-food;
+8) Education;
+9) Halal;
+10) Construction.
+Focus Area
+Smart City Steering Committee
+• Smart city initiatives and development are currently 
+under the purview of the Smart City Steering Committee 
+co-chaired by Minister of Development and Minister of 
+Transport and Infocommunications with members from 
+related agencies.
+• The Committee also oversees alignment of initiatives to 
+the Digital Economy Masterplan.
+• A Smart City Action Plan has been drawn up providing 
+basis for smart city development implementation.
+• Five focus areas have been identified to further improve 
+the efficiency of provision of services by technological 
+utilization for built infrastructure:
+1) Mobility;
+2) Utilities (include water and electrical supply);
+3) Buildings and Homes;
+4) Safety and Security; 
+5) Environment and Waste Management.
+
+43
+It is important to consider and formulate clear visions and goals and specific 
+action plans for the realization of smart cities.
+Example: Plan (Strategy) Development Phase
+Source: Smart City Guidebook (Japan), Kashiwanoha Smart City Consortium, Otemachi, Marunouchi and Yurakucho District Smart City Promo tion Consortium
+Kashiwa-no-ha (Chiba): Smart City Action Plan
+Otemachi, Marunouchi and Yurakucho District (Tokyo):
+Smart City Vision and Action Plan
+• In March 2020, an action plan to create “A Smart and Compact City 
+Centered on Train Stations” using new technologies and data such as AI 
+and IoT was announced.
+• Under the concept of "TRY the Future: A City that Continues to Evolve," 
+the plan states that the city will promote urban development based on 
+four themes and three strategies.
+• In March 2020, an action plan to promote the "update and redesign of 
+existing city" through PPP and area management in cooperation with 
+the public and private sectors was published.
+• The plan sets out the direction for improving the value of the area by 
+making it smarter and realizing data-driven area management in order 
+to achieve the goals and vision.
+Theme①: Mobility Theme②: Energy
+Theme④: WellnessTheme③: Public Space
+4 themes + 3 strategies
+Smart compact city with a station at the center
+Strategy 1:
+Building a private + public 
+data platform
+Strategy 2:
+Stimulating open 
+innovation through the 
+platform for public-private 
+academic collaboration
+Strategy 3:
+Cross-sectoral service 
+creation
+District objective: Vision-Oriented Smart City
+The district has established "urban development guidelines" as its urban development goals, and in 
+order to better achieve these goals, the district is working to become a vision-oriented smart city.
+The smart city project is also unique as it is promoting the "updating and redesigning of existing 
+city" for the mature society that Japan is facing, through “PPP and area management".
+District development goals Otemachi, Marunouchi and 
+Yurakucho Smart City
+Direction of the city update
+Direction of the city redesigning
+Vision Oriented
+Area Management
+1. An international business city leading the way
+2. A city of people, bustle and culture
+3. A city of information exchange and dissemination
+4. A city where elegance and vitality are in harmony
+5. A convenient and comfortable city to walk
+6. A sustainable city that coexists with the environment
+7. A safe and secure city
+8. A city where the community, gov. and visitors work 
+together to nurture
+9. A smart city that makes use of new technologies and data
+
+44
+Banyuwangi has implemented projects of public service and healthcare.
+Example: Pilot and Implementation Phase
+• Overview of the phase: To conduct pilot projects, and gradually implement the solutions within the smart city.
+• General actions: 1. Conduct pilot programs, to enhance the plan, check the feasibility, and receptiveness by the community.
+2. Implement the plan, based on the plan and the pilot project results.
+• Issues to implement: Proof of concept (PoC) phase - Providing the citizens’ documents, proof of business (PoB) phase – Increasing 
+the economic benefits to the people.
+Banyuwangi: Implemented Projects Across the City
+• The automated teller machine (ATM)-liked machine which will be 
+able to provide some public service (by using identification (ID) card) 
+at the citizen’s nearest convenient location. 
+• This is the initiative to address one issue of the Banyuwangi that is 
+inconvenience in getting public service at the city center as it takes a 
+long commuting time (3 hours for the farthest village). 
+Public Service
+• Delivery of medicine to poor people by Go-Jek.
+• So the people do not have to wait at the hospital and Go-Jek will 
+deliver the prescribed medicine to their home.
+Health & Economic
+Source: NRI based on interview and questionnaire, Banyuwangi Regency
+
+45
+Chula Smart City collaborates with various partners in piloting and implementing 
+mobility solution including electronic vehicles (EV) and charging stations. 
+Example: Pilot and Implementation Phase
+• Issues to implement: Monetization in each project. 
+o Business model really depends on the project (e.g. size, funding scheme, and project owner). For example, project by Bangkok Metropolitan Administration is 
+run by themselves, whilst for Chulalongkorn University they have the budget themselves, and invite alumni and start-ups to join the project (e.g. EV tuk-tuk).
+EV 
+Tuktuk 
+Sharing
+E-
+Scooter
+EV Car
+Sharing
+EV 
+Charging 
+Station
+EV Tuktuk with MuvMi application pilot project for Urban Mobility 
+Tech Co.,Ltd. within Chula smart city since 2018 to increase 
+accessibility between mass transit and areas in the smart city.
+30 E-Scooter with Leaf application and scooter parking spot of total 
+20. The pilot project is a collaboration with MakeIO Co.,Ltd. before 
+implemented in other areas.
+Ultra-compact EV cars, Toyota Ha:mo with application to check car 
+availability and location real time.
+• Started pilot phase from 10 in 2017~2019.
+• Currently increased to 30 cars in total.
+EV Charging Stations with Evolt application to serve the increasing 
+use of EV car in Chula smart city.
+• Started pilot phase with 3 charger in 2019.
+• Currently increased to 56 chargers in 24 stations.
+Pilot and Implementation details
+Urban Mobility Tech
+(MuvMi app)
+MakeIO
+(Leaf app)
+Evolt
+PartnersService
+Source: NRI based on interview and questionnaire, Samyan Smart City, News articles
+
+46
+It is important to confirm the response of users and installation/provision issues 
+in PoC phase and to identify services and verify their sustainability in PoB phase.
+Example: Pilot and Implementation Phase
+Source: Smart City Guidebook (Japan), Arao Smart City Promotion Council
+Arao City (Kumamoto): Casual Sensing and Everyday Human Health Checking (Healthcare)
+• Issue: The rate of people receiving specific health check-ups is low, and the cost of treating lifestyle-related diseases is higher for those 
+who have not received check-ups. 
+• Solution: The city aims to extend healthy life expectancy by fostering health awareness and making it a habit to take actions that are 
+good for physical and mental health through smart healthcare services such as daily health management recommendation services.
+• In order to implement the system in society: 
+o FY2020: PoC phase to verify its social acceptability.
+o FY2021: PoB phase to verify the business model.
+o FY2023: Enhancement phase to improve the service content and aim for social implementation.
+FY2020: PoC phase
+• Confirmation of the 
+response of users 
+(residents, etc.)
+➡How much would they 
+be willing to pay for the 
+service?
+• Confirmation of 
+installation/provision 
+issues.
+➡Required resources, 
+installation and 
+management costs.
+FY2021: PoB phase
+• Identifying the services to 
+be implemented.
+• Verify the sustainability of 
+the service by providing a 
+prototype.
+➡Verify the feasibility of 
+the business, including 
+cash flow.
+FY2023:
+Enhance
+ment 
+phase
+
+47
+Singapore implements nation-wide digital transformation through the Smart 
+Nation initiative.
+Example: Enhancement Phase
+• Overview of the phase: To monitor the implementation and enhance the services.
+• General actions: 1. Monitor the implementation, to ensure that the services take root in the community.
+2. Continuously update and refine the services, based on the monitoring results.
+Singapore: Singapore Smart Nation Initiative 
+Sources: Smart Nation and Digital Government Office, Centre for Liveable Centres
+• The Smart Nation initiative is about transforming Singapore using technology to improve the lives of our citizens and businesses, and to make Singapore an 
+outstanding city where people can live, work and play in.
+• To demonstrate digital transformation at the national level, one of the key digital infrastructure projects that Singapore has rolled out is the National Digital 
+Identity ecosystem, which provides users with a single digital identity to transact with the Government and private sector organisations securely and more 
+conveniently.
+
+48
+The smart city services have been expanding with the use of the City OS data 
+which is used from the city’s open data provision infrastructure.
+Example: Enhancement Phase
+Source: Smart City Guidebook (Japan), Aizuwakamatsu City
+Aizuwakamatsu City (Fukushima): Providing services using City OS
+◼ In December 2015, the citizens' portal site and City OS “Aizuwakamatsu + (Plus)” have started operation.
+⚫ The City OS is a website that displays recommended information on a priority basis according to personal attributes (age, gender, family 
+structure, hobbies, etc.).
+⚫ By registering a single ID and password, users can access multiple services in a one-stop service.
+◼ 5 main services have already been linked to the City OS. (➡Further demonstrations of the payment service and others are underway.)
+◼ The City OS data is used from the city's open data provision infrastructure "Data For Citizen" and other sources.
+◼ The platform was developed, taking into consideration the issues for data usage such as protection of personal information, fair and ethical usage of 
+data, and consideration of intellectual property and competitiveness of companies involved (※).
+Service / 
+Application
+City OS
+Data
+Citizen portal site “Aizuwakamatsu+"
+• Statistical data held by the city
+• Administrative data (rubbish disposal), etc.
+• Snowplow location data • Maternal and child health info
+Snowplow 
+Navigation
+Service
+Digital Service of 
+Maternal and Child 
+Health Handbook
+School Information 
+Service (Aizukko+) AI inquiry Service
+Application Form 
+Preparation 
+Support Service
+Open Data (“Data For Citizen”) Sensor Data Personal Data
+※ 322 data set available (as of March 2021)
+
+49
+The service area was expanded in about two months after the launch of the 
+service while securing volunteers and other necessities.
+Example: Enhancement Phase
+Source: Smart City Guidebook (Japan), Ina City
+Ina City (Nagano): Gradual service area expansion of the drone shopping service
+• Issue: It is difficult for elderly people who do not have their own cars to get around and go shopping in the mid-hill area. 
+(The nearest supermarket is 11km away, and a bus takes 40 minutes one way, with only two services a day.)
+• Solution: In 2020, a drone shopping service was implemented, which allows elderly people to use a familiar remote control to purchase 
+items from a selection of about 300 items on a cable TV screen by 11 am, and have them delivered by drone or other means by evening. 
+Research phase:
+Shopping Conditions Survey
+(January 2017)
+• Recognizing that the 
+number of people in the 
+community who are 
+vulnerable to shopping, such 
+as those who need nursing 
+care and the elderly living 
+alone, is increasing every 
+year.
+➡Selection of areas with 
+high demand.
+Pilot phase: 
+Development and Technical 
+Demonstration (2018~)
+• Development of technology 
+for drones that be used as a 
+route over the river.
+• Finalization of cooperation 
+procedures/specifications.
+• Conducting a trial campaign 
+to allow people to "try it 
+out" without registration or 
+usage fees 1 month before 
+implementation.
+Implement phase:
+Launch the Service 
+(August 2020)
+•Started in 4 villages in Hase 
+district.
+•The service covers approx. 
+600 households 
+(including 150 elderly-only 
+households).
+Enhancement phase:
+Service Area Expansion 
+(October 2020)
+•Expansion of the area to 9 
+villages in 2 months 
+(securing volunteers and 
+other staffs.)
+•Service coverage expanded 
+to approx. 900 households 
+(including 300 elderly-only 
+households.)
+
+50
+Agenda
+Introduction
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development in ASEAN 
+1.2 Principles and Frameworks for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Examples for the Priority Areas
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations 
+3.2.2 Financial Sustainability
+3.2.3 Citizen Participation 
+3.2.4 Digital Infrastructure (City OS)
+3.2.5 Evaluation and KPIs 
+Conclusion
+Appendix
+P7
+P3
+P7
+P10
+P14
+P14
+P34
+P34
+P50
+P50
+P58
+P64
+P69
+P77
+P82
+P84
+
+51
+Key stakeholders involved in the smart city can be broadly categorized into six 
+types as below.
+Overview of Stakeholders for Smart City Development
+Source: Smart City Reference Architecture White Paper
+Types of Stakeholders in Smart City
+Service User (Beneficiary)
+A
+Service Provider
+Primary Promoter
+Investor / Provider of Data, etc.
+Advisor Supervisor 
+/ Checker
+B
+C
+F
+D E
+Formulate overall Smart City strategy
+Execute city 
+management
+Maintain / 
+operate City OS
+Objectives and Roles
+• Receive benefits through use of the services, 
+and pay compensation for them as needed.
+• Provide and manage each individual service.
+• Objectives of generating profit by provision 
+of services and R&D and other activities 
+utilizing the region for trials and 
+implementations.
+• Comprehensive promotion and operation of 
+Smart City.
+• Objectives of uplifting and developing local 
+economy.
+• Advise as an expert regarding Smart City 
+promotion as a whole and direction of each 
+service.
+• Constantly check services provided and 
+overall promotion, regularly provide 
+instructions and feedback.
+• Provide funding and data sometimes for 
+compensation.
+A
+B
+C
+D
+E
+F
+
+52
+Wide range of players support the smart city development, contributing as 
+different type of stakeholders, depending on how the smart city is organized.
+Stakeholder Role by Player Type
+Source: Smart City Reference Architecture White Paper
+Stakeholder Role Each Player Type Typically Plays
+Player Type
+Public
+Industry
+Academia
+Users
+Civic Organizations
+NPOs / NGOs
+National Government
+(Policy Maker)
+Local and Regional 
+Administrations
+Local Companies
+Non-Local Companies
+State Owned 
+Enterprises
+Property Developers
+Universities / 
+Experts / Scientists
+(Private) Research 
+Institutes
+Citizens
+Visitors (Tourists, etc.)
+Stakeholder Type within Smart City
+A Service 
+User
+B. Service 
+Provider
+C. Primary 
+Promoter D. Advisor E. Supervisor 
+/ Checker
+F. Investor / 
+Data 
+Provider
+● ●
+● ● ● ●
+● ● ● ●
+● ● ● ●
+● ● ● ●
+●
+●
+●
+●
+●
+●
+Description
+Presents the nation-wide strategy for smart city development, and 
+conducts monitoring and supports funding where required.
+Presents the region-wide strategy for smart city development, and 
+conducts monitoring and supports funding where required.
+Provides knowledge based on local trends. Depending on the 
+business model, may function as the primary promoter.
+Provides knowledge based on nation-wide trends. Depending on 
+the business model, may function as the primary promoter.
+Provides service regarding the real estate and property 
+development.
+Provides advice based on academic and expert knowledge, and 
+conducts advanced technology demonstration projects.
+Provides advice based on expert knowledge, and conducts 
+advanced technology demonstration projects.
+Uses the service, and provides feedback based on the experience as 
+a resident.
+Uses the service, and provides feedback based on the experience as 
+a visitor.
+Provides feedback based on the consensus of residents’ opinions. Others
+
+53
+Primary promoter is an essential stakeholder, which is responsible for 
+determining the overall direction of the smart city in the region.
+Functions of the Primary Promoter
+◼ They formulate the overall smart city strategy with the objectives of raising and developing the economy of the whole region,and 
+functions as the player responsible for city management and operation / management of City OS to implement the strategy. 
+Source: Smart City Reference Architecture White Paper
+Examples of Main Functions Primary Promoter should Assume
+Primary Promoter
+Smart City overall management & strategy 
+formulation
+i
+C
+City OS related
+City OS operation & management
+Asset and data management & operation
+Security
+vi
+vii
+viii
+City management related
+Organization operation & management
+Rules setting & management
+Marketing & public relations
+ii
+iii
+v
+Business development & management
+iv
+
+54
+The details of each function is below. One of the important functions is 
+marketing & public relations, to have the users acknowledge the availability of 
+each service and how to use it properly in the region.
+Functions of the Primary Promoter
+• In many cases, it is also necessary to get funding and participation from business entities and to attract tourist and incoming migrants.
+Source: Smart City Reference Architecture White Paper
+Main function
+Examples of Main Functions Primary Promoter should Assume (Details)
+Description
+• Formulate and manage overall strategy of Smart City, and perform overall management to realize 
+Smart City according to the strategy.
+Smart City overall management & strategy 
+formulation
+Organization operation & management • Supervise stakeholders, establish and manage primary promoter to make the whole Smart City 
+function smoothly.
+Business 
+development & 
+management
+Service development & 
+management
+Rules setting & management
+Financial management
+Marketing & public relations
+City OS operation & management
+Asset and data management & operation
+Security
+i
+ii
+iii
+iv
+v
+vi
+vii
+viii
+• Establish and manage rules and guidelines necessary for the promotion of Smart City.
+• Develop services through experience design for each field of business conducted in Smart City in the 
+region, and manage services provided and managed by each service provider.
+* Subcommittee, etc. for each business field may also be assumed.
+• Build and manage business model with the aim of sustainable management of the whole Smart City, 
+and manage all the financial matters which may arise.
+• Manage public relations for the country and other communities as well as residents, tourists, and 
+business operators, and work as a point-of-contract for information collaboration.
+• Develop and operate digital systems including City OS, and determine and manage the application 
+programming interface (API) of services, federations to other communities, etc.
+• Manage assets in the region, acquire and store data from residents, public administration, service 
+providers, etc., analyze them, and promote their utilization by the whole Smart City.
+• Ensure security of the whole digital systems including from City OS to services and assets.
+
+55
+Clarifying the roles & responsibilities within the primary promoter for each 
+function supports an efficient strategy development and implementation.
+Example: Primary Promoter
+Source: NRI based on interview and questionnaire
+DKI Jakarta – Responsible Departments for the Primary Promoter Functions 
+Main function Responsible Departments within DKI Jakarta
+• DKI Jakarta and Jakarta Smart City leadersSmart City overall management & strategy 
+formulation
+Organization operation & management • Jakarta Smart City leaders i.e. the director, head of subdivision 
+of administration, and all head and executive units
+Business development & management
+Rules setting & management
+Marketing & public relations
+City OS operation & management
+Asset and data management & operation
+Security
+i
+ii
+iii
+iv
+v
+vi
+vii
+viii
+• Legal Compliance Team together with the leaders
+• Product Development and Analytics Division
+• Communications Division, Marketing Division 
+• Data Analysis Division
+• Network and Infrastructure Division
+• Product and Service Development Division
+
+56
+Forming a primary promoter, via companies with diverse solutions, helps address 
+the various challenges in the smart city efficiently. 
+Example: Primary Promoter
+North Hanoi Smart City – Consortium for Smart City Development 
+• In North Hanoi Smart City, a consortium which included major companies in the energy, telecommunication, technology, and marketing 
+sector joined, to address diverse urban challenges within the city. 
+Source: Sumitomo Corporation
+
+57
+Partnership with the academic and private sectors, and working closely with the 
+key stakeholders in the city, will enhance the smart city development.
+Example: Primary Promoter
+Utsunomiya City (Tochigi) – U Smart Development Consortium
+Private Companies 
+(21 Companies)
+Utsunomiya University
+Waseda University
+Utsunomiya-City
+Collaboration
+• Transportation business
+• Shopping street 
+• Tourism business
+• Residents
+Shares the issues 
+and challenges 
+Cooperates for 
+pilot projects
+• In Utsunomiya City, a consortium was developed to enhance partnership between the public and private sector, and to leverage 
+advanced digital technologies.
+• In the operation of the consortium, rules (e.g. non-disclosure agreements, clarification on the intellectual properties, etc.,) are developed 
+so the stakeholders can collaborate efficiently under a common vision.
+Source: Smart City Guidebook (Japan), Utsunomiya City
+U Smart Development Consortium Stakeholders in the City
+
+58
+Agenda
+Introduction
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development in ASEAN 
+1.2 Principles and Frameworks for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Examples for the Priority Areas
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations 
+3.2.2 Financial Sustainability
+3.2.3 Citizen Participation 
+3.2.4 Digital Infrastructure (City OS)
+3.2.5 Evaluation and KPIs 
+Conclusion
+Appendix
+P7
+P3
+P7
+P10
+P14
+P14
+P34
+P34
+P50
+P50
+P58
+P64
+P69
+P77
+P82
+P84
+
+59
+There are three basic business models which can be adopted by each one of the 
+following primary promoter patterns.
+Overview of Smart City by Business Model (Revenue Stream)
+Source: Smart City Reference Architecture White Paper
+Consortium-
+led model
+Local 
+government 
+(Public)-led 
+model
+Private-sector-
+led model
+A
+B
+C
+• Model in which local consortium consisting 
+of local companies and local government, 
+etc. leads smart city in the region.
+• Primary promoter (consortium) receives 
+contribution from Local government and 
+company and collects user fees from various 
+service providers.
+• Model in which mainly local government 
+(public) leads smart city. Model with the 
+collaboration of multiple municipalities can 
+also be assumed.
+• Primary promoter (Local government) 
+receives subsides from national government 
+and collects user fees from various service 
+providers.
+• Model in which mainly private companies 
+lead smart city in the region. Rather than 
+local government-by-local government, 
+model promoting smart city transformation 
+of the specific area / green-field type can be 
+assumed.
+• Primary promoter (Private sector) collect 
+user fees from service providers.
+Model Overview Business Model Illustration
+Beneficiary
+Service 
+Provider
+Local 
+government
+Local 
+company
+National 
+governmentConsortium
+City OS
+Service
+User fees User fees
+＄ ＄
+Authorization 
+to use City OS
+Contribution
+＄
+Contribution
+＄
+＄
+Subsides
+Primary Promoter
+Beneficiary
+Service 
+Provider
+National 
+government
+Local 
+government
+City OS
+Service
+User fees
+＄
+Authorization 
+to use City OS
+＄
+Subsides
+Beneficiary
+Service 
+Provider
+National 
+government
+Private sector region 
+development company
+Service
+User fees
+User fees＄
+＄
+Authorization 
+to use City OS
+＄
+Subsides
+Subsides
+＄
+City OS
+Smart City Basic Business Model Patterns
+＄
+User fees
+
+60
+In ASEAN cities, local governments are driving smart city development, and there 
+are few private sector-led patterns. Some cities have formed consortium with 
+local and foreign private companies to lead the development on a project basis.
+Example of Business Model (Revenue Stream) in ASEAN Cities
+BRN KHM IDN LAO MYS MMR PHL SGP THA VNM
+BSB BA PP SR MA BA DJ LP VI JB KL KK KU NPT MA YA CC DC MA SGP BA CH PH DN HA HCM
+■: Business model 
+applied for the city
+Consortium-
+led model
+Local 
+government 
+(Public)-led 
+model
+Private-sector-
+led model
+A
+B
+C
+Smart City Business Model in Each City
+Source: NRI based on interview and questionnaire
+
+61
+Main monetization points for the key players are providing the service / 
+application, hardware & maintenance, digital platform (City OS), and general 
+construction & real estate development businesses.
+Overview of Smart City Monetization
+Source: NRI Smart City Report
+Monetization Points for the Key Players 
+Examples of service and business
+Service / Application
+Hardware & 
+Maintenance
+Infrastructure
+Digital Platform 
+(City OS)
+Construction
+Real Estate
+Mobility service
+Sensor
+Energy
+Data infrastructure / Networks / API management / Data management & analytics
+Housing
+Asset management & Property management
+Energy 
+management 
+service
+Monitoring camera
+Transport
+& Mobility
+Office
+Healthcare service
+Electric equipment
+Security
+Retail
+Incubation service
+Ventilation 
+& Lighting
+Water
+Hospital
+Community service
+Consumer 
+electronics
+Waste & Sanitation
+Station
+Real estate sales & leasing
+Service
+Hardware/
+Infrastructure
+Platform
+Construction/
+Real estate
+
+62
+Monetization through service fees and membership fees will help enhance 
+financial sustainability for services within the smart city.
+Example: Smart City Monetization
+Ina City (Nagano): Service Fee for Drone Delivery Service 
+Overview
+• If resident orders from 300 items available 
+by 11am, will be able to receive the products 
+by evening time, from drone.
+Timeline • Implemented in FY 2020. 
+Service Fee • Users pay JPY1,000 per month.
+• The seller also pays 10% of the total sales.
+Result
+• Users: 47 households (Pays JPY1,000 per 
+household; October 2020)
+• Sellers: Pays 10% of the total sales of 
+JPY129,759 (November 2020)
+Kyoto Prefecture: Membership Fee for Data Platform
+Overview
+• Through collaboration between academic, 
+industry, and public sector enhance efficient 
+data usage, and develop new business 
+through business matching.
+Establishment • Established in November 2018.
+Annual
+Membership 
+Fee
+• Large companies: JPY200,000.
+• Mid to small sized companies: JPY100,000.
+• Smaller companies: JPY30,000.
+• Start-ups: JPY10,000.
+Members
+• 100 organizations (Private companies, 
+universities, research institutions, 
+administration, etc.)
+Source: Smart City Guidebook (Japan)
+
+63
+The cost for services provided in the smart city are paid by the residents, private 
+sector, or from the public sector, depending on the costing type. 
+Overview of Smart City Costing Allocation
+Private
+Sector
+Local Government
+Residents
+(User of the service)
+Overview 
+• Users of the services 
+provided in the smart 
+city pay the fee for 
+the services which 
+was used.
+• Private sector makes 
+investments towards 
+the smart city, to 
+receive long-term 
+return.
+• Local government 
+funds for the services 
+using tax, to solve 
+issues arising in the 
+society.
+Benefits for the 
+Stakeholder
+• More convenient 
+lifestyle
+• Higher safety and 
+security
+Example of
+Sources of Finance
+• Revenue increase
+• Increase in 
+convenience due to 
+improvement in the 
+services provided by 
+the local government
+• Can provide higher 
+quality government 
+services
+• Service fees
+• Data usage fee
+• Investment from 
+company
+• Business 
+improvement district 
+(BID)
+• Tax 
+• Social impact bond 
+(SIB)
+• Pay for success (PFS)
+Costing Allocation by Stakeholder Type 
+Source: Smart City Guidebook (Japan)
+Issues & 
+Challenges
+• Providing benefits to 
+the users, for the cost 
+they are paying. 
+• Understanding what 
+the future income 
+stream would be, for 
+decision making 
+regarding investment 
+plans.
+• Difficult to account 
+for the ordinary 
+expenses, given that 
+the budget is set on 
+a single-year basis.
+
+64
+Agenda
+Introduction
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development in ASEAN 
+1.2 Principles and Frameworks for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Examples for the Priority Areas
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations 
+3.2.2 Financial Sustainability
+3.2.3 Citizen Participation 
+3.2.4 Digital Infrastructure (City OS)
+3.2.5 Evaluation and KPIs 
+Conclusion
+Appendix
+P7
+P3
+P7
+P10
+P14
+P14
+P34
+P34
+P50
+P50
+P58
+P64
+P69
+P77
+P82
+P84
+
+65
+Continuing to engage with the citizens on a long-term basis, to raise interest and 
+enhance active communication, will be the key to promote citizen participation.
+Overview of Citizen Participation
+Enhance active 
+communication from 
+the citizens
+Continuously engage 
+on a 
+long-term basis
+Raise interest from 
+the citizens
+Solutions to overcome the 
+issues & challenges
+• Communicate efficiently on what a ‘smart city’ refers to, 
+and the benefits for the citizens, to raise interest to 
+participate in the initiatives.
+• Ensure that the information is provided to the citizens 
+transparently, and enable all citizens to be able to 
+participate, by leveraging communication tools such as 
+online surveys.
+• Work step-by-step on a long-term basis, and provide 
+successful experiences which residents will be able to 
+feel that they had contributed to. 
+Common issues & challenges
+for citizen participation 
+• Citizens are typically not familiar with the 
+concept of smart cities, and may not be 
+interested in participation.
+• Initiatives provided by the local government may 
+be a one-sided communication, which citizens 
+do not actively communicate.
+• Due to the low awareness of smart city initiatives, 
+in order for the citizens to actively participate in 
+the smart city development, it can take a long 
+period of time.
+Key Focus Points for Enhancing Citizen Participation
+Source: Smart City Guidebook (Japan)
+
+66
+Many cities are using a variety of methods to engage citizen participation.
+Example: Examples of Citizen Participation in ASEAN Cities
+Jakarta • Using social media through packaging interesting information, such as Instagram @jsclab, YouTube channel Jakarta Smart City.
+Siem Reap • Social media platforms and national media are now the leading platforms to communicate with the locals. 
+• Some SMEs and Social Enterprises are doing workshops as well.
+Battambang • Seminars, conferences, workshops and social media.
+Mandalay • To enhance citizen participation for mobile apps for this area, leverage media such as newspaper and social media websites.
+Phuket • Aims to raises awareness and create opportunities for stakeholders to meet each other, by organizing events and campaigns.
+• Leverages pilot projects to illustrate to the citizens how smart city can make a difference, and generate interest towards in investing in money.
+Davao City • Broadcast media and social media platform.
+• Video conferencing, webinars and other online platforms.
+Bandar Seri 
+Begawan
+• Project that have been/planned to incorporated citizen participation are;
+o The flood warning system which will be opened for the public to provide information/complaint on its operation in the future.
+o Channel for the public to give opinion/feedback/complaints on government public services through mobile application (e.g. WhatsApp, Smart 
+Kampung) and call center.
+Nay Pyi Taw • There is survey and interviewing local inhabitants on public services such as water supply, apply business license, waste collection, public 
+transportation in some selected areas in the city.
+Yangon • Through workshops and the Yangon City Development Committee (YCDC) website.
+Phnom Penh • Strengthen the capacity of professional officers through the establishment of workshops, public input, as well as listening and discussing with 
+counterparts in order to promote and improve the city's challenges.
+Vientiane • To get citizen opinion, all public service departments are providing contact number to be easily reached by the citizen and to provide suggestion on 
+public service as quickly as possible.
+Kota Kinabalu • There are initiatives to enhance citizen participation in waste management by gathering opinions/issues from the citizen in the targeted areas.
+Banyuwangi • Seminar with support from industry expert, academy.
+• Periodical workshops, and application to gain public opinion/Q&A.
+Cebu City • To get citizen participation, the city initially did public hearing/council to gain opinion from the citizen.
+Kuching • The city provides the open platform/API where the start-ups can participate in the smart city development as well as other multi-channels where the 
+city can provide timely information (Covid-19 cases update) to the citizen and the citizen can also report on crime, disaster as well as provide 
+feedback and complaint on public service to the local government as well.
+Luang Prabang • Currently, participation takes place farthest at the village leader level not the citizen i.e. through mobile application (e.g. WhatsApp, WeChat or 
+others approved by the Ministry of Technology and Communication) which the representative thinks it is not sufficient and aims for development of 
+ICT through international collaboration in the future.
+Manila • The Go Manila App was initially developed to provide the real time traffic information. 
+• Now it is expanding to facilitate transactions between both individual (i.e. public service) and business (i.e. business approval) and the government. 
+Intentionally, the app aims to touch on individual people in informal sector to access the system and in turn, the local government will have the 
+information of the citizen. 
+• For the Go Manila app, the target is to have 80% of all Manila citizens registering in the app by the next 3 years (currently, around 20-30K business 
+owners are using the go Manila app).
+Enhance 
+active 
+communicati
+on from the 
+citizens
+Continuously 
+engage on a 
+long-term 
+basis
+Raise interest 
+from the 
+citizens
+City Initiatives in detail 
+Source: NRI based on interview and questionnaire
+
+67
+Jakarta has developed the systems called CRM and Musrenbang to collect 
+citizen’s complaints and opinations for improving the smart city development.
+Example: Citizen Participation 
+DKI Jakarta: Citizen Relations Management
+Musrenbang (Citizen Participation for City Development Plan)• To answer challenges such as resolving citizens' complaints and 
+improve services to the citizens, the Jakarta Provincial Government 
+continues to innovate, one of which is by developing Cepat Respon 
+Masyarakat (Citizen Relations Management) or CRM.
+• The CRM system consists of a platform of 14 channels of official 
+community complaints. 
+• Before there was CRM, so that community reports could be completed, 
+there was a long process that had to be followed by the Regional 
+Apparatus (OPD). As a result, the public waited a long time to know the 
+updates from their reports. 
+DKI Jakarta Provincial Official Complaints Channel
+Geo-tagging 
+based channels
+Social media-
+based channels
+Face-to-face 
+channels
+1. Qlue
+2. JAKI (Jakarta Now)
+3. Twitter @DKIJakarta
+4. Facebook for DKI Jakarta Provincial Government
+5. Governor's Social Media
+6. Jakarta.go.id
+7. E-mail to dki@jakarta.go.id
+8. SMS to 08111272206
+9. Text to LAPOR 1708
+10. Sub-District Office,
+11. District office,
+12. Mayor's office,
+13. City Hall,
+14. Inspectorate Office
+• A program called “e-Musrenbang” has been implemented by Jakarta 
+Provincial Government since 2015 to formulate the Annual Regional 
+Development Plan called RKPD.
+• It allows citizens to propose a public program to involve to the 
+governance. The proposals can be accessed via the website or the 
+application (planJKT). Both platforms can also be used to submit a 
+direct proposal. 
+Source: Jakarta Smart City, JMC IT Consultant
+
+68
+Leveraging mobile apps and websites which the resident can easily voice out 
+opinions, will help enhance active communication from the citizens.
+Example: Citizen Participation 
+Mobile App (Used in Multiple Cities in Japan) - FixMyStreet Japan
+Kakogawa City (Hyogo) 
+Decidim (Platform for Communication on Policies)
+• Mobile app which is used by over 20 cities within Japan, in which the 
+residents can upload pictures regarding issues observed within the city 
+(e.g. road damages, lighting failures, etc.,) for the city government to 
+address. 
+• Platform, which the city can seek for opinions from the residents and 
+discuss regarding policies.
+• When developing the smart city plan, the city asked for ideas on the 
+platform.
+Picture: Asking for opinions regarding the name of the mixed use facilities 
+which will be built within the city
+Source: FixMyStreet Japan, Kakogawa City, Smart City Guidebook (Japan) 
+Picture: Residents providing information about the issues caused to the 
+road (e.g. road filled up with snow, water flooding from the road, etc.) 
+
+69
+Agenda
+Introduction
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development in ASEAN 
+1.2 Principles and Frameworks for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Example for the Priority Areas
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations 
+3.2.2 Financial Sustainability
+3.2.3 Citizen Participation 
+3.2.4 Digital Infrastructure (City OS)
+3.2.5 Evaluation and KPIs 
+Conclusion
+Appendix
+P7
+P3
+P7
+P10
+P14
+P14
+P34
+P34
+P50
+P50
+P58
+P64
+P69
+P77
+P82
+P84
+
+70
+City OS is the core for digital infrastructure in smart city, in which data linkage 
+and providing clear rules for data usage will be key to successful implementation.
+Overview of Digital Infrastructure Development
+Development of 
+City OS
+Development of 
+Smart City
+Key Consideration Points for 
+City OS Development
+Conceptual
+Phase
+Preparation
+Phase
+Plan (Strategy)
+Development
+Phase
+Pilot and 
+Implementation
+Phase
+Enhancement
+Phase
+Five Steps for Smart City Development
+Understand the necessity 
+of City OS
+Design the basic structure 
+for City OS
+Develop and implement 
+the City OS
+• Develop a City OS, in which the 
+data can be used across 
+business fields, services, and 
+applications. 
+• Aim to develop a City OS, in 
+which can be interoperable 
+with other cities, to provide 
+services which can be used 
+across a wider area.
+Data Linkage and Utilization Rules for Data Management
+• Continue to work towards 
+ensuring the robustness of the 
+data, and develop services 
+which will be beneficial for the 
+residents.
+• Develop the rules for data 
+utilization for each step of the 
+data management such as data 
+collection, data utilization, data 
+storage, and data deletion.
+• Monitor the process of data 
+management, and continue to 
+enhance the rules as the data 
+usage and service develops.
+Source: Smart City Guidebook (Japan)
+
+71
+City OS is designed with characteristics such as (1) interoperability (connectable), 
+(2) heterogeneous data brokering (exchangeable), and (3) easy extensibility 
+(sustainable) in order to solve the traditional issues of Smart City.
+Characteristics of City OS
+Characteristics of City OS and Smart City Reference Architecture
+Ideal forms of City OS Reflecting onto City OS architecturePoints to be considered in architecture
+(1) Interoperability
+(2) Heterogeneous data 
+brokering
+(3) Easy extensibility
+• Authentication as the basis inter operation.
+• Service federation and management function.
+• Asset (external data) federation and management 
+function.
+• Data management and external data federation to 
+enable brokering of external data.
+• Completeness of functions coverage.
+• Combinations of functions as needed.
+Source: Smart City Reference Architecture White Paper
+Service federation
+Authentication
+Service management
+Data management
+Asset management
+External data federation
+Security
+Operation
+
+72
+City OS consists of 8 components which manage the storage of data collected 
+from various devices and systems utilized in the region, other systems, other City 
+OSs, and federations to services within and outside the City OS.
+Basic Functions of City OS
+Source: Smart City Reference Architecture White Paper
+Entity Relationship Diagram of City OS
+Smart City Services
+Smart City Assets (various devices and systems)
+City 
+OS
+Authentication
+Service management
+Data management
+Asset management
+Functions
+Data
+Data 
+federation
+Service federation
+External data federation
+Security
+Operation
+Other City OSs
+Other systems
+Internet
+Internet
+
+73
+Bangkok City Data Platform has implemented data catalog; data collection from 
+government agencies and directories, which is currently providing 177 data sets. 
+Example: Smart City OS
+Sample Usage of Data from our City Data Platform : 
+The number of infected people
+177 Data sets is available for download
+(i.e. Tourism data, drone registration, no. of 
+population)
+Source: Thailand Digital Economy Promotion Agency (DEPA) 
+Data Catalog Data governance Data exchange
+Concept of City Data Platform
+1 2 3
+• Data collection from 
+government agencies and 
+integration into metadata 
+• Directory service
+• Data accuracy, consistency, 
+completeness, freshness
+• Data Security
+• Data availability
+• ID verification
+• Access control
+• Data Linkage
+• Transaction logging
+• Digital Signature
+• Service status tracking
+Bangkok: City Data Platform 
+
+74
+Setting clear rules and governance structure for data collection and utilization 
+will help assure the citizens on data safety and enhance the data utilization.
+Example: Smart City OS
+Aizuwakamatsu City (Fukushima): Data Management Rules – Ensuring Opt-in by the Citizens 
+• The opt-in from the citizens regarding data collection and usage by the development organization is required, based on understanding that the citizens 
+should provide consensus on the data being collected and utilized, based on understanding that they will receive personalized service through the data.
+Citizens
+Voter
+Aizuwakamatsu City
+Policy Making
+Smart City 
+Development Organization
+(AiCT and Local Companies)
+Operation of City OS and Core Services
+Provide data based on 
+opt-in 
+(=Agree on collection 
+and usage of data)
+Election, resident 
+votes
+Exchange 
+opinions
+Exchange 
+opinions
+Request city OS operation
+based on overall policy and 
+make revisions where needed 
+Governance Structure for Data Management Each Stakeholder’s Responsibility for Data Management 
+Super City Advisor
+Aizu University
+Advice
+Advice
+Monitor
+Monitor
+Collaborate
+• Provide data to the development organization which operates the city-OS, 
+based on opt-in (i.e. agree on collection and usage of data.)
+• Provide opinions to the city, and monitor the city through the elections.
+• Decide on the overall policy regarding data distribution, management, and 
+usage, by listening to the opinions of the key stakeholders.
+• Request for the smart city development organization to operate the city OS 
+based on the overall policy, and make revisions accordingly where needed.
+• Formed by the key companies which are responsible for the smart city 
+development.
+• Operates the city-OS and core services based on the overall policy 
+developed by the city.
+Source: Aizuwakamatsu City
+
+75
+Digital models can enhance the services provided in the cities, by conducting 
+simulations from the data collected in the actual cities. 
+Digital Model Technology
+Overview of Digital Model / Digital Twins
+Reality: Physical Space
+• Cameras 
+• Sensors
+Virtual: Cyber Space
+• 3D digital data 
+• Urban infrastructure
+• Buildings
+• Geology
+• Monitoring data
+• Flow of people’s movement
+• Logistics
+• Energy
+• Environment
+Simulation
+Usage of data
+as information
+Develop new services and 
+enhance convenience
+Usage of data as knowledge
+Pilot projects and 
+experiments
+Data collection
+and provision
+• In a digital model / digital twin, a virtual cyber space is developed through the data collected from cameras and sensors in the cities.
+• Simulations are conducted within the cyber space, in which the findings are used to develop new services and enhance the quality of life 
+in the actual cities.
+Source: Shimizu Corporation
+
+76
+Leveraging 3D city modelling technology and GIS data can help enhance the 
+analysis on optimal usage of areas within the physical space.
+Example: Digital Model and GIS Data Usage
+Singapore: Virtual Singapore – 3D City Model 
+• Singapore developed a dynamic 3D city model and collaborative data platform, 
+intended for use by the public, private, people and research sectors. 
+• Use case includes leveraging the data on heights of buildings and amount of 
+sunlight available, to analyze which buildings have higher potential for solar 
+energy production.
+Source: National Research Foundation Singapore, NRI based on interview and questionnaire
+Usage of GIS Data 
+Nay Pi 
+Taw
+Yangon
+• GIS database for urban area of Nay Pyi Taw was established and partially 
+implemented (e.g. city road database) specifically within urban areas.
+• GIS portal is under implementing stage.
+• Uses GIS to document every sector of Yangon city.
+• Current progress is at 80% building data and 50% zoning regulation data, in 
+which target year for completion is 2025.
+Johor 
+Bahru
+• Currently focused on developing an integrated Big Data Analytics platform 
+called Iskandar Malaysia Urban Observatory (IMUO) that will leverage on GIS 
+and Data Analytics Technologies.
+• IMUO shall also leverage on on-going Local Authorities' Digital 
+Transformation initiatives to achieve better city planning and management 
+within each city and seamlessly between cities in the region.
+• Nationally, the Ministry of Housing and Local Government (KPKT) is also in the 
+progress of developing Malaysia Urban Observatory (MUO) concurrently with 
+IMUO to integrate and analyze data at a macro and national level to assist in 
+strategic decision-making and policies.
+City / 
+Country Description
+Viet 
+Nam
+• The Ministry of Construction is conducting research on GIS upgrade to 
+develop greener cities, aiming to implement and share to multiple cities 
+within 2022.
+
+77
+Agenda
+Introduction
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development in ASEAN 
+1.2 Principles and Frameworks for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Examples for the Priority Areas
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations 
+3.2.2 Financial Sustainability
+3.2.3 Citizen Participation 
+3.2.4 Digital Infrastructure (City OS)
+3.2.5 Evaluation and KPIs 
+Conclusion
+Appendix
+P7
+P3
+P7
+P10
+P14
+P14
+P34
+P34
+P50
+P50
+P58
+P64
+P69
+P77
+P82
+P84
+
+78
+Ensuring that the goal is set based on the primary issue, and that the KPI for the 
+goal is specific, measurable, and realistic is the key for strategy development.
+Overview of Key Points when Setting KPIs
+Issues and 
+Background
+Goals
+Measures
+Structure of
+Strategy Development
+Structure of
+Strategy Development
+Conduct research and evaluate what are the issues within 
+the city and the root cause for the issue.
+Identify the primary issue 
+within the city.
+Key Goal
+Sub-Goal
+Sub-Sub 
+Goal
+Sub-Sub 
+Goal
+Sub-Goal
+Sub-Sub 
+Goal
+Sub-Sub 
+Goal
+Measure #2Measure #1 Measure #3
+KPI
+KPI KPI
+KPI KPI KPI KPI
+KPI KPI KPI
+Consideration
+Points
+• Selection and concentration, to 
+identify the primary issue is the 
+key for effective strategy 
+development.
+• To set the KPI for the key goal 
+and each of the sub goals and 
+sub-sub goals.
+• For the KPI, to ensure that it is 
+the following:
+o Specific, and easy to 
+understand for all 
+stakeholders.
+o A quantitative goal which 
+is measurable.
+o The goal is realistic and 
+achievable. 
+• Monitor and evaluate the results 
+based on the KPI regularly, and 
+make refinements to the targets 
+where needed.
+Source: Smart City Reference Architecture White Paper
+
+79
+The KPI for the smart city is arranged by the Jakarta and Jakarta Smart City 
+leaders which is included into Medium-Term Regional Development Plan.
+Example: Setting KPIs
+• The items to be evaluated in the KPI include total 7 topics with clear quantitative targets
+Item Output indicator Operational definition
+2020 2021
+Target Achieved Target Achieved
+Service Development
+Number of public service 
+applications integrated into the 
+Jakarta Smart City application.
+Number of public service 
+applications integrated into the 
+Jakarta Smart City application in 
+1 year.
+4 38 10 30
+Public Opinion 
+Response
+Management
+Number of response in Cepat 
+Respon Masyarakat Platform.
+Percentage of reports responded
+in 1 year. 81.00% 99.85% 85.00% 94.11%
+Information 
+Dissemination of 
+Service Development
+Number of people who consume 
+Jakarta Smart City service 
+information.
+Number of people who access 
+information in 1 year. 200,000 9,960,971 500,000 25,961,502
+Research and 
+Development Program
+Number of studies/research 
+produced.
+Studies/research produced in 1 
+year. 16 234 20 234
+Application 
+Development Number of features developed. Number of features developed in 
+1 year. 20 46 30 38
+Infrastructure 
+Development Number of servers in operation. Number of servicers in operation 
+in 1 year. 2 3 3 3
+Office Operations Number of available office 
+operational needs.
+Number of months available for 
+office operational needs. 12 12 12 12
+Source: NRI based on interview and questionnaire result
+DKI Jakarta: Smart City KPI
+
+80
+Chonburi provides KPIs for 6 key areas, in which a quantitative target is provided 
+for 2-4 indicators in each key area.
+Example: Setting KPIs
+Chonburi: Smart City KPI
+Item (Key Areas) Indicator 2040 Target
+1. Achieving sustainability through “Net Zero” emission 
+Waste to Energy Generation 20 MW
+Energy self reliance with smart grid management 100%
+Renewable energy utilization rate 20%
+Waste-water utilization rate 100%
+2. Providing easy access and effective mobility
+Public transportation utilization rate for commuters 50%
+Green vehicle (hybrid, electric) utilization rate 20%
+3. Enhancing quality of life and sustainable environment
+Tenant occupancy rate 100%
+Create walkable city, increase recreational walkway length 30%
+Increase per capita public green space 20%
+4. Linking top level education and innovation
+No. of education facility 15
+No. of R&D facility 10
+% of skilled labor 30%
+5. Fostering innovative technology based industry
+Companies on targeted industries 50%
+Services network coverage (4G, 5G, FTTX) 100%
+Use of smart factory application 50%
+6. Exhibiting healthy living style for all ages
+Employees having a periodical medical-check up 100%
+People working after 60 years old (% of senior executive levels) 10%
+• The items to be evaluated in the KPI include 6 key areas, in which the target is provided by indicator for 2040.
+Source: NRI based on interview and questionnaire result
+
+81
+Splitting steps to reach the key goal, and developing a specific, measurable, and 
+realistic goal by step will help ensure that the progress can be evaluated clearly.
+Example: Setting KPIs
+Haneda Innovation City (Tokyo, Ota Ward): Smart City KPI 
+• Ward-wide goal (e.g. increase in productivity) is set as a key goal (outside the smart city,) in which the process is divided into steps, which includes KPI for 
+each step.
+Smart Robotics
+Key 
+Goal Step 2 Step 1
+• Leverage robots to 
+enhance convenience 
+and replace / support 
+jobs.
+• Improve productivity.
+• Leverage diverse types 
+of robots to replace 
+tasks.
+• Able to automatically 
+control multiple 
+number and types of 
+robots simultaneously. 
+Number of tasks 
+replaced
+Type of robots
+Number of robots
+10
+50
+10 
+Efficiency Rate
+Satisfaction Rate
++20%
+80%
+Increase the value 
+added within district
+Number of 
+employees in 
+district
++JPY 2.2 
+trillion 
+361,000 
+people
+FY20-21FY22-23FY24-
+Smart Tourism
+Key 
+Goal Step 2 Step 1
+• Make the tourism 
+resources apparent.
+• Create more bustle.
+• Enhance tourism and 
+the local community.
+• Make the tourism 
+resources apparent.
+• Leverage human 
+movement data to 
+create more bustle. 
+Visitors for HI City
+Tourism service user
+350,000 
+people
+per year
+7,000 
+people
+Per day
+Visitors going out 
+from HI City to the 
+Ota ward
+200,000 
+people / 
+Year
+Tourism 
+expenditure
+Tourism Visitors
+JPY
+202.5 bn 
+/ Year 
+45 mn 
+people / 
+Year
+FY20-23FY24-
+Source: Smart City Guidebook (Japan)
+Steps Target KPI Steps Target KPI
+
+82
+Agenda
+Introduction
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development in ASEAN 
+1.2 Principles and Frameworks for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Example for the Priority Areas
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations 
+3.2.2 Financial Sustainability
+3.2.3 Citizen Participation 
+3.2.4 Digital Infrastructure (City OS)
+3.2.5 Evaluation and KPIs 
+Conclusion
+Appendix
+P7
+P3
+P7
+P10
+P14
+P14
+P34
+P34
+P50
+P50
+P58
+P64
+P69
+P77
+P82
+P84
+
+83
+Concluding Notes for Readers of ASEAN Smart City Planning Guidebook
+Conclusion
+Key takeaway 1:
+Providing an optimal solution 
+for each city's specific 
+challenges leveraging advanced 
+case studies will be effective 
+• In this guidebook, the ASEAN Smart Cities Framework and ASUS were leveraged to provide case studies of 26 pilot 
+cities in ASCN. Each city has its own unique challenges and is considering and providing a wide range of solutions to 
+address them, in which the range of areas covered by the solutions is expanding as well.
+• It is therefore important that the city's specific challenges are considered and identified by the local government, 
+whom are the key players in smart city development, and other local stakeholders, and that the most appropriate 
+solutions are considered and provided in order of priority.
+• When considering the most appropriate solutions, it will be effective to seek, consider and collaborate on solutions 
+which suit the target city, leveraging the advanced examples in each area introduced in this guidebook, as well as the 
+examples from Japan as reference to gain further inspiration.
+Key takeaway 2:
+Identifying the appropriate 
+timing for collaboration based 
+on development stage will 
+enhance development and 
+investment
+• In this guidebook, the Smart City Development Framework outlines the stages of smart city development in the 26 
+ASCN pilot cities and the key enablers at each stage, in which smart city development in ASEAN cities has been 
+progressing steadily since 2018, with all cities having considered and developed master plans and started to implement 
+pilot solutions and full-scale solutions (many cities are working on both in parallel as well).
+• Therefore, in the ASCN 26 cities, focus areas have been confirmed based on city-specific challenges, and now at the 
+stage of exploring and diversifying the necessary digital technologies and solutions to address these challenges, in 
+which many opportunities for collaboration among ASEAN Member States and with countries outside the region have 
+become identified in each city.
+• It is important to understand the potential and timing for expansion and collaboration in each city by referring to the 
+development stage of each city and the current challenges and solutions introduced in this guidebook.
+Key takeaway 3:
+Collaboration between local 
+stakeholders leveraging best 
+practices will further drive 
+efficient partnership
+• In preparing this guidebook, the ASCN and ASEAN Secretariat have supported with providing insights to develop the 
+guidebook, reaffirming that local governments, companies and the peoples are the key players in the development of 
+smart cities in ASEAN cities.
+• Therefore, it is most important to successfully involve local governments, businesses and residents when considering 
+smart city development plans and the provision of technologies and solutions in new cities.
+• Best practices regarding the collaboration between local governments and companies, as well as the engagement with 
+local residents described in this guidebook will be beneficial when considering the development of smart cities and the 
+provision of solutions.
+
+84
+Agenda
+Introduction
+1. Basic Understanding of Smart Cities
+1.1 Background and Objectives for Smart City Development in ASEAN 
+1.2 Principles and Frameworks for Smart City Development
+2. Priority Areas for Development of Smart Cities
+2.1 Overview and Example for the Priority Areas
+3. Process and Enablers for Smart City Development
+3.1 Process for Smart City Development
+3.2 Key Enablers for Smart City Development
+3.2.1 Development Organizations 
+3.2.2 Financial Sustainability
+3.2.3 Citizen Participation 
+3.2.4 Digital Infrastructure (City OS)
+3.2.5 Evaluation and KPIs 
+Conclusion
+Appendix
+P7
+P3
+P7
+P10
+P14
+P14
+P34
+P34
+P50
+P50
+P58
+P64
+P69
+P77
+P82
+P84
+
+85
+Brunei Darussalam
+City Profile Overview (National level)
+Country Basic Information
+Key Market Index
+Smart City Plan & Activity (National level) 
+Land Area (km2) 5,765
+Population (thousand) 454 (in 2020)
+Urban Population (thousand) 312 (75%) (in 2016)
+458 (84%) (in 2050)
+Capital Bandar Seri Begawan
+Ethnicity Malay 66%
+Language Malay (official language)
+Religion Islam 79% (national religion)
+Political System Constitutional monarchy
+GDP (Millions of US$) 1 12,003
+GDP per capita (US$) 1 26,462
+Median Age 2 31
+% Improved Sanitation Facilities 3 94
+% Improved Drinking Water Source 3 100
+Internet Subscribers per 100 persons 4 79
+Cellular Phone Users per 100 persons 5 139
+Governmental Direction
+• In 2020, a national Smart City Steering Committee was set up and co-chaired 
+by the Minister of Development and Minister of Transport and 
+Infocommunications. A Smart City Action Plan is subsequently crafted to 
+support the implementation of smart city development.
+• A Digital Economy Masterplan 2025 is considered as a higher level master 
+plan. As such, where the Digital Economy Masterplan defines certain key 
+technologies (e.g. AI, big data, blockchain, IoT and automation,) the Smart 
+City Action Plan will incorporate the deployment of these technologies in the 
+smart city projects.
+Partnerships with other countries
+• South Korea and Brunei Darussalam have agreed in Seoul to strengthen their 
+partnership on smart cities and other ICT-related programs. (November 24, 
+2019.)
+1 Brunei Department of Economic Planning and Statistics, Gross Domestic Product, Third Quarter 2021
+2 Brunei Department of Economic Planning and Statistics, Report of the Mid -Year Population Estimates 2020
+3 Brunei Ministry of Development, 2021
+4 Brunei Authority for Info-Communications Technology Industry, ICT Household Report 2019
+5 Brunei Authority for Info-Communications Technology Industry, 2021
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank, Brunei Department of Economic Planning and Statistics, Report of the Mid-Year Population Estimates 2020, 
+Brunei Department of Economic Planning and Statistics, Population and Housing Census Update Final Report 2016 
+
+86
+Bandar Seri Begawan in Brunei Darussalam
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 100
+Population (thousand) 100
+Density (person/km2) 1,007
+City Features
+• The capital city of Brunei Darussalam.
+• It is located in the lower Brunei River.
+• The economy is backed by oil and natural gas 
+development.
+• Kampong Ayer is a prominent traditional 
+settlement, comprising of neighborhoods of 
+traditional houses, schools and mosques built 
+on stilts above the Brunei River in Bandar Seri 
+Begawan.
+Vision
+To develop Kampong Ayer as the Jewel of Bruneian Heritage and facilitate its 
+growth as part of Bandar Seri Begawan’s smart city development plan.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★ ★
+Focus Area Detail & Project Sample
+Civil and Social
+• Kampong Ayer as part of Bandar Seri Begawan as the 
+main tourist destination with its own unique 
+characteristics such as its culture, treasures and historical 
+heritage which create community identity and cohesion.
+Health and 
+Well-being
+• Kampong Ayer will provide utilities and services, 
+community facilities and recreational areas which are 
+necessary for the promotion of vibrant social and 
+cultural life.
+Industry and 
+Innovation
+• Kampong Ayer as a center for opportunities for 
+commercial development to create employment and 
+spin offs for other SMEs businesses and livable social 
+activities.
+Source: ASEAN Smart Cities Network, MLIT reports, Brunei Ministry of Home Affairs, 2021
+Mandalay
+Phnom Penh
+
+87
+Cambodia
+City Profile Overview (National level)
+Country Basic Information
+Key Market Index
+Smart City Plan & Activity (National level) 
+Land Area (km2) 181,000
+Population (thousand) 16,720 (in 2020)
+Urban Population (thousand) 3,161 (21%) (in 2014)
+8,167 (36%) (in 2050)
+Capital Phnom Penh
+Ethnicity Cambodian 90%
+Language Cambodian (Khmer)
+Religion Buddhism (Majority)
+Political System Constitutional monarchy
+GDP (Millions of US$) 1 25,809
+GDP per capita (US$) 1 1,544
+Median Age 2 26
+% Improved Sanitation Facilities 3* 62
+% Improved Drinking Water Source 3* 59
+Internet Subscribers per 100 persons 3 19
+Cellular Phone Users per 100 persons 3 133
+Governmental Direction
+• Smart City plan is administered by the Ministry of Land Management, Urban 
+Planning and Construction.
+• Battambang, Phnom Penh and Siem Reap are set to be incorporated into the 
+ASEAN Smart City Network.
+• No integrated national master plan.
+Partnerships with other countries
+• Cooperation with the Korean government (2016) to build a smart city at
+Sihanoukville with water management, transportation and energy
+infrastructure based on Korean technology.
+• Cambodia-Japan Urbanization Development (2019) is a coordination with the
+Japanese government to provide of all services within its capacity and
+promote business and investment opportunities in Cambodia to Japanese
+investors.
+1 World Bank, GDP (current US$); World Bank, GDP per capita (current US$) *Data for 2020
+2 United Nations, Department of Economic and Social Affairs, Population Division (2019) *Data for 2020
+3 ASEAN Secretariat, “ASEAN Statistical Report on Millennium Development Goals”, 2017. * Data as of 2015
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank
+
+88
+Battambang in Cambodia
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 115
+Population (thousand) 161
+Density (person/km2) 1,395
+City Features
+• Battambang City is the second largest city in 
+Cambodia.
+• It is located in the northwest of Cambodia 
+about 300 kilometres away from the capital 
+city Phnom Penh.
+• The city is known for its activities associated 
+with rice production and heritage buildings as 
+well as its good quality living environment.
+Vision
+To achieve a socially responsible, environmentally friendly and economically 
+successful city whilst retaining Battambang’s unique character.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★
+Focus Area Detail & Project Sample
+Civil and Social • Low cost housing and skill development for youth 
+program is planned.
+Quality 
+Environment
+• Additional drain and sewage infrastructure to move 
+away from river-based natural waste management to 
+sewage and wastewater management systems has been 
+developed.
+Build 
+infrastructure
+• Public infrastructure upgrade e.g. road improvement 
+and organized market for street vendors has been 
+planned.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+89
+Phnom Penh in Cambodia
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 693
+Population (thousand) 2,800
+Density (person/km2) 4,040
+City Features
+• Phnom Penh is the capital and administrative 
+and cultural and economic center of 
+Cambodia.
+• It is located in southern Cambodia, where the 
+Tonle Sap River and Mekong River join.
+• Due to the recent economic growth, the 
+construction of high-rise building and others 
+is progressing.
+Vision
+To improve the urban environment to enhance citizen’s quality of life.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★
+Focus Area Detail & Project Sample
+Built 
+Infrastructure
+• Sidewalks Rejuvenation Project which aims to increase 
+pedestrian through the rejuvenation, restoration and 
+repurposing of the sidewalks for 11 boulevards by 
+managing unlicensed street vendors and illegal parking 
+has been planned.
+• To improve efficiency of Phnom Penh’s Public Transport 
+Services that is user-friendly, environment friendly, 
+innovative, the technology e.g. cash-less payment 
+system and GPS tracking system has been introduced.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+90
+Siem Reap in Cambodia
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 425
+Population (thousand) 268
+Density (person/km2) 632
+City Features
+• Siem Reap is a resort town in northwestern 
+Cambodia.
+• It is a tourist spot with museums, 
+traditional dance performances, a Cambodian 
+cultural village, silk farms, rice paddies in the 
+countryside and the home of Angkor Angkor 
+temple.
+Vision
+To enhance Siem Reap's position as a beautiful, unique and ideal tourist 
+destination, characterized by the harmony of Khmer history, arts and nature.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★
+Focus Area Detail & Project Sample
+Civil and Social
+• Smart Tourist Management System with security 
+systems such as CCTV and traffic sensors has been 
+developed in some areas.
+Safety and 
+Security
+• Infrastructure for personal safety and security has been 
+in progress e.g. CCTV installation. Other targets include 
+installation of road traffic sensors, pedestrian traffic 
+sensors.
+Quality 
+Environment
+• Environmental management infrastructure e.g. drainage 
+sensor to measure water level and solid waste and 
+wastewater management infrastructure has been 
+planned.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+91
+Republic of Indonesia
+City Profile Overview (National level)
+Country Basic Information
+Key Market Index
+Smart City Plan & Activity (National level) 
+Land Area (km2) 1,905,000
+Population (thousand) 273,500 (in 2020)
+Urban Population (thousand) 133,999 (53%) (in 2014)
+227,770 (71%) (in 2050)
+Capital Jakarta
+Ethnicity Malay (Majority)
+Language Indonesia
+Religion Islam (87%), Christianity (10%)
+Political System Presidential
+GDP (Millions of US$) 1 1,058,424
+GDP per capita (US$) 1 3,870
+Median Age 2 30
+% Improved Sanitation Facilities 3* 62
+% Improved Drinking Water Source 3* 71
+Internet Subscribers per 100 persons 3 22
+Cellular Phone Users per 100 persons 3 132
+Governmental Direction
+• The implementation is decentralized to each city and administered by the 
+Ministry of Home Affairs under Directorate General of Regional 
+Administration.
+• Smart City plan is carried out by ministries and agencies including the 
+Ministry of Public Works and Public Housing.
+• The master plan launched in 2013 aimed to develop 100 smart cities by 2019.
+Partnerships with other countries
+• Indonesia-Japan Smart City Virtual Forum (2020) through Japan Association 
+for Smart Cities in ASEAN (JASCA)for sharing best practices and challenges in 
+developing smart cities.
+• Many projects are conducted through partnership with private sector for 
+example, Huawei, China and PT. PINS Indonesia which Huawei provided end-
+to-end public safety Smart City solution with key focus on omni-protection, 
+rapid response and efficient case-solving.
+1 Euromonitor (Data for 2020)
+2 Euromonitor (Data for 2020)
+3 ASEAN Secretariat, “ASEAN Statistical Report on Millennium Development Goals”, 2017. * Data as of 2015
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank, Secretariate Office of 
+Indonesia-Japan Smart City Virtual Forum (2020), Huawei’s website
+
+92
+Makassar in Republic of Indonesia
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 199
+Population (thousand) 1,770
+Density (person/km2) 7,400
+City Features
+• Makassar is the capital of South Sulawesi 
+province.
+• It is a central city in eastern Indonesia.
+• It is at the center of rapid socio-economic 
+growth, supported by excellent geotechnical 
+conditions and a thriving service industry.
+Vision
+To create Makassar as livable world class city for all.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★
+Focus Area Detail & Project Sample
+Health and 
+Well-being
+• To ensure that all citizens have easy and direct access to 
+health care services, the city has planned to establish the 
+inventory of health care data and integrate with all 
+health system in a single platform.
+o Current project is the District Health Information 
+System (HIS).
+o Methods for linking citizen data with financial data 
+and utilizing it for preventive medicine are being 
+explored.
+• To increase the city’s revenues through improved tax 
+collection via an integrated e-tax system. Citizen and 
+business will file tax through personal mobile 
+applications and one-time submission electronic 
+platforms.
+o Currently, the e-Tax system has been introduced to 
+automate hotel and restaurant payments and value 
+added tax (VAT) / hotel tax collection.
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank
+Mandalay
+Phnom Penh
+
+93
+Banyuwangi in Republic of Indonesia
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 5,783
+Population (thousand) 1,600
+Density (person/km2) 277
+City Features
+• Banyuwangi is the administrative capital of 
+Banyuwangi Regency.
+• It is located in the easternmost part of Java, 
+overlooking the lush green Bali Strait.
+• It is the tourist city, known as the city of 
+festivities as nearly 100 festivals are held 
+throughout the year.
+Vision
+• To develop an integrated system of government through institutionalization 
+of innovation and bureaucratic reform at all levels of government.
+• To accelerate development through information technology and early 
+warning result oriented control system.
+• To build a reliable generation through guaranteed access to basic services
+• and the development of vocational education oriented from regional 
+potential.
+• To support the economy through development of financing partnerships and 
+tourism-based development.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★
+Focus Area Detail & Project Sample
+Civil and Social • Eco-tourism in locality is planned through cooperation 
+with strategic partners.
+Health and 
+Well-being
+• Various ICT-based innovations has been implemented 
+for public services e.g. birth certificate issuance.
+Industry and 
+Innovation
+• Integration of customized IT modules into education 
+curriculum to bring e-commers and online trading 
+knowledge to young people has been planned.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+94
+DKI Jakarta in Republic of Indonesia 
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 662
+Population (thousand) 10,650
+Density (person/km2) 15,367
+City Features
+• DKI Jakarta is the capital city of Indonesia and 
+a special city that constitutes the Capital 
+Territory (DKI).
+• It is located on the northwest coast of the 
+island of Java.
+• The city has been a major trade and financial 
+centre and an important industrial city and a 
+centre for education.
+Vision
+To be a city leading forward towards happy citizens.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★
+Focus Area Detail & Project Sample
+Health and 
+Well-being
+• Data collection apps and connection to big data system 
+to design and deliver social and health programs has 
+been developed.
+Build 
+infrastructure
+• Integration of all Jakarta transit payment systems into 
+one cashless system has been in progress.
+• Transjakarta bus (BRT) has a GPS sensor to track its 
+location and route which provides real-time location for 
+passenger to manage their travel time has been 
+developed.
+Industry and 
+Innovation
+• Job creation project which provides platforms for 
+innovation sharing among research institutions and 
+entrepreneurs has been planned.
+• Smart card for students to access books, clothes, public 
+transport, food (meat and milk) has been planned.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+95
+Lao People’s Democratic Republic
+City Profile Overview (National level)
+Country Basic Information
+Key Market Index
+Smart City Plan & Activity (National level) 
+Land Area (km2) 237,955
+Population (thousand) 7,276 (in 2020)
+Urban Population (thousand) 2,589 (38%) (in 2014)
+6,435 (61%) (in 2050)
+Capital Vientiane
+Ethnicity Lao (Majority)
+Language Laotian
+Religion Buddhism
+Political System People democratic republic
+GDP (Millions of US$) 1 19,133
+GDP per capita (US$) 1 2,630 
+Median Age 2 24
+% Improved Sanitation Facilities 3* 71
+% Improved Drinking Water Source 3* 76
+Internet Subscribers per 100 persons 3 18
+Cellular Phone Users per 100 persons 3 53
+Governmental Direction
+• The national strategy for smart cities is on process to be concretely 
+incorporated in the 9th National Socio-Economic Development 5-year Plan 
+(2021 to 2025).
+• The smart city will be promoted by the Bureau of Economic Affairs of the 
+Ministry of Foreign Affairs and the Bureau of Housing and Urban Planning of 
+the Ministry of Public Works and Transportation with local governments.
+Partnerships with other countries
+• Japan, Ministry of Land, Infrastructure, Transport and Tourism has launched 
+the project in Luang Prabang (2021). The study of local issues in each 
+infrastructure field to identify necessary technologies which Japanese 
+companies can offer to smart city development has been conducted.
+• China, Yunnan Construction, Huawei and the Laos government has co 
+developed smart expressway (2021) connecting capital Vientiane with 
+Vangvieng with IoT equipment capable of analyzing big data along with other 
+real-time services such as emergency services, and decision analysis.
+1 World Bank, GDP (current US$); World Bank, GDP per capita (current US$) *Data for 2020
+2 United Nations, Department of Economic and Social Affairs, Population Division (2019) *Data for 2020
+3 ASEAN Secretariat, “ASEAN Statistical Report on Millennium Development Goals”, 2017. * Data as of 2015
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank, Local news 
+
+96
+Luang Prabang in Lao People’s Democratic Republic
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 857
+Population (thousand) 98
+Density (person/km2) 114
+City Features
+• Luang Prabang is the economic center of the 
+northern part of Laos.
+• It is located in north of Vientiane.
+• The city is an ancient city that dates back to 
+1300s, and its entire urban area has been 
+registered as World Heritage Site. (15 April 
+2021).
+Vision
+To be the city of tourism centre and regional connection, Luang Prabang 
+envisions to be a clean, green, livable environment and smart city with the world 
+heritage in the core by 2025.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★
+Focus Area Detail & Project Sample
+Civil and Social
+• To preserve the United Nations Educational, Scientific 
+and Cultural Organization (UNESCO) world heritage site 
+by enhancing eco-tourism and through the other two 
+focused areas.
+Quality 
+Environment
+• Heritage Wetland Restoration for City Green Spaces and 
+Habitats project which will develop green spaces, waste 
+management system including wastewater treatment, 
+storm water retention to prevent floods has been 
+piloted in some areas and further study is implemented.
+Built 
+Infrastructure
+• Upgrade of infrastructure to encourage tourism 
+including footpaths, streetlight and amenities has been 
+in progress in some areas.
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank
+Mandalay
+Phnom Penh
+
+97
+Vientiane in Lao People’s Democratic Republic
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 3,920
+Population (thousand) 948
+Density (person/km2) 209
+City Features
+• Vientiane is the capital city of Lao PDR.
+• It is located on the banks of the Mekong near 
+the border with Thailand.
+• Population and employment opportunities 
+have been concentrated at the center of 
+politics, culture and economy.
+Vision
+Vientiane envisages the importance of environmental friendly urban 
+development by declaring the development vision based on six indicators: 
+peace, clean, green, light, charm and prosperity.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★ ★
+Focus Area Detail & Project Sample
+Health and 
+Well-being
+• Focus fields are such as education, public health, good 
+transport, housing, public security and happiness.
+Quality 
+Environment
+• The function of disaster prevention including fire and 
+flood e.g. drainage management systems has been 
+incorporated into the city Master Plans and socio-
+economic development plans.
+• Waste management system to ensure a clean city with 
+fresh air and clean water has been planned.
+Build 
+infrastructure
+• Infrastructure principle is to achieve a good balance 
+between urban planning and good environment
+• The city is seeking to collaborate with stakeholders to 
+identify underlying transport issues and develop a 
+strategic roadmap specifying action plans for 
+sustainable transport plan.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+98
+Malaysia
+City Profile Overview (National level)
+Country Basic Information
+Key Market Index
+Smart City Plan & Activity (National level) 
+Land Area (km2) 330,411
+Population (thousand) 32,447 (in 2020)
+Urban Population (thousand) 24,368 (75.1%) (in 2020)
+36,163 (86%) (in 2050)
+Capital Kuala Lumpur
+Ethnicity Malay (69%)
+Language Malay (national), Chinese, Tamil, English
+Religion Islam (63.5%), Buddhism (18.7%), others
+Political System Constitutional monarchy
+GDP (Millions of US$) 1 336,911
+GDP per capita (US$) 1 10,317
+Median Age 2 30
+% Improved Sanitation Facilities 3* 71
+% Improved Drinking Water Source 3* 76
+Internet Subscribers per 100 persons 3 18
+Cellular Phone Users per 100 persons 3 53
+Governmental Direction
+• The Ministry of Housing and Local Government has developed the national smart city 
+framework as a national reference for smart city development in Malaysia.
+• The Smart Cities Initiatives is a part of the National Physical Plan 3 and also the National 
+Urbanization Policy which recognize the expansion of digital infrastructure and broadband 
+coverage and strengthening the provision of infrastructure facilities and services for smart cities 
+initiatives. Smart city agenda is also emphasised in the National Physical Plan 4 and the Twelfth 
+Malaysia Plan (2021-2025).
+• At least 5 smart cities are to be established by 2025.
+Partnerships with other countries
+• Japan, Ministry of Internal Affairs and Communications launched the ‘Research on Smart City 
+Model for Solving Social Problems in Malaysia’ project (2019) which Japanese companies are 
+expected to share technologies and best practices to help tackle challenges and boost economic 
+development.
+• Partnerships under ASCN such as Johor Bahru-United States of America, Kota Kinabalu-Republic 
+of Korea, Kuching-Japan.
+• Memorandum of Understanding on Cooperation in the field of Smart City Development between 
+Malaysia and MOLIT, ROK.
+• Cooperation with United Kingdom under the Global Future Cities Program to tackle transport and 
+urban challenges through a smart, sustainable and integrated approach.
+• China, Alibaba and Malaysian government agencies, Malaysia Digital Economy Corporation and 
+Dewan Bandaraya Kuala Lumpur (2018) implemented cloud solution for traffic management in 
+Kuala Lumpur.
+1 Euromonitor (Data for 2020)
+2 Euromonitor (Data for 2020)
+3 ASEAN Secretariat, “ASEAN Statistical Report on Millennium Development Goals”, 2017. * Data as of 2015
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank, Japan Ministry of Internal Affairs and Communications, Malaysia Digital Economy Blueprint, MyCensus 2020 
+
+99
+Greater Johor Bahru in Malaysia
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 1,064
+Population (thousand) 1,495
+Density (person/km2) 1,045
+City Features
+• Greater Johor Bahru is located at the southern 
+tip of the peninsula.
+• It comprises of 3 local councils namely Johor 
+Bahru City Council, Iskandar Puteri City 
+Council and Pasir Gudang City Council. 
+Vision
+To develop Johor Bahru smart city into a strong and sustainable metropolis of 
+international standing.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★
+Focus Area Detail & Project Sample
+Civil and Social
+• To improve government transparencies in tracking 
+development target, and planning approval process, the 
+Central Data Centre, Iskandar Malaysia Urban 
+Observatory (IMUO) has been planned to be 
+implemented in 2022.
+• IMUO which will collate, update, analyse, manage and 
+disseminate data will function as a Knowledge Hub and 
+as a Monitoring and Assessment Centre to monitor 
+development progress.
+Health and 
+Well-being
+• To improve water sustainability i.e. increasing water 
+reserves and new water sources, there is plan to 
+upgrade existing water plants with smart water 
+management systems.
+• Also, regulations for treating wastewater for sale and 
+use as non-drinking-water in order to compensate for 
+increasing water demand is on development process.
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank
+Mandalay
+Phnom Penh
+
+100
+Kuala Lumpur in Malaysia
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 243
+Population (thousand) 1,800
+Density (person/km2) 7,377
+City Features
+• Kuala Lumpur is the capital city of Malaysia.
+• It is located in a valley surrounded by hilly 
+terrain in the southwestern part of Peninsular 
+Malaysia.
+• It has the highest population density in the
+country.
+• It remains the economic center of the country, 
+although federal government functions have 
+been transferred to Putrajaya.
+Vision
+Kuala Lumpur a City for All.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★
+Focus Area Detail & Project Sample
+Quality 
+Environment
+• Various environmental sustainability targets have been 
+set e.g. target share of green employment, green 
+building, green school, green area etc.
+Built 
+Infrastructure
+• Priority is on the comfort and safety in major physical 
+improvements.
+o In line with the Pedestrian and Bicycle Master Plan 
+2019-2028, Kuala Lumpur has started to build the 11 
+km bicycle in the city centre area.
+o The cloud-based intelligent transport system that 
+allows commuters and operator to track the service 
+status of the GOKL bus in near real time.
+Industry and 
+Innovation
+• To modernise the industrial sector for economic growth 
+and wealth creation that creates opportunities for 
+innovation and knowledge economy.
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank
+Mandalay
+Phnom Penh
+
+101
+Kota Kinabalu in Malaysia
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 366
+Population (thousand) 452
+Density (person/km2) 1,290
+City Features
+• Kota Kinabalu is the capital of the state of 
+Sabah.
+• It is located at the northeastern end of 
+Borneo.
+• It is a major tourist destination and a gateway 
+for travelers visiting Sabah and Borneo while 
+also one of the major industrial and 
+commercial centres of East Malaysia.
+Vision
+Transforming Kota Kinabalu into a clean, green and livable city.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★
+Focus Area Detail & Project Sample
+Quality 
+Environment
+• Integrated waste management from collection to 
+processing that will reduce littering, toxic emissions from 
+the landfill, and generate income for citizens and the 
+government.
+Built 
+infrastructure
+• Integrated Bus Rapid Transit (BRT), Light Rail Transit 
+(LRT) and Bus Lanes to improve and enhance 
+accessibility and networking for a better and systematic 
+public transportation.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+102
+Kuching in Malaysia
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 4,195
+Population (thousand) 684
+Density (person/km2) 163
+City Features
+• Kuching is the capital of the state of Sarawak.
+• It is located in the northwestern part of 
+Borneo.
+Vision
+To improve the quality of life and achieve smart city status through digital
+transformation.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★
+Focus Area Detail & Project Sample
+Built 
+Infrastructure
+• To mitigate traffic congestion in the city, the Integrated 
+Smart Traffic Light System has been developed.
+o 32 signalised junctions covering 4 major routes (out 
+of 140 junctions) have been digitally connected and 
+managed as the pilot projects.
+o The government plans to expand the project to cover 
+all major urban roads with better synchronised traffic 
+lights with ‘real time’ traffic information.
+• As a riverfront city. Kuching experienced occasional 
+serious flooding problem so the government has 
+implemented several flood mitigation projects including 
+the Integrated Flood Management and Response 
+System which monitor and alert flooding event to 
+reduce the occurrence of flash floods and waterlogging 
+in flood prone areas.
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank
+Mandalay
+Phnom Penh
+
+103
+Myanmar
+City Profile Overview (National level)
+Country Basic Information
+Key Market Index
+Smart City Plan & Activity (National level) 
+Land Area (km2) 680,000
+Population (thousand) 54,410 (in 2020)
+Urban Population (thousand) 18,023 (34%) (in 2014)
+32,206 (55%) (in 2050)
+Capital Nay Pyi Taw
+Ethnicity Burmese (about 70%)
+Language Burma
+Religion Buddhism (90%), Christianity, Islam, etc.
+Political System Presidential
+GDP (Millions of US$) 1 79,852 
+GDP per capita (US$) 1 1,468 
+Median Age 2 29
+% Improved Sanitation Facilities 3* 94
+% Improved Drinking Water Source 3* 86
+Internet Subscribers per 100 persons 3 21
+Cellular Phone Users per 100 persons 3 76
+Governmental Direction
+• The Smart City initiatives is part of the ASEAN Smart Cities Network where 
+Myanmar's largest cities: Nay Pyi Taw, Mandalay and Yangon, will realise the 
+vision of urban development with digital technology serving as an enabler to 
+resolve urbanisation issues.
+• The government aims to transform the above 3 cities into a smart city
+• In 2017, the government formed the Digital Economy Development 
+Committee (DEDC) with the aims of developing Myanmar as a knowledge, 
+digital and innovation hub.
+Partnerships with other countries
+• Japan International Cooperation Agency has supported several infrastructure 
+and smart city project e.g. a township project in Yangon. 
+• Thailand, Amarta Corp, has signed a framework agreement with the local 
+government in Myanmar to jointly develop a Smart and Eco-City (2,000 acres 
+for the first phase) in East Dagon township in Yangon.
+1 World Bank, GDP (current US$); World Bank, GDP per capita (current US$) *Data for 2020
+2 United Nations, Department of Economic and Social Affairs, Population Division (2019) *Data for 2020
+3 ASEAN Secretariat, “ASEAN Statistical Report on Millennium Development Goals”, 2017. * Data as of 2015
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank
+
+104
+Nay Pyi Taw in Myanmar
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 7,054
+Population (thousand) 924
+Density (person/km2) 131
+City Features
+• Nay Pyi Taw has been the capital of Myanmar 
+since 2006 after relocation from Yangon.
+• It is located in the central core region of 
+Myanmar.
+• The City serves as the Union Territory and 
+administrative functions of the country.
+Vision
+To be a green and liveable city that is environmentally sustainable, the centre of 
+knowledge hub, an aspiring climate change resilient city, an international 
+aviation transit, cargo and logistics hub serving the global market.
+It is also meant to set examples or role model that can be replicated in other 
+cities in Myanmar.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★
+Focus Area Detail & Project Sample
+Civil and Social
+• To provide affordable house to the citizen, the 
+affordable Housing project for retired government 
+officials has been started construction.
+Built 
+Infrastructure
+• Transportation infrastructure has been planned e.g. 
+Smart street lighting system, e-Bus system, air hub for 
+passengers and logistics.
+• Other planned infrastructure is such as ICT Park.
+Industry and 
+Innovation
+• To be the education hub, the first International 
+University in Myanmar including an Engineering School, 
+Business School, Medical School, and Art and Design 
+School has been planned.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+105
+Mandalay in Myanmar
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 285
+Population (thousand) 1,230
+Density (person/km2) 4,300
+City Features
+• Mandalay is Myanmar's second largest city.
+• It is located in the center of Myanmar on the 
+east bank of the Aeyawadi River.
+• It is the centre of Burmese culture and also 
+the economic centre of Upper Myanmar with 
+intensive trade with China following the influx 
+of Chinese immigrants since 20th century. 
+Vision
+To be a city with safe and smooth mobility.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★
+Focus Area Detail & Project Sample
+Safety and 
+Security
+• To improve road safety by;
+o Installing Number Plate Reader, CCTVs and 
+checkpoints.
+o Installing Radio Frequency Identification tab on all 
+vehicles to facilitate central control, payment, log and 
+big data analysis.
+o Installing Guard Rails, Road Signs, Warning Signs and 
+Crossing Signs, one-way streets.
+Built 
+Infrastructure
+• To reduce city traffic congestion by; 
+o Developing a Central Control Real Time Traffic 
+System/Intelligent Traffic System or Integrated Traffic 
+System for efficient traffic management.
+o Promoting and commencing Bus Rapid Transit. 
+o Constructing user-friendly pavements in the city area.
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank
+Mandalay
+Phnom Penh
+
+106
+Yangon in Myanmar
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 576
+Population (thousand) 5,210
+Density (person/km2) 9,045
+City Features
+• Yangon is the first capital and the current largest 
+economic center of Myanmar.
+• Yangon served as the capital of Myanmar until 
+2006, when the administrative functions was 
+relocated to Naypyidaw.
+• It is one of the most important commercial 
+centre of Myanmar.
+Vision
+To be an attractive international port and logistics hub – A city of Blue, Green 
+and Gold.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★
+Focus Area Detail & Project Sample
+Civil and Social
+• To boost city’s attractiveness as a tourist destination, 
+there is a Downtown Area Conservation project to 
+improve streetscape, infrastructure and repurpose the 
+vacant heritage buildings to outlets, and offices etc.
+Health and 
+Well-being
+• To ease commuting hour of workers in industrial zone, 
+the township with low-cost rental housing, with Smart 
+City elements is planned.
+• To maintain urban land development, the GIS database 
+that includes the results of matching land and building 
+information and an online geospatial information 
+system has been developed.
+Built 
+Infrastructure
+• The planned township will consist traffic management, 
+environmental protection, security system and transit 
+terminal.
+• Various transportation are implemented e.g. smart card 
+for Yangon Bus Service and piloted e.g. smart parking.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+107
+The Philippines
+City Profile Overview (National level)
+Country Basic Information
+Key Market Index
+Smart City Plan & Activity (National level) 
+Land Area (km2) 299,404
+Population (thousand) 109,600 (in 2020)
+Urban Population (thousand) 44,531 (44%) (in 2014)
+88,381 (56%) (in 2050)
+Capital Manila
+Ethnicity Malay (Majority)
+Language National: Filipino 
+Official: Filipino and English 
+Religion Christian
+Political System Constitutional republic
+GDP (Millions of US$) 1 361,488
+GDP per capita (US$) 1 3,299
+Median Age 2 26
+% Improved Sanitation Facilities 3* 71
+% Improved Drinking Water Source 3* 76
+Internet Subscribers per 100 persons 3 18
+Cellular Phone Users per 100 persons 3 53
+Governmental Direction
+• The Smart City initiatives are recognized in the National Framework for Physical 
+Planning 2001-2030. 
+• The National Economic and Development Authority (NEDA) is the main government 
+agency responsible for national and regional planning. NEDA provides technical 
+assistance to provinces while the Department of Human Settlements and Urban 
+Development (DHSUD) and the Department of the Interior and Local Government 
+(DILG) extend assistance in city/municipal level planning.
+• The government committed to complete 6 smart city projects (no timeline 
+mentioned).
+Partnerships with other countries
+• Filipino-Chinese consortium developed a mixed-use project (2017) designed to be a 
+self-sustaining smart community where the city is run by artificial intelligence. The 
+project completion is targeted in 2035.
+• The Philippines Smarter & Sustainable Cities (SSC) partnered with the Council’s 
+Singapore-based KC Tay and ASEAN Smart Cities Network and others (2019) launched 
+a training program to help local governments plan and implement smart city projects.
+1 Euromonitor (Data for 2020)
+2 Euromonitor (Data for 2020)
+3 ASEAN Secretariat, “ASEAN Statistical Report on Millennium Development Goals”, 2017. * Data as of 2015
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank, Property Guru
+
+108
+Cebu City in The Philippines
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 315
+Population (thousand) 923
+Density (person/km2) 2,930
+City Features
+• Cebu is a center of culture and trade in the 
+central and southern part of the Philippines.
+• Its urbanization has advanced in recent years, 
+forming the second urban area in the 
+Philippines, after the Metro Manila.
+Vision
+To improve urban growth through use of efficient technologies in realms of 
+urban mobility, personal security and safety. 
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★
+Focus Area Detail & Project Sample
+Safety and 
+Security
+• To upgrade the centralized monitoring and control 
+system for security, safety, traffic management, and 
+disaster preparedness.
+Built 
+Infrastructure
+• To enhance traffic regulation and enforcement, and 
+improve information collection and sharing, the 
+Automated Citywide Traffic Control Systems project is 
+initiated.
+• To mitigate traffic congestion, the 1st phase of 
+Integrated Intermodal Transport System including 
+monorails, two-point buses, LRTs and BRTs has been 
+implemented.
+o Currently, the first phase BRT connecting South Road 
+Properties to Cebu IT Park and other city highways 
+has been operated.
+o The extension is planned in 2025.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+109
+Davao City in The Philippines
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 2,444
+Population (thousand) 1,700
+Density (person/km2) 699
+City Features
+• Davao is the largest city in terms of land area 
+and the third-most populous city in the 
+Philippines.
+• It is located in southeastern Mindanao, on the 
+northwestern shore of Davao Gulf.
+• The city serves as the main trade, commerce, 
+and industry hub of Mindanao, and the 
+regional center of Davao Region.
+Vision
+To create a community that harnesses digital connectivity and technological
+advancement in providing high-quality living and a safe and secured 
+environment for the Dabawenyos.
+Taking advantage of modern information technology systems, the city aims to
+strengthen its safety and security measures, enhance public service delivery, and 
+bolster domestic and international linkages and relations to drive economic 
+growth and achieve sustainable development.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★
+Focus Area Detail & Project Sample
+Safety and 
+Security
+• To improve public safety and planning, the Public Safety 
+and Security Command Center has been established to 
+undertake all tasks related to safety and security e.g. to 
+gather and alert on the near-time critical information.
+o The city plans to increase CCTVs to cover all 
+intersections and key facilities by 2021.
+Built 
+Infrastructure
+• To address traffic congestion, the High Priority Bus 
+System has been pilot in the southern part of Davao City 
+since 2018.
+• The intelligent traffic control system is on development 
+process.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+110
+Manila in The Philippines
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 39
+Population (thousand) 1,780
+Density (person/km2) 46,173
+City Features
+• Manila is the capital city of the Philippines, a 
+fast-growing political, economic, cultural, 
+communicative, information and power 
+center.
+• It is located to the west of Luzon, in the 
+northern part of the country.
+Vision
+Governance at the palm of your hands.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★
+Focus Area Detail & Project Sample
+Health and 
+Well-being
+• To integrate Medical Records, Medical 
+Assistance/Monitoring and Patient Management System 
+which allows;
+o Operating room supervision.
+o Integration with i-Hospital system for medical 
+student training.
+o Consultations and joint operation by experts abroad 
+or in other hospitals.
+Safety and 
+Security
+• To improve the city’s Command Centre to a cloud-based 
+system and link transport, security, order and disaster 
+monitoring systems to a command, control and monitor 
+and response centers.
+Industry and 
+Innovation
+• To develop mobile tutorial applications, based on 
+Department of Education’s curriculum which allows 
+students to practice study or review lessons online.
+• Construction of Internet-ready classrooms provided with 
+computer/tablets.
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank
+Mandalay
+Phnom Penh
+
+111
+Republic of Singapore
+City Profile Overview (National level)
+Country Basic Information
+Key Market Index
+Smart City Plan & Activity (National level) 
+Land Area (km2) 728.3 (in 2020)
+Population (thousand) 5,453.6 (in 2021)
+Urban Population (thousand) 5,453.6 (100% of Singaporeans live in urban 
+areas)
+Capital Singapore
+Ethnicity 74.2% Chinese, 13.7% Malays, 8.9% Indians, 
+3.2% Others (in 2021)
+Language Malay (National language)
+English, Chinese, Tamil (Official language)
+Religion Buddhism, Taoism, Christianity, Islam, 
+Hinduism, Others
+Political System Parliamentary Republic
+GDP (Millions of US$) 1 339,925
+GDP per capita (US$) 1 59,785
+Median Age 2 44
+% Improved Sanitation Facilities 3* 100
+% Improved Drinking Water Source 3* 97
+Internet Subscribers per 100 persons 3 82
+Cellular Phone Users per 100 persons 3 146
+Governmental Direction
+• Smart City initiatives are administered by the Smart Nation and Digital 
+Government Group (SNDGG) together with infrastructural agencies such as 
+the Ministry of National Development. 
+• In 2015, Singapore announced its Smart City Masterplan for 2016-2025.
+• Smart Nation efforts are organised along four pillars: Digital Government, 
+Digital Economy, Digital Society and Smart Cities. In 2018, the government 
+developed three broad plans to facilitate the transformation of Singapore. 
+This included the Digital Economy Framework for Action, Digital Government 
+Blueprint and the Digital Readiness Blueprint.
+Partnerships with other countries
+• Singapore substantially concluded negotiations on its digital economy 
+agreement (DEA) with the United Kingdom (UK) in 2021. The UK-Singapore 
+DEA (UKSDEA) includes binding disciplines on the cornerstones of the digital 
+economy, such as data, as well as cooperative elements in a wide range of 
+emerging and innovative areas such as Artificial Intelligence, fintech, digital 
+identities and legal technology. The UKSDEA is the third DEA of its kind with 
+foreign counterparts.
+1 Euromonitor (Data for 2020)
+2 Euromonitor (Data for 2020)
+3 ASEAN Secretariat, “ASEAN Statistical Report on Millennium Development Goals”, 2017. * Data as of 2015
+Sources: Smart Nation Digital Government Office Singapore, Ministry of Trade and 
+Industry Singapore, Prime Minister’s Office Singapore, Department of Statistics Singapore
+
+112
+Republic of Singapore
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 728.3 (in 2020)
+Population (thousand) 5,453.6 (in 2021)
+Density (person/km2) 7,485 (in 2021)
+City Features
+• Singapore is the largest industrial and 
+financial center in Southeast Asia.
+• It is an island state located at the southern tip 
+of Malaysia, consisting of the main island and 
+64 offshore islands.
+• The main island has been expanded by land 
+reclamation and is highly urbanized.
+Vision
+A Singapore where people are more empowered to live meaningful and fulfilled 
+lives, enabled seamlessly by technology, offering exciting opportunities for all.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★
+Focus Area Detail & Project Sample
+Civil and Social
+• The development of a National Digital Identity 
+Ecosystem was launched to provide users with a single 
+digital identity to transact with government and private 
+sector organisations more effectively.
+Industry and 
+Innovation
+• Singapore launched the National Artificial Intelligence 
+(AI) Strategy to outline plans to deepen the use of AI 
+technologies to transform the economy and 
+fundamentally rethink business models, making deep 
+changes to reap productivity gains.
+• Singapore also addressed the severe socio-economic 
+consequences of the Covid-19 pandemic by providing 
+individuals and businesses through SupportGoWhere 
+and Covid GoBusiness Portal.
+Health and 
+Well-being
+• Singapore augmented its Covid-19 response swiftly by 
+enhancing the speed and accuracy of contact tracing 
+with digital solutions like TraceTogether and SafeEntry. 
+Source: Smart Nation Digital Government Office Singapore, Department of Statistics Singapore
+Mandalay
+Phnom Penh
+
+113
+Thailand
+City Profile Overview (National level)
+Country Basic Information
+Key Market Index
+Smart City Plan & Activity (National level) 
+Land Area (km2) 514,000
+Population (thousand) 69,800 (in 2020)
+Urban Population (thousand) 33,056 (49%) (in 2014)
+45,335 (72%) (in 2050)
+Capital Bangkok
+Ethnicity Thai (Majority)
+Language Thai 
+Religion Buddhism 94%, Islam 5%
+Political System Constitutional monarchy
+GDP (Millions of US$) 1 501,513
+GDP per capita (US$) 1 7,185
+Median Age 2 40
+% Improved Sanitation Facilities 3* 84
+% Improved Drinking Water Source 3* 93
+Internet Subscribers per 100 persons 3 39
+Cellular Phone Users per 100 persons 3 125
+Governmental Direction
+• The National Smart City Commission was formed under the "Prime Minister's
+Office Ordinance No. 267/2560 on the establishment of the National Smart
+City Commission" in October 2017. The committee is administered by the
+Digital Economy Promotion Agency, a public organization under the Ministry
+of Digital Economy and Society of Thailand.
+• The Smart City Basic Plan was issued in January 2018 with established target,
+standard, specific benefits and measures for smart city development.
+Partnerships with other countries
+• Cooperation with neighboring countries through the Thailand International
+Cooperation Agency (TICA) for connectivity in hardware and software, and
+promotion of sustainable development based on UN principles.
+• China has cooperated in several infrastructure projects e.g. the construction of
+a high-speed railway linking central and northeastern of Thailand.
+1 Euromonitor (Data for 2020)
+2 Euromonitor (Data for 2020)
+3 ASEAN Secretariat, “ASEAN Statistical Report on Millennium Development Goals”, 2017. * Data as of 2015
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank
+
+114
+Bangkok in Thailand
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 1,568
+Population (thousand) 8,280
+Density (person/km2) 5,300
+City Features
+• The capital city of Thailand.
+• It is located in the central part of Thailand.
+• The city serves as Thailand's administrative, 
+economic, cultural and educational center, 
+and a major commercial and transportation 
+hub for Southeast Asia.
+Vision
+To be a Visitor-Friendly International Community with a New Central District 
+filled with various attractions and infrastructures.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★
+Focus Area Detail & Project Sample
+Quality 
+Environment
+• Pahonyothin aims to be the ideal place for visitors with 
+its strong international community and the New Central 
+District full of attractions and consist of various 
+transport systems such as pedestrianization, cycling, bus 
+and metro.
+Built 
+Infrastructure
+• Bang Sue as the main stop for the High-Speed Rail and 
+the hub of the new Commuter Rail System that provides 
+new lines serving the areas near the city center which 
+aims to reduce congestion at the existing terminal while 
+simultaneously reducing commuting time.
+Industry and 
+Innovation
+• There is the study on innovation district in several areas 
+and industries e.g. Rattanakosin District (Center for 
+Creative Economy), Yodhi District (Center for Medicine 
+and Research), Kluay Nam Thai District (Center for E-
+Commerce, Multimedia, and Digital Business).
+Source: ASEAN Smart Cities Network, MLIT repots, The Bangkok Metropolitan Council
+Note: The Office of the Royal Society (ORST) has recently (specifically on February 16, 2022) announced the change of the official name of Thailand’s capital, from Bangkok to "Krung Thep Maha Nakhon."
+Mandalay
+Phnom Penh
+
+115
+Chonburi in Thailand
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 43
+Population (thousand) 215
+Density (person/km2) 5,000
+City Features
+• Chonburi is located along the Gulf of Thailand 
+about 60 km southeast of Bangkok.
+• Chonburi is one of the three provinces of the 
+Eastern Economic Corridor (EEC), an area-based 
+development initiative with new S-curve 
+industries such as comprehensive medical 
+industry, digital technology, biofuel and 
+biochemical, aviation and logistics, and robotics.
+• The popular resort town is Pattaya Beach.
+Vision
+To be a self-reliant, energy-efficient city with renewable energy sources and 
+sustainable environmental management.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★ ★
+Focus Area Detail & Project Sample
+Health and 
+Well-being
+• The Eastern Economic Corridor (EEC), a special economic 
+zone provides a budget to create job and improve labor 
+skill e.g. training courses for tour guides and hotel staff 
+during Covid-19.
+Quality 
+Environment
+• Waste power plant project which converts industrial 
+waste to renewable energy by waste treatment and 
+management system.
+Built 
+Infrastructure
+• Smart grid project aims for an energy self-reliant city 
+with renewable energy sources.
+o It entails the management of electrical networks, 
+generation, transmission and power distribution 
+systems.
+Industry and 
+Innovation
+• The EEC provides facility to support both domestic and 
+foreign investments in 10 targeted advanced industries 
+(e.g. robotic, biological, medical tourism, digital.)
+Source: ASEAN Smart Cities Network, MLIT repots, Eastern Economic Corridor (EEC) Office
+Mandalay
+Phnom Penh
+
+116
+Phuket in Thailand
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 543
+Population (thousand) 400
+Density (person/km2) 719
+City Features
+• Phuket is Thailand's largest island and one of 
+the world's leading resort town, located in the 
+Andaman Sea.
+• The Sino-Portuguese architecture, shrines, 
+and food that represent the city's rich cultural 
+history that can be observed throughout the 
+city, particularly in the Old Town Area, reflect 
+Phuket's multicultural mix.
+Vision
+With tourism accounting for 97% of its Gross Domestic Product, Phuket’s smart 
+city vision is to achieve sustainability in its tourism development, to become a 
+sandbox for value-based tourism industry and development post Covid-19.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★
+Focus Area Detail & Project Sample
+Civil and Social
+• Phuket plans to build a City Data Platform that allows 
+for better understanding of residents and tourists to 
+prepare utility that cater the residents and tourists’ 
+demand.
+Safety and 
+Security
+• To provide security for the resident and tourist, CCTVs 
+has been in used for criminal prevention e.g. face 
+recognition and a license plate scan features since 2017.
+o It aims to maximize the coverage area by inviting 
+private firms to share their CCTV data with the 
+government.
+Industry and 
+Innovation
+• The City Data Platform also functions to build big data 
+that can aid more efficient and accurate planning of 
+infrastructure, public utilities, common amenities etc. 
+• The data will also provide valuable insights to businesses 
+and start-ups in their analysis.
+Source: ASEAN Smart Cities Network and MLIT repots
+Phnom Penh
+Mandalay
+
+117
+Viet Nam
+City Profile Overview (National level)
+Country Basic Information
+Key Market Index
+Smart City Plan & Activity (National level) 
+Land Area (km2) 331,212
+Population (thousand) 97,340 (in 2020)
+Urban Population (thousand) 30,495 (33%) (in 2014)
+55,739 (54%) (in 2050)
+Capital Hanoi
+Ethnicity Kinh 86%
+Language Vietnamese
+Religion Buddhism, Catholicism, Caodaism etc.
+Political System Socialist republic
+GDP (Millions of US$) 1 271,193
+GDP per capita (US$) 1 2,786
+Median Age 2 33
+% Improved Sanitation Facilities 3* 78
+% Improved Drinking Water Source 3* 81
+Internet Subscribers per 100 persons 3 53
+Cellular Phone Users per 100 persons 3 131
+Governmental Direction
+• In 2018, the strategy for sustainable smart city development in the 2018 –
+2025 period, with a vision to 2030 was issued.
+• Under the plan, by 2025, Viet Nam would have at least six metropolises 
+representing six major economic zones. In five years' time, Viet Nam is set to 
+form a network of smart cities nationwide.
+• By 2022, the Ministry of Construction has scheduled to submit a draft law on 
+urban management and development to the National Assembly, and finalize 
+related national standards and criteria.
+Partnerships with other countries
+• Many Japanese companies formed a joint venture, consortium to develop
+smart city e.g. Sumitomo Corporation with Vietnamese developer BRG Group,
+a consortium of Sumitomo Corporation with NTT Communications
+Corporation, NEC Corporation and other 3 companies.
+1 Euromonitor (Data for 2020)
+2 Euromonitor (Data for 2020)
+3 ASEAN Secretariat, “ASEAN Statistical Report on Millennium Development Goals”, 2017. * Data as of 2015
+Source: ASEAN Smart Cities Network, MLIT reports, World Bank, Sumitomo Corporation’s website, Hanoi Times
+
+118
+Da Nang in Viet Nam
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 1,285
+Population (thousand) 1,000
+Density (person/km2) 814
+City Features
+• Da Nang is the largest city in central Viet 
+Nam.
+• It is located about 750 km south of Hanoi and 
+about 960 km north of Ho Chi Minh City at 
+the end of the East-West Economic Corridor 
+that runs through Laos, Thailand, and 
+Myanmar.
+• It is a port city and large-scale development is 
+underway along the coast.
+Vision
+To be a smart, livable, and sustainable city by 2030. With a citizen-centric 
+strategy, Da Nang aims to deliver high quality of life and sustainable 
+environment for citizens while ensuring economic growth and competitiveness.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★ ★ ★ ★
+Focus Area Detail & Project Sample
+Civil and Social • Da Nang e-government platform has been prepared.
+Health and 
+Well-being
+• The IT facility for school and medical facility has been 
+planned.
+Safety and 
+Security
+• The security and emergency service and disaster 
+prevention has been planned to implement through 
+Intelligent Traffic Control System and data center.
+Quality 
+Environment
+• The smart water management including water quality 
+monitoring has been developed.
+Built 
+Infrastructure
+• Da Nang Data Center has been prepared and will be 
+utilized for various services e.g. e-government.
+• The Intelligent Transportation System is planned.
+Industry and 
+Innovation
+• Smart economy including tourism, agriculture and 
+commerce and smart citizen is mentioned but no 
+concrete plan yet.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+119
+Hanoi in Viet Nam
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 3,359
+Population (thousand) 7,600
+Density (person/km2) 2,280
+City Features
+• Hanoi is the capital city of Viet Nam. It is the 
+center of politics and culture.
+• It is located in the northern Viet Nam, on the 
+right bank of the Hong River.
+• To cope with rapid urbanization, multiple 
+urban railways were planned and are now 
+under construction.
+Vision
+To be a green, culturally-rich, civil and modern city with sustainable 
+development to create a better life for the people by 2030. As the national 
+political center, Hanoi places its economic, trade, investment, culture and social 
+priorities at heart.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★ ★
+Focus Area Detail & Project Sample
+Civil and Social • Smart travel including tourism data integration 
+infrastructure, Hanoi Tourist Portal and mobile app.
+Health and 
+Well-being
+• The Intelligent Operations Centre (IOC) is planned to 
+provide for reception and processing of emergency 
+information, fire, search and rescue and medical 
+treatment etc.
+Safety and 
+Security
+• The IOC is planned to have the function for supervision 
+of confidentiality and safety of information and crime 
+control and prevention.
+Built 
+Infrastructure
+• Intelligent Transport Systems is planned to have the 
+function for traffic management including traffic signal, 
+electronic traffic signage system, traffic monitoring and 
+management software system etc.
+Source: ASEAN Smart Cities Network, MLIT reports
+Mandalay
+Phnom Penh
+
+120
+Ho Chi Minh City in Viet Nam
+City Profile Overview (City level)
+City Basic Information
+Smart City Action Plan
+Land Area (km2) 2,096
+Population (thousand) 8,200
+Density (person/km2) 3,924
+City Features
+• Ho Chi Minh is prospered as the economic 
+center of Viet Nam, accounting for about half 
+of the country's GDP and leading the 
+economy.
+• It is located in southern Viet Nam.
+• In accordance with the progress of 
+urbanization, multiple subway lines were 
+planned and are now under construction.
+Vision
+Ho Chi Minh City’s vision by 2025 is to attain rapid and sustainable economic 
+development through optimal resource utilization and citizen-centric 
+governance.
+Focus Areas
+Civil and 
+Social
+Health and 
+Well-being
+Safety and 
+Security
+Quality 
+Environment
+Built 
+Infrastructure
+Industry and 
+Innovation
+★ ★ ★ ★
+Focus Area Detail & Project Sample
+Health and 
+Well-being
+The following projects are mentioned:
+• Smart public lighting management.
+• Solutions of food product traceability.
+• Online public service.
+Safety and 
+Security
+• An integrated and unified emergency response center 
+for security and public order issues, fire-fighting and 
+disaster prevention has been developed.
+Quality 
+Environment • The environment quality monitoring network.
+Built 
+Infrastructure
+• The Smart Traffic Control Center has started operation 
+as part of the Intelligent transportation system, traffic 
+forecast model and traffic management.
+Source: ASEAN Smart Cities Network, MLIT repots, VN Express
+Mandalay
+Phnom Penh
+
+121
+The following are the list of acronyms used within the guidebook.
+List of Acronyms
+Application Programming Interface API
+Area Energy Management System AEMS
+Artificial Intelligence AI
+ASEAN Secretariat ASEC
+ASEAN Smart Cities Network ASCN
+ASEAN Sustainable Urbanisation Strategy ASUS
+Association Of Southeast Asian Nations ASEAN
+Automated Teller Machine ATM
+Automatic Number Plate Recognition ANPR
+Bus Rapid Transit BRT
+Business Improvement District BID
+Citizen Relations Management / Cepat Respon Masyarakat CRM
+City Operating System City OS
+Closed-circuit Television CCTV
+Compound Annual Growth Rate CAGR
+Corona Virus Disease Covid-19
+Davao City Disaster Risk Reduction And Management Council DCDRRMC
+Davao City Police Office DCPO
+Digital Economy Agreement DEA
+Digital Economy Development Committee DEDC
+Digital Economy Promotion Agency DEPA
+Digital Transformation DX
+Eastern Economic Corridor EEC
+Electronic Vehicles EV
+Geographic Information System GIS
+Global Positioning System GPS
+Gross Domestic Product GDP
+Home Energy Management System HEMS
+Human Resources HR
+Identification ID
+Information And Communications Technology ICT
+Information Technology IT
+Intelligent Operation Center IOC
+Iskandar Malaysia Urban Observatory IMUO
+Japan Association for Smart Cities in ASEAN JASCA
+Japan External Trade Organization JETRO
+Key Performance Indicators KPIs
+Light Rail Transit LRT
+Ministry Of Internal Affairs And Communications MIC
+Ministry Of Land, Infrastructure, Transport And Tourism MLIT
+Office of the Royal Society ORST
+Pay For Success PFS
+Proof Of Business PoB
+Proof Of Concept PoC
+Public Private Partnership PPP
+Public Safety And Security Command Center PSSCC
+Quick Response Code QR Code
+Reduction, Reuse and Recycle 3R
+Smart City Supported By Japan ASEAN Mutual Partnership Smart JAMP
+Smart Nation And Digital Government Group SNDGG
+Smarter & Sustainable Cities SSC
+Social Impact Bond SIB
+Task Force Davao TFD
+Traffic Management Center TMC
+UK-Singapore DEA UKSDEA
+United Nations Educational, Scientific and Cultural Organization UNESCO
+Value Added Tax VAT
+Yangon City Development Committee YCDC
+
+Prepared by: In Consultation with:
