@@ -234,25 +234,11 @@ section[id] {
 }
 
 .hero {
-  padding-top: clamp(5.75rem, 10vw, 7rem);
   padding-bottom: 3rem;
 }
 
 .methodology-hero {
-  padding-top: clamp(5.75rem, 10vw, 7rem);
   padding-bottom: 2.5rem;
-}
-
-.rankings-hero {
-  padding-top: clamp(5.75rem, 10vw, 7rem);
-}
-
-@media (max-width: 760px) {
-  .hero,
-  .methodology-hero,
-  .rankings-hero {
-    padding-top: 8.5rem;
-  }
 }
 
 .world-clock-strip {
@@ -1612,7 +1598,6 @@ section[id] {
   max-width: 100%;
   max-height: 4rem;
   object-fit: contain;
-  filter: grayscale(1) contrast(1.05);
 }
 
 .site-footer-bottom {
@@ -1861,7 +1846,15 @@ section[id] {
 .hero,
 .methodology-hero,
 .rankings-hero {
-  padding-top: clamp(8.75rem, 11vw, 9.8rem);
+  padding-top: 12.5rem;
+}
+
+@media (max-width: 760px) {
+  .hero,
+  .methodology-hero,
+  .rankings-hero {
+    padding-top: 7rem;
+  }
 }
 
 .brand-mark,

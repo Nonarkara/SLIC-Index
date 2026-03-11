@@ -1644,7 +1644,11 @@ function buildGlobalRankings(): FullRankedCity[] {
       if (momentumDelta !== 0) {
         return momentumDelta;
       }
-      return right.scores.community - left.scores.community;
+      const communityDelta = right.scores.community - left.scores.community;
+      if (communityDelta !== 0) {
+        return communityDelta;
+      }
+      return left.id.localeCompare(right.id);
     })
     .map((city, index) => ({
       ...city,
@@ -1653,5 +1657,37 @@ function buildGlobalRankings(): FullRankedCity[] {
 }
 
 export const globalRankings: FullRankedCity[] = buildGlobalRankings();
+
+export type RankingScope = "core" | "field";
+
+export function getRankingsBoard({
+  mode = "balanced",
+  region = "All",
+  scope = "field",
+}: {
+  mode?: keyof RankedCity["scores"];
+  region?: string;
+  scope?: RankingScope;
+} = {}): FullRankedCity[] {
+  const scopedRows =
+    scope === "core"
+      ? globalRankings.filter((city) => city.coreBoardEligible)
+      : globalRankings;
+  const rows = region === "All" ? scopedRows : scopedRows.filter((city) => city.region === region);
+
+  return [...rows].sort((left, right) => {
+    const scoreDelta = right.scores[mode] - left.scores[mode];
+    if (scoreDelta !== 0) {
+      return scoreDelta;
+    }
+
+    const liveDelta = right.delta - left.delta;
+    if (liveDelta !== 0) {
+      return liveDelta;
+    }
+
+    return left.globalRank - right.globalRank;
+  });
+}
 
 export const rankingRegions = ["All", ...new Set(globalRankings.map((city) => city.region))];
