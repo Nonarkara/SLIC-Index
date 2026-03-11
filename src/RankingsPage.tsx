@@ -274,7 +274,7 @@ export default function RankingsPage({
   const editorialCopy = rankingEditorialCopy[locale];
   const [mode, setMode] = useState<ScoreMode>("balanced");
   const [region, setRegion] = useState<string>("All");
-  const [scope, setScope] = useState<"core" | "field">("core");
+  const [scope, setScope] = useState<"core" | "field">("field");
   const [now, setNow] = useState(() => new Date());
 
   useEffect(() => {

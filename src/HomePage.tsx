@@ -559,7 +559,7 @@ export default function HomePage({
   }, []);
 
   const rankings = useMemo(
-    () => getRankingsBoard({ mode, region: "All", scope: "core" }).slice(0, 10),
+    () => getRankingsBoard({ mode, region: "All", scope: "field" }).slice(0, 10),
     [mode],
   );
 
