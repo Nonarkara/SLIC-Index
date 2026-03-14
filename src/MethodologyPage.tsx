@@ -64,7 +64,7 @@ const methodUiCopy: Record<
     scoring: "Scoring",
     glossary: "Glossary",
     example: "Example",
-    models: "Models",
+    models: "Boundaries",
     references: "References",
     rack: "Knowledge rack",
     glossarySymbol: "Symbol",
@@ -98,7 +98,7 @@ const methodUiCopy: Record<
     scoring: "สมการ",
     glossary: "สัญลักษณ์",
     example: "ตัวอย่าง",
-    models: "โมเดล",
+    models: "ขอบเขตวิธี",
     references: "อ้างอิง",
     rack: "คลังความรู้",
     glossarySymbol: "สัญลักษณ์",
@@ -132,7 +132,7 @@ const methodUiCopy: Record<
     scoring: "公式",
     glossary: "符号",
     example: "示例",
-    models: "模型",
+    models: "方法边界",
     references: "参考",
     rack: "知识架",
     glossarySymbol: "符号",
@@ -195,6 +195,16 @@ function navigateLink(
 
 function citationText(ids: number[]): string {
   return ids.map((id) => `[${id}]`).join(" ");
+}
+
+function metricShareText(metricWeight: number, totalWeight: number): string {
+  if (totalWeight <= 0) {
+    return "0%";
+  }
+
+  const share = (metricWeight / totalWeight) * 100;
+  const rounded = share >= 10 ? Math.round(share) : Math.round(share * 10) / 10;
+  return `${rounded}%`;
 }
 
 function sectionSummary(section: MethodologySectionCopy) {
@@ -522,7 +532,10 @@ export default function MethodologyPage({
           {sectionSummary(methodology.pillarsSection)}
 
           <div className="pillar-detail-grid">
-            {methodology.pillars.map((pillar) => (
+            {methodology.pillars.map((pillar) => {
+              const totalMetricWeight = pillar.metrics.reduce((sum, metric) => sum + metric.weight, 0);
+
+              return (
               <article className="paper-card pillar-detail-card" key={pillar.id}>
                 <div className="pillar-header">
                   <div>
@@ -539,7 +552,7 @@ export default function MethodologyPage({
                     <article className="metric-row" key={metric.name}>
                       <div className="metric-row-head">
                         <strong>{metric.name}</strong>
-                        <span>{metric.weight}%</span>
+                        <span>{metricShareText(metric.weight, totalMetricWeight)}</span>
                       </div>
                       <p>{metric.description}</p>
                       <p className="metric-inputs">Inputs: {metric.inputs.join(", ")}</p>
@@ -549,7 +562,8 @@ export default function MethodologyPage({
 
                 <p className="inline-citation">{citationText(pillar.citations)}</p>
               </article>
-            ))}
+            );
+            })}
           </div>
         </section>
 

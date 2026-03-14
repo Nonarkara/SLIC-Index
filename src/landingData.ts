@@ -15,13 +15,13 @@ const defaultMeta: LandingMeta = {
   strapline: "A ranking for cities that expand human possibility, not just headline wealth or polished prestige.",
   intro:
     "SLIC is an AI-assisted city dashboard and ranking system. It combines official baselines, data-quality checks, real affordability logic, and social sentiment analysis so cities can move up or down as conditions, attention, and lived urban signals change.",
-  lastUpdated: "2026-03-09T00:35:00+07:00",
-  citiesTracked: 100,
-  signalsTracked: 86,
-  sourcesConnected: 31,
+  lastUpdated: "2026-03-14T12:00:00+07:00",
+  citiesTracked: 103,
+  signalsTracked: 92,
+  sourcesConnected: 35,
 };
 
-const defaultRankings: RankedCity[] = getRankingsBoard({ mode: "balanced", scope: "field" }).slice(0, 10);
+const defaultRankings: RankedCity[] = getRankingsBoard({ mode: "slic", scope: "field" }).slice(0, 10);
 
 const defaultSignals: SignalCard[] = [
   {
@@ -76,29 +76,36 @@ const defaultSignals: SignalCard[] = [
 
 const defaultPillars: MethodologyPillar[] = [
   {
-    id: "physical",
-    name: "Physical",
-    description: "A city has to be safe, breathable, navigable, and practically convenient before anything else matters.",
-    metrics: ["safety", "ecology", "mobility", "cleanliness", "health access"],
-    note: "Technology counts only if it improves lived outcomes on the ground.",
+    id: "pressure",
+    name: "Pressure",
+    description: "Affordability, cost-of-living burden, housing pressure, and the gap between headline income and daily room to live.",
+    metrics: ["affordability", "housing burden", "cost pressure", "disposable income", "price stability"],
+    note: "The largest pillar weight because a city fails if daily life is unaffordable, regardless of other strengths.",
   },
   {
-    id: "economic",
-    name: "Economic",
-    description: "High salaries mean little if housing, daily life, or long-term prospects consume the upside.",
-    metrics: ["affordability", "opportunity", "competitiveness", "income resilience", "cost pressure"],
+    id: "viability",
+    name: "Viability",
+    description: "Safety, ecology, mobility, climate comfort, and the physical conditions that make a city practically liveable day to day.",
+    metrics: ["safety", "ecology", "mobility", "digital infra", "climate & sunlight"],
+    note: "Climate and sunlight penalize both Nordic darkness and Gulf desert heat. Technology counts only if it improves lived outcomes.",
+  },
+  {
+    id: "capability",
+    name: "Capability",
+    description: "Human capital, education access, healthcare quality, equality, and the capacity for people to develop and thrive.",
+    metrics: ["education", "healthcare", "equality", "human capital", "civic freedom"],
     note: "The goal is viable ambition, not prestige for its own sake.",
   },
   {
     id: "community",
     name: "Community",
-    description: "Cities should widen people's sense of possibility through culture, belonging, tolerance, diversity, and meaning.",
-    metrics: ["culture", "tolerance", "belonging", "visitor energy", "social vitality"],
-    note: "A liveable city is not sterile. It should still feel alive, specific, and worth investing a life in.",
+    description: "Cities should widen people's sense of possibility through culture, belonging, tolerance, diversity, birth rate optimism, and meaning.",
+    metrics: ["culture", "tolerance", "belonging", "birth rate", "social vitality"],
+    note: "Birth rate as societal optimism: if people don't want to have children there, the city has failed at something fundamental.",
   },
   {
-    id: "business",
-    name: "Business & Growth",
+    id: "creative",
+    name: "Creative",
     description: "Cities should make it practical to open, build, and scale productive work without drowning people in friction.",
     metrics: ["opening ease", "government stability", "tax regime", "incentives", "competitive energy"],
     note: "This is where SLIC rewards cities that support ambition rather than merely asking people to comply.",
@@ -107,31 +114,31 @@ const defaultPillars: MethodologyPillar[] = [
 
 const defaultSpotlights: CitySpotlight[] = [
   {
+    id: "kaohsiung",
+    city: "Kaohsiung",
+    country: "Taiwan",
+    kicker: "Where livability becomes real",
+    reason:
+      "Kaohsiung ranks #1 because it delivers what most indices only talk about: safe streets, affordable healthcare and education, LGBTQ+ protections, religious tolerance, subtropical climate, and room to breathe without sacrificing economic vitality.",
+    highlights: ["safe and tolerant", "affordable quality healthcare", "subtropical comfort", "strong transit"],
+  },
+  {
     id: "taipei",
     city: "Taipei",
     country: "Taiwan",
     kicker: "Precision without coldness",
     reason:
-      "Taipei demonstrates why the index looks beyond GDP. It combines safety, transit, civility, food culture, and day-to-day practicality into a city that feels easy to trust.",
-    highlights: ["safe and quiet", "excellent transit", "deep food culture", "high daily convenience"],
+      "Taipei at #2 demonstrates why SLIC looks beyond GDP. It combines safety, transit, civility, food culture, day-to-day practicality, and genuine tolerance into a city that both Westerners and Asians trust.",
+    highlights: ["excellent transit", "deep food culture", "LGBTQ+ marriage equality", "high daily convenience"],
   },
   {
     id: "bangkok",
     city: "Bangkok",
     country: "Thailand",
-    kicker: "Messy in the best ways",
+    kicker: "The world's most visited city",
     reason:
-      "Bangkok scores because variety matters. Hospitality, price flexibility, nightlife, food, and social energy create a city that keeps rewarding different kinds of lives.",
-    highlights: ["multiple budget levels", "24/7 urban rhythm", "strong hospitality", "cultural density"],
-  },
-  {
-    id: "jeju",
-    city: "Jeju",
-    country: "South Korea",
-    kicker: "Island life with memory",
-    reason:
-      "Jeju is a reminder that livability includes calm, beauty, local traditions, and room to breathe. The page should show that serenity can be a competitive asset too.",
-    highlights: ["coastline and trails", "lower pressure", "distinct local identity", "strong safety baseline"],
+      "Bangkok is #1 most visited city in the world for a reason. Hospitality, price flexibility, LGBTQ+ welcome, religious pluralism, and easy business setup create a city that rewards every kind of life.",
+    highlights: ["super tolerant", "multiple budget levels", "24/7 urban rhythm", "easy business setup"],
   },
   {
     id: "busan",
@@ -139,8 +146,8 @@ const defaultSpotlights: CitySpotlight[] = [
     country: "South Korea",
     kicker: "Economic muscle, human scale",
     reason:
-      "Busan represents the index's central thesis: you can keep dynamism, logistics strength, and metropolitan relevance without turning daily life into constant strain.",
-    highlights: ["port economy", "coastal livability", "better balance", "strong urban rhythm"],
+      "Busan represents the index's central thesis: you can keep dynamism, logistics strength, and metropolitan relevance without turning daily life into the pressure cooker that Seoul has become.",
+    highlights: ["port economy", "beach culture", "affordable housing", "relaxed urban rhythm"],
   },
   {
     id: "shanghai",
@@ -148,7 +155,7 @@ const defaultSpotlights: CitySpotlight[] = [
     country: "China",
     kicker: "Proof that prosperity has limits",
     reason:
-      "Shanghai belongs here because the index is not romantic. It can reward extraordinary capability while still marking the affordability and pressure costs attached to mega-city success.",
+      "Shanghai belongs here because SLIC is not romantic. It rewards extraordinary capability while still marking the affordability and pressure costs attached to mega-city success.",
     highlights: ["economic gravity", "world-class transit", "clean urban management", "rising housing pressure"],
   },
   {
@@ -182,14 +189,6 @@ function safeNumber(value: unknown, fallback: number): number {
   return typeof value === "number" && Number.isFinite(value) ? value : fallback;
 }
 
-function average(values: number[]): number {
-  if (values.length === 0) {
-    return 0;
-  }
-
-  return Math.round(values.reduce((sum, value) => sum + value, 0) / values.length);
-}
-
 function normalizeMeta(input: unknown): LandingMeta {
   if (!isRecord(input)) {
     return defaultMeta;
@@ -211,16 +210,17 @@ function normalizeScores(input: unknown, fallback: RankedCity["scores"]): Ranked
     return fallback;
   }
 
-  const physical = safeNumber(input.physical, fallback.physical);
-  const economic = safeNumber(input.economic, fallback.economic);
+  const pressure = safeNumber(input.pressure, fallback.pressure);
+  const viability = safeNumber(input.viability, fallback.viability);
+  const capability = safeNumber(input.capability, fallback.capability);
   const community = safeNumber(input.community, fallback.community);
-  const business = safeNumber(input.business, fallback.business);
-  const balanced = safeNumber(
-    input.balanced,
-    average([physical, economic, community, business]),
+  const creative = safeNumber(input.creative, fallback.creative);
+  const slic = safeNumber(
+    input.slic,
+    Math.round(pressure * 0.25 + viability * 0.22 + capability * 0.18 + community * 0.15 + creative * 0.20),
   );
 
-  return { balanced, physical, economic, community, business };
+  return { slic, pressure, viability, capability, community, creative };
 }
 
 function normalizeRankings(input: unknown): RankedCity[] {
@@ -281,7 +281,7 @@ function normalizePillars(input: unknown): MethodologyPillar[] {
     return defaultPillars;
   }
 
-  return input.slice(0, 4).map((item, index) => {
+  return input.slice(0, 5).map((item, index) => {
     const fallback = defaultPillars[index] ?? defaultPillars[defaultPillars.length - 1];
 
     if (!isRecord(item)) {

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import BenchmarkFact from "./BenchmarkFact";
 import { buildLandingData } from "./landingData";
 import { getRankingsBoard } from "./rankingsData";
+import RankingIntegrityBanner from "./RankingIntegrityBanner";
 import { cityBenchmarks } from "./cityBenchmarks";
 import { formatCityTime } from "./cityTimezones";
 import { editorialPhotos, homeSupportPhotos } from "./editorialPhotos";
@@ -16,35 +17,41 @@ import type { FullRankedCity, Locale, ScoreMode, SignalCard, SitePath } from "./
 const data = buildLandingData();
 
 const modeLabels: Record<ScoreMode, Record<Locale, string>> = {
-  balanced: { en: "Balanced", th: "สมดุล", zh: "综合" },
-  physical: { en: "Physical", th: "กายภาพ", zh: "基础条件" },
-  economic: { en: "Economic", th: "เศรษฐกิจ", zh: "经济" },
+  slic: { en: "SLIC", th: "SLIC", zh: "SLIC" },
+  pressure: { en: "Pressure", th: "แรงกดดัน", zh: "压力" },
+  viability: { en: "Viability", th: "ความเป็นไปได้", zh: "可行性" },
+  capability: { en: "Capability", th: "ศักยภาพ", zh: "能力" },
   community: { en: "Community", th: "ชุมชน", zh: "社区" },
-  business: { en: "Business", th: "ธุรกิจ", zh: "商业" },
+  creative: { en: "Creative", th: "สร้างสรรค์", zh: "创造力" },
 };
 
 const modeDescriptions: Record<ScoreMode, Record<Locale, string>> = {
-  balanced: {
-    en: "Weighted across physical safety, economic room to live, community tolerance, and business growth.",
-    th: "ถ่วงน้ำหนักระหว่างความปลอดภัยเชิงกายภาพ พื้นที่รายได้ใช้สอยจริง ความเปิดกว้างของชุมชน และการเติบโตทางธุรกิจ",
-    zh: "综合衡量基础安全、真实可支配生活空间、社区包容度与商业增长条件。",
+  slic: {
+    en: "Weighted composite: 25% Pressure + 22% Viability + 18% Capability + 15% Community + 20% Creative.",
+    th: "คะแนนรวมถ่วงน้ำหนัก: แรงกดดัน 25% + ความเป็นไปได้ 22% + ศักยภาพ 18% + ชุมชน 15% + สร้างสรรค์ 20%",
+    zh: "加权综合分：压力25% + 可行性22% + 能力18% + 社区15% + 创造力20%。",
   },
-  physical: {
+  pressure: {
+    en: "Prioritizes affordability, cost burden, housing pressure, and real room to live.",
+    th: "เน้นความสามารถในการจ่าย ภาระค่าครองชีพ แรงกดดันด้านที่อยู่อาศัย และพื้นที่ชีวิตจริง",
+    zh: "优先考虑可负担性、生活成本压力、住房压力与真实生活空间。",
+  },
+  viability: {
     en: "Prioritizes safety, ecology, mobility, and daily convenience.",
     th: "เน้นความปลอดภัย นิเวศวิทยา การเดินทาง และความสะดวกในชีวิตประจำวัน",
     zh: "优先考虑安全、生态、流动性与日常便利。",
   },
-  economic: {
-    en: "Prioritizes affordability, opportunity, and long-term competitiveness.",
-    th: "เน้นความสามารถในการจ่าย โอกาส และความสามารถในการแข่งขันระยะยาว",
-    zh: "优先考虑可负担性、机会与长期竞争力。",
+  capability: {
+    en: "Prioritizes education, healthcare, equality, and human capital development.",
+    th: "เน้นการศึกษา สาธารณสุข ความเท่าเทียม และการพัฒนาทุนมนุษย์",
+    zh: "优先考虑教育、医疗、平等与人力资本发展。",
   },
   community: {
     en: "Prioritizes culture, belonging, tolerance, diversity, and social vitality.",
     th: "เน้นวัฒนธรรม ความรู้สึกเป็นส่วนหนึ่ง ความเปิดกว้าง ความหลากหลาย และพลังทางสังคม",
     zh: "优先考虑文化、归属感、包容度、多样性与社会活力。",
   },
-  business: {
+  creative: {
     en: "Prioritizes business opening ease, stability, tax competitiveness, and productive momentum.",
     th: "เน้นความง่ายในการเริ่มธุรกิจ เสถียรภาพ ภาษีที่แข่งขันได้ และโมเมนตัมเชิงผลิตภาพ",
     zh: "优先考虑开业便利度、稳定性、税制竞争力与生产性动能。",
@@ -128,11 +135,11 @@ const homeEditorialCopy: Record<
     ],
     methodologyTitle: "Five declared pillars on the landing page, full doctrine in the paper.",
     methodologySummary:
-      "The homepage keeps the public story legible. The methodology paper carries the formal score, notation, source hierarchy, and worksheet logic for the 100-city field.",
+      "The homepage keeps the public story legible. The methodology paper carries the formal score, notation, source hierarchy, and worksheet logic for the full city field.",
     weightLabel: "What the official score actually weighs",
     weightTitle: "Five declared pillars, one fixed public formula.",
     weightSummary:
-      "Pressure and affordability lead the score, but safety, capability, community, and business vitality remain visible in the final ranking.",
+      "Pressure carries the largest share, followed by viability, capability, community, and creative vitality in one fixed public formula.",
     methodologySurfaceTitle: "What SLIC is trying to surface",
     methodologySurfaceSummary:
       "The strongest cities here are not just clean or rich. They are places where people can still afford life, move with confidence, find community, and keep ambition alive without the city draining them dry.",
@@ -188,7 +195,7 @@ const homeEditorialCopy: Record<
     ],
     methodologyTitle: "หน้าแรกแสดงห้าเสาหลัก ส่วนหลักการเต็มอยู่ใน methodology paper",
     methodologySummary:
-      "หน้าแรกทำให้เรื่องนี้อ่านง่ายสำหรับสาธารณะ ส่วน methodology paper จะแสดงสมการเต็ม สัญลักษณ์ ลำดับชั้นของแหล่งข้อมูล และตรรกะของตารางคะแนน 100 เมือง",
+      "หน้าแรกทำให้เรื่องนี้อ่านง่ายสำหรับสาธารณะ ส่วน methodology paper จะแสดงสมการเต็ม สัญลักษณ์ ลำดับชั้นของแหล่งข้อมูล และตรรกะของตารางคะแนนทั้งชุดเมือง",
     weightLabel: "น้ำหนักที่สูตรทางการใช้จริง",
     weightTitle: "ห้าเสาหลักที่ประกาศชัด และสูตรสาธารณะเพียงสูตรเดียว",
     weightSummary:
@@ -472,9 +479,9 @@ const homeSectionCopy: Record<
 };
 
 const pulseLabels: Record<Locale, string[]> = {
-  en: ["Phy", "Eco", "Com", "Biz", "Safe", "Tol", "Delta", "Live"],
-  th: ["กาย", "ศก", "ชุม", "ธุร", "ปลอ", "เปิด", "เดล", "สด"],
-  zh: ["基", "经", "社", "商", "安", "容", "变", "实"],
+  en: ["Pre", "Via", "Cap", "Com", "Cre", "Safe", "Delta", "Tol"],
+  th: ["กด", "ได้", "ศก", "ชุม", "สร", "ปลอ", "เดล", "เปิด"],
+  zh: ["压", "行", "能", "社", "创", "安", "变", "容"],
 };
 
 function formatDelta(delta: number): string {
@@ -543,7 +550,7 @@ export default function HomePage({
   const methodology = getMethodologyData(locale);
   const editorialCopy = homeEditorialCopy[locale];
   const sectionCopy = homeSectionCopy[locale];
-  const [mode, setMode] = useState<ScoreMode>("balanced");
+  const [mode, setMode] = useState<ScoreMode>("slic");
   const [now, setNow] = useState(() => new Date());
   const benchmarks = cityBenchmarks[locale];
   const formulaSnippets = methodology.equationSection.groups.flatMap((group) => group.equations).slice(0, 3);
@@ -577,6 +584,7 @@ export default function HomePage({
             <p className="hero-strapline">{sectionCopy.heroStrapline}</p>
             <p className="hero-intro">{sectionCopy.heroIntro}</p>
             <p className="hero-runtime-note">{editorialCopy.runtimeNote}</p>
+            <RankingIntegrityBanner locale={locale} />
 
             <div className="hero-actions">
               <a
@@ -612,54 +620,62 @@ export default function HomePage({
           </div>
 
           <aside className="hero-panel">
-            <div className="hero-ranking-card">
-              <div className="hero-ranking-head">
-                <div>
-                  <p className="panel-label">{copy.shared.liveTop10}</p>
-                  <h2>{sectionCopy.leaderboardTitle}</h2>
-                  <p className="hero-ranking-summary">{modeDescriptions[mode][locale]}</p>
+            {heroRankings.length > 0 ? (
+              <div className="hero-ranking-card">
+                <div className="hero-ranking-head">
+                  <div>
+                    <p className="panel-label">{copy.shared.liveTop10}</p>
+                    <h2>{sectionCopy.leaderboardTitle}</h2>
+                    <p className="hero-ranking-summary">{modeDescriptions[mode][locale]}</p>
+                  </div>
+                  <p className="updated-note">
+                    {copy.shared.updated} {formatUpdated(data.meta.lastUpdated, locale)}
+                  </p>
                 </div>
-                <p className="updated-note">
-                  {copy.shared.updated} {formatUpdated(data.meta.lastUpdated, locale)}
-                </p>
+
+                <ModeSwitch mode={mode} locale={locale} onChange={setMode} />
+
+                <div className="hero-ranking-list" aria-live="polite">
+                  {heroRankings.map((city, index) => {
+                    const localTime = formatCityTime(now, city.name, locale);
+
+                    return (
+                      <article
+                        className={index === 0 ? "hero-ranking-row hero-ranking-row-active" : "hero-ranking-row"}
+                        key={city.id}
+                      >
+                        <span className="hero-ranking-rank">{String(index + 1).padStart(2, "0")}</span>
+                        <div className="hero-ranking-city">
+                          <strong>{city.name}</strong>
+                          <span>
+                            {city.country} / {city.region}
+                          </span>
+                          {localTime ? <small>{copy.shared.localTime} {localTime}</small> : null}
+                        </div>
+                        <div className="hero-ranking-score">
+                          <strong>{city.scores[mode]}</strong>
+                          <span>{formatDelta(city.delta)}</span>
+                        </div>
+                      </article>
+                    );
+                  })}
+                </div>
+
+                <a
+                  className="inline-page-link"
+                  href="/rankings"
+                  onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
+                >
+                  {copy.shared.openFullRanking}
+                </a>
               </div>
-
-              <ModeSwitch mode={mode} locale={locale} onChange={setMode} />
-
-              <div className="hero-ranking-list" aria-live="polite">
-                {heroRankings.map((city, index) => {
-                  const localTime = formatCityTime(now, city.name, locale);
-
-                  return (
-                    <article
-                      className={index === 0 ? "hero-ranking-row hero-ranking-row-active" : "hero-ranking-row"}
-                      key={city.id}
-                    >
-                      <span className="hero-ranking-rank">{String(index + 1).padStart(2, "0")}</span>
-                      <div className="hero-ranking-city">
-                        <strong>{city.name}</strong>
-                        <span>
-                          {city.country} / {city.region}
-                        </span>
-                        {localTime ? <small>{copy.shared.localTime} {localTime}</small> : null}
-                      </div>
-                      <div className="hero-ranking-score">
-                        <strong>{city.scores[mode]}</strong>
-                        <span>{formatDelta(city.delta)}</span>
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
-
-              <a
-                className="inline-page-link"
-                href="/rankings"
-                onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
-              >
-                {copy.shared.openFullRanking}
-              </a>
-            </div>
+            ) : (
+              <article className="hero-ranking-card ranking-empty-state">
+                <p className="panel-label">{copy.shared.liveTop10}</p>
+                <h2>{sectionCopy.leaderboardTitle}</h2>
+                <p>{copy.rankings.liveBody}</p>
+              </article>
+            )}
           </aside>
         </div>
       </header>
@@ -776,106 +792,115 @@ export default function HomePage({
 
           <ModeSwitch mode={mode} locale={locale} onChange={setMode} />
 
-          <div className="index-grid">
-            <div className="index-list" aria-live="polite">
-              {rankings.map((city, index) => (
-                <article className="city-row" key={city.id}>
-                  <div className="city-rank-block">
-                    <span className="city-rank">{String(index + 1).padStart(2, "0")}</span>
-                    <span className="city-delta">{formatDelta(city.delta)}</span>
-                  </div>
+          {rankings.length > 0 && leader ? (
+            <div className="index-grid">
+              <div className="index-list" aria-live="polite">
+                {rankings.map((city, index) => (
+                  <article className="city-row" key={city.id}>
+                    <div className="city-rank-block">
+                      <span className="city-rank">{String(index + 1).padStart(2, "0")}</span>
+                      <span className="city-delta">{formatDelta(city.delta)}</span>
+                    </div>
 
-                  <div className="city-main">
-                    <div className="city-header">
-                      <div>
-                        <h3>{city.name}</h3>
-                        <p className="city-location">
-                          {city.country} / {city.region}
-                        </p>
+                    <div className="city-main">
+                      <div className="city-header">
+                        <div>
+                          <h3>{city.name}</h3>
+                          <p className="city-location">
+                            {city.country} / {city.region}
+                          </p>
+                        </div>
+                        <div className="city-mode-score">
+                          <span>{modeLabels[mode][locale]}</span>
+                          <strong>{city.scores[mode]}</strong>
+                        </div>
                       </div>
-                      <div className="city-mode-score">
-                        <span>{modeLabels[mode][locale]}</span>
-                        <strong>{city.scores[mode]}</strong>
+
+                      <p className="city-tagline">{city.tagline}</p>
+                      <p className="city-signal">{city.signal}</p>
+
+                      <div className="metric-bars" aria-label={`${city.name} sub-scores`}>
+                        <ScoreBar city={city} mode="pressure" locale={locale} />
+                        <ScoreBar city={city} mode="viability" locale={locale} />
+                        <ScoreBar city={city} mode="capability" locale={locale} />
+                        <ScoreBar city={city} mode="community" locale={locale} />
+                        <ScoreBar city={city} mode="creative" locale={locale} />
                       </div>
                     </div>
 
-                    <p className="city-tagline">{city.tagline}</p>
-                    <p className="city-signal">{city.signal}</p>
+                    <div className="city-signal-column" aria-label={`${city.name} live signal`}>
+                      <div className="city-diagnostic-list">
+                        <article>
+                          <span>{copy.rankings.safety}</span>
+                          <strong>{city.metrics.safetyScore ?? city.scores.viability}</strong>
+                        </article>
+                        <article>
+                          <span>{copy.rankings.tolerance}</span>
+                          <strong>{city.metrics.toleranceScore ?? city.scores.community}</strong>
+                        </article>
+                        <article>
+                          <span>{copy.rankings.business}</span>
+                          <strong>{city.metrics.businessGrowth ?? city.scores.creative}</strong>
+                        </article>
+                      </div>
 
-                    <div className="metric-bars" aria-label={`${city.name} sub-scores`}>
-                      <ScoreBar city={city} mode="physical" locale={locale} />
-                      <ScoreBar city={city} mode="economic" locale={locale} />
-                      <ScoreBar city={city} mode="community" locale={locale} />
-                      <ScoreBar city={city} mode="business" locale={locale} />
+                      <div className="city-tags" aria-label={`${city.name} tags`}>
+                        {city.tags.map((tag) => (
+                          <span key={tag}>{tag}</span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  </article>
+                ))}
+              </div>
 
-                  <div className="city-signal-column" aria-label={`${city.name} live signal`}>
-                    <div className="city-diagnostic-list">
-                      <article>
-                        <span>{copy.rankings.safety}</span>
-                        <strong>{city.metrics.safetyScore ?? city.scores.physical}</strong>
-                      </article>
-                      <article>
-                        <span>{copy.rankings.tolerance}</span>
-                        <strong>{city.metrics.toleranceScore ?? city.scores.community}</strong>
-                      </article>
-                      <article>
-                        <span>{copy.rankings.business}</span>
-                        <strong>{city.metrics.businessGrowth ?? city.scores.business}</strong>
-                      </article>
-                    </div>
-
-                    <div className="city-tags" aria-label={`${city.name} tags`}>
-                      {city.tags.map((tag) => (
-                        <span key={tag}>{tag}</span>
-                      ))}
-                    </div>
-                  </div>
+              <aside className="index-sidebar">
+                <article className="sidebar-card">
+                  <p className="panel-label">{sectionCopy.modeSurfaceLabel}</p>
+                  <h3>
+                    {leader.name} {sectionCopy.leadsOn} {modeLabels[mode][locale].toLowerCase()}
+                  </h3>
+                  <p>{leader.signal}</p>
                 </article>
-              ))}
+
+                <article className="sidebar-card sidebar-card-ai">
+                  <p className="panel-label">{sectionCopy.modelPulseLabel}</p>
+                  <PulseCluster
+                    values={[
+                      leader.scores.pressure,
+                      leader.scores.viability,
+                      leader.scores.capability,
+                      leader.scores.community,
+                      leader.scores.creative,
+                      leader.metrics.safetyScore ?? leader.scores.viability,
+                      leader.delta * 10 + 50,
+                      leader.metrics.toleranceScore ?? leader.scores.community,
+                    ]}
+                    labels={pulseLabels[locale]}
+                  />
+                  <p>{sectionCopy.modelPulseBody}</p>
+                </article>
+
+                <article className="sidebar-card">
+                  <p className="panel-label">{sectionCopy.methodologyDepthLabel}</p>
+                  <p>{sectionCopy.methodologyDepthBody}</p>
+                  <a
+                    className="inline-page-link"
+                    href="/methodology"
+                    onClick={(event) => navigateLink(event, onNavigate, "/methodology")}
+                  >
+                    {sectionCopy.methodologyDepthAction}
+                  </a>
+                </article>
+              </aside>
             </div>
-
-            <aside className="index-sidebar">
-              <article className="sidebar-card">
-                <p className="panel-label">{sectionCopy.modeSurfaceLabel}</p>
-                <h3>
-                  {leader.name} {sectionCopy.leadsOn} {modeLabels[mode][locale].toLowerCase()}
-                </h3>
-                <p>{leader.signal}</p>
-              </article>
-
-              <article className="sidebar-card sidebar-card-ai">
-                <p className="panel-label">{sectionCopy.modelPulseLabel}</p>
-                <PulseCluster
-                  values={[
-                    leader.scores.physical,
-                    leader.scores.economic,
-                    leader.scores.community,
-                    leader.scores.business,
-                    leader.metrics.safetyScore ?? leader.scores.physical,
-                    leader.metrics.toleranceScore ?? leader.scores.community,
-                    leader.delta * 10 + 50,
-                    leader.metrics.businessGrowth ?? leader.scores.business,
-                  ]}
-                  labels={pulseLabels[locale]}
-                />
-                <p>{sectionCopy.modelPulseBody}</p>
-              </article>
-
-              <article className="sidebar-card">
-                <p className="panel-label">{sectionCopy.methodologyDepthLabel}</p>
-                <p>{sectionCopy.methodologyDepthBody}</p>
-                <a
-                  className="inline-page-link"
-                  href="/methodology"
-                  onClick={(event) => navigateLink(event, onNavigate, "/methodology")}
-                >
-                  {sectionCopy.methodologyDepthAction}
-                </a>
-              </article>
-            </aside>
-          </div>
+          ) : (
+            <article className="paper-card ranking-empty-state">
+              <p className="panel-label">{copy.rankings.finePrintEyebrow}</p>
+              <h3>{copy.rankings.title}</h3>
+              <p>{copy.rankings.liveBody}</p>
+            </article>
+          )}
         </section>
 
         <section className="manifesto section">
@@ -1029,7 +1054,7 @@ function ScoreBar({
   locale,
 }: {
   city: FullRankedCity;
-  mode: Exclude<ScoreMode, "balanced">;
+  mode: Exclude<ScoreMode, "slic">;
   locale: Locale;
 }) {
   return (

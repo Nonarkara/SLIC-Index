@@ -1,14 +1,16 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 import HomePage from "./HomePage";
-import IdeasPage from "./IdeasPage";
-import MethodologyPage from "./MethodologyPage";
-import RankingsPage from "./RankingsPage";
-import SlicProfilePage from "./SlicProfilePage";
 import SiteMasthead from "./SiteMasthead";
 import { localeLabels } from "./siteCopy";
-import ThailandPage from "./ThailandPage";
 import type { Locale, SitePath } from "./types";
 import { trackVisitor } from "./visitorTracking";
+
+const IdeasPage = lazy(() => import("./IdeasPage"));
+const ExercisePage = lazy(() => import("./ExercisePage"));
+const MethodologyPage = lazy(() => import("./MethodologyPage"));
+const RankingsPage = lazy(() => import("./RankingsPage"));
+const SlicProfilePage = lazy(() => import("./SlicProfilePage"));
+const ThailandPage = lazy(() => import("./ThailandPage"));
 
 type DocumentWithViewTransition = Document & {
   startViewTransition?: Document["startViewTransition"];
@@ -25,6 +27,10 @@ function resolvePath(pathname: string): SitePath {
 
   if (pathname === "/rankings") {
     return "/rankings";
+  }
+
+  if (pathname === "/exercise") {
+    return "/exercise";
   }
 
   if (pathname === "/thailand") {
@@ -45,6 +51,45 @@ function commitRoute(path: SitePath): SitePath {
 
   window.scrollTo({ top: 0, behavior: "auto" });
   return resolvePath(path);
+}
+
+const routeLoadingCopy: Record<
+  Locale,
+  {
+    eyebrow: string;
+    title: string;
+    body: string;
+  }
+> = {
+  en: {
+    eyebrow: "Loading view",
+    title: "Preparing the next section.",
+    body: "Pulling in the page module and interface assets.",
+  },
+  th: {
+    eyebrow: "กำลังโหลดหน้า",
+    title: "กำลังเตรียมส่วนถัดไป",
+    body: "กำลังดึงโมดูลของหน้าและองค์ประกอบของอินเทอร์เฟซ",
+  },
+  zh: {
+    eyebrow: "正在加载页面",
+    title: "正在准备下一个版块。",
+    body: "正在载入页面模块与界面资源。",
+  },
+};
+
+function RouteLoading({ locale }: { locale: Locale }) {
+  const copy = routeLoadingCopy[locale];
+
+  return (
+    <section className="route-loading section" aria-live="polite" aria-busy="true">
+      <div className="route-loading-card">
+        <p className="eyebrow">{copy.eyebrow}</p>
+        <h1>{copy.title}</h1>
+        <p>{copy.body}</p>
+      </div>
+    </section>
+  );
 }
 
 export default function App() {
@@ -81,10 +126,16 @@ export default function App() {
               : "SLIC Methodology"
           : route === "/rankings"
             ? locale === "th"
-              ? "100 อันดับเมือง SLIC"
+              ? "การจัดอันดับเมือง SLIC"
               : locale === "zh"
-                ? "SLIC 前100城市"
-                : "SLIC Top 100"
+                ? "SLIC 城市排名"
+                : "SLIC Rankings"
+            : route === "/exercise"
+              ? locale === "th"
+                ? "แบบฝึกหาเมืองที่เหมาะกับคุณ"
+                : locale === "zh"
+                  ? "城市匹配练习"
+                  : "City Match Exercise"
             : route === "/thailand"
               ? locale === "th"
                 ? "SLIC ประเทศไทย"
@@ -133,19 +184,23 @@ export default function App() {
         onNavigate={navigate}
       />
       <div className="page-frame" key={route}>
-        {route === "/methodology" ? (
-          <MethodologyPage onNavigate={navigate} locale={locale} />
-        ) : route === "/about-slic" ? (
-          <SlicProfilePage onNavigate={navigate} locale={locale} />
-        ) : route === "/rankings" ? (
-          <RankingsPage onNavigate={navigate} locale={locale} />
-        ) : route === "/thailand" ? (
-          <ThailandPage onNavigate={navigate} locale={locale} />
-        ) : route === "/ideas" ? (
-          <IdeasPage onNavigate={navigate} locale={locale} onLocaleChange={setLocale} />
-        ) : (
-          <HomePage onNavigate={navigate} locale={locale} />
-        )}
+        <Suspense fallback={<RouteLoading locale={locale} />}>
+          {route === "/methodology" ? (
+            <MethodologyPage onNavigate={navigate} locale={locale} />
+          ) : route === "/about-slic" ? (
+            <SlicProfilePage onNavigate={navigate} locale={locale} />
+          ) : route === "/rankings" ? (
+            <RankingsPage onNavigate={navigate} locale={locale} />
+          ) : route === "/exercise" ? (
+            <ExercisePage onNavigate={navigate} locale={locale} />
+          ) : route === "/thailand" ? (
+            <ThailandPage onNavigate={navigate} locale={locale} />
+          ) : route === "/ideas" ? (
+            <IdeasPage onNavigate={navigate} locale={locale} onLocaleChange={setLocale} />
+          ) : (
+            <HomePage onNavigate={navigate} locale={locale} />
+          )}
+        </Suspense>
       </div>
     </div>
   );

@@ -1,0 +1,29 @@
+provider_id,name,tier,scope,allowed_host,allow_any_https,reference_only,notes
+city_official_portal,City or metro official portal,Tier 1,city_or_metro,,true,false,"Use for municipal statistical offices, city open-data portals, transit authorities, or water and utility agencies."
+subnational_official_portal,State or provincial official portal,Tier 2,subnational,,true,false,"Use for provincial, prefectural, or metropolitan statistical offices and observatories."
+national_statistical_office,National statistical office,Tier 3,national,,true,false,Use for official national statistics portals when a city metric is only available nationally or by subnational breakdown.
+world_bank,World Bank Data,Tier 3,international,worldbank.org,false,false,"Recommended for GDP per capita PPP, growth, inequality context, and related official international baselines."
+who_gho,WHO Global Health Observatory,Tier 3,international,who.int,false,false,Recommended for health and mortality baselines when city-level official releases are unavailable.
+ilo_ilostat,ILO ILOSTAT,Tier 3,international,ilo.org,false,false,"Recommended for labour, work-time, and employment pressure indicators."
+who_unicef_jmp,WHO/UNICEF JMP,Tier 3,international,washdata.org,false,false,"Recommended for water, sanitation, and utility service baselines."
+unesco_uis,UNESCO UIS,Tier 3,international,uis.unesco.org,false,false,Recommended for education and human-capability indicators.
+oecd_data,OECD Data,Tier 3,international,oecd.org,false,false,"Recommended for housing, health, education, and competitive-context baselines."
+wipo_statistics,WIPO IP Statistics,Tier 3,international,wipo.int,false,false,Recommended for innovation and research intensity proxies.
+openaq,OpenAQ,Tier 4,secondary,openaq.org,false,false,Audited secondary layer for air-quality coverage when official city feeds are thin.
+mlab,Measurement Lab,Tier 4,secondary,measurementlab.net,false,false,Audited secondary layer for digital-performance context.
+economist_world_in_numbers,The World in Numbers | The Economist,Tier 4,secondary_editorial_reference,economist.com,false,true,Internal analyst reference only. Do not use this provider directly in publishable Country_Context or City_Inputs scoring rows.
+istat,ISTAT,Tier 3,national,istat.it,false,false,"Official Italian national statistical institute. Use for labour, prices, safety, education, and subnational social indicators."
+banca_d_italia,Banca d'Italia,Tier 3,national,bancaditalia.it,false,false,"Official Bank of Italy source for credit, household finance, and territorial banking indicators."
+agenzia_entrate_omi,Agenzia delle Entrate OMI,Tier 3,national,agenziaentrate.gov.it,false,false,Official Property Market Observatory for housing and rent reference values in Italian cities.
+comune_milano_open_data,Comune di Milano Open Data,Tier 1,city_or_metro,dati.comune.milano.it,false,false,"Official Comune di Milano open-data portal for city statistics, mobility, services, business activity, and civic indicators."
+atm_milano,ATM Milano,Tier 1,city_or_metro,atm.it,false,false,"Official Milan public-transport operator for fares, service coverage, and network information."
+arpa_lombardia,ARPA Lombardia,Tier 2,subnational,arpalombardia.it,false,false,Official Lombardy regional environmental protection agency for air quality and environmental monitoring.
+mm_milano,MM S.p.A.,Tier 2,utility_operator,mmspa.eu,false,false,Official Milan utility operator for water-service and network performance information.
+comune_bologna,Comune di Bologna,Tier 1,city_or_metro,comune.bologna.it,false,false,"Official Comune di Bologna portal for city programmes, civic services, culture, and local statistics."
+comune_bologna_open_data,Comune di Bologna Open Data,Tier 1,city_or_metro,opendata.comune.bologna.it,false,false,"Official Comune di Bologna open-data portal for mobility, demographics, business, neighbourhood, and service indicators."
+tper_bologna,TPER Bologna,Tier 1,city_or_metro,tper.it,false,false,"Official Bologna-area transport operator for fares, service information, and local transit network details."
+arpae_emilia_romagna,ARPAE Emilia-Romagna,Tier 2,subnational,arpae.it,false,false,"Official Emilia-Romagna environmental agency for air, water, and local environmental quality monitoring."
+gruppo_hera,Gruppo Hera,Tier 2,utility_operator,gruppohera.it,false,false,"Primary regional utility operator for Bologna-area water, waste, and utility service data."
+thai_gov_pcd_rsc,Thai Government PCD / RSC / MWA,Tier 2,subnational,,true,false,"Composite Thai subnational provider covering Pollution Control Department (PCD) air quality, Road Safety Centre (RSC) fatality statistics, and Metropolitan/Provincial Waterworks Authority (MWA/PWA) water coverage data."
+wmo_natl_met,WMO and National Meteorological Services,Tier 3,national_international,worldweather.wmo.int,true,false,"World Meteorological Organization and national met services. Climate normals, sunshine hours, temperature records."
+slic_analyst,SLIC Index Analyst Assessment,Tier 5,analyst_assessment,,true,false,"Manual analyst assessment based on lived experience, cross-reference research, and domain expertise."

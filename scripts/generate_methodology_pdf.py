@@ -263,16 +263,16 @@ def build_story(styles):
     story.append(Paragraph("1. Public score doctrine", styles["SectionHeading"]))
     story.append(
         Paragraph(
-            "SLIC ranks cities where people can live well, belong, and become more. The index is designed to avoid three common errors: mistaking GDP for livability, mistaking surveillance or gadgetry for safety, and mistaking prestige for daily viability. The published ranking therefore keeps pressure, safety, capability, community, and business vitality explicit in one declared formula.",
+            "SLIC ranks cities where people can live well, belong, and become more. The index is designed to avoid three common errors: mistaking GDP for livability, mistaking surveillance or gadgetry for safety, and mistaking prestige for real city viability. The published ranking therefore keeps pressure, viability, capability, community, and creative vitality explicit in one declared formula.",
             styles["Body"],
         )
     )
     story.extend(
         formula_block(
             "Official public formula",
-            "SLIC(c) = 0.22 Pressure(c) + 0.23 SafetyViability(c) + 0.15 HumanCapability(c)\n"
-            "          + 0.15 CommunityTolerance(c) + 0.25 BusinessGrowth(c)",
-            "The public board uses one fixed weighted model. Business and growth remain visible so a city cannot win by comfort alone.",
+            "SLIC(c) = 0.25 Pressure(c) + 0.22 Viability(c) + 0.18 Capability(c)\n"
+            "          + 0.15 Community(c) + 0.20 Creative(c)",
+            "The public board uses one fixed weighted model. Pressure carries the largest share, while viability, capability, community, and creative vitality remain explicit.",
             styles,
         )
     )
@@ -287,44 +287,44 @@ def build_story(styles):
     story.extend(
         formula_block(
             "Pressure, affordability, and room to live",
-            "Pressure(c) = 0.36 DI_ppp + 0.20 HousingBurden + 0.16 HouseholdDebt\n"
-            "              + 0.16 WorkingTimePressure + 0.12 MentalStrain",
-            "This pillar punishes false prosperity by looking at what remains after tax and essential costs, not at salary headlines alone.",
+            "Pressure(c) = 0.333 DI_ppp + 0.185 HousingBurden + 0.148 HouseholdDebt\n"
+            "              + 0.148 WorkingTimePressure + 0.185 MentalStrain",
+            "This pillar punishes false prosperity by looking at what remains after tax and essential costs, not at salary headlines alone. Mental strain (suicide rate as proxy) now carries increased weight to reflect the human cost of urban pressure.",
             styles,
         )
     )
     story.extend(
         formula_block(
-            "Safety, ecology, and daily viability",
-            "SafetyViability(c) = 0.28 SafetyOutcomes + 0.22 TransitAccess + 0.18 CleanAir\n"
-            "                   + 0.16 WaterUtility + 0.16 DigitalInfrastructure",
-            "Safety is based on harm and daily confidence, not on camera counts or smart-city theatre.",
+            "Viability",
+            "Viability(c) = 0.185 PersonalSafety + 0.185 TransitAccess + 0.148 CleanAir\n"
+            "             + 0.148 WaterUtility + 0.148 DigitalInfra + 0.185 ClimateSunlight",
+            "Viability is based on real safety, ecology, climate comfort, and daily system reliability. Climate and sunlight penalize both Nordic darkness and Gulf desert heat.",
             styles,
         )
     )
     story.extend(
         formula_block(
-            "Human capability",
-            "HumanCapability(c) = 0.40 HealthcareQuality + 0.33 EducationQuality + 0.27 EqualOpportunity",
-            "Good healthcare and good education are scored by quality and access, not by institution counts alone.",
+            "Capability",
+            "Capability(c) = 0.444 HealthcareQuality + 0.333 EducationQuality + 0.222 EqualOpportunity",
+            "Good healthcare and good education are scored by quality and access, not by institution counts alone. Healthcare quality means actual service delivery, not just system existence.",
             styles,
         )
     )
     story.extend(
         formula_block(
-            "Community, tolerance, and belonging",
-            "CommunityTolerance(c) = 0.34 HospitalityBelonging + 0.33 TolerancePluralism\n"
-            "                      + 0.33 PublicLifeVitality",
-            "Tolerance is read through low-friction coexistence, equal market access, and everyday freedom rather than symbolic branding.",
+            "Community",
+            "Community(c) = 0.263 HospitalityBelonging + 0.263 TolerancePluralism\n"
+            "            + 0.263 PublicLifeVitality + 0.211 BirthRateOptimism",
+            "Community is read through low-friction coexistence, equal market access, everyday public life, and birth rate as a societal optimism signal.",
             styles,
         )
     )
     story.extend(
         formula_block(
-            "Business, growth, and competitive vitality",
-            "BusinessGrowth(c) = 0.30 OpeningEase + 0.25 GovernmentStability + 0.20 TaxCompetitiveness\n"
-            "                  + 0.15 IncentiveReadiness + 0.10 ProductiveMomentum",
-            "This is the anti-complacency pillar. Cities should create conditions for ambition, not only for passive comfort.",
+            "Creative",
+            "Creative(c) = 0.30 EntrepreneurialDynamism + 0.25 InnovationResearchIntensity\n"
+            "           + 0.25 EconomicVitality + 0.20 AdministrativeFriction",
+            "This is the anti-complacency pillar. Cities should support entrepreneurial dynamism, research depth, and productive momentum rather than passive comfort alone.",
             styles,
         )
     )
@@ -418,7 +418,67 @@ def build_story(styles):
         )
     )
 
-    story.append(Paragraph("6. Ranking protocol and gates", styles["SectionHeading"]))
+    story.append(Paragraph("6. Climate and sunlight livability", styles["SectionHeading"]))
+    story.append(
+        Paragraph(
+            "Cities should feel physically comfortable to live in year-round. The climate and sunlight livability metric is a composite of annual sunshine hours, temperature comfort relative to a 22 degrees Celsius optimum, and extreme weather frequency. It penalizes both Nordic darkness and prolonged winter depression risk, and Gulf desert heat where outdoor life is impractical for large parts of the year. Data sources include WMO climate normals and national meteorological services.",
+            styles["Body"],
+        )
+    )
+    story.append(
+        bullet_list(
+            [
+                "Sunshine hours reward cities where daylight supports outdoor activity and mental health.",
+                "Temperature comfort uses deviation from a 22 degrees Celsius annual mean as a livability optimum.",
+                "Extreme weather frequency penalizes cities with regular heat waves, cold snaps, or severe storms.",
+                "The composite is placed in the Viability pillar with weight 5 out of 27, equal to personal safety and transit access.",
+            ],
+            styles,
+        )
+    )
+
+    story.append(Paragraph("7. Birth rate as societal optimism", styles["SectionHeading"]))
+    story.append(
+        Paragraph(
+            "Total fertility rate is used as a proxy for societal optimism. If people choose not to have children in a city, something fundamental has failed in that urban environment, whether it is affordability, pressure, lack of meaning, or loss of future confidence. This metric captures what no economic indicator alone can: whether a city gives people enough hope and practical room to invest in the next generation.",
+            styles["Body"],
+        )
+    )
+    story.append(
+        bullet_list(
+            [
+                "Data source: World Bank total fertility rate (TFR), applied at the national level.",
+                "Placed in the Community pillar with weight 4 out of 19.",
+                "Directionality is positive: higher TFR scores higher, reflecting greater societal confidence.",
+                "This metric particularly affects East Asian cities (South Korea, Japan, Hong Kong, Taiwan, China, Singapore) where TFR has fallen to historically low levels.",
+            ],
+            styles,
+        )
+    )
+
+    story.append(Paragraph("8. Lived-experience philosophy", styles["SectionHeading"]))
+    story.append(
+        Paragraph(
+            "SLIC is not a prestige index. It ranks cities on lived experience, verified through data and grounded in the practical reality of daily urban life. The ranking philosophy centres on several principles that distinguish SLIC from headline-driven indices.",
+            styles["Body"],
+        )
+    )
+    story.append(
+        bullet_list(
+            [
+                "PPP-adjusted disposable income, not GDP: a city fails if residents are paycheck-to-paycheck despite high headline wealth.",
+                "Healthcare quality, not just access: free healthcare with long wait times (as in some Canadian cities) scores lower than affordable, responsive healthcare.",
+                "Tolerance as lived reality: LGBTQ+ protections, religious pluralism, and low-friction coexistence matter more than diversity branding.",
+                "Anti-complacency: welfare dependency and compliance culture are negative signals. Cities should support entrepreneurial dynamism.",
+                "Safety means daily confidence: low homicide rates, low petty crime, and safe streets for women, not surveillance camera counts.",
+                "Birth rate as optimism: cities where people choose to have children signal practical confidence in the future.",
+                "No retirement destinations: cities need economic vitality, productive energy, and young-population magnetism.",
+            ],
+            styles,
+        )
+    )
+
+    story.append(Paragraph("9. Ranking protocol and gates", styles["SectionHeading"]))
     protocol_rows = [
         ["Rule", "Technical meaning"],
         ["Functional urban areas", "Cities are scored as real labour-market and service sheds where possible, not as city-hall boundaries."],
@@ -431,42 +491,45 @@ def build_story(styles):
     story.append(build_table(protocol_rows, [48 * mm, 124 * mm], styles))
 
     story.append(PageBreak())
-    story.append(Paragraph("7. Worked example", styles["SectionHeading"]))
+    story.append(Paragraph("10. Worked example", styles["SectionHeading"]))
     story.append(
         Paragraph(
-            "The following Bangkok-like example is illustrative. It shows the arithmetic path from raw inputs to a final score, but it is not a final audited workbook row.",
+            "The following illustrative example shows the arithmetic path from raw inputs to a final score. It is not a final audited workbook row but demonstrates the scoring mechanics.",
             styles["Body"],
         )
     )
     example_rows = [
         ["Input", "Illustrative value", "Note"],
-        ["Gross income", "$33,500", "Representative city-level earnings input"],
-        ["Effective tax rate", "18%", "User-supplied country context"],
-        ["Essential costs", "$15,900", "Rent, utilities, internet, transit, and food"],
-        ["PPP private consumption factor", "0.72", "World Bank PPP conversion layer"],
-        ["Pillar bundle", "Pressure 71 / Safety 84 / Capability 80 / Community 86 / Business 76", "Values after internal metric aggregation"],
+        ["Gross income", "TWD 55,000/month", "City-level earnings in local currency"],
+        ["Effective tax rate", "12%", "Country context from national data"],
+        ["Essential costs", "TWD 28,000/month", "Rent, utilities, internet, transit, and food"],
+        ["PPP factor", "15.3", "World Bank PPP private consumption"],
+        ["Climate sunlight", "82", "Subtropical warmth, good sunshine hours"],
+        ["Birth rate (TFR)", "1.09", "National fertility rate"],
+        ["Pillar bundle", "Pressure 78 / Viability 80 / Capability 74 / Community 72 / Creative 73", "Values after internal metric aggregation"],
     ]
     story.append(build_table(example_rows, [40 * mm, 62 * mm, 70 * mm], styles))
     story.extend(
         formula_block(
             "Example final score",
-            "SLIC = 0.22x71 + 0.23x84 + 0.15x80 + 0.15x86 + 0.25x76 = 78.84",
-            "The point of the example is balance: visible deductions for pressure or ecology can coexist with visible strengths in community and city energy.",
+            "SLIC = 0.25x78 + 0.22x80 + 0.18x74 + 0.15x72 + 0.20x73 = 75.82",
+            "The point of the example is balance: visible deductions for birth rate or community can coexist with visible strengths in pressure and viability.",
             styles,
         )
     )
 
-    story.append(Paragraph("8. Source ladder", styles["SectionHeading"]))
+    story.append(Paragraph("11. Source ladder", styles["SectionHeading"]))
     source_rows = [
         ["Tier", "Source family", "Examples"],
         ["Tier 1", "City and metro official data", "Open-data portals, transit feeds, utility regulators, hospital releases, city statistical offices"],
         ["Tier 2", "State, province, and subnational official data", "Regional statistical agencies, metropolitan observatories, subnational administrative releases"],
         ["Tier 3", "National and international official datasets", "World Bank, WHO, ILO, UNESCO UIS, OECD, WIPO, WHO/UNICEF JMP"],
         ["Tier 4", "Audited secondary and experimental layers", "OpenAQ, Copernicus CAMS, Sentinel context, JAXA products, Landsat-derived vegetation layers, M-Lab, social listening"],
+        ["Tier 5", "Analyst assessment and cross-reference", "SLIC analyst manual assessment based on lived experience, cross-reference research, and domain expertise"],
     ]
     story.append(build_table(source_rows, [20 * mm, 48 * mm, 122 * mm], styles))
 
-    story.append(Paragraph("9. References", styles["SectionHeading"]))
+    story.append(Paragraph("12. References", styles["SectionHeading"]))
     references = [
         "[1] Internal benchmarking memo: Smart and Livable City Index Methodology Benchmarking.",
         "[2] World Bank Data Help Desk. About the Indicators API Documentation. https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation",
@@ -501,6 +564,8 @@ def build_story(styles):
         "[31] Arkaraprasertkul, N. 2019. Bangkok’s Urban Presence: Toward the Future of Smart Urbanity (Exhibition Entry). 2019 Seoul Biennale of Architecture and Urbanism: Collective City. Guidebook. Seoul Metropolitan Government, p. 137.",
         "[32] Arkaraprasertkul, N. 2018. Gentrification and Its Contentment: An Anthropological Perspective on Housing, Heritage and Urban Social Change in Shanghai. Urban Studies 55(7): 1561-1578. DOI: 10.1177/0042098016684313",
         "[33] Arkaraprasertkul, N. and Williams, M. 2017. Mobility in a Global City: Making Sense of Shanghai’s Growing Automobile-Dominated Transport Culture. Urban Studies 54(10): 2232-2248. DOI: 10.1177/0042098016637568.",
+        "[34] World Meteorological Organization. World Weather Information Service: Climate Normals. https://worldweather.wmo.int/",
+        "[35] World Bank. Fertility Rate, Total (births per woman). https://data.worldbank.org/indicator/SP.DYN.TFRT.IN",
     ]
     for reference in references:
         story.append(Paragraph(reference, styles["Small"]))

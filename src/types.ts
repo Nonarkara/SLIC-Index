@@ -1,7 +1,14 @@
-export type ScoreMode = "balanced" | "physical" | "economic" | "community" | "business";
+export type ScoreMode = "slic" | "pressure" | "viability" | "capability" | "community" | "creative";
 export type TrendDirection = "up" | "down" | "steady";
 export type Locale = "en" | "th" | "zh";
-export type SitePath = "/" | "/about-slic" | "/methodology" | "/rankings" | "/thailand" | "/ideas";
+export type SitePath =
+  | "/"
+  | "/about-slic"
+  | "/methodology"
+  | "/rankings"
+  | "/exercise"
+  | "/thailand"
+  | "/ideas";
 
 export interface LandingMeta {
   title: string;
@@ -78,7 +85,7 @@ export interface SignalCard {
 }
 
 export interface MethodologyPillar {
-  id: Exclude<ScoreMode, "balanced">;
+  id: Exclude<ScoreMode, "slic">;
   name: string;
   description: string;
   metrics: string[];

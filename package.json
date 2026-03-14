@@ -8,12 +8,24 @@
     "rack:build": "python3 scripts/build_knowledge_rack.py",
     "build:workbook": "python3 scripts/generate_slic_workbook.py",
     "build:pdf": "python3 scripts/generate_methodology_pdf.py",
+    "build:sheets": "python3 scripts/generate_google_sheets_template.py",
+    "build:sheets:internal": "python3 scripts/generate_internal_analyst_workbook.py",
+    "fetch:country-context:wb": "sh scripts/fetch_world_bank_country_context_exports.sh",
+    "prepare:verified-sources": "python3 scripts/prepare_verified_sources.py",
+    "seed:country-context:wb": "PYTHONPATH=scripts python3 scripts/seed_country_context_from_world_bank_exports.py",
+    "sync:verified-sources": "python3 scripts/sync_verified_sources_to_workbook.py",
+    "extract:economist": "python3 scripts/extract_economist_reference.py",
+    "audit:ranking": "python3 scripts/audit_ranking_math.py",
+    "export:ranking": "python3 scripts/export_published_rankings.py",
     "verify:workbook": "python3 scripts/validate_slic_workbook.py",
-    "build": "npm run rack:build && tsc -b && vite build",
-    "build:web": "tsc -b && vite build",
-    "preview": "vite preview"
+    "build": "npm run rack:build && npm run export:ranking && npm run build:sheets && tsc -b && vite build",
+    "build:web": "npm run export:ranking && npm run build:sheets && tsc -b && vite build",
+    "build:render": "tsc -b && vite build",
+    "preview": "vite preview",
+    "start": "node server.js"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

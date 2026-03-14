@@ -227,6 +227,20 @@ const methodologyReferences: MethodologyReference[] = [
     url: "https://doi.org/10.1177/0042098016637568",
     note: "Mobility and transport-culture research supporting SLIC's interpretation of friction, movement, and car-dominated urban tradeoffs.",
   },
+  {
+    id: 34,
+    label: "World Weather Information Service: Climate Normals",
+    publisher: "World Meteorological Organization",
+    url: "https://worldweather.wmo.int/",
+    note: "Official WMO climate normals used for sunshine hours, temperature comfort, and extreme weather frequency in the climate and sunlight livability metric.",
+  },
+  {
+    id: 35,
+    label: "Fertility Rate, Total (births per woman)",
+    publisher: "World Bank",
+    url: "https://data.worldbank.org/indicator/SP.DYN.TFRT.IN",
+    note: "Official World Bank total fertility rate data used as a societal optimism proxy in the Community pillar.",
+  },
 ];
 
 const worksheetColumns: WorksheetColumn[] = [
@@ -282,8 +296,8 @@ const worksheetColumns: WorksheetColumn[] = [
   },
   {
     field: "viability_metrics",
-    purpose: "Safety, air, water, transit, and digital infrastructure inputs.",
-    source: "WHO, JMP, OpenAQ, CAMS, M-Lab, city open data",
+    purpose: "Safety, air, water, transit, digital infrastructure, and climate/sunlight livability inputs.",
+    source: "WHO, JMP, OpenAQ, CAMS, M-Lab, WMO, city open data",
   },
   {
     field: "remote_sensing_context",
@@ -297,8 +311,8 @@ const worksheetColumns: WorksheetColumn[] = [
   },
   {
     field: "community_metrics",
-    purpose: "Hospitality, tolerance, public-life, and adjusted visitor-flow inputs.",
-    source: "Policy records, open data, social listening, testimony audit",
+    purpose: "Hospitality, tolerance, public-life, birth rate optimism, and adjusted visitor-flow inputs.",
+    source: "Policy records, open data, social listening, testimony audit, World Bank TFR",
   },
   {
     field: "creative_metrics",
@@ -333,6 +347,11 @@ const englishSourceTiers: SourceTier[] = [
     title: "Audited secondary and experimental layers",
     description: "OpenAQ, Copernicus CAMS, Sentinel-2 / Sentinel-5P context, JAXA land products, Landsat-derived vegetation layers, M-Lab, social listening, crowdsourced cost layers, and city testimony with visible caveats.",
   },
+  {
+    tier: "Tier 5",
+    title: "Analyst assessment and cross-reference",
+    description: "SLIC analyst manual assessment based on lived experience, cross-reference research, and domain expertise. Used for tolerance, hospitality, cultural life, and other qualitative signals that resist pure data capture.",
+  },
 ];
 
 const thaiSourceTiers: SourceTier[] = [
@@ -356,6 +375,11 @@ const thaiSourceTiers: SourceTier[] = [
     title: "ชั้นข้อมูลรองและชั้นทดลองที่ผ่านการตรวจสอบ",
     description: "OpenAQ, Copernicus CAMS, ข้อมูลบริบท Sentinel-2 / Sentinel-5P, ผลิตภัณฑ์ที่ดินของ JAXA, ชั้น vegetation จาก Landsat, M-Lab, social listening, ชั้นข้อมูลค่าครองชีพ และ testimony ที่มี caveat ชัดเจน",
   },
+  {
+    tier: "ชั้นที่ 5",
+    title: "การประเมินของนักวิเคราะห์และการอ้างอิงข้าม",
+    description: "การประเมินด้วยตนเองของนักวิเคราะห์ SLIC จากประสบการณ์จริง การวิจัยอ้างอิงข้าม และความเชี่ยวชาญเฉพาะด้าน",
+  },
 ];
 
 const chineseSourceTiers: SourceTier[] = [
@@ -378,6 +402,11 @@ const chineseSourceTiers: SourceTier[] = [
     tier: "第4层",
     title: "经审计的二级与实验层数据",
     description: "OpenAQ、Copernicus CAMS、Sentinel-2 / Sentinel-5P 背景层、JAXA 土地产品、Landsat 植被派生层、M-Lab、社交聆听、众包生活成本层，以及带有明示 caveat 的城市证词。",
+  },
+  {
+    tier: "第5层",
+    title: "分析师评估与交叉参考",
+    description: "SLIC分析师基于实际经验、交叉参考研究和专业知识的人工评估。",
   },
 ];
 
@@ -595,9 +624,9 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "official-score",
               title: "Official SLIC score",
               formula:
-                "SLIC(c) = 0.22 Pressure(c) + 0.23 SafetyViability(c) + 0.15 HumanCapability(c) + 0.15 CommunityTolerance(c) + 0.25 BusinessGrowth(c)",
+                "SLIC(c) = 0.25 Pressure(c) + 0.22 Viability(c) + 0.18 Capability(c) + 0.15 Community(c) + 0.20 Creative(c)",
               explanation:
-                "The public leaderboard uses one fixed weighted model. Business and growth remain explicit so a city cannot win by comfort alone.",
+                "The public leaderboard uses one fixed weighted model. Pressure carries the largest share, with viability, capability, community, and creative vitality kept explicit in the score.",
               citations: [1],
             },
             {
@@ -643,33 +672,33 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           eyebrow: "Public subscore equations",
           title: "Subscores that remain visible to readers",
           summary:
-            "Safety, community, and business conditions stay public-facing because they are central to how SLIC wants cities to be read.",
+            "The visible pillar equations below match the workbook structure used by the public score.",
           equations: [
             {
               id: "safety-viability",
-              title: "Safety and viability pillar",
+              title: "Viability pillar",
               formula:
-                "SafetyViability(c) = 0.28 SafetyOutcomes + 0.22 TransitAccess + 0.18 CleanAir + 0.16 WaterUtility + 0.16 DigitalInfrastructure",
+                "Viability(c) = 0.185 PersonalSafety + 0.185 TransitAccess + 0.148 CleanAir + 0.148 WaterUtility + 0.148 DigitalInfra + 0.185 ClimateSunlight",
               explanation:
-                "The pillar rewards observed safety, ecological competence, and basic city usability. Surveillance intensity is excluded.",
-              citations: [3, 5, 11, 13, 17],
+                "Viability rewards observed safety, ecological competence, climate comfort, and the reliability of everyday city systems. Climate and sunlight penalize both Nordic darkness and Gulf desert heat.",
+              citations: [3, 5, 11, 13, 17, 34],
             },
             {
               id: "community-tolerance",
-              title: "Community and tolerance pillar",
+              title: "Community pillar",
               formula:
-                "CommunityTolerance(c) = 0.34 HospitalityBelonging + 0.33 TolerancePluralism + 0.33 PublicLifeVitality",
+                "Community(c) = 0.263 HospitalityBelonging + 0.263 TolerancePluralism + 0.263 PublicLifeVitality + 0.211 BirthRateOptimism",
               explanation:
-                "Tolerance is scored through low-friction coexistence, equal market access, and everyday freedom rather than symbolic branding.",
-              citations: [1, 14, 16],
+                "Community is scored through low-friction coexistence, equal market access, everyday public life, and birth rate as a societal optimism signal.",
+              citations: [1, 14, 16, 35],
             },
             {
               id: "business-growth",
-              title: "Business and growth pillar",
+              title: "Creative pillar",
               formula:
-                "BusinessGrowth(c) = 0.30 OpeningEase + 0.25 GovernmentStability + 0.20 TaxCompetitiveness + 0.15 IncentiveReadiness + 0.10 ProductiveMomentum",
+                "Creative(c) = 0.30 EntrepreneurialDynamism + 0.25 InnovationResearchIntensity + 0.25 EconomicVitality + 0.20 AdministrativeFriction",
               explanation:
-                "Cities score higher when they make productive competition possible through lower-friction business formation and a more stable operating environment.",
+                "Creative vitality rises when cities support entrepreneurial dynamism, research depth, productive momentum, and lower-friction administration.",
               citations: [2, 10, 16],
             },
           ],
@@ -701,83 +730,77 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       summary:
         "This example is illustrative rather than an audited publication row. Its purpose is to show how raw inputs become a final score.",
       example: {
-        city: "Bangkok preview computation",
-        note: "Illustrative example using preview values to show the math path, not a final audited workbook row.",
+        city: "Illustrative city computation",
+        note: "Illustrative example showing the math path from raw inputs to a final score, not a final audited workbook row.",
         inputs: [
-          { label: "Gross income", value: "$33,500", note: "Representative city-level earnings input" },
-          { label: "Effective tax rate", value: "18%", note: "User-supplied country context term" },
-          { label: "Essential costs", value: "$15,900", note: "Rent, utilities, transit, internet, and food" },
-          { label: "PPP private consumption factor", value: "0.72", note: "World Bank PPP conversion layer" },
-          { label: "Illustrative pillar bundle", value: "Pressure 71 / Safety 84 / Capability 80 / Community 86 / Business 76", note: "Values after internal metric aggregation" },
+          { label: "Gross income", value: "TWD 55,000/month", note: "City-level earnings in local currency" },
+          { label: "Effective tax rate", value: "12%", note: "Country context from national data" },
+          { label: "Essential costs", value: "TWD 28,000/month", note: "Rent, utilities, internet, transit, and food" },
+          { label: "PPP factor", value: "15.3", note: "World Bank PPP private consumption conversion" },
+          { label: "Climate sunlight", value: "82", note: "Subtropical warmth, good sunshine hours" },
+          { label: "Birth rate (TFR)", value: "1.09", note: "National fertility rate" },
+          { label: "Illustrative pillar bundle", value: "Pressure 78 / Viability 80 / Capability 74 / Community 72 / Creative 73", note: "Values after internal metric aggregation" },
         ],
         steps: [
           {
             title: "Disposable room after tax and essentials",
             formula:
-              "DI_ppp = ((33,500 x (1 - 0.18)) - 15,900) / 0.72",
-            result: "DI_ppp = 16,069",
+              "DI_ppp = ((55,000 x (1 - 0.12)) - 28,000) / 15.3",
+            result: "DI_ppp = 1,333 PPP units/month",
             explanation:
               "This converts residual income into PPP terms so money left after essentials is comparable across cities.",
           },
           {
             title: "Negative-metric normalization example",
             formula:
-              "SafetyScore = 100 x ((12.0 - 3.2) / (12.0 - 1.4))",
-            result: "SafetyScore = 83.0",
+              "SafetyScore = 100 x ((12.0 - 0.8) / (12.0 - 0.3))",
+            result: "SafetyScore = 95.7",
             explanation:
               "Because violent harm is negative, the percentile band is reversed so lower harm yields a higher score.",
           },
           {
             title: "Pressure pillar aggregation",
             formula:
-              "Pressure = (9x82 + 5x64 + 4x61 + 4x74 + 3x58) / 25",
-            result: "Pressure = 70.9",
+              "Pressure = (9x85 + 5x72 + 4x68 + 4x78 + 5x62) / 27",
+            result: "Pressure = 75.6",
             explanation:
-              "Internal metric weights sum to 25, then collapse to a single public pillar score.",
+              "Internal metric weights sum to 27, then collapse to a single public pillar score.",
           },
           {
             title: "Final public score",
             formula:
-              "SLIC = 0.22x71 + 0.23x84 + 0.15x80 + 0.15x86 + 0.25x76",
-            result: "SLIC = 78.84",
+              "SLIC = 0.25x78 + 0.22x80 + 0.18x74 + 0.15x72 + 0.20x73",
+            result: "SLIC = 75.82",
             explanation:
               "The five public pillars are combined once, with fixed public weights and no hidden override layer.",
           },
         ],
-        finalScore: "78.84",
+        finalScore: "75.82",
         conclusion:
-          "The example shows the intended balance: Bangkok-like strengths in community and city energy can coexist with real deductions for pressure or ecology, rather than being buried inside prestige averages.",
+          "The example shows the intended balance: visible deductions for birth rate or community can coexist with visible strengths in pressure and viability, rather than being buried inside prestige averages.",
       },
     },
     modelSection: {
-      eyebrow: "Model families",
-      title: "Why SLIC shows more than one mathematical family",
+      eyebrow: "Method boundaries",
+      title: "One public model, with diagnostics kept separate",
       summary:
-        "The live public ranking uses the fixed weighted model. PCA and MCDA are shown because they strengthen the methodology rather than replace it.",
+        "The public score comes from one fixed weighted model. Internal diagnostics may challenge data quality or structure, but they do not alter the published rank.",
       families: [
         {
           id: "weighted",
-          title: "Weighted public model",
-          formula: "S(c) = Sum over pillars p of w_p x P_p(c)",
-          role: "Live and public",
+          title: "Official public model",
+          formula: "SLIC(c) = Sum over pillars p of w_p x P_p(c)",
+          role: "Published score",
           explanation:
-            "This is the official public engine: fixed weights, transparent normalization, and clear pillar logic. It is the easiest layer to explain and replicate.",
+            "This is the only public scoring engine: fixed weights, transparent normalization, and declared pillar logic that readers can replicate.",
         },
         {
-          id: "pca",
-          title: "PCA validation layer",
-          formula: "PC_k = Sum over metrics m of beta_(k,m) x z_m(c)",
-          role: "Internal validation",
+          id: "diagnostics",
+          title: "Internal diagnostics",
+          formula: "Diagnostics(c) do not modify SLIC(c)",
+          role: "Non-scoring checks",
           explanation:
-            "Principal-component analysis is used to test whether indicators cluster in ways that support the declared SLIC doctrine. It is not the live public score.",
-        },
-        {
-          id: "mcda",
-          title: "MCDA / PROMETHEE rough-edge layer",
-          formula: "phi(c) = phi^+(c) - phi^-(c)",
-          role: "Advanced hard-constraint logic",
-          explanation:
-            "A PROMETHEE-style layer is useful when SLIC wants deal-breakers such as extreme danger, coercion, or severe pollution to behave like hard constraints rather than minor deductions.",
+            "Consistency checks, clustering tests, and analyst review can flag weak inputs or unsupported patterns, but they do not add hidden bonuses or penalties to the public score.",
         },
       ],
     },
@@ -792,13 +815,13 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       eyebrow: "Official pillars",
       title: "The five public bundles behind the score",
       summary:
-        "Each pillar is public, weighted, and auditable. The metric weights below show what each pillar is made of.",
+        "Each pillar below matches the workbook weights and metric structure used by the public score.",
     },
     pillars: [
       {
         id: "pressure",
-        name: "Pressure, Affordability, and Room to Live",
-        weight: 22,
+        name: "Pressure",
+        weight: 25,
         thesis: "A city is not truly liveable if people keep little money, carry excessive debt, and work themselves flat.",
         justification: "This pillar punishes false prosperity and keeps disposable room central to the score.",
         citations: [2, 3, 7],
@@ -807,13 +830,13 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "Housing burden", weight: 5, description: "Housing cost share of household income or graduate income proxy.", inputs: ["median rent", "housing-cost share"] },
           { name: "Household debt burden", weight: 4, description: "Debt relative to disposable income or strongest available proxy.", inputs: ["household debt", "disposable income"] },
           { name: "Working time pressure", weight: 4, description: "Average hours worked and over-48-hour prevalence.", inputs: ["weekly hours", "overwork share"] },
-          { name: "Suicide and severe mental strain", weight: 3, description: "Suicide or strongest defensible mental-harm proxy.", inputs: ["suicide rate", "mental-health harm proxy"] },
+          { name: "Suicide and severe mental strain", weight: 5, description: "Suicide rate as the sharpest signal of urban pressure that economic metrics alone cannot capture.", inputs: ["suicide rate", "mental-health harm proxy"] },
         ],
       },
       {
         id: "viability",
-        name: "Safety, Ecology, and Daily Viability",
-        weight: 23,
+        name: "Viability",
+        weight: 22,
         thesis: "Daily life should be safer, cleaner, easier to move through, and technically competent without turning coercive.",
         justification: "This is where competent cities score, but only on the lived outcomes their systems produce.",
         citations: [3, 5, 11, 13, 17],
@@ -823,24 +846,25 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "Clean air", weight: 4, description: "PM2.5 and severe pollution exposure with CAMS and OpenAQ context.", inputs: ["PM2.5", "exceedance", "aerosol context"] },
           { name: "Water, sanitation, and utility reliability", weight: 4, description: "Safe water, sanitation, and basic service reliability.", inputs: ["WASH access", "interruptions", "compliance"] },
           { name: "Digital infrastructure", weight: 4, description: "Broadband quality, affordability, and fibre readiness.", inputs: ["fixed broadband", "affordability", "internet performance"] },
+          { name: "Climate and sunlight livability", weight: 5, description: "Composite of sunshine hours, temperature comfort relative to 22 deg C optimum, and extreme weather frequency.", inputs: ["sunshine hours", "temperature comfort", "extreme weather"] },
         ],
       },
       {
         id: "capability",
-        name: "Human Capability",
-        weight: 15,
+        name: "Capability",
+        weight: 18,
         thesis: "A serious city gives people access to good healthcare, good education, and fair pathways into adulthood.",
         justification: "This pillar prefers quality and access outcomes, not institution counts alone.",
         citations: [3, 6, 8, 9, 14, 15],
         metrics: [
-          { name: "Healthcare quality", weight: 6, description: "Amenable mortality, capacity, and effective care access.", inputs: ["avoidable mortality", "quality outcomes", "provider capacity"] },
-          { name: "Education quality", weight: 5, description: "Learning outcomes, completion, and skills formation.", inputs: ["PISA", "UIS outcomes", "completion", "skills pipeline"] },
-          { name: "Equal opportunity", weight: 4, description: "Gender gaps, youth NEET, and distributional fairness signals.", inputs: ["gender data", "NEET", "Gini", "labour gaps"] },
+          { name: "Healthcare quality", weight: 8, description: "Amenable mortality, capacity, and effective care access.", inputs: ["avoidable mortality", "quality outcomes", "provider capacity"] },
+          { name: "Education quality", weight: 6, description: "Learning outcomes, completion, and skills formation.", inputs: ["PISA", "UIS outcomes", "completion", "skills pipeline"] },
+          { name: "Equal opportunity and distributional fairness", weight: 4, description: "Gender gaps, youth NEET, and distributional fairness signals.", inputs: ["gender data", "NEET", "Gini", "labour gaps"] },
         ],
       },
       {
         id: "community",
-        name: "Community, Tolerance, and Belonging",
+        name: "Community",
         weight: 15,
         thesis: "Hospitality, social legibility, and peaceful coexistence are part of the lived product of the city.",
         justification: "This is where welcoming cities can outrank colder cities even when both are administratively competent.",
@@ -849,20 +873,21 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "Hospitality and belonging", weight: 5, description: "Welcoming sentiment, resident attachment, and multilingual usability.", inputs: ["social listening", "testimony audit", "multilingual services"] },
           { name: "Tolerance and pluralism", weight: 5, description: "Low-friction coexistence, equal market access, and lifestyle freedom.", inputs: ["legal openness", "discrimination proxy", "market-access signal"] },
           { name: "Cultural and public-life vitality", weight: 5, description: "Third places, historic continuity, and visitor pull checked against civic strain.", inputs: ["venues", "events", "public attention", "visitor flow"] },
+          { name: "Birth rate optimism", weight: 4, description: "Total fertility rate as a societal optimism proxy. If people choose not to have children in a city, something fundamental has failed.", inputs: ["World Bank TFR"] },
         ],
       },
       {
         id: "creative",
-        name: "Business, Growth, and Competitive Vitality",
-        weight: 25,
+        name: "Creative",
+        weight: 20,
         thesis: "Cities should not only reduce suffering. They should also generate ambition, invention, and productive energy.",
         justification: "This pillar keeps SLIC from confusing calm with stagnation or comfort with competitiveness.",
         citations: [2, 10, 16],
         metrics: [
-          { name: "Business opening ease", weight: 8, description: "Registration time, permit friction, and startup formation signals.", inputs: ["registration time", "permit time", "licensing burden"] },
-          { name: "Government stability and rule consistency", weight: 6, description: "Operating stability and absence of highly distortive administrative shocks.", inputs: ["stability proxy", "rule consistency", "administrative reliability"] },
-          { name: "Tax regime and incentives", weight: 5, description: "Tax clarity, tax burden, and incentive readiness.", inputs: ["effective tax rate", "tax clarity", "investment incentives"] },
-          { name: "Innovation and productive momentum", weight: 6, description: "Patents, research depth, GDP context, and investment runway.", inputs: ["patents", "R&D", "GDP per capita PPP", "GDP growth", "investment signal"] },
+          { name: "Entrepreneurial dynamism", weight: 6, description: "Startup formation, business activity, and the local velocity of productive entry.", inputs: ["new business density", "firm formation", "entrepreneurial activity"] },
+          { name: "Innovation and research intensity", weight: 5, description: "Patents, research depth, and the city's capacity to generate new ideas.", inputs: ["patents", "R&D", "research institutions"] },
+          { name: "Economic vitality and productive context", weight: 5, description: "Investment signal, macro productive context, and the city's economic runway.", inputs: ["investment signal", "GDP per capita PPP", "GDP growth"] },
+          { name: "Administrative and investment friction", weight: 4, description: "How much bureaucracy, instability, or permitting drag gets in the way of productive action.", inputs: ["administrative friction", "permitting burden", "rule consistency"] },
         ],
       },
     ],
@@ -1108,9 +1133,9 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "official-score-th",
               title: "คะแนน SLIC อย่างเป็นทางการ",
               formula:
-                "SLIC(c) = 0.22 Pressure(c) + 0.23 SafetyViability(c) + 0.15 HumanCapability(c) + 0.15 CommunityTolerance(c) + 0.25 BusinessGrowth(c)",
+                "SLIC(c) = 0.25 Pressure(c) + 0.22 Viability(c) + 0.18 Capability(c) + 0.15 Community(c) + 0.20 Creative(c)",
               explanation:
-                "บอร์ดสาธารณะใช้ weighted model เพียงสูตรเดียว โดยยก business and growth เป็นองค์ประกอบที่มองเห็นได้ชัด",
+                "บอร์ดสาธารณะใช้สูตรถ่วงน้ำหนักทางการเพียงสูตรเดียว โดยให้ Pressure เป็นสัดส่วนใหญ่สุด และคง Viability, Capability, Community และ Creative ไว้อย่างเปิดเผย",
               citations: [1],
             },
             {
@@ -1154,33 +1179,33 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           id: "subscores-th",
           eyebrow: "สมการย่อยที่สาธารณะเห็น",
           title: "คะแนนย่อยที่ยังต้องมองเห็นได้",
-          summary: "ความปลอดภัย ชุมชน และเงื่อนไขทางธุรกิจต้องยังอยู่ในสายตาผู้อ่าน เพราะเป็นแกนกลางของวิธีนี้",
+          summary: "สมการของเสาหลักที่มองเห็นได้ด้านล่างตรงกับโครงสร้างในเวิร์กบุ๊กที่ใช้คำนวณคะแนนสาธารณะ",
           equations: [
             {
               id: "safety-viability-th",
-              title: "เสาหลักความปลอดภัยและความใช้งานได้จริง",
+              title: "เสาหลัก Viability",
               formula:
-                "SafetyViability(c) = 0.28 SafetyOutcomes + 0.22 TransitAccess + 0.18 CleanAir + 0.16 WaterUtility + 0.16 DigitalInfrastructure",
+                "Viability(c) = 0.23 PersonalSafety + 0.23 TransitAccess + 0.18 CleanAir + 0.18 WaterUtility + 0.18 DigitalInfrastructure",
               explanation:
-                "เสานี้ให้รางวัลกับความปลอดภัยจริง นิเวศวิทยา และความสามารถในการใช้ชีวิตประจำวัน โดยไม่ให้คะแนนกับ surveillance intensity",
+                "Viability ให้รางวัลกับความปลอดภัยจริง นิเวศวิทยา และความเสถียรของระบบชีวิตประจำวัน โดยไม่ให้คะแนนกับ surveillance intensity",
               citations: [3, 5, 11, 13, 17],
             },
             {
               id: "community-tolerance-th",
-              title: "เสาหลักชุมชนและความเปิดกว้าง",
+              title: "เสาหลัก Community",
               formula:
-                "CommunityTolerance(c) = 0.34 HospitalityBelonging + 0.33 TolerancePluralism + 0.33 PublicLifeVitality",
+                "Community(c) = 0.33 HospitalityBelonging + 0.33 TolerancePluralism + 0.33 PublicLifeVitality",
               explanation:
-                "ความเปิดกว้างถูกวัดจากการอยู่ร่วมกันได้จริง การเข้าถึงตลาดอย่างเท่าเทียม และเสรีภาพในการใช้ชีวิต ไม่ใช่จากภาพลักษณ์เชิงสัญลักษณ์",
+                "Community ถูกวัดจากการอยู่ร่วมกันได้จริง การเข้าถึงตลาดอย่างเท่าเทียม และชีวิตสาธารณะ ไม่ใช่จากภาพลักษณ์เชิงสัญลักษณ์",
               citations: [1, 14, 16],
             },
             {
               id: "business-growth-th",
-              title: "เสาหลักธุรกิจและการเติบโต",
+              title: "เสาหลัก Creative",
               formula:
-                "BusinessGrowth(c) = 0.30 OpeningEase + 0.25 GovernmentStability + 0.20 TaxCompetitiveness + 0.15 IncentiveReadiness + 0.10 ProductiveMomentum",
+                "Creative(c) = 0.30 EntrepreneurialDynamism + 0.25 InnovationResearchIntensity + 0.25 EconomicVitality + 0.20 AdministrativeFriction",
               explanation:
-                "เมืองจะได้คะแนนสูงขึ้นเมื่อทำให้การแข่งขันเชิงผลิตภาพเกิดขึ้นได้ผ่านการเริ่มธุรกิจที่ลื่นไหลและสภาพแวดล้อมที่มั่นคงกว่า",
+                "Creative จะสูงขึ้นเมื่อเมืองสนับสนุนผู้ประกอบการ ความเข้มข้นของการวิจัย โมเมนตัมทางเศรษฐกิจ และลดแรงเสียดทานด้านการบริหาร",
               citations: [2, 10, 16],
             },
           ],
@@ -1219,7 +1244,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { label: "Effective tax rate", value: "18%", note: "ตัวแปรบริบทประเทศที่ผู้ใช้ป้อน" },
           { label: "Essential costs", value: "$15,900", note: "ค่าเช่า ค่าน้ำไฟ อินเทอร์เน็ต เดินทาง และอาหาร" },
           { label: "PPP private consumption factor", value: "0.72", note: "ชั้น conversion ของ World Bank" },
-          { label: "Illustrative pillar bundle", value: "Pressure 71 / Safety 84 / Capability 80 / Community 86 / Business 76", note: "ค่าหลังรวมตัวแปรภายในเสาหลัก" },
+          { label: "Illustrative pillar bundle", value: "Pressure 71 / Viability 84 / Capability 80 / Community 86 / Creative 76", note: "ค่าหลังรวมตัวแปรภายในเสาหลัก" },
         ],
         steps: [
           {
@@ -1242,42 +1267,35 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           },
           {
             title: "คะแนนสาธารณะสุดท้าย",
-            formula: "SLIC = 0.22x71 + 0.23x84 + 0.15x80 + 0.15x86 + 0.25x76",
-            result: "SLIC = 78.84",
+            formula: "SLIC = 0.25x71 + 0.22x84 + 0.18x80 + 0.15x86 + 0.20x76",
+            result: "SLIC = 78.73",
             explanation: "ห้าเสาหลักสาธารณะถูกรวมเพียงครั้งเดียว ด้วยน้ำหนักทางการที่ประกาศชัด",
           },
         ],
-        finalScore: "78.84",
+        finalScore: "78.73",
         conclusion:
           "ตัวอย่างนี้แสดงให้เห็นว่าเมืองอย่างกรุงเทพฯ สามารถมีจุดแข็งด้านชุมชนและพลังเมืองได้จริง ขณะเดียวกันก็ยังถูกหักคะแนนจากแรงกดดันหรือสิ่งแวดล้อมอย่างโปร่งใส",
       },
     },
     modelSection: {
-      eyebrow: "ตระกูลโมเดล",
-      title: "เหตุผลที่ SLIC แสดงมากกว่าหนึ่งชุดคณิตศาสตร์",
+      eyebrow: "ขอบเขตของวิธี",
+      title: "มีสูตรสาธารณะเพียงชุดเดียว ส่วน diagnostics แยกออกต่างหาก",
       summary:
-        "การจัดอันดับสาธารณะใช้ fixed weighted model ส่วน PCA และ MCDA ถูกอธิบายไว้เพื่อเสริมความเข้มแข็งของวิธี ไม่ใช่เพื่อแทนที่มัน",
+        "คะแนนสาธารณะมาจาก fixed weighted model เพียงชุดเดียว ส่วน diagnostics ภายในอาจใช้ตรวจคุณภาพข้อมูลหรือโครงสร้างตัวแปร แต่ไม่แก้อันดับที่เผยแพร่",
       families: [
         {
           id: "weighted-th",
-          title: "Weighted public model",
-          formula: "S(c) = Sum over pillars p of w_p x P_p(c)",
-          role: "ใช้จริงบนหน้า public",
+          title: "Public weighted model",
+          formula: "SLIC(c) = Sum over pillars p of w_p x P_p(c)",
+          role: "คะแนนที่เผยแพร่",
           explanation: "นี่คือเครื่องยนต์สาธารณะอย่างเป็นทางการ อธิบายง่าย ทำซ้ำได้ และตรงกับสิ่งที่ผู้อ่านเห็นบนหน้าอันดับ",
         },
         {
-          id: "pca-th",
-          title: "PCA validation layer",
-          formula: "PC_k = Sum over metrics m of beta_(k,m) x z_m(c)",
-          role: "ใช้ตรวจโครงสร้างภายใน",
-          explanation: "PCA ใช้ตรวจว่าตัวแปรที่เลือกมาจัดกลุ่มสอดคล้องกับ doctrine ของ SLIC จริงหรือไม่ แต่ไม่ใช่คะแนน public สด",
-        },
-        {
-          id: "mcda-th",
-          title: "MCDA / PROMETHEE rough-edge layer",
-          formula: "phi(c) = phi^+(c) - phi^-(c)",
-          role: "ใช้กับเงื่อนไขแข็ง",
-          explanation: "PROMETHEE-style logic มีประโยชน์เมื่อ SLIC ต้องการให้ความอันตราย การบีบบังคับ หรือมลพิษรุนแรงทำหน้าที่เหมือน hard constraint",
+          id: "diagnostics-th",
+          title: "Internal diagnostics",
+          formula: "Diagnostics(c) do not modify SLIC(c)",
+          role: "การตรวจแบบไม่ให้คะแนน",
+          explanation: "การตรวจความสอดคล้อง การทดสอบโครงสร้าง และการทบทวนของนักวิเคราะห์อาจใช้เพื่อจับข้อมูลที่อ่อนหรือไม่สมเหตุผล แต่ไม่เพิ่มโบนัสหรือบทลงโทษลับในคะแนนสาธารณะ",
         },
       ],
     },
@@ -1292,13 +1310,13 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       eyebrow: "เสาหลักทางการ",
       title: "ห้าเสาหลักสาธารณะที่อยู่เบื้องหลังคะแนน",
       summary:
-        "ทุกเสาหลักเปิดเผยต่อสาธารณะ มีน้ำหนักชัด และ audit ได้ ตารางด้านล่างแสดงว่าน้ำหนักภายในประกอบขึ้นอย่างไร",
+        "เสาทุกต้นด้านล่างตรงกับน้ำหนักและโครงสร้างในเวิร์กบุ๊กที่ใช้คำนวณคะแนนสาธารณะ",
     },
     pillars: [
       {
         id: "pressure",
-        name: "แรงกดดัน ความสามารถในการจ่าย และพื้นที่ชีวิตจริง",
-        weight: 22,
+        name: "Pressure",
+        weight: 25,
         thesis: "เมืองจะเรียกว่าน่าอยู่จริงไม่ได้ หากคนแทบไม่เหลือเงิน มีหนี้มาก และต้องทำงานจนหมดแรง",
         justification: "เสานี้ลงโทษความรุ่งเรืองปลอม และทำให้พื้นที่รายได้ใช้สอยจริงอยู่กลางสูตร",
         citations: [2, 3, 7],
@@ -1312,8 +1330,8 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       },
       {
         id: "viability",
-        name: "ความปลอดภัย นิเวศวิทยา และการใช้งานได้จริงในชีวิตประจำวัน",
-        weight: 23,
+        name: "Viability",
+        weight: 22,
         thesis: "ชีวิตประจำวันควรปลอดภัยกว่า หายใจได้ง่ายกว่า เดินทางได้ และมีระบบพื้นฐานที่ทำงานโดยไม่กดทับคน",
         justification: "นี่คือพื้นที่ที่เมืองมีสมรรถนะจะได้คะแนน แต่ต้องเป็นสมรรถนะที่สร้างผลลัพธ์จริง",
         citations: [3, 5, 11, 13, 17],
@@ -1327,20 +1345,20 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       },
       {
         id: "capability",
-        name: "ศักยภาพของมนุษย์",
-        weight: 15,
+        name: "Capability",
+        weight: 18,
         thesis: "เมืองที่จริงจังต้องให้คนเข้าถึงสุขภาพที่ดี การศึกษาที่ดี และทางผ่านที่เป็นธรรมสู่ชีวิตผู้ใหญ่",
         justification: "เสานี้ให้ความสำคัญกับคุณภาพและการเข้าถึงจริง ไม่ใช่นับจำนวนสถาบันอย่างเดียว",
         citations: [3, 6, 8, 9, 14, 15],
         metrics: [
-          { name: "คุณภาพของระบบสุขภาพ", weight: 6, description: "amenable mortality ศักยภาพของระบบ และการเข้าถึงการรักษาที่มีประสิทธิผล", inputs: ["avoidable mortality", "quality outcomes", "provider capacity"] },
-          { name: "คุณภาพของการศึกษา", weight: 5, description: "ผลลัพธ์การเรียนรู้ การจบการศึกษา และสายทักษะ", inputs: ["PISA", "UIS outcomes", "completion", "skills pipeline"] },
-          { name: "โอกาสที่เท่าเทียม", weight: 4, description: "ช่องว่างทางเพศ NEET และสัญญาณความเป็นธรรมในการกระจายโอกาส", inputs: ["gender data", "NEET", "Gini", "labour gaps"] },
+          { name: "คุณภาพของระบบสุขภาพ", weight: 8, description: "amenable mortality ศักยภาพของระบบ และการเข้าถึงการรักษาที่มีประสิทธิผล", inputs: ["avoidable mortality", "quality outcomes", "provider capacity"] },
+          { name: "คุณภาพของการศึกษา", weight: 6, description: "ผลลัพธ์การเรียนรู้ การจบการศึกษา และสายทักษะ", inputs: ["PISA", "UIS outcomes", "completion", "skills pipeline"] },
+          { name: "โอกาสที่เท่าเทียมและความเป็นธรรมในการกระจาย", weight: 4, description: "ช่องว่างทางเพศ NEET และสัญญาณความเป็นธรรมในการกระจายโอกาส", inputs: ["gender data", "NEET", "Gini", "labour gaps"] },
         ],
       },
       {
         id: "community",
-        name: "ชุมชน ความเปิดกว้าง และความรู้สึกเป็นส่วนหนึ่ง",
+        name: "Community",
         weight: 15,
         thesis: "การต้อนรับ การอยู่ร่วมกันได้ และการอ่านตัวเองออกในเมือง เป็นส่วนหนึ่งของผลิตภัณฑ์ที่เมืองสร้างขึ้น",
         justification: "นี่คือพื้นที่ที่เมืองที่เป็นมิตรสามารถชนะเมืองที่เย็นชาได้ แม้ทั้งคู่จะมีระบบจัดการที่ดี",
@@ -1353,16 +1371,16 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       },
       {
         id: "creative",
-        name: "ธุรกิจ การเติบโต และพลังการแข่งขัน",
-        weight: 25,
+        name: "Creative",
+        weight: 20,
         thesis: "เมืองไม่ควรเพียงลดความทุกข์ แต่ต้องสร้างความทะเยอทะยาน การประดิษฐ์ และพลังทางเศรษฐกิจเชิงผลิตภาพด้วย",
         justification: "เสานี้ป้องกันไม่ให้ SLIC สับสนระหว่างความสงบกับความชะงัก หรือความสบายกับความสามารถในการแข่งขัน",
         citations: [2, 10, 16],
         metrics: [
-          { name: "ความง่ายในการเปิดธุรกิจ", weight: 8, description: "เวลาจดทะเบียน เวลาออกใบอนุญาต และสัญญาณการเกิดของธุรกิจใหม่", inputs: ["registration time", "permit time", "licensing burden"] },
-          { name: "เสถียรภาพของรัฐและความคงเส้นคงวาของกติกา", weight: 6, description: "เสถียรภาพของสภาพแวดล้อมการดำเนินการและความเชื่อถือได้ของกฎ", inputs: ["stability proxy", "rule consistency", "administrative reliability"] },
-          { name: "ระบบภาษีและแรงจูงใจ", weight: 5, description: "ความชัดเจนของภาษี ภาระภาษี และความพร้อมของ incentive", inputs: ["effective tax rate", "tax clarity", "investment incentives"] },
-          { name: "นวัตกรรมและโมเมนตัมเชิงผลิตภาพ", weight: 6, description: "สิทธิบัตร สถาบันวิจัย บริบท GDP และสัญญาณการลงทุน", inputs: ["patents", "R&D", "GDP per capita PPP", "GDP growth", "investment signal"] },
+          { name: "พลวัตของผู้ประกอบการ", weight: 6, description: "การเกิดของธุรกิจใหม่และความเร็วของกิจกรรมเชิงผลิตภาพในเมือง", inputs: ["new business density", "firm formation", "entrepreneurial activity"] },
+          { name: "ความเข้มข้นของนวัตกรรมและการวิจัย", weight: 5, description: "สิทธิบัตร ความลึกของการวิจัย และความสามารถของเมืองในการสร้างแนวคิดใหม่", inputs: ["patents", "R&D", "research institutions"] },
+          { name: "พลังเศรษฐกิจและบริบทเชิงผลิตภาพ", weight: 5, description: "สัญญาณการลงทุน บริบทเศรษฐกิจเชิงผลิตภาพ และ runway ทางเศรษฐกิจของเมือง", inputs: ["investment signal", "GDP per capita PPP", "GDP growth"] },
+          { name: "แรงเสียดทานด้านการบริหารและการลงทุน", weight: 4, description: "ความยุ่งยากด้านราชการ ความไม่แน่นอน หรือภาระใบอนุญาตที่ขัดขวางการลงมือทำ", inputs: ["administrative friction", "permitting burden", "rule consistency"] },
         ],
       },
     ],
@@ -1608,9 +1626,9 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "official-score-zh",
               title: "官方 SLIC 分数",
               formula:
-                "SLIC(c) = 0.22 Pressure(c) + 0.23 SafetyViability(c) + 0.15 HumanCapability(c) + 0.15 CommunityTolerance(c) + 0.25 BusinessGrowth(c)",
+                "SLIC(c) = 0.25 Pressure(c) + 0.22 Viability(c) + 0.18 Capability(c) + 0.15 Community(c) + 0.20 Creative(c)",
               explanation:
-                "公开榜单只有一套固定加权模型。商业与增长被明确写入，以避免城市只靠舒适感取胜。",
+                "公开榜单只有一套固定加权模型。Pressure 权重最大，同时把 Viability、Capability、Community 与 Creative 明确保留在公式中。",
               citations: [1],
             },
             {
@@ -1654,33 +1672,33 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           id: "subscores-zh",
           eyebrow: "公开子分数",
           title: "读者必须看得见的几个支柱",
-          summary: "安全、共同体与商业条件之所以被单独展示，是因为它们构成了 SLIC 的核心判断。",
+          summary: "下面这些可见支柱公式与工作簿里用于公开分数的结构保持一致。",
           equations: [
             {
               id: "safety-viability-zh",
-              title: "安全与日常可行性支柱",
+              title: "Viability 支柱",
               formula:
-                "SafetyViability(c) = 0.28 SafetyOutcomes + 0.22 TransitAccess + 0.18 CleanAir + 0.16 WaterUtility + 0.16 DigitalInfrastructure",
+                "Viability(c) = 0.23 PersonalSafety + 0.23 TransitAccess + 0.18 CleanAir + 0.18 WaterUtility + 0.18 DigitalInfrastructure",
               explanation:
-                "该支柱奖赏真实安全、生态能力与基本城市可用性；监控密度不在计分项内。",
+                "Viability 奖赏真实安全、生态能力与日常系统可靠性；监控密度不在计分项内。",
               citations: [3, 5, 11, 13, 17],
             },
             {
               id: "community-tolerance-zh",
-              title: "共同体与包容支柱",
+              title: "Community 支柱",
               formula:
-                "CommunityTolerance(c) = 0.34 HospitalityBelonging + 0.33 TolerancePluralism + 0.33 PublicLifeVitality",
+                "Community(c) = 0.33 HospitalityBelonging + 0.33 TolerancePluralism + 0.33 PublicLifeVitality",
               explanation:
-                "包容度按低摩擦共处、平等市场准入与现实生活自由计分，而不是按象征性标签计分。",
+                "Community 按低摩擦共处、平等市场准入与真实公共生活计分，而不是按象征性标签计分。",
               citations: [1, 14, 16],
             },
             {
               id: "business-growth-zh",
-              title: "商业与增长支柱",
+              title: "Creative 支柱",
               formula:
-                "BusinessGrowth(c) = 0.30 OpeningEase + 0.25 GovernmentStability + 0.20 TaxCompetitiveness + 0.15 IncentiveReadiness + 0.10 ProductiveMomentum",
+                "Creative(c) = 0.30 EntrepreneurialDynamism + 0.25 InnovationResearchIntensity + 0.25 EconomicVitality + 0.20 AdministrativeFriction",
               explanation:
-                "当一个城市能以更低摩擦和更稳定的环境支持生产性竞争时，它就应该得更高分。",
+                "Creative 反映的是创业活力、研究强度、生产性动能，以及更低的行政摩擦。",
               citations: [2, 10, 16],
             },
           ],
@@ -1719,7 +1737,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { label: "Effective tax rate", value: "18%", note: "用户输入的国家背景项" },
           { label: "Essential costs", value: "$15,900", note: "房租、水电、网络、交通与食物" },
           { label: "PPP private consumption factor", value: "0.72", note: "World Bank 的 PPP 转换层" },
-          { label: "Illustrative pillar bundle", value: "Pressure 71 / Safety 84 / Capability 80 / Community 86 / Business 76", note: "各支柱内部聚合后的示意值" },
+          { label: "Illustrative pillar bundle", value: "Pressure 71 / Viability 84 / Capability 80 / Community 86 / Creative 76", note: "各支柱内部聚合后的示意值" },
         ],
         steps: [
           {
@@ -1742,42 +1760,35 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           },
           {
             title: "最终公开分数",
-            formula: "SLIC = 0.22x71 + 0.23x84 + 0.15x80 + 0.15x86 + 0.25x76",
-            result: "SLIC = 78.84",
+            formula: "SLIC = 0.25x71 + 0.22x84 + 0.18x80 + 0.15x86 + 0.20x76",
+            result: "SLIC = 78.73",
             explanation: "五个公开支柱只聚合一次，没有隐藏覆盖层。",
           },
         ],
-        finalScore: "78.84",
+        finalScore: "78.73",
         conclusion:
           "这个例子说明：像曼谷这样的城市可以凭共同体与城市能量获得优势，同时也会因为压力或生态问题被公开扣分，而不是被声望平均值掩盖。",
       },
     },
     modelSection: {
-      eyebrow: "模型家族",
-      title: "为什么 SLIC 会展示不止一种数学框架",
+      eyebrow: "方法边界",
+      title: "公开分数只有一个模型，诊断层与之分开",
       summary:
-        "实时公开排名使用固定加权模型；PCA 与 MCDA 被展示出来，是为了加强方法论，而不是替代公开分数。",
+        "公开分数来自唯一的固定加权模型。内部诊断可以检查数据质量或结构是否站得住，但不会改写公开排名。",
       families: [
         {
           id: "weighted-zh",
-          title: "Weighted public model",
-          formula: "S(c) = Sum over pillars p of w_p x P_p(c)",
-          role: "实时公开层",
-          explanation: "这是官方公开引擎：固定权重、透明标准化、清晰支柱逻辑，也是最容易解释和复现的一层。",
+          title: "Official public model",
+          formula: "SLIC(c) = Sum over pillars p of w_p x P_p(c)",
+          role: "公开分数",
+          explanation: "这是唯一的官方公开引擎：固定权重、透明标准化、清晰支柱逻辑，也是最容易解释和复现的一层。",
         },
         {
-          id: "pca-zh",
-          title: "PCA validation layer",
-          formula: "PC_k = Sum over metrics m of beta_(k,m) x z_m(c)",
-          role: "内部验证层",
-          explanation: "PCA 用来检查所选指标是否真的按 SLIC 的理论结构聚类，但它不是实时公开分数本身。",
-        },
-        {
-          id: "mcda-zh",
-          title: "MCDA / PROMETHEE rough-edge layer",
-          formula: "phi(c) = phi^+(c) - phi^-(c)",
-          role: "高级硬约束逻辑",
-          explanation: "当 SLIC 需要把极端危险、强制性氛围或严重污染当作硬约束时，PROMETHEE 风格逻辑会更合适。",
+          id: "diagnostics-zh",
+          title: "Internal diagnostics",
+          formula: "Diagnostics(c) do not modify SLIC(c)",
+          role: "非计分检查",
+          explanation: "一致性检查、结构检验与分析师复核可以标出薄弱输入或不合理模式，但不会给公开分数加入隐藏加分或惩罚。",
         },
       ],
     },
@@ -1792,13 +1803,13 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       eyebrow: "官方支柱",
       title: "构成总分的五个公开支柱",
       summary:
-        "每个支柱都公开、加权且可审计。下方列出每个支柱的内部构成。",
+        "下方每个支柱都与工作簿中计算公开分数的权重和结构保持一致。",
     },
     pillars: [
       {
         id: "pressure",
-        name: "压力、可负担性与真实生活空间",
-        weight: 22,
+        name: "Pressure",
+        weight: 25,
         thesis: "如果人们留不下钱、债务沉重、工时过长，这座城市就不能算真正宜居。",
         justification: "这一支柱专门惩罚虚假的繁荣，把真实剩余空间放在核心位置。",
         citations: [2, 3, 7],
@@ -1812,8 +1823,8 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       },
       {
         id: "viability",
-        name: "安全、生态与日常可行性",
-        weight: 23,
+        name: "Viability",
+        weight: 22,
         thesis: "日常生活应当更安全、更能呼吸、更容易移动，而且基础系统要能运转。",
         justification: "这部分奖励的是城市系统真正带来的结果，而不是系统本身的炫耀性存在。",
         citations: [3, 5, 11, 13, 17],
@@ -1827,20 +1838,20 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       },
       {
         id: "capability",
-        name: "人类能力",
-        weight: 15,
+        name: "Capability",
+        weight: 18,
         thesis: "一座严肃的城市要让人接触到好的医疗、好的教育，以及公平的成长通道。",
         justification: "这里看的是质量与可及性结果，不只是机构数量。",
         citations: [3, 6, 8, 9, 14, 15],
         metrics: [
-          { name: "医疗质量", weight: 6, description: "可避免死亡、供给能力与有效医疗可达性。", inputs: ["avoidable mortality", "quality outcomes", "provider capacity"] },
-          { name: "教育质量", weight: 5, description: "学习结果、完成率与技能形成。", inputs: ["PISA", "UIS outcomes", "completion", "skills pipeline"] },
-          { name: "机会公平", weight: 4, description: "性别差距、青年 NEET 与分配公平信号。", inputs: ["gender data", "NEET", "Gini", "labour gaps"] },
+          { name: "医疗质量", weight: 8, description: "可避免死亡、供给能力与有效医疗可达性。", inputs: ["avoidable mortality", "quality outcomes", "provider capacity"] },
+          { name: "教育质量", weight: 6, description: "学习结果、完成率与技能形成。", inputs: ["PISA", "UIS outcomes", "completion", "skills pipeline"] },
+          { name: "机会平等与分配公平", weight: 4, description: "性别差距、青年 NEET 与分配公平信号。", inputs: ["gender data", "NEET", "Gini", "labour gaps"] },
         ],
       },
       {
         id: "community",
-        name: "共同体、包容与归属感",
+        name: "Community",
         weight: 15,
         thesis: "好客、社会可读性与和平共处，本来就是城市产品的一部分。",
         justification: "这让更欢迎人的城市有机会压过更冷的城市，即使它们行政能力都不错。",
@@ -1853,16 +1864,16 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       },
       {
         id: "creative",
-        name: "商业、增长与竞争活力",
-        weight: 25,
+        name: "Creative",
+        weight: 20,
         thesis: "城市不应只减少痛苦，还要产生抱负、发明与生产性的经济能量。",
         justification: "这一支柱防止 SLIC 把平静误读成停滞，把舒适误读成竞争力。",
         citations: [2, 10, 16],
         metrics: [
-          { name: "开业便利度", weight: 8, description: "注册时间、许可摩擦与创业生成信号。", inputs: ["registration time", "permit time", "licensing burden"] },
-          { name: "政府稳定与规则一致性", weight: 6, description: "经营环境稳定性与规则的可预期性。", inputs: ["stability proxy", "rule consistency", "administrative reliability"] },
-          { name: "税制与激励", weight: 5, description: "税负、税制清晰度与 incentive readiness。", inputs: ["effective tax rate", "tax clarity", "investment incentives"] },
-          { name: "创新与生产性动能", weight: 6, description: "专利、研究深度、GDP 背景与投资信号。", inputs: ["patents", "R&D", "GDP per capita PPP", "GDP growth", "investment signal"] },
+          { name: "创业活力", weight: 6, description: "新企业形成与本地生产性进入的速度。", inputs: ["new business density", "firm formation", "entrepreneurial activity"] },
+          { name: "创新与研究强度", weight: 5, description: "专利、研究深度与城市生成新想法的能力。", inputs: ["patents", "R&D", "research institutions"] },
+          { name: "经济活力与生产性背景", weight: 5, description: "投资信号、生产性宏观背景与城市经济跑道。", inputs: ["investment signal", "GDP per capita PPP", "GDP growth"] },
+          { name: "行政与投资摩擦", weight: 4, description: "阻碍生产性行动的官僚负担、审批拖拽或规则不稳。", inputs: ["administrative friction", "permitting burden", "rule consistency"] },
         ],
       },
     ],

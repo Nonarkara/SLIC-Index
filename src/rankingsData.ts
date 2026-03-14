@@ -1,4 +1,5 @@
 import cityUniverseCsv from "./data/slic_city_universe.csv?raw";
+import { rankingPublication } from "./rankingPublication";
 import type {
   CityAccessProfile,
   CityLifeMetrics,
@@ -16,11 +17,11 @@ interface CityUniverseRow {
 }
 
 interface RegionProfile {
-  balanced: number;
-  physical: number;
-  economic: number;
+  pressure: number;
+  viability: number;
+  capability: number;
   community: number;
-  business: number;
+  creative: number;
   pppIncomePerHead: number;
   graduateHousingShare: number;
   experienceDiversity: number;
@@ -36,6 +37,16 @@ interface CityScreenProfile {
   civicFreedom: number;
   ecology: number;
   crowding: number;
+  hygiene?: number;
+  climate?: number;
+  roadSafety?: number;
+  foodCulture?: number;
+  boringIndex?: number;
+  flatExperience?: number;
+  taxReturn?: number;
+  healthcareCost?: number;
+  religiousViolence?: number;
+  housingPriceIndex?: number;
 }
 
 interface CityAccent {
@@ -45,17 +56,17 @@ interface CityAccent {
 }
 
 type CityOverride = Omit<FullRankedCity, "globalRank" | "coreBoardEligible" | "scores"> & {
-  scores: Pick<FullRankedCity["scores"], "balanced" | "physical" | "economic" | "community"> &
-    Partial<Pick<FullRankedCity["scores"], "business">>;
+  scores: Pick<FullRankedCity["scores"], "pressure" | "viability" | "capability" | "community"> &
+    Partial<Pick<FullRankedCity["scores"], "creative">>;
 };
 
 const regionProfiles: Record<string, RegionProfile> = {
   "Southeast Asia": {
-    balanced: 74,
-    physical: 72,
-    economic: 77,
+    pressure: 77,
+    viability: 72,
+    capability: 75,
     community: 81,
-    business: 78,
+    creative: 78,
     pppIncomePerHead: 22000,
     graduateHousingShare: 25,
     experienceDiversity: 86,
@@ -72,11 +83,11 @@ const regionProfiles: Record<string, RegionProfile> = {
     tags: ["variety", "hospitality", "cost range"],
   },
   "East Asia": {
-    balanced: 77,
-    physical: 81,
-    economic: 76,
+    pressure: 76,
+    viability: 81,
+    capability: 79,
     community: 75,
-    business: 79,
+    creative: 79,
     pppIncomePerHead: 30000,
     graduateHousingShare: 29,
     experienceDiversity: 74,
@@ -93,11 +104,11 @@ const regionProfiles: Record<string, RegionProfile> = {
     tags: ["systems", "transit", "discipline"],
   },
   "South Asia": {
-    balanced: 61,
-    physical: 57,
-    economic: 66,
+    pressure: 66,
+    viability: 57,
+    capability: 62,
     community: 63,
-    business: 62,
+    creative: 62,
     pppIncomePerHead: 14000,
     graduateHousingShare: 27,
     experienceDiversity: 71,
@@ -114,11 +125,11 @@ const regionProfiles: Record<string, RegionProfile> = {
     tags: ["ambition", "pressure", "uneven"],
   },
   "Western and Northern Europe": {
-    balanced: 76,
-    physical: 83,
-    economic: 68,
+    pressure: 68,
+    viability: 83,
+    capability: 76,
     community: 78,
-    business: 70,
+    creative: 70,
     pppIncomePerHead: 32000,
     graduateHousingShare: 38,
     experienceDiversity: 78,
@@ -135,11 +146,11 @@ const regionProfiles: Record<string, RegionProfile> = {
     tags: ["order", "public systems", "cost pressure"],
   },
   "Southern/Eastern Europe and Eurasia": {
-    balanced: 72,
-    physical: 73,
-    economic: 73,
+    pressure: 73,
+    viability: 73,
+    capability: 73,
     community: 76,
-    business: 74,
+    creative: 74,
     pppIncomePerHead: 23000,
     graduateHousingShare: 27,
     experienceDiversity: 76,
@@ -156,11 +167,11 @@ const regionProfiles: Record<string, RegionProfile> = {
     tags: ["heritage", "value", "human scale"],
   },
   "North America": {
-    balanced: 68,
-    physical: 70,
-    economic: 71,
+    pressure: 71,
+    viability: 70,
+    capability: 71,
     community: 64,
-    business: 73,
+    creative: 73,
     pppIncomePerHead: 31000,
     graduateHousingShare: 41,
     experienceDiversity: 77,
@@ -177,11 +188,11 @@ const regionProfiles: Record<string, RegionProfile> = {
     tags: ["scale", "uneven value", "opportunity"],
   },
   "Latin America": {
-    balanced: 69,
-    physical: 65,
-    economic: 71,
+    pressure: 71,
+    viability: 65,
+    capability: 68,
     community: 78,
-    business: 67,
+    creative: 67,
     pppIncomePerHead: 20000,
     graduateHousingShare: 28,
     experienceDiversity: 85,
@@ -198,11 +209,11 @@ const regionProfiles: Record<string, RegionProfile> = {
     tags: ["street life", "culture", "contrast"],
   },
   "Middle East": {
-    balanced: 70,
-    physical: 78,
-    economic: 74,
+    pressure: 74,
+    viability: 78,
+    capability: 76,
     community: 60,
-    business: 72,
+    creative: 72,
     pppIncomePerHead: 29000,
     graduateHousingShare: 31,
     experienceDiversity: 62,
@@ -219,11 +230,11 @@ const regionProfiles: Record<string, RegionProfile> = {
     tags: ["connectivity", "state capacity", "heat"],
   },
   Africa: {
-    balanced: 64,
-    physical: 61,
-    economic: 67,
+    pressure: 67,
+    viability: 61,
+    capability: 64,
     community: 68,
-    business: 63,
+    creative: 63,
     pppIncomePerHead: 16000,
     graduateHousingShare: 26,
     experienceDiversity: 73,
@@ -240,11 +251,11 @@ const regionProfiles: Record<string, RegionProfile> = {
     tags: ["trajectory", "regional hub", "contrast"],
   },
   Oceania: {
-    balanced: 72,
-    physical: 81,
-    economic: 66,
+    pressure: 66,
+    viability: 81,
+    capability: 74,
     community: 74,
-    business: 68,
+    creative: 68,
     pppIncomePerHead: 30000,
     graduateHousingShare: 40,
     experienceDiversity: 72,
@@ -276,6 +287,23 @@ const regionScreenProfiles: Record<string, CityScreenProfile> = {
 };
 
 const cityScreenOverrides: Record<string, Partial<CityScreenProfile>> = {
+
+  pyongyang: { safety: 50, affordability: 30, equality: 20, civicFreedom: 5, ecology: 30, crowding: 50, boringIndex: 90, religiousViolence: 5, taxReturn: 30, flatExperience: 90 },
+  kabul: { safety: 10, affordability: 50, equality: 10, civicFreedom: 10, ecology: 30, crowding: 80, religiousViolence: 95, hygiene: 30 },
+  caracas: { safety: 10, affordability: 30, equality: 30, civicFreedom: 30, ecology: 40, crowding: 70, roadSafety: 30 },
+  "port-au-prince": { safety: 5, affordability: 20, equality: 20, civicFreedom: 30, ecology: 20, crowding: 85, hygiene: 20, roadSafety: 20, religiousViolence: 20 },
+  damascus: { safety: 10, affordability: 30, equality: 25, civicFreedom: 15, ecology: 30, crowding: 70, religiousViolence: 70 },
+  lagos: { safety: 30, affordability: 60, equality: 30, civicFreedom: 50, ecology: 30, crowding: 95, hygiene: 35, roadSafety: 30 },
+  kinshasa: { safety: 25, affordability: 50, equality: 30, civicFreedom: 40, ecology: 30, crowding: 80, hygiene: 30 },
+  yakutsk: { safety: 70, affordability: 60, equality: 60, civicFreedom: 30, ecology: 40, crowding: 30, climate: 5, flatExperience: 80, boringIndex: 85 },
+  norilsk: { safety: 65, affordability: 55, equality: 60, civicFreedom: 30, ecology: 5, crowding: 20, climate: 5, hygiene: 20, flatExperience: 85, boringIndex: 90 },
+  london: { safety: 80, affordability: 15, equality: 60, civicFreedom: 85, ecology: 65, crowding: 85, housingPriceIndex: 95, taxReturn: 60, flatExperience: 40, boringIndex: 40 },
+  "new-york": { safety: 70, affordability: 10, equality: 50, civicFreedom: 85, ecology: 55, crowding: 90, housingPriceIndex: 98, healthcareCost: 95, taxReturn: 50 },
+  "san-francisco": { safety: 60, affordability: 5, equality: 55, civicFreedom: 88, ecology: 70, crowding: 60, housingPriceIndex: 99, hygiene: 40, roadSafety: 65 },
+  geneva: { safety: 95, affordability: 10, equality: 75, civicFreedom: 90, ecology: 85, crowding: 30, boringIndex: 90, flatExperience: 85, housingPriceIndex: 95 },
+  monaco: { safety: 98, affordability: 5, equality: 70, civicFreedom: 85, ecology: 80, crowding: 40, boringIndex: 95, flatExperience: 90, housingPriceIndex: 99 },
+  vancouver: { safety: 85, affordability: 15, equality: 70, civicFreedom: 90, ecology: 90, crowding: 45, boringIndex: 80, flatExperience: 85, housingPriceIndex: 96 },
+
   taipei: { safety: 93, affordability: 84, equality: 82, civicFreedom: 84, ecology: 79, crowding: 56 },
   busan: { safety: 89, affordability: 80, equality: 74, civicFreedom: 77, ecology: 74, crowding: 46 },
   fukuoka: { safety: 91, affordability: 82, equality: 76, civicFreedom: 85, ecology: 78, crowding: 44 },
@@ -576,7 +604,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "Transit density and food culture keep daily life rich without overwhelming the city.",
     delta: 2,
     tags: ["safe", "transit", "culture"],
-    scores: { balanced: 93, physical: 94, economic: 88, community: 97 },
+    scores: { pressure: 88, viability: 94, capability: 93, community: 97 },
     manifestStatus: "locked",
     cityType: "primary",
     inclusionRationale: "High-systems, high-street-life benchmark aligned with earlier SLIC discussion.",
@@ -606,7 +634,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "Combines livability, coastline, and economic heft without Seoul-level pressure.",
     delta: 4,
     tags: ["coast", "balance", "industry"],
-    scores: { balanced: 91, physical: 92, economic: 90, community: 91 },
+    scores: { pressure: 90, viability: 92, capability: 91, community: 91 },
     manifestStatus: "locked",
     cityType: "primary",
     inclusionRationale: "User anchor for second-city infrastructure quality, coastal livability, and economic competence.",
@@ -636,7 +664,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "Strong urban management and a human-scale rhythm keep it competitive and easy to inhabit.",
     delta: 1,
     tags: ["startup", "walkable", "food"],
-    scores: { balanced: 90, physical: 91, economic: 89, community: 90 },
+    scores: { pressure: 89, viability: 91, capability: 90, community: 90 },
     manifestStatus: "locked",
     cityType: "secondary",
     inclusionRationale: "User anchor and strong challenger city for innovation, access, and livability balance.",
@@ -666,7 +694,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "The city wins on vibrancy, affordability breadth, hospitality, and sheer diversity of experience.",
     delta: 5,
     tags: ["variety", "nightlife", "hospitality"],
-    scores: { balanced: 89, physical: 82, economic: 91, community: 94 },
+    scores: { pressure: 91, viability: 82, capability: 89, community: 94 },
     manifestStatus: "locked",
     cityType: "primary",
     inclusionRationale: "User anchor and regional benchmark for hospitality, economic dynamism, and affordability-pressure tradeoffs.",
@@ -696,7 +724,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "Jakarta belongs in the field because scale, ambition, and corporate gravity matter, even when congestion and sanitation risks keep it from the very top.",
     delta: 1,
     tags: ["regional hub", "pressure", "corporate core"],
-    scores: { balanced: 72, physical: 60, economic: 79, community: 69 },
+    scores: { pressure: 79, viability: 60, capability: 72, community: 69 },
     manifestStatus: "provisional",
     cityType: "primary",
     inclusionRationale: "Included as a necessary Southeast Asian benchmark for scale, competitiveness, and infrastructure-pressure tradeoffs.",
@@ -726,7 +754,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "Natural beauty, safety, and a slower pace make it a strong quality-of-life outlier.",
     delta: 3,
     tags: ["nature", "island", "calm"],
-    scores: { balanced: 88, physical: 93, economic: 79, community: 92 },
+    scores: { pressure: 79, viability: 93, capability: 88, community: 92 },
     manifestStatus: "locked",
     cityType: "secondary",
     inclusionRationale: "User anchor for lifestyle quality, hospitality, and island-scale livability.",
@@ -756,7 +784,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "Food, heritage, and semiconductor-linked economic depth make it more dynamic than its size suggests.",
     delta: 2,
     tags: ["heritage", "food", "industry"],
-    scores: { balanced: 87, physical: 84, economic: 88, community: 89 },
+    scores: { pressure: 88, viability: 84, capability: 87, community: 89 },
     manifestStatus: "locked",
     cityType: "secondary",
     inclusionRationale: "User anchor for semiconductor economy, cultural texture, and secondary-city livability.",
@@ -786,7 +814,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "Makati stays interesting because it concentrates finance, services, and livable pockets, but SLIC still checks it against affordability, safety, and urban pressure.",
     delta: 2,
     tags: ["business core", "district scale", "services"],
-    scores: { balanced: 76, physical: 72, economic: 80, community: 73 },
+    scores: { pressure: 80, viability: 72, capability: 76, community: 73 },
     manifestStatus: "provisional",
     cityType: "primary",
     inclusionRationale: "Included as a metro-core test case for whether a well-serviced district can sustain a broader livability argument.",
@@ -816,7 +844,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "Cleaner edges, strong place-making, and a practical waterfront economy push it upward.",
     delta: 1,
     tags: ["harbor", "clean", "young"],
-    scores: { balanced: 86, physical: 88, economic: 84, community: 86 },
+    scores: { pressure: 84, viability: 88, capability: 86, community: 86 },
     manifestStatus: "locked",
     cityType: "secondary",
     inclusionRationale: "Harbor-city comparator with strong place-making and manageable scale.",
@@ -846,7 +874,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "Incredible transit and economic vitality are moderated by real affordability pressure.",
     delta: -1,
     tags: ["mega-city", "finance", "transit"],
-    scores: { balanced: 85, physical: 90, economic: 92, community: 73 },
+    scores: { pressure: 92, viability: 90, capability: 85, community: 73 },
     manifestStatus: "provisional",
     cityType: "primary",
     inclusionRationale: "Economic gravity benchmark included to test how mega-city capability meets affordability pressure.",
@@ -876,7 +904,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "Shenzhen is deeply competitive and technically capable, but its cultural depth and housing pressure keep the city in active debate within SLIC.",
     delta: 3,
     tags: ["innovation", "speed", "manufacturing"],
-    scores: { balanced: 80, physical: 82, economic: 89, community: 68 },
+    scores: { pressure: 89, viability: 82, capability: 80, community: 68 },
     manifestStatus: "provisional",
     cityType: "primary",
     inclusionRationale: "Included as a necessary East Asian benchmark for innovation, productive economic power, and high-pressure urban modernity.",
@@ -906,7 +934,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "Tianjin is useful for SLIC because it tests whether large-scale Chinese urban capability can be delivered without maximum-cost prestige pressure.",
     delta: 1,
     tags: ["port city", "industry", "scale"],
-    scores: { balanced: 78, physical: 79, economic: 81, community: 72 },
+    scores: { pressure: 81, viability: 79, capability: 78, community: 72 },
     manifestStatus: "provisional",
     cityType: "secondary",
     inclusionRationale: "Secondary East Asian challenger included for industrial relevance, port-city utility, and relief from capital-city prestige bias.",
@@ -936,7 +964,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "It offers a high-function baseline and strong public-space quality without constant friction.",
     delta: 0,
     tags: ["harbor", "composed", "access"],
-    scores: { balanced: 84, physical: 88, economic: 81, community: 83 },
+    scores: { pressure: 81, viability: 88, capability: 84, community: 83 },
     manifestStatus: "provisional",
     cityType: "secondary",
     inclusionRationale: "Port-city comparator with strong metropolitan access and public-space quality.",
@@ -966,7 +994,7 @@ const topCityOverrides: Record<string, CityOverride> = {
     signal: "A quality-of-life standout whose score softens once competitiveness and long-term opportunity are factored in.",
     delta: -2,
     tags: ["pleasant", "green", "cost"],
-    scores: { balanced: 82, physical: 89, economic: 72, community: 85 },
+    scores: { pressure: 72, viability: 89, capability: 82, community: 85 },
     manifestStatus: "locked",
     cityType: "primary",
     inclusionRationale: "Primary Oceanian benchmark for human-capital quality, openness, and cost pressure.",
@@ -997,9 +1025,6 @@ function hashValue(input: string): number {
   return hash;
 }
 
-function randomUnit(seed: string): number {
-  return (hashValue(seed) % 1000) / 1000;
-}
 
 function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max);
@@ -1083,15 +1108,12 @@ function parseCsv(raw: string): CityUniverseRow[] {
 
 function generatedAccessProfile(
   base: CityAccessProfile,
-  seed: string,
   affordabilityBias = 0,
 ): CityAccessProfile {
-  const unit = randomUnit(seed);
-  const affordability = unit + affordabilityBias > 0.78
-    ? "Moderate cost"
-    : unit + affordabilityBias > 0.58
-      ? "Low to moderate cost"
-      : base.affordability;
+  let affordability = base.affordability;
+  if (affordabilityBias > 0) {
+    affordability = "Low to moderate cost";
+  }
 
   return {
     access: base.access,
@@ -1101,35 +1123,19 @@ function generatedAccessProfile(
 }
 
 function generatedMetrics(row: CityUniverseRow, profile: RegionProfile): CityLifeMetrics {
-  const income = Math.round(
-    profile.pppIncomePerHead + (randomUnit(`${row.city_id}-income`) * 9000 - 4500),
-  );
-  const housing = Math.round(
-    clamp(
-      profile.graduateHousingShare + (randomUnit(`${row.city_id}-housing`) * 12 - 6),
-      18,
-      52,
-    ),
-  );
-  const diversity = Math.round(
-    clamp(
-      profile.experienceDiversity + (randomUnit(`${row.city_id}-diversity`) * 14 - 7),
-      48,
-      98,
-    ),
-  );
+  const income = profile.pppIncomePerHead;
+  const housing = profile.graduateHousingShare;
+  const diversity = profile.experienceDiversity;
 
   return {
     pppIncomePerHead: income,
     graduateHousingShare: housing,
     healthcare: generatedAccessProfile(
       profile.healthcare,
-      `${row.city_id}-healthcare`,
       row.city_type === "primary" ? 0.05 : 0,
     ),
     education: generatedAccessProfile(
       profile.education,
-      `${row.city_id}-education`,
       row.city_type === "primary" ? 0.04 : 0,
     ),
     experienceDiversity: diversity,
@@ -1139,28 +1145,36 @@ function generatedMetrics(row: CityUniverseRow, profile: RegionProfile): CityLif
 function generatedScores(row: CityUniverseRow, profile: RegionProfile): RankedCity["scores"] {
   const typeAdjustment = row.city_type === "primary" ? 1.5 : 0;
   const lockAdjustment = row.manifest_status === "locked" ? 0.8 : -0.6;
-  const physical = clamp(
-    Math.round(profile.physical + (randomUnit(`${row.city_id}-physical`) * 8 - 4) + lockAdjustment),
+  const pressure = clamp(
+    Math.round(profile.pressure + typeAdjustment),
+    50,
+    81,
+  );
+  const viability = clamp(
+    Math.round(profile.viability + lockAdjustment),
     48,
     81,
   );
-  const economic = clamp(
-    Math.round(profile.economic + (randomUnit(`${row.city_id}-economic`) * 8 - 4) + typeAdjustment),
-    50,
+  const capability = clamp(
+    Math.round(profile.capability + lockAdjustment * 0.5),
+    48,
     81,
   );
   const community = clamp(
-    Math.round(profile.community + (randomUnit(`${row.city_id}-community`) * 10 - 5)),
+    Math.round(profile.community),
     50,
     83,
   );
-  const business = clamp(
-    Math.round(profile.business + (randomUnit(`${row.city_id}-business`) * 8 - 4) + typeAdjustment + lockAdjustment),
+  const creative = clamp(
+    Math.round(profile.creative + typeAdjustment + lockAdjustment),
     48,
     86,
   );
-  const balanced = Math.round(physical * 0.27 + economic * 0.27 + community * 0.2 + business * 0.26);
-  return { balanced, physical, economic, community, business };
+  const slic = Math.round(
+    pressure * 0.25 + viability * 0.22 + capability * 0.18 +
+    community * 0.15 + creative * 0.20,
+  );
+  return { slic, pressure, viability, capability, community, creative };
 }
 
 function generatedTags(row: CityUniverseRow, profile: RegionProfile): string[] {
@@ -1212,48 +1226,32 @@ function screenProfileForCity(row: CityUniverseRow, cityId: string): CityScreenP
   const override = cityScreenOverrides[cityId] ?? {};
 
   const safety = clamp(
-    Math.round(base.safety + (randomUnit(`${cityId}-safety`) * 6 - 3) + ((override.safety ?? base.safety) - base.safety)),
+    Math.round(override.safety ?? base.safety),
     30,
     96,
   );
   const affordability = clamp(
-    Math.round(
-      base.affordability +
-        (randomUnit(`${cityId}-affordability`) * 6 - 3) +
-        ((override.affordability ?? base.affordability) - base.affordability),
-    ),
+    Math.round(override.affordability ?? base.affordability),
     22,
     96,
   );
   const equality = clamp(
-    Math.round(base.equality + (randomUnit(`${cityId}-equality`) * 6 - 3) + ((override.equality ?? base.equality) - base.equality)),
+    Math.round(override.equality ?? base.equality),
     20,
     92,
   );
   const civicFreedom = clamp(
-    Math.round(
-      base.civicFreedom +
-        (randomUnit(`${cityId}-civic-freedom`) * 6 - 3) +
-        ((override.civicFreedom ?? base.civicFreedom) - base.civicFreedom),
-    ),
+    Math.round(override.civicFreedom ?? base.civicFreedom),
     18,
     92,
   );
   const ecology = clamp(
-    Math.round(
-      base.ecology +
-        (randomUnit(`${cityId}-ecology`) * 8 - 4) +
-        ((override.ecology ?? base.ecology) - base.ecology),
-    ),
+    Math.round(override.ecology ?? base.ecology),
     18,
     94,
   );
   const crowding = clamp(
-    Math.round(
-      base.crowding +
-        (randomUnit(`${cityId}-crowding`) * 8 - 4) +
-        ((override.crowding ?? base.crowding) - base.crowding),
-    ),
+    Math.round(override.crowding ?? base.crowding),
     18,
     94,
   );
@@ -1279,19 +1277,19 @@ function taxCompetitiveness(country: string): number {
   return clamp(Math.round(100 - effectiveTaxRate(country) * 180), 26, 96);
 }
 
-function baseBusinessScore(
+function baseCreativeScore(
   city: CityOverride,
   row: CityUniverseRow,
   profile: CityScreenProfile,
 ): number {
   const seeded =
-    "business" in city.scores && typeof city.scores.business === "number"
-      ? city.scores.business
+    "creative" in city.scores && typeof city.scores.creative === "number"
+      ? city.scores.creative
       : Math.round(
-          city.scores.economic * 0.52 +
-            city.scores.physical * 0.14 +
+          city.scores.pressure * 0.52 +
+            city.scores.viability * 0.14 +
             city.scores.community * 0.14 +
-            (regionProfiles[row.cohort]?.business ?? 70) * 0.2,
+            (regionProfiles[row.cohort]?.creative ?? 70) * 0.2,
         );
 
   return clamp(
@@ -1355,10 +1353,31 @@ function screeningPenalty(profile: CityScreenProfile, roomToLiveStrength: number
     penalty += 1;
   }
 
+  // Extensively penalize low priority traits
+  if ((profile.hygiene ?? 70) < 50) penalty -= 12;
+  if ((profile.climate ?? 70) < 40) penalty -= 12; // too cold
+  if ((profile.roadSafety ?? 70) < 50) penalty -= 8;
+  if ((profile.foodCulture ?? 70) < 50) penalty -= 6;
+  if ((profile.boringIndex ?? 50) > 80) penalty -= 12;
+  if ((profile.flatExperience ?? 50) > 80) penalty -= 10;
+  if ((profile.taxReturn ?? 70) < 50) penalty -= 8;
+  if ((profile.healthcareCost ?? 50) > 80) penalty -= 15;
+  if ((profile.religiousViolence ?? 10) > 40) penalty -= 20;
+  if ((profile.housingPriceIndex ?? 50) > 90) penalty -= 12;
+
   return penalty;
 }
 
 function screeningTag(profile: CityScreenProfile, roomToLiveStrength: number): string {
+  if ((profile.religiousViolence ?? 10) > 40) return "religious violence";
+  if ((profile.hygiene ?? 70) < 50) return "unhygienic";
+  if ((profile.climate ?? 70) < 40) return "too cold";
+  if ((profile.housingPriceIndex ?? 50) > 95) return "unsustainable housing";
+  if ((profile.healthcareCost ?? 50) > 85) return "expensive healthcare";
+  if ((profile.boringIndex ?? 50) > 85) return "retirement home";
+  if ((profile.flatExperience ?? 50) > 85) return "flat experience";
+  if ((profile.taxReturn ?? 70) < 50) return "poor tax return";
+
   if (profile.civicFreedom < 45) {
     return "coercive atmosphere";
   }
@@ -1414,7 +1433,7 @@ function screeningSignal(
   return city.signal;
 }
 
-function socialListeningTrend(cityId: string, delta: number, profile: CityScreenProfile): number[] {
+function socialListeningTrend(delta: number, profile: CityScreenProfile): number[] {
   const points: number[] = [];
   let current = clamp(
     Math.round(50 + delta * 2 + (profile.safety - 70) / 4 + (profile.ecology - 60) / 5 - (profile.crowding - 58) / 6),
@@ -1423,11 +1442,9 @@ function socialListeningTrend(cityId: string, delta: number, profile: CityScreen
   );
 
   for (let index = 0; index < 8; index += 1) {
-    current = clamp(
-      Math.round(current + (randomUnit(`${cityId}-listening-${index}`) * 12 - 6) + (index === 7 ? delta : 0)),
-      18,
-      94,
-    );
+    if (index === 7 && delta !== 0) {
+        current = clamp(Math.round(current + delta), 18, 94);
+    }
     points.push(current);
   }
 
@@ -1456,11 +1473,11 @@ function socialListeningTopics(
     topics.push("crowding");
   }
 
-  if (city.scores.economic >= 86) {
+  if (city.scores.pressure >= 86) {
     topics.push("jobs");
   }
 
-  if ((city.scores.business ?? 0) >= 82) {
+  if ((city.scores.creative ?? 0) >= 82) {
     topics.push("business");
   }
 
@@ -1494,27 +1511,46 @@ function recalibrateCity(
   const taxScore = taxCompetitiveness(city.country);
   const roomToLiveStrength = Math.round((profile.affordability + disposableStrength) / 2);
   const cultureStrength = city.metrics.experienceDiversity;
-  const physical = clamp(
+
+  // === Pressure (25%): life cost, work burden, disposable income ===
+  const pressure = clamp(
     Math.round(
-      city.scores.physical +
-        (profile.safety - 75) / 4 +
-        (profile.civicFreedom - 70) / 12 +
-        (profile.ecology - 64) / 3 -
-        (profile.crowding - 58) / 9,
-    ),
-    28,
-    97,
-  );
-  const economic = clamp(
-    Math.round(
-      city.scores.economic +
+      city.scores.pressure +
         (roomToLiveStrength - 65) / 3 +
-        (profile.equality - 60) / 7 -
-        (profile.crowding - 58) / 14,
+        (profile.affordability - 65) / 5 +
+        (disposableStrength - 60) / 4 -
+        (city.metrics.graduateHousingShare - 30) / 6,
     ),
     24,
     97,
   );
+
+  // === Viability (22%): safety, transit, clean air, water, digital ===
+  const viability = clamp(
+    Math.round(
+      city.scores.viability +
+        (profile.safety - 75) / 4 +
+        (profile.ecology - 64) / 3 -
+        (profile.crowding - 58) / 9 +
+        (profile.civicFreedom - 70) / 12,
+    ),
+    28,
+    97,
+  );
+
+  // === Capability (18%): healthcare, education, equal opportunity ===
+  const capability = clamp(
+    Math.round(
+      city.scores.capability +
+        (profile.equality - 60) / 5 +
+        (profile.safety - 70) / 10 +
+        (profile.civicFreedom - 68) / 8,
+    ),
+    24,
+    97,
+  );
+
+  // === Community (15%): hospitality, tolerance, culture ===
   const community = clamp(
     Math.round(
       city.scores.community +
@@ -1527,14 +1563,16 @@ function recalibrateCity(
     24,
     97,
   );
-  const businessBase = baseBusinessScore(city, row, profile);
+
+  // === Creative (20%): entrepreneurship, innovation, investment, admin friction ===
+  const creativeBase = baseCreativeScore(city, row, profile);
   const businessOpeningEase = clamp(
-    Math.round(businessBase + (profile.civicFreedom - 68) / 4 - (profile.crowding - 58) / 10),
+    Math.round(creativeBase + (profile.civicFreedom - 68) / 4 - (profile.crowding - 58) / 10),
     22,
     97,
   );
   const governmentStability = clamp(
-    Math.round(profile.safety * 0.35 + profile.civicFreedom * 0.4 + economic * 0.25),
+    Math.round(profile.safety * 0.35 + profile.civicFreedom * 0.4 + pressure * 0.25),
     20,
     96,
   );
@@ -1543,9 +1581,9 @@ function recalibrateCity(
     20,
     97,
   );
-  const business = clamp(
+  const creative = clamp(
     Math.round(
-      businessBase * 0.3 +
+      creativeBase * 0.3 +
         businessOpeningEase * 0.24 +
         governmentStability * 0.2 +
         taxScore * 0.16 +
@@ -1554,15 +1592,20 @@ function recalibrateCity(
     24,
     97,
   );
+
   const tolerance = clamp(
     Math.round(profile.civicFreedom * 0.5 + profile.equality * 0.28 + cultureStrength * 0.22),
     20,
     97,
   );
-  const balancedBase = Math.round(
-    physical * 0.24 + economic * 0.24 + community * 0.2 + business * 0.32,
+
+  // === Official SLIC composite: 0.25P + 0.22V + 0.18Ca + 0.15Co + 0.20Cr ===
+  const slicBase = Math.round(
+    pressure * 0.25 + viability * 0.22 + capability * 0.18 +
+    community * 0.15 + creative * 0.20,
   );
-  const balanced = clamp(balancedBase + screeningPenalty(profile, roomToLiveStrength), 18, 97);
+  const slic = clamp(slicBase + screeningPenalty(profile, roomToLiveStrength), 18, 97);
+
   const existingTags = city.tags.filter((tag) => tag !== "watchlist");
   const screenTag = screeningTag(profile, roomToLiveStrength);
   const tags = [...new Set([screenTag, ...existingTags])].slice(0, 3);
@@ -1573,7 +1616,7 @@ function recalibrateCity(
     profile.civicFreedom >= 45 &&
     profile.ecology >= 50 &&
     profile.crowding <= 80 &&
-    balanced >= 60;
+    slic >= 60;
 
   return {
     ...city,
@@ -1582,19 +1625,19 @@ function recalibrateCity(
     accentLabel: accent.accentLabel,
     signal: screeningSignal(city, profile, roomToLiveStrength),
     tags,
-    scores: { balanced, physical, economic, community, business },
+    scores: { slic, pressure, viability, capability, community, creative },
     metrics: {
       ...city.metrics,
       pppDisposableIncome: disposableIncome,
       ecologyScore: profile.ecology,
       crowdingPressure: profile.crowding,
-      conversationTrend: socialListeningTrend(city.id, city.delta, profile),
+      conversationTrend: socialListeningTrend(city.delta, profile),
       conversationTopics: socialListeningTopics(city, profile),
       safetyConfidence: profile.safety,
       affordabilityStrength: roomToLiveStrength,
       equalityStrength: profile.equality,
       civicFreedom: profile.civicFreedom,
-      businessGrowth: business,
+      businessGrowth: creative,
       safetyScore: profile.safety,
       toleranceScore: tolerance,
       businessOpeningEase,
@@ -1608,35 +1651,114 @@ function recalibrateCity(
 
 const parsedCityUniverse = parseCsv(cityUniverseCsv);
 
-function buildGlobalRankings(): FullRankedCity[] {
-  const cities = parsedCityUniverse.map((row) => {
-    const override = topCityOverrides[row.city_id.replace(/^[a-z]{2}-/, "")];
-    if (override) {
-      return recalibrateCity(override, row);
+function cityScaffoldForRow(row: CityUniverseRow): CityOverride {
+  const override = topCityOverrides[row.city_id.replace(/^[a-z]{2}-/, "")];
+  if (override) {
+    return override;
+  }
+
+  const profile = regionProfiles[row.cohort] ?? regionProfiles["Southeast Asia"];
+  return {
+    id: row.city_id.replace(/^[a-z]{2}-/, ""),
+    name: displayNameFromId(row.city_id),
+    country: row.country,
+    region: row.cohort,
+    tagline: generatedTagline(row),
+    signal: generatedSignal(row),
+    delta: 0,
+    tags: generatedTags(row, profile),
+    scores: generatedScores(row, profile),
+    sentimentEmojis: generatedSentimentEmojis(row),
+    manifestStatus: row.manifest_status,
+    cityType: row.city_type,
+    inclusionRationale: row.inclusion_rationale,
+    metrics: generatedMetrics(row, profile),
+  };
+}
+
+function numericScore(value: number | null | undefined): value is number {
+  return typeof value === "number" && Number.isFinite(value);
+}
+
+function roundPublishedScore(value: number): number {
+  return Math.round(value * 10) / 10;
+}
+
+function buildPublishedGlobalRankings(): FullRankedCity[] {
+  const rowsByCityId = new Map(parsedCityUniverse.map((row) => [row.city_id, row]));
+  const cities: FullRankedCity[] = [];
+
+  for (const publishedRow of rankingPublication.cities) {
+    const row = rowsByCityId.get(publishedRow.cityId);
+    if (!row) {
+      continue;
     }
 
-    const profile = regionProfiles[row.cohort] ?? regionProfiles["Southeast Asia"];
-    return recalibrateCity({
-      id: row.city_id.replace(/^[a-z]{2}-/, ""),
-      name: displayNameFromId(row.city_id),
-      country: row.country,
-      region: row.cohort,
-      tagline: generatedTagline(row),
-      signal: generatedSignal(row),
-      delta: Math.round(randomUnit(`${row.city_id}-delta`) * 8 - 3),
-      tags: generatedTags(row, profile),
-      scores: generatedScores(row, profile),
-      sentimentEmojis: generatedSentimentEmojis(row),
-      manifestStatus: row.manifest_status,
-      cityType: row.city_type,
-      inclusionRationale: row.inclusion_rationale,
-      metrics: generatedMetrics(row, profile),
-    }, row);
+    const scaffold = cityScaffoldForRow(row);
+    const accent = accentForCity(scaffold, row);
+
+    // Direct 1:1 mapping from verified SLIC pillars
+    const pressure = numericScore(publishedRow.pressureScore)
+      ? roundPublishedScore(publishedRow.pressureScore)
+      : scaffold.scores.pressure;
+    const viability = numericScore(publishedRow.viabilityScore)
+      ? roundPublishedScore(publishedRow.viabilityScore)
+      : scaffold.scores.viability;
+    const capability = numericScore(publishedRow.capabilityScore)
+      ? roundPublishedScore(publishedRow.capabilityScore)
+      : scaffold.scores.capability;
+    const community = numericScore(publishedRow.communityScore)
+      ? roundPublishedScore(publishedRow.communityScore)
+      : scaffold.scores.community;
+    const creative = numericScore(publishedRow.creativeScore)
+      ? roundPublishedScore(publishedRow.creativeScore)
+      : (scaffold.scores.creative ?? scaffold.scores.pressure);
+    const slic = numericScore(publishedRow.slicScore)
+      ? roundPublishedScore(publishedRow.slicScore)
+      : Math.round(pressure * 0.25 + viability * 0.22 + capability * 0.18 + community * 0.15 + creative * 0.20);
+
+    cities.push({
+      ...scaffold,
+      globalRank: publishedRow.rank,
+      coreBoardEligible: row.manifest_status === "locked",
+      accentHex: accent.accentHex,
+      accentSoftHex: accent.accentSoftHex,
+      accentLabel: accent.accentLabel,
+      scores: { slic, pressure, viability, capability, community, creative },
+      metrics: {
+        ...scaffold.metrics,
+        safetyConfidence: viability,
+        affordabilityStrength: pressure,
+        equalityStrength: capability,
+        businessGrowth: creative,
+        safetyScore: viability,
+        toleranceScore: community,
+        businessOpeningEase: creative,
+        governmentStability: creative,
+        incentiveReadiness: creative,
+      },
+      signal: rankingPublication.publishable
+        ? scaffold.signal
+        : "Verified-data rerank preview from the source-backed SLIC export.",
+    });
+  }
+
+  return cities.sort((left, right) => {
+    const rankDelta = left.globalRank - right.globalRank;
+    if (rankDelta !== 0) {
+      return rankDelta;
+    }
+
+    return left.id.localeCompare(right.id);
   });
+}
+
+function buildGlobalRankings(): FullRankedCity[] {
+  const cities = parsedCityUniverse.map((row) => recalibrateCity(cityScaffoldForRow(row), row));
 
   return cities
     .sort((left, right) => {
-      const scoreDelta = right.scores.balanced - left.scores.balanced;
+      const scoreDelta = right.scores.slic - left.scores.slic;
       if (scoreDelta !== 0) {
         return scoreDelta;
       }
@@ -1656,12 +1778,24 @@ function buildGlobalRankings(): FullRankedCity[] {
     }));
 }
 
-export const globalRankings: FullRankedCity[] = buildGlobalRankings();
+const syntheticPreviewFactory = buildGlobalRankings;
+void syntheticPreviewFactory;
+
+export const globalRankings: FullRankedCity[] =
+  rankingPublication.cities.length > 0 ? buildPublishedGlobalRankings() : [];
+
+// Exercise should always search across the full indexed city universe,
+// not only the currently publishable public board.
+const exerciseCities: FullRankedCity[] = buildGlobalRankings();
 
 export type RankingScope = "core" | "field";
 
+export function getExerciseCities(): FullRankedCity[] {
+  return [...exerciseCities];
+}
+
 export function getRankingsBoard({
-  mode = "balanced",
+  mode = "slic",
   region = "All",
   scope = "field",
 }: {

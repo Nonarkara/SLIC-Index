@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { formatCityTime } from "./cityTimezones";
 import RankingTrendMiniChart from "./RankingTrendMiniChart";
 import { getRankingsBoard, rankingRegions } from "./rankingsData";
+import RankingIntegrityBanner from "./RankingIntegrityBanner";
 import { rankingPhotos } from "./reportPhotos";
 import { smartCityFeed, type SmartCityFeedItem } from "./smartCityFeed";
 import { getCopy } from "./siteCopy";
@@ -53,11 +54,12 @@ function pickSourceItems(cities: FullRankedCity[]): (SmartCityFeedItem | null)[]
 }
 
 const modeLabels: Record<ScoreMode, Record<Locale, string>> = {
-  balanced: { en: "Balanced", th: "สมดุล", zh: "综合" },
-  physical: { en: "Physical", th: "กายภาพ", zh: "基础条件" },
-  economic: { en: "Economic", th: "เศรษฐกิจ", zh: "经济" },
+  slic: { en: "SLIC", th: "SLIC", zh: "SLIC" },
+  pressure: { en: "Pressure", th: "แรงกดดัน", zh: "压力" },
+  viability: { en: "Viability", th: "ความเป็นไปได้", zh: "可行性" },
+  capability: { en: "Capability", th: "ศักยภาพ", zh: "能力" },
   community: { en: "Community", th: "ชุมชน", zh: "社区" },
-  business: { en: "Business", th: "ธุรกิจ", zh: "商业" },
+  creative: { en: "Creative", th: "สร้างสรรค์", zh: "创造力" },
 };
 
 const accentTileLabel: Record<Locale, string> = {
@@ -170,73 +172,6 @@ function formatPublishedDate(value: string, locale: Locale): string {
   }).format(parsed);
 }
 
-function downloadCsv(rows: FullRankedCity[], locale: Locale, mode: ScoreMode, region: string) {
-  const headers = [
-    "rank",
-    "global_rank",
-    "city",
-    "country",
-    "region",
-    "mode",
-    "score",
-    "ppp_income_per_head",
-    "ppp_disposable_income",
-    "graduate_housing_share",
-    "business_growth",
-    "business_opening_ease",
-    "government_stability",
-    "tax_competitiveness",
-    "safety_score",
-    "tolerance_score",
-    "ecology_score",
-    "healthcare_access",
-    "healthcare_affordability",
-    "education_access",
-    "education_affordability",
-    "experience_diversity",
-  ];
-
-  const csvRows = rows.map((city, index) =>
-    [
-      index + 1,
-      city.globalRank,
-      city.name,
-      city.country,
-      city.region,
-      mode,
-      city.scores[mode],
-      city.metrics.pppIncomePerHead,
-      city.metrics.pppDisposableIncome ?? "",
-      city.metrics.graduateHousingShare,
-      city.metrics.businessGrowth ?? "",
-      city.metrics.businessOpeningEase ?? "",
-      city.metrics.governmentStability ?? "",
-      city.metrics.taxCompetitiveness ?? "",
-      city.metrics.safetyScore ?? "",
-      city.metrics.toleranceScore ?? "",
-      city.metrics.ecologyScore ?? "",
-      city.metrics.healthcare.access,
-      city.metrics.healthcare.affordability,
-      city.metrics.education.access,
-      city.metrics.education.affordability,
-      city.metrics.experienceDiversity,
-    ]
-      .map((value) => `"${String(value).replace(/"/g, '""')}"`)
-      .join(","),
-  );
-
-  const blob = new Blob([[headers.join(","), ...csvRows].join("\n")], {
-    type: "text/csv;charset=utf-8",
-  });
-  const fileName = `slic-${region.toLowerCase().replace(/[^a-z0-9]+/g, "-")}-${mode}-${locale}.csv`;
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement("a");
-  link.href = url;
-  link.download = fileName;
-  link.click();
-  URL.revokeObjectURL(url);
-}
-
 function ModeSwitch({
   mode,
   locale,
@@ -270,9 +205,10 @@ export default function RankingsPage({
   onNavigate: (path: SitePath) => void;
   locale: Locale;
 }) {
+  const spreadsheetTemplatePath = "/downloads/slic-google-sheets-template.xlsx";
   const copy = getCopy(locale);
   const editorialCopy = rankingEditorialCopy[locale];
-  const [mode, setMode] = useState<ScoreMode>("balanced");
+  const [mode, setMode] = useState<ScoreMode>("slic");
   const [region, setRegion] = useState<string>("All");
   const [scope, setScope] = useState<"core" | "field">("field");
   const [now, setNow] = useState(() => new Date());
@@ -304,6 +240,7 @@ export default function RankingsPage({
             <h1 className="rankings-title">{copy.rankings.title}</h1>
             <p className="hero-intro">{copy.rankings.intro}</p>
             <p className="rankings-filter-note">{copy.rankings.tieNote}</p>
+            <RankingIntegrityBanner locale={locale} />
 
             <div className="hero-actions">
               <a
@@ -366,13 +303,13 @@ export default function RankingsPage({
 
             <div className="rankings-actions">
               <ModeSwitch mode={mode} locale={locale} onChange={setMode} />
-              <button
-                type="button"
+              <a
                 className="secondary-action rankings-export"
-                onClick={() => downloadCsv(filteredRankings, locale, mode, region)}
+                href={spreadsheetTemplatePath}
+                download
               >
-                {copy.shared.exportCsv}
-              </button>
+                {copy.shared.downloadSheetTemplate}
+              </a>
             </div>
           </div>
         </div>
@@ -388,186 +325,194 @@ export default function RankingsPage({
             <p className="section-summary">{copy.rankings.topTenSummary}</p>
           </div>
 
-          <div className="ranking-card-grid ranking-card-grid-top">
-            {topCards.map((city, index) => {
-              const localTime = formatCityTime(now, city.name, locale);
-              const sourceItem = topSourceItems[index];
+          {topCards.length > 0 ? (
+            <div className="ranking-card-grid ranking-card-grid-top">
+              {topCards.map((city, index) => {
+                const localTime = formatCityTime(now, city.name, locale);
+                const sourceItem = topSourceItems[index];
 
-              return (
-                <article className="ranking-detail-card" key={`${city.id}-${mode}`}>
-                  <div className="ranking-detail-layout">
-                    <div className="ranking-detail-main">
-                      <div className="ranking-detail-head">
-                        <div>
-                          <p className="panel-label">
-                            {copy.rankings.rank} {String(index + 1).padStart(2, "0")}
-                          </p>
-                          <h3>{city.name}</h3>
-                          <p className="city-location">
-                            {city.country} / {city.region}
-                          </p>
+                return (
+                  <article className="ranking-detail-card" key={`${city.id}-${mode}`}>
+                    <div className="ranking-detail-layout">
+                      <div className="ranking-detail-main">
+                        <div className="ranking-detail-head">
+                          <div>
+                            <p className="panel-label">
+                              {copy.rankings.rank} {String(index + 1).padStart(2, "0")}
+                            </p>
+                            <h3>{city.name}</h3>
+                            <p className="city-location">
+                              {city.country} / {city.region}
+                            </p>
+                          </div>
+
+                          <div className="ranking-head-meta">
+                            {localTime ? (
+                              <div className="ranking-city-clock">
+                                <span>{copy.rankings.localClock}</span>
+                                <strong>{localTime}</strong>
+                              </div>
+                            ) : null}
+                            <div className="detail-score">
+                              <strong>{city.scores[mode]}</strong>
+                              <span>{modeLabels[mode][locale]}</span>
+                            </div>
+                          </div>
                         </div>
 
-                        <div className="ranking-head-meta">
-                          {localTime ? (
-                            <div className="ranking-city-clock">
-                              <span>{copy.rankings.localClock}</span>
-                              <strong>{localTime}</strong>
-                            </div>
-                          ) : null}
-                          <div className="detail-score">
-                            <strong>{city.scores[mode]}</strong>
-                            <span>{modeLabels[mode][locale]}</span>
+                        <p className="city-tagline">{city.tagline}</p>
+                        <p className="detail-rationale">
+                          <strong>{copy.rankings.rationale}:</strong> {city.inclusionRationale}
+                        </p>
+
+                        <div className="detail-metric-grid detail-metric-grid-rich">
+                          <div>
+                            <span>{copy.rankings.income}</span>
+                            <strong>{formatCurrency(city.metrics.pppIncomePerHead, locale)}</strong>
+                          </div>
+                          <div>
+                            <span>{copy.rankings.disposable}</span>
+                            <strong>
+                              {formatCurrency(
+                                city.metrics.pppDisposableIncome ?? city.metrics.pppIncomePerHead,
+                                locale,
+                              )}
+                            </strong>
+                          </div>
+                          <div>
+                            <span>{copy.rankings.housing}</span>
+                            <strong>{formatPercent(city.metrics.graduateHousingShare, locale)}%</strong>
+                          </div>
+                          <div>
+                            <span>{copy.rankings.safety}</span>
+                            <strong>{scoreLabel(city.metrics.safetyScore)}</strong>
+                          </div>
+                          <div>
+                            <span>{copy.rankings.tolerance}</span>
+                            <strong>{scoreLabel(city.metrics.toleranceScore)}</strong>
+                          </div>
+                          <div>
+                            <span>{copy.rankings.business}</span>
+                            <strong>{scoreLabel(city.metrics.businessGrowth)}</strong>
+                          </div>
+                          <div>
+                            <span>{copy.rankings.healthcare}</span>
+                            <strong>{city.metrics.healthcare.affordability}</strong>
+                            <small>{city.metrics.healthcare.access}</small>
+                          </div>
+                          <div>
+                            <span>{copy.rankings.education}</span>
+                            <strong>{city.metrics.education.affordability}</strong>
+                            <small>{city.metrics.education.access}</small>
+                          </div>
+                          <div>
+                            <span>{copy.rankings.ecology}</span>
+                            <strong>{scoreLabel(city.metrics.ecologyScore)}</strong>
+                          </div>
+                          <div>
+                            <span>{copy.rankings.diversity}</span>
+                            <strong>{scoreLabel(city.metrics.experienceDiversity)}</strong>
                           </div>
                         </div>
                       </div>
 
-                      <p className="city-tagline">{city.tagline}</p>
-                      <p className="detail-rationale">
-                        <strong>{copy.rankings.rationale}:</strong> {city.inclusionRationale}
-                      </p>
+                      <aside className="ranking-signal-column">
+                        <div className="ranking-insight-panel">
+                          <p className="panel-label">{copy.rankings.listening}</p>
+                          <RankingTrendMiniChart points={city.metrics.conversationTrend} />
+                          <p className="ranking-insight-note">
+                            {copy.rankings.safety} {scoreLabel(city.metrics.safetyScore)} /{" "}
+                            {copy.rankings.tolerance} {scoreLabel(city.metrics.toleranceScore)} /{" "}
+                            {copy.rankings.business} {scoreLabel(city.metrics.businessGrowth)}
+                          </p>
 
-                      <div className="detail-metric-grid detail-metric-grid-rich">
-                        <div>
-                          <span>{copy.rankings.income}</span>
-                          <strong>{formatCurrency(city.metrics.pppIncomePerHead, locale)}</strong>
+                          <div className="ranking-diagnostic-grid">
+                            <article>
+                              <span>{copy.rankings.safety}</span>
+                              <strong>{scoreLabel(city.metrics.safetyScore)}</strong>
+                            </article>
+                            <article>
+                              <span>{copy.rankings.tolerance}</span>
+                              <strong>{scoreLabel(city.metrics.toleranceScore)}</strong>
+                            </article>
+                            <article>
+                              <span>{copy.rankings.openingEase}</span>
+                              <strong>{scoreLabel(city.metrics.businessOpeningEase)}</strong>
+                            </article>
+                            <article>
+                              <span>{copy.rankings.stability}</span>
+                              <strong>{scoreLabel(city.metrics.governmentStability)}</strong>
+                            </article>
+                            <article>
+                              <span>{copy.rankings.taxRegime}</span>
+                              <strong>{scoreLabel(city.metrics.taxCompetitiveness)}</strong>
+                            </article>
+                            <article>
+                              <span>{copy.rankings.incentives}</span>
+                              <strong>{scoreLabel(city.metrics.incentiveReadiness)}</strong>
+                            </article>
+                          </div>
+
+                          <div className="ranking-topic-list">
+                            {(city.metrics.conversationTopics ?? city.tags).slice(0, 4).map((topic) => (
+                              <span key={topic}>{topic}</span>
+                            ))}
+                          </div>
+
+                          {sourceItem && (
+                            <a
+                              className="ranking-source-card"
+                              href={sourceItem.url}
+                              target="_blank"
+                              rel="noreferrer"
+                              style={{
+                                background: `linear-gradient(180deg, ${city.accentSoftHex ?? "rgba(15, 63, 153, 0.08)"} 0%, rgba(255,255,255,0.92) 100%)`,
+                                borderColor: city.accentHex ?? "#0f3f99",
+                              }}
+                            >
+                              <div className="ranking-source-card-head">
+                                <p className="panel-label">{editorialCopy.sourceDeskLabel}</p>
+                                <span className="ranking-source-date">
+                                  {formatPublishedDate(sourceItem.publishedAt, locale)}
+                                </span>
+                              </div>
+                              <div className="ranking-accent-head">
+                                <h4>{city.name}</h4>
+                                <span
+                                  className="ranking-accent-chip"
+                                  style={{ background: city.accentHex ?? "#0f3f99" }}
+                                />
+                              </div>
+                              <p className="ranking-source-accent">
+                                {accentTileLabel[locale]} / {city.accentLabel ?? accentFallbackLabel[locale]}
+                              </p>
+                              <strong className="ranking-source-title">{sourceItem.headline}</strong>
+                              <div className="ranking-source-foot">
+                                <span>{sourceItem.source}</span>
+                                <span>{editorialCopy.sourceOpen}</span>
+                              </div>
+                            </a>
+                          )}
                         </div>
-                        <div>
-                          <span>{copy.rankings.disposable}</span>
-                          <strong>
-                            {formatCurrency(
-                              city.metrics.pppDisposableIncome ?? city.metrics.pppIncomePerHead,
-                              locale,
-                            )}
-                          </strong>
-                        </div>
-                        <div>
-                          <span>{copy.rankings.housing}</span>
-                          <strong>{formatPercent(city.metrics.graduateHousingShare, locale)}%</strong>
-                        </div>
-                        <div>
-                          <span>{copy.rankings.safety}</span>
-                          <strong>{scoreLabel(city.metrics.safetyScore)}</strong>
-                        </div>
-                        <div>
-                          <span>{copy.rankings.tolerance}</span>
-                          <strong>{scoreLabel(city.metrics.toleranceScore)}</strong>
-                        </div>
-                        <div>
-                          <span>{copy.rankings.business}</span>
-                          <strong>{scoreLabel(city.metrics.businessGrowth)}</strong>
-                        </div>
-                        <div>
-                          <span>{copy.rankings.healthcare}</span>
-                          <strong>{city.metrics.healthcare.affordability}</strong>
-                          <small>{city.metrics.healthcare.access}</small>
-                        </div>
-                        <div>
-                          <span>{copy.rankings.education}</span>
-                          <strong>{city.metrics.education.affordability}</strong>
-                          <small>{city.metrics.education.access}</small>
-                        </div>
-                        <div>
-                          <span>{copy.rankings.ecology}</span>
-                          <strong>{scoreLabel(city.metrics.ecologyScore)}</strong>
-                        </div>
-                        <div>
-                          <span>{copy.rankings.diversity}</span>
-                          <strong>{scoreLabel(city.metrics.experienceDiversity)}</strong>
-                        </div>
-                      </div>
+                      </aside>
                     </div>
 
-                    <aside className="ranking-signal-column">
-                      <div className="ranking-insight-panel">
-                        <p className="panel-label">{copy.rankings.listening}</p>
-                        <RankingTrendMiniChart points={city.metrics.conversationTrend} />
-                        <p className="ranking-insight-note">
-                          {copy.rankings.safety} {scoreLabel(city.metrics.safetyScore)} /{" "}
-                          {copy.rankings.tolerance} {scoreLabel(city.metrics.toleranceScore)} /{" "}
-                          {copy.rankings.business} {scoreLabel(city.metrics.businessGrowth)}
-                        </p>
-
-                        <div className="ranking-diagnostic-grid">
-                          <article>
-                            <span>{copy.rankings.safety}</span>
-                            <strong>{scoreLabel(city.metrics.safetyScore)}</strong>
-                          </article>
-                          <article>
-                            <span>{copy.rankings.tolerance}</span>
-                            <strong>{scoreLabel(city.metrics.toleranceScore)}</strong>
-                          </article>
-                          <article>
-                            <span>{copy.rankings.openingEase}</span>
-                            <strong>{scoreLabel(city.metrics.businessOpeningEase)}</strong>
-                          </article>
-                          <article>
-                            <span>{copy.rankings.stability}</span>
-                            <strong>{scoreLabel(city.metrics.governmentStability)}</strong>
-                          </article>
-                          <article>
-                            <span>{copy.rankings.taxRegime}</span>
-                            <strong>{scoreLabel(city.metrics.taxCompetitiveness)}</strong>
-                          </article>
-                          <article>
-                            <span>{copy.rankings.incentives}</span>
-                            <strong>{scoreLabel(city.metrics.incentiveReadiness)}</strong>
-                          </article>
-                        </div>
-
-                        <div className="ranking-topic-list">
-                          {(city.metrics.conversationTopics ?? city.tags).slice(0, 4).map((topic) => (
-                            <span key={topic}>{topic}</span>
-                          ))}
-                        </div>
-
-                        {sourceItem && (
-                          <a
-                            className="ranking-source-card"
-                            href={sourceItem.url}
-                            target="_blank"
-                            rel="noreferrer"
-                            style={{
-                              background: `linear-gradient(180deg, ${city.accentSoftHex ?? "rgba(15, 63, 153, 0.08)"} 0%, rgba(255,255,255,0.92) 100%)`,
-                              borderColor: city.accentHex ?? "#0f3f99",
-                            }}
-                          >
-                            <div className="ranking-source-card-head">
-                              <p className="panel-label">{editorialCopy.sourceDeskLabel}</p>
-                              <span className="ranking-source-date">
-                                {formatPublishedDate(sourceItem.publishedAt, locale)}
-                              </span>
-                            </div>
-                            <div className="ranking-accent-head">
-                              <h4>{city.name}</h4>
-                              <span
-                                className="ranking-accent-chip"
-                                style={{ background: city.accentHex ?? "#0f3f99" }}
-                              />
-                            </div>
-                            <p className="ranking-source-accent">
-                              {accentTileLabel[locale]} / {city.accentLabel ?? accentFallbackLabel[locale]}
-                            </p>
-                            <strong className="ranking-source-title">{sourceItem.headline}</strong>
-                            <div className="ranking-source-foot">
-                              <span>{sourceItem.source}</span>
-                              <span>{editorialCopy.sourceOpen}</span>
-                            </div>
-                          </a>
-                        )}
-                      </div>
-                    </aside>
-                  </div>
-
-                  <div className="metric-taglist">
-                    {city.tags.map((tag) => (
-                      <span key={tag}>{tag}</span>
-                    ))}
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+                    <div className="metric-taglist">
+                      {city.tags.map((tag) => (
+                        <span key={tag}>{tag}</span>
+                      ))}
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          ) : (
+            <article className="paper-card ranking-empty-state">
+              <p className="panel-label">{copy.shared.liveTop10}</p>
+              <h3>{copy.rankings.topTenTitle}</h3>
+              <p>{copy.rankings.liveBody}</p>
+            </article>
+          )}
         </section>
 
         <section className="ranking-visual-band section" aria-label="Ranking visual context">
@@ -639,55 +584,63 @@ export default function RankingsPage({
             <p className="section-summary">{copy.rankings.tableSummary}</p>
           </div>
 
-          <div className="sheet-table-shell">
-            <table className="sheet-table ranking-table">
-              <thead>
-                <tr>
-                  <th>{copy.rankings.rank}</th>
-                  <th>{copy.rankings.city}</th>
-                  <th>{copy.rankings.country}</th>
-                  <th>{copy.rankings.region}</th>
-                  <th>{copy.rankings.score}</th>
-                  <th>{copy.rankings.business}</th>
-                  <th>{copy.rankings.safety}</th>
-                  <th>{copy.rankings.tolerance}</th>
-                  <th>{copy.rankings.income}</th>
-                  <th>{copy.rankings.disposable}</th>
-                  <th>{copy.rankings.housing}</th>
-                  <th>{copy.rankings.ecology}</th>
-                  <th>{copy.rankings.healthcare}</th>
-                  <th>{copy.rankings.education}</th>
-                  <th>{copy.rankings.diversity}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {tableRows.map((city, index) => (
-                  <tr key={`${city.id}-${mode}-table`}>
-                    <td>{index + 11}</td>
-                    <td>{city.name}</td>
-                    <td>{city.country}</td>
-                    <td>{city.region}</td>
-                    <td>{city.scores[mode]}</td>
-                    <td>{scoreLabel(city.metrics.businessGrowth)}</td>
-                    <td>{scoreLabel(city.metrics.safetyScore)}</td>
-                    <td>{scoreLabel(city.metrics.toleranceScore)}</td>
-                    <td>{formatCurrency(city.metrics.pppIncomePerHead, locale)}</td>
-                    <td>
-                      {formatCurrency(
-                        city.metrics.pppDisposableIncome ?? city.metrics.pppIncomePerHead,
-                        locale,
-                      )}
-                    </td>
-                    <td>{formatPercent(city.metrics.graduateHousingShare, locale)}%</td>
-                    <td>{scoreLabel(city.metrics.ecologyScore)}</td>
-                    <td>{city.metrics.healthcare.affordability}</td>
-                    <td>{city.metrics.education.affordability}</td>
-                    <td>{scoreLabel(city.metrics.experienceDiversity)}</td>
+          {tableRows.length > 0 ? (
+            <div className="sheet-table-shell">
+              <table className="sheet-table ranking-table">
+                <thead>
+                  <tr>
+                    <th>{copy.rankings.rank}</th>
+                    <th>{copy.rankings.city}</th>
+                    <th>{copy.rankings.country}</th>
+                    <th>{copy.rankings.region}</th>
+                    <th>{copy.rankings.score}</th>
+                    <th>{copy.rankings.business}</th>
+                    <th>{copy.rankings.safety}</th>
+                    <th>{copy.rankings.tolerance}</th>
+                    <th>{copy.rankings.income}</th>
+                    <th>{copy.rankings.disposable}</th>
+                    <th>{copy.rankings.housing}</th>
+                    <th>{copy.rankings.ecology}</th>
+                    <th>{copy.rankings.healthcare}</th>
+                    <th>{copy.rankings.education}</th>
+                    <th>{copy.rankings.diversity}</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                </thead>
+                <tbody>
+                  {tableRows.map((city, index) => (
+                    <tr key={`${city.id}-${mode}-table`}>
+                      <td>{index + 11}</td>
+                      <td>{city.name}</td>
+                      <td>{city.country}</td>
+                      <td>{city.region}</td>
+                      <td>{city.scores[mode]}</td>
+                      <td>{scoreLabel(city.metrics.businessGrowth)}</td>
+                      <td>{scoreLabel(city.metrics.safetyScore)}</td>
+                      <td>{scoreLabel(city.metrics.toleranceScore)}</td>
+                      <td>{formatCurrency(city.metrics.pppIncomePerHead, locale)}</td>
+                      <td>
+                        {formatCurrency(
+                          city.metrics.pppDisposableIncome ?? city.metrics.pppIncomePerHead,
+                          locale,
+                        )}
+                      </td>
+                      <td>{formatPercent(city.metrics.graduateHousingShare, locale)}%</td>
+                      <td>{scoreLabel(city.metrics.ecologyScore)}</td>
+                      <td>{city.metrics.healthcare.affordability}</td>
+                      <td>{city.metrics.education.affordability}</td>
+                      <td>{scoreLabel(city.metrics.experienceDiversity)}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          ) : (
+            <article className="paper-card ranking-empty-state">
+              <p className="panel-label">{copy.rankings.tableTitle}</p>
+              <h3>{copy.rankings.title}</h3>
+              <p>{copy.rankings.liveBody}</p>
+            </article>
+          )}
         </section>
 
         <section className="ranking-fine-print section" aria-label="Ranking publication note">
