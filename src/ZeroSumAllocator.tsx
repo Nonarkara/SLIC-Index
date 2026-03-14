@@ -401,7 +401,7 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
   }, []);
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 20 }}>
+    <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
       {/* Radar chart with drag */}
       <div
         ref={svgRef}
@@ -419,26 +419,19 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
         />
       </div>
 
-      {/* Slider controls */}
-      <div style={{ width: "100%", maxWidth: 420, display: "flex", flexDirection: "column", gap: 10 }}>
+      {/* Slider controls — compact */}
+      <div style={{ width: "100%", maxWidth: 380, display: "flex", flexDirection: "column", gap: 4 }}>
         {pillars.map((p, i) => (
-          <div key={p.id} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div
-              style={{
-                width: 12,
-                height: 12,
-                borderRadius: "50%",
-                backgroundColor: p.color,
-                flexShrink: 0,
-                boxShadow: `0 0 6px ${p.color}40`,
-              }}
-            />
+          <div key={p.id} style={{ display: "flex", alignItems: "center", gap: 6 }}>
             <span style={{
-              width: 95,
-              fontSize: 13,
+              width: 6, height: 6, background: p.color, flexShrink: 0,
+            }} />
+            <span style={{
+              width: 80,
+              fontSize: 11,
               fontWeight: 600,
               fontFamily: "'JetBrains Mono', monospace",
-              color: "rgba(255,255,255,0.85)",
+              color: "rgba(255,255,255,0.7)",
             }}>
               {p.label}
             </span>
@@ -451,14 +444,14 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
               style={{
                 flex: 1,
                 accentColor: p.color,
-                height: 6,
+                height: 4,
               }}
             />
             <span
               style={{
-                width: 36,
+                width: 28,
                 textAlign: "right",
-                fontSize: 15,
+                fontSize: 13,
                 fontWeight: 800,
                 fontVariantNumeric: "tabular-nums",
                 fontFamily: "'JetBrains Mono', monospace",
