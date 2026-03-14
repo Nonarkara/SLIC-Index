@@ -41,13 +41,18 @@ const topicColors: Record<string, string> = {
   Workforce: "var(--accent-cyan)",
   Pilots: "var(--accent-amber)",
   Energy: "var(--accent-green)",
+  "Clean energy": "var(--accent-green)",
   "Climate resilience": "var(--accent-red)",
   "Urban climate": "var(--accent-amber)",
   "AI for cities": "var(--accent-cyan)",
   Inclusion: "var(--accent-green)",
   "Digital twins": "var(--accent-cyan)",
   "Clean air": "var(--accent-green)",
+  "Green buildings": "var(--accent-green)",
   "Mobility AI": "var(--accent-amber)",
+  Mobility: "var(--accent-amber)",
+  "Smart governance": "var(--accent-cyan)",
+  "Urban planning": "var(--accent-amber)",
 };
 
 function timeAgo(dateStr: string): string {
