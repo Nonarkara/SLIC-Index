@@ -802,6 +802,14 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           explanation:
             "Consistency checks, clustering tests, and analyst review can flag weak inputs or unsupported patterns, but they do not add hidden bonuses or penalties to the public score.",
         },
+        {
+          id: "profile-match",
+          title: "Exploratory profile matcher",
+          formula: "Match(c,u) = similarity(profile(c), preference(u))",
+          role: "Exploratory only",
+          explanation:
+            "The spider-web exercise is not the published rank. It compares the shape of a city's five-pillar profile with a user's declared preference mix across the indexed field.",
+        },
       ],
     },
     countryContextSection: {
@@ -1292,10 +1300,17 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         },
         {
           id: "diagnostics-th",
-          title: "Internal diagnostics",
+          title: "การวินิจฉัยภายใน",
           formula: "Diagnostics(c) do not modify SLIC(c)",
           role: "การตรวจแบบไม่ให้คะแนน",
           explanation: "การตรวจความสอดคล้อง การทดสอบโครงสร้าง และการทบทวนของนักวิเคราะห์อาจใช้เพื่อจับข้อมูลที่อ่อนหรือไม่สมเหตุผล แต่ไม่เพิ่มโบนัสหรือบทลงโทษลับในคะแนนสาธารณะ",
+        },
+        {
+          id: "profile-match-th",
+          title: "ตัวจับคู่โปรไฟล์เชิงสำรวจ",
+          formula: "Match(c,u) = similarity(profile(c), preference(u))",
+          role: "ใช้เพื่อสำรวจเท่านั้น",
+          explanation: "โหมด spider-web ไม่ใช่อันดับสาธารณะ แต่เป็นการเทียบรูปทรงคะแนนห้าเสาของเมืองกับความชอบที่ผู้ใช้ประกาศในสนามเมืองทั้งหมด",
         },
       ],
     },
@@ -1785,10 +1800,17 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         },
         {
           id: "diagnostics-zh",
-          title: "Internal diagnostics",
+          title: "内部诊断",
           formula: "Diagnostics(c) do not modify SLIC(c)",
           role: "非计分检查",
           explanation: "一致性检查、结构检验与分析师复核可以标出薄弱输入或不合理模式，但不会给公开分数加入隐藏加分或惩罚。",
+        },
+        {
+          id: "profile-match-zh",
+          title: "探索性画像匹配",
+          formula: "Match(c,u) = similarity(profile(c), preference(u))",
+          role: "仅供探索",
+          explanation: "蜘蛛网交互不是公开排名本身，而是把城市五支柱的分布形状与用户声明的偏好结构进行比较。",
         },
       ],
     },
@@ -1810,8 +1832,8 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         id: "pressure",
         name: "Growth",
         weight: 25,
-        thesis: "经济活力决定城市的发展轨迹。增长带来资本主义和市场力量，除非国家提供福利，否则自然影响可负担性。",
-        justification: "这一支柱衡量经济动力及其对城市居民实际生活的影响。",
+        thesis: "经济活力决定城市轨迹。增长吸引资本主义和市场力量来塑造可负担性——除非政府提供福利作为平衡。",
+        justification: "这一支柱惩罚虚假繁荣，并将可支配空间放在评分核心。",
         citations: [2, 3, 7],
         metrics: [
           { name: "税后 PPP 可支配生活空间", weight: 9, description: "税后扣除必需支出后的 PPP 剩余空间。", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },

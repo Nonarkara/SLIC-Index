@@ -75,6 +75,9 @@
       "source_url",
       "source_tier",
       "update_date",
+      "reference_period",
+      "source_scope",
+      "proxy_status",
       "notes"
     ],
     "City_Inputs": [
@@ -119,6 +122,9 @@
       "ppp_private_consumption_context",
       "tax_rate_context",
       "household_debt_proxy_context",
+      "reference_period",
+      "source_scope",
+      "proxy_status",
       "pressure_source_url",
       "pressure_source_tier",
       "pressure_source_date",

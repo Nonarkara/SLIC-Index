@@ -1675,6 +1675,7 @@ def write_readme(
         ("Normalization", "Each scored input is winsorized at the 5th and 95th percentiles, then converted to a 0-100 score. Harmful variables such as crime, debt, suicide, PM2.5, and administrative friction are reverse-scored."),
         ("Coverage rules", "A city is Ranked only when overall weighted coverage is at least 50% and every pillar clears the 35% minimum. Coverage grades: A >= 75%, B = 50-74%, C = 35-49%, below 35% = Watchlist."),
         ("Source hierarchy", "Tier 1 city/metro official data > Tier 2 subnational official data > Tier 3 national and international official data > Tier 4 audited secondary and experimental layers."),
+        ("Integrity metadata", "Every filled source row should also carry reference_period, source_scope, and proxy_status so the workbook can distinguish direct evidence from approved proxies and enforce freshness."),
         ("Doctrinal rule: safety", "Safety is scored by harm and victimization outcomes, never by camera count or visible control hardware."),
         ("Doctrinal rule: tolerance", "Tolerance is scored through low-friction coexistence and real personal freedom, not symbolic branding proxies."),
         ("Doctrinal rule: visitor flows", "Visitor flow is contextual only. It should be reviewed against crime, civic strain, and public-life quality rather than treated as an automatic positive."),
@@ -1831,6 +1832,9 @@ def build_city_inputs_sheet(
         "visitor_flow_context_raw",
     }
     context_metadata_columns = {
+        "reference_period",
+        "source_scope",
+        "proxy_status",
         "pressure_source_url",
         "pressure_source_tier",
         "pressure_source_date",
@@ -2541,6 +2545,9 @@ def main() -> None:
             "source_url": "",
             "source_tier": "Tier 3",
             "update_date": "",
+            "reference_period": "",
+            "source_scope": "",
+            "proxy_status": "",
             "notes": "Populate official country context inputs before ranking.",
         }
         for country in countries

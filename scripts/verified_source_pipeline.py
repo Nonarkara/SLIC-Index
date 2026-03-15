@@ -28,6 +28,9 @@ COUNTRY_CONTEXT_FIELDS = [
     "source_url",
     "source_title",
     "source_date",
+    "reference_period",
+    "source_scope",
+    "proxy_status",
     "notes",
 ]
 CITY_INPUT_FIELDS = [
@@ -44,6 +47,9 @@ CITY_INPUT_FIELDS = [
     "source_url",
     "source_title",
     "source_date",
+    "reference_period",
+    "source_scope",
+    "proxy_status",
     "notes",
 ]
 
@@ -56,6 +62,14 @@ PILLAR_WEIGHTS = {
 }
 PILLAR_ORDER = ("pressure", "viability", "capability", "community", "creative")
 TIER_ORDER = {"Tier 1": 1, "Tier 2": 2, "Tier 3": 3, "Tier 4": 4, "Tier 5": 5}
+PUBLIC_PROVIDER_TIERS = {"Tier 1", "Tier 2", "Tier 3"}
+SOURCE_SCOPE_VALUES = ("city", "metro", "regional", "national", "international")
+PROXY_STATUS_VALUES = ("direct", "approved_proxy")
+FRESHNESS_LIMITS_MONTHS = {
+    "fast": 24,
+    "medium": 36,
+    "structural": 60,
+}
 PROVIDER_FIELDS = [
     "provider_id",
     "name",
@@ -326,36 +340,42 @@ COUNTRY_FIELD_SPECS = [
         "label": "GDP per capita (PPP)",
         "pillar": "creative",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "gdp_growth",
         "label": "GDP growth",
         "pillar": "creative",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "gini_coefficient",
         "label": "Gini coefficient",
         "pillar": "capability",
         "required_for_ranking": "yes",
+        "freshness_class": "structural",
     },
     {
         "field": "ppp_private_consumption",
         "label": "PPP private consumption factor",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "tax_rate_assumption",
         "label": "Tax rate assumption",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "household_debt_proxy",
         "label": "Household debt proxy",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
 ]
 
@@ -365,168 +385,196 @@ CITY_FIELD_SPECS = [
         "label": "Gross income",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "rent",
         "label": "Rent",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "utilities",
         "label": "Utilities",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "transit_cost",
         "label": "Transit cost",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "internet_cost",
         "label": "Internet cost",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "food_cost",
         "label": "Food cost",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "housing_burden_raw",
         "label": "Housing burden raw",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "household_debt_burden_raw",
         "label": "Household debt burden raw",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "working_time_pressure_raw",
         "label": "Working time pressure raw",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "suicide_mental_strain_raw",
         "label": "Suicide or mental strain raw",
         "pillar": "pressure",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "personal_safety_raw",
         "label": "Personal safety raw",
         "pillar": "viability",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "transit_access_commute_raw",
         "label": "Transit access and commute raw",
         "pillar": "viability",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "clean_air_raw",
         "label": "Clean air raw",
         "pillar": "viability",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "water_sanitation_utility_raw",
         "label": "Water, sanitation, and utility raw",
         "pillar": "viability",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "digital_infrastructure_raw",
         "label": "Digital infrastructure raw",
         "pillar": "viability",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "climate_sunlight_livability_raw",
         "label": "Climate and sunlight livability raw",
         "pillar": "viability",
         "required_for_ranking": "yes",
+        "freshness_class": "structural",
     },
     {
         "field": "healthcare_quality_raw",
         "label": "Healthcare quality raw",
         "pillar": "capability",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "education_quality_raw",
         "label": "Education quality raw",
         "pillar": "capability",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "equal_opportunity_raw",
         "label": "Equal opportunity raw",
         "pillar": "capability",
         "required_for_ranking": "yes",
+        "freshness_class": "structural",
     },
     {
         "field": "hospitality_belonging_raw",
         "label": "Hospitality and belonging raw",
         "pillar": "community",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "tolerance_pluralism_raw",
         "label": "Tolerance and pluralism raw",
         "pillar": "community",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "cultural_public_life_raw",
         "label": "Cultural public life raw",
         "pillar": "community",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "birth_rate_optimism_raw",
         "label": "Birth rate and societal optimism raw",
         "pillar": "community",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "entrepreneurial_dynamism_raw",
         "label": "Entrepreneurial dynamism raw",
         "pillar": "creative",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "innovation_research_intensity_raw",
         "label": "Innovation and research raw",
         "pillar": "creative",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "investment_signal_raw",
         "label": "Investment signal raw",
         "pillar": "creative",
         "required_for_ranking": "yes",
+        "freshness_class": "fast",
     },
     {
         "field": "administrative_investment_friction_raw",
         "label": "Administrative investment friction raw",
         "pillar": "creative",
         "required_for_ranking": "yes",
+        "freshness_class": "medium",
     },
     {
         "field": "visitor_flow_context_raw",
         "label": "Visitor flow context raw",
         "pillar": "creative",
         "required_for_ranking": "no",
+        "freshness_class": "fast",
     },
 ]
 
@@ -714,7 +762,18 @@ class SourceEntry:
     source_url: str
     source_title: str
     source_date: str
+    reference_period: str
+    source_scope: str
+    proxy_status: str
     notes: str
+
+
+@dataclass(frozen=True)
+class IntegritySummary:
+    key: str
+    label: str
+    count: int
+    samples: tuple[str, ...]
 
 
 @dataclass
@@ -723,11 +782,116 @@ class SourcePackValidation:
     country_values: dict[str, dict[str, SourceEntry]]
     city_values: dict[str, dict[str, SourceEntry]]
     issues: list[str]
+    integrity_summaries: list[IntegritySummary]
     stats: dict[str, int]
 
 
 def bool_from_text(value: str) -> bool:
     return value.strip().lower() in {"1", "true", "yes", "y"}
+
+
+class IssueRecorder:
+    def __init__(self) -> None:
+        self._counts: dict[str, int] = {}
+        self._labels: dict[str, str] = {}
+        self._samples: dict[str, list[str]] = {}
+
+    def add(self, key: str, label: str, sample: str) -> None:
+        self._counts[key] = self._counts.get(key, 0) + 1
+        self._labels[key] = label
+        bucket = self._samples.setdefault(key, [])
+        if len(bucket) < 4 and sample not in bucket:
+            bucket.append(sample)
+
+    def summaries(self) -> list[IntegritySummary]:
+        return [
+            IntegritySummary(
+                key=key,
+                label=self._labels[key],
+                count=self._counts[key],
+                samples=tuple(self._samples.get(key, [])),
+            )
+            for key in sorted(self._counts)
+        ]
+
+
+def summarize_integrity_issues(summaries: list[IntegritySummary]) -> list[str]:
+    issues: list[str] = []
+    for summary in summaries:
+        line = f"{summary.label}: {summary.count}"
+        if summary.samples:
+            line += f". Examples: {'; '.join(summary.samples)}"
+        issues.append(line)
+    return issues
+
+
+def months_old(source_date: date, today: date) -> int:
+    months = (today.year - source_date.year) * 12 + (today.month - source_date.month)
+    if today.day < source_date.day:
+        months -= 1
+    return months
+
+
+def provider_scope_to_source_scope(provider: Provider, row_kind: str) -> str:
+    scope = provider.scope.strip().lower()
+    if scope == "city_or_metro":
+        return "city"
+    if scope == "subnational":
+        return "regional"
+    if scope == "utility_operator":
+        return "city" if row_kind == "city" else "regional"
+    if scope == "national":
+        return "national"
+    if scope == "national_international":
+        return "international"
+    if scope == "international":
+        return "international"
+    return ""
+
+
+def default_reference_period(source_date: str) -> str:
+    if not source_date:
+        return ""
+    return f"as_of {source_date}"
+
+
+def default_proxy_status(
+    row_kind: str,
+    field: str,
+    source_scope: str,
+    provider: Provider | None,
+) -> str:
+    if field.endswith("_proxy") or field.endswith("_assumption") or "proxy" in field or "assumption" in field:
+        return "approved_proxy"
+    if provider and provider.tier in {"Tier 4", "Tier 5"}:
+        return "approved_proxy"
+    if row_kind == "city" and source_scope not in {"city", "metro"}:
+        return "approved_proxy"
+    return "direct"
+
+
+def normalize_row_metadata(
+    row: dict[str, str],
+    fieldnames: list[str],
+    provider_map: dict[str, Provider],
+    row_kind: str,
+) -> dict[str, str]:
+    normalized = {field: row.get(field, "").strip() for field in fieldnames}
+    provider_id = normalized.get("provider_id", "")
+    provider = provider_map.get(provider_id)
+    if provider is not None:
+        if "reference_period" in normalized and not normalized["reference_period"] and normalized.get("source_date", ""):
+            normalized["reference_period"] = default_reference_period(normalized["source_date"])
+        if "source_scope" in normalized and not normalized["source_scope"]:
+            normalized["source_scope"] = provider_scope_to_source_scope(provider, row_kind)
+        if "proxy_status" in normalized and not normalized["proxy_status"]:
+            normalized["proxy_status"] = default_proxy_status(
+                row_kind=row_kind,
+                field=normalized.get("field", ""),
+                source_scope=normalized.get("source_scope", ""),
+                provider=provider,
+            )
+    return normalized
 
 
 def read_csv_rows(path: Path) -> list[dict[str, str]]:
@@ -816,6 +980,8 @@ def prepare_verified_source_pack(force: bool = False) -> dict[str, Path]:
 
         write_csv(PROVIDERS_PATH, merged_rows, PROVIDER_FIELDS)
 
+    provider_map, _ = load_provider_registry()
+
     city_universe = build_city_universe()
     countries = unique_countries(city_universe)
 
@@ -831,22 +997,35 @@ def prepare_verified_source_pack(force: bool = False) -> dict[str, Path]:
             "source_url": "",
             "source_title": "",
             "source_date": "",
+            "reference_period": "",
+            "source_scope": "",
+            "proxy_status": "",
             "notes": "",
         }
         for country in countries
         for spec in COUNTRY_FIELD_SPECS
     ]
     if force or not COUNTRY_CONTEXT_PATH.exists():
-        write_csv(COUNTRY_CONTEXT_PATH, country_rows, COUNTRY_CONTEXT_FIELDS)
+        write_csv(
+            COUNTRY_CONTEXT_PATH,
+            [
+                normalize_row_metadata(row, COUNTRY_CONTEXT_FIELDS, provider_map, row_kind="country")
+                for row in country_rows
+            ],
+            COUNTRY_CONTEXT_FIELDS,
+        )
     else:
         write_csv(
             COUNTRY_CONTEXT_PATH,
-            merge_expected_rows(
-                read_csv_rows(COUNTRY_CONTEXT_PATH),
-                country_rows,
-                ("country", "field"),
-                COUNTRY_CONTEXT_FIELDS,
-            ),
+            [
+                normalize_row_metadata(row, COUNTRY_CONTEXT_FIELDS, provider_map, row_kind="country")
+                for row in merge_expected_rows(
+                    read_csv_rows(COUNTRY_CONTEXT_PATH),
+                    country_rows,
+                    ("country", "field"),
+                    COUNTRY_CONTEXT_FIELDS,
+                )
+            ],
             COUNTRY_CONTEXT_FIELDS,
         )
 
@@ -865,22 +1044,35 @@ def prepare_verified_source_pack(force: bool = False) -> dict[str, Path]:
             "source_url": "",
             "source_title": "",
             "source_date": "",
+            "reference_period": "",
+            "source_scope": "",
+            "proxy_status": "",
             "notes": "",
         }
         for city in city_universe
         for spec in CITY_FIELD_SPECS
     ]
     if force or not CITY_INPUTS_PATH.exists():
-        write_csv(CITY_INPUTS_PATH, city_rows, CITY_INPUT_FIELDS)
+        write_csv(
+            CITY_INPUTS_PATH,
+            [
+                normalize_row_metadata(row, CITY_INPUT_FIELDS, provider_map, row_kind="city")
+                for row in city_rows
+            ],
+            CITY_INPUT_FIELDS,
+        )
     else:
         write_csv(
             CITY_INPUTS_PATH,
-            merge_expected_rows(
-                read_csv_rows(CITY_INPUTS_PATH),
-                city_rows,
-                ("city_id", "field"),
-                CITY_INPUT_FIELDS,
-            ),
+            [
+                normalize_row_metadata(row, CITY_INPUT_FIELDS, provider_map, row_kind="city")
+                for row in merge_expected_rows(
+                    read_csv_rows(CITY_INPUTS_PATH),
+                    city_rows,
+                    ("city_id", "field"),
+                    CITY_INPUT_FIELDS,
+                )
+            ],
             CITY_INPUT_FIELDS,
         )
 
@@ -937,6 +1129,10 @@ def validate_entry(
     row: dict[str, str],
     row_label: str,
     provider_map: dict[str, Provider],
+    field_spec: dict[str, str],
+    row_kind: str,
+    issue_recorder: IssueRecorder,
+    today: date,
 ) -> tuple[SourceEntry | None, list[str]]:
     issues: list[str] = []
     value_text = row.get("value", "").strip()
@@ -944,64 +1140,169 @@ def validate_entry(
     source_url = row.get("source_url", "").strip()
     source_title = row.get("source_title", "").strip()
     source_date = row.get("source_date", "").strip()
+    reference_period = row.get("reference_period", "").strip()
+    source_scope = row.get("source_scope", "").strip()
+    proxy_status = row.get("proxy_status", "").strip()
     notes = row.get("notes", "").strip()
 
-    if not any((value_text, provider_id, source_url, source_title, source_date, notes)):
+    if not any(
+        (
+            value_text,
+            provider_id,
+            source_url,
+            source_title,
+            source_date,
+            reference_period,
+            source_scope,
+            proxy_status,
+            notes,
+        )
+    ):
         return None, issues
 
     if not value_text:
-        issues.append(f"{row_label} has source metadata but no numeric value.")
+        issue_recorder.add(
+            "missing_numeric_value",
+            "Rows with source metadata but no numeric value",
+            row_label,
+        )
     if not provider_id:
-        issues.append(f"{row_label} is missing provider_id.")
+        issue_recorder.add("missing_provider_id", "Rows missing provider_id", row_label)
     if not source_url:
-        issues.append(f"{row_label} is missing source_url.")
+        issue_recorder.add("missing_source_url", "Rows missing source_url", row_label)
     if not source_title:
-        issues.append(f"{row_label} is missing source_title.")
+        issue_recorder.add("missing_source_title", "Rows missing source_title", row_label)
     if not source_date:
-        issues.append(f"{row_label} is missing source_date.")
+        issue_recorder.add("missing_source_date", "Rows missing source_date", row_label)
+    if not reference_period:
+        issue_recorder.add("missing_reference_period", "Rows missing reference_period", row_label)
+    if not source_scope:
+        issue_recorder.add("missing_source_scope", "Rows missing source_scope", row_label)
+    if not proxy_status:
+        issue_recorder.add("missing_proxy_status", "Rows missing proxy_status", row_label)
 
-    if issues:
+    if not value_text or not provider_id or not source_url or not source_title or not source_date or not reference_period or not source_scope or not proxy_status:
         return None, issues
 
     try:
         value = float(value_text)
     except ValueError:
-        return None, [f"{row_label} has a non-numeric value '{value_text}'."]
+        issue_recorder.add("non_numeric_value", "Rows with non-numeric values", f"{row_label} -> {value_text}")
+        return None, issues
 
     provider = provider_map.get(provider_id)
     if provider is None:
-        return None, [f"{row_label} references unknown provider_id '{provider_id}'."]
+        issue_recorder.add(
+            "unknown_provider",
+            "Rows referencing unknown provider_id values",
+            f"{row_label} -> {provider_id}",
+        )
+        return None, issues
     if provider.reference_only:
-        return None, [
-            f"{row_label} uses reference-only provider '{provider_id}', which must stay in internal analyst reference tabs and cannot populate publishable scoring inputs."
-        ]
+        issue_recorder.add(
+            "reference_only_provider",
+            "Rows using reference-only providers in scoring inputs",
+            f"{row_label} -> {provider_id}",
+        )
+        return None, issues
+
+    required_for_ranking = field_spec["required_for_ranking"] == "yes"
+    if required_for_ranking and provider.tier not in PUBLIC_PROVIDER_TIERS:
+        issue_recorder.add(
+            "non_publishable_tier",
+            "Required scoring rows using Tier 4 or Tier 5 providers",
+            f"{row_label} -> {provider_id} ({provider.tier})",
+        )
+        return None, issues
 
     parsed = urlparse(source_url)
     if parsed.scheme != "https" or not parsed.netloc:
-        return None, [f"{row_label} must use a valid https source_url."]
+        issue_recorder.add("invalid_https_url", "Rows with invalid https source_url values", row_label)
+        return None, issues
 
     if provider.allowed_host and not host_matches(source_url, provider.allowed_host):
-        return None, [
-            f"{row_label} uses source_url host '{parsed.hostname or ''}' which does not match provider '{provider_id}'."
-        ]
+        issue_recorder.add(
+            "provider_host_mismatch",
+            "Rows whose source_url host does not match provider policy",
+            f"{row_label} -> {parsed.hostname or ''}",
+        )
+        return None, issues
 
     if not provider.allow_any_https and not provider.allowed_host:
-        return None, [f"Provider '{provider_id}' does not allow arbitrary hosts and is missing allowed_host."]
+        issues.append(f"Provider '{provider_id}' does not allow arbitrary hosts and is missing allowed_host.")
+        return None, issues
 
     try:
-        date.fromisoformat(source_date)
+        parsed_source_date = date.fromisoformat(source_date)
     except ValueError:
-        return None, [f"{row_label} has invalid source_date '{source_date}'. Use YYYY-MM-DD."]
+        issue_recorder.add(
+            "invalid_source_date",
+            "Rows with invalid source_date values",
+            f"{row_label} -> {source_date}",
+        )
+        return None, issues
+
+    if source_scope not in SOURCE_SCOPE_VALUES:
+        issue_recorder.add(
+            "invalid_source_scope",
+            "Rows with invalid source_scope values",
+            f"{row_label} -> {source_scope}",
+        )
+        return None, issues
+    if proxy_status not in PROXY_STATUS_VALUES:
+        issue_recorder.add(
+            "invalid_proxy_status",
+            "Rows with invalid proxy_status values",
+            f"{row_label} -> {proxy_status}",
+        )
+        return None, issues
+
+    field_name = row["field"].strip()
+    if row_kind == "city" and source_scope not in {"city", "metro"} and proxy_status != "approved_proxy":
+        issue_recorder.add(
+            "city_scope_requires_proxy",
+            "City rows using broader-than-city scope without approved_proxy",
+            row_label,
+        )
+        return None, issues
+    if row_kind == "country" and ("proxy" in field_name or "assumption" in field_name) and proxy_status != "approved_proxy":
+        issue_recorder.add(
+            "country_proxy_requires_approved_proxy",
+            "Country proxy rows not marked approved_proxy",
+            row_label,
+        )
+        return None, issues
+
+    freshness_class = str(field_spec["freshness_class"])
+    limit_months = FRESHNESS_LIMITS_MONTHS[freshness_class]
+    age_months = months_old(parsed_source_date, today)
+    if age_months > limit_months:
+        issue_recorder.add(
+            f"stale_{freshness_class}",
+            f"Rows older than the {limit_months}-month freshness limit",
+            f"{row_label} -> {source_date}",
+        )
+        return None, issues
+    if freshness_class == "structural" and age_months > 36 and proxy_status != "approved_proxy":
+        issue_recorder.add(
+            "structural_stale_without_proxy",
+            "Structural rows older than 36 months without approved_proxy",
+            f"{row_label} -> {source_date}",
+        )
+        return None, issues
 
     return (
         SourceEntry(
-            field=row["field"].strip(),
+            field=field_name,
             value=value,
             provider_id=provider_id,
             tier=provider.tier,
             source_url=source_url,
             source_title=source_title,
             source_date=source_date,
+            reference_period=reference_period,
+            source_scope=source_scope,
+            proxy_status=proxy_status,
             notes=notes,
         ),
         issues,
@@ -1011,6 +1312,8 @@ def validate_entry(
 def validate_source_pack() -> SourcePackValidation:
     prepare_verified_source_pack(force=False)
     provider_map, issues = load_provider_registry()
+    issue_recorder = IssueRecorder()
+    today = date.today()
 
     city_universe = build_city_universe()
     countries = unique_countries(city_universe)
@@ -1046,7 +1349,15 @@ def validate_source_pack() -> SourcePackValidation:
             continue
         observed_country_keys.add(key)
 
-        entry, entry_issues = validate_entry(row, row_label, provider_map)
+        entry, entry_issues = validate_entry(
+            row,
+            row_label,
+            provider_map,
+            COUNTRY_FIELD_LOOKUP[field],
+            "country",
+            issue_recorder,
+            today,
+        )
         issues.extend(entry_issues)
         if entry is None:
             continue
@@ -1070,7 +1381,15 @@ def validate_source_pack() -> SourcePackValidation:
             continue
         observed_city_keys.add(key)
 
-        entry, entry_issues = validate_entry(row, row_label, provider_map)
+        entry, entry_issues = validate_entry(
+            row,
+            row_label,
+            provider_map,
+            CITY_FIELD_LOOKUP[field],
+            "city",
+            issue_recorder,
+            today,
+        )
         issues.extend(entry_issues)
         if entry is None:
             continue
@@ -1086,6 +1405,9 @@ def validate_source_pack() -> SourcePackValidation:
     if missing_city_keys:
         issues.append(f"city_inputs.csv is missing {len(missing_city_keys)} expected city-field rows.")
 
+    integrity_summaries = issue_recorder.summaries()
+    issues.extend(summarize_integrity_issues(integrity_summaries))
+
     stats = {
         "country_slots": len(expected_country_keys),
         "country_values": filled_country_rows,
@@ -1093,6 +1415,7 @@ def validate_source_pack() -> SourcePackValidation:
         "city_values": filled_city_rows,
         "country_count": len(countries),
         "city_count": len(city_ids),
+        "integrity_issue_count": sum(summary.count for summary in integrity_summaries),
     }
 
     return SourcePackValidation(
@@ -1100,6 +1423,7 @@ def validate_source_pack() -> SourcePackValidation:
         country_values=country_values,
         city_values=city_values,
         issues=issues,
+        integrity_summaries=integrity_summaries,
         stats=stats,
     )
 
@@ -1136,12 +1460,23 @@ def round_score(value: float | None) -> float | None:
 
 def summarise_sources(entries: list[SourceEntry]) -> dict[str, str]:
     if not entries:
-        return {"source_url": "", "source_tier": "", "source_date": "", "notes": ""}
+        return {
+            "source_url": "",
+            "source_tier": "",
+            "source_date": "",
+            "reference_period": "",
+            "source_scope": "",
+            "proxy_status": "",
+            "notes": "",
+        }
 
     seen_urls: list[str] = []
     seen_tiers: list[str] = []
     seen_providers: list[str] = []
     seen_fields: list[str] = []
+    seen_scopes: list[str] = []
+    seen_proxy_statuses: list[str] = []
+    seen_reference_periods: list[str] = []
     latest_date = max(entry.source_date for entry in entries)
 
     for entry in entries:
@@ -1153,6 +1488,12 @@ def summarise_sources(entries: list[SourceEntry]) -> dict[str, str]:
             seen_providers.append(entry.provider_id)
         if entry.field not in seen_fields:
             seen_fields.append(entry.field)
+        if entry.source_scope not in seen_scopes:
+            seen_scopes.append(entry.source_scope)
+        if entry.proxy_status not in seen_proxy_statuses:
+            seen_proxy_statuses.append(entry.proxy_status)
+        if entry.reference_period not in seen_reference_periods:
+            seen_reference_periods.append(entry.reference_period)
 
     seen_tiers.sort(key=lambda tier: TIER_ORDER.get(tier, 99))
     compact_urls = seen_urls[:3]
@@ -1162,6 +1503,8 @@ def summarise_sources(entries: list[SourceEntry]) -> dict[str, str]:
     note_parts = [
         f"providers={', '.join(seen_providers[:4])}",
         f"fields={', '.join(seen_fields[:4])}",
+        f"scope={', '.join(seen_scopes[:3])}",
+        f"proxy={', '.join(seen_proxy_statuses[:3])}",
     ]
     if len(seen_fields) > 4:
         note_parts.append(f"+{len(seen_fields) - 4} additional fields")
@@ -1170,6 +1513,9 @@ def summarise_sources(entries: list[SourceEntry]) -> dict[str, str]:
         "source_url": " | ".join(compact_urls),
         "source_tier": ", ".join(seen_tiers),
         "source_date": latest_date,
+        "reference_period": " | ".join(seen_reference_periods[:3]),
+        "source_scope": ", ".join(seen_scopes[:3]),
+        "proxy_status": ", ".join(seen_proxy_statuses[:3]),
         "notes": "; ".join(note_parts),
     }
 
@@ -1206,6 +1552,12 @@ def apply_source_pack_to_workbook(validation: SourcePackValidation) -> dict[str,
         country_sheet.cell(row=row_index, column=country_headers["source_url"], value=summary["source_url"])
         country_sheet.cell(row=row_index, column=country_headers["source_tier"], value=summary["source_tier"] or "")
         country_sheet.cell(row=row_index, column=country_headers["update_date"], value=summary["source_date"] or "")
+        if "reference_period" in country_headers:
+            country_sheet.cell(row=row_index, column=country_headers["reference_period"], value=summary["reference_period"] or "")
+        if "source_scope" in country_headers:
+            country_sheet.cell(row=row_index, column=country_headers["source_scope"], value=summary["source_scope"] or "")
+        if "proxy_status" in country_headers:
+            country_sheet.cell(row=row_index, column=country_headers["proxy_status"], value=summary["proxy_status"] or "")
         country_sheet.cell(
             row=row_index,
             column=country_headers["notes"],
@@ -1222,6 +1574,15 @@ def apply_source_pack_to_workbook(validation: SourcePackValidation) -> dict[str,
 
         country = str(city_sheet.cell(row=row_index, column=city_headers["country"]).value)
         country_entries = validation.country_values.get(country, {})
+        city_summary = summarise_sources(
+            list(field_entries.values()) + list(country_entries.values())
+        )
+        if "reference_period" in city_headers:
+            city_sheet.cell(row=row_index, column=city_headers["reference_period"], value=city_summary["reference_period"])
+        if "source_scope" in city_headers:
+            city_sheet.cell(row=row_index, column=city_headers["source_scope"], value=city_summary["source_scope"])
+        if "proxy_status" in city_headers:
+            city_sheet.cell(row=row_index, column=city_headers["proxy_status"], value=city_summary["proxy_status"])
         for pillar in PILLAR_ORDER:
             entries = [
                 field_entries[field]
@@ -1429,8 +1790,108 @@ def compute_ranked_rows(validation: SourcePackValidation) -> list[dict[str, Any]
     return ranked_rows
 
 
+def build_integrity_dashboard_rows(validation: SourcePackValidation) -> list[dict[str, str]]:
+    rows = [
+        {
+            "section": "Coverage",
+            "metric": "Country valid rows",
+            "value": f"{validation.stats['country_values']}/{validation.stats['country_slots']}",
+            "detail": "Rows that passed schema, provider, freshness, scope, and proxy checks.",
+        },
+        {
+            "section": "Coverage",
+            "metric": "City valid rows",
+            "value": f"{validation.stats['city_values']}/{validation.stats['city_slots']}",
+            "detail": "Rows that passed schema, provider, freshness, scope, and proxy checks.",
+        },
+        {
+            "section": "Integrity",
+            "metric": "Integrity findings",
+            "value": str(validation.stats.get("integrity_issue_count", 0)),
+            "detail": "Aggregated validation findings across the source pack.",
+        },
+    ]
+    rows.extend(
+        {
+            "section": "Integrity",
+            "metric": summary.label,
+            "value": str(summary.count),
+            "detail": " | ".join(summary.samples),
+        }
+        for summary in validation.integrity_summaries
+    )
+    return rows
+
+
+def build_city_integrity_watchlist(validation: SourcePackValidation) -> list[dict[str, str]]:
+    city_universe = build_city_universe()
+    scope_order = {scope: index for index, scope in enumerate(SOURCE_SCOPE_VALUES)}
+    required_country_fields = [spec for spec in COUNTRY_FIELD_SPECS if spec["required_for_ranking"] == "yes"]
+    required_city_fields = [spec for spec in CITY_FIELD_SPECS if spec["required_for_ranking"] == "yes"]
+    rows: list[dict[str, str]] = []
+
+    for city in city_universe:
+        city_entries = validation.city_values.get(city["city_id"], {})
+        country_entries = validation.country_values.get(city["country"], {})
+        missing_city_fields = [spec["field"] for spec in required_city_fields if spec["field"] not in city_entries]
+        missing_country_fields = [spec["field"] for spec in required_country_fields if spec["field"] not in country_entries]
+        required_entries = [
+            city_entries[spec["field"]]
+            for spec in required_city_fields
+            if spec["field"] in city_entries
+        ]
+        required_entries.extend(
+            country_entries[spec["field"]]
+            for spec in required_country_fields
+            if spec["field"] in country_entries
+        )
+
+        broadest_scope = ""
+        if required_entries:
+            broadest_scope = max(
+                (entry.source_scope for entry in required_entries),
+                key=lambda scope: scope_order.get(scope, -1),
+            )
+
+        proxy_count = sum(1 for entry in required_entries if entry.proxy_status == "approved_proxy")
+        qualified = not missing_city_fields and not missing_country_fields
+        next_action = "Ready for publication gate review."
+        if missing_country_fields:
+            next_action = "Complete missing country context rows first."
+        elif missing_city_fields:
+            next_action = "Complete missing city input rows."
+        elif proxy_count:
+            next_action = "Review approved proxies and replace with more local direct evidence where possible."
+
+        rows.append(
+            {
+                "city_id": city["city_id"],
+                "display_name": city["display_name"],
+                "country": city["country"],
+                "qualification_status": "Qualified" if qualified else "Needs evidence",
+                "valid_required_city_fields": f"{len(required_city_fields) - len(missing_city_fields)}/{len(required_city_fields)}",
+                "valid_required_country_fields": f"{len(required_country_fields) - len(missing_country_fields)}/{len(required_country_fields)}",
+                "missing_city_fields": ", ".join(missing_city_fields[:8]),
+                "missing_country_fields": ", ".join(missing_country_fields[:6]),
+                "broadest_source_scope": broadest_scope,
+                "approved_proxy_rows": str(proxy_count),
+                "next_priority_action": next_action,
+            }
+        )
+
+    rows.sort(
+        key=lambda row: (
+            0 if row["qualification_status"] != "Qualified" else 1,
+            row["country"],
+            row["display_name"],
+        )
+    )
+    return rows
+
+
 def source_pack_completion_summary(validation: SourcePackValidation) -> str:
     return (
         f"country values={validation.stats['country_values']}/{validation.stats['country_slots']}, "
-        f"city values={validation.stats['city_values']}/{validation.stats['city_slots']}"
+        f"city values={validation.stats['city_values']}/{validation.stats['city_slots']}, "
+        f"integrity findings={validation.stats.get('integrity_issue_count', 0)}"
     )

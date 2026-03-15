@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from audit_ranking_math import ROOT, extract_workbook_weights, run_validator
 from verified_source_pipeline import (
     apply_source_pack_to_workbook,
+    build_city_integrity_watchlist,
     compute_ranked_rows,
     prepare_verified_source_pack,
     source_pack_completion_summary,
@@ -32,6 +33,7 @@ def write_export() -> int:
     if not validation.issues:
         apply_source_pack_to_workbook(validation)
 
+    watchlist = build_city_integrity_watchlist(validation)
     rows = compute_ranked_rows(validation) if not validation.issues else []
     if not rows:
         issues.append(
@@ -44,6 +46,10 @@ def write_export() -> int:
         "status": "published" if validator_ok and not validation.issues and rows else "reranking",
         "updatedAt": datetime.now(timezone.utc).isoformat(),
         "canonicalWeights": weights,
+        "qualifiedCityCount": sum(1 for row in watchlist if row["qualification_status"] == "Qualified"),
+        "integrityIssueCount": validation.stats.get("integrity_issue_count", 0),
+        "validCountryRowCount": validation.stats["country_values"],
+        "validCityRowCount": validation.stats["city_values"],
         "issues": issues,
         "cities": rows,
     }

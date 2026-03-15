@@ -167,9 +167,21 @@ def source_lineage_is_ready() -> tuple[bool, str]:
     country_tier_count = sum(
         row[country_index["source_tier"]] not in ("", None) for row in country_rows
     )
+    country_reference_period_count = sum(
+        row[country_index["reference_period"]] not in ("", None) for row in country_rows
+    )
+    country_source_scope_count = sum(
+        row[country_index["source_scope"]] not in ("", None) for row in country_rows
+    )
+    country_proxy_status_count = sum(
+        row[country_index["proxy_status"]] not in ("", None) for row in country_rows
+    )
     details.append(
         f"Country_Context source_url={country_url_count}/{len(country_rows)}, "
-        f"source_tier={country_tier_count}/{len(country_rows)}"
+        f"source_tier={country_tier_count}/{len(country_rows)}, "
+        f"reference_period={country_reference_period_count}/{len(country_rows)}, "
+        f"source_scope={country_source_scope_count}/{len(country_rows)}, "
+        f"proxy_status={country_proxy_status_count}/{len(country_rows)}"
     )
 
     city_inputs = workbook["City_Inputs"]
@@ -190,12 +202,33 @@ def source_lineage_is_ready() -> tuple[bool, str]:
         for row in city_rows
         for header in source_tier_headers
     )
+    city_reference_period_count = sum(
+        row[city_index["reference_period"]] not in ("", None) for row in city_rows
+    )
+    city_source_scope_count = sum(
+        row[city_index["source_scope"]] not in ("", None) for row in city_rows
+    )
+    city_proxy_status_count = sum(
+        row[city_index["proxy_status"]] not in ("", None) for row in city_rows
+    )
     details.append(
         f"City_Inputs source_url={city_url_count}/{city_url_slots}, "
-        f"source_tier={city_tier_count}/{city_tier_slots}"
+        f"source_tier={city_tier_count}/{city_tier_slots}, "
+        f"reference_period={city_reference_period_count}/{len(city_rows)}, "
+        f"source_scope={city_source_scope_count}/{len(city_rows)}, "
+        f"proxy_status={city_proxy_status_count}/{len(city_rows)}"
     )
 
-    ready = country_url_count == len(country_rows) and city_url_count == city_url_slots
+    ready = (
+        country_url_count == len(country_rows)
+        and city_url_count == city_url_slots
+        and country_reference_period_count == len(country_rows)
+        and country_source_scope_count == len(country_rows)
+        and country_proxy_status_count == len(country_rows)
+        and city_reference_period_count == len(city_rows)
+        and city_source_scope_count == len(city_rows)
+        and city_proxy_status_count == len(city_rows)
+    )
     return ready, "; ".join(details)
 
 

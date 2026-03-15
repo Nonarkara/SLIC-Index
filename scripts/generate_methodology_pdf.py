@@ -263,7 +263,7 @@ def build_story(styles):
     story.append(Paragraph("1. Public score doctrine", styles["SectionHeading"]))
     story.append(
         Paragraph(
-            "SLIC ranks cities where people can live well, belong, and become more. The index is designed to avoid three common errors: mistaking GDP for livability, mistaking surveillance or gadgetry for safety, and mistaking prestige for real city viability. The published ranking therefore keeps pressure, viability, capability, community, and creative vitality explicit in one declared formula.",
+            "SLIC ranks cities where people can live well, belong, and become more. The index is designed to avoid three common errors: mistaking GDP for livability, mistaking surveillance or gadgetry for safety, and mistaking prestige for real city viability. The published ranking therefore keeps pressure, viability, capability, community, and creative vitality explicit in one declared formula. The interactive spider-web tool is exploratory profile matching only; it does not replace the published rank.",
             styles["Body"],
         )
     )
@@ -286,7 +286,7 @@ def build_story(styles):
     )
     story.extend(
         formula_block(
-            "Pressure, affordability, and room to live",
+            "Pressure",
             "Pressure(c) = 0.333 DI_ppp + 0.185 HousingBurden + 0.148 HouseholdDebt\n"
             "              + 0.148 WorkingTimePressure + 0.185 MentalStrain",
             "This pillar punishes false prosperity by looking at what remains after tax and essential costs, not at salary headlines alone. Mental strain (suicide rate as proxy) now carries increased weight to reflect the human cost of urban pressure.",

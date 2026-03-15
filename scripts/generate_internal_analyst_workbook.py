@@ -18,6 +18,8 @@ from verified_source_pipeline import (
     PROVIDERS_PATH,
     ROOT,
     apply_source_pack_to_workbook,
+    build_city_integrity_watchlist,
+    build_integrity_dashboard_rows,
     prepare_verified_source_pack,
     read_csv_rows,
     source_pack_completion_summary,
@@ -113,6 +115,8 @@ def main() -> int:
     build_guide_sheet(workbook, validation.issues, source_pack_completion_summary(validation))
     build_coverage_sheet(workbook, validation)
     append_internal_reference_notes(workbook)
+    write_sheet_table(workbook, "Data_Quality", build_integrity_dashboard_rows(validation))
+    write_sheet_table(workbook, "Integrity_Watchlist", build_city_integrity_watchlist(validation))
     write_sheet_table(workbook, "Providers_Registry", read_csv_rows(PROVIDERS_PATH))
     write_sheet_table(workbook, "Field_Source_Guide", read_csv_rows(FIELD_SOURCE_GUIDE_PATH))
     write_sheet_table(workbook, "City_Source_Playbook", read_csv_rows(CITY_SOURCE_PLAYBOOK_PATH))

@@ -23,6 +23,10 @@ export interface RankingPublicationState {
   status: "published" | "reranking";
   updatedAt: string;
   canonicalWeights: Record<string, number>;
+  qualifiedCityCount?: number;
+  integrityIssueCount?: number;
+  validCountryRowCount?: number;
+  validCityRowCount?: number;
   issues: string[];
   cities: PublishedRankingCity[];
 }

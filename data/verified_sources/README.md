@@ -9,13 +9,22 @@ Files:
 - `output/spreadsheet/economist_reference.csv`: internal analyst reference extract from The Economist PDF. This file does not feed scoring directly.
 
 Rules:
-- Do not fill a numeric value without `provider_id`, `source_url`, `source_title`, and `source_date`.
+- Do not fill a numeric value without `provider_id`, `source_url`, `source_title`, `source_date`, `reference_period`, `source_scope`, and `proxy_status`.
 - `source_date` must use `YYYY-MM-DD`.
+- `reference_period` should describe the measurement window plainly, for example `2024 annual`, `2024 Q4`, or `as_of 2025-01-31`.
+- `source_scope` must be one of `city`, `metro`, `regional`, `national`, or `international`.
+- `proxy_status` must be either `direct` or `approved_proxy`.
 - Use `https` URLs only.
 - Prefer Tier 1 and Tier 2 official city or subnational sources when available.
 - Use Tier 3 international official baselines when city data is unavailable.
-- Use Tier 4 audited secondary sources only where the method explicitly allows them.
+- Required scoring rows must use Tier 1-3 sources. Tier 4 and Tier 5 rows may support internal research, but they do not qualify the public ranking.
 - Providers marked `reference_only=true` are internal-only research aids and cannot be used in publishable scoring rows.
+- City rows using `regional`, `national`, or `international` scope must be marked `approved_proxy`.
+- Country rows with proxy fields such as `tax_rate_assumption` or `household_debt_proxy` must be marked `approved_proxy`.
+- Freshness matters:
+  - costs, safety, air, and business-activity rows must be no older than 24 months
+  - healthcare, education, labour, and utility-reliability rows must be no older than 36 months
+  - structural rows must be no older than 60 months, and anything older than 36 months should be treated as an `approved_proxy`
 - Treat `field_source_guide.csv` and `city_source_playbook.csv` as collection guidance, not as scoring data. They tell you where to source values; they do not make the ranking publishable by themselves.
 
 Workflow:
@@ -26,6 +35,7 @@ Workflow:
 5. Review `data/verified_sources/field_source_guide.csv` and `data/verified_sources/city_source_playbook.csv` before filling any city metric.
 6. Fill `data/verified_sources/city_inputs.csv`.
 7. Run `npm run sync:verified-sources` to validate and hydrate the workbook.
-8. Run `npm run export:ranking` to recompute the ranking export from the verified source pack.
-9. Run `npm run extract:economist` to refresh the internal Economist reference CSV.
-10. Run `npm run build:sheets:internal` to generate the analyst workbook with `Economist_Reference`, `Field_Source_Guide`, `City_Source_Playbook`, and `Economist_Match_Review` tabs.
+8. Review `Data_Quality` and `Integrity_Watchlist` in the generated sheets before treating any ranking output as credible.
+9. Run `npm run export:ranking` to recompute the ranking export from the verified source pack.
+10. Run `npm run extract:economist` to refresh the internal Economist reference CSV.
+11. Run `npm run build:sheets:internal` to generate the analyst workbook with `Economist_Reference`, `Field_Source_Guide`, `City_Source_Playbook`, `Data_Quality`, `Integrity_Watchlist`, and `Economist_Match_Review` tabs.
