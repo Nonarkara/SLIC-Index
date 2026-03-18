@@ -2457,14 +2457,39 @@ def build_thai_scaffold_sheet(sheet: Worksheet) -> None:
 
 
 def export_city_csv(city_universe: list[dict[str, str]]) -> None:
+    """Export city universe to CSV.
+
+    The app CSV (src/data/) is the authoritative source for V3+.
+    If it already has MORE cities than the hardcoded list (e.g. expanded
+    via scripts or manual edits), we merge: keep all existing rows and
+    append any new ones from the hardcoded list that aren't already present.
+    The output/ copy always gets the full merged set.
+    """
     headers = ["city_id", "cohort", "manifest_status", "city_type", "country", "inclusion_rationale"]
+
+    # Read existing app CSV if it has more cities (V3 expanded universe)
+    existing: dict[str, dict[str, str]] = {}
+    if APP_CITY_CSV_PATH.exists():
+        with APP_CITY_CSV_PATH.open("r", encoding="utf-8") as handle:
+            reader = csv.DictReader(handle)
+            for row_data in reader:
+                existing[row_data["city_id"]] = row_data
+
+    # Merge: existing CSV wins, then add any from hardcoded list
+    merged: list[dict[str, str]] = list(existing.values())
+    seen_ids = set(existing.keys())
+    for city in city_universe:
+        if city["city_id"] not in seen_ids:
+            merged.append({header: city[header] for header in headers})
+            seen_ids.add(city["city_id"])
+
     for path in (CITY_CSV_PATH, APP_CITY_CSV_PATH):
         path.parent.mkdir(parents=True, exist_ok=True)
         with path.open("w", encoding="utf-8", newline="") as handle:
             writer = csv.DictWriter(handle, fieldnames=headers)
             writer.writeheader()
-            for city in city_universe:
-                writer.writerow({header: city[header] for header in headers})
+            for city_row in merged:
+                writer.writerow({header: city_row.get(header, "") for header in headers})
 
 
 def apply_number_formats(workbook: Workbook, manifest: dict) -> None:

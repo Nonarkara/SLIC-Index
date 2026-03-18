@@ -3,7 +3,7 @@
  * Uses ipapi.co (or similar) to get geolocation and sends it to a Google Apps Script web app.
  */
 
-const TRACKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbxvOCOjlsYHF7qwWEXEYyDM8CeoLfT2asWRwaa171evuRoa-HubOkliqG3GPNyshUE4mw/exec"; // USER: Replace with your deployed Google Apps Script URL
+const TRACKING_ENDPOINT = "https://script.google.com/macros/s/AKfycbz5P8_4CzTfo_0PoRgVWPKg5dI7l2NGn3_pYwCRDjVbFZhxnODO1ZyVWrKLj4cEYtx-nQ/exec"; // USER: Replace with your deployed Google Apps Script URL
 
 export async function trackVisitor() {
     // Prevent double tracking in the same session if needed
@@ -30,6 +30,8 @@ export async function trackVisitor() {
             city: geoData.city || "Unknown",
             userAgent: navigator.userAgent,
             referrer: document.referrer || "Direct",
+            page: window.location.pathname || "/",
+            version: "v2",
         };
 
         // 2. Send to Google Apps Script

@@ -156,3 +156,198 @@ nz-dunedin,Oceania,provisional,secondary,New Zealand,Reserve New Zealand challen
 pg-port-moresby,Oceania,provisional,primary,Papua New Guinea,Reserve Melanesian capital comparator added so the Pacific reserve pool is not reduced to microstates and high-income systems.
 ws-apia,Oceania,provisional,primary,Samoa,"Reserve Polynesian capital comparator added for small-island services, climate resilience, and Pacific governance depth."
 vu-port-vila,Oceania,provisional,primary,Vanuatu,"Reserve Pacific capital comparator added for tourism, climate exposure, and utility-reliability benchmarking."
+us-new-york,North America,provisional,primary,United States,Global financial center and largest US metro area
+us-los-angeles,North America,provisional,primary,United States,Entertainment capital with diverse economy and Pacific Rim trade
+us-houston,North America,provisional,primary,United States,Energy capital with NASA presence and medical center complex
+us-san-francisco,North America,provisional,primary,United States,Global tech and venture capital epicenter
+us-seattle,North America,provisional,primary,United States,Tech giant headquarters with Pacific Northwest livability
+us-austin,North America,provisional,secondary,United States,Fast-growing tech hub with music culture and startup ecosystem
+us-boston,North America,provisional,primary,United States,Biotech and university powerhouse with historic walkable core
+us-portland,North America,provisional,secondary,United States,Pacific Northwest city known for sustainability and food culture
+cn-beijing,East Asia,provisional,primary,China,National capital with political and cultural significance
+cn-nanjing,East Asia,provisional,primary,China,Yangtze Delta education hub with historic capital heritage
+cn-qingdao,East Asia,provisional,secondary,China,Coastal Shandong city with German heritage and port economy
+cn-kunming,East Asia,provisional,secondary,China,Spring City gateway to Yunnan with mild year-round climate
+cn-xiamen,East Asia,provisional,secondary,China,Coastal Fujian city with high livability and tech sector
+de-berlin,"Western, Northern, and Southern Europe",provisional,primary,Germany,National capital with vibrant startup scene and cultural life
+de-hamburg,"Western, Northern, and Southern Europe",provisional,primary,Germany,Major port city with media industry and maritime heritage
+de-frankfurt,"Western, Northern, and Southern Europe",provisional,primary,Germany,European financial center with international connectivity
+de-cologne,"Western, Northern, and Southern Europe",provisional,primary,Germany,Rhine cultural hub with media sector and cathedral heritage
+de-stuttgart,"Western, Northern, and Southern Europe",provisional,secondary,Germany,Automotive innovation center with engineering excellence
+de-dusseldorf,"Western, Northern, and Southern Europe",provisional,secondary,Germany,Fashion and trade fair city with Japanese community
+de-leipzig,"Western, Northern, and Southern Europe",provisional,secondary,Germany,Rising creative city with affordable living and music scene
+de-freiburg,"Western, Northern, and Southern Europe",provisional,secondary,Germany,Solar city pioneer with university and Black Forest setting
+de-dresden,"Western, Northern, and Southern Europe",provisional,secondary,Germany,Baroque cultural gem with semiconductor and tech cluster
+jp-tokyo,East Asia,provisional,primary,Japan,World largest metro with unmatched transit and food culture
+jp-osaka,East Asia,provisional,primary,Japan,Kansai commercial hub with street food capital reputation
+jp-nagoya,East Asia,provisional,primary,Japan,Manufacturing powerhouse and Toyota automotive heartland
+jp-yokohama,East Asia,provisional,primary,Japan,Port city adjacent to Tokyo with waterfront redevelopment
+jp-sendai,East Asia,provisional,secondary,Japan,Tohoku regional capital with university and forest city identity
+jp-kyoto,East Asia,provisional,secondary,Japan,Ancient capital with UNESCO sites and traditional craft economy
+in-mumbai,South Asia,provisional,primary,India,Financial capital with Bollywood and massive port economy
+in-delhi,South Asia,provisional,primary,India,National capital territory with government and services hub
+in-chennai,South Asia,provisional,primary,India,South Indian auto and IT hub with classical arts heritage
+in-kolkata,South Asia,provisional,primary,India,Eastern cultural capital with literary and intellectual tradition
+in-ahmedabad,South Asia,provisional,primary,India,Gujarat commercial center with textile and pharma industries
+in-jaipur,South Asia,provisional,secondary,India,Pink City with tourism heritage and emerging IT sector
+in-kochi,South Asia,provisional,secondary,India,Kerala port city with spice trade heritage and backwaters
+gb-london,"Western, Northern, and Southern Europe",provisional,primary,United Kingdom,Global financial center with world-leading cultural institutions
+gb-manchester,"Western, Northern, and Southern Europe",provisional,primary,United Kingdom,Northern powerhouse with media city and music heritage
+gb-birmingham,"Western, Northern, and Southern Europe",provisional,primary,United Kingdom,Second city with diverse economy and HS2 investment
+gb-edinburgh,"Western, Northern, and Southern Europe",provisional,primary,United Kingdom,Scottish capital with festival culture and financial services
+gb-bristol,"Western, Northern, and Southern Europe",provisional,secondary,United Kingdom,Creative and aerospace hub with strong independent culture
+gb-leeds,"Western, Northern, and Southern Europe",provisional,secondary,United Kingdom,Yorkshire financial and legal services center
+gb-glasgow,"Western, Northern, and Southern Europe",provisional,secondary,United Kingdom,Scottish cultural powerhouse with architecture and music scene
+gb-cambridge,"Western, Northern, and Southern Europe",provisional,secondary,United Kingdom,World-leading university city with biotech cluster
+gb-brighton,"Western, Northern, and Southern Europe",provisional,secondary,United Kingdom,Coastal creative city with LGBTQ+ culture and digital sector
+gb-belfast,"Western, Northern, and Southern Europe",provisional,secondary,United Kingdom,Post-conflict renaissance city with tech and creative growth
+fr-marseille,"Western, Northern, and Southern Europe",provisional,primary,France,Mediterranean port city with multicultural identity
+fr-toulouse,"Western, Northern, and Southern Europe",provisional,secondary,France,Aerospace capital with Airbus headquarters and university life
+fr-nantes,"Western, Northern, and Southern Europe",provisional,secondary,France,Atlantic creative city consistently ranked most livable in France
+fr-bordeaux,"Western, Northern, and Southern Europe",provisional,secondary,France,Wine capital with TGV-connected renaissance and gastronomy
+fr-strasbourg,"Western, Northern, and Southern Europe",provisional,secondary,France,European Parliament city bridging French and German culture
+fr-lille,"Western, Northern, and Southern Europe",provisional,secondary,France,Northern crossroads city with Eurostar access and student life
+fr-montpellier,"Western, Northern, and Southern Europe",provisional,secondary,France,Mediterranean tech and university city with rapid growth
+fr-nice,"Western, Northern, and Southern Europe",provisional,secondary,France,Riviera city with tourism economy and Sophia Antipolis tech
+it-rome,"Western, Northern, and Southern Europe",provisional,primary,Italy,Eternal City with unmatched heritage and government seat
+it-turin,"Western, Northern, and Southern Europe",provisional,primary,Italy,Piedmont industrial city reinventing as food and design capital
+it-florence,"Western, Northern, and Southern Europe",provisional,secondary,Italy,Renaissance cradle with world-leading art and craft heritage
+it-naples,"Western, Northern, and Southern Europe",provisional,primary,Italy,Southern cultural capital with volcanic setting and cuisine
+it-venice,"Western, Northern, and Southern Europe",provisional,secondary,Italy,Lagoon city with unique urban form and biennale culture
+it-genoa,"Western, Northern, and Southern Europe",provisional,secondary,Italy,Ligurian port city with maritime heritage and compact center
+it-palermo,"Western, Northern, and Southern Europe",provisional,secondary,Italy,Sicilian capital with Arab-Norman heritage and street food
+it-verona,"Western, Northern, and Southern Europe",provisional,secondary,Italy,Veneto city with Roman arena and wine country gateway
+ru-st-petersburg,Eastern Europe and Eurasia,provisional,primary,Russia,Cultural capital with imperial architecture and arts
+ru-novosibirsk,Eastern Europe and Eurasia,provisional,primary,Russia,Siberian academic city with Akademgorodok research hub
+ru-yekaterinburg,Eastern Europe and Eurasia,provisional,primary,Russia,Ural industrial center bridging European and Asian Russia
+ru-kazan,Eastern Europe and Eurasia,provisional,secondary,Russia,Tatar capital with multicultural identity and tech sector
+ru-vladivostok,Eastern Europe and Eurasia,provisional,secondary,Russia,Pacific port city with Asian connectivity
+ru-krasnodar,Eastern Europe and Eurasia,provisional,secondary,Russia,Southern Russian agricultural and Black Sea gateway
+ru-rostov-on-don,Eastern Europe and Eurasia,provisional,secondary,Russia,Don River city with southern trade and university presence
+ru-tyumen,Eastern Europe and Eurasia,provisional,secondary,Russia,West Siberian oil economy city with high incomes
+ca-calgary,North America,provisional,primary,Canada,Alberta energy capital with Rocky Mountain proximity
+ca-edmonton,North America,provisional,primary,Canada,Provincial capital with university and northern gateway role
+ca-winnipeg,North America,provisional,secondary,Canada,Prairie crossroads with diverse immigrant community
+ca-quebec-city,North America,provisional,secondary,Canada,Francophone heritage city with European character
+ca-halifax,North America,provisional,secondary,Canada,Atlantic Canadian port city with maritime and university presence
+ca-victoria,North America,provisional,secondary,Canada,Pacific island capital with mild climate and livability
+br-rio-de-janeiro,Latin America,provisional,primary,Brazil,Iconic coastal city with cultural vibrancy and tourism
+br-brasilia,Latin America,provisional,primary,Brazil,Modernist planned capital with government presence
+es-madrid,"Western, Northern, and Southern Europe",provisional,primary,Spain,National capital with major financial and cultural institutions
+es-barcelona,"Western, Northern, and Southern Europe",provisional,primary,Spain,Mediterranean design and tech hub with strong identity
+es-seville,"Western, Northern, and Southern Europe",provisional,secondary,Spain,Andalusian capital with flamenco heritage and growing tech
+es-bilbao,"Western, Northern, and Southern Europe",provisional,secondary,Spain,Basque city transformed by Guggenheim and innovation
+mx-monterrey,North America,provisional,primary,Mexico,Northern industrial powerhouse with highest Mexican incomes
+mx-queretaro,North America,provisional,secondary,Mexico,Central Mexican aerospace and manufacturing corridor
+kr-seoul,East Asia,provisional,primary,South Korea,Global tech and pop culture capital with world-class transit
+kr-daejeon,East Asia,provisional,secondary,South Korea,Science city with national research institutes and KAIST
+tr-istanbul,Eastern Europe and Eurasia,provisional,primary,Turkey,Transcontinental megacity bridging Europe and Asia
+tr-ankara,Eastern Europe and Eurasia,provisional,primary,Turkey,National capital with government and university presence
+tr-izmir,Eastern Europe and Eurasia,provisional,primary,Turkey,Aegean port city with liberal identity and tech growth
+tr-antalya,Eastern Europe and Eurasia,provisional,secondary,Turkey,Mediterranean tourism capital with resort economy
+tr-bursa,Eastern Europe and Eurasia,provisional,secondary,Turkey,Ottoman heritage city with automotive manufacturing
+id-bandung,Southeast Asia,provisional,secondary,Indonesia,Javanese highland city with universities and creative economy
+id-yogyakarta,Southeast Asia,provisional,secondary,Indonesia,Cultural capital of Java with arts heritage and student life
+id-denpasar,Southeast Asia,provisional,secondary,Indonesia,Balinese capital with tourism and Hindu cultural identity
+nl-rotterdam,"Western, Northern, and Southern Europe",provisional,secondary,Netherlands,Architecture capital with Europes largest port
+nl-the-hague,"Western, Northern, and Southern Europe",provisional,secondary,Netherlands,International law capital with diplomatic community
+nl-utrecht,"Western, Northern, and Southern Europe",provisional,secondary,Netherlands,Historic canal city with cycling culture and university
+sa-dammam,Middle East,provisional,secondary,Saudi Arabia,Eastern Province oil hub with Gulf coast industrial economy
+sa-medina,Middle East,provisional,secondary,Saudi Arabia,Islamic holy city with pilgrimage economy and development
+sa-tabuk,Middle East,provisional,secondary,Saudi Arabia,Northwestern gateway to NEOM and Red Sea development
+pl-warsaw,Eastern Europe and Eurasia,provisional,primary,Poland,National capital with booming tech and financial services
+pl-wroclaw,Eastern Europe and Eurasia,provisional,secondary,Poland,Lower Silesian tech hub with vibrant student culture
+pl-poznan,Eastern Europe and Eurasia,provisional,secondary,Poland,Western Polish trade fair city with strong business sector
+ch-geneva,"Western, Northern, and Southern Europe",provisional,primary,Switzerland,International diplomacy capital with UN headquarters
+ch-basel,"Western, Northern, and Southern Europe",provisional,secondary,Switzerland,Tri-border pharmaceutical capital with Art Basel heritage
+ch-bern,"Western, Northern, and Southern Europe",provisional,secondary,Switzerland,Federal capital with medieval old town UNESCO site
+ch-lausanne,"Western, Northern, and Southern Europe",provisional,secondary,Switzerland,Olympic capital with EPFL university on Lake Geneva
+tw-tainan,East Asia,provisional,secondary,Taiwan,Historic first capital with temple culture and food heritage
+tw-hsinchu,East Asia,provisional,secondary,Taiwan,Semiconductor capital and TSMC headquarters city
+ar-rosario,Latin America,provisional,secondary,Argentina,Parana River port city with agricultural trade economy
+ar-mendoza,Latin America,provisional,secondary,Argentina,Wine capital at Andean foothills with outdoor lifestyle
+ar-bariloche,Latin America,provisional,secondary,Argentina,Patagonian lake district resort with alpine character
+be-brussels,"Western, Northern, and Southern Europe",provisional,primary,Belgium,EU capital with international institutions
+be-ghent,"Western, Northern, and Southern Europe",provisional,secondary,Belgium,Flemish university city with medieval heritage and food scene
+be-bruges,"Western, Northern, and Southern Europe",provisional,secondary,Belgium,Canal city with preserved medieval center and tourism
+be-leuven,"Western, Northern, and Southern Europe",provisional,secondary,Belgium,University town with KU Leuven research and beer culture
+se-stockholm,"Western, Northern, and Southern Europe",provisional,primary,Sweden,Nordic capital with tech unicorn ecosystem
+se-malmo,"Western, Northern, and Southern Europe",provisional,secondary,Sweden,Oresund bridge city with Danish connectivity and diversity
+se-uppsala,"Western, Northern, and Southern Europe",provisional,secondary,Sweden,Historic university city with biotech and life sciences
+se-lund,"Western, Northern, and Southern Europe",provisional,secondary,Sweden,Southern Swedish research city paired with ESS and MAX IV
+ie-dublin,"Western, Northern, and Southern Europe",provisional,primary,Ireland,European tech headquarters hub with major multinationals
+ie-galway,"Western, Northern, and Southern Europe",provisional,secondary,Ireland,Atlantic coast city with arts festival and medtech
+ie-limerick,"Western, Northern, and Southern Europe",provisional,secondary,Ireland,Shannon region city with university and manufacturing
+ie-waterford,"Western, Northern, and Southern Europe",provisional,secondary,Ireland,Southeast Irish port city with Viking heritage and pharma
+at-linz,"Western, Northern, and Southern Europe",provisional,secondary,Austria,Danube industrial city with Ars Electronica digital arts
+at-salzburg,"Western, Northern, and Southern Europe",provisional,secondary,Austria,Mozart birthplace with festival culture and Alpine tourism
+at-innsbruck,"Western, Northern, and Southern Europe",provisional,secondary,Austria,Alpine university city with winter sports and research
+no-oslo,"Western, Northern, and Southern Europe",provisional,primary,Norway,National capital with fjord setting and green transition
+no-trondheim,"Western, Northern, and Southern Europe",provisional,secondary,Norway,NTNU university city with tech startup ecosystem
+no-stavanger,"Western, Northern, and Southern Europe",provisional,secondary,Norway,Oil capital transitioning to energy innovation hub
+no-tromso,"Western, Northern, and Southern Europe",provisional,secondary,Norway,Arctic university city and Northern Lights gateway
+il-jerusalem,Middle East,provisional,primary,Israel,Holy city with religious significance and government seat
+il-beer-sheva,Middle East,provisional,secondary,Israel,Negev capital with Ben-Gurion University and cyber hub
+il-herzliya,Middle East,provisional,secondary,Israel,Coastal tech corridor with startup concentration
+th-khon-kaen,Southeast Asia,provisional,secondary,Thailand,Isan regional hub with university and smart city initiative
+th-pattaya,Southeast Asia,provisional,secondary,Thailand,Eastern Seaboard resort with EEC investment corridor
+ng-lagos,Africa,provisional,primary,Nigeria,West African megacity and continental tech startup leader
+ng-abuja,Africa,provisional,primary,Nigeria,Planned national capital with government and diplomatic economy
+ng-port-harcourt,Africa,provisional,secondary,Nigeria,Niger Delta oil city with industrial port economy
+ng-ibadan,Africa,provisional,secondary,Nigeria,Yoruba intellectual center with oldest Nigerian university
+ng-kano,Africa,provisional,secondary,Nigeria,Northern Nigerian commercial capital with trade heritage
+ae-sharjah,Middle East,provisional,secondary,UAE,Cultural capital of UAE with museum district and university
+ae-ajman,Middle East,provisional,secondary,UAE,Compact emirate with affordable living near Dubai
+ae-ras-al-khaimah,Middle East,provisional,secondary,UAE,Northern emirate with adventure tourism and manufacturing
+dk-aarhus,"Western, Northern, and Southern Europe",provisional,secondary,Denmark,Jutland cultural city with university and European Capital of Culture
+dk-odense,"Western, Northern, and Southern Europe",provisional,secondary,Denmark,Funen island city with robotics cluster and Andersen heritage
+dk-aalborg,"Western, Northern, and Southern Europe",provisional,secondary,Denmark,Northern Jutland university city with waterfront transformation
+dk-roskilde,"Western, Northern, and Southern Europe",provisional,secondary,Denmark,Viking heritage city with festival culture near Copenhagen
+ph-manila,Southeast Asia,provisional,primary,Philippines,National capital region with massive services economy
+ph-davao,Southeast Asia,provisional,secondary,Philippines,Mindanao hub with agricultural trade and safety reputation
+ph-iloilo,Southeast Asia,provisional,secondary,Philippines,Visayan emerging city with BPO growth and heritage
+ph-clark,Southeast Asia,provisional,secondary,Philippines,Former air base transformed into special economic zone
+bd-khulna,South Asia,provisional,secondary,Bangladesh,Southwestern division capital near Sundarbans mangrove
+bd-sylhet,South Asia,provisional,secondary,Bangladesh,Northeastern city with tea heritage and remittance economy
+bd-rajshahi,South Asia,provisional,secondary,Bangladesh,Western university city with mango heritage and silk trade
+vn-ho-chi-minh-city,Southeast Asia,provisional,primary,Vietnam,Southern economic engine with rapid FDI and startup growth
+vn-hanoi,Southeast Asia,provisional,primary,Vietnam,National capital with thousand-year heritage
+vn-hai-phong,Southeast Asia,provisional,secondary,Vietnam,Northern port city with industrial zones and seafood heritage
+vn-can-tho,Southeast Asia,provisional,secondary,Vietnam,Mekong Delta capital with agricultural trade and river culture
+my-johor-bahru,Southeast Asia,provisional,secondary,Malaysia,Southern gateway city connected to Singapore via causeway
+co-cali,Latin America,provisional,secondary,Colombia,Pacific salsa capital with sugar industry and cultural vibrancy
+co-cartagena,Latin America,provisional,secondary,Colombia,Caribbean walled city with tourism and port economy
+co-barranquilla,Latin America,provisional,secondary,Colombia,Caribbean port city with carnival culture and industrial base
+hk-hong-kong,East Asia,provisional,primary,Hong Kong,Global financial hub with world-class transit density
+za-durban,Africa,provisional,primary,South Africa,KwaZulu-Natal port city with Indian Ocean trade
+za-pretoria,Africa,provisional,primary,South Africa,Administrative capital with government and research institutions
+za-stellenbosch,Africa,provisional,secondary,South Africa,Cape Winelands university town with innovation and agriculture
+ro-cluj-napoca,Eastern Europe and Eurasia,provisional,secondary,Romania,Transylvanian tech hub with strong IT and universities
+ro-timisoara,Eastern Europe and Eurasia,provisional,secondary,Romania,Western Romanian multicultural city and European Capital of Culture
+ro-iasi,Eastern Europe and Eurasia,provisional,secondary,Romania,Moldavian cultural capital with oldest Romanian university
+ro-brasov,Eastern Europe and Eurasia,provisional,secondary,Romania,Transylvanian mountain city with tourism and automotive
+eg-cairo,Middle East,provisional,primary,Egypt,Largest Arab city with ancient heritage and massive metro area
+eg-giza,Middle East,provisional,primary,Egypt,Pyramid city integrated into Greater Cairo metropolitan area
+eg-sharm-el-sheikh,Middle East,provisional,secondary,Egypt,Red Sea resort city with diving tourism and COP host
+eg-new-cairo,Middle East,provisional,secondary,Egypt,Eastern expansion district with modern development and tech
+cz-prague,Eastern Europe and Eurasia,provisional,primary,Czechia,Central European gem with tourism and growing tech scene
+cz-ostrava,Eastern Europe and Eurasia,provisional,secondary,Czechia,Moravian industrial city in post-mining transition
+cz-plzen,Eastern Europe and Eurasia,provisional,secondary,Czechia,Western Bohemian city with brewery heritage and engineering
+cz-olomouc,Eastern Europe and Eurasia,provisional,secondary,Czechia,Moravian university city with baroque heritage
+cl-concepcion,Latin America,provisional,secondary,Chile,Southern Chilean university city with industrial port
+cl-vina-del-mar,Latin America,provisional,secondary,Chile,Pacific coast resort city adjacent to Valparaiso
+cl-temuco,Latin America,provisional,secondary,Chile,Southern Chilean city with Mapuche heritage and agriculture
+pt-lisbon,"Western, Northern, and Southern Europe",provisional,primary,Portugal,National capital with booming tech scene and Atlantic heritage
+pt-coimbra,"Western, Northern, and Southern Europe",provisional,secondary,Portugal,Historic university city with oldest Portuguese university
+pt-faro,"Western, Northern, and Southern Europe",provisional,secondary,Portugal,Algarve gateway city with tourism and coastal livability
+pk-faisalabad,South Asia,provisional,secondary,Pakistan,Textile capital with industrial manufacturing base
+pk-peshawar,South Asia,provisional,secondary,Pakistan,Historic Khyber gateway city with trade and cultural heritage
+fi-tampere,"Western, Northern, and Southern Europe",provisional,secondary,Finland,Inland city with strong tech sector and industrial heritage
+fi-turku,"Western, Northern, and Southern Europe",provisional,secondary,Finland,Southwest port city with maritime and biotech sectors
+fi-oulu,"Western, Northern, and Southern Europe",provisional,secondary,Finland,Northern tech city with wireless innovation cluster
+fi-espoo,"Western, Northern, and Southern Europe",provisional,secondary,Finland,Helsinki-adjacent tech hub home to Aalto University
+pe-cusco,Latin America,provisional,secondary,Peru,Andean heritage city and gateway to Machu Picchu tourism
+pe-trujillo,Latin America,provisional,secondary,Peru,Northern coastal city with pre-Inca archaeological heritage
+pe-piura,Latin America,provisional,secondary,Peru,Northern agricultural hub near the Ecuadorian border
+nz-queenstown,Oceania,provisional,secondary,New Zealand,Alpine resort town with adventure tourism and lifestyle
+nz-hamilton,Oceania,provisional,secondary,New Zealand,Waikato regional hub with agriculture and university
