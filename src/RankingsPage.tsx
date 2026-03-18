@@ -178,7 +178,7 @@ const interactiveCopy: Record<
     heroEyebrow: "Preference engine",
     heroTitle: "Tune the city field to your life",
     heroIntro:
-      "This workbench reranks the full 200-city indexed field in real time. Drag the spider web, move the sliders, or use a preset to see which cities match the kind of life you actually want.",
+      "This workbench reranks the full 350-city indexed field in real time. Drag the spider web, move the sliders, or use a preset to see which cities match the kind of life you actually want.",
     heroNoteTitle: "Why this should feel credible",
     heroNoteBody:
       "This is meant to read like a declared ranking instrument, not a vibe list. The frame is traceable: post-tax room after essentials, daily viability, capability, community texture, and creative edge, all held inside one explicit five-part model.",
@@ -198,7 +198,7 @@ const interactiveCopy: Record<
     consequencesTitle: "Trade-off signals",
     noConsequences: "Keep moving the weights. When your profile becomes distinctive, the main trade-offs appear here.",
     resultsTitle: "Closest matches",
-    resultsBody: "At baseline you are seeing the official SLIC order. Once you move the bars, the workbench switches into profile matching across the full 200-city indexed field.",
+    resultsBody: "At baseline you are seeing the official SLIC order. Once you move the bars, the workbench switches into profile matching across the full 350-city indexed field.",
     bestMatchTitle: "Best current match",
     bestMatchBody: "The lead city below is the closest shape-match to your current five-part profile.",
     fitScore: "Profile fit",
