@@ -1,5 +1,15 @@
 import cityUniverseCsv from "./data/slic_city_universe.csv?raw";
 import { rankingPublication } from "./rankingPublication";
+import {
+  scorePillar,
+  computeOverallSLIC,
+  GROWTH_ANCHORS,
+  VIABILITY_ANCHORS,
+  CAPABILITY_ANCHORS,
+  COMMUNITY_ANCHORS,
+  CREATIVE_ANCHORS,
+} from "./scoringEngine";
+import type { PillarResult } from "./scoringEngine";
 import type {
   CityAccessProfile,
   CityLifeMetrics,
@@ -1608,7 +1618,81 @@ function generatedMetrics(row: CityUniverseRow, profile: RegionProfile): CityLif
   };
 }
 
+// ---------------------------------------------------------------------------
+// V3 Indicator Data Store
+// ---------------------------------------------------------------------------
+// Maps city_id → raw indicator values for each pillar (7 per pillar).
+// null = missing. As data pipelines populate this, cities automatically
+// switch from region-profile defaults to engine-computed absolute scores.
+//
+// Order must match the anchor arrays in scoringEngine.ts:
+//   Growth:     [G1 GDP growth, G2 startups/100k, G3 VC$/cap, G4 biz ease, G5 civic freedom, G6 patents/100k, G7 high-skill %]
+//   Viability:  [V1 homicide/100k, V2 PM2.5, V3 HAQ, V4 DI_PPP $/mo, V5 rent%, V6 water%, V7 peace(GPI→score), V8 birth rate]
+//   Capability: [C1 transit%, C2 internet Mbps, C3 digital gov, C4 PISA, C5 walkability, C6 cycling km/100k, C7 renewables%]
+//   Community:  [O1 LGBTQ+, O2 relig freedom(GRI→score), O3 immigrant gap, O4 Gini, O5 trust%, O6 gender(GII→score), O7 weekend ratio]
+//   Creative:   [R1 venues/100k, R2 UNESCO, R3 cuisines/100k, R4 nightlife/100k, R5 arts$/cap, R6 creative%, R7 events/M]
+
+interface CityIndicators {
+  growth: (number | null)[];
+  viability: (number | null)[];
+  capability: (number | null)[];
+  community: (number | null)[];
+  creative: (number | null)[];
+}
+
+/**
+ * Indicator data store. Populated at build time from verified data sources,
+ * or at runtime from API responses. Empty by default — cities fall back to
+ * region profile defaults until data arrives.
+ */
+const cityIndicatorData: Record<string, CityIndicators> = {};
+
+/** Suppress unused import warnings — the engine is wired and ready */
+void scorePillar;
+void computeOverallSLIC;
+void GROWTH_ANCHORS;
+void VIABILITY_ANCHORS;
+void CAPABILITY_ANCHORS;
+void COMMUNITY_ANCHORS;
+void CREATIVE_ANCHORS;
+
+/**
+ * Try to compute scores from the V3 absolute scoring engine.
+ * Returns null if the city has no indicator data (falls back to region defaults).
+ */
+function engineComputedScores(cityId: string): RankedCity["scores"] | null {
+  const data = cityIndicatorData[cityId];
+  if (!data) return null;
+
+  const growthResult = scorePillar("growth", data.growth, GROWTH_ANCHORS);
+  const viabilityResult = scorePillar("viability", data.viability, VIABILITY_ANCHORS);
+  const capabilityResult = scorePillar("capability", data.capability, CAPABILITY_ANCHORS);
+  const communityResult = scorePillar("community", data.community, COMMUNITY_ANCHORS);
+  const creativeResult = scorePillar("creative", data.creative, CREATIVE_ANCHORS);
+
+  // Require at least grade B on 3+ pillars to trust engine output
+  const grades: PillarResult[] = [growthResult, viabilityResult, capabilityResult, communityResult, creativeResult];
+  const usableCount = grades.filter((g) => g.coverageGrade !== "C").length;
+  if (usableCount < 3) return null;
+
+  const pressure = Math.round(growthResult.score);
+  const viability = Math.round(viabilityResult.score);
+  const capability = Math.round(capabilityResult.score);
+  const community = Math.round(communityResult.score);
+  const creative = Math.round(creativeResult.score);
+  const slic = Math.round(
+    computeOverallSLIC({ growth: pressure, viability, capability, community, creative }),
+  );
+
+  return { slic, pressure, viability, capability, community, creative };
+}
+
 function generatedScores(row: CityUniverseRow, profile: RegionProfile): RankedCity["scores"] {
+  // V3: try engine-computed scores first
+  const engineScores = engineComputedScores(row.city_id);
+  if (engineScores) return engineScores;
+
+  // Fallback: region profile defaults (V2 behavior)
   const typeAdjustment = row.city_type === "primary" ? 1.5 : 0;
   const lockAdjustment = row.manifest_status === "locked" ? 0.8 : -0.6;
   const pressure = clamp(
