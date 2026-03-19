@@ -20,7 +20,7 @@
     "verify:workbook": "python3 scripts/validate_slic_workbook.py",
     "build": "npm run rack:build && npm run export:ranking && npm run build:sheets && tsc -b && vite build",
     "build:web": "npm run export:ranking && npm run build:sheets && tsc -b && vite build",
-    "build:render": "tsc -b && vite build",
+    "build:render": "vite build",
     "preview": "vite preview",
     "start": "node server.js"
   },
