@@ -569,6 +569,22 @@ export default function HomePage({
 
   return (
     <>
+      <div className="v2-announcement-banner">
+        <div className="v2-announcement-inner">
+          <span className="v2-announcement-badge">NEW</span>
+          <span className="v2-announcement-text">
+            Version 2 is live — redesigned scoring, interactive profiles, and 50+ global cities.
+          </span>
+          <a
+            className="v2-announcement-link"
+            href="https://slic-index-v2.onrender.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Explore V2 →
+          </a>
+        </div>
+      </div>
       <header className="hero section">
         <div className="hero-grid">
           <div className="hero-copy">
