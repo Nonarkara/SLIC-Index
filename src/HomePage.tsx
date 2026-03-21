@@ -5,13 +5,7 @@ import { evaluateConsequences } from "./consequenceRules";
 import type { FiredConsequence } from "./consequenceRules";
 import { buildLandingData } from "./landingData";
 import { getExerciseCities, exerciseRegions as rankingRegions } from "./rankingsData";
-// RankingIntegrityBanner used on rankings page; home uses inline status line
-import { editorialPhotos, homeSupportPhotos } from "./editorialPhotos";
-import { getMethodologyData } from "./methodologyData";
-import PillarWeightChart from "./PillarWeightChart";
-// getCopy used indirectly via other modules
 import SiteFooter from "./SiteFooter";
-import SmartCityFeedPanel from "./SmartCityFeedPanel";
 import type { Locale, SitePath } from "./types";
 
 const data = buildLandingData();
@@ -195,15 +189,15 @@ const homeEditorialCopy: Record<
   }
 > = {
   en: {
-    manifestoTitle: "A ranking that treats cities as places to live, not trophies to display.",
+    manifestoTitle: "Your city is winning awards. Your citizens are dying slowly.",
     manifestoBody:
-      "Too many city rankings reward prestige, cost, or brand power. SLIC asks where a person can still build a life, keep dignity, feel safe, and find some ambition without being crushed by the city itself.",
+      "The old rankings were built for corporations calculating hardship allowances — not for people trying to build a life. They reward GDP, count museums, and declare a winner. They never ask about suicide rates, mental strain, or whether \"safety\" comes from community trust or just more cameras. SLIC asks the questions they won't.",
     manifestoFormula:
-      "City value = real room to live + daily confidence + social openness + productive possibility",
+      "City value = money left after rent + air you can breathe + community you can belong to + ambition you can keep alive",
     manifestoDoctrine: [
-      { title: "Outcomes over gadgetry", body: "Technology matters only when it improves the lived city." },
-      { title: "Livability over GDP optics", body: "A wealthy city can still fail if housing stress, overwork, or thin community make meaningful life difficult." },
-      { title: "Culture is infrastructure too", body: "Belonging, hospitality, variety, and urban character are part of what makes a city resilient and worth choosing." },
+      { title: "GDP is not a proxy for a good life", body: "A city so sterile that its inhabitants eat astronaut food and lose the need for community is not livable. It is a morgue with good infrastructure." },
+      { title: "Innovation needs friction, not funding", body: "Real innovation happens when people have enough pressure to fight for something, but enough safety to sleep at night." },
+      { title: "Cities are for people, not for Sean", body: "When platinum-card tourists descend with zero curiosity about how locals live, mixed-income neighborhoods die. SLIC measures what remains." },
     ],
     methodologyTitle: "Five declared pillars, full doctrine in the paper.",
     methodologySummary: "The homepage keeps the public story legible. The methodology paper carries the formal score, notation, source hierarchy, and worksheet logic.",
@@ -211,7 +205,7 @@ const homeEditorialCopy: Record<
     weightTitle: "Five declared pillars, one fixed public formula.",
     weightSummary: "Growth carries the largest share in the SLIC canonical ranking, followed by viability, capability, community, and creative vitality.",
     methodologySurfaceTitle: "What SLIC is trying to surface",
-    methodologySurfaceSummary: "The strongest cities here are not just clean or rich. They are places where people can still afford life, move with confidence, find community, and keep ambition alive without the city draining them dry.",
+    methodologySurfaceSummary: "We don't reward cities for having a major sporting event. We reward them for having a public life that doesn't require a ticket. The strongest cities here are places where ordinary people can afford to live, breathe, work, and belong.",
     methodologyAction: "Enter the full methodology",
     spotlightsEyebrow: "City spotlights",
     spotlightsTitle: "Examples that prove the thesis",
@@ -350,7 +344,6 @@ export default function HomePage({
   onNavigate: (path: SitePath) => void;
   locale: Locale;
 }) {
-  const methodology = getMethodologyData(locale);
   const editorialCopy = homeEditorialCopy[locale];
   const ui = heroCopy[locale];
   const labels = PILLAR_LABELS[locale];
@@ -620,79 +613,30 @@ export default function HomePage({
           </div>
         </section>
 
-        {/* ═══════ METHODOLOGY SNAPSHOT ═══════ */}
-        <section className="methodology section" id="methodology">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">{locale === "en" ? "Methodology snapshot" : locale === "th" ? "ภาพรวมระเบียบวิธี" : "方法论快照"}</p>
-              <h2>{editorialCopy.methodologyTitle}</h2>
-            </div>
-            <p className="section-summary">{editorialCopy.methodologySummary}</p>
-          </div>
-
-          <div className="methodology-snapshot-grid">
-            <article className="paper-card weight-card">
-              <div className="weight-card-head">
-                <div>
-                  <p className="panel-label">{editorialCopy.weightLabel}</p>
-                  <h3>{editorialCopy.weightTitle}</h3>
-                </div>
-                <p className="section-summary">{editorialCopy.weightSummary}</p>
-              </div>
-              <PillarWeightChart pillars={methodology.pillars} compact shareLabel={methodology.weightChartLabel} />
-            </article>
-
-            <div className="methodology-fragment-stack">
-              {methodology.equationSection.groups.flatMap((group) => group.equations).slice(0, 3).map((equation) => (
-                <article className="methodology-fragment" key={equation.title}>
-                  <p className="panel-label">{equation.title}</p>
-                  <pre className="formula-display formula-display-compact methodology-fragment-formula">
-                    {equation.formula}
-                  </pre>
-                  <p>{equation.explanation}</p>
-                </article>
-              ))}
-            </div>
-          </div>
-
-          <div className="landing-context-grid">
-            <article className="paper-card landing-context-card">
-              <p className="panel-label">{editorialCopy.methodologySurfaceTitle}</p>
-              <h3>{editorialCopy.methodologyTitle}</h3>
-              <p>{editorialCopy.methodologySurfaceSummary}</p>
-            </article>
-            {homeSupportPhotos.map((photo) => (
-              <figure className="photo-frame photo-frame-support" key={photo.id}>
-                <img src={photo.src} alt={photo.alt} loading="lazy" />
-                <figcaption>{photo.caption}</figcaption>
-              </figure>
-            ))}
-          </div>
-
-          <div className="pillar-grid">
+        {/* ═══════ METHODOLOGY — compact strip ═══════ */}
+        <section className="methodology-strip section" id="methodology">
+          <p className="eyebrow" style={{ marginBottom: 8 }}>
+            {locale === "en" ? "What we measure" : locale === "th" ? "สิ่งที่เราวัด" : "我们衡量什么"}
+          </p>
+          <p style={{ fontSize: 14, lineHeight: 1.65, opacity: 0.6, maxWidth: 600, margin: "0 0 20px" }}>
+            {editorialCopy.methodologySurfaceSummary}
+          </p>
+          <div className="methodology-pillar-strip">
             {data.pillars.map((pillar) => (
-              <article className="pillar-card" key={pillar.id}>
-                <p className="pillar-id">{pillar.name}</p>
-                <h3>{pillar.description}</h3>
-                <div className="metric-taglist">
-                  {pillar.metrics.map((metric) => (
-                    <span key={metric}>{metric}</span>
-                  ))}
-                </div>
-                <p className="pillar-note">{pillar.note}</p>
-              </article>
+              <div className="methodology-pillar-chip" key={pillar.id}>
+                <span className="methodology-pillar-chip-name">{pillar.name}</span>
+                <span className="methodology-pillar-chip-desc">{pillar.description}</span>
+              </div>
             ))}
           </div>
-
-          <div className="section-actions">
-            <a
-              className="primary-action"
-              href="/methodology"
-              onClick={(event) => navigateLink(event, onNavigate, "/methodology")}
-            >
-              {editorialCopy.methodologyAction}
-            </a>
-          </div>
+          <a
+            className="secondary-action"
+            href="/methodology"
+            onClick={(event) => navigateLink(event, onNavigate, "/methodology")}
+            style={{ fontSize: 12, padding: "8px 16px", minHeight: "auto", marginTop: 16, display: "inline-block" }}
+          >
+            {editorialCopy.methodologyAction}
+          </a>
         </section>
 
         {/* ═══════ CITY SPOTLIGHTS ═══════ */}
@@ -703,12 +647,6 @@ export default function HomePage({
               <h2>{editorialCopy.spotlightsTitle}</h2>
             </div>
             <p className="section-summary">{editorialCopy.spotlightsSummary}</p>
-          </div>
-
-          <div className="spotlight-intro-visual">
-            <figure className="photo-frame photo-frame-wide spotlight-hero-photo">
-              <img src={editorialPhotos[3]?.src} alt={editorialPhotos[3]?.alt} loading="lazy" />
-            </figure>
           </div>
 
           <div className="spotlight-grid">
@@ -735,7 +673,83 @@ export default function HomePage({
         </section>
       </main>
 
-      <SmartCityFeedPanel locale={locale} />
+      {/* ═══════ ESSAY CTAs ═══════ */}
+      <section className="essay-cta section">
+        <div className="essay-cta-layout">
+          <div className="essay-cta-copy">
+            <p className="eyebrow" style={{ color: "var(--accent-cyan)", opacity: 0.9 }}>
+              {locale === "en" ? "The essays" : locale === "th" ? "บทความ" : "文章"}
+            </p>
+            <h2 className="essay-cta-title">
+              {locale === "en"
+                ? "We wrote two essays. They made some people uncomfortable."
+                : locale === "th"
+                  ? "เราเขียนสองบทความ ทำให้บางคนไม่สบายใจ"
+                  : "我们写了两篇文章，让一些人感到不安。"}
+            </h2>
+            <div className="essay-cta-cards">
+              <a
+                className="essay-card"
+                href="https://medium.com/design-bootcamp/your-city-won-most-livable-your-therapist-disagrees-f2f782859c8e"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="essay-card-badge">V2</span>
+                <span className="essay-card-title">Your City Won "Most Livable." Your Therapist Disagrees.</span>
+                <span className="essay-card-meta">12 min read · The interactive ranking, the five pillars, and the people the old rankings forget.</span>
+              </a>
+              <a
+                className="essay-card"
+                href="https://medium.com/design-bootcamp/your-city-is-winning-awards-your-citizens-are-dying-slowly-19d7397a6e82"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span className="essay-card-badge">V1</span>
+                <span className="essay-card-title">Your City Is Winning Awards. Your Citizens Are Dying Slowly.</span>
+                <span className="essay-card-meta">10 min read · The GDP trap, the innovation mirage, and why we built SLIC.</span>
+              </a>
+            </div>
+          </div>
+          <div className="essay-cta-quotes">
+            <blockquote>
+              <p>{locale === "en"
+                ? "\"Livability\" isn't one thing. It changes with age, with priorities, with who you love, with what you want to build."
+                : locale === "th"
+                  ? "\"ความน่าอยู่\" ไม่ใช่สิ่งเดียว มันเปลี่ยนไปตามอายุ ลำดับความสำคัญ คนที่คุณรัก และสิ่งที่คุณอยากสร้าง"
+                  : "\"宜居\"不是单一概念。它随年龄、优先级、所爱的人和想要建设的事物而变化。"}</p>
+            </blockquote>
+            <blockquote>
+              <p>{locale === "en"
+                ? "EIU charges $935 for a single report. Let's call it what it is. SLIC is live, free, and yours."
+                : locale === "th"
+                  ? "EIU คิดค่ารายงานฉบับเดียว $935 เรียกมันตามตรง SLIC เปิดให้ใช้ฟรี และเป็นของคุณ"
+                  : "EIU 单份报告收费 935 美元。我们直说吧。SLIC 是免费的，是你的。"}</p>
+            </blockquote>
+            <blockquote>
+              <p>{locale === "en"
+                ? "I launched SLIC V2 on stage, in front of mayors who had no idea what was coming. For 45 minutes, no one checked their phones."
+                : locale === "th"
+                  ? "ผมเปิดตัว SLIC V2 บนเวที ต่อหน้านายกเทศมนตรีที่ไม่รู้ตัวมาก่อน 45 นาที ไม่มีใครหยิบโทรศัพท์เลย"
+                  : "我在舞台上发布了 SLIC V2，面对毫无准备的市长们。45分钟内，没有人看手机。"}</p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════ V1 COMPARISON LINK ═══════ */}
+      <div className="v1-compare-strip">
+        <span>
+          {locale === "en"
+            ? "Want to see the original ranking? Compare it side-by-side."
+            : locale === "th"
+              ? "อยากดูอันดับต้นฉบับ? เปรียบเทียบพร้อมกันได้"
+              : "想看原始排名？可以并排对比。"}
+        </span>
+        <a href="https://slic-index.onrender.com" target="_blank" rel="noopener noreferrer">
+          {locale === "en" ? "Open SLIC V1 →" : locale === "th" ? "เปิด SLIC V1 →" : "打开 SLIC V1 →"}
+        </a>
+      </div>
+
       <SiteFooter onNavigate={onNavigate} locale={locale} />
     </>
   );
