@@ -107,23 +107,23 @@ const homeEditorialCopy: Record<
         body: "SLIC keeps visitor pull only when it survives affordability, ecology, and public-order checks at the same time.",
       },
     ],
-    manifestoTitle: "A ranking that treats cities as places to live, not trophies to display.",
+    manifestoTitle: "Your city is winning awards. Your citizens are dying slowly.",
     manifestoBody:
-      "Too many city rankings reward prestige, cost, or brand power. SLIC asks where a person can still build a life, keep dignity, feel safe, and find some ambition without being crushed by the city itself.",
+      "The old rankings were built for corporations calculating hardship allowances — not for people trying to build a life. They reward GDP, count museums, check a box next to \"stable government,\" and declare a winner. They never ask about suicide rates, mental strain, household debt after rent, or whether \"safety\" comes from community trust or just more cameras. SLIC asks the questions they won't.",
     manifestoFormula:
-      "City value = real room to live + daily confidence + social openness + productive possibility",
+      "City value = money left after rent + air you can breathe + community you can belong to + ambition you can keep alive",
     manifestoDoctrine: [
       {
-        title: "Outcomes over gadgetry",
-        body: "Technology matters only when it improves the lived city. Sensors and dashboards are tools, not the destination.",
+        title: "GDP is not a proxy for a good life",
+        body: "A city so sterile, so predictable, so safe that its inhabitants stop eating real food and lose the need for community is not livable. It is a morgue with good infrastructure.",
       },
       {
-        title: "Livability over GDP optics",
-        body: "A wealthy city can still fail if housing stress, overwork, or thin community make meaningful life difficult.",
+        title: "Innovation needs friction, not funding",
+        body: "Real innovation happens when people have enough pressure to fight for something, but enough safety to sleep at night. State-sponsored make-work is not R\u0026D.",
       },
       {
-        title: "Culture is infrastructure too",
-        body: "Belonging, hospitality, variety, and urban character are part of what makes a city resilient and worth choosing.",
+        title: "Cities are for people, not for Sean",
+        body: "When platinum-card tourists descend on a place with zero curiosity about how locals live, mixed-income neighborhoods die. The family trattoria becomes a luxury boutique. SLIC measures what remains.",
       },
     ],
     methodologyTitle: "Five declared pillars on the landing page, full doctrine in the paper.",
@@ -135,7 +135,7 @@ const homeEditorialCopy: Record<
       "Pressure and affordability lead the score, but safety, capability, community, and business vitality remain visible in the final ranking.",
     methodologySurfaceTitle: "What SLIC is trying to surface",
     methodologySurfaceSummary:
-      "The strongest cities here are not just clean or rich. They are places where people can still afford life, move with confidence, find community, and keep ambition alive without the city draining them dry.",
+      "We don't reward cities for having a major sporting event. We reward them for having a public life that doesn't require a ticket. The strongest cities here are places where ordinary people can afford to live, breathe, work, and belong.",
     methodologyAction: "Enter the full methodology",
     trackingSummary: "Tracking summary",
     citiesLabel: "cities",
@@ -1031,6 +1031,76 @@ export default function HomePage({
           </div>
         </section>
       </main>
+
+      {/* ═══════ ESSAY CTA ═══════ */}
+      <section className="essay-cta section">
+        <div className="essay-cta-layout">
+          <div className="essay-cta-copy">
+            <p className="eyebrow">
+              {locale === "en" ? "The essay" : locale === "th" ? "บทความ" : "文章"}
+            </p>
+            <h2 className="essay-cta-title">
+              {locale === "en"
+                ? "\"Your City Is Winning Awards. Your Citizens Are Dying Slowly.\""
+                : locale === "th"
+                  ? "\"เมืองของคุณกำลังชนะรางวัล พลเมืองของคุณกำลังตายช้าๆ\""
+                  : "\"你的城市在赢得奖项，你的市民在慢慢死去。\""}
+            </h2>
+            <p className="essay-cta-excerpt">
+              {locale === "en"
+                ? "The old rankings are a scam designed to sell real estate to the global rich and justify corporate relocation packages. They are not for you. They are for \"Sean\" — and Sean is the reason your favorite city no longer has any culture."
+                : locale === "th"
+                  ? "การจัดอันดับแบบเดิมคือเกมที่ออกแบบมาเพื่อขายอสังหาริมทรัพย์ให้คนรวยระดับโลกและใช้อ้างแพ็กเกจย้ายถิ่นฐานของบริษัท ไม่ได้ทำมาเพื่อคุณ"
+                  : "旧排名就是一场骗局——为全球富人卖房地产、为企业外派包装服务。它们不是为你设计的。"}
+            </p>
+            <div className="essay-cta-pillars">
+              <span>Pressure 22%</span>
+              <span>Viability 23%</span>
+              <span>Capability 15%</span>
+              <span>Community 15%</span>
+              <span>Growth 25%</span>
+            </div>
+            <p className="essay-cta-bottom">
+              {locale === "en"
+                ? "10 min read on Medium — methodology, the five pillars, and why we built this."
+                : locale === "th"
+                  ? "อ่าน 10 นาทีบน Medium — วิธีวิทยา ห้าเสาหลัก และเหตุผลที่เราสร้างสิ่งนี้"
+                  : "Medium 上 10 分钟阅读 — 方法论、五个支柱、以及为什么我们要建这个。"}
+            </p>
+            <a
+              className="essay-cta-button"
+              href="https://medium.com/design-bootcamp/your-city-is-winning-awards-your-citizens-are-dying-slowly-19d7397a6e82"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {locale === "en" ? "Read the full essay →" : locale === "th" ? "อ่านบทความเต็ม →" : "阅读完整文章 →"}
+            </a>
+          </div>
+          <div className="essay-cta-quotes">
+            <blockquote>
+              <p>{locale === "en"
+                ? "I don't want to live in a pressure cooker, and I don't want to live in a morgue. We need balance."
+                : locale === "th"
+                  ? "ผมไม่อยากอยู่ในหม้อแรงดัน และไม่อยากอยู่ในห้องเก็บศพ เราต้องการสมดุล"
+                  : "我不想住在高压锅里，也不想住在太平间。我们需要平衡。"}</p>
+            </blockquote>
+            <blockquote>
+              <p>{locale === "en"
+                ? "If your city is \"winning\" according to the old rules, ask yourself: are you?"
+                : locale === "th"
+                  ? "ถ้าเมืองของคุณ \"ชนะ\" ตามกฎเก่า ถามตัวเองว่า: แล้วคุณล่ะ?"
+                  : "如果你的城市按旧规则在\"赢\"，问问自己：你赢了吗？"}</p>
+            </blockquote>
+            <blockquote>
+              <p>{locale === "en"
+                ? "The cities that win the next fifty years won't be the ones with the most museums. They'll be the ones where ordinary people can afford to live, breathe, work, and belong."
+                : locale === "th"
+                  ? "เมืองที่ชนะในห้าสิบปีข้างหน้า จะไม่ใช่เมืองที่มีพิพิธภัณฑ์มากที่สุด แต่จะเป็นเมืองที่คนธรรมดาสามารถมีชีวิตอยู่ได้ หายใจได้ ทำงานได้ และเป็นส่วนหนึ่งได้"
+                  : "赢得未来五十年的城市，不会是博物馆最多的，而是普通人还能生活、呼吸、工作、归属的城市。"}</p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
 
       <SmartCityFeedPanel locale={locale} />
 

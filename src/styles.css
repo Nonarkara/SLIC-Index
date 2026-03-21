@@ -3792,6 +3792,137 @@ section[id] {
   }
 }
 
+/* ── Essay CTA section ── */
+.essay-cta {
+  background: linear-gradient(175deg, #0f1923 0%, #1a2a3a 40%, #162435 100%);
+  color: #e8e0d4;
+  padding: 72px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.essay-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(23, 201, 203, 0.4), transparent);
+}
+
+.essay-cta-layout {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.essay-cta-copy .eyebrow {
+  color: var(--accent-cyan);
+  opacity: 0.9;
+}
+
+.essay-cta-title {
+  font-family: var(--font-heading);
+  font-size: clamp(22px, 3vw, 34px);
+  font-weight: 400;
+  line-height: 1.25;
+  color: #fff;
+  margin: 12px 0 20px;
+  letter-spacing: -0.01em;
+}
+
+.essay-cta-excerpt {
+  font-size: 15px;
+  line-height: 1.7;
+  color: rgba(232, 224, 212, 0.75);
+  margin: 0 0 24px;
+  max-width: 520px;
+}
+
+.essay-cta-pillars {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.essay-cta-pillars span {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.essay-cta-bottom {
+  font-size: 13px;
+  color: rgba(232, 224, 212, 0.45);
+  margin: 0 0 20px;
+  font-style: italic;
+}
+
+.essay-cta-button {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f1923;
+  background: var(--accent-cyan);
+  padding: 10px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.essay-cta-button:hover {
+  background: #1ee0e2;
+  transform: translateY(-1px);
+}
+
+.essay-cta-quotes {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding-top: 8px;
+}
+
+.essay-cta-quotes blockquote {
+  margin: 0;
+  padding: 16px 20px;
+  border-left: 3px solid var(--accent-cyan);
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0 6px 6px 0;
+}
+
+.essay-cta-quotes blockquote p {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+  font-style: italic;
+}
+
+@media (max-width: 820px) {
+  .essay-cta-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .essay-cta {
+    padding: 48px 20px;
+  }
+  .essay-cta-quotes blockquote p {
+    font-size: 14px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
