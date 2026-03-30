@@ -595,7 +595,7 @@ METRIC_SPECS: dict[str, dict[str, object]] = {
     "viability_clean_air": {"input_key": "clean_air_raw", "weight": 4, "type": "direct"},
     "viability_water_sanitation_utility": {"input_key": "water_sanitation_utility_raw", "weight": 4, "type": "direct"},
     "viability_digital_infrastructure": {"input_key": "digital_infrastructure_raw", "weight": 4, "type": "direct"},
-    "viability_climate_sunlight_livability": {"input_key": "climate_sunlight_livability_raw", "weight": 5, "type": "direct"},
+    "viability_climate_sunlight_livability": {"input_key": "climate_sunlight_livability_raw", "weight": 7, "type": "direct"},
     "capability_healthcare_quality": {"input_key": "healthcare_quality_raw", "weight": 8, "type": "direct"},
     "capability_education_quality": {"input_key": "education_quality_raw", "weight": 6, "type": "direct"},
     "capability_equal_opportunity_distributional_fairness": {
@@ -651,7 +651,7 @@ PILLAR_METRICS = {
         ("viability_clean_air", 4),
         ("viability_water_sanitation_utility", 4),
         ("viability_digital_infrastructure", 4),
-        ("viability_climate_sunlight_livability", 5),
+        ("viability_climate_sunlight_livability", 7),
     ],
     "capability": [
         ("capability_healthcare_quality", 8),
@@ -1346,16 +1346,29 @@ _CITY_DOCTRINE: dict[str, dict[str, float]] = {
     "bh-manama":       {"community": -22, "creative": -12},
     "kw-kuwait-city":  {"community": -28, "creative": -18},
 
-    # ── Intolerant cities ──
-    "sg-singapore":    {"community": -18},  # anti-LGBTQ laws
+    # ── Sterile/tedious cities: industrious but one-dimensional experience ──
+    # Singapore: long hours, anti-LGBTQ, sterile urban experience, no old/new contrast
+    "sg-singapore":    {"community": -25, "pressure": -8, "viability": -5},
+    # Scandinavia: lack of sunlight destroys happiness, sterile cultural experience,
+    # extremely homogeneous, expensive, limited diversity of experience
+    "dk-copenhagen":   {"community": -15, "viability": -8, "pressure": -5},
+    "se-stockholm":    {"community": -15, "viability": -10, "pressure": -5},
+    "fi-helsinki":     {"community": -12, "viability": -12, "pressure": -5},
+
+    # ── Intolerant / discriminatory ──
     "my-kuala-lumpur": {"community": -14},  # ethnic discrimination (pro-Malay)
 
-    # ── Overcrowded megacities: too expensive, too congested ──
-    "jp-tokyo":        {"pressure": -8, "community": -5},
-    "kr-seoul":        {"pressure": -8, "community": -5},
+    # ── Overcrowded megacities: one-dimensional, overwork culture, crushing rent ──
+    "jp-tokyo":        {"pressure": -12, "community": -8},
+    "kr-seoul":        {"pressure": -12, "community": -10},  # suicide crisis + overwork
+    "kr-busan":        {"pressure": -5, "community": -5},    # less extreme than Seoul but same national pressure
 
     # ── Tourism islands without diverse economic engines ──
     "kr-jeju-city":    {"creative": -15, "pressure": -8},
+
+    # ── Crushing rent / unaffordable ──
+    "ca-vancouver":    {"pressure": -10},  # 43.75% rent burden
+    "ca-toronto":      {"pressure": -8},
 
     # ── Growth cities: positive adjustments ──
     # Taiwan: tolerant, democratic, affordable, green spaces (data gap: community metrics sparse)
