@@ -581,12 +581,15 @@ CITY_FIELD_ORDER = [spec["field"] for spec in CITY_FIELD_SPECS]
 COUNTRY_FIELD_ORDER = [spec["field"] for spec in COUNTRY_FIELD_SPECS]
 
 METRIC_SPECS: dict[str, dict[str, object]] = {
-    "pressure_disposable_income_ppp": {"input_key": "di_ppp_raw", "weight": 5, "type": "direct"},
-    "pressure_housing_burden": {"input_key": "housing_burden_raw", "weight": 6, "type": "direct"},
+    # Pressure pillar: Can people actually live here without being crushed?
+    # Housing burden + suicide + overwork are the strongest signals of a city
+    # that drains people. Growth momentum rewards cities with economic future.
+    "pressure_disposable_income_ppp": {"input_key": "di_ppp_raw", "weight": 4, "type": "direct"},
+    "pressure_housing_burden": {"input_key": "housing_burden_raw", "weight": 8, "type": "direct"},
     "pressure_economic_growth_momentum": {"input_key": "gdp_growth_context", "weight": 6, "type": "direct"},
     "pressure_household_debt_burden": {"input_key": "household_debt_effective_raw", "weight": 4, "type": "direct"},
-    "pressure_working_time_pressure": {"input_key": "working_time_pressure_raw", "weight": 3, "type": "direct"},
-    "pressure_suicide_mental_strain": {"input_key": "suicide_mental_strain_raw", "weight": 4, "type": "direct"},
+    "pressure_working_time_pressure": {"input_key": "working_time_pressure_raw", "weight": 7, "type": "direct"},
+    "pressure_suicide_mental_strain": {"input_key": "suicide_mental_strain_raw", "weight": 7, "type": "direct"},
     "viability_personal_safety": {"input_key": "personal_safety_raw", "weight": 5, "type": "direct"},
     "viability_transit_access_commute": {"input_key": "transit_access_commute_raw", "weight": 5, "type": "direct"},
     "viability_clean_air": {"input_key": "clean_air_raw", "weight": 4, "type": "direct"},
@@ -635,12 +638,12 @@ METRIC_SPECS: dict[str, dict[str, object]] = {
 
 PILLAR_METRICS = {
     "pressure": [
-        ("pressure_disposable_income_ppp", 5),
-        ("pressure_housing_burden", 6),
+        ("pressure_disposable_income_ppp", 4),
+        ("pressure_housing_burden", 8),
         ("pressure_economic_growth_momentum", 6),
         ("pressure_household_debt_burden", 4),
-        ("pressure_working_time_pressure", 3),
-        ("pressure_suicide_mental_strain", 4),
+        ("pressure_working_time_pressure", 7),
+        ("pressure_suicide_mental_strain", 7),
     ],
     "viability": [
         ("viability_personal_safety", 5),
