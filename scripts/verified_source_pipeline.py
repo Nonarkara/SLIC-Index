@@ -1353,9 +1353,11 @@ _CITY_DOCTRINE: dict[str, dict[str, float]] = {
     # Korea: cultural dynamism, affordable alternatives to Seoul
     "kr-busan":        {"creative": +10, "community": +20, "pressure": +5},
     "kr-suwon":        {"creative": +8, "community": +15},
-    # Thailand: hospitality, affordability, vibrant street life, tourism economy
-    "th-bangkok":      {"creative": +15, "community": +30, "pressure": +20, "viability": +5},
-    "th-chiang-mai":   {"creative": +10, "community": +28, "pressure": +15},
+    # Thailand: #1 cultural diversity, extreme tolerance (sexuality, religion, ethnicity),
+    # very affordable with real disposable income, strong community (conflict resolution
+    # over confrontation), safer than any SE Asian peer, vibrant street life
+    "th-bangkok":      {"creative": +20, "community": +55, "pressure": +30, "viability": +8},
+    "th-chiang-mai":   {"creative": +12, "community": +45, "pressure": +20},
     # Japan: quality of life, food culture, safety, startup growth
     "jp-fukuoka":      {"creative": +18, "community": +20, "pressure": +5},
     "jp-sapporo":      {"creative": +8, "community": +12},
