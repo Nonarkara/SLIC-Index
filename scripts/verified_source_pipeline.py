@@ -1301,6 +1301,98 @@ def city_row_from_sources(city: dict[str, str], validation: SourcePackValidation
     return row
 
 
+# ═══════ SLIC DOCTRINE SCREENING ═══════
+# These adjustments encode the SLIC philosophy:
+# - Cities should be places where people can BUILD a life, not just retire
+# - Growth matters: stagnant economies with no domestic consumption get penalized
+# - Tolerance matters: anti-LGBTQ, ethnic discrimination, religious intolerance
+# - No desert money: throwing cash at sand doesn't make a livable city
+# - No overcrowded megacities where rent eats your entire income
+# - Green spaces and parks matter for quality of life
+
+# Per-city screening profiles: (pressure_adj, viability_adj, community_adj, creative_adj)
+# Negative = penalty, Positive = boost
+_CITY_DOCTRINE: dict[str, dict[str, float]] = {
+    # ── Oceania: pleasant but economically stagnant, retirement economies ──
+    "au-adelaide":     {"pressure": -18, "creative": -25, "community": -10},
+    "au-perth":        {"pressure": -16, "creative": -22, "community": -10},
+    "au-brisbane":     {"pressure": -14, "creative": -20, "community": -8},
+    "au-hobart":       {"pressure": -20, "creative": -30, "community": -12},
+    "au-melbourne":    {"pressure": -12, "creative": -15, "community": -6},
+    "au-sydney":       {"pressure": -10, "creative": -12, "community": -5},
+    "nz-auckland":     {"pressure": -14, "creative": -20, "community": -8},
+    "nz-wellington":   {"pressure": -18, "creative": -25, "community": -10},
+    "nz-christchurch": {"pressure": -18, "creative": -25, "community": -10},
+    "nz-dunedin":      {"pressure": -20, "creative": -28, "community": -12},
+
+    # ── Gulf: desert money, intolerant, artificial growth ──
+    "ae-dubai":        {"community": -25, "creative": -15},
+    "ae-abu-dhabi":    {"community": -25, "creative": -15},
+    "qa-doha":         {"community": -28, "creative": -18},
+    "sa-riyadh":       {"community": -30, "creative": -20},
+    "sa-jeddah":       {"community": -28, "creative": -18},
+    "sa-khobar":       {"community": -28, "creative": -18},
+    "bh-manama":       {"community": -22, "creative": -12},
+    "kw-kuwait-city":  {"community": -28, "creative": -18},
+
+    # ── Intolerant cities ──
+    "sg-singapore":    {"community": -18},  # anti-LGBTQ laws
+    "my-kuala-lumpur": {"community": -14},  # ethnic discrimination (pro-Malay)
+
+    # ── Overcrowded megacities: too expensive, too congested ──
+    "jp-tokyo":        {"pressure": -8, "community": -5},
+    "kr-seoul":        {"pressure": -8, "community": -5},
+
+    # ── Tourism islands without diverse economic engines ──
+    "kr-jeju-city":    {"creative": -15, "pressure": -8},
+
+    # ── Growth cities: positive adjustments ──
+    # Taiwan: tolerant, democratic, affordable, growing tech sector, green spaces
+    "tw-taipei":       {"creative": +12, "community": +45, "pressure": +5},
+    "tw-kaohsiung":    {"creative": +15, "community": +48, "pressure": +10},
+    # Korea: cultural dynamism, affordable alternatives to Seoul
+    "kr-busan":        {"creative": +10, "community": +20, "pressure": +5},
+    "kr-suwon":        {"creative": +8, "community": +15},
+    # Thailand: hospitality, affordability, vibrant street life, tourism economy
+    "th-bangkok":      {"creative": +15, "community": +30, "pressure": +20, "viability": +5},
+    "th-chiang-mai":   {"creative": +10, "community": +28, "pressure": +15},
+    # Japan: quality of life, food culture, safety, startup growth
+    "jp-fukuoka":      {"creative": +18, "community": +20, "pressure": +5},
+    "jp-sapporo":      {"creative": +8, "community": +12},
+    "jp-kobe":         {"creative": +8, "community": +12},
+    # US startup/research cities
+    "us-raleigh":      {"creative": +4},
+    "us-pittsburgh":   {"creative": +3},
+    # Eastern Europe: growth, affordable, cultural
+    "pl-krakow":       {"creative": +5, "community": +5},
+    "pl-gdansk":       {"creative": +5, "community": +5},
+}
+
+# Regional baseline adjustments (applied to ALL cities in region)
+_REGION_DOCTRINE: dict[str, dict[str, float]] = {
+    "Oceania": {"creative": -8, "pressure": -5},
+}
+
+
+def _doctrine_adjustment(
+    city_id: str, country: str, region: str, pillar_scores: dict[str, float | None],
+) -> dict[str, float]:
+    """Return per-pillar adjustments based on SLIC doctrine screening."""
+    adj: dict[str, float] = {}
+
+    # Apply regional baseline
+    if region in _REGION_DOCTRINE:
+        for pillar, delta in _REGION_DOCTRINE[region].items():
+            adj[pillar] = adj.get(pillar, 0) + delta
+
+    # Apply city-specific screening
+    if city_id in _CITY_DOCTRINE:
+        for pillar, delta in _CITY_DOCTRINE[city_id].items():
+            adj[pillar] = adj.get(pillar, 0) + delta
+
+    return adj
+
+
 def compute_ranked_rows(
     validation: SourcePackValidation,
 ) -> list[dict[str, Any]]:
@@ -1490,6 +1582,15 @@ def _compute_ranked_rows_impl(
         pill_cov_values = [v for v in pillar_coverage.values() if v is not None]
         if not pill_cov_values or max(pill_cov_values) < thresholds["ranked_min_pillar"]:
              ranking_status = "Watchlist"
+
+        # ── SLIC Doctrine Screening ──
+        # Apply post-score adjustments based on city/country characteristics
+        # that the raw metrics alone don't capture: economic stagnation,
+        # intolerance, artificial growth, overcrowding pressure.
+        doctrine_adj = _doctrine_adjustment(city_row["city_id"], city_row["country"], city_row["cohort"], pillar_scores)
+        for pillar in PILLAR_ORDER:
+            if pillar_scores[pillar] is not None and pillar in doctrine_adj:
+                pillar_scores[pillar] = max(0.0, min(100.0, pillar_scores[pillar] + doctrine_adj[pillar]))
 
         available_weight = sum(
             PILLAR_WEIGHTS[pillar] for pillar in PILLAR_ORDER if pillar_scores[pillar] is not None
