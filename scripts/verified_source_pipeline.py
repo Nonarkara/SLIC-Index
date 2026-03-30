@@ -581,11 +581,12 @@ CITY_FIELD_ORDER = [spec["field"] for spec in CITY_FIELD_SPECS]
 COUNTRY_FIELD_ORDER = [spec["field"] for spec in COUNTRY_FIELD_SPECS]
 
 METRIC_SPECS: dict[str, dict[str, object]] = {
-    "pressure_disposable_income_ppp": {"input_key": "di_ppp_raw", "weight": 9, "type": "direct"},
-    "pressure_housing_burden": {"input_key": "housing_burden_raw", "weight": 5, "type": "direct"},
+    "pressure_disposable_income_ppp": {"input_key": "di_ppp_raw", "weight": 5, "type": "direct"},
+    "pressure_housing_burden": {"input_key": "housing_burden_raw", "weight": 6, "type": "direct"},
+    "pressure_economic_growth_momentum": {"input_key": "gdp_growth_context", "weight": 6, "type": "direct"},
     "pressure_household_debt_burden": {"input_key": "household_debt_effective_raw", "weight": 4, "type": "direct"},
-    "pressure_working_time_pressure": {"input_key": "working_time_pressure_raw", "weight": 4, "type": "direct"},
-    "pressure_suicide_mental_strain": {"input_key": "suicide_mental_strain_raw", "weight": 5, "type": "direct"},
+    "pressure_working_time_pressure": {"input_key": "working_time_pressure_raw", "weight": 3, "type": "direct"},
+    "pressure_suicide_mental_strain": {"input_key": "suicide_mental_strain_raw", "weight": 4, "type": "direct"},
     "viability_personal_safety": {"input_key": "personal_safety_raw", "weight": 5, "type": "direct"},
     "viability_transit_access_commute": {"input_key": "transit_access_commute_raw", "weight": 5, "type": "direct"},
     "viability_clean_air": {"input_key": "clean_air_raw", "weight": 4, "type": "direct"},
@@ -602,14 +603,14 @@ METRIC_SPECS: dict[str, dict[str, object]] = {
             ("gini_coefficient_context", 0.3),
         ],
     },
-    "community_hospitality_belonging": {"input_key": "hospitality_belonging_raw", "weight": 5, "type": "direct"},
-    "community_tolerance_pluralism": {"input_key": "tolerance_pluralism_raw", "weight": 5, "type": "direct"},
+    "community_hospitality_belonging": {"input_key": "hospitality_belonging_raw", "weight": 6, "type": "direct"},
+    "community_tolerance_pluralism": {"input_key": "tolerance_pluralism_raw", "weight": 4, "type": "direct"},
     "community_cultural_historic_public_life_vitality": {
         "input_key": "cultural_public_life_raw",
-        "weight": 5,
+        "weight": 7,
         "type": "direct",
     },
-    "community_birth_rate_optimism": {"input_key": "birth_rate_optimism_raw", "weight": 4, "type": "direct"},
+    "community_birth_rate_optimism": {"input_key": "birth_rate_optimism_raw", "weight": 2, "type": "direct"},
     "creative_entrepreneurial_dynamism": {"input_key": "entrepreneurial_dynamism_raw", "weight": 6, "type": "direct"},
     "creative_innovation_research_intensity": {
         "input_key": "innovation_research_intensity_raw",
@@ -634,11 +635,12 @@ METRIC_SPECS: dict[str, dict[str, object]] = {
 
 PILLAR_METRICS = {
     "pressure": [
-        ("pressure_disposable_income_ppp", 9),
-        ("pressure_housing_burden", 5),
+        ("pressure_disposable_income_ppp", 5),
+        ("pressure_housing_burden", 6),
+        ("pressure_economic_growth_momentum", 6),
         ("pressure_household_debt_burden", 4),
-        ("pressure_working_time_pressure", 4),
-        ("pressure_suicide_mental_strain", 5),
+        ("pressure_working_time_pressure", 3),
+        ("pressure_suicide_mental_strain", 4),
     ],
     "viability": [
         ("viability_personal_safety", 5),
@@ -654,10 +656,10 @@ PILLAR_METRICS = {
         ("capability_equal_opportunity_distributional_fairness", 4),
     ],
     "community": [
-        ("community_hospitality_belonging", 5),
-        ("community_tolerance_pluralism", 5),
-        ("community_cultural_historic_public_life_vitality", 5),
-        ("community_birth_rate_optimism", 4),
+        ("community_hospitality_belonging", 6),
+        ("community_tolerance_pluralism", 4),
+        ("community_cultural_historic_public_life_vitality", 7),
+        ("community_birth_rate_optimism", 2),
     ],
     "creative": [
         ("creative_entrepreneurial_dynamism", 6),
@@ -1285,9 +1287,15 @@ def city_row_from_sources(city: dict[str, str], validation: SourcePackValidation
         ppp_factor = row.get("ppp_private_consumption_context") or 1.0 # fallback to 1.0 if missing
         tax_rate = row.get("tax_rate_context") or 0.15 # fallback to 15% if missing
         
-        # We only compute if at least gross_income or rent is present to avoid nonsense
+        # Disposable income = post-tax income minus essential costs.
+        # Income and costs from world_bank_col_estimate are already in USD.
+        # We do NOT divide by PPP (that would double-adjust since the data
+        # was generated from PPP-adjusted GNI). Instead, the raw disposable
+        # USD figure is what we normalize — cities with low cost-of-living
+        # will naturally have higher disposable income relative to their
+        # nominal income, which is the correct signal.
         if row.get("gross_income") is not None or row.get("rent") is not None:
-             row["di_ppp_raw"] = ((val("gross_income") * (1 - tax_rate)) - val("rent") - val("utilities") - val("transit_cost") - val("internet_cost") - val("food_cost")) / ppp_factor
+             row["di_ppp_raw"] = (val("gross_income") * (1 - tax_rate)) - val("rent") - val("utilities") - val("transit_cost") - val("internet_cost") - val("food_cost")
         else:
             row["di_ppp_raw"] = None
     else:
@@ -1347,27 +1355,21 @@ _CITY_DOCTRINE: dict[str, dict[str, float]] = {
     "kr-jeju-city":    {"creative": -15, "pressure": -8},
 
     # ── Growth cities: positive adjustments ──
-    # Taiwan: tolerant, democratic, affordable, growing tech sector, green spaces
-    "tw-taipei":       {"creative": +12, "community": +45, "pressure": +5},
-    "tw-kaohsiung":    {"creative": +15, "community": +48, "pressure": +10},
-    # Korea: cultural dynamism, affordable alternatives to Seoul
-    "kr-busan":        {"creative": +10, "community": +20, "pressure": +5},
-    "kr-suwon":        {"creative": +8, "community": +15},
-    # Thailand: #1 cultural diversity, extreme tolerance (sexuality, religion, ethnicity),
-    # very affordable with real disposable income, strong community (conflict resolution
-    # over confrontation), safer than any SE Asian peer, vibrant street life
-    "th-bangkok":      {"creative": +20, "community": +55, "pressure": +30, "viability": +8},
-    "th-chiang-mai":   {"creative": +12, "community": +45, "pressure": +20},
-    # Japan: quality of life, food culture, safety, startup growth
-    "jp-fukuoka":      {"creative": +18, "community": +20, "pressure": +5},
-    "jp-sapporo":      {"creative": +8, "community": +12},
-    "jp-kobe":         {"creative": +8, "community": +12},
-    # US startup/research cities
-    "us-raleigh":      {"creative": +4},
-    "us-pittsburgh":   {"creative": +3},
-    # Eastern Europe: growth, affordable, cultural
-    "pl-krakow":       {"creative": +5, "community": +5},
-    "pl-gdansk":       {"creative": +5, "community": +5},
+    # Taiwan: tolerant, democratic, affordable, green spaces (data gap: community metrics sparse)
+    "tw-taipei":       {"community": +35},
+    "tw-kaohsiung":    {"community": +38},
+    # Korea: cultural dynamism (data gap: community sparse)
+    "kr-busan":        {"community": +15},
+    "kr-suwon":        {"community": +10},
+    # Thailand: #1 cultural diversity, extreme tolerance, strong community
+    # (data gap: tolerance uses women-in-parliament proxy which badly underrepresents
+    # Thailand's actual social tolerance; community metrics undercount informal hospitality)
+    "th-bangkok":      {"community": +40, "pressure": +15},
+    "th-chiang-mai":   {"community": +35, "pressure": +10},
+    # Japan: quality of life, food culture (data gap: community sparse)
+    "jp-fukuoka":      {"community": +15, "creative": +8},
+    "jp-sapporo":      {"community": +8},
+    "jp-kobe":         {"community": +8},
 }
 
 # Regional baseline adjustments (applied to ALL cities in region)
