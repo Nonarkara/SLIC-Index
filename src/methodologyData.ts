@@ -633,7 +633,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "disposable-income",
               title: "Tax-adjusted PPP disposable income",
               formula:
-                "DI_ppp(c) = ((GrossIncome(c) x (1 - TaxRate(country(c)))) - Rent(c) - Utilities(c) - Transit(c) - Internet(c) - Food(c)) / PPP_private_consumption(country(c))",
+                "DI(c) = (GrossIncome(c) x (1 - TaxRate(country(c)))) - Rent(c) - Utilities(c) - Transit(c) - Internet(c) - Food(c)",
               explanation:
                 "This is the core room-to-live term. It converts post-tax money left after essentials into comparable purchasing-power space.",
               citations: [2, 7],
@@ -721,7 +721,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         { symbol: "alpha_(p,m)", definition: "Metric weight inside a pillar", explanation: "How strongly metric m contributes to pillar p." },
         { symbol: "gamma_m", definition: "Coverage weight", explanation: "Importance weight used for missing-data coverage tests." },
         { symbol: "w_p", definition: "Public pillar weight", explanation: "Fixed public weight applied to each pillar in the final score." },
-        { symbol: "DI_ppp(c)", definition: "PPP disposable room", explanation: "Post-tax purchasing-power room after essential costs." },
+        { symbol: "DI(c)", definition: "Disposable income", explanation: "Post-tax income minus essential costs (rent, utilities, transit, internet, food). V3 removed PPP division — income data is already in comparable USD." },
       ],
     },
     workedExampleSection: {
@@ -745,8 +745,8 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           {
             title: "Disposable room after tax and essentials",
             formula:
-              "DI_ppp = ((55,000 x (1 - 0.12)) - 28,000) / 15.3",
-            result: "DI_ppp = 1,333 PPP units/month",
+              "DI = (55,000 x (1 - 0.12)) - 28,000 = 20,400 USD/year",
+            result: "DI = 1,700 USD/month disposable",
             explanation:
               "This converts residual income into PPP terms so money left after essentials is comparable across cities.",
           },
@@ -822,15 +822,16 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         id: "pressure",
         name: "Growth",
         weight: 25,
-        thesis: "Economic dynamism determines a city's trajectory. Growth invites capitalism and market forces that shape affordability — unless the state provides welfare as a counterbalance.",
-        justification: "This pillar punishes false prosperity and keeps disposable room central to the score.",
+        thesis: "Can a person build a life here without being crushed? Housing that eats your income, overwork that erases your evenings, and mental health crisis are the strongest signals that a city has failed — regardless of how wealthy it looks on paper.",
+        justification: "V3 rebalanced this pillar to penalize misery harder. Housing burden, working hours, and suicide rate now carry the heaviest weights. GDP growth was added as a direct metric — stagnant economies with no domestic consumption offer no future. Disposable income was reduced: having money means nothing if the city drains you.",
         citations: [2, 3, 7],
         metrics: [
-          { name: "Tax-adjusted PPP disposable income", weight: 9, description: "Residual money after tax and essentials, converted through PPP.", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
-          { name: "Housing burden", weight: 5, description: "Housing cost share of household income or graduate income proxy.", inputs: ["median rent", "housing-cost share"] },
-          { name: "Household debt burden", weight: 4, description: "Debt relative to disposable income or strongest available proxy.", inputs: ["household debt", "disposable income"] },
-          { name: "Working time pressure", weight: 4, description: "Average hours worked and over-48-hour prevalence.", inputs: ["weekly hours", "overwork share"] },
-          { name: "Suicide and severe mental strain", weight: 5, description: "Suicide rate as the sharpest signal of urban pressure that economic metrics alone cannot capture.", inputs: ["suicide rate", "mental-health harm proxy"] },
+          { name: "Housing burden", weight: 8, description: "Rent as share of income. The single strongest signal of whether a city is affordable to live in. Cities where people spend 40%+ of income on rent are structurally unliveable.", inputs: ["median rent", "gross income"] },
+          { name: "Working time pressure", weight: 7, description: "Average weekly hours worked. Cities where people work 45+ hours have no room for life — the city becomes a machine, not a home.", inputs: ["weekly hours", "overwork share"] },
+          { name: "Suicide and severe mental strain", weight: 7, description: "Suicide rate per 100k. The most honest signal of urban pressure. If people are dying, the city has failed at the most basic level.", inputs: ["age-standardized suicide rate"] },
+          { name: "Economic growth momentum", weight: 6, description: "GDP growth rate. Stagnant economies with no domestic consumption offer no future. Retirement cities score low here.", inputs: ["GDP growth %", "country context"] },
+          { name: "Tax-adjusted disposable income", weight: 4, description: "Residual money after tax and essential costs. V3 no longer divides by PPP — income and costs are already comparable in USD.", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food"] },
+          { name: "Household debt burden", weight: 4, description: "Debt relative to income. Countries where citizens are leveraged to the hilt offer fragile prosperity.", inputs: ["household debt proxy"] },
         ],
       },
       {
@@ -846,7 +847,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "Clean air", weight: 4, description: "PM2.5 and severe pollution exposure with CAMS and OpenAQ context.", inputs: ["PM2.5", "exceedance", "aerosol context"] },
           { name: "Water, sanitation, and utility reliability", weight: 4, description: "Safe water, sanitation, and basic service reliability.", inputs: ["WASH access", "interruptions", "compliance"] },
           { name: "Digital infrastructure", weight: 4, description: "Broadband quality, affordability, and fibre readiness.", inputs: ["fixed broadband", "affordability", "internet performance"] },
-          { name: "Climate and sunlight livability", weight: 5, description: "Composite of sunshine hours, temperature comfort relative to 22 deg C optimum, and extreme weather frequency.", inputs: ["sunshine hours", "temperature comfort", "extreme weather"] },
+          { name: "Climate and sunlight livability", weight: 7, description: "Composite of sunshine hours, temperature comfort, and extreme weather. V3 increased this weight — sunlight directly affects happiness and wellbeing. Scandinavian cities with 6 hours of winter daylight score low. Desert cities with extreme heat also penalized.", inputs: ["sunshine hours", "temperature comfort", "extreme weather"] },
         ],
       },
       {
@@ -866,14 +867,14 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         id: "community",
         name: "Community",
         weight: 15,
-        thesis: "Hospitality, social legibility, and peaceful coexistence are part of the lived product of the city.",
-        justification: "This is where welcoming cities can outrank colder cities even when both are administratively competent.",
+        thesis: "A city is not a spreadsheet. Hospitality, tolerance, cultural richness, and the feeling of belonging are what make people stay — or leave.",
+        justification: "V3 elevated cultural life as the heaviest community signal. Cities people actually visit (33M visitors to Bangkok, 23M to Istanbul) are doing something right. Birth rate was reduced — it is too noisy a proxy for lived community quality. Tolerance now includes a doctrine screening: cities in deeply religious states (theocratic, ethno-nationalist, or legally discriminatory) are penalized because structural intolerance is observable and measurable.",
         citations: [1, 14, 16],
         metrics: [
-          { name: "Hospitality and belonging", weight: 5, description: "Welcoming sentiment, resident attachment, and multilingual usability.", inputs: ["social listening", "testimony audit", "multilingual services"] },
-          { name: "Tolerance and pluralism", weight: 5, description: "Low-friction coexistence, equal market access, and lifestyle freedom.", inputs: ["legal openness", "discrimination proxy", "market-access signal"] },
-          { name: "Cultural and public-life vitality", weight: 5, description: "Third places, historic continuity, and visitor pull checked against civic strain.", inputs: ["venues", "events", "public attention", "visitor flow"] },
-          { name: "Birth rate optimism", weight: 4, description: "Total fertility rate as a societal optimism proxy. If people choose not to have children in a city, something fundamental has failed.", inputs: ["World Bank TFR"] },
+          { name: "Cultural and public-life vitality", weight: 7, description: "Third places, historic continuity, visitor pull, street life. The strongest signal of a city that people actually want to be in. 33M visitors don't lie.", inputs: ["tourism arrivals per 1000", "events", "public attention"] },
+          { name: "Hospitality and belonging", weight: 6, description: "Do people feel welcome? Net migration, resident attachment, multilingual usability, and the culture of helping strangers.", inputs: ["net migration", "testimony audit", "multilingual services"] },
+          { name: "Tolerance and pluralism", weight: 4, description: "LGBTQ acceptance, religious pluralism, ethnic inclusion, lifestyle freedom. V3 replaces the women-in-parliament proxy with composite tolerance scores for cities where the proxy fails (Bangkok, Taipei).", inputs: ["composite tolerance score", "legal openness", "same-sex marriage status"] },
+          { name: "Birth rate optimism", weight: 2, description: "Total fertility rate as a weak societal signal. Reduced from 4 to 2 in V3 — too many confounders (education, culture, policy) make this a poor proxy for city-level livability.", inputs: ["World Bank TFR"] },
         ],
       },
       {
@@ -927,6 +928,26 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         title: "Visitor demand is contextual, not automatic",
         body: "Travel demand enters as a cultural-demand signal only when it survives crowding, safety, ecology, and resident-room checks.",
         citations: [1],
+      },
+      {
+        title: "V3: Tier grouping replaces strict numerical ranking",
+        body: "Cities are grouped into tiers (Alpha, Beta, Gamma) of 10, listed alphabetically within each tier. A 0.3-point difference between two cities is not meaningful — tiers are more honest. Each tier aims for continental representation.",
+        citations: [],
+      },
+      {
+        title: "V3: Religious and structural intolerance screening",
+        body: "Cities in countries with dominant theocratic, ethno-nationalist, or legally discriminatory structures receive community penalties. Observable pattern: countries with sacred-state governance (religious law, ethnic supremacy, anti-LGBTQ legislation) consistently produce cities hostile to diversity. This is not a judgment on religion — it is a measurement of openness.",
+        citations: [],
+      },
+      {
+        title: "V3: Sterility and one-dimensional experience penalty",
+        body: "Cities that are industrious but offer one-dimensional lived experience — all work, no cultural contrast, no old-meets-new texture — receive community and viability penalties. Building skyscrapers is not the same as building a city worth living in.",
+        citations: [],
+      },
+      {
+        title: "V3: PPP double-adjustment removed",
+        body: "V2 divided disposable income by the PPP factor, but income data was already in comparable USD. This double-adjustment crushed affordable developing cities (Bangkok's disposable income dropped from $809 to $69). V3 removes the PPP division — the normalization across all cities handles purchasing power comparison.",
+        citations: [],
       },
     ],
     sourceSection: {
@@ -1142,7 +1163,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "disposable-income-th",
               title: "รายได้ใช้สอยจริงแบบ PPP หลังภาษี",
               formula:
-                "DI_ppp(c) = ((GrossIncome(c) x (1 - TaxRate(country(c)))) - Rent(c) - Utilities(c) - Transit(c) - Internet(c) - Food(c)) / PPP_private_consumption(country(c))",
+                "DI(c) = (GrossIncome(c) x (1 - TaxRate(country(c)))) - Rent(c) - Utilities(c) - Transit(c) - Internet(c) - Food(c)",
               explanation:
                 "นี่คือตัวแปรหลักของพื้นที่ชีวิตจริง เปลี่ยนเงินที่เหลือหลังภาษีและค่าใช้จ่ายจำเป็นให้เทียบกันข้ามเมืองได้",
               citations: [2, 7],
@@ -1635,7 +1656,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "disposable-income-zh",
               title: "税后 PPP 可支配生活空间",
               formula:
-                "DI_ppp(c) = ((GrossIncome(c) x (1 - TaxRate(country(c)))) - Rent(c) - Utilities(c) - Transit(c) - Internet(c) - Food(c)) / PPP_private_consumption(country(c))",
+                "DI(c) = (GrossIncome(c) x (1 - TaxRate(country(c)))) - Rent(c) - Utilities(c) - Transit(c) - Internet(c) - Food(c)",
               explanation:
                 "这是最核心的生活空间项：把税后扣除必需支出后的剩余收入，换算成可比较的 PPP 空间。",
               citations: [2, 7],
