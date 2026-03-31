@@ -5963,6 +5963,16 @@ section[id] {
   line-height: 1;
 }
 
+.scorecard-pillar-narrative {
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.7;
+  margin: 0 0 0.75rem;
+  padding-left: 16px;
+  border-left: 2px solid var(--border);
+  font-style: italic;
+}
+
 .scorecard-coverage-note {
   font-family: var(--font-mono);
   font-size: 10px;

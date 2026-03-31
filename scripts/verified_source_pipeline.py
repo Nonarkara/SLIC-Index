@@ -1396,8 +1396,11 @@ _CITY_DOCTRINE: dict[str, dict[str, float]] = {
     "pl-gdansk":       {"community": +5, "creative": +5},
     # Lyon: blends old/new beautifully, gastronomic capital, affordable vs Paris, good transit
     "fr-lyon":         {"community": +5, "creative": +5},
-    # Continental balance adjustments for Alpha tier diversity
-    "il-haifa":        {"pressure": -8, "community": -5},
+    # Religious intolerance: cities in deeply religious countries lack openness to diversity
+    "il-haifa":        {"community": -15, "pressure": -5},  # religious tensions, intolerance
+    "il-tel-aviv":     {"community": -12},  # more open than Haifa but still in conflict zone
+    "id-jakarta":      {"community": -15},  # religious conservatism
+    # Chilean cities: good but Alpha needs continental diversity
     "cl-valparaiso":   {"pressure": -5, "community": -3},
 }
 

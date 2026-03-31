@@ -196,6 +196,69 @@ function MetricRow({
   );
 }
 
+function generatePillarNarrative(pillar: PillarId, city: PublishedCity): string {
+  const m = city.metrics ?? {};
+  const name = city.displayName;
+  const score = city[pillarScoreKey(pillar)] as number;
+
+  if (score === null || score === undefined) return "";
+
+  const level = score >= 70 ? "strong" : score >= 50 ? "moderate" : score >= 30 ? "challenged" : "weak";
+
+  if (pillar === "pressure") {
+    const housing = m.pressure_housing_burden?.score;
+    const hours = m.pressure_working_time_pressure?.score;
+    const suicide = m.pressure_suicide_mental_strain?.score;
+    const growth = m.pressure_economic_growth_momentum?.score;
+    const parts: string[] = [];
+    if (housing !== null && housing !== undefined) parts.push(housing > 60 ? "housing remains affordable" : housing > 35 ? "housing costs are moderate" : "rent is a significant burden");
+    if (hours !== null && hours !== undefined) parts.push(hours > 60 ? "working hours leave room for life" : hours > 35 ? "work-life balance is average" : "long working hours compress personal time");
+    if (suicide !== null && suicide !== undefined && suicide < 30) parts.push("mental health pressure is elevated");
+    if (growth !== null && growth !== undefined) parts.push(growth > 60 ? "the economy is growing steadily" : growth > 30 ? "economic growth is moderate" : "economic momentum is weak");
+    return `${name} shows ${level} pressure signals. ${parts.join("; ")}.`;
+  }
+
+  if (pillar === "viability") {
+    const safety = m.viability_personal_safety?.score;
+    const climate = m.viability_climate_sunlight_livability?.score;
+    const air = m.viability_clean_air?.score;
+    const parts: string[] = [];
+    if (safety !== null && safety !== undefined) parts.push(safety > 70 ? "personal safety is excellent" : safety > 40 ? "safety is reasonable" : "safety remains a concern");
+    if (climate !== null && climate !== undefined) parts.push(climate > 60 ? "climate and sunlight support wellbeing" : climate < 35 ? "limited sunlight affects quality of life" : "climate is manageable");
+    if (air !== null && air !== undefined) parts.push(air > 60 ? "air quality is good" : "air quality needs improvement");
+    return `${name} scores ${level} on daily viability. ${parts.join("; ")}.`;
+  }
+
+  if (pillar === "capability") {
+    const health = m.capability_healthcare_quality?.score;
+    const edu = m.capability_education_quality?.score;
+    const parts: string[] = [];
+    if (health !== null && health !== undefined) parts.push(health > 70 ? "healthcare quality is strong" : "healthcare access varies");
+    if (edu !== null && edu !== undefined) parts.push(edu > 60 ? "education infrastructure is solid" : "education access has room to grow");
+    return `${name} has ${level} institutional capability. ${parts.join("; ")}.`;
+  }
+
+  if (pillar === "community") {
+    const hospitality = m.community_hospitality_belonging?.score;
+    const cultural = m.community_cultural_historic_public_life_vitality?.score;
+    const parts: string[] = [];
+    if (hospitality !== null && hospitality !== undefined) parts.push(hospitality > 50 ? "people feel welcome" : "belonging signals are mixed");
+    if (cultural !== null && cultural !== undefined) parts.push(cultural > 50 ? "cultural life is vibrant" : "cultural life could be richer");
+    return `${name} shows ${level} community signals. ${parts.join("; ")}.`;
+  }
+
+  if (pillar === "creative") {
+    const entrepreneurship = m.creative_entrepreneurial_dynamism?.score;
+    const innovation = m.creative_innovation_research_intensity?.score;
+    const parts: string[] = [];
+    if (entrepreneurship !== null && entrepreneurship !== undefined) parts.push(entrepreneurship > 50 ? "new businesses are forming" : "entrepreneurial dynamism is limited");
+    if (innovation !== null && innovation !== undefined) parts.push(innovation > 50 ? "R&D investment is meaningful" : "innovation spending is low");
+    return `${name} has ${level} creative vitality. ${parts.join("; ")}.`;
+  }
+
+  return "";
+}
+
 function PillarSection({
   pillar,
   city,
@@ -207,6 +270,7 @@ function PillarSection({
   const coverage = city[pillarCoverageKey(pillar)] as number;
   const color = PILLAR_COLORS[pillar];
   const metrics = pillarMetrics?.[pillar] ?? [];
+  const narrative = generatePillarNarrative(pillar, city);
 
   return (
     <div className="scorecard-pillar-section">
@@ -219,6 +283,9 @@ function PillarSection({
           {score !== null ? score.toFixed(1) : "—"}
         </div>
       </div>
+      {narrative && (
+        <p className="scorecard-pillar-narrative">{narrative}</p>
+      )}
       {coverage !== null && coverage < 1 && (
         <div className="scorecard-coverage-note">
           {Math.round(coverage * 100)}% data coverage
