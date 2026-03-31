@@ -59,11 +59,11 @@ interface PillarMetricEntry {
 type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
 const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#c4713b",
-  viability: "#2a7a6e",
-  capability: "#3d6b99",
-  community: "#8b5e3c",
-  creative: "#b54234",
+  pressure: "#ff6b35",
+  viability: "#00ff88",
+  capability: "#4488ff",
+  community: "#ff3366",
+  creative: "#ffcc00",
 };
 
 const PILLAR_LABELS: Record<string, Record<PillarId, string>> = {

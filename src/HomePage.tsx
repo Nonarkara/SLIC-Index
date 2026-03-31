@@ -21,11 +21,11 @@ const data = buildLandingData();
 type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
 const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#c4713b",
-  viability: "#2a7a6e",
-  capability: "#3d6b99",
-  community: "#8b5e3c",
-  creative: "#b54234",
+  pressure: "#ff6b35",
+  viability: "#00ff88",
+  capability: "#4488ff",
+  community: "#ff3366",
+  creative: "#ffcc00",
 };
 
 const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
@@ -418,47 +418,42 @@ export default function HomePage({
         <div className="float-orb" style={{ width: '700px', height: '700px', background: 'rgba(168, 85, 247, 0.08)', bottom: '-10%', left: '20%', animationDelay: '-10s' }} />
         <div className="page-frame">
 
-      {/* ═══════ V3 HERO — Full width, punchy ═══════ */}
-      <header className="v3-hero section">
-        <p className="eyebrow">{ui.eyebrow}</p>
-        <h1 className="v3-hero-title">{ui.title}</h1>
-        <p className="v3-hero-sub">{ui.strapline}</p>
-
-        <div className="v3-hero-stats">
-          <div className="v3-stat">
-            <strong>{rankedCities.length}</strong>
-            <span>{locale === "en" ? "cities diagnosed" : locale === "th" ? "เมืองที่วินิจฉัย" : "诊断城市"}</span>
-          </div>
-          <div className="v3-stat">
-            <strong>5</strong>
-            <span>{locale === "en" ? "pillars" : locale === "th" ? "เสาหลัก" : "支柱"}</span>
-          </div>
-          <div className="v3-stat">
-            <strong>{visitors.toLocaleString()}</strong>
-            <span>{locale === "en" ? "visitors" : locale === "th" ? "ผู้เยี่ยมชม" : "访客"}</span>
-          </div>
-          <div className="v3-stat">
-            <strong>3</strong>
-            <span>{locale === "en" ? "tiers" : locale === "th" ? "ระดับ" : "梯队"}</span>
-          </div>
-        </div>
-
+      {/* ═══════ V3 HERO — BRUTALIST, MASSIVE ═══════ */}
+      <header className="v3-hero">
+        <div className="v3-hero-overline">SLIC V3 / 2026</div>
+        <h1 className="v3-hero-title">
+          {"EVERY CITY\nIS A LIE\nUNTIL YOU\nSEE THE\nNUMBERS."}
+        </h1>
+        <div className="v3-hero-divider" />
+        <p className="v3-hero-sub">
+          {locale === "en"
+            ? "157 cities. 3 tiers. Every score traceable to its source. Click any city — we show you exactly how the number was built. No hidden formulas. No prestige bias."
+            : locale === "th"
+              ? "157 เมือง 3 ระดับ ทุกคะแนนสืบย้อนได้ถึงแหล่งที่มา คลิกเมืองใดก็ได้ — เราแสดงให้คุณเห็นว่าตัวเลขถูกสร้างขึ้นอย่างไร"
+              : "157 座城市，3 个梯队，每个分数都可追溯来源。点击任何城市——我们展示数字是如何构建的。"}
+        </p>
         <div className="v3-hero-actions">
           <a className="v3-cta" href="/rankings" onClick={(e) => { e.preventDefault(); onNavigate("/rankings"); }}>
-            {locale === "en" ? "Explore the tiers" : locale === "th" ? "สำรวจระดับเมือง" : "探索城市梯队"} &rarr;
+            EXPLORE TIERS &rarr;
           </a>
           <a className="v3-cta-secondary" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>
-            {ui.seeMethodology}
+            METHODOLOGY
           </a>
+        </div>
+        <div className="v3-hero-counter">
+          <span className="v3-counter-num">{visitors.toLocaleString()}</span>
+          <span className="v3-counter-label">people have checked since launch</span>
         </div>
       </header>
 
-      {/* ═══════ SPIDER TOOL — below hero ═══════ */}
+      {/* ═══════ SPIDER — interactive tool ═══════ */}
       <section className="section v3-spider-section">
-        <p className="eyebrow">{locale === "en" ? "Your priorities" : locale === "th" ? "ลำดับความสำคัญของคุณ" : "你的优先级"}</p>
-        <p className="v3-spider-hint">{ui.allocatorHint}</p>
+        <div className="v3-spider-header">
+          <h2 className="v3-section-title">DRAG. SHIFT. RERANK.</h2>
+          <p className="v3-spider-hint">{locale === "en" ? "What do you value? Move the spider — watch cities reorder in real time." : ui.allocatorHint}</p>
+        </div>
         <div className="v3-spider-wrap">
-          <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={380} />
+          <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={400} />
           <button type="button" className="rankings-reset-btn" onClick={handleReset}>
             {ui.resetLabel}
           </button>
