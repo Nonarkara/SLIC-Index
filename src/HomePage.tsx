@@ -103,8 +103,8 @@ const heroCopy: Record<Locale, {
     consequencesTitle: "Trade-offs",
     yourScore: "Score",
     citiesLabel: "cities",
-    top10: "Top 10",
-    top50: "Top 50",
+    top10: "Tier 1",
+    top50: "Tier 1–3",
     showAll: "All",
     regionLabel: "Region",
     allRegions: "All",
@@ -123,8 +123,8 @@ const heroCopy: Record<Locale, {
     consequencesTitle: "ข้อแลกเปลี่ยน",
     yourScore: "คะแนน",
     citiesLabel: "เมือง",
-    top10: "10 อันดับ",
-    top50: "50 อันดับ",
+    top10: "ระดับ 1",
+    top50: "ระดับ 1–3",
     showAll: "ทั้งหมด",
     regionLabel: "ภูมิภาค",
     allRegions: "ทั้งหมด",
@@ -143,8 +143,8 @@ const heroCopy: Record<Locale, {
     consequencesTitle: "权衡",
     yourScore: "得分",
     citiesLabel: "城市",
-    top10: "前10",
-    top50: "前50",
+    top10: "第一梯队",
+    top50: "梯队 1–3",
     showAll: "全部",
     regionLabel: "地区",
     allRegions: "全部",
@@ -517,65 +517,90 @@ export default function HomePage({
             </select>
 
             <div className="rankings-count-toggle">
-              {([10, 50, 999] as const).map((n) => (
+              {([10, 30, 999] as const).map((n) => (
                 <button
                   key={n}
                   type="button"
                   className={showCountValue === n ? "active" : ""}
                   onClick={() => setShowCountValue(n)}
                 >
-                  {n === 10 ? ui.top10 : n === 50 ? ui.top50 : ui.showAll}
+                  {n === 10 ? ui.top10 : n === 30 ? ui.top50 : ui.showAll}
                 </button>
               ))}
             </div>
           </div>
 
-          {/* City list — tight rows */}
-          <div className="city-list">
-            {displayResults.map((city, index) => {
-              const pillarScores = {
-                pressure: city.pressureScore,
-                viability: city.viabilityScore,
-                capability: city.capabilityScore,
-                community: city.communityScore,
-                creative: city.creativeScore,
-              };
-              const isTop = index < 3;
+          {/* City tiers — grouped, alphabetical within each tier */}
+          {(() => {
+            const tierDefs = [
+              { label: locale === "en" ? "Tier 1" : locale === "th" ? "ระดับ 1" : "第一梯队", range: [0, 10] as const },
+              { label: locale === "en" ? "Tier 2" : locale === "th" ? "ระดับ 2" : "第二梯队", range: [10, 20] as const },
+              { label: locale === "en" ? "Tier 3" : locale === "th" ? "ระดับ 3" : "第三梯队", range: [20, 30] as const },
+            ];
+            const showAllTiers = showCountValue >= 50;
+            const activeTiers = showCountValue <= 10
+              ? tierDefs.slice(0, 1)
+              : showCountValue <= 30
+                ? tierDefs
+                : [...tierDefs, { label: locale === "en" ? "Remaining" : locale === "th" ? "ที่เหลือ" : "其余", range: [30, 999] as const }];
+
+            return activeTiers.map((tier) => {
+              const tierCities = displayResults
+                .filter((_, i) => i >= tier.range[0] && i < tier.range[1])
+                .sort((a, b) => a.displayName.localeCompare(b.displayName));
+
+              if (tierCities.length === 0) return null;
+
               return (
-                <div
-                  key={city.cityId}
-                  className={`rankings-city-row${isTop ? " is-top" : ""}`}
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}
-                  onKeyDown={(e) => { if (e.key === "Enter") onNavigate(`/city/${city.cityId}` as SitePath); }}
-                  style={{ cursor: "pointer" }}
-                >
-                  <span className={`city-rank-number ${isTop ? "city-rank-number--top" : "city-rank-number--rest"}`}>
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-
-                  <div style={{ minWidth: 0 }}>
-                    <div className="city-name-row">
-                      <span className="city-display-name">{city.displayName}</span>
-                      <span className="city-country">{city.country}</span>
-                    </div>
-                    <div className="rankings-pillar-bars">
-                      {PILLAR_ORDER.map((pid) => (
-                        <div key={pid}>
-                          <div style={{ width: `${pillarScores[pid]}%`, background: PILLAR_COLORS[pid] }} />
-                        </div>
-                      ))}
-                    </div>
+                <div key={tier.label} className="tier-group">
+                  <div className="tier-header">
+                    <span className="tier-label">{tier.label}</span>
+                    <span className="tier-count">{tierCities.length} {ui.citiesLabel}</span>
                   </div>
+                  <div className="city-list">
+                    {tierCities.map((city) => {
+                      const pillarScores = {
+                        pressure: city.pressureScore,
+                        viability: city.viabilityScore,
+                        capability: city.capabilityScore,
+                        community: city.communityScore,
+                        creative: city.creativeScore,
+                      };
+                      return (
+                        <div
+                          key={city.cityId}
+                          className="rankings-city-row"
+                          role="button"
+                          tabIndex={0}
+                          onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}
+                          onKeyDown={(e) => { if (e.key === "Enter") onNavigate(`/city/${city.cityId}` as SitePath); }}
+                          style={{ cursor: "pointer" }}
+                        >
+                          <div style={{ minWidth: 0 }}>
+                            <div className="city-name-row">
+                              <span className="city-display-name">{city.displayName}</span>
+                              <span className="city-country">{city.country}</span>
+                            </div>
+                            <div className="rankings-pillar-bars">
+                              {PILLAR_ORDER.map((pid) => (
+                                <div key={pid}>
+                                  <div style={{ width: `${pillarScores[pid]}%`, background: PILLAR_COLORS[pid] }} />
+                                </div>
+                              ))}
+                            </div>
+                          </div>
 
-                  <div className="rankings-dual-score">
-                    <div className="custom-score">{city.customScore}</div>
+                          <div className="rankings-dual-score">
+                            <div className="custom-score">{city.customScore}</div>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               );
-            })}
-          </div>
+            });
+          })()}
         </section>
 
         {/* ═══════ THE LAUNCH ═══════ */}

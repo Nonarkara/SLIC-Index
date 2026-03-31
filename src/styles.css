@@ -5095,6 +5095,48 @@ section[id] {
   min-height: auto;
 }
 
+/* ── Tier groups ── */
+.tier-group {
+  margin-bottom: 1.5rem;
+}
+
+.tier-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 2px solid var(--border-strong);
+  margin-bottom: 2px;
+}
+
+.tier-label {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.tier-count {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  opacity: 0.5;
+}
+
+/* Tier 1 gets accent treatment */
+.tier-group:first-child .tier-header {
+  border-bottom-color: var(--accent-blue, #1a3a6b);
+}
+
+.tier-group:first-child .tier-label {
+  color: var(--accent-blue, #1a3a6b);
+}
+
+/* Remove rank number column from grid since we're alphabetical now */
+.tier-group .rankings-city-row {
+  grid-template-columns: 1fr auto;
+}
+
 /* ── Time Machine link ── */
 .time-machine-link {
   display: inline-flex;

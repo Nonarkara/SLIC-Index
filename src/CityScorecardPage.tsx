@@ -287,7 +287,8 @@ export default function CityScorecardPage({
           <div className="scorecard-hero-scores">
             <div className="scorecard-slic-score">{city.slicScore?.toFixed(1) ?? "—"}</div>
             <div className="scorecard-rank">
-              #{city.rank} <span>of {allCities.filter((c) => c.rankingStatus === "Ranked").length}</span>
+              {city.rank <= 10 ? "Tier 1" : city.rank <= 20 ? "Tier 2" : city.rank <= 30 ? "Tier 3" : `#${city.rank}`}
+              <span> of {allCities.filter((c) => c.rankingStatus === "Ranked").length} cities</span>
             </div>
             <span className={`scorecard-grade scorecard-grade--${city.coverageGrade?.toLowerCase()}`}>
               {city.coverageGrade} coverage
