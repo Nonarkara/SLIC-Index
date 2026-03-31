@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-03-30T17:00:09.472095+00:00",
+  "updatedAt": "2026-03-31T03:03:31.813102+00:00",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -1600,6 +1600,245 @@
       "rank": 5
     },
     {
+      "cityId": "th-bangkok",
+      "displayName": "Bangkok",
+      "country": "Thailand",
+      "region": "Southeast Asia",
+      "manifestStatus": "locked",
+      "cityType": "primary",
+      "coverageGrade": "A",
+      "overallWeightedCoverage": 1.0,
+      "pressureCoverage": 1.0,
+      "viabilityCoverage": 0.8,
+      "capabilityCoverage": 1.0,
+      "communityCoverage": 1.0,
+      "creativeCoverage": 1.0,
+      "pressureScore": 56.4,
+      "viabilityScore": 85.7,
+      "capabilityScore": 61.4,
+      "communityScore": 88.1,
+      "creativeScore": 22.8,
+      "slicScore": 61.8,
+      "rankingStatus": "Ranked",
+      "metrics": {
+        "pressure_disposable_income_ppp": {
+          "raw": 643.77,
+          "score": 22.8,
+          "source": "Derived",
+          "sourceUrl": "",
+          "dataLevel": "derived"
+        },
+        "pressure_housing_burden": {
+          "raw": 20.0,
+          "score": 74.1,
+          "source": "Computed from city_inputs + country_context",
+          "sourceUrl": "https://data.worldbank.org/indicator/NY.GNP.PCAP.PP.CD",
+          "dataLevel": "city"
+        },
+        "pressure_economic_growth_momentum": {
+          "raw": 2.54,
+          "score": 44.6,
+          "source": "World Bank WDI: GDP growth (annual %)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.MKTP.KD.ZG?format=json&mrv=30",
+          "dataLevel": "national"
+        },
+        "pressure_household_debt_burden": {
+          "raw": 115.11,
+          "score": 39.7,
+          "source": "Derived",
+          "sourceUrl": "",
+          "dataLevel": "derived"
+        },
+        "pressure_working_time_pressure": {
+          "raw": 42.53,
+          "score": 34.9,
+          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
+          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=THA",
+          "dataLevel": "city"
+        },
+        "pressure_suicide_mental_strain": {
+          "raw": 16.59,
+          "score": 24.6,
+          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
+          "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
+          "dataLevel": "city"
+        },
+        "viability_personal_safety": {
+          "raw": 2.2,
+          "score": 91.2,
+          "source": "UNODC via World Bank WDI: Intentional homicides (per 100,000 people)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/VC.IHR.PSRC.P5?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "viability_transit_access_commute": {
+          "raw": null,
+          "score": null,
+          "source": "",
+          "sourceUrl": "",
+          "dataLevel": "missing"
+        },
+        "viability_clean_air": {
+          "raw": 25.0,
+          "score": 62.6,
+          "source": "Thailand PCD Annual Air Quality Report \u2014 Bangkok PM2.5 annual mean",
+          "sourceUrl": "https://www.pcd.go.th/",
+          "dataLevel": "city"
+        },
+        "viability_water_sanitation_utility": {
+          "raw": 93.0,
+          "score": 87.8,
+          "source": "UNICEF/WHO JMP: People using safely managed drinking water services (% of population)",
+          "sourceUrl": "https://washdata.org",
+          "dataLevel": "city"
+        },
+        "viability_digital_infrastructure": {
+          "raw": 15.75,
+          "score": 32.6,
+          "source": "World Bank WDI: Fixed broadband subscriptions (per 100 people)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/IT.NET.BBND.P2?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "viability_climate_sunlight_livability": {
+          "raw": 72.0,
+          "score": 100.0,
+          "source": "Climate composite: tropical, 2500+ annual sun hours, warm year-round",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA",
+          "dataLevel": "city"
+        },
+        "capability_healthcare_quality": {
+          "raw": 82.0,
+          "score": 78.8,
+          "source": "WHO GHO: UHC Service Coverage Index",
+          "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/UHC_INDEX_REPORTED",
+          "dataLevel": "city"
+        },
+        "capability_education_quality": {
+          "raw": 49.08,
+          "score": 35.4,
+          "source": "World Bank WDI: School enrollment, tertiary (% gross)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SE.TER.ENRR?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "capability_equal_opportunity_distributional_fairness": {
+          "raw": null,
+          "score": 43.1,
+          "source": "Composite",
+          "sourceUrl": "",
+          "dataLevel": "composite",
+          "components": [
+            {
+              "key": "equal_opportunity_raw",
+              "weight": 0.7,
+              "raw": 33.5,
+              "score": 31.5,
+              "source": "World Bank WDI: Gini index",
+              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SI.POV.GINI?format=json&mrv=10",
+              "dataLevel": "city"
+            },
+            {
+              "key": "gini_coefficient_context",
+              "weight": 0.3,
+              "raw": 33.5,
+              "score": 70.3,
+              "source": "World Bank WDI: Gini index",
+              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SI.POV.GINI?format=json&mrv=30",
+              "dataLevel": "national"
+            }
+          ]
+        },
+        "community_hospitality_belonging": {
+          "raw": 50.38,
+          "score": 54.3,
+          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging \u2014 positive = welcoming)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SM.POP.NETM?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "community_tolerance_pluralism": {
+          "raw": 42.0,
+          "score": 85.3,
+          "source": "SLIC composite: social tolerance index (gender parity + LGBTQ acceptance + religious diversity + ethnic inclusion), anchored to World Bank gender parity baseline",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SG.GEN.PARL.ZS?format=json",
+          "dataLevel": "city"
+        },
+        "community_cultural_historic_public_life_vitality": {
+          "raw": 556.96,
+          "score": 27.5,
+          "source": "World Bank WDI: International tourism arrivals per 1 000 population",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/ST.INT.ARVL?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "community_birth_rate_optimism": {
+          "raw": 1.08,
+          "score": 8.4,
+          "source": "World Bank Total Fertility Rate 2023",
+          "sourceUrl": "https://data.worldbank.org/indicator/SP.DYN.TFRT.IN",
+          "dataLevel": "city"
+        },
+        "creative_entrepreneurial_dynamism": {
+          "raw": 1.54,
+          "score": 8.4,
+          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "creative_innovation_research_intensity": {
+          "raw": 1.16,
+          "score": 17.6,
+          "source": "World Bank WDI: Research and development expenditure (% of GDP)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/GB.XPD.RSDV.GD.ZS?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "creative_economic_vitality_productive_context": {
+          "raw": null,
+          "score": 33.3,
+          "source": "Composite",
+          "sourceUrl": "",
+          "dataLevel": "composite",
+          "components": [
+            {
+              "key": "investment_signal_raw",
+              "weight": 0.5,
+              "raw": 2.72,
+              "score": 35.0,
+              "source": "World Bank WDI: Foreign direct investment, net inflows (% of GDP)",
+              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/BX.KLT.DINV.WD.GD.ZS?format=json&mrv=10",
+              "dataLevel": "city"
+            },
+            {
+              "key": "gdp_per_capita_ppp_context",
+              "weight": 0.3,
+              "raw": 24712.07,
+              "score": 23.0,
+              "source": "World Bank WDI: GDP per capita, PPP (current international $)",
+              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.PCAP.PP.CD?format=json&mrv=30",
+              "dataLevel": "national"
+            },
+            {
+              "key": "gdp_growth_context",
+              "weight": 0.2,
+              "raw": 2.54,
+              "score": 44.6,
+              "source": "World Bank WDI: GDP growth (annual %)",
+              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.MKTP.KD.ZG?format=json&mrv=30",
+              "dataLevel": "national"
+            }
+          ]
+        },
+        "creative_administrative_investment_friction": {
+          "raw": 2.34,
+          "score": 37.7,
+          "source": "World Bank WGI: Regulatory Quality (inverted as friction proxy)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/RQ.EST?format=json&mrv=10",
+          "dataLevel": "city"
+        }
+      },
+      "highlights": {
+        "strongest": "viability_climate_sunlight_livability",
+        "weakest": "community_birth_rate_optimism"
+      },
+      "rank": 6
+    },
+    {
       "cityId": "ca-montreal",
       "displayName": "Montreal",
       "country": "Canada",
@@ -1836,7 +2075,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_birth_rate_optimism"
       },
-      "rank": 6
+      "rank": 7
     },
     {
       "cityId": "cl-valparaiso",
@@ -2075,7 +2314,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 7
+      "rank": 8
     },
     {
       "cityId": "cl-santiago",
@@ -2314,7 +2553,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 8
+      "rank": 9
     },
     {
       "cityId": "us-pittsburgh",
@@ -2553,7 +2792,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 9
+      "rank": 10
     },
     {
       "cityId": "tw-taipei",
@@ -2792,7 +3031,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_birth_rate_optimism"
       },
-      "rank": 9
+      "rank": 10
     },
     {
       "cityId": "il-tel-aviv",
@@ -3031,7 +3270,7 @@
         "strongest": "viability_climate_sunlight_livability",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 11
+      "rank": 12
     },
     {
       "cityId": "us-minneapolis",
@@ -3270,7 +3509,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 12
+      "rank": 13
     },
     {
       "cityId": "kr-suwon",
@@ -3509,7 +3748,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 13
+      "rank": 14
     },
     {
       "cityId": "ca-ottawa",
@@ -3748,7 +3987,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_birth_rate_optimism"
       },
-      "rank": 14
+      "rank": 15
     },
     {
       "cityId": "fr-lyon",
@@ -3987,7 +4226,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_economic_growth_momentum"
       },
-      "rank": 15
+      "rank": 16
     },
     {
       "cityId": "it-milan",
@@ -4225,245 +4464,6 @@
       "highlights": {
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "pressure_economic_growth_momentum"
-      },
-      "rank": 16
-    },
-    {
-      "cityId": "th-bangkok",
-      "displayName": "Bangkok",
-      "country": "Thailand",
-      "region": "Southeast Asia",
-      "manifestStatus": "locked",
-      "cityType": "primary",
-      "coverageGrade": "A",
-      "overallWeightedCoverage": 1.0,
-      "pressureCoverage": 1.0,
-      "viabilityCoverage": 0.8,
-      "capabilityCoverage": 1.0,
-      "communityCoverage": 1.0,
-      "creativeCoverage": 1.0,
-      "pressureScore": 57.4,
-      "viabilityScore": 78.7,
-      "capabilityScore": 56.4,
-      "communityScore": 86.1,
-      "creativeScore": 22.8,
-      "slicScore": 59.3,
-      "rankingStatus": "Ranked",
-      "metrics": {
-        "pressure_disposable_income_ppp": {
-          "raw": 643.77,
-          "score": 22.8,
-          "source": "Derived",
-          "sourceUrl": "",
-          "dataLevel": "derived"
-        },
-        "pressure_housing_burden": {
-          "raw": 20.0,
-          "score": 74.1,
-          "source": "Computed from city_inputs + country_context",
-          "sourceUrl": "https://data.worldbank.org/indicator/NY.GNP.PCAP.PP.CD",
-          "dataLevel": "city"
-        },
-        "pressure_economic_growth_momentum": {
-          "raw": 2.54,
-          "score": 44.6,
-          "source": "World Bank WDI: GDP growth (annual %)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.MKTP.KD.ZG?format=json&mrv=30",
-          "dataLevel": "national"
-        },
-        "pressure_household_debt_burden": {
-          "raw": 115.11,
-          "score": 39.7,
-          "source": "Derived",
-          "sourceUrl": "",
-          "dataLevel": "derived"
-        },
-        "pressure_working_time_pressure": {
-          "raw": 42.53,
-          "score": 34.9,
-          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
-          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=THA",
-          "dataLevel": "city"
-        },
-        "pressure_suicide_mental_strain": {
-          "raw": 16.59,
-          "score": 24.6,
-          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
-          "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
-          "dataLevel": "city"
-        },
-        "viability_personal_safety": {
-          "raw": 2.2,
-          "score": 91.2,
-          "source": "UNODC via World Bank WDI: Intentional homicides (per 100,000 people)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/VC.IHR.PSRC.P5?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "viability_transit_access_commute": {
-          "raw": null,
-          "score": null,
-          "source": "",
-          "sourceUrl": "",
-          "dataLevel": "missing"
-        },
-        "viability_clean_air": {
-          "raw": 25.0,
-          "score": 62.6,
-          "source": "Thailand PCD Annual Air Quality Report \u2014 Bangkok PM2.5 annual mean",
-          "sourceUrl": "https://www.pcd.go.th/",
-          "dataLevel": "city"
-        },
-        "viability_water_sanitation_utility": {
-          "raw": 93.0,
-          "score": 87.8,
-          "source": "UNICEF/WHO JMP: People using safely managed drinking water services (% of population)",
-          "sourceUrl": "https://washdata.org",
-          "dataLevel": "city"
-        },
-        "viability_digital_infrastructure": {
-          "raw": 15.75,
-          "score": 32.6,
-          "source": "World Bank WDI: Fixed broadband subscriptions (per 100 people)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/IT.NET.BBND.P2?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "viability_climate_sunlight_livability": {
-          "raw": 72.0,
-          "score": 100.0,
-          "source": "Climate composite: tropical, 2500+ annual sun hours, warm year-round",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA",
-          "dataLevel": "city"
-        },
-        "capability_healthcare_quality": {
-          "raw": 82.0,
-          "score": 78.8,
-          "source": "WHO GHO: UHC Service Coverage Index",
-          "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/UHC_INDEX_REPORTED",
-          "dataLevel": "city"
-        },
-        "capability_education_quality": {
-          "raw": 49.08,
-          "score": 35.4,
-          "source": "World Bank WDI: School enrollment, tertiary (% gross)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SE.TER.ENRR?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "capability_equal_opportunity_distributional_fairness": {
-          "raw": null,
-          "score": 43.1,
-          "source": "Composite",
-          "sourceUrl": "",
-          "dataLevel": "composite",
-          "components": [
-            {
-              "key": "equal_opportunity_raw",
-              "weight": 0.7,
-              "raw": 33.5,
-              "score": 31.5,
-              "source": "World Bank WDI: Gini index",
-              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SI.POV.GINI?format=json&mrv=10",
-              "dataLevel": "city"
-            },
-            {
-              "key": "gini_coefficient_context",
-              "weight": 0.3,
-              "raw": 33.5,
-              "score": 70.3,
-              "source": "World Bank WDI: Gini index",
-              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SI.POV.GINI?format=json&mrv=30",
-              "dataLevel": "national"
-            }
-          ]
-        },
-        "community_hospitality_belonging": {
-          "raw": 50.38,
-          "score": 54.3,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging \u2014 positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SM.POP.NETM?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "community_tolerance_pluralism": {
-          "raw": 42.0,
-          "score": 85.3,
-          "source": "SLIC composite: social tolerance index (gender parity + LGBTQ acceptance + religious diversity + ethnic inclusion), anchored to World Bank gender parity baseline",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SG.GEN.PARL.ZS?format=json",
-          "dataLevel": "city"
-        },
-        "community_cultural_historic_public_life_vitality": {
-          "raw": 556.96,
-          "score": 27.5,
-          "source": "World Bank WDI: International tourism arrivals per 1 000 population",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/ST.INT.ARVL?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "community_birth_rate_optimism": {
-          "raw": 1.08,
-          "score": 8.4,
-          "source": "World Bank Total Fertility Rate 2023",
-          "sourceUrl": "https://data.worldbank.org/indicator/SP.DYN.TFRT.IN",
-          "dataLevel": "city"
-        },
-        "creative_entrepreneurial_dynamism": {
-          "raw": 1.54,
-          "score": 8.4,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "creative_innovation_research_intensity": {
-          "raw": 1.16,
-          "score": 17.6,
-          "source": "World Bank WDI: Research and development expenditure (% of GDP)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/GB.XPD.RSDV.GD.ZS?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "creative_economic_vitality_productive_context": {
-          "raw": null,
-          "score": 33.3,
-          "source": "Composite",
-          "sourceUrl": "",
-          "dataLevel": "composite",
-          "components": [
-            {
-              "key": "investment_signal_raw",
-              "weight": 0.5,
-              "raw": 2.72,
-              "score": 35.0,
-              "source": "World Bank WDI: Foreign direct investment, net inflows (% of GDP)",
-              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/BX.KLT.DINV.WD.GD.ZS?format=json&mrv=10",
-              "dataLevel": "city"
-            },
-            {
-              "key": "gdp_per_capita_ppp_context",
-              "weight": 0.3,
-              "raw": 24712.07,
-              "score": 23.0,
-              "source": "World Bank WDI: GDP per capita, PPP (current international $)",
-              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.PCAP.PP.CD?format=json&mrv=30",
-              "dataLevel": "national"
-            },
-            {
-              "key": "gdp_growth_context",
-              "weight": 0.2,
-              "raw": 2.54,
-              "score": 44.6,
-              "source": "World Bank WDI: GDP growth (annual %)",
-              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.MKTP.KD.ZG?format=json&mrv=30",
-              "dataLevel": "national"
-            }
-          ]
-        },
-        "creative_administrative_investment_friction": {
-          "raw": 2.34,
-          "score": 37.7,
-          "source": "World Bank WGI: Regulatory Quality (inverted as friction proxy)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/RQ.EST?format=json&mrv=10",
-          "dataLevel": "city"
-        }
-      },
-      "highlights": {
-        "strongest": "viability_climate_sunlight_livability",
-        "weakest": "community_birth_rate_optimism"
       },
       "rank": 17
     },
@@ -4704,7 +4704,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "pressure_economic_growth_momentum"
       },
-      "rank": 17
+      "rank": 18
     },
     {
       "cityId": "at-graz",
@@ -12116,6 +12116,245 @@
       "rank": 48
     },
     {
+      "cityId": "th-chiang-mai",
+      "displayName": "Chiang Mai",
+      "country": "Thailand",
+      "region": "Southeast Asia",
+      "manifestStatus": "locked",
+      "cityType": "secondary",
+      "coverageGrade": "A",
+      "overallWeightedCoverage": 0.9,
+      "pressureCoverage": 1.0,
+      "viabilityCoverage": 0.7,
+      "capabilityCoverage": 1.0,
+      "communityCoverage": 1.0,
+      "creativeCoverage": 1.0,
+      "pressureScore": 61.9,
+      "viabilityScore": 60.7,
+      "capabilityScore": 56.4,
+      "communityScore": 73.9,
+      "creativeScore": 22.8,
+      "slicScore": 54.6,
+      "rankingStatus": "Ranked",
+      "metrics": {
+        "pressure_disposable_income_ppp": {
+          "raw": 1010.66,
+          "score": 38.6,
+          "source": "Derived",
+          "sourceUrl": "",
+          "dataLevel": "derived"
+        },
+        "pressure_housing_burden": {
+          "raw": 13.0,
+          "score": 100.0,
+          "source": "Computed from city_inputs + country_context",
+          "sourceUrl": "https://data.worldbank.org/indicator/NY.GNP.PCAP.PP.CD",
+          "dataLevel": "city"
+        },
+        "pressure_economic_growth_momentum": {
+          "raw": 2.54,
+          "score": 44.6,
+          "source": "World Bank WDI: GDP growth (annual %)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.MKTP.KD.ZG?format=json&mrv=30",
+          "dataLevel": "national"
+        },
+        "pressure_household_debt_burden": {
+          "raw": 115.11,
+          "score": 39.7,
+          "source": "Derived",
+          "sourceUrl": "",
+          "dataLevel": "derived"
+        },
+        "pressure_working_time_pressure": {
+          "raw": 42.53,
+          "score": 34.9,
+          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
+          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=THA",
+          "dataLevel": "city"
+        },
+        "pressure_suicide_mental_strain": {
+          "raw": 16.59,
+          "score": 24.6,
+          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
+          "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
+          "dataLevel": "city"
+        },
+        "viability_personal_safety": {
+          "raw": null,
+          "score": null,
+          "source": "",
+          "sourceUrl": "",
+          "dataLevel": "missing"
+        },
+        "viability_transit_access_commute": {
+          "raw": null,
+          "score": null,
+          "source": "",
+          "sourceUrl": "",
+          "dataLevel": "missing"
+        },
+        "viability_clean_air": {
+          "raw": 35.0,
+          "score": 25.2,
+          "source": "Thailand PCD Annual Air Quality Report \u2014 Chiang Mai PM2.5 annual mean",
+          "sourceUrl": "https://www.pcd.go.th/",
+          "dataLevel": "city"
+        },
+        "viability_water_sanitation_utility": {
+          "raw": 95.0,
+          "score": 91.3,
+          "source": "Provincial Waterworks Authority \u2014 Chiang Mai urban water coverage",
+          "sourceUrl": "https://www.pwa.co.th/",
+          "dataLevel": "city"
+        },
+        "viability_digital_infrastructure": {
+          "raw": 15.75,
+          "score": 32.6,
+          "source": "World Bank WDI: Fixed broadband subscriptions (per 100 people)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/IT.NET.BBND.P2?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "viability_climate_sunlight_livability": {
+          "raw": 64.0,
+          "score": 79.4,
+          "source": "WMO/National Met: Climate livability composite",
+          "sourceUrl": "https://worldweather.wmo.int",
+          "dataLevel": "city"
+        },
+        "capability_healthcare_quality": {
+          "raw": 82.0,
+          "score": 78.8,
+          "source": "WHO GHO: UHC Service Coverage Index",
+          "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/UHC_INDEX_REPORTED",
+          "dataLevel": "city"
+        },
+        "capability_education_quality": {
+          "raw": 49.08,
+          "score": 35.4,
+          "source": "World Bank WDI: School enrollment, tertiary (% gross)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SE.TER.ENRR?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "capability_equal_opportunity_distributional_fairness": {
+          "raw": null,
+          "score": 43.1,
+          "source": "Composite",
+          "sourceUrl": "",
+          "dataLevel": "composite",
+          "components": [
+            {
+              "key": "equal_opportunity_raw",
+              "weight": 0.7,
+              "raw": 33.5,
+              "score": 31.5,
+              "source": "World Bank WDI: Gini index",
+              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SI.POV.GINI?format=json&mrv=10",
+              "dataLevel": "city"
+            },
+            {
+              "key": "gini_coefficient_context",
+              "weight": 0.3,
+              "raw": 33.5,
+              "score": 70.3,
+              "source": "World Bank WDI: Gini index",
+              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SI.POV.GINI?format=json&mrv=30",
+              "dataLevel": "national"
+            }
+          ]
+        },
+        "community_hospitality_belonging": {
+          "raw": 50.38,
+          "score": 54.3,
+          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging \u2014 positive = welcoming)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SM.POP.NETM?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "community_tolerance_pluralism": {
+          "raw": 19.4,
+          "score": 27.1,
+          "source": "World Bank WDI: Proportion of seats held by women in national parliaments (%)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SG.GEN.PARL.ZS?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "community_cultural_historic_public_life_vitality": {
+          "raw": 556.96,
+          "score": 27.5,
+          "source": "World Bank WDI: International tourism arrivals per 1 000 population",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/ST.INT.ARVL?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "community_birth_rate_optimism": {
+          "raw": 1.08,
+          "score": 8.4,
+          "source": "World Bank Total Fertility Rate 2023",
+          "sourceUrl": "https://data.worldbank.org/indicator/SP.DYN.TFRT.IN",
+          "dataLevel": "city"
+        },
+        "creative_entrepreneurial_dynamism": {
+          "raw": 1.54,
+          "score": 8.4,
+          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "creative_innovation_research_intensity": {
+          "raw": 1.16,
+          "score": 17.6,
+          "source": "World Bank WDI: Research and development expenditure (% of GDP)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/GB.XPD.RSDV.GD.ZS?format=json&mrv=10",
+          "dataLevel": "city"
+        },
+        "creative_economic_vitality_productive_context": {
+          "raw": null,
+          "score": 33.3,
+          "source": "Composite",
+          "sourceUrl": "",
+          "dataLevel": "composite",
+          "components": [
+            {
+              "key": "investment_signal_raw",
+              "weight": 0.5,
+              "raw": 2.72,
+              "score": 35.0,
+              "source": "World Bank WDI: Foreign direct investment, net inflows (% of GDP)",
+              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/BX.KLT.DINV.WD.GD.ZS?format=json&mrv=10",
+              "dataLevel": "city"
+            },
+            {
+              "key": "gdp_per_capita_ppp_context",
+              "weight": 0.3,
+              "raw": 24712.07,
+              "score": 23.0,
+              "source": "World Bank WDI: GDP per capita, PPP (current international $)",
+              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.PCAP.PP.CD?format=json&mrv=30",
+              "dataLevel": "national"
+            },
+            {
+              "key": "gdp_growth_context",
+              "weight": 0.2,
+              "raw": 2.54,
+              "score": 44.6,
+              "source": "World Bank WDI: GDP growth (annual %)",
+              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.MKTP.KD.ZG?format=json&mrv=30",
+              "dataLevel": "national"
+            }
+          ]
+        },
+        "creative_administrative_investment_friction": {
+          "raw": 2.34,
+          "score": 37.7,
+          "source": "World Bank WGI: Regulatory Quality (inverted as friction proxy)",
+          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/RQ.EST?format=json&mrv=10",
+          "dataLevel": "city"
+        }
+      },
+      "highlights": {
+        "strongest": "pressure_housing_burden",
+        "weakest": "community_birth_rate_optimism"
+      },
+      "rank": 50
+    },
+    {
       "cityId": "mu-port-louis",
       "displayName": "Port Louis",
       "country": "Mauritius",
@@ -12591,7 +12830,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_economic_growth_momentum"
       },
-      "rank": 51
+      "rank": 52
     },
     {
       "cityId": "my-kota-kinabalu",
@@ -12830,7 +13069,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 52
+      "rank": 53
     },
     {
       "cityId": "my-kuching",
@@ -13068,245 +13307,6 @@
       "highlights": {
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
-      },
-      "rank": 53
-    },
-    {
-      "cityId": "th-chiang-mai",
-      "displayName": "Chiang Mai",
-      "country": "Thailand",
-      "region": "Southeast Asia",
-      "manifestStatus": "locked",
-      "cityType": "secondary",
-      "coverageGrade": "A",
-      "overallWeightedCoverage": 0.9,
-      "pressureCoverage": 1.0,
-      "viabilityCoverage": 0.7,
-      "capabilityCoverage": 1.0,
-      "communityCoverage": 1.0,
-      "creativeCoverage": 1.0,
-      "pressureScore": 59.9,
-      "viabilityScore": 60.7,
-      "capabilityScore": 56.4,
-      "communityScore": 68.9,
-      "creativeScore": 22.8,
-      "slicScore": 53.4,
-      "rankingStatus": "Ranked",
-      "metrics": {
-        "pressure_disposable_income_ppp": {
-          "raw": 1010.66,
-          "score": 38.6,
-          "source": "Derived",
-          "sourceUrl": "",
-          "dataLevel": "derived"
-        },
-        "pressure_housing_burden": {
-          "raw": 13.0,
-          "score": 100.0,
-          "source": "Computed from city_inputs + country_context",
-          "sourceUrl": "https://data.worldbank.org/indicator/NY.GNP.PCAP.PP.CD",
-          "dataLevel": "city"
-        },
-        "pressure_economic_growth_momentum": {
-          "raw": 2.54,
-          "score": 44.6,
-          "source": "World Bank WDI: GDP growth (annual %)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.MKTP.KD.ZG?format=json&mrv=30",
-          "dataLevel": "national"
-        },
-        "pressure_household_debt_burden": {
-          "raw": 115.11,
-          "score": 39.7,
-          "source": "Derived",
-          "sourceUrl": "",
-          "dataLevel": "derived"
-        },
-        "pressure_working_time_pressure": {
-          "raw": 42.53,
-          "score": 34.9,
-          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
-          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=THA",
-          "dataLevel": "city"
-        },
-        "pressure_suicide_mental_strain": {
-          "raw": 16.59,
-          "score": 24.6,
-          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
-          "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
-          "dataLevel": "city"
-        },
-        "viability_personal_safety": {
-          "raw": null,
-          "score": null,
-          "source": "",
-          "sourceUrl": "",
-          "dataLevel": "missing"
-        },
-        "viability_transit_access_commute": {
-          "raw": null,
-          "score": null,
-          "source": "",
-          "sourceUrl": "",
-          "dataLevel": "missing"
-        },
-        "viability_clean_air": {
-          "raw": 35.0,
-          "score": 25.2,
-          "source": "Thailand PCD Annual Air Quality Report \u2014 Chiang Mai PM2.5 annual mean",
-          "sourceUrl": "https://www.pcd.go.th/",
-          "dataLevel": "city"
-        },
-        "viability_water_sanitation_utility": {
-          "raw": 95.0,
-          "score": 91.3,
-          "source": "Provincial Waterworks Authority \u2014 Chiang Mai urban water coverage",
-          "sourceUrl": "https://www.pwa.co.th/",
-          "dataLevel": "city"
-        },
-        "viability_digital_infrastructure": {
-          "raw": 15.75,
-          "score": 32.6,
-          "source": "World Bank WDI: Fixed broadband subscriptions (per 100 people)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/IT.NET.BBND.P2?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "viability_climate_sunlight_livability": {
-          "raw": 64.0,
-          "score": 79.4,
-          "source": "WMO/National Met: Climate livability composite",
-          "sourceUrl": "https://worldweather.wmo.int",
-          "dataLevel": "city"
-        },
-        "capability_healthcare_quality": {
-          "raw": 82.0,
-          "score": 78.8,
-          "source": "WHO GHO: UHC Service Coverage Index",
-          "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/UHC_INDEX_REPORTED",
-          "dataLevel": "city"
-        },
-        "capability_education_quality": {
-          "raw": 49.08,
-          "score": 35.4,
-          "source": "World Bank WDI: School enrollment, tertiary (% gross)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SE.TER.ENRR?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "capability_equal_opportunity_distributional_fairness": {
-          "raw": null,
-          "score": 43.1,
-          "source": "Composite",
-          "sourceUrl": "",
-          "dataLevel": "composite",
-          "components": [
-            {
-              "key": "equal_opportunity_raw",
-              "weight": 0.7,
-              "raw": 33.5,
-              "score": 31.5,
-              "source": "World Bank WDI: Gini index",
-              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SI.POV.GINI?format=json&mrv=10",
-              "dataLevel": "city"
-            },
-            {
-              "key": "gini_coefficient_context",
-              "weight": 0.3,
-              "raw": 33.5,
-              "score": 70.3,
-              "source": "World Bank WDI: Gini index",
-              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SI.POV.GINI?format=json&mrv=30",
-              "dataLevel": "national"
-            }
-          ]
-        },
-        "community_hospitality_belonging": {
-          "raw": 50.38,
-          "score": 54.3,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging \u2014 positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SM.POP.NETM?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "community_tolerance_pluralism": {
-          "raw": 19.4,
-          "score": 27.1,
-          "source": "World Bank WDI: Proportion of seats held by women in national parliaments (%)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SG.GEN.PARL.ZS?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "community_cultural_historic_public_life_vitality": {
-          "raw": 556.96,
-          "score": 27.5,
-          "source": "World Bank WDI: International tourism arrivals per 1 000 population",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/ST.INT.ARVL?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "community_birth_rate_optimism": {
-          "raw": 1.08,
-          "score": 8.4,
-          "source": "World Bank Total Fertility Rate 2023",
-          "sourceUrl": "https://data.worldbank.org/indicator/SP.DYN.TFRT.IN",
-          "dataLevel": "city"
-        },
-        "creative_entrepreneurial_dynamism": {
-          "raw": 1.54,
-          "score": 8.4,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "creative_innovation_research_intensity": {
-          "raw": 1.16,
-          "score": 17.6,
-          "source": "World Bank WDI: Research and development expenditure (% of GDP)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/GB.XPD.RSDV.GD.ZS?format=json&mrv=10",
-          "dataLevel": "city"
-        },
-        "creative_economic_vitality_productive_context": {
-          "raw": null,
-          "score": 33.3,
-          "source": "Composite",
-          "sourceUrl": "",
-          "dataLevel": "composite",
-          "components": [
-            {
-              "key": "investment_signal_raw",
-              "weight": 0.5,
-              "raw": 2.72,
-              "score": 35.0,
-              "source": "World Bank WDI: Foreign direct investment, net inflows (% of GDP)",
-              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/BX.KLT.DINV.WD.GD.ZS?format=json&mrv=10",
-              "dataLevel": "city"
-            },
-            {
-              "key": "gdp_per_capita_ppp_context",
-              "weight": 0.3,
-              "raw": 24712.07,
-              "score": 23.0,
-              "source": "World Bank WDI: GDP per capita, PPP (current international $)",
-              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.PCAP.PP.CD?format=json&mrv=30",
-              "dataLevel": "national"
-            },
-            {
-              "key": "gdp_growth_context",
-              "weight": 0.2,
-              "raw": 2.54,
-              "score": 44.6,
-              "source": "World Bank WDI: GDP growth (annual %)",
-              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.MKTP.KD.ZG?format=json&mrv=30",
-              "dataLevel": "national"
-            }
-          ]
-        },
-        "creative_administrative_investment_friction": {
-          "raw": 2.34,
-          "score": 37.7,
-          "source": "World Bank WGI: Regulatory Quality (inverted as friction proxy)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/RQ.EST?format=json&mrv=10",
-          "dataLevel": "city"
-        }
-      },
-      "highlights": {
-        "strongest": "pressure_housing_burden",
-        "weakest": "community_birth_rate_optimism"
       },
       "rank": 54
     },
@@ -13547,7 +13547,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 54
+      "rank": 55
     },
     {
       "cityId": "cn-shanghai",
@@ -13786,7 +13786,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 54
+      "rank": 55
     },
     {
       "cityId": "tw-taichung",

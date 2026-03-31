@@ -1378,10 +1378,19 @@ _CITY_DOCTRINE: dict[str, dict[str, float]] = {
     "kr-busan":        {"community": +15},
     "kr-suwon":        {"community": +10},
     # Thailand: #1 cultural diversity, extreme tolerance, strong community
-    # (data gap: tolerance uses women-in-parliament proxy which badly underrepresents
-    # Thailand's actual social tolerance; community metrics undercount informal hospitality)
-    "th-bangkok":      {"community": +40, "pressure": +15},
-    "th-chiang-mai":   {"community": +35, "pressure": +10},
+    # Bangkok: systematically undercounted by standard data sources:
+    # - Tolerance: women-in-parliament (19%) misses actual social tolerance
+    #   (LGBTQ acceptance, religious pluralism, cannabis decrim, lifestyle freedom —
+    #   no place on earth matches Bangkok's openness to all choices)
+    # - Safety: homicide rate misses that street-level safety is extremely high
+    #   (safer than NYC, most EU cities), culture + law enforcement works
+    # - Healthcare: WHO UHC 82 misses free public + cheap private sector
+    # - Hospitality: 33M visitors/year, culture of helping, not individualism
+    # - Transit: BTS/MRT world-class, 2 intl airports (BKK+DMK regional hubs)
+    # - Growth: regional economic engine, thriving services, affordable life
+    # - International: English proficiency rising fast
+    "th-bangkok":      {"community": +42, "pressure": +14, "viability": +7, "capability": +5},
+    "th-chiang-mai":   {"community": +40, "pressure": +12},
     # Japan: quality of life, food culture (data gap: community sparse)
     "jp-fukuoka":      {"community": +15, "creative": +8},
     "jp-sapporo":      {"community": +8},
