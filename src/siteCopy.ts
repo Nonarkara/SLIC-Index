@@ -17,7 +17,7 @@ export const siteCopy = {
       thailand: "Thailand",
       ideas: "Steal This Idea",
       history: "The Journey",
-      timeMachine: "V2 (Dark)",
+      timeMachine: "V2 Archive",
     },
     shared: {
       updated: "Updated",
@@ -131,7 +131,7 @@ export const siteCopy = {
       thailand: "อันดับประเทศไทย",
       ideas: "ขโมยไอเดียนี้",
       history: "เบื้องหลัง",
-      timeMachine: "V2 (มืด)",
+      timeMachine: "V2",
     },
     shared: {
       updated: "อัปเดต",
@@ -245,7 +245,7 @@ export const siteCopy = {
       thailand: "泰国榜单",
       ideas: "偷师这个创意",
       history: "发展历程",
-      timeMachine: "V2 (暗色)",
+      timeMachine: "V2",
     },
     shared: {
       updated: "更新于",

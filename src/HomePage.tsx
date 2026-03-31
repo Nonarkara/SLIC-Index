@@ -418,68 +418,52 @@ export default function HomePage({
         <div className="float-orb" style={{ width: '700px', height: '700px', background: 'rgba(168, 85, 247, 0.08)', bottom: '-10%', left: '20%', animationDelay: '-10s' }} />
         <div className="page-frame">
 
-      <header className="hero section">
-        <div className="home-hero-split">
-          {/* LEFT — thesis */}
-          <div className="home-hero-copy">
-            <p className="eyebrow" style={{ marginBottom: 6 }}>{ui.eyebrow}</p>
-            <h1 className="hero-title-v2">
-              {ui.title}
-            </h1>
-            <p className="hero-strapline-v2">
-              {ui.strapline}
-            </p>
+      {/* ═══════ V3 HERO — Full width, punchy ═══════ */}
+      <header className="v3-hero section">
+        <p className="eyebrow">{ui.eyebrow}</p>
+        <h1 className="v3-hero-title">{ui.title}</h1>
+        <p className="v3-hero-sub">{ui.strapline}</p>
 
-            {/* Visitor counter — thin pill */}
-            <div className="visitor-pill">
-              <span className="visitor-pill-dot" />
-              <span className="visitor-pill-number">{visitors.toLocaleString()}</span>
-              <span className="visitor-pill-label">
-                {locale === "en" ? "visitors since March 18, 2026" : locale === "th" ? "ผู้เยี่ยมชมตั้งแต่ 18 มีนาคม 2569" : "自2026年3月18日以来的访客"}
-              </span>
-            </div>
-            {visitorCountries.length > 0 && (
-              <div className="visitor-geo visitor-geo-v2">
-                {visitorCountries.filter((c) => c.country !== "Unknown").slice(0, 6).map((c) => (
-                  <span key={c.country} className="visitor-geo-chip">
-                    {c.country} <strong>{c.pct}%</strong>
-                  </span>
-                ))}
-              </div>
-            )}
-
-            {/* Navigation links */}
-            <div className="hero-actions">
-              <a
-                className="secondary-action"
-                href="/rankings"
-                onClick={(e) => { e.preventDefault(); onNavigate("/rankings"); }}
-              >
-                {ui.seeSlicRanking}
-              </a>
-              <a
-                className="secondary-action"
-                href="/methodology"
-                onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}
-              >
-                {ui.seeMethodology}
-              </a>
-            </div>
+        <div className="v3-hero-stats">
+          <div className="v3-stat">
+            <strong>{rankedCities.length}</strong>
+            <span>{locale === "en" ? "cities diagnosed" : locale === "th" ? "เมืองที่วินิจฉัย" : "诊断城市"}</span>
           </div>
-
-          {/* RIGHT — spider */}
-          <div className="home-hero-spider">
-            <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={420} />
-            <button
-              type="button"
-              className="rankings-reset-btn"
-              onClick={handleReset}
-            >
-              {ui.resetLabel} ({ui.equalNote})
-            </button>
+          <div className="v3-stat">
+            <strong>5</strong>
+            <span>{locale === "en" ? "pillars" : locale === "th" ? "เสาหลัก" : "支柱"}</span>
+          </div>
+          <div className="v3-stat">
+            <strong>{visitors.toLocaleString()}</strong>
+            <span>{locale === "en" ? "visitors" : locale === "th" ? "ผู้เยี่ยมชม" : "访客"}</span>
+          </div>
+          <div className="v3-stat">
+            <strong>3</strong>
+            <span>{locale === "en" ? "tiers" : locale === "th" ? "ระดับ" : "梯队"}</span>
           </div>
         </div>
+
+        <div className="v3-hero-actions">
+          <a className="v3-cta" href="/rankings" onClick={(e) => { e.preventDefault(); onNavigate("/rankings"); }}>
+            {locale === "en" ? "Explore the tiers" : locale === "th" ? "สำรวจระดับเมือง" : "探索城市梯队"} &rarr;
+          </a>
+          <a className="v3-cta-secondary" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>
+            {ui.seeMethodology}
+          </a>
+        </div>
       </header>
+
+      {/* ═══════ SPIDER TOOL — below hero ═══════ */}
+      <section className="section v3-spider-section">
+        <p className="eyebrow">{locale === "en" ? "Your priorities" : locale === "th" ? "ลำดับความสำคัญของคุณ" : "你的优先级"}</p>
+        <p className="v3-spider-hint">{ui.allocatorHint}</p>
+        <div className="v3-spider-wrap">
+          <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={380} />
+          <button type="button" className="rankings-reset-btn" onClick={handleReset}>
+            {ui.resetLabel}
+          </button>
+        </div>
+      </section>
 
       <main>
         {/* ═══════ WORKBENCH: Filters + City Results ═══════ */}
