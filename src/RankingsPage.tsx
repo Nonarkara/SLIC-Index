@@ -441,30 +441,17 @@ export default function RankingsPage({
                     <div
                       key={city.cityId}
                       className={`rankings-city-row${isTop ? " is-top" : ""}`}
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}
+                      onKeyDown={(e) => { if (e.key === "Enter") onNavigate(`/city/${city.cityId}` as SitePath); }}
+                      style={{ cursor: "pointer" }}
                     >
-                      <span style={{
-                        fontSize: 16, fontWeight: 800,
-                        fontVariantNumeric: "tabular-nums",
-                        opacity: isTop ? 0.9 : 0.35,
-                        textAlign: "center",
-                      }}>
-                        {String(index + 1).padStart(2, "0")}
-                      </span>
-
                       <div style={{ minWidth: 0 }}>
-                        <div style={{ display: "flex", alignItems: "baseline", gap: 6, flexWrap: "wrap" }}>
-                          <span style={{ fontWeight: 600, fontSize: 14 }}>{city.displayName}</span>
-                          <span style={{ fontSize: 12, opacity: 0.4 }}>{city.country}</span>
-                          {city.coverageGrade && (
-                            <span className="coverage-badge" style={{ background: GRADE_COLORS[city.coverageGrade] || "#6b7280" }}>
-                              {city.coverageGrade}
-                            </span>
-                          )}
-                          {isCustom && (
-                            <span style={{ fontSize: 10, opacity: 0.3 }}>{ui.slicRank}{city.rank}</span>
-                          )}
+                        <div className="city-name-row">
+                          <span className="city-display-name">{city.displayName}</span>
+                          <span className="city-country">{city.country}</span>
                         </div>
-                        {/* Mini pillar bars — opacity reflects data coverage */}
                         <div className="rankings-pillar-bars">
                           {PILLAR_ORDER.map((pid) => {
                             const covKey = `${pid}Coverage` as keyof PublishedCity;
@@ -477,13 +464,7 @@ export default function RankingsPage({
                           })}
                         </div>
                       </div>
-
-                      <div className="rankings-dual-score">
-                        <div className="custom-score">{city.customScore}</div>
-                        {isCustom && (
-                          <div className="canonical-ref">{ui.slicScore} {city.slicScore}</div>
-                        )}
-                      </div>
+                      <span className="city-tier-arrow">&#8250;</span>
                     </div>
                   );
                 })}
