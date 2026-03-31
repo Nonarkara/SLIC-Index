@@ -59,11 +59,11 @@ interface PillarMetricEntry {
 type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
 const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#c5651a",
-  viability: "#1a7a58",
-  capability: "#1a3a6b",
-  community: "#7c3aed",
-  creative: "#b83a28",
+  pressure: "#f59e0b",
+  viability: "#10b981",
+  capability: "#22d3ee",
+  community: "#a78bfa",
+  creative: "#ef4444",
 };
 
 const PILLAR_LABELS: Record<string, Record<PillarId, string>> = {
@@ -287,7 +287,7 @@ export default function CityScorecardPage({
           <div className="scorecard-hero-scores">
             <div className="scorecard-slic-score">{city.slicScore?.toFixed(1) ?? "—"}</div>
             <div className="scorecard-rank">
-              {city.rank <= 10 ? "Tier 1" : city.rank <= 20 ? "Tier 2" : city.rank <= 30 ? "Tier 3" : `#${city.rank}`}
+              {city.rank <= 10 ? "α Alpha" : city.rank <= 20 ? "β Beta" : city.rank <= 30 ? "γ Gamma" : `#${city.rank}`}
               <span> of {allCities.filter((c) => c.rankingStatus === "Ranked").length} cities</span>
             </div>
             <span className={`scorecard-grade scorecard-grade--${city.coverageGrade?.toLowerCase()}`}>

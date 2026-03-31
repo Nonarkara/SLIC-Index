@@ -146,9 +146,6 @@ export default function SiteFooter({
           <a href="/rankings" onClick={(event) => navigateLink(event, onNavigate, "/rankings")}>
             {copy.nav.rankings}
           </a>
-          <a href="/exercise" onClick={(event) => navigateLink(event, onNavigate, "/exercise")}>
-            {copy.nav.exercise}
-          </a>
           <a href="/methodology" onClick={(event) => navigateLink(event, onNavigate, "/methodology")}>
             {copy.nav.methodology}
           </a>

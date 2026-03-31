@@ -92,9 +92,9 @@ const heroCopy: Record<Locale, {
   seeMethodology: string;
 }> = {
   en: {
-    eyebrow: "SLIC Index 2026",
-    title: "We built an index.\nYou build the ranking.",
-    strapline: "157 cities. Five dimensions. One tool. Drag the spider — shift your priorities — watch cities re-rank in real time.",
+    eyebrow: "SLIC Index V3 — 2026",
+    title: "We stopped ranking.\nWe started diagnosing.",
+    strapline: "157 cities. Five pillars. Every number traced to its source. We got tired of pretending one city is better than another by 0.3 points. So we built tiers — and made every score transparent enough to steal.",
     allocatorHint: "Drag the web or use sliders. Total = 100.",
     resetLabel: "Reset",
     equalBadge: "Equal weights",
@@ -103,8 +103,8 @@ const heroCopy: Record<Locale, {
     consequencesTitle: "Trade-offs",
     yourScore: "Score",
     citiesLabel: "cities",
-    top10: "Tier 1",
-    top50: "Tier 1–3",
+    top10: "Alpha",
+    top50: "α β γ",
     showAll: "All",
     regionLabel: "Region",
     allRegions: "All",
@@ -112,9 +112,9 @@ const heroCopy: Record<Locale, {
     seeMethodology: "Methodology",
   },
   th: {
-    eyebrow: "SLIC Index 2026",
-    title: "เราสร้างดัชนี\nคุณสร้างอันดับ",
-    strapline: "157 เมือง 5 มิติ เครื่องมือเดียว ลากใยแมงมุม — ปรับลำดับ — ดูเมืองจัดอันดับใหม่แบบเรียลไทม์",
+    eyebrow: "SLIC Index V3 — 2026",
+    title: "เราเลิกจัดอันดับ\nเราเริ่มวินิจฉัย",
+    strapline: "157 เมือง 5 เสาหลัก ทุกตัวเลขสืบย้อนได้ถึงแหล่งที่มา เราเบื่อที่จะบอกว่าเมืองหนึ่งดีกว่าอีกเมืองด้วย 0.3 คะแนน",
     allocatorHint: "ลากใยแมงมุมหรือใช้แถบเลื่อน ผลรวม = 100",
     resetLabel: "รีเซ็ต",
     equalBadge: "น้ำหนักเท่ากัน",
@@ -123,8 +123,8 @@ const heroCopy: Record<Locale, {
     consequencesTitle: "ข้อแลกเปลี่ยน",
     yourScore: "คะแนน",
     citiesLabel: "เมือง",
-    top10: "ระดับ 1",
-    top50: "ระดับ 1–3",
+    top10: "Alpha",
+    top50: "α β γ",
     showAll: "ทั้งหมด",
     regionLabel: "ภูมิภาค",
     allRegions: "ทั้งหมด",
@@ -132,9 +132,9 @@ const heroCopy: Record<Locale, {
     seeMethodology: "ระเบียบวิธี",
   },
   zh: {
-    eyebrow: "SLIC Index 2026",
-    title: "我们建立指数\n你来构建排名",
-    strapline: "157 座城市，五个维度，一个工具。拖动蛛网 — 调整优先级 — 看城市实时重新排名。",
+    eyebrow: "SLIC Index V3 — 2026",
+    title: "我们不再排名\n我们开始诊断",
+    strapline: "157 座城市，五大支柱，每个数字都可追溯来源。我们厌倦了假装一个城市以 0.3 分优于另一个城市。",
     allocatorHint: "拖动蛛网图或使用滑块，总分 = 100",
     resetLabel: "重置",
     equalBadge: "等权重",
@@ -143,8 +143,8 @@ const heroCopy: Record<Locale, {
     consequencesTitle: "权衡",
     yourScore: "得分",
     citiesLabel: "城市",
-    top10: "第一梯队",
-    top50: "梯队 1–3",
+    top10: "Alpha",
+    top50: "α β γ",
     showAll: "全部",
     regionLabel: "地区",
     allRegions: "全部",
@@ -533,21 +533,23 @@ export default function HomePage({
           {/* City tiers — grouped, alphabetical within each tier */}
           {(() => {
             const tierDefs = [
-              { label: locale === "en" ? "Tier 1" : locale === "th" ? "ระดับ 1" : "第一梯队", range: [0, 10] as const },
-              { label: locale === "en" ? "Tier 2" : locale === "th" ? "ระดับ 2" : "第二梯队", range: [10, 20] as const },
-              { label: locale === "en" ? "Tier 3" : locale === "th" ? "ระดับ 3" : "第三梯队", range: [20, 30] as const },
+              { label: "α Alpha", range: [0, 10] as const, sortAlpha: true },
+              { label: "β Beta", range: [10, 20] as const, sortAlpha: true },
+              { label: "γ Gamma", range: [20, 30] as const, sortAlpha: true },
             ];
-            const showAllTiers = showCountValue >= 50;
             const activeTiers = showCountValue <= 10
               ? tierDefs.slice(0, 1)
               : showCountValue <= 30
                 ? tierDefs
-                : [...tierDefs, { label: locale === "en" ? "Remaining" : locale === "th" ? "ที่เหลือ" : "其余", range: [30, 999] as const }];
+                : [...tierDefs, { label: locale === "en" ? "Ranked" : locale === "th" ? "อันดับ" : "排名", range: [30, 999] as const, sortAlpha: false }];
 
             return activeTiers.map((tier) => {
               const tierCities = displayResults
                 .filter((_, i) => i >= tier.range[0] && i < tier.range[1])
-                .sort((a, b) => a.displayName.localeCompare(b.displayName));
+                .sort((a, b) => tier.sortAlpha
+                  ? a.displayName.localeCompare(b.displayName)
+                  : b.customScore - a.customScore
+                );
 
               if (tierCities.length === 0) return null;
 

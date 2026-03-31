@@ -23,7 +23,7 @@ const mastheadCopy: Record<
   }
 > = {
   en: {
-    brandTitle: "SLIC Index 2026",
+    brandTitle: "SLIC V3",
     brandSubtitle: "Smart and Liveable Cities Index",
     goHome: "Go to home",
     primaryNavigation: "Primary navigation",
@@ -35,7 +35,7 @@ const mastheadCopy: Record<
     closeNavigation: "Close navigation",
   },
   th: {
-    brandTitle: "SLIC Index 2026",
+    brandTitle: "SLIC V3",
     brandSubtitle: "ดัชนีเมืองฉลาดและน่าอยู่",
     goHome: "กลับสู่หน้าแรก",
     primaryNavigation: "เมนูหลัก",
@@ -47,7 +47,7 @@ const mastheadCopy: Record<
     closeNavigation: "ปิดเมนูนำทาง",
   },
   zh: {
-    brandTitle: "SLIC Index 2026",
+    brandTitle: "SLIC V3",
     brandSubtitle: "智慧与宜居城市指数",
     goHome: "返回首页",
     primaryNavigation: "主导航",
@@ -64,7 +64,6 @@ const navPaths: SitePath[] = [
   "/",
   "/about-slic",
   "/rankings",
-  "/exercise",
   "/methodology",
   "/thailand",
   "/ideas",

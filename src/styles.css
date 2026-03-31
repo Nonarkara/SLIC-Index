@@ -1681,7 +1681,7 @@ section[id] {
   width: min(var(--max-width), calc(100% - 2.25rem));
   margin: 0 auto;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(10, 10, 15, 0.92);
   backdrop-filter: blur(18px);
   box-shadow: 0 1px 3px rgba(30, 40, 60, 0.06);
   pointer-events: auto;
@@ -3723,25 +3723,25 @@ section[id] {
   }
 }
 
-/* Shared shell refinements — light editorial theme (V2.5) */
+/* Shared shell refinements — V3 Cyberpunk */
 :root {
-  --bg: #fafaf8;
-  --bg-soft: rgba(30, 40, 60, 0.02);
-  --surface: rgba(30, 40, 60, 0.04);
-  --surface-soft: rgba(30, 40, 60, 0.025);
-  --surface-strong: rgba(30, 40, 60, 0.07);
-  --text: #1a1a2e;
-  --text-soft: rgba(26, 26, 46, 0.55);
-  --text-inverse: #fafaf8;
-  --border: rgba(30, 40, 60, 0.10);
-  --border-strong: rgba(30, 40, 60, 0.18);
-  --accent-cyan: #0e7c7e;
-  --accent-amber: #c5651a;
-  --accent-red: #b83a28;
-  --accent-green: #1a7a58;
-  --accent-blue: #1a3a6b;
-  --shadow-lg: 0 30px 80px rgba(30, 40, 60, 0.08);
-  --shadow-sm: 0 12px 32px rgba(30, 40, 60, 0.05);
+  --bg: #0a0a0f;
+  --bg-soft: rgba(255, 255, 255, 0.02);
+  --surface: rgba(255, 255, 255, 0.05);
+  --surface-soft: rgba(255, 255, 255, 0.03);
+  --surface-strong: rgba(255, 255, 255, 0.08);
+  --text: #f0f0f5;
+  --text-soft: rgba(240, 240, 245, 0.6);
+  --text-inverse: #0a0a0f;
+  --border: rgba(255, 255, 255, 0.1);
+  --border-strong: rgba(255, 255, 255, 0.2);
+  --accent-cyan: #22d3ee;
+  --accent-amber: #f59e0b;
+  --accent-red: #ef4444;
+  --accent-green: #10b981;
+  --accent-blue: #22d3ee;
+  --shadow-lg: 0 40px 100px rgba(0, 0, 0, 0.5);
+  --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.3);
   --max-width: 1260px;
 }
 
@@ -3928,7 +3928,7 @@ section[id] {
   border-radius: 0;
   border: none;
   border-bottom: 1px solid rgba(30, 40, 60, 0.08);
-  background: rgba(255, 255, 255, 0.94);
+  background: rgba(10, 10, 15, 0.94);
   box-shadow: 0 1px 3px rgba(30, 40, 60, 0.05);
   backdrop-filter: blur(24px);
 }
@@ -5095,46 +5095,74 @@ section[id] {
   min-height: auto;
 }
 
-/* ── Tier groups ── */
+/* ── Tier groups — V3 Cyberpunk ── */
 .tier-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 
 .tier-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 2px solid var(--border-strong);
-  margin-bottom: 2px;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.04);
+  margin-bottom: 4px;
 }
 
 .tier-label {
-  font-family: var(--font-heading);
-  font-size: 16px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
 }
 
 .tier-count {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.04em;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
-/* Tier 1 gets accent treatment */
+/* Alpha tier — neon cyan glow */
 .tier-group:first-child .tier-header {
-  border-bottom-color: var(--accent-blue, #1a3a6b);
+  border-color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.08);
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.1);
 }
 
-.tier-group:first-child .tier-label {
-  color: var(--accent-blue, #1a3a6b);
+/* Beta tier — amber */
+.tier-group:nth-child(2) .tier-header {
+  border-left-color: var(--accent-amber);
+  background: rgba(245, 158, 11, 0.05);
 }
 
-/* Remove rank number column from grid since we're alphabetical now */
+.tier-group:nth-child(2) .tier-label {
+  color: var(--accent-amber);
+}
+
+/* Gamma tier — green */
+.tier-group:nth-child(3) .tier-header {
+  border-left-color: var(--accent-green);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.tier-group:nth-child(3) .tier-label {
+  color: var(--accent-green);
+}
+
+/* Remove rank number column — alphabetical within tiers */
 .tier-group .rankings-city-row {
   grid-template-columns: 1fr auto;
+}
+
+/* Neon score display */
+.tier-group:first-child .custom-score {
+  color: var(--accent-cyan);
+  text-shadow: 0 0 12px rgba(34, 211, 238, 0.4);
 }
 
 /* ── Time Machine link ── */
