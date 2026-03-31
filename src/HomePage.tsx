@@ -21,11 +21,11 @@ const data = buildLandingData();
 type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
 const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#f97316",
-  viability: "#22c55e",
-  capability: "#3b82f6",
-  community: "#a855f7",
-  creative: "#ec4899",
+  pressure: "#c4713b",
+  viability: "#2a7a6e",
+  capability: "#3d6b99",
+  community: "#8b5e3c",
+  creative: "#b54234",
 };
 
 const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
@@ -92,9 +92,9 @@ const heroCopy: Record<Locale, {
   seeMethodology: string;
 }> = {
   en: {
-    eyebrow: "SLIC Index V3 — 2026",
-    title: "We stopped ranking.\nWe started diagnosing.",
-    strapline: "157 cities. Five pillars. Every number traced to its source. We got tired of pretending one city is better than another by 0.3 points. So we built tiers — and made every score transparent enough to steal.",
+    eyebrow: "SLIC V3 — 2026",
+    title: "Not a ranking.\nA reality check.",
+    strapline: "157 cities grouped by how they actually feel to live in. Click any city — see exactly where every number comes from. No hidden formulas, no prestige bias, no bullshit.",
     allocatorHint: "Drag the web or use sliders. Total = 100.",
     resetLabel: "Reset",
     equalBadge: "Equal weights",
@@ -592,9 +592,7 @@ export default function HomePage({
                             </div>
                           </div>
 
-                          <div className="rankings-dual-score">
-                            <div className="custom-score">{city.customScore}</div>
-                          </div>
+                          <span className="city-tier-arrow">&#8250;</span>
                         </div>
                       );
                     })}
