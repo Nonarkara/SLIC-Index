@@ -1346,55 +1346,54 @@ _CITY_DOCTRINE: dict[str, dict[str, float]] = {
     "bh-manama":       {"community": -22, "creative": -12},
     "kw-kuwait-city":  {"community": -28, "creative": -18},
 
-    # ── Sterile/tedious cities: industrious but one-dimensional experience ──
-    # Singapore: long hours, anti-LGBTQ, sterile urban experience, no old/new contrast
-    "sg-singapore":    {"community": -25, "pressure": -8, "viability": -5},
-    # Scandinavia: lack of sunlight destroys happiness, sterile cultural experience,
-    # extremely homogeneous, expensive, limited diversity of experience
+    # ── Expensive rent cities: shall not be in top 20 ──
+    "sg-singapore":    {"community": -30, "pressure": -18, "viability": -8},  # overwork + sterile + anti-LGBTQ + crushing rent
+    "kr-seoul":        {"pressure": -18, "community": -12},  # suicide crisis + overwork + crushing rent
+    "cn-shanghai":     {"pressure": -10, "community": -15},
+    "cn-shenzhen":     {"pressure": -10, "community": -15},
+    "cn-guangzhou":    {"pressure": -8, "community": -12},
+    "hk-hong-kong":    {"pressure": -20, "community": -10},  # insane rent, no space
+    "ca-vancouver":    {"pressure": -15},  # 43.75% rent burden
+    "ca-toronto":      {"pressure": -10},
+
+    # ── Scandinavia: no sunlight, sterile, homogeneous ──
     "dk-copenhagen":   {"community": -15, "viability": -8, "pressure": -5},
     "se-stockholm":    {"community": -15, "viability": -10, "pressure": -5},
     "fi-helsinki":     {"community": -12, "viability": -12, "pressure": -5},
 
     # ── Intolerant / discriminatory ──
-    "my-kuala-lumpur": {"community": -14},  # ethnic discrimination (pro-Malay)
+    "my-kuala-lumpur": {"community": -14},
 
-    # ── Overcrowded megacities: one-dimensional, overwork culture, crushing rent ──
+    # ── Overcrowded megacities ──
     "jp-tokyo":        {"pressure": -12, "community": -8},
-    "kr-seoul":        {"pressure": -12, "community": -10},  # suicide crisis + overwork
-    "kr-busan":        {"pressure": -5, "community": -5},    # less extreme than Seoul but same national pressure
 
     # ── Tourism islands without diverse economic engines ──
     "kr-jeju-city":    {"creative": -15, "pressure": -8},
 
-    # ── Crushing rent / unaffordable ──
-    "ca-vancouver":    {"pressure": -10},  # 43.75% rent burden
-    "ca-toronto":      {"pressure": -8},
-
-    # ── Growth cities: positive adjustments ──
-    # Taiwan: tolerant, democratic, affordable, green spaces (data gap: community metrics sparse)
-    "tw-taipei":       {"community": +35},
-    "tw-kaohsiung":    {"community": +38},
-    # Korea: cultural dynamism (data gap: community sparse)
-    "kr-busan":        {"community": +15},
+    # ── Cities with good vibes: balanced, liveable, affordable, cultural ──
+    # Taiwan: best urban + cultural together, not expensive, great hospitals/unis/metro
+    "tw-taipei":       {"community": +38, "creative": +5},
+    # Kaohsiung: best balance — thriving port hub, modern + industrial heritage, green
+    "tw-kaohsiung":    {"community": +40, "creative": +5},
+    # Busan: port city vitality, affordable, cultural (net: +10 community after -5 national)
+    "kr-busan":        {"community": +15, "pressure": +5},
     "kr-suwon":        {"community": +10},
-    # Thailand: #1 cultural diversity, extreme tolerance, strong community
-    # Bangkok: systematically undercounted by standard data sources:
-    # - Tolerance: women-in-parliament (19%) misses actual social tolerance
-    #   (LGBTQ acceptance, religious pluralism, cannabis decrim, lifestyle freedom —
-    #   no place on earth matches Bangkok's openness to all choices)
-    # - Safety: homicide rate misses that street-level safety is extremely high
-    #   (safer than NYC, most EU cities), culture + law enforcement works
-    # - Healthcare: WHO UHC 82 misses free public + cheap private sector
-    # - Hospitality: 33M visitors/year, culture of helping, not individualism
-    # - Transit: BTS/MRT world-class, 2 intl airports (BKK+DMK regional hubs)
-    # - Growth: regional economic engine, thriving services, affordable life
-    # - International: English proficiency rising fast
+    # Bangkok: tolerance, safety, hospitality, healthcare, transit, growth
     "th-bangkok":      {"community": +42, "pressure": +14, "viability": +7, "capability": +5},
     "th-chiang-mai":   {"community": +40, "pressure": +12},
-    # Japan: quality of life, food culture (data gap: community sparse)
-    "jp-fukuoka":      {"community": +15, "creative": +8},
-    "jp-sapporo":      {"community": +8},
-    "jp-kobe":         {"community": +8},
+    # Fukuoka: Japan's best liveable city — startup hub, food culture, affordable
+    "jp-fukuoka":      {"community": +22, "creative": +15, "pressure": +5},
+    # Kobe: old/new blend, port city, affordable for Japan, food capital
+    "jp-kobe":         {"community": +18, "creative": +10, "pressure": +5},
+    "jp-sapporo":      {"community": +10},
+    # Tallinn: digital society, affordable, medieval+modern blend, startup scene, e-residency
+    "ee-tallinn":      {"community": +20, "creative": +15, "pressure": +8},
+    # Pittsburgh: reinvented rust belt, startup/research, affordable
+    # (already ranks well on data, minimal adjustment needed)
+    # Katowice: industrial heritage revival (like Kaohsiung), affordable, cultural
+    "pl-katowice":     {"community": +8, "creative": +5},
+    "pl-krakow":       {"community": +5, "creative": +5},
+    "pl-gdansk":       {"community": +5, "creative": +5},
 }
 
 # Regional baseline adjustments (applied to ALL cities in region)
