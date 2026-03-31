@@ -1390,10 +1390,15 @@ _CITY_DOCTRINE: dict[str, dict[str, float]] = {
     "ee-tallinn":      {"community": +20, "creative": +15, "pressure": +8},
     # Pittsburgh: reinvented rust belt, startup/research, affordable
     # (already ranks well on data, minimal adjustment needed)
-    # Katowice: industrial heritage revival (like Kaohsiung), affordable, cultural
-    "pl-katowice":     {"community": +8, "creative": +5},
+    # Katowice: industrial heritage revival (like Kaohsiung), affordable, cultural, growing
+    "pl-katowice":     {"community": +15, "creative": +10, "pressure": +5},
     "pl-krakow":       {"community": +5, "creative": +5},
     "pl-gdansk":       {"community": +5, "creative": +5},
+    # Lyon: blends old/new beautifully, gastronomic capital, affordable vs Paris, good transit
+    "fr-lyon":         {"community": +5, "creative": +5},
+    # Continental balance adjustments for Alpha tier diversity
+    "il-haifa":        {"pressure": -8, "community": -5},
+    "cl-valparaiso":   {"pressure": -5, "community": -3},
 }
 
 # Regional baseline adjustments (applied to ALL cities in region)
