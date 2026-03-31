@@ -446,6 +446,17 @@ export default function CityScorecardPage({
         </p>
       </section>
 
+      {/* ── Sticky bottom back button ── */}
+      <div className="scorecard-bottom-nav">
+        <button
+          type="button"
+          className="scorecard-back"
+          onClick={() => onNavigate("/")}
+        >
+          &larr; {locale === "en" ? "Back to all cities" : locale === "th" ? "กลับสู่เมืองทั้งหมด" : "返回所有城市"}
+        </button>
+      </div>
+
       <SiteFooter onNavigate={onNavigate} locale={locale} />
     </>
   );
