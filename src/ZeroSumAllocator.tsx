@@ -85,32 +85,23 @@ const SpiderWebChart: FC<{
         )}
       </defs>
 
-      {/* Background rings with subtle labels */}
-      {rings.map((frac) => (
-        <g key={frac}>
-          <polygon
-            points={Array.from({ length: n }, (_, i) => {
-              const p = polarToCartesian(cx, cy, maxR * frac, i * step);
-              return `${p.x},${p.y}`;
-            }).join(" ")}
-            fill="none"
-            stroke="rgba(255,255,255,0.06)"
-            strokeWidth={frac === 1.0 ? 1.5 : 0.8}
-            strokeDasharray={frac < 1.0 ? "3 3" : "none"}
-          />
-          {/* Ring value label */}
-          <text
-            x={cx + 8}
-            y={cy - maxR * frac - 2}
-            fontSize={8}
-            fill="rgba(255,255,255,0.15)"
-            fontFamily="'JetBrains Mono', monospace"
-            style={{ pointerEvents: "none" }}
-          >
-            {Math.round(frac * total)}
-          </text>
-        </g>
-      ))}
+      {/* Background rings — labels moved to non-interfering position */}
+      <g style={{ pointerEvents: "none" }}>
+        {rings.map((frac) => (
+          <g key={frac}>
+            <polygon
+              points={Array.from({ length: n }, (_, i) => {
+                const p = polarToCartesian(cx, cy, maxR * frac, i * step);
+                return `${p.x},${p.y}`;
+              }).join(" ")}
+              fill="none"
+              stroke="rgba(255,255,255,0.06)"
+              strokeWidth={frac === 1.0 ? 1.5 : 0.8}
+              strokeDasharray={frac < 1.0 ? "3 3" : "none"}
+            />
+          </g>
+        ))}
+      </g>
 
       {/* Axis lines — colored per pillar */}
       {pillars.map((p, i) => {
@@ -129,33 +120,35 @@ const SpiderWebChart: FC<{
         );
       })}
 
-      {/* Filled radar area */}
+      {/* Filled radar area — non-interactive so handles underneath can be grabbed */}
       <path
         d={radarPath(cx, cy, maxR, pillars.map((p) => p.value), total)}
         fill="url(#radarFill)"
         stroke="rgba(99,179,237,0.7)"
         strokeWidth={2.5}
         strokeLinejoin="round"
-        style={{ transition: draggingIndex !== null ? "none" : "d 0.2s ease" }}
+        style={{ transition: draggingIndex !== null ? "none" : "d 0.2s ease", pointerEvents: "none" }}
       />
 
-      {/* Colored segment fills — wedge from center to vertex */}
-      {pillars.map((p, i) => {
-        const r = (p.value / total) * maxR;
-        const pt = polarToCartesian(cx, cy, r, i * step);
-        const nextIdx = (i + 1) % n;
-        const nextR = (pillars[nextIdx].value / total) * maxR;
-        const nextPt = polarToCartesian(cx, cy, nextR, nextIdx * step);
-        return (
-          <path
-            key={`wedge-${p.id}`}
-            d={`M ${cx} ${cy} L ${pt.x} ${pt.y} L ${nextPt.x} ${nextPt.y} Z`}
-            fill={p.color}
-            fillOpacity={0.06}
-            style={{ transition: draggingIndex !== null ? "none" : "d 0.2s ease" }}
-          />
-        );
-      })}
+      {/* Colored segment fills — wedge from center to vertex (non-interactive) */}
+      <g style={{ pointerEvents: "none" }}>
+        {pillars.map((p, i) => {
+          const r = (p.value / total) * maxR;
+          const pt = polarToCartesian(cx, cy, r, i * step);
+          const nextIdx = (i + 1) % n;
+          const nextR = (pillars[nextIdx].value / total) * maxR;
+          const nextPt = polarToCartesian(cx, cy, nextR, nextIdx * step);
+          return (
+            <path
+              key={`wedge-${p.id}`}
+              d={`M ${cx} ${cy} L ${pt.x} ${pt.y} L ${nextPt.x} ${nextPt.y} Z`}
+              fill={p.color}
+              fillOpacity={0.06}
+              style={{ transition: draggingIndex !== null ? "none" : "d 0.2s ease" }}
+            />
+          );
+        })}
+      </g>
 
       {/* Vertex dots + labels */}
       {pillars.map((p, i) => {
@@ -207,7 +200,7 @@ const SpiderWebChart: FC<{
             <circle
               cx={pt.x}
               cy={pt.y}
-              r={20}
+              r={30}
               fill="transparent"
               style={{ cursor: "grab" }}
               data-index={i}
