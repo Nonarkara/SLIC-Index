@@ -5294,6 +5294,58 @@ section[id] {
   opacity: 0.6;
 }
 
+/* Launch event banner */
+.v3-hero-launch-banner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.v3-launch-event {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.v3-launch-event--active {
+  border-color: var(--accent-cyan);
+  background: rgba(0, 255, 136, 0.06);
+  box-shadow: 0 0 30px rgba(0, 255, 136, 0.08);
+}
+
+.v3-launch-venue {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.v3-launch-event--active .v3-launch-venue {
+  color: var(--accent-cyan);
+}
+
+.v3-launch-status {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+
+.v3-launch-event--active .v3-launch-status {
+  opacity: 1;
+  color: var(--accent-cyan);
+}
+
+.v3-launch-arrow {
+  font-size: 24px;
+  opacity: 0.3;
+}
+
 .v3-hero-actions {
   display: flex;
   gap: 16px;
@@ -6462,6 +6514,12 @@ section[id] {
 
 .v3-story-chapter:last-child {
   border-bottom: none;
+}
+
+.v3-story-chapter--highlight {
+  border-left: 4px solid var(--accent-cyan);
+  padding-left: clamp(2rem, 5vw, 5rem);
+  background: rgba(0, 255, 136, 0.02);
 }
 
 .v3-story-chapter--photo {

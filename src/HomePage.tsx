@@ -412,23 +412,40 @@ export default function HomePage({
   return (
     <>
       {/* ═══════ HERO: Title left + Spider right — visible on load ═══════ */}
-      {/* ═══════ 01. HERO — Full viewport, one statement ═══════ */}
+      {/* ═══════ 01. HERO ═══════ */}
       <header className="v3-hero">
-        <div className="v3-hero-overline">SLIC V3 / 2026</div>
+        <div className="v3-hero-overline">SLIC V3 / LAUNCHING AT GITEX SINGAPORE 2026</div>
         <h1 className="v3-hero-title">
-          {locale === "en" ? "CITIES\nDON'T LIE.\nNUMBERS DO." : locale === "th" ? "เมืองไม่โกหก\nตัวเลขต่างหากที่โกหก" : "城市不说谎\n数字才会"}
+          {locale === "en" ? "WE KILLED\nTHE RANKING." : locale === "th" ? "เราฆ่า\nการจัดอันดับ" : "我们杀死了\n排名"}
         </h1>
         <div className="v3-hero-divider" />
         <p className="v3-hero-sub">
           {locale === "en"
-            ? "157 cities. 3 tiers. Every score traceable to its source. Click any city — see exactly how the number was built."
+            ? "For the first time, a city index admits that ranking cities by decimal points is theatre. V3 replaces rankings with tiers. Groups of cities you can actually learn from. Every number traceable to its source. No more pretending."
             : locale === "th"
-              ? "157 เมือง 3 ระดับ ทุกคะแนนสืบย้อนได้ถึงแหล่งที่มา"
-              : "157 座城市，3 个梯队，每个分数都可追溯来源。"}
+              ? "เป็นครั้งแรกที่ดัชนีเมืองยอมรับว่าการจัดอันดับด้วยจุดทศนิยมเป็นเรื่องหลอกลวง V3 แทนที่อันดับด้วยระดับ กลุ่มเมืองที่คุณเรียนรู้จากกันได้จริง"
+              : "城市指数第一次承认，用小数点排名城市是表演。V3 用梯队取代排名。你可以真正学习的城市群。每个数字都可追溯。"}
         </p>
-        <a className="v3-cta" href="#story" onClick={(e) => { e.preventDefault(); document.getElementById("story")?.scrollIntoView({ behavior: "smooth" }); }}>
-          {locale === "en" ? "HOW WE GOT HERE" : "เรามาถึงจุดนี้ได้อย่างไร"} &darr;
-        </a>
+        <div className="v3-hero-launch-banner">
+          <div className="v3-launch-event">
+            <span className="v3-launch-venue">SCSE TAIPEI 2026</span>
+            <span className="v3-launch-status">V2 LAUNCHED</span>
+          </div>
+          <div className="v3-launch-arrow">&rarr;</div>
+          <div className="v3-launch-event v3-launch-event--active">
+            <span className="v3-launch-venue">GITEX SINGAPORE 2026</span>
+            <span className="v3-launch-status">V3 LAUNCHES HERE</span>
+          </div>
+        </div>
+        <div className="v3-hero-actions">
+          <a className="v3-cta" href="#tiers" onClick={(e) => { e.preventDefault(); document.getElementById("tiers")?.scrollIntoView({ behavior: "smooth" }); }}>
+            {locale === "en" ? "SEE WHAT REPLACED IT" : "ดูว่าอะไรมาแทน"} &darr;
+          </a>
+        </div>
+        <div className="v3-hero-counter">
+          <span className="v3-counter-num">{visitors.toLocaleString()}</span>
+          <span className="v3-counter-label">{locale === "en" ? "people checked since Taipei" : "คนตรวจสอบตั้งแต่ไทเป"}</span>
+        </div>
       </header>
 
       {/* ═══════ 02. THE STORY — V1 → V2 → V3 with photos ═══════ */}
@@ -453,11 +470,11 @@ export default function HomePage({
           ))}
         </div>
 
-        <div className="v3-story-chapter">
-          <div className="v3-story-label">V3 / THE TRUTH</div>
-          <h2 className="v3-story-title">{locale === "en" ? "We grew up. 0.3 points means nothing. Tiers mean everything." : "เราเติบโตขึ้น 0.3 คะแนนไม่มีความหมาย ระดับต่างหากที่สำคัญ"}</h2>
-          <p className="v3-story-body">{locale === "en" ? "We built Alpha, Beta, Gamma. Made every number traceable. Added growth momentum. Penalized overwork and suicide rates. Rewarded tolerance and cultural diversity. Cities that look good on paper but crush their residents got pushed down. Cities where people actually want to live rose up." : "เราสร้าง Alpha, Beta, Gamma ทำให้ทุกตัวเลขสืบย้อนได้ เพิ่มโมเมนตัมการเติบโต"}</p>
-          <blockquote className="v3-story-quote">{locale === "en" ? "\u201CWe stopped ranking. We started telling the truth.\u201D" : "\u201Cเราเลิกจัดอันดับ เราเริ่มบอกความจริง\u201D"}</blockquote>
+        <div className="v3-story-chapter v3-story-chapter--highlight">
+          <div className="v3-story-label">V3 / GITEX SINGAPORE 2026</div>
+          <h2 className="v3-story-title">{locale === "en" ? "We killed the ranking. Built something better." : "เราฆ่าการจัดอันดับ สร้างสิ่งที่ดีกว่า"}</h2>
+          <p className="v3-story-body">{locale === "en" ? "Alpha, Beta, Gamma — groups of cities that compete, compare, and learn from each other. Not a leaderboard. A diagnostic. Every score traces back to its source. Growth momentum, tolerance, cultural diversity, overwork, suicide rates — all measured, all transparent. Click any city and the system shows you exactly how it got its number. This is what we\u2019re bringing to GITEX Singapore." : "Alpha, Beta, Gamma — กลุ่มเมืองที่แข่งขัน เปรียบเทียบ และเรียนรู้จากกัน นี่คือสิ่งที่เรานำไป GITEX Singapore"}</p>
+          <blockquote className="v3-story-quote">{locale === "en" ? "\u201CThe first city index that admits ranking by decimal points is meaningless.\u201D" : "\u201Cดัชนีเมืองแรกที่ยอมรับว่าการจัดอันดับด้วยจุดทศนิยมไม่มีความหมาย\u201D"}</blockquote>
         </div>
       </section>
 
