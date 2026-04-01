@@ -6445,3 +6445,351 @@ section[id] {
     grid-template-columns: 1fr;
   }
 }
+
+/* ═══════ V3 PAGE STRUCTURE — completely new ═══════ */
+
+/* 02. Story — V1 → V2 → V3 */
+.v3-story {
+  padding: 6rem 0;
+}
+
+.v3-story-chapter {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 4rem clamp(2rem, 5vw, 6rem);
+  border-bottom: 1px solid var(--border);
+}
+
+.v3-story-chapter:last-child {
+  border-bottom: none;
+}
+
+.v3-story-chapter--photo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  max-width: 1200px;
+}
+
+.v3-story-img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.v3-story-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+  margin-bottom: 16px;
+}
+
+.v3-story-title {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 4vw, 40px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 16px;
+}
+
+.v3-story-body {
+  font-size: 16px;
+  line-height: 1.8;
+  opacity: 0.6;
+  margin: 0;
+}
+
+.v3-story-quote {
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 700;
+  color: var(--accent-cyan);
+  margin: 32px 0 0;
+  padding: 0;
+  border: none;
+}
+
+.v3-story-photos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.v3-story-photos img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: top;
+  filter: grayscale(0.3);
+  transition: filter 0.3s;
+}
+
+.v3-story-photos img:hover {
+  filter: grayscale(0);
+}
+
+/* 03. Alpha tier — big cards */
+.v3-alpha {
+  padding: 6rem 0;
+  border-top: 4px solid var(--accent-cyan);
+}
+
+.v3-alpha-header {
+  margin-bottom: 3rem;
+}
+
+.v3-tier-badge {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 6px 16px;
+  margin-bottom: 16px;
+}
+
+.v3-tier-badge--alpha {
+  background: var(--accent-cyan);
+  color: #000;
+}
+
+.v3-tier-badge--beta {
+  background: var(--accent-amber);
+  color: #000;
+}
+
+.v3-tier-badge--gamma {
+  background: var(--accent-red);
+  color: #fff;
+}
+
+.v3-alpha-title {
+  font-family: var(--font-heading);
+  font-size: clamp(24px, 4vw, 44px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0;
+}
+
+.v3-alpha-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 8px;
+}
+
+.v3-city-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+}
+
+.v3-city-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+.v3-city-card-name {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.v3-city-card-country {
+  font-size: 12px;
+  opacity: 0.45;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+.v3-city-card-bars {
+  display: flex;
+  gap: 2px;
+  height: 4px;
+  margin-top: 8px;
+}
+
+.v3-city-card-bars > div {
+  flex: 1;
+  height: 100%;
+}
+
+/* 04. Beta + Gamma — compact chip rows */
+.v3-lower-tiers {
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.v3-lower-tier-row {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.v3-lower-tier-cities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.v3-tier-chip {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 10px 18px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.v3-tier-chip span {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  opacity: 0.4;
+}
+
+.v3-tier-chip:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent-amber);
+}
+
+/* 05. Spider — full experience */
+.v3-spider-full {
+  padding: 6rem 0;
+  border-top: 4px solid var(--accent-amber);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.v3-spider-layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.v3-spider-chart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.v3-spider-results {
+  min-width: 0;
+}
+
+.v3-tradeoffs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+}
+
+.v3-spider-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.v3-spider-row {
+  display: grid;
+  grid-template-columns: 32px 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: background 0.1s;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  background: none;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+
+.v3-spider-row:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.v3-spider-rank {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.35;
+}
+
+.v3-spider-name {
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.v3-spider-country {
+  font-size: 12px;
+  opacity: 0.4;
+}
+
+/* 06. CTA section */
+.v3-cta-section {
+  padding: 6rem 0;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .v3-story-chapter--photo {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .v3-story-photos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .v3-alpha-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .v3-spider-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .v3-spider-chart {
+    order: -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .v3-alpha-grid {
+    grid-template-columns: 1fr;
+  }
+}

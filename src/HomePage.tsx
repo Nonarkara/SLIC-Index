@@ -412,13 +412,7 @@ export default function HomePage({
   return (
     <>
       {/* ═══════ HERO: Title left + Spider right — visible on load ═══════ */}
-      <div className="page-shell">
-        <div className="float-orb" style={{ width: '600px', height: '600px', background: 'rgba(34, 211, 238, 0.15)', top: '-10%', left: '-5%' }} />
-        <div className="float-orb" style={{ width: '500px', height: '500px', background: 'rgba(245, 158, 11, 0.1)', top: '40%', right: '-10%', animationDelay: '-5s' }} />
-        <div className="float-orb" style={{ width: '700px', height: '700px', background: 'rgba(168, 85, 247, 0.08)', bottom: '-10%', left: '20%', animationDelay: '-10s' }} />
-        <div className="page-frame">
-
-      {/* ═══════ V3 HERO ═══════ */}
+      {/* ═══════ 01. HERO — Full viewport, one statement ═══════ */}
       <header className="v3-hero">
         <div className="v3-hero-overline">SLIC V3 / 2026</div>
         <h1 className="v3-hero-title">
@@ -427,240 +421,142 @@ export default function HomePage({
         <div className="v3-hero-divider" />
         <p className="v3-hero-sub">
           {locale === "en"
-            ? "V1 ranked cities by score. V2 launched on the world's biggest smart city stage and got people excited. V3 grew up. We stopped pretending 0.3 points means anything. We built tiers, made every number traceable, and let you drag the priorities yourself."
+            ? "157 cities. 3 tiers. Every score traceable to its source. Click any city — see exactly how the number was built."
             : locale === "th"
-              ? "V1 จัดอันดับเมืองตามคะแนน V2 เปิดตัวบนเวทีสมาร์ทซิตี้ที่ใหญ่ที่สุดในโลก V3 เติบโตขึ้น เราเลิกแกล้งทำเป็นว่า 0.3 คะแนนมีความหมาย"
-              : "V1 按分数排列城市。V2 在全球最大的智慧城市舞台上发布。V3 成熟了。我们不再假装 0.3 分有什么意义。"}
+              ? "157 เมือง 3 ระดับ ทุกคะแนนสืบย้อนได้ถึงแหล่งที่มา"
+              : "157 座城市，3 个梯队，每个分数都可追溯来源。"}
         </p>
-        <div className="v3-hero-actions">
-          <a className="v3-cta" href="#tiers" onClick={(e) => { e.preventDefault(); document.getElementById("tiers")?.scrollIntoView({ behavior: "smooth" }); }}>
-            {locale === "en" ? "SEE THE TIERS" : locale === "th" ? "ดูระดับเมือง" : "查看梯队"} &darr;
-          </a>
-          <a className="v3-cta-secondary" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>
-            {locale === "en" ? "HOW IT WORKS" : locale === "th" ? "วิธีการทำงาน" : "工作原理"}
-          </a>
-        </div>
-        <div className="v3-hero-counter">
-          <span className="v3-counter-num">{visitors.toLocaleString()}</span>
-          <span className="v3-counter-label">{locale === "en" ? "people checked since Taipei launch" : locale === "th" ? "คนตรวจสอบตั้งแต่เปิดตัวที่ไทเป" : "人自台北发布以来检查过"}</span>
-        </div>
+        <a className="v3-cta" href="#story" onClick={(e) => { e.preventDefault(); document.getElementById("story")?.scrollIntoView({ behavior: "smooth" }); }}>
+          {locale === "en" ? "HOW WE GOT HERE" : "เรามาถึงจุดนี้ได้อย่างไร"} &darr;
+        </a>
       </header>
 
-      {/* ═══════ SPIDER — YOUR PRIORITIES ═══════ */}
-      <section className="section v3-spider-section" id="spider">
-        <div className="v3-spider-header">
-          <h2 className="v3-section-title">{locale === "en" ? "YOUR CITY. YOUR RULES." : locale === "th" ? "เมืองของคุณ กฎของคุณ" : "你的城市，你的规则"}</h2>
-          <p className="v3-spider-hint">{locale === "en" ? "Drag the spider. Crank growth to 100% and watch Singapore and Jakarta rise. Max viability and see safe, clean cities float up. This is your ranking — not ours." : ui.allocatorHint}</p>
+      {/* ═══════ 02. THE STORY — V1 → V2 → V3 with photos ═══════ */}
+      <section className="v3-story" id="story">
+        <div className="v3-story-chapter">
+          <div className="v3-story-label">V1 / THE SPREADSHEET</div>
+          <h2 className="v3-story-title">{locale === "en" ? "We built a spreadsheet. Busan came out on top. We thought we were done." : "เราสร้าง spreadsheet บูซานขึ้นอันดับหนึ่ง เราคิดว่าเสร็จแล้ว"}</h2>
         </div>
-        <div className="v3-spider-wrap">
-          <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={420} />
-          <button type="button" className="rankings-reset-btn" onClick={handleReset}>
-            {ui.resetLabel}
-          </button>
+
+        <div className="v3-story-chapter v3-story-chapter--photo">
+          <img src={LAUNCH_PHOTOS.hero} alt="SCSE 2026 Taipei" loading="lazy" className="v3-story-img" />
+          <div>
+            <div className="v3-story-label">V2 / THE STAGE</div>
+            <h2 className="v3-story-title">{locale === "en" ? "Then we launched it in Taipei. The room went quiet." : "แล้วเราเปิดตัวที่ไทเป ห้องเงียบกริบ"}</h2>
+            <p className="v3-story-body">{locale === "en" ? "Smart City Summit & Expo 2026. 3,000 professionals. The Vice President of Taiwan opened it. A European mayor\u2019s alliance asked to use it instead of The Economist\u2019s index." : "Smart City Summit & Expo 2026 ผู้เชี่ยวชาญ 3,000 คน รองประธานาธิบดีไต้หวันเปิดงาน"}</p>
+          </div>
+        </div>
+
+        <div className="v3-story-photos">
+          {[LAUNCH_PHOTOS.stage, LAUNCH_PHOTOS.slide, LAUNCH_PHOTOS.laptop, LAUNCH_PHOTOS.networking].map((src) => (
+            <img key={src} src={src} alt="" loading="lazy" />
+          ))}
+        </div>
+
+        <div className="v3-story-chapter">
+          <div className="v3-story-label">V3 / THE TRUTH</div>
+          <h2 className="v3-story-title">{locale === "en" ? "We grew up. 0.3 points means nothing. Tiers mean everything." : "เราเติบโตขึ้น 0.3 คะแนนไม่มีความหมาย ระดับต่างหากที่สำคัญ"}</h2>
+          <p className="v3-story-body">{locale === "en" ? "We built Alpha, Beta, Gamma. Made every number traceable. Added growth momentum. Penalized overwork and suicide rates. Rewarded tolerance and cultural diversity. Cities that look good on paper but crush their residents got pushed down. Cities where people actually want to live rose up." : "เราสร้าง Alpha, Beta, Gamma ทำให้ทุกตัวเลขสืบย้อนได้ เพิ่มโมเมนตัมการเติบโต"}</p>
+          <blockquote className="v3-story-quote">{locale === "en" ? "\u201CWe stopped ranking. We started telling the truth.\u201D" : "\u201Cเราเลิกจัดอันดับ เราเริ่มบอกความจริง\u201D"}</blockquote>
         </div>
       </section>
 
-      <main>
-        {/* ═══════ WORKBENCH: Filters + City Results ═══════ */}
-        <section className="section workbench-section" id="tiers">
-          {/* Trade-off insights — compact strip */}
-          {consequences.length > 0 && (
-            <div className="tradeoff-strip">
-              {consequences.map((c) => (
-                <div key={c.id} className={severityClass[c.severity]}>
-                  <p>{c.narrative}</p>
-                </div>
-              ))}
-            </div>
-          )}
-
-          {/* Filter bar — single compact row */}
-          <div className="filter-bar">
-            <span className={`rankings-mode-badge ${isCustom ? "is-custom" : "is-canonical"}`}>
-              {isCustom ? ui.customBadge : ui.equalBadge}
-            </span>
-
-            <span className="filter-bar-count">
-              {results.length} {ui.citiesLabel}
-            </span>
-
-            <select
-              className="filter-bar-select"
-              value={region}
-              onChange={(e) => setRegion(e.target.value)}
+      {/* ═══════ 03. ALPHA TIER — The headline cities ═══════ */}
+      <section className="v3-alpha" id="tiers">
+        <div className="v3-alpha-header section">
+          <span className="v3-tier-badge v3-tier-badge--alpha">α ALPHA</span>
+          <h2 className="v3-alpha-title">{locale === "en" ? "10 cities. 4 continents. Click any to see the numbers." : "10 เมือง 4 ทวีป คลิกเมืองใดก็ได้เพื่อดูตัวเลข"}</h2>
+        </div>
+        <div className="v3-alpha-grid section">
+          {results.slice(0, 10).sort((a, b) => a.displayName.localeCompare(b.displayName)).map((city) => (
+            <button
+              key={city.cityId}
+              className="v3-city-card"
+              onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}
             >
-              <option value="All">{ui.allRegions}</option>
-              {rankingRegions.filter((r) => r !== "All").map((r) => (
-                <option key={r} value={r}>{r}</option>
-              ))}
-            </select>
-
-            <div className="rankings-count-toggle">
-              {([10, 30, 999] as const).map((n) => (
-                <button
-                  key={n}
-                  type="button"
-                  className={showCountValue === n ? "active" : ""}
-                  onClick={() => setShowCountValue(n)}
-                >
-                  {n === 10 ? ui.top10 : n === 30 ? ui.top50 : ui.showAll}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* City tiers — grouped, alphabetical within each tier */}
-          {(() => {
-            const tierDefs = [
-              { label: "α Alpha", range: [0, 10] as const, sortAlpha: true },
-              { label: "β Beta", range: [10, 20] as const, sortAlpha: true },
-              { label: "γ Gamma", range: [20, 30] as const, sortAlpha: true },
-            ];
-            const activeTiers = showCountValue <= 10
-              ? tierDefs.slice(0, 1)
-              : showCountValue <= 30
-                ? tierDefs
-                : [...tierDefs, { label: locale === "en" ? "Ranked" : locale === "th" ? "อันดับ" : "排名", range: [30, 999] as const, sortAlpha: false }];
-
-            return activeTiers.map((tier) => {
-              const tierCities = displayResults
-                .filter((_, i) => i >= tier.range[0] && i < tier.range[1])
-                .sort((a, b) => tier.sortAlpha
-                  ? a.displayName.localeCompare(b.displayName)
-                  : b.customScore - a.customScore
-                );
-
-              if (tierCities.length === 0) return null;
-
-              return (
-                <div key={tier.label} className="tier-group">
-                  <div className="tier-header">
-                    <span className="tier-label">{tier.label}</span>
-                    <span className="tier-count">{tierCities.length} {ui.citiesLabel}</span>
-                  </div>
-                  <div className="city-list">
-                    {tierCities.map((city) => {
-                      const pillarScores = {
-                        pressure: city.pressureScore,
-                        viability: city.viabilityScore,
-                        capability: city.capabilityScore,
-                        community: city.communityScore,
-                        creative: city.creativeScore,
-                      };
-                      return (
-                        <div
-                          key={city.cityId}
-                          className="rankings-city-row"
-                          role="button"
-                          tabIndex={0}
-                          onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}
-                          onKeyDown={(e) => { if (e.key === "Enter") onNavigate(`/city/${city.cityId}` as SitePath); }}
-                          style={{ cursor: "pointer" }}
-                        >
-                          <div style={{ minWidth: 0 }}>
-                            <div className="city-name-row">
-                              <span className="city-display-name">{city.displayName}</span>
-                              <span className="city-country">{city.country}</span>
-                            </div>
-                            <div className="rankings-pillar-bars">
-                              {PILLAR_ORDER.map((pid) => (
-                                <div key={pid}>
-                                  <div style={{ width: `${pillarScores[pid]}%`, background: PILLAR_COLORS[pid] }} />
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-
-                          <span className="city-tier-arrow">&#8250;</span>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              );
-            });
-          })()}
-        </section>
-
-        {/* ═══════ THE LAUNCH ═══════ */}
-        <section className="launch-section section">
-          <p className="eyebrow">{launchCopy[locale].eyebrow}</p>
-
-          <div className="launch-hero-grid">
-            <figure className="launch-hero-photo">
-              <img src={LAUNCH_PHOTOS.hero} alt={launchCopy[locale].photoCaption} loading="lazy" />
-              <figcaption>{launchCopy[locale].photoCaption}</figcaption>
-            </figure>
-
-            <div className="launch-hero-text">
-              <h2>{launchCopy[locale].title}</h2>
-              <p className="launch-inline-stats">
-                {launchCopy[locale].stats.map((s, i) => (
-                  <span key={s.label}>
-                    {i > 0 && " · "}
-                    <span className="launch-inline-stat">{s.value}</span> {s.label}
-                  </span>
-                ))}
-              </p>
-              <p>{launchCopy[locale].paragraphs[0]}</p>
-            </div>
-          </div>
-
-          <div className="launch-photo-strip">
-            {[LAUNCH_PHOTOS.stage, LAUNCH_PHOTOS.slide, LAUNCH_PHOTOS.laptop, LAUNCH_PHOTOS.networking].map((src) => (
-              <img key={src} src={src} alt="" loading="lazy" />
-            ))}
-          </div>
-
-          <div className="launch-narrative">
-            {launchCopy[locale].paragraphs.slice(1).map((p, i) => (
-              <p key={i}>{p}</p>
-            ))}
-            <blockquote className="launch-pullquote">
-              {launchCopy[locale].pullquote}
-            </blockquote>
-          </div>
-        </section>
-
-        {/* ═══════ THE THESIS ═══════ */}
-        <section className="thesis section" id="methodology">
-          <p className="eyebrow">{locale === "en" ? "The thesis" : locale === "th" ? "แก่นความคิด" : "核心论点"}</p>
-          <h2 className="thesis-title">{editorialCopy.manifestoTitle}</h2>
-          <pre className="manifesto-formula thesis-formula">{editorialCopy.manifestoFormula}</pre>
-
-          <div className="thesis-pillars-strip">
-            {data.pillars.map((pillar) => (
-              <div className="thesis-pillar" key={pillar.id}>
-                <span className="thesis-pillar-dot" style={{ background: PILLAR_COLORS[pillar.id as PillarId] }} />
-                <h4>{pillar.name}</h4>
-                <p>{pillar.description}</p>
+              <span className="v3-city-card-name">{city.displayName}</span>
+              <span className="v3-city-card-country">{city.country}</span>
+              <div className="v3-city-card-bars">
+                {PILLAR_ORDER.map((pid) => {
+                  const score = city[`${pid}Score` as keyof typeof city] as number;
+                  return <div key={pid} style={{ width: `${score}%`, background: PILLAR_COLORS[pid] }} />;
+                })}
               </div>
+            </button>
+          ))}
+        </div>
+      </section>
+
+      {/* ═══════ 04. BETA + GAMMA — Expandable ═══════ */}
+      <section className="section v3-lower-tiers">
+        <div className="v3-lower-tier-row">
+          <span className="v3-tier-badge v3-tier-badge--beta">β BETA</span>
+          <div className="v3-lower-tier-cities">
+            {results.slice(10, 20).sort((a, b) => a.displayName.localeCompare(b.displayName)).map((city) => (
+              <button key={city.cityId} className="v3-tier-chip" onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}>
+                {city.displayName} <span>{city.country}</span>
+              </button>
             ))}
           </div>
-
-          <PillarWeightChart pillars={methodology.pillars} compact shareLabel={methodology.weightChartLabel} />
-
-          <blockquote className="thesis-doctrine-quote">
-            <strong>{editorialCopy.manifestoDoctrine[0].title}</strong>
-            <p>{editorialCopy.manifestoDoctrine[0].body}</p>
-          </blockquote>
-
-          <div className="section-actions">
-            <a
-              className="primary-action"
-              href="/methodology"
-              onClick={(event) => navigateLink(event, onNavigate, "/methodology")}
-            >
-              {editorialCopy.methodologyAction}
-            </a>
+        </div>
+        <div className="v3-lower-tier-row">
+          <span className="v3-tier-badge v3-tier-badge--gamma">γ GAMMA</span>
+          <div className="v3-lower-tier-cities">
+            {results.slice(20, 30).sort((a, b) => a.displayName.localeCompare(b.displayName)).map((city) => (
+              <button key={city.cityId} className="v3-tier-chip" onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}>
+                {city.displayName} <span>{city.country}</span>
+              </button>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-      </main>
+      {/* ═══════ 05. SPIDER — Now it's your turn ═══════ */}
+      <section className="v3-spider-full">
+        <div className="section">
+          <h2 className="v3-section-title">{locale === "en" ? "NOW MAKE YOUR OWN." : locale === "th" ? "ตอนนี้สร้างของคุณเอง" : "现在自己来"}</h2>
+          <p className="v3-spider-hint">{locale === "en" ? "Drag the spider. Crank growth to 100% — watch Singapore and Jakarta rise. Max viability — safe, clean cities float up. This is your ranking, not ours." : ui.allocatorHint}</p>
+          <div className="v3-spider-layout">
+            <div className="v3-spider-chart">
+              <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={380} />
+              <button type="button" className="rankings-reset-btn" onClick={handleReset}>{ui.resetLabel}</button>
+            </div>
+            <div className="v3-spider-results">
+              {consequences.length > 0 && (
+                <div className="v3-tradeoffs">
+                  {consequences.slice(0, 3).map((c) => (
+                    <div key={c.id} className={severityClass[c.severity]}><p>{c.narrative}</p></div>
+                  ))}
+                </div>
+              )}
+              <div className="v3-spider-list">
+                {displayResults.slice(0, 15).map((city, i) => (
+                  <button key={city.cityId} className="v3-spider-row" onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}>
+                    <span className="v3-spider-rank">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="v3-spider-name">{city.displayName}</span>
+                    <span className="v3-spider-country">{city.country}</span>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-          </div> {/* end page-frame */}
-        </div> {/* end page-shell */}
-        <SiteFooter onNavigate={onNavigate} locale={locale} />
+      {/* ═══════ 06. CTA — Go deeper ═══════ */}
+      <section className="v3-cta-section section">
+        <a className="v3-cta" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>
+          {locale === "en" ? "READ THE METHODOLOGY" : "อ่าน METHODOLOGY"} &rarr;
+        </a>
+        <a className="v3-cta-secondary" href="/about-slic" onClick={(e) => { e.preventDefault(); onNavigate("/about-slic"); }}>
+          {locale === "en" ? "ABOUT SLIC" : "เกี่ยวกับ SLIC"}
+        </a>
+        <a className="v3-cta-secondary" href="/history" onClick={(e) => { e.preventDefault(); onNavigate("/history"); }}>
+          {locale === "en" ? "THE JOURNEY" : "เบื้องหลัง"}
+        </a>
+      </section>
+
+      <SiteFooter onNavigate={onNavigate} locale={locale} />
     </>
   );
 }
