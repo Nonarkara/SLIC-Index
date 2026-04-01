@@ -5106,7 +5106,7 @@ section[id] {
 
 /* ── Tier groups — V3 Warm Indie ── */
 .tier-group {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .tier-header {
@@ -5227,13 +5227,13 @@ section[id] {
 /* ═══════ V3 CITY TICKER — scrolling photo strip ═══════ */
 .v3-city-ticker {
   overflow: hidden;
-  padding: 6rem 0 0;
+  padding: 5.5rem 0 0;
 }
 
 .v3-city-ticker-track {
   display: flex;
-  gap: 8px;
-  animation: ticker-scroll 40s linear infinite;
+  gap: 3px;
+  animation: ticker-scroll 35s linear infinite;
   width: max-content;
 }
 
@@ -5245,8 +5245,8 @@ section[id] {
 .v3-ticker-card {
   position: relative;
   flex-shrink: 0;
-  width: 280px;
-  height: 180px;
+  width: 220px;
+  height: 130px;
   overflow: hidden;
 }
 
@@ -5277,14 +5277,13 @@ section[id] {
 
 /* ═══════ V3 HERO — BRUTALIST ELECTRIC ═══════ */
 .v3-hero {
-  min-height: 100vh;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 8rem clamp(2rem, 5vw, 6rem) 4rem;
+  justify-content: flex-start;
+  padding: 2rem clamp(2rem, 5vw, 6rem) 3rem;
   position: relative;
   overflow: hidden;
-  background: transparent;
 }
 
 .v3-hero::before {
@@ -5320,14 +5319,13 @@ section[id] {
 
 .v3-hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(48px, 8vw, 140px);
+  font-size: clamp(42px, 7vw, 96px);
   font-weight: 700;
-  line-height: 0.88;
-  letter-spacing: -0.05em;
-  margin: 0 0 48px;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  margin: 0 0 24px;
   white-space: pre-line;
-  max-width: 1100px;
-  text-shadow: 0 0 80px rgba(0, 255, 136, 0.15);
+  max-width: 800px;
 }
 
 .v3-hero-divider {
@@ -5338,28 +5336,28 @@ section[id] {
 }
 
 .v3-hero-sub {
-  font-size: 18px;
-  line-height: 1.7;
-  max-width: 600px;
-  margin: 0 0 40px;
-  opacity: 0.6;
+  font-size: 15px;
+  line-height: 1.65;
+  max-width: 520px;
+  margin: 0 0 24px;
+  opacity: 0.55;
 }
 
 /* Launch event banner */
 .v3-hero-launch-banner {
   display: flex;
   align-items: center;
-  gap: 20px;
-  margin-bottom: 40px;
+  gap: 12px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
 }
 
 .v3-launch-event {
   display: flex;
   flex-direction: column;
-  gap: 2px;
-  padding: 12px 20px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  gap: 1px;
+  padding: 8px 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .v3-launch-event--active {
@@ -5399,22 +5397,22 @@ section[id] {
 
 .v3-hero-actions {
   display: flex;
-  gap: 16px;
-  margin-bottom: 48px;
+  gap: 12px;
+  margin-bottom: 24px;
   flex-wrap: wrap;
 }
 
 .v3-cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 16px 36px;
+  gap: 6px;
+  padding: 12px 24px;
   background: var(--accent-cyan);
   color: #000000;
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
   transition: all 0.15s;
@@ -5422,21 +5420,21 @@ section[id] {
 
 .v3-cta:hover {
   background: #ffffff;
-  box-shadow: 0 0 30px rgba(0, 255, 136, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.25);
 }
 
 .v3-cta-secondary {
   display: inline-flex;
   align-items: center;
-  padding: 16px 36px;
+  padding: 12px 24px;
   background: transparent;
   color: var(--text);
   font-family: var(--font-mono);
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  border: 2px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   text-decoration: none;
   transition: all 0.15s;
 }
@@ -5473,10 +5471,10 @@ section[id] {
 
 .v3-section-title {
   font-family: var(--font-heading);
-  font-size: clamp(24px, 4vw, 40px);
+  font-size: clamp(20px, 3vw, 32px);
   font-weight: 700;
-  letter-spacing: -0.03em;
-  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+  margin: 0 0 6px;
 }
 
 .v3-spider-header {
@@ -6104,7 +6102,7 @@ section[id] {
 /* ═══════ CITY SCORECARD ═══════ */
 
 .scorecard-hero {
-  padding-top: 7rem;
+  padding-top: 6rem;
 }
 
 .scorecard-back {
@@ -6268,7 +6266,7 @@ section[id] {
 .scorecard-pillars {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.25rem;
 }
 
 .scorecard-pillar-section {
@@ -6553,13 +6551,13 @@ section[id] {
 
 /* 02. Story — V1 → V2 → V3 */
 .v3-story {
-  padding: 6rem 0;
+  padding: 3rem 0;
 }
 
 .v3-story-chapter {
   max-width: 900px;
   margin: 0 auto;
-  padding: 4rem clamp(2rem, 5vw, 6rem);
+  padding: 2.5rem clamp(1.5rem, 4vw, 4rem);
   border-bottom: 1px solid var(--border);
 }
 
@@ -6576,9 +6574,9 @@ section[id] {
 .v3-story-chapter--photo {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
-  max-width: 1200px;
+  max-width: 1100px;
 }
 
 .v3-story-img {
@@ -6646,12 +6644,12 @@ section[id] {
 
 /* 03. Alpha tier — big cards */
 .v3-alpha {
-  padding: 6rem 0;
-  border-top: 4px solid var(--accent-cyan);
+  padding: 3rem 0;
+  border-top: 3px solid var(--accent-cyan);
 }
 
 .v3-alpha-header {
-  margin-bottom: 3rem;
+  margin-bottom: 1.5rem;
 }
 
 .v3-tier-badge {
@@ -6691,8 +6689,8 @@ section[id] {
 
 .v3-alpha-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 4px;
 }
 
 .v3-city-card {
@@ -6781,10 +6779,10 @@ section[id] {
 
 /* 04. Beta + Gamma — compact chip rows */
 .v3-lower-tiers {
-  padding: 4rem 0;
+  padding: 2rem 0;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .v3-lower-tier-row {
@@ -6828,17 +6826,17 @@ section[id] {
 
 /* 05. Spider — full experience */
 .v3-spider-full {
-  padding: 6rem 0;
-  border-top: 4px solid var(--accent-amber);
+  padding: 3rem 0;
+  border-top: 3px solid var(--accent-amber);
   background: rgba(255, 255, 255, 0.02);
 }
 
 .v3-spider-layout {
   display: grid;
   grid-template-columns: auto 1fr;
-  gap: 3rem;
+  gap: 2rem;
   align-items: start;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 .v3-spider-chart {
@@ -6905,11 +6903,12 @@ section[id] {
 
 /* 06. CTA section */
 .v3-cta-section {
-  padding: 6rem 0;
+  padding: 3rem 0;
   display: flex;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
+  border-top: 1px solid var(--border);
 }
 
 @media (max-width: 768px) {
