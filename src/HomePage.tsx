@@ -269,21 +269,21 @@ const launchCopy: Record<Locale, {
   photoCaption: string;
 }> = {
   en: {
-    eyebrow: "The Launch",
-    title: "The SLIC Index Launched on the World\u2019s Smartest Stage",
+    eyebrow: "V1 \u2192 V2 \u2192 V3: The Story",
+    title: "From a Spreadsheet to a Movement",
     stats: [
-      { value: "174", label: "cities" },
-      { value: "53", label: "countries" },
-      { value: "3,000+", label: "professionals" },
-      { value: "2,250", label: "booths" },
+      { value: "V1", label: "Busan #1" },
+      { value: "V2", label: "Taipei launch" },
+      { value: "V3", label: "tiers, not ranks" },
+      { value: "157", label: "cities" },
     ],
     paragraphs: [
-      "Dr. Non Arkara from Thailand\u2019s Digital Economy Promotion Agency (depa) was one of two keynote speakers at the City Vision stage\u2014the centerpiece of the Smart City Summit & Expo (SCSE) 2026 in Taipei. The Vice President of Taiwan opened the event. The Mayor of Taipei spoke on stage. Foreign ministers and city leaders from around the world gathered under one roof.",
-      "He showed them a war dashboard built in 45 minutes\u2014satellite data from NASA mapping real-time conflict zones. A bus tracker for Phuket that runs without GPS. A citizen reporting system that cut response times from 67 hours to 2 hours. Then he launched the SLIC Index. 103 cities. Five dimensions. Kaohsiung: #1. Taipei: #2. Bangkok: #4. Singapore: #8.",
-      "The room went quiet. Then the questions started. A European mayor\u2019s alliance asked to use it instead of The Economist\u2019s index. City leaders from across Asia and the Americas came up afterward: \u201CCan you do this for my city?\u201D",
+      "V1 was a spreadsheet. Busan came out on top. We thought we were done. We were wrong.",
+      "V2 launched at the Smart City Summit & Expo 2026 in Taipei \u2014 the world\u2019s biggest smart city stage. The Vice President of Taiwan opened it. Dr. Non showed a war dashboard built in 45 minutes, a bus tracker running without GPS, a citizen system that cut response times from 67 hours to 2. Then: the SLIC Index. 103 cities. Five dimensions. Kaohsiung #1. The room went quiet. A European mayor\u2019s alliance asked to use it instead of The Economist\u2019s index. City leaders lined up: \u201CCan you do this for my city?\u201D",
+      "V3 grew up. We realized that arguing whether city #7 beats city #8 by 0.3 points is absurd. So we built tiers \u2014 Alpha, Beta, Gamma \u2014 and made every single number traceable to its source. Click any city and you see exactly where the score comes from: which data, which formula, which source. We added growth momentum, penalized overwork and suicide rates, rewarded tolerance and cultural diversity. Cities that look good on paper but crush their residents got pushed down. Cities where people actually want to live rose up.",
     ],
-    pullquote: "\u201CWe built an index. You build the ranking.\u201D",
-    photoCaption: "City Vision in Action stage, SCSE 2026, Taipei",
+    pullquote: "\u201CWe stopped ranking. We started telling the truth.\u201D",
+    photoCaption: "City Vision in Action, SCSE 2026, Taipei",
   },
   th: {
     eyebrow: "การเปิดตัว",
@@ -418,42 +418,42 @@ export default function HomePage({
         <div className="float-orb" style={{ width: '700px', height: '700px', background: 'rgba(168, 85, 247, 0.08)', bottom: '-10%', left: '20%', animationDelay: '-10s' }} />
         <div className="page-frame">
 
-      {/* ═══════ V3 HERO — BRUTALIST, MASSIVE ═══════ */}
+      {/* ═══════ V3 HERO ═══════ */}
       <header className="v3-hero">
         <div className="v3-hero-overline">SLIC V3 / 2026</div>
         <h1 className="v3-hero-title">
-          {"EVERY CITY\nIS A LIE\nUNTIL YOU\nSEE THE\nNUMBERS."}
+          {locale === "en" ? "CITIES\nDON'T LIE.\nNUMBERS DO." : locale === "th" ? "เมืองไม่โกหก\nตัวเลขต่างหากที่โกหก" : "城市不说谎\n数字才会"}
         </h1>
         <div className="v3-hero-divider" />
         <p className="v3-hero-sub">
           {locale === "en"
-            ? "157 cities. 3 tiers. Every score traceable to its source. Click any city — we show you exactly how the number was built. No hidden formulas. No prestige bias."
+            ? "V1 ranked cities by score. V2 launched on the world's biggest smart city stage and got people excited. V3 grew up. We stopped pretending 0.3 points means anything. We built tiers, made every number traceable, and let you drag the priorities yourself."
             : locale === "th"
-              ? "157 เมือง 3 ระดับ ทุกคะแนนสืบย้อนได้ถึงแหล่งที่มา คลิกเมืองใดก็ได้ — เราแสดงให้คุณเห็นว่าตัวเลขถูกสร้างขึ้นอย่างไร"
-              : "157 座城市，3 个梯队，每个分数都可追溯来源。点击任何城市——我们展示数字是如何构建的。"}
+              ? "V1 จัดอันดับเมืองตามคะแนน V2 เปิดตัวบนเวทีสมาร์ทซิตี้ที่ใหญ่ที่สุดในโลก V3 เติบโตขึ้น เราเลิกแกล้งทำเป็นว่า 0.3 คะแนนมีความหมาย"
+              : "V1 按分数排列城市。V2 在全球最大的智慧城市舞台上发布。V3 成熟了。我们不再假装 0.3 分有什么意义。"}
         </p>
         <div className="v3-hero-actions">
-          <a className="v3-cta" href="/rankings" onClick={(e) => { e.preventDefault(); onNavigate("/rankings"); }}>
-            EXPLORE TIERS &rarr;
+          <a className="v3-cta" href="#tiers" onClick={(e) => { e.preventDefault(); document.getElementById("tiers")?.scrollIntoView({ behavior: "smooth" }); }}>
+            {locale === "en" ? "SEE THE TIERS" : locale === "th" ? "ดูระดับเมือง" : "查看梯队"} &darr;
           </a>
           <a className="v3-cta-secondary" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>
-            METHODOLOGY
+            {locale === "en" ? "HOW IT WORKS" : locale === "th" ? "วิธีการทำงาน" : "工作原理"}
           </a>
         </div>
         <div className="v3-hero-counter">
           <span className="v3-counter-num">{visitors.toLocaleString()}</span>
-          <span className="v3-counter-label">people have checked since launch</span>
+          <span className="v3-counter-label">{locale === "en" ? "people checked since Taipei launch" : locale === "th" ? "คนตรวจสอบตั้งแต่เปิดตัวที่ไทเป" : "人自台北发布以来检查过"}</span>
         </div>
       </header>
 
-      {/* ═══════ SPIDER — interactive tool ═══════ */}
-      <section className="section v3-spider-section">
+      {/* ═══════ SPIDER — YOUR PRIORITIES ═══════ */}
+      <section className="section v3-spider-section" id="spider">
         <div className="v3-spider-header">
-          <h2 className="v3-section-title">DRAG. SHIFT. RERANK.</h2>
-          <p className="v3-spider-hint">{locale === "en" ? "What do you value? Move the spider — watch cities reorder in real time." : ui.allocatorHint}</p>
+          <h2 className="v3-section-title">{locale === "en" ? "YOUR CITY. YOUR RULES." : locale === "th" ? "เมืองของคุณ กฎของคุณ" : "你的城市，你的规则"}</h2>
+          <p className="v3-spider-hint">{locale === "en" ? "Drag the spider. Crank growth to 100% and watch Singapore and Jakarta rise. Max viability and see safe, clean cities float up. This is your ranking — not ours." : ui.allocatorHint}</p>
         </div>
         <div className="v3-spider-wrap">
-          <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={400} />
+          <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={420} />
           <button type="button" className="rankings-reset-btn" onClick={handleReset}>
             {ui.resetLabel}
           </button>
@@ -462,7 +462,7 @@ export default function HomePage({
 
       <main>
         {/* ═══════ WORKBENCH: Filters + City Results ═══════ */}
-        <section className="section workbench-section">
+        <section className="section workbench-section" id="tiers">
           {/* Trade-off insights — compact strip */}
           {consequences.length > 0 && (
             <div className="tradeoff-strip">

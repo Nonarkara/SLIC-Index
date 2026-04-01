@@ -416,12 +416,12 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       eyebrow: "Methodology paper",
       title: "The SLIC methodology",
       strapline:
-        "A mathematically explicit city ranking for livability, belonging, ambition, and real room to live.",
+        "V3: Not a ranking anymore. A diagnostic tool that shows you exactly how the numbers work.",
       intro:
-        "SLIC was built as a direct alternative to rankings that over-reward wealth, polished systems, and prestige branding while underweighting safety, pressure, affordability, tolerance, business energy, and the lived texture of urban life. The public model keeps one declared formula, one declared source ladder, visible coverage rules, and a city-by-city worksheet that can be audited and replicated.",
-      doctrineTitle: "Official doctrine",
+        "V1 was a spreadsheet that put Busan at #1. V2 launched on stage in Taipei and got city leaders asking: can you do this for my city? V3 grew up. We stopped pretending that 0.3 points separating two cities means anything. We built tiers (Alpha, Beta, Gamma), made every number traceable to its source, added growth momentum and tolerance as real metrics, penalized overwork and crushing rent, and let you drag the priorities yourself. The model is open. The formula is declared. Every city can be audited.",
+      doctrineTitle: "V3 Doctrine",
       doctrineBody:
-        "Rank cities where people can live well, belong, and become more. SLIC is not a GDP table, not a gadget score, and not a comfort-only ranking.",
+        "A city is not a spreadsheet. It is a place where people try to build a life. SLIC measures whether that life is affordable, safe, culturally rich, tolerant, growing, and possible — not whether the city looks impressive from a helicopter.",
       contextTitle: "Country-context inputs",
       contextItems: [
         "GDP per capita (PPP)",
