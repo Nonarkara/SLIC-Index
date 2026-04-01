@@ -412,7 +412,28 @@ export default function HomePage({
   return (
     <>
       {/* ═══════ HERO: Title left + Spider right — visible on load ═══════ */}
-      {/* ═══════ 01. HERO ═══════ */}
+      {/* ═══════ 01. HERO — with city photo strip ═══════ */}
+      <div className="v3-city-ticker">
+        <div className="v3-city-ticker-track">
+          {[
+            { city: "Taipei", url: "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=400&h=260&fit=crop" },
+            { city: "Bangkok", url: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=400&h=260&fit=crop" },
+            { city: "Busan", url: "https://images.unsplash.com/photo-1552751753-0fc84ae4b8f2?w=400&h=260&fit=crop" },
+            { city: "Fukuoka", url: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=400&h=260&fit=crop" },
+            { city: "Kaohsiung", url: "https://images.unsplash.com/photo-1553708881-112abc53fe54?w=400&h=260&fit=crop" },
+            { city: "Lyon", url: "https://images.unsplash.com/photo-1524396309943-e03f5249f002?w=400&h=260&fit=crop" },
+            { city: "Montreal", url: "https://images.unsplash.com/photo-1519178614-68673b201f36?w=400&h=260&fit=crop" },
+            { city: "Katowice", url: "https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=400&h=260&fit=crop" },
+            { city: "Santiago", url: "https://images.unsplash.com/photo-1510253687831-0f982bda0e78?w=400&h=260&fit=crop" },
+            { city: "Raleigh", url: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=400&h=260&fit=crop" },
+          ].map((c, i) => (
+            <div key={i} className="v3-ticker-card">
+              <img src={c.url} alt={c.city} loading="lazy" />
+              <span>{c.city}</span>
+            </div>
+          ))}
+        </div>
+      </div>
       <header className="v3-hero">
         <div className="v3-hero-overline">SLIC V3 / LAUNCHING AT GITEX SINGAPORE 2026</div>
         <h1 className="v3-hero-title">
@@ -478,29 +499,47 @@ export default function HomePage({
         </div>
       </section>
 
-      {/* ═══════ 03. ALPHA TIER — The headline cities ═══════ */}
+      {/* ═══════ 03. ALPHA TIER — with city photos ═══════ */}
       <section className="v3-alpha" id="tiers">
         <div className="v3-alpha-header section">
           <span className="v3-tier-badge v3-tier-badge--alpha">α ALPHA</span>
-          <h2 className="v3-alpha-title">{locale === "en" ? "10 cities. 4 continents. Click any to see the numbers." : "10 เมือง 4 ทวีป คลิกเมืองใดก็ได้เพื่อดูตัวเลข"}</h2>
+          <h2 className="v3-alpha-title">{locale === "en" ? "10 cities. 4 continents. These are real places — click any to see why." : "10 เมือง 4 ทวีป สถานที่จริง — คลิกเพื่อดูว่าทำไม"}</h2>
         </div>
         <div className="v3-alpha-grid section">
-          {results.slice(0, 10).sort((a, b) => a.displayName.localeCompare(b.displayName)).map((city) => (
-            <button
-              key={city.cityId}
-              className="v3-city-card"
-              onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}
-            >
-              <span className="v3-city-card-name">{city.displayName}</span>
-              <span className="v3-city-card-country">{city.country}</span>
-              <div className="v3-city-card-bars">
-                {PILLAR_ORDER.map((pid) => {
-                  const score = city[`${pid}Score` as keyof typeof city] as number;
-                  return <div key={pid} style={{ width: `${score}%`, background: PILLAR_COLORS[pid] }} />;
-                })}
-              </div>
-            </button>
-          ))}
+          {results.slice(0, 10).sort((a, b) => a.displayName.localeCompare(b.displayName)).map((city) => {
+            const cityPhotos: Record<string, string> = {
+              "th-bangkok": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=600&h=400&fit=crop",
+              "kr-busan": "https://images.unsplash.com/photo-1552751753-0fc84ae4b8f2?w=600&h=400&fit=crop",
+              "jp-fukuoka": "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=600&h=400&fit=crop",
+              "tw-kaohsiung": "https://images.unsplash.com/photo-1553708881-112abc53fe54?w=600&h=400&fit=crop",
+              "pl-katowice": "https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=600&h=400&fit=crop",
+              "fr-lyon": "https://images.unsplash.com/photo-1524396309943-e03f5249f002?w=600&h=400&fit=crop",
+              "ca-montreal": "https://images.unsplash.com/photo-1519178614-68673b201f36?w=600&h=400&fit=crop",
+              "us-raleigh": "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=600&h=400&fit=crop",
+              "cl-santiago": "https://images.unsplash.com/photo-1510253687831-0f982bda0e78?w=600&h=400&fit=crop",
+              "tw-taipei": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=600&h=400&fit=crop",
+            };
+            const photo = cityPhotos[city.cityId];
+            return (
+              <button
+                key={city.cityId}
+                className="v3-city-card v3-city-card--photo"
+                onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}
+              >
+                {photo && <img src={photo} alt={city.displayName} loading="lazy" className="v3-city-card-img" />}
+                <div className="v3-city-card-overlay">
+                  <span className="v3-city-card-name">{city.displayName}</span>
+                  <span className="v3-city-card-country">{city.country}</span>
+                  <div className="v3-city-card-bars">
+                    {PILLAR_ORDER.map((pid) => {
+                      const score = city[`${pid}Score` as keyof typeof city] as number;
+                      return <div key={pid} style={{ width: `${score}%`, background: PILLAR_COLORS[pid] }} />;
+                    })}
+                  </div>
+                </div>
+              </button>
+            );
+          })}
         </div>
       </section>
 
