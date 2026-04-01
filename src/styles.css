@@ -5233,7 +5233,7 @@ section[id] {
   padding: 8rem clamp(2rem, 5vw, 6rem) 4rem;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.9) 100%);
+  background: transparent;
 }
 
 .v3-hero::before {

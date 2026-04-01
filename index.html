@@ -11,43 +11,9 @@
       name="description"
       content="157 cities. 3 tiers. Every score traceable. Not a ranking — a reality check."
     />
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   </head>
   <body>
-    <!-- Satellite map background -->
-    <div id="sat-map" style="position:fixed;inset:0;z-index:0;opacity:0.2;pointer-events:none;"></div>
-    <script>
-      (function() {
-        var m = L.map('sat-map', {
-          zoomControl: false, attributionControl: false,
-          dragging: false, scrollWheelZoom: false,
-          doubleClickZoom: false, keyboard: false,
-        }).setView([25, 105], 4);
-        L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-          maxZoom: 18,
-        }).addTo(m);
-        var cities = [
-          [25.05, 121.56], [22.63, 120.30], [35.18, 129.07],
-          [13.75, 100.52], [33.59, 130.40], [34.69, 135.19],
-          [35.68, 51.39], [45.50, -73.57], [40.44, -79.99],
-          [-33.44, -70.65], [48.86, 2.35], [50.26, 19.02],
-        ];
-        var idx = 0;
-        function fly() {
-          m.flyTo(cities[idx], 5 + Math.random() * 3, { duration: 12 });
-          idx = (idx + 1) % cities.length;
-        }
-        fly();
-        setInterval(fly, 14000);
-        window.addEventListener('scroll', function() {
-          var t = window.scrollY / (document.body.scrollHeight - window.innerHeight);
-          var ci = Math.floor(t * (cities.length - 1));
-          m.panTo(cities[Math.min(ci, cities.length - 1)], { animate: false });
-        }, { passive: true });
-      })();
-    </script>
-    <div id="root" style="position:relative;z-index:1;"></div>
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
