@@ -83,16 +83,16 @@ const severityClass: Record<string, string> = {
 const HERO_PHOTO = "/launch-photos/20260318145941_DSC09480.jpg";
 
 const CITY_PHOTOS: Record<string, string> = {
-  "th-bangkok": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=600&h=400&fit=crop",
-  "kr-busan": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&h=400&fit=crop",
-  "jp-fukuoka": "https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&h=400&fit=crop",
-  "tw-kaohsiung": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop",
-  "pl-katowice": "https://images.unsplash.com/photo-1558431382-27e303142255?w=600&h=400&fit=crop",
-  "fr-lyon": "https://images.unsplash.com/photo-1509439581779-6298f75bf6e5?w=600&h=400&fit=crop",
-  "ca-montreal": "https://images.unsplash.com/photo-1519178614-68673b201f36?w=600&h=400&fit=crop",
-  "us-raleigh": "https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd?w=600&h=400&fit=crop",
-  "cl-santiago": "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=600&h=400&fit=crop",
-  "tw-taipei": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=600&h=400&fit=crop",
+  "th-bangkok": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=600&h=400&fit=crop&q=80",
+  "kr-busan": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&h=400&fit=crop&q=80",
+  "jp-fukuoka": "https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&h=400&fit=crop&q=80",
+  "tw-kaohsiung": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop&q=80",
+  "pl-katowice": "https://images.unsplash.com/photo-1558431382-27e303142255?w=600&h=400&fit=crop&q=80",
+  "fr-lyon": "https://images.unsplash.com/photo-1509439581779-6298f75bf6e5?w=600&h=400&fit=crop&q=80",
+  "ca-montreal": "https://images.unsplash.com/photo-1462891667534-9e0e29fa116c?w=600&h=400&fit=crop&q=80",
+  "us-raleigh": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop&q=80",
+  "cl-santiago": "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=600&h=400&fit=crop&q=80",
+  "tw-taipei": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=600&h=400&fit=crop&q=80",
 };
 
 /* ───── t() helper ───── */
@@ -164,13 +164,13 @@ export default function HomePage({
         <img src={HERO_PHOTO} alt="SCSE 2026 Taipei" className="v3-hero-bg" />
         <div className="v3-hero-content section">
           <h1 className="v3-hero-title">
-            {t(locale, "Not a ranking.\nA reality check.", "ไม่ใช่การจัดอันดับ\nแต่คือความจริง", "不是排名\n而是现实检验")}
+            {t(locale, "Where can you\nstill build a life?", "เมืองไหน\nยังสร้างชีวิตได้?", "哪座城市\n还能安身立命?")}
           </h1>
           <p className="v3-hero-sub">
             {t(locale,
-              "157 cities. 5 pillars. Every score traceable. Click any city \u2014 see exactly where every number comes from.",
-              "157 เมือง 5 เสาหลัก ทุกคะแนนสืบย้อนได้ คลิกเมืองไหนก็ได้ \u2014 ดูที่มาของทุกตัวเลข",
-              "157 座城市 5 大支柱 每个分数都可追溯 点击任何城市 \u2014 查看每个数字的来源")}
+              "Not prestige. Not GDP. What\u2019s left after rent, how long you work, whether your neighbors tolerate you. 157 cities scored on what actually matters. Every number traceable.",
+              "ไม่ใช่ชื่อเสียง ไม่ใช่ GDP แต่คือเงินเหลือหลังค่าเช่า ชั่วโมงทำงาน และว่าเพื่อนบ้านรับคุณได้ไหม 157 เมือง วัดในสิ่งที่สำคัญจริง ทุกตัวเลขสืบย้อนได้",
+              "不比声望 不比GDP 而是租房后还剩多少 工作多久 邻居是否包容你 157座城市 只衡量真正重要的事 每个数字都可追溯")}
           </p>
           <div className="v3-hero-actions">
             <a className="v3-cta" href="#tiers" onClick={(e) => { e.preventDefault(); document.getElementById("tiers")?.scrollIntoView({ behavior: "smooth" }); }}>
