@@ -1,72 +1,45 @@
-import { useEffect, useId, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import LocaleSwitch from "./LocaleSwitch";
 import { slicLogo } from "./brandAssets";
-import publishedData from "./data/publishedRankingData.json";
 import { getCopy } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
-
-const cityCount = (publishedData.cities ?? []).length || 157;
 
 const mastheadCopy: Record<
   Locale,
   {
-    brandTitle: string;
-    brandSubtitle: string;
     goHome: string;
     primaryNavigation: string;
-    liveScope: string;
-    cities: string;
-    signals: string;
-    languages: string;
     openNavigation: string;
     closeNavigation: string;
   }
 > = {
   en: {
-    brandTitle: "SLIC V3",
-    brandSubtitle: "Smart and Liveable Cities Index",
     goHome: "Go to home",
     primaryNavigation: "Primary navigation",
-    liveScope: "Live model scope",
-    cities: "cities",
-    signals: "signals",
-    languages: "languages",
     openNavigation: "Open navigation",
     closeNavigation: "Close navigation",
   },
   th: {
-    brandTitle: "SLIC V3",
-    brandSubtitle: "ดัชนีเมืองฉลาดและน่าอยู่",
     goHome: "กลับสู่หน้าแรก",
     primaryNavigation: "เมนูหลัก",
-    liveScope: "ขอบเขตโมเดลสด",
-    cities: "เมือง",
-    signals: "สัญญาณ",
-    languages: "ภาษา",
     openNavigation: "เปิดเมนูนำทาง",
     closeNavigation: "ปิดเมนูนำทาง",
   },
   zh: {
-    brandTitle: "SLIC V3",
-    brandSubtitle: "智慧与宜居城市指数",
     goHome: "返回首页",
     primaryNavigation: "主导航",
-    liveScope: "实时模型范围",
-    cities: "城市",
-    signals: "信号",
-    languages: "语言",
     openNavigation: "打开导航",
     closeNavigation: "关闭导航",
   },
 };
 
 const navPaths: SitePath[] = [
-  "/",
-  "/about-slic",
   "/rankings",
+  "/compare",
   "/methodology",
   "/thailand",
   "/ideas",
+  "/about-slic",
   "/history",
 ];
 
@@ -97,6 +70,10 @@ function navLabel(path: SitePath, locale: Locale): string {
     return copy.nav.ideas;
   }
 
+  if (path === "/compare") {
+    return copy.nav.compare;
+  }
+
   if (path === "/history") {
     return copy.nav.history;
   }
@@ -115,109 +92,110 @@ export default function SiteMasthead({
   onLocaleChange: (locale: Locale) => void;
   onNavigate: (path: SitePath) => void;
 }) {
-  const copy = getCopy(locale);
   const ui = mastheadCopy[locale];
   const navPanelId = useId();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const lastScrollY = useRef(0);
 
   useEffect(() => {
     setMenuOpen(false);
   }, [currentPath, locale]);
+
+  const handleScroll = useCallback(() => {
+    const y = window.scrollY;
+    if (y < 80) {
+      setHidden(false);
+    } else if (y > lastScrollY.current + 5) {
+      setHidden(true);
+    } else if (y < lastScrollY.current - 5) {
+      setHidden(false);
+    }
+    lastScrollY.current = y;
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll]);
 
   const handleNavigate = (path: SitePath) => {
     setMenuOpen(false);
     onNavigate(path);
   };
 
+  const cls = [
+    "site-masthead",
+    menuOpen ? "is-open" : "",
+    hidden && !menuOpen ? "is-hidden" : "",
+  ].filter(Boolean).join(" ");
+
   return (
-    <header className={menuOpen ? "site-masthead is-open" : "site-masthead"}>
-      <div className="site-masthead-frame">
-        <div className="site-masthead-row site-masthead-row-primary">
+    <header className={cls}>
+      <div className="masthead-bar">
+        {/* Brand mark */}
+        <button
+          type="button"
+          className="masthead-brand"
+          onClick={() => handleNavigate("/")}
+          aria-label={ui.goHome}
+        >
+          <img src={slicLogo.src} alt={slicLogo.alt} className="masthead-logo-img" />
+          <span className="masthead-brand-name">SLIC</span>
+        </button>
+
+        {/* Desktop nav */}
+        <nav className="masthead-nav" aria-label={ui.primaryNavigation}>
+          {navPaths.map((path) => (
+            <button
+              key={path}
+              type="button"
+              className={path === currentPath ? "masthead-link active" : "masthead-link"}
+              onClick={() => handleNavigate(path)}
+              aria-current={path === currentPath ? "page" : undefined}
+            >
+              {navLabel(path, locale)}
+            </button>
+          ))}
+        </nav>
+
+        {/* Right side: locale + hamburger */}
+        <div className="masthead-right">
+          <LocaleSwitch locale={locale} onChange={onLocaleChange} />
           <button
             type="button"
-            className="masthead-brand"
-            onClick={() => handleNavigate("/")}
-            aria-label={ui.goHome}
+            className={menuOpen ? "masthead-hamburger active" : "masthead-hamburger"}
+            aria-expanded={menuOpen}
+            aria-controls={navPanelId}
+            aria-label={menuOpen ? ui.closeNavigation : ui.openNavigation}
+            onClick={() => setMenuOpen((open) => !open)}
           >
-            <span className="masthead-logo" aria-hidden="true">
-              <img src={slicLogo.src} alt={slicLogo.alt} />
-            </span>
-            <span className="masthead-brand-copy">
-              <strong>{ui.brandTitle}</strong>
-              <span>{ui.brandSubtitle}</span>
-            </span>
+            <span /><span /><span />
           </button>
+        </div>
+      </div>
 
-          <div className="masthead-utility">
-            <div className="masthead-locale">
-              <LocaleSwitch locale={locale} onChange={onLocaleChange} />
-            </div>
+      {/* Mobile dropdown */}
+      <div className={menuOpen ? "masthead-mobile-panel is-open" : "masthead-mobile-panel"} id={navPanelId}>
+        <nav className="masthead-mobile-nav">
+          <button
+            type="button"
+            className={currentPath === "/" ? "masthead-mobile-link active" : "masthead-mobile-link"}
+            onClick={() => handleNavigate("/")}
+          >
+            {navLabel("/", locale)}
+          </button>
+          {navPaths.map((path) => (
             <button
+              key={path}
               type="button"
-              className={menuOpen ? "masthead-menu-toggle active" : "masthead-menu-toggle"}
-              aria-expanded={menuOpen}
-              aria-controls={navPanelId}
-              aria-label={menuOpen ? ui.closeNavigation : ui.openNavigation}
-              onClick={() => setMenuOpen((open) => !open)}
+              className={path === currentPath ? "masthead-mobile-link active" : "masthead-mobile-link"}
+              onClick={() => handleNavigate(path)}
             >
-              <span />
-              <span />
-              <span />
+              {navLabel(path, locale)}
             </button>
-          </div>
-        </div>
-
-        <div className={menuOpen ? "masthead-nav-panel is-open" : "masthead-nav-panel"} id={navPanelId}>
-          <div className="site-masthead-row site-masthead-row-secondary">
-            <nav className="masthead-nav" aria-label={ui.primaryNavigation}>
-              {navPaths.map((path) => (
-                <button
-                  key={path}
-                  type="button"
-                  className={path === currentPath ? "masthead-nav-link active" : "masthead-nav-link"}
-                  onClick={() => handleNavigate(path)}
-                  aria-current={path === currentPath ? "page" : undefined}
-                >
-                  {navLabel(path, locale)}
-                </button>
-              ))}
-              <a
-                href="https://slic-index.onrender.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="masthead-nav-link time-machine-link"
-              >
-                <span className="time-machine-icon" aria-hidden="true">⏱️</span>
-                {copy.nav.timeMachine}
-              </a>
-            </nav>
-
-            <div className="masthead-status-rail">
-              <div className="masthead-status">
-                <span className="masthead-status-dot" aria-hidden="true" />
-                <div>
-                  <strong>{copy.shared.liveStatus}</strong>
-                  <span>{copy.shared.liveScope}</span>
-                </div>
-              </div>
-
-              <div className="masthead-meta-rail" aria-label={ui.liveScope}>
-                <article>
-                  <strong>{cityCount}</strong>
-                  <span>{ui.cities}</span>
-                </article>
-                <article>
-                  <strong>24/7</strong>
-                  <span>{ui.signals}</span>
-                </article>
-                <article>
-                  <strong>3</strong>
-                  <span>{ui.languages}</span>
-                </article>
-              </div>
-            </div>
-          </div>
-        </div>
+          ))}
+        </nav>
       </div>
     </header>
   );

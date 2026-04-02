@@ -117,7 +117,7 @@ const DATA_LEVEL_LABELS: Record<string, string> = {
 
 /* ── Helpers ── */
 
-const normStats = (publishedData as any).normStats as Record<string, NormStat>;
+const _normStats = (publishedData as any).normStats as Record<string, NormStat>; void _normStats;
 const pillarMetrics = (publishedData as any).pillarMetrics as Record<string, PillarMetricEntry[]>;
 const allCities = (publishedData.cities ?? []) as PublishedCity[];
 
