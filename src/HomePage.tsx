@@ -21,11 +21,11 @@ const data = buildLandingData();
 type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
 const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#ff6b35",
-  viability: "#00ff88",
-  capability: "#4488ff",
-  community: "#ff3366",
-  creative: "#ffcc00",
+  pressure: "#b85c28",
+  viability: "#1a6b5a",
+  capability: "#2a5a8c",
+  community: "#8c4a2a",
+  creative: "#a0382a",
 };
 
 const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
@@ -412,60 +412,30 @@ export default function HomePage({
   return (
     <>
       {/* ═══════ HERO: Title left + Spider right — visible on load ═══════ */}
-      {/* ═══════ 01. HERO — with city photo strip ═══════ */}
-      <div className="v3-city-ticker">
-        <div className="v3-city-ticker-track">
-          {[
-            { city: "Taipei", url: "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=400&h=260&fit=crop" },
-            { city: "Bangkok", url: "https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=400&h=260&fit=crop" },
-            { city: "Busan", url: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=400&h=260&fit=crop" },
-            { city: "Fukuoka", url: "https://images.unsplash.com/photo-1590559899731-a382839e5549?w=400&h=260&fit=crop" },
-            { city: "Kaohsiung", url: "https://images.unsplash.com/photo-1612611741877-8eb20280b20b?w=400&h=260&fit=crop" },
-            { city: "Lyon", url: "https://images.unsplash.com/photo-1600267185723-6aa0e2a58e5b?w=400&h=260&fit=crop" },
-            { city: "Montreal", url: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=260&fit=crop" },
-            { city: "Katowice", url: "https://images.unsplash.com/photo-1607427293702-036707553f38?w=400&h=260&fit=crop" },
-            { city: "Santiago", url: "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=400&h=260&fit=crop" },
-            { city: "Raleigh", url: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=260&fit=crop" },
-          ].map((c, i) => (
-            <div key={i} className="v3-ticker-card">
-              <img src={c.url} alt={c.city} loading="lazy" />
-              <span>{c.city}</span>
-            </div>
-          ))}
-        </div>
-      </div>
+      {/* ═══════ 01. HERO — Photo-led, personal story ═══════ */}
       <header className="v3-hero">
-        <div className="v3-hero-overline">SLIC V3 / LAUNCHING AT GITEX SINGAPORE 2026</div>
-        <h1 className="v3-hero-title">
-          {locale === "en" ? "WE KILLED\nTHE RANKING." : locale === "th" ? "เราฆ่า\nการจัดอันดับ" : "我们杀死了\n排名"}
-        </h1>
-        <div className="v3-hero-divider" />
-        <p className="v3-hero-sub">
-          {locale === "en"
-            ? "For the first time, a city index admits that ranking cities by decimal points is theatre. V3 replaces rankings with tiers. Groups of cities you can actually learn from. Every number traceable to its source. No more pretending."
-            : locale === "th"
-              ? "เป็นครั้งแรกที่ดัชนีเมืองยอมรับว่าการจัดอันดับด้วยจุดทศนิยมเป็นเรื่องหลอกลวง V3 แทนที่อันดับด้วยระดับ กลุ่มเมืองที่คุณเรียนรู้จากกันได้จริง"
-              : "城市指数第一次承认，用小数点排名城市是表演。V3 用梯队取代排名。你可以真正学习的城市群。每个数字都可追溯。"}
-        </p>
-        <div className="v3-hero-launch-banner">
-          <div className="v3-launch-event">
-            <span className="v3-launch-venue">SCSE TAIPEI 2026</span>
-            <span className="v3-launch-status">V2 LAUNCHED</span>
+        <img src={LAUNCH_PHOTOS.hero} alt="SCSE 2026 Taipei" className="v3-hero-bg" />
+        <div className="v3-hero-content section">
+          <p className="v3-overline">SLIC V3 &middot; GITEX Singapore 2026</p>
+          <h1 className="v3-hero-title">
+            {locale === "en" ? "I stopped\nranking cities." : locale === "th" ? "ผมเลิก\nจัดอันดับเมือง" : "我不再\n给城市排名了"}
+          </h1>
+          <p className="v3-hero-sub">
+            {locale === "en"
+              ? "V2 launched in Taipei to 3,000 people. European mayors wanted to replace The Economist\u2019s index with ours. Then I realized: fighting over 0.3 points between city #7 and #8 is absurd. So I threw out the ranking and built tiers instead."
+              : locale === "th"
+                ? "V2 เปิดตัวที่ไทเปต่อหน้า 3,000 คน นายกเทศมนตรียุโรปอยากใช้แทน The Economist แล้วผมก็ตระหนัก: การเถียงเรื่อง 0.3 คะแนนมันไร้สาระ ผมจึงโยนอันดับทิ้งแล้วสร้างระดับขึ้นมาแทน"
+                : "V2 在台北面向 3000 人发布。然后我意识到：争论 0.3 分是荒谬的。于是我扔掉了排名，建立了梯队。"}
+          </p>
+          <div className="v3-hero-actions">
+            <a className="v3-cta" href="#story" onClick={(e) => { e.preventDefault(); document.getElementById("story")?.scrollIntoView({ behavior: "smooth" }); }}>
+              {locale === "en" ? "The full story" : "เรื่องราวทั้งหมด"} &darr;
+            </a>
+            <a className="v3-cta-secondary" href="#tiers" onClick={(e) => { e.preventDefault(); document.getElementById("tiers")?.scrollIntoView({ behavior: "smooth" }); }}>
+              {locale === "en" ? "Skip to tiers" : "ข้ามไประดับเมือง"}
+            </a>
           </div>
-          <div className="v3-launch-arrow">&rarr;</div>
-          <div className="v3-launch-event v3-launch-event--active">
-            <span className="v3-launch-venue">GITEX SINGAPORE 2026</span>
-            <span className="v3-launch-status">V3 LAUNCHES HERE</span>
-          </div>
-        </div>
-        <div className="v3-hero-actions">
-          <a className="v3-cta" href="#tiers" onClick={(e) => { e.preventDefault(); document.getElementById("tiers")?.scrollIntoView({ behavior: "smooth" }); }}>
-            {locale === "en" ? "SEE WHAT REPLACED IT" : "ดูว่าอะไรมาแทน"} &darr;
-          </a>
-        </div>
-        <div className="v3-hero-counter">
-          <span className="v3-counter-num">{visitors.toLocaleString()}</span>
-          <span className="v3-counter-label">{locale === "en" ? "people checked since Taipei" : "คนตรวจสอบตั้งแต่ไทเป"}</span>
+          <p className="v3-hero-visitors">{visitors.toLocaleString()} {locale === "en" ? "visitors since Taipei launch" : "คนตั้งแต่เปิดตัวที่ไทเป"}</p>
         </div>
       </header>
 
