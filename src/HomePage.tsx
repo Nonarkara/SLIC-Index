@@ -82,17 +82,39 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
   [weights]);
   const handleReset = () => setPillars(PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: EQUAL_WEIGHT })));
 
+  /* ── rotating mottos ── */
+  const mottos: string[][] = [
+    ["Where can you still\nbuild a life?", "เมืองไหน\nยังสร้างชีวิตได้?", "哪座城市\n还能安身立命?"],
+    ["What\u2019s left\nafter rent?", "จ่ายค่าเช่าแล้ว\nเหลืออะไร?", "付完房租\n还剩什么?"],
+    ["Not a ranking.\nA reality check.", "ไม่ใช่การจัดอันดับ\nแต่คือความจริง", "不是排名\n而是现实检验"],
+    ["Does your city\nwork for you?", "เมืองของคุณ\nทำงานให้คุณไหม?", "你的城市\n为你服务吗?"],
+    ["157 cities.\nNo bullshit.", "157 เมือง\nไม่มีมุก", "157座城市\n没有废话"],
+  ];
+
+  const [mottoIndex, setMottoIndex] = useState(0);
+  const [mottoFade, setMottoFade] = useState(true);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setMottoFade(false);
+      setTimeout(() => {
+        setMottoIndex((i) => (i + 1) % mottos.length);
+        setMottoFade(true);
+      }, 600);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [mottos.length]);
+
+  const currentMotto = mottos[mottoIndex];
+
   return (
     <>
-      {/* ════ 01. OPENING — typographic, no photo, just the question ════ */}
+      {/* ════ 01. OPENING — typographic, rotating mottos ════ */}
       <header className="hp-opening">
         <div className="hp-opening-inner section">
           <p className="hp-kicker">{t(locale, "SLIC Index V3", "ดัชนี SLIC V3", "SLIC 指数 V3")}</p>
-          <h1 className="hp-headline">
-            {t(locale,
-              "Where can you still\nbuild a life?",
-              "เมืองไหน\nยังสร้างชีวิตได้?",
-              "哪座城市\n还能安身立命?")}
+          <h1 className={mottoFade ? "hp-headline hp-headline--visible" : "hp-headline hp-headline--fading"}>
+            {t(locale, currentMotto[0], currentMotto[1], currentMotto[2])}
           </h1>
           <p className="hp-deck">
             {t(locale,
