@@ -417,15 +417,15 @@ export default function HomePage({
         <div className="v3-city-ticker-track">
           {[
             { city: "Taipei", url: "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=400&h=260&fit=crop" },
-            { city: "Bangkok", url: "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=400&h=260&fit=crop" },
-            { city: "Busan", url: "https://images.unsplash.com/photo-1552751753-0fc84ae4b8f2?w=400&h=260&fit=crop" },
-            { city: "Fukuoka", url: "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=400&h=260&fit=crop" },
-            { city: "Kaohsiung", url: "https://images.unsplash.com/photo-1553708881-112abc53fe54?w=400&h=260&fit=crop" },
-            { city: "Lyon", url: "https://images.unsplash.com/photo-1524396309943-e03f5249f002?w=400&h=260&fit=crop" },
-            { city: "Montreal", url: "https://images.unsplash.com/photo-1519178614-68673b201f36?w=400&h=260&fit=crop" },
-            { city: "Katowice", url: "https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=400&h=260&fit=crop" },
-            { city: "Santiago", url: "https://images.unsplash.com/photo-1510253687831-0f982bda0e78?w=400&h=260&fit=crop" },
-            { city: "Raleigh", url: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=400&h=260&fit=crop" },
+            { city: "Bangkok", url: "https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=400&h=260&fit=crop" },
+            { city: "Busan", url: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=400&h=260&fit=crop" },
+            { city: "Fukuoka", url: "https://images.unsplash.com/photo-1590559899731-a382839e5549?w=400&h=260&fit=crop" },
+            { city: "Kaohsiung", url: "https://images.unsplash.com/photo-1612611741877-8eb20280b20b?w=400&h=260&fit=crop" },
+            { city: "Lyon", url: "https://images.unsplash.com/photo-1600267185723-6aa0e2a58e5b?w=400&h=260&fit=crop" },
+            { city: "Montreal", url: "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=260&fit=crop" },
+            { city: "Katowice", url: "https://images.unsplash.com/photo-1607427293702-036707553f38?w=400&h=260&fit=crop" },
+            { city: "Santiago", url: "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=400&h=260&fit=crop" },
+            { city: "Raleigh", url: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=260&fit=crop" },
           ].map((c, i) => (
             <div key={i} className="v3-ticker-card">
               <img src={c.url} alt={c.city} loading="lazy" />
@@ -508,16 +508,16 @@ export default function HomePage({
         <div className="v3-alpha-grid section">
           {results.slice(0, 10).sort((a, b) => a.displayName.localeCompare(b.displayName)).map((city) => {
             const cityPhotos: Record<string, string> = {
-              "th-bangkok": "https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=600&h=400&fit=crop",
-              "kr-busan": "https://images.unsplash.com/photo-1552751753-0fc84ae4b8f2?w=600&h=400&fit=crop",
-              "jp-fukuoka": "https://images.unsplash.com/photo-1524413840807-0c3cb6fa808d?w=600&h=400&fit=crop",
-              "tw-kaohsiung": "https://images.unsplash.com/photo-1553708881-112abc53fe54?w=600&h=400&fit=crop",
-              "pl-katowice": "https://images.unsplash.com/photo-1519197924294-4ba991a11128?w=600&h=400&fit=crop",
-              "fr-lyon": "https://images.unsplash.com/photo-1524396309943-e03f5249f002?w=600&h=400&fit=crop",
-              "ca-montreal": "https://images.unsplash.com/photo-1519178614-68673b201f36?w=600&h=400&fit=crop",
-              "us-raleigh": "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=600&h=400&fit=crop",
-              "cl-santiago": "https://images.unsplash.com/photo-1510253687831-0f982bda0e78?w=600&h=400&fit=crop",
-              "tw-taipei": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=600&h=400&fit=crop",
+              "th-bangkok": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=600&h=400&fit=crop",  // Wat Arun temple
+              "kr-busan": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&h=400&fit=crop",    // Gamcheon Culture Village
+              "jp-fukuoka": "https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&h=400&fit=crop",   // Canal City / Fukuoka cityscape
+              "tw-kaohsiung": "https://images.unsplash.com/photo-1612611741877-8eb20280b20b?w=600&h=400&fit=crop", // Dragon Tiger Tower lotus pond
+              "pl-katowice": "https://images.unsplash.com/photo-1607427293702-036707553f38?w=600&h=400&fit=crop",  // Spodek arena / Silesian skyline
+              "fr-lyon": "https://images.unsplash.com/photo-1600267185723-6aa0e2a58e5b?w=600&h=400&fit=crop",     // Fourviere basilica over Saone
+              "ca-montreal": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop",     // Old Montreal / Bonsecours
+              "us-raleigh": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop",   // NC State Capitol / downtown
+              "cl-santiago": "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=600&h=400&fit=crop",  // Andes + Santiago skyline
+              "tw-taipei": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=600&h=400&fit=crop",    // Taipei 101 cityscape
             };
             const photo = cityPhotos[city.cityId];
             return (
