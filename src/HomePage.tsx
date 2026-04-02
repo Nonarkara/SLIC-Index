@@ -481,10 +481,10 @@ export default function HomePage({
               "th-bangkok": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=600&h=400&fit=crop",  // Wat Arun temple
               "kr-busan": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&h=400&fit=crop",    // Gamcheon Culture Village
               "jp-fukuoka": "https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&h=400&fit=crop",   // Canal City / Fukuoka cityscape
-              "tw-kaohsiung": "https://images.unsplash.com/photo-1612611741877-8eb20280b20b?w=600&h=400&fit=crop", // Dragon Tiger Tower lotus pond
-              "pl-katowice": "https://images.unsplash.com/photo-1607427293702-036707553f38?w=600&h=400&fit=crop",  // Spodek arena / Silesian skyline
-              "fr-lyon": "https://images.unsplash.com/photo-1600267185723-6aa0e2a58e5b?w=600&h=400&fit=crop",     // Fourviere basilica over Saone
-              "ca-montreal": "https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=400&fit=crop",     // Old Montreal / Bonsecours
+              "tw-kaohsiung": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop", // Harbor / port city
+              "pl-katowice": "https://images.unsplash.com/photo-1558431382-27e303142255?w=600&h=400&fit=crop",  // Industrial heritage cityscape
+              "fr-lyon": "https://images.unsplash.com/photo-1509439581779-6298f75bf6e5?w=600&h=400&fit=crop",     // European river city
+              "ca-montreal": "https://images.unsplash.com/photo-1559587142-1ef3e3b37c14?w=600&h=400&fit=crop",     // Montreal skyline
               "us-raleigh": "https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&h=400&fit=crop",   // NC State Capitol / downtown
               "cl-santiago": "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=600&h=400&fit=crop",  // Andes + Santiago skyline
               "tw-taipei": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=600&h=400&fit=crop",    // Taipei 101 cityscape

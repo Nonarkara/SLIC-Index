@@ -1693,6 +1693,7 @@ section[id] {
   border: 1px solid var(--border);
   background: rgba(248, 245, 240, 0.95);
   backdrop-filter: blur(18px);
+  box-shadow: 0 2px 12px rgba(28, 25, 20, 0.06);
   box-shadow: 0 1px 3px rgba(30, 40, 60, 0.06);
   pointer-events: auto;
 }
@@ -5289,6 +5290,7 @@ section[id] {
 .v3-hero-content {
   position: relative;
   z-index: 1;
+  padding-top: 10rem;
   padding-bottom: 4rem;
   color: #fff;
 }
