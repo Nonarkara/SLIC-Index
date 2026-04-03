@@ -159,7 +159,10 @@ export default function SiteFooter({
             {copy.nav.history}
           </a>
           <a href="https://slic-index.onrender.com" target="_blank" rel="noopener noreferrer">
-            {copy.nav.timeMachine}
+            V1 Archive
+          </a>
+          <a href="https://slic-index-v2.onrender.com" target="_blank" rel="noopener noreferrer">
+            V2 Archive
           </a>
         </nav>
         <p className="site-footer-note">{copy.footer.note}</p>

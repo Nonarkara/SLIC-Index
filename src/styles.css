@@ -7539,8 +7539,8 @@ section[id] {
   align-items: center;
   gap: 8px;
   margin: 1.5rem auto;
-  max-width: 360px;
-  padding: 1.5rem;
+  max-width: 440px;
+  padding: 1.5rem 2rem;
   background: var(--text);
   border-radius: 12px;
 }

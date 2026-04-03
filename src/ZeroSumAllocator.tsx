@@ -194,7 +194,7 @@ const SpiderWebChart: FC<{
             <circle
               cx={pt.x}
               cy={pt.y}
-              r={30}
+              r={40}
               fill="transparent"
               style={{ cursor: "grab" }}
               data-index={i}
@@ -204,7 +204,7 @@ const SpiderWebChart: FC<{
             <circle
               cx={pt.x}
               cy={pt.y}
-              r={isDragging ? 11 : 8}
+              r={isDragging ? 13 : 10}
               fill={p.color}
               stroke="#fff"
               strokeWidth={isDragging ? 3 : 2}
