@@ -11,6 +11,9 @@ const MethodologyPage = lazy(() => import("./MethodologyPage"));
 const RankingsPage = lazy(() => import("./RankingsPage"));
 const SlicProfilePage = lazy(() => import("./SlicProfilePage"));
 const ThailandPage = lazy(() => import("./ThailandPage"));
+const HistoryPage = lazy(() => import("./HistoryPage"));
+const CompareRankingsPage = lazy(() => import("./CompareRankingsPage"));
+const CityScorecardPage = lazy(() => import("./CityScorecardPage"));
 
 type DocumentWithViewTransition = Document & {
   startViewTransition?: Document["startViewTransition"];
@@ -41,10 +44,22 @@ function resolvePath(pathname: string): SitePath {
     return "/ideas";
   }
 
+  if (pathname === "/compare") {
+    return "/compare";
+  }
+
+  if (pathname === "/history") {
+    return "/history";
+  }
+
+  if (pathname.startsWith("/city/")) {
+    return "/city";
+  }
+
   return "/";
 }
 
-function commitRoute(path: SitePath): SitePath {
+function commitRoute(path: SitePath | string): SitePath {
   if (window.location.pathname !== path) {
     window.history.pushState({}, "", path);
   }
@@ -148,6 +163,20 @@ export default function App() {
                   : locale === "zh"
                     ? "偷师这个创意"
                     : "Steal This Idea"
+              : route === "/compare"
+                ? locale === "th"
+                  ? "เปรียบเทียบดัชนี"
+                  : locale === "zh"
+                    ? "对比排名"
+                    : "Compare Rankings"
+              : route === "/history"
+                ? locale === "th"
+                  ? "เบื้องหลัง SLIC"
+                  : locale === "zh"
+                    ? "SLIC 发展历程"
+                    : "How SLIC Was Built"
+              : route === "/city"
+                ? "City Scorecard"
                 : locale === "th"
                   ? "สร้างอันดับเมืองของคุณ"
                   : locale === "zh"
@@ -157,7 +186,7 @@ export default function App() {
     document.title = `${routeTitle} · ${localeTitlePrefix}`;
   }, [locale, route]);
 
-  const navigate = (path: SitePath) => {
+  const navigate = (path: SitePath | string) => {
     const nextRoute = resolvePath(path);
     const doc = document as DocumentWithViewTransition;
 
@@ -197,6 +226,12 @@ export default function App() {
             <ThailandPage onNavigate={navigate} locale={locale} />
           ) : route === "/ideas" ? (
             <IdeasPage onNavigate={navigate} locale={locale} onLocaleChange={setLocale} />
+          ) : route === "/compare" ? (
+            <CompareRankingsPage onNavigate={navigate} locale={locale} />
+          ) : route === "/history" ? (
+            <HistoryPage onNavigate={navigate} locale={locale} />
+          ) : route === "/city" ? (
+            <CityScorecardPage onNavigate={navigate} locale={locale} />
           ) : (
             <HomePage onNavigate={navigate} locale={locale} />
           )}

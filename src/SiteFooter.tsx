@@ -146,9 +146,6 @@ export default function SiteFooter({
           <a href="/rankings" onClick={(event) => navigateLink(event, onNavigate, "/rankings")}>
             {copy.nav.rankings}
           </a>
-          <a href="/exercise" onClick={(event) => navigateLink(event, onNavigate, "/exercise")}>
-            {copy.nav.exercise}
-          </a>
           <a href="/methodology" onClick={(event) => navigateLink(event, onNavigate, "/methodology")}>
             {copy.nav.methodology}
           </a>
@@ -157,6 +154,12 @@ export default function SiteFooter({
           </a>
           <a href="/ideas" onClick={(event) => navigateLink(event, onNavigate, "/ideas")}>
             {copy.nav.ideas}
+          </a>
+          <a href="/history" onClick={(event) => navigateLink(event, onNavigate, "/history")}>
+            {copy.nav.history}
+          </a>
+          <a href="https://slic-index.onrender.com" target="_blank" rel="noopener noreferrer">
+            {copy.nav.timeMachine}
           </a>
         </nav>
         <p className="site-footer-note">{copy.footer.note}</p>

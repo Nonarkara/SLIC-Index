@@ -91,35 +91,23 @@ const SpiderWebChart: FC<{
         )}
       </defs>
 
-      <circle cx={cx} cy={cy} r={maxR + 76} fill="url(#allocatorSurfaceGlow)" />
-      <circle cx={cx} cy={cy} r={maxR + 26} fill="rgba(9, 15, 31, 0.82)" stroke="rgba(140, 170, 220, 0.14)" strokeWidth="1.5" />
-      <circle cx={cx} cy={cy} r={maxR + 44} fill="none" stroke="rgba(227, 75, 44, 0.1)" strokeWidth="1" />
-
-      {rings.map((frac) => (
-        <g key={frac}>
-          <polygon
-            points={pillars
-              .map((_, index) => {
-                const point = polarToCartesian(cx, cy, maxR * frac, index * step);
-                return `${point.x},${point.y}`;
-              })
-              .join(" ")}
-            fill="none"
-            stroke={frac === 1 ? "rgba(123, 167, 255, 0.2)" : "rgba(140, 170, 220, 0.12)"}
-            strokeWidth={frac === 1 ? 1.3 : 1}
-            strokeDasharray={frac === 1 ? "none" : "4 6"}
-          />
-          <text
-            x={cx + 6}
-            y={cy - maxR * frac + 4}
-            fontSize={9}
-            fill="rgba(226, 232, 240, 0.26)"
-            fontFamily="'JetBrains Mono', monospace"
-          >
-            {Math.round(frac * total)}
-          </text>
-        </g>
-      ))}
+      {/* Background rings — labels moved to non-interfering position */}
+      <g style={{ pointerEvents: "none" }}>
+        {rings.map((frac) => (
+          <g key={frac}>
+            <polygon
+              points={Array.from({ length: n }, (_, i) => {
+                const p = polarToCartesian(cx, cy, maxR * frac, i * step);
+                return `${p.x},${p.y}`;
+              }).join(" ")}
+              fill="none"
+              stroke="rgba(255,255,255,0.06)"
+              strokeWidth={frac === 1.0 ? 1.5 : 0.8}
+              strokeDasharray={frac < 1.0 ? "3 3" : "none"}
+            />
+          </g>
+        ))}
+      </g>
 
       {pillars.map((pillar, index) => {
         const end = polarToCartesian(cx, cy, maxR, index * step);
@@ -137,46 +125,43 @@ const SpiderWebChart: FC<{
         );
       })}
 
-      {pillars.map((pillar, index) => {
-        const current = polarToCartesian(cx, cy, (pillars[index].value / total) * maxR, index * step);
-        const nextIndex = (index + 1) % pillars.length;
-        const next = polarToCartesian(cx, cy, (pillars[nextIndex].value / total) * maxR, nextIndex * step);
-        return (
-          <path
-            key={`${pillar.id}-wedge`}
-            d={`M ${cx} ${cy} L ${current.x} ${current.y} L ${next.x} ${next.y} Z`}
-            fill={pillar.color}
-            fillOpacity={0.07}
-            style={{ transition: draggingIndex !== null ? "none" : "d 160ms ease" }}
-          />
-        );
-      })}
-
+      {/* Filled radar area — non-interactive so handles underneath can be grabbed */}
       <path
-        d={radarPath(
-          cx,
-          cy,
-          maxR,
-          pillars.map((pillar) => pillar.value),
-          total,
-        )}
-        fill="url(#allocatorRadarFill)"
-        stroke="url(#allocatorRadarStroke)"
-        strokeWidth={2.6}
+        d={radarPath(cx, cy, maxR, pillars.map((p) => p.value), total)}
+        fill="url(#radarFill)"
+        stroke="rgba(99,179,237,0.7)"
+        strokeWidth={2.5}
         strokeLinejoin="round"
-        filter={draggingIndex !== null ? "url(#allocatorGlow)" : undefined}
-        style={{ transition: draggingIndex !== null ? "none" : "d 160ms ease" }}
+        style={{ transition: draggingIndex !== null ? "none" : "d 0.12s cubic-bezier(0.16,1,0.3,1)", pointerEvents: "none" }}
       />
 
-      {pillars.map((pillar, index) => {
-        const radius = (pillar.value / total) * maxR;
-        const point = polarToCartesian(cx, cy, radius, index * step);
-        const labelPoint = polarToCartesian(cx, cy, labelR, index * step);
-        const isDragging = draggingIndex === index;
-        const labelWidth = Math.max(94, pillar.label.length * 9.6);
-        const labelX = clamp(labelPoint.x - labelWidth / 2, 12, canvas - labelWidth - 12);
-        const labelY = clamp(labelPoint.y - 18, 12, canvas - 64);
-        const valueX = clamp(labelPoint.x - 27, 12, canvas - 66);
+      {/* Colored segment fills — wedge from center to vertex (non-interactive) */}
+      <g style={{ pointerEvents: "none" }}>
+        {pillars.map((p, i) => {
+          const r = (p.value / total) * maxR;
+          const pt = polarToCartesian(cx, cy, r, i * step);
+          const nextIdx = (i + 1) % n;
+          const nextR = (pillars[nextIdx].value / total) * maxR;
+          const nextPt = polarToCartesian(cx, cy, nextR, nextIdx * step);
+          return (
+            <path
+              key={`wedge-${p.id}`}
+              d={`M ${cx} ${cy} L ${pt.x} ${pt.y} L ${nextPt.x} ${nextPt.y} Z`}
+              fill={p.color}
+              fillOpacity={0.06}
+              style={{ transition: draggingIndex !== null ? "none" : "d 0.12s cubic-bezier(0.16,1,0.3,1)" }}
+            />
+          );
+        })}
+      </g>
+
+      {/* Vertex dots + labels */}
+      {pillars.map((p, i) => {
+        const r = (p.value / total) * maxR;
+        const pt = polarToCartesian(cx, cy, r, i * step);
+        const labelR = maxR + 36;
+        const labelPt = polarToCartesian(cx, cy, labelR, i * step);
+        const isDragging = draggingIndex === i;
 
         return (
           <g key={pillar.id}>
@@ -205,16 +190,33 @@ const SpiderWebChart: FC<{
               strokeDasharray="3 5"
             />
 
-            <rect
-              x={labelX}
-              y={labelY}
-              width={labelWidth}
-              height={28}
-              rx={14}
-              fill="rgba(8, 14, 28, 0.94)"
-              stroke={isDragging ? pillar.color : "rgba(140, 170, 220, 0.18)"}
-              strokeWidth={isDragging ? 1.4 : 1}
+            {/* Invisible larger hit target for easier grabbing */}
+            <circle
+              cx={pt.x}
+              cy={pt.y}
+              r={30}
+              fill="transparent"
+              style={{ cursor: "grab" }}
+              data-index={i}
             />
+
+            {/* Visible handle */}
+            <circle
+              cx={pt.x}
+              cy={pt.y}
+              r={isDragging ? 11 : 8}
+              fill={p.color}
+              stroke="#fff"
+              strokeWidth={isDragging ? 3 : 2}
+              style={{
+                cursor: "grab",
+                transition: isDragging ? "none" : "all 0.1s cubic-bezier(0.16,1,0.3,1)",
+                filter: isDragging ? "url(#glow)" : "none",
+              }}
+              data-index={i}
+            />
+
+            {/* Label with pillar name */}
             <text
               x={labelX + labelWidth / 2}
               y={labelY + 14}
@@ -436,46 +438,26 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
         />
       </div>
 
-      <div className="allocator-summary-grid">
-        {pillars.map((pillar, index) => (
-          <div
-            key={pillar.id}
-            className={`allocator-summary-chip${draggingIndex === index ? " is-active" : ""}`}
-            style={{ "--pillar-color": pillar.color } as CSSProperties}
-          >
-            <span>{pillar.label}</span>
-            <strong>{pillar.value}</strong>
-          </div>
-        ))}
-      </div>
-
-      <div className="allocator-slider-list">
-        {pillars.map((pillar, index) => (
-          <label
-            key={pillar.id}
-            className={`allocator-slider-card${draggingIndex === index ? " is-active" : ""}`}
-            style={{ "--pillar-color": pillar.color } as CSSProperties}
-          >
-            <div className="allocator-slider-head">
-              <div>
-                <span className="allocator-slider-name">{pillar.label}</span>
-                {descriptions[pillar.id] ? (
-                  <p className="allocator-slider-description">{descriptions[pillar.id]}</p>
-                ) : null}
-              </div>
-              <span className="allocator-slider-value">{pillar.value}</span>
+      {/* Slider controls */}
+      <div style={{ width: "100%", maxWidth: 420, display: "flex", flexDirection: "column", gap: 6 }}>
+        {pillars.map((p, i) => (
+          <div key={p.id} className="spider-slider-row">
+            <span className="spider-slider-dot" style={{ background: p.color }} />
+            <span className="spider-slider-label">{p.label}</span>
+            <div className="spider-slider-track">
+              <div className="spider-slider-fill" style={{ width: `${(p.value / max) * 100}%`, background: p.color }} />
+              <input
+                type="range"
+                min={min}
+                max={max}
+                value={p.value}
+                onChange={(e) => handleSliderChange(i, parseInt(e.target.value))}
+                className="spider-slider-input"
+                style={{ "--accent": p.color } as React.CSSProperties}
+              />
             </div>
-            <input
-              className="allocator-slider-input"
-              type="range"
-              min={min}
-              max={max}
-              step={1}
-              value={pillar.value}
-              onChange={(event) => handleSliderChange(index, parseInt(event.target.value, 10))}
-              aria-label={`${pillar.label} weight`}
-            />
-          </label>
+            <span className="spider-slider-value" style={{ color: p.color }}>{p.value}</span>
+          </div>
         ))}
       </div>
     </div>

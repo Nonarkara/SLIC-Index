@@ -75,6 +75,45 @@ const PILLAR_HINTS: Record<Locale, Record<PillarId, string>> = {
 
 const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
 
+/* ───── published data ───── */
+
+interface PublishedCity {
+  cityId: string;
+  displayName: string;
+  country: string;
+  region: string;
+  cityType: string;
+  coverageGrade: string;
+  manifestStatus: string;
+  pressureScore: number;
+  viabilityScore: number;
+  capabilityScore: number;
+  communityScore: number;
+  creativeScore: number;
+  slicScore: number;
+  rank: number;
+  rankingStatus: string;
+  overallWeightedCoverage?: number;
+  pressureCoverage?: number;
+  viabilityCoverage?: number;
+  capabilityCoverage?: number;
+  communityCoverage?: number;
+  creativeCoverage?: number;
+}
+
+const GRADE_COLORS: Record<string, string> = {
+  A: "#22c55e",
+  B: "#f59e0b",
+  C: "#f97316",
+};
+
+function coverageOpacity(coverage: number | undefined): number {
+  if (coverage === undefined) return 1;
+  if (coverage >= 75) return 1;
+  if (coverage >= 50) return 0.7;
+  return 0.4;
+}
+
 const CANONICAL = publishedData.canonicalWeights as Record<PillarId, number>;
 const indexedCities = getExerciseCities();
 
@@ -672,83 +711,59 @@ export default function RankingsPage({
                       </div>
                     </div>
 
-                    <div className="rankings-feature-grid">
-                      <article>
-                        <span>{ui.featureSignal}</span>
-                        <p>{featuredCity.signal}</p>
-                      </article>
-                      <article>
-                        <span>{ui.featurePriority}</span>
-                        <p>{describePriorityFit(featuredCity, weights, labels)}</p>
-                      </article>
-                      <article>
-                        <span>{ui.featureWhy}</span>
-                        <p>{featuredCity.inclusionRationale}</p>
-                      </article>
-                      <article>
-                        <span>{ui.featureTags}</span>
-                        <div className="rankings-tag-row">
-                          {featuredCity.tags.slice(0, 4).map((tag) => (
-                            <span key={tag}>{tag}</span>
-                          ))}
-                        </div>
-                      </article>
-                    </div>
+              {/* Coverage legend */}
+              <div className="coverage-legend">
+                {locale === "en" ? "Data coverage: " : locale === "th" ? "ครอบคลุมข้อมูล: " : "数据覆盖: "}
+                <span style={{ color: GRADE_COLORS.A }}>A</span> 75%+
+                {" · "}
+                <span style={{ color: GRADE_COLORS.B }}>B</span> 50–74%
+                {" · "}
+                <span style={{ color: GRADE_COLORS.C }}>C</span> 35–49%
+              </div>
 
-                    <div className="rankings-feature-bars">
-                      {scoreToBars(featuredCity).map((bar) => (
-                        <div key={bar.id} className="rankings-feature-bar">
-                          <div className="rankings-feature-bar-head">
-                            <span>{labels[bar.id]}</span>
-                            <strong>{bar.score}</strong>
-                          </div>
-                          <div className="rankings-feature-track">
-                            <div style={{ width: `${bar.score}%`, background: bar.color }} />
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </section>
-                ) : null}
-
-                {spotlightCities.length > 0 ? (
-                  <div className="rankings-spotlight-grid">
-                    {spotlightCities.map((city) => (
-                      <article key={city.id} className="rankings-spotlight-card">
-                        <div className="rankings-spotlight-head">
-                          <div>
-                            <h3>{city.name}</h3>
-                            <p>
-                              {city.country} · {city.region}
-                            </p>
-                          </div>
-                          <div className="rankings-spotlight-rank">
-                            <strong>#{city.customRank}</strong>
-                            <span>{formatRankShift(city.rankShift)}</span>
-                          </div>
-                        </div>
-                        <p className="rankings-spotlight-priority">{describePriorityFit(city, weights, labels)}</p>
-                        <div className="rankings-tag-row">
-                          {city.tags.slice(0, 3).map((tag) => (
-                            <span key={tag}>{tag}</span>
-                          ))}
+              {/* City list */}
+              <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                {displayResults.map((city, index) => {
+                  const pillarScores = {
+                    pressure: city.pressureScore,
+                    viability: city.viabilityScore,
+                    capability: city.capabilityScore,
+                    community: city.communityScore,
+                    creative: city.creativeScore,
+                  };
+                  const isTop = index < 3;
+                  return (
+                    <div
+                      key={city.cityId}
+                      className={`rankings-city-row${isTop ? " is-top" : ""}`}
+                      role="button"
+                      tabIndex={0}
+                      onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}
+                      onKeyDown={(e) => { if (e.key === "Enter") onNavigate(`/city/${city.cityId}` as SitePath); }}
+                      style={{ cursor: "pointer" }}
+                    >
+                      <div style={{ minWidth: 0 }}>
+                        <div className="city-name-row">
+                          <span className="city-display-name">{city.displayName}</span>
+                          <span className="city-country">{city.country}</span>
                         </div>
                         <div className="rankings-pillar-bars">
-                          {scoreToBars(city).map((bar) => (
-                            <div key={bar.id}>
-                              <div style={{ width: `${bar.score}%`, background: bar.color }} />
-                            </div>
-                          ))}
+                          {PILLAR_ORDER.map((pid) => {
+                            const covKey = `${pid}Coverage` as keyof PublishedCity;
+                            const cov = city[covKey] as number | undefined;
+                            return (
+                              <div key={pid}>
+                                <div style={{ width: `${pillarScores[pid]}%`, background: PILLAR_COLORS[pid], opacity: coverageOpacity(cov) }} />
+                              </div>
+                            );
+                          })}
                         </div>
-                      </article>
-                    ))}
-                  </div>
-                ) : null}
-
-                <section className="rankings-list-section">
-                  <div className="rankings-list-head">
-                    <h3>{ui.listTitle}</h3>
-                  </div>
+                      </div>
+                      <span className="city-tier-arrow">&#8250;</span>
+                    </div>
+                  );
+                })}
+              </div>
 
                   <div className="rankings-row-list">
                     {listCities.map((city) => (

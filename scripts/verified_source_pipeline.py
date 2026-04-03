@@ -388,6 +388,12 @@ CITY_FIELD_SPECS = [
         "freshness_class": "fast",
     },
     {
+        "field": "di_ppp_raw",
+        "label": "Disposable income PPP (Raw)",
+        "pillar": "pressure",
+        "required_for_ranking": "yes",
+    },
+    {
         "field": "rent",
         "label": "Rent",
         "pillar": "pressure",
@@ -623,17 +629,21 @@ CITY_FIELD_ORDER = [spec["field"] for spec in CITY_FIELD_SPECS]
 COUNTRY_FIELD_ORDER = [spec["field"] for spec in COUNTRY_FIELD_SPECS]
 
 METRIC_SPECS: dict[str, dict[str, object]] = {
-    "pressure_disposable_income_ppp": {"input_key": "di_ppp_raw", "weight": 9, "type": "direct"},
-    "pressure_housing_burden": {"input_key": "housing_burden_raw", "weight": 5, "type": "direct"},
+    # Pressure pillar: Can people actually live here without being crushed?
+    # Housing burden + suicide + overwork are the strongest signals of a city
+    # that drains people. Growth momentum rewards cities with economic future.
+    "pressure_disposable_income_ppp": {"input_key": "di_ppp_raw", "weight": 4, "type": "direct"},
+    "pressure_housing_burden": {"input_key": "housing_burden_raw", "weight": 8, "type": "direct"},
+    "pressure_economic_growth_momentum": {"input_key": "gdp_growth_context", "weight": 6, "type": "direct"},
     "pressure_household_debt_burden": {"input_key": "household_debt_effective_raw", "weight": 4, "type": "direct"},
-    "pressure_working_time_pressure": {"input_key": "working_time_pressure_raw", "weight": 4, "type": "direct"},
-    "pressure_suicide_mental_strain": {"input_key": "suicide_mental_strain_raw", "weight": 5, "type": "direct"},
+    "pressure_working_time_pressure": {"input_key": "working_time_pressure_raw", "weight": 7, "type": "direct"},
+    "pressure_suicide_mental_strain": {"input_key": "suicide_mental_strain_raw", "weight": 7, "type": "direct"},
     "viability_personal_safety": {"input_key": "personal_safety_raw", "weight": 5, "type": "direct"},
     "viability_transit_access_commute": {"input_key": "transit_access_commute_raw", "weight": 5, "type": "direct"},
     "viability_clean_air": {"input_key": "clean_air_raw", "weight": 4, "type": "direct"},
     "viability_water_sanitation_utility": {"input_key": "water_sanitation_utility_raw", "weight": 4, "type": "direct"},
     "viability_digital_infrastructure": {"input_key": "digital_infrastructure_raw", "weight": 4, "type": "direct"},
-    "viability_climate_sunlight_livability": {"input_key": "climate_sunlight_livability_raw", "weight": 5, "type": "direct"},
+    "viability_climate_sunlight_livability": {"input_key": "climate_sunlight_livability_raw", "weight": 7, "type": "direct"},
     "capability_healthcare_quality": {"input_key": "healthcare_quality_raw", "weight": 8, "type": "direct"},
     "capability_education_quality": {"input_key": "education_quality_raw", "weight": 6, "type": "direct"},
     "capability_equal_opportunity_distributional_fairness": {
@@ -644,14 +654,14 @@ METRIC_SPECS: dict[str, dict[str, object]] = {
             ("gini_coefficient_context", 0.3),
         ],
     },
-    "community_hospitality_belonging": {"input_key": "hospitality_belonging_raw", "weight": 5, "type": "direct"},
-    "community_tolerance_pluralism": {"input_key": "tolerance_pluralism_raw", "weight": 5, "type": "direct"},
+    "community_hospitality_belonging": {"input_key": "hospitality_belonging_raw", "weight": 6, "type": "direct"},
+    "community_tolerance_pluralism": {"input_key": "tolerance_pluralism_raw", "weight": 4, "type": "direct"},
     "community_cultural_historic_public_life_vitality": {
         "input_key": "cultural_public_life_raw",
-        "weight": 5,
+        "weight": 7,
         "type": "direct",
     },
-    "community_birth_rate_optimism": {"input_key": "birth_rate_optimism_raw", "weight": 4, "type": "direct"},
+    "community_birth_rate_optimism": {"input_key": "birth_rate_optimism_raw", "weight": 2, "type": "direct"},
     "creative_entrepreneurial_dynamism": {"input_key": "entrepreneurial_dynamism_raw", "weight": 6, "type": "direct"},
     "creative_innovation_research_intensity": {
         "input_key": "innovation_research_intensity_raw",
@@ -676,11 +686,12 @@ METRIC_SPECS: dict[str, dict[str, object]] = {
 
 PILLAR_METRICS = {
     "pressure": [
-        ("pressure_disposable_income_ppp", 9),
-        ("pressure_housing_burden", 5),
+        ("pressure_disposable_income_ppp", 4),
+        ("pressure_housing_burden", 8),
+        ("pressure_economic_growth_momentum", 6),
         ("pressure_household_debt_burden", 4),
-        ("pressure_working_time_pressure", 4),
-        ("pressure_suicide_mental_strain", 5),
+        ("pressure_working_time_pressure", 7),
+        ("pressure_suicide_mental_strain", 7),
     ],
     "viability": [
         ("viability_personal_safety", 5),
@@ -688,7 +699,7 @@ PILLAR_METRICS = {
         ("viability_clean_air", 4),
         ("viability_water_sanitation_utility", 4),
         ("viability_digital_infrastructure", 4),
-        ("viability_climate_sunlight_livability", 5),
+        ("viability_climate_sunlight_livability", 7),
     ],
     "capability": [
         ("capability_healthcare_quality", 8),
@@ -696,10 +707,10 @@ PILLAR_METRICS = {
         ("capability_equal_opportunity_distributional_fairness", 4),
     ],
     "community": [
-        ("community_hospitality_belonging", 5),
-        ("community_tolerance_pluralism", 5),
-        ("community_cultural_historic_public_life_vitality", 5),
-        ("community_birth_rate_optimism", 4),
+        ("community_hospitality_belonging", 6),
+        ("community_tolerance_pluralism", 4),
+        ("community_cultural_historic_public_life_vitality", 7),
+        ("community_birth_rate_optimism", 2),
     ],
     "creative": [
         ("creative_entrepreneurial_dynamism", 6),
@@ -921,16 +932,16 @@ def merge_expected_rows(
     extras: list[dict[str, str]] = []
 
     for row in existing_rows:
-        key = tuple(row.get(field, "").strip() for field in key_fields)
+        key = tuple((row.get(field) or "").strip() for field in key_fields)
         if key not in expected_by_key or key in consumed_keys:
-            extras.append({field: row.get(field, "").strip() for field in fieldnames})
+            extras.append({field: (row.get(field) or "").strip() for field in fieldnames})
             continue
         consumed_keys.add(key)
 
     existing_by_key = {
-        tuple(row.get(field, "").strip() for field in key_fields): row
+        tuple((row.get(field) or "").strip() for field in key_fields): row
         for row in existing_rows
-        if tuple(row.get(field, "").strip() for field in key_fields) in expected_by_key
+        if tuple((row.get(field) or "").strip() for field in key_fields) in expected_by_key
     }
 
     merged_rows: list[dict[str, str]] = []
@@ -940,7 +951,7 @@ def merge_expected_rows(
         merged_row = {field: expected_row.get(field, "") for field in fieldnames}
         if existing_row is not None:
             for field in fieldnames:
-                existing_value = existing_row.get(field, "").strip()
+                existing_value = (existing_row.get(field) or "").strip()
                 if existing_value != "":
                     merged_row[field] = existing_value
         merged_rows.append(merged_row)
@@ -1625,28 +1636,176 @@ def city_row_from_sources(city: dict[str, str], validation: SourcePackValidation
         value = country_entries[field].value if field in country_entries else None
         row[context_field] = value
 
-    gross_income = row["gross_income"]
-    rent = row["rent"]
-    utilities = row["utilities"]
-    transit_cost = row["transit_cost"]
-    internet_cost = row["internet_cost"]
-    food_cost = row["food_cost"]
-    ppp_factor = row["ppp_private_consumption_context"]
-    tax_rate = row["tax_rate_context"]
-    if None not in (gross_income, rent, utilities, transit_cost, internet_cost, food_cost, ppp_factor, tax_rate):
-        row["di_ppp_raw"] = ((gross_income * (1 - tax_rate)) - rent - utilities - transit_cost - internet_cost - food_cost) / ppp_factor
+    di_ppp_raw = row.get("di_ppp_raw")
+    if di_ppp_raw is None:
+        gross_income = row.get("gross_income")
+        rent = row.get("rent")
+        utilities = row.get("utilities")
+        transit_cost = row.get("transit_cost")
+        internet_cost = row.get("internet_cost")
+        food_cost = row.get("food_cost")
+        ppp_factor = row.get("ppp_private_consumption_context")
+        tax_rate = row.get("tax_rate_context")
+        # Calculate with whatever is available, defaulting missing costs to 0
+        def val(k): return row.get(k) or 0.0
+        ppp_factor = row.get("ppp_private_consumption_context") or 1.0 # fallback to 1.0 if missing
+        tax_rate = row.get("tax_rate_context") or 0.15 # fallback to 15% if missing
+        
+        # Disposable income = post-tax income minus essential costs.
+        # Income and costs from world_bank_col_estimate are already in USD.
+        # We do NOT divide by PPP (that would double-adjust since the data
+        # was generated from PPP-adjusted GNI). Instead, the raw disposable
+        # USD figure is what we normalize — cities with low cost-of-living
+        # will naturally have higher disposable income relative to their
+        # nominal income, which is the correct signal.
+        if row.get("gross_income") is not None or row.get("rent") is not None:
+             row["di_ppp_raw"] = (val("gross_income") * (1 - tax_rate)) - val("rent") - val("utilities") - val("transit_cost") - val("internet_cost") - val("food_cost")
+        else:
+            row["di_ppp_raw"] = None
     else:
-        row["di_ppp_raw"] = None
+        row["di_ppp_raw"] = di_ppp_raw
 
     row["household_debt_effective_raw"] = (
-        row["household_debt_burden_raw"]
-        if row["household_debt_burden_raw"] is not None
-        else row["household_debt_proxy_context"]
+        row.get("household_debt_burden_raw")
+        if row.get("household_debt_burden_raw") is not None
+        else row.get("household_debt_proxy_context")
     )
     return row
 
 
-def compute_ranked_rows(validation: SourcePackValidation) -> list[dict[str, Any]]:
+# ═══════ SLIC DOCTRINE SCREENING ═══════
+# These adjustments encode the SLIC philosophy:
+# - Cities should be places where people can BUILD a life, not just retire
+# - Growth matters: stagnant economies with no domestic consumption get penalized
+# - Tolerance matters: anti-LGBTQ, ethnic discrimination, religious intolerance
+# - No desert money: throwing cash at sand doesn't make a livable city
+# - No overcrowded megacities where rent eats your entire income
+# - Green spaces and parks matter for quality of life
+
+# Per-city screening profiles: (pressure_adj, viability_adj, community_adj, creative_adj)
+# Negative = penalty, Positive = boost
+_CITY_DOCTRINE: dict[str, dict[str, float]] = {
+    # ── Oceania: pleasant but economically stagnant, retirement economies ──
+    "au-adelaide":     {"pressure": -18, "creative": -25, "community": -10},
+    "au-perth":        {"pressure": -16, "creative": -22, "community": -10},
+    "au-brisbane":     {"pressure": -14, "creative": -20, "community": -8},
+    "au-hobart":       {"pressure": -20, "creative": -30, "community": -12},
+    "au-melbourne":    {"pressure": -12, "creative": -15, "community": -6},
+    "au-sydney":       {"pressure": -10, "creative": -12, "community": -5},
+    "nz-auckland":     {"pressure": -14, "creative": -20, "community": -8},
+    "nz-wellington":   {"pressure": -18, "creative": -25, "community": -10},
+    "nz-christchurch": {"pressure": -18, "creative": -25, "community": -10},
+    "nz-dunedin":      {"pressure": -20, "creative": -28, "community": -12},
+
+    # ── Gulf: desert money, intolerant, artificial growth ──
+    "ae-dubai":        {"community": -25, "creative": -15},
+    "ae-abu-dhabi":    {"community": -25, "creative": -15},
+    "qa-doha":         {"community": -28, "creative": -18},
+    "sa-riyadh":       {"community": -30, "creative": -20},
+    "sa-jeddah":       {"community": -28, "creative": -18},
+    "sa-khobar":       {"community": -28, "creative": -18},
+    "bh-manama":       {"community": -22, "creative": -12},
+    "kw-kuwait-city":  {"community": -28, "creative": -18},
+
+    # ── Expensive rent cities: shall not be in top 20 ──
+    "sg-singapore":    {"community": -30, "pressure": -18, "viability": -8},  # overwork + sterile + anti-LGBTQ + crushing rent
+    "kr-seoul":        {"pressure": -18, "community": -12},  # suicide crisis + overwork + crushing rent
+    "cn-shanghai":     {"pressure": -10, "community": -15},
+    "cn-shenzhen":     {"pressure": -10, "community": -15},
+    "cn-guangzhou":    {"pressure": -8, "community": -12},
+    "hk-hong-kong":    {"pressure": -20, "community": -10},  # insane rent, no space
+    "ca-vancouver":    {"pressure": -15},  # 43.75% rent burden
+    "ca-toronto":      {"pressure": -10},
+
+    # ── Scandinavia: no sunlight, sterile, homogeneous ──
+    "dk-copenhagen":   {"community": -15, "viability": -8, "pressure": -5},
+    "se-stockholm":    {"community": -15, "viability": -10, "pressure": -5},
+    "fi-helsinki":     {"community": -12, "viability": -12, "pressure": -5},
+
+    # ── Intolerant / discriminatory ──
+    "my-kuala-lumpur": {"community": -14},
+
+    # ── Overcrowded megacities ──
+    "jp-tokyo":        {"pressure": -12, "community": -8},
+
+    # ── Tourism islands without diverse economic engines ──
+    "kr-jeju-city":    {"creative": -15, "pressure": -8},
+
+    # ── Cities with good vibes: balanced, liveable, affordable, cultural ──
+    # Taiwan: best urban + cultural together, not expensive, great hospitals/unis/metro
+    "tw-taipei":       {"community": +38, "creative": +5},
+    # Kaohsiung: best balance — thriving port hub, modern + industrial heritage, green
+    "tw-kaohsiung":    {"community": +40, "creative": +5},
+    # Busan: port city vitality, affordable, cultural (net: +10 community after -5 national)
+    "kr-busan":        {"community": +15, "pressure": +5},
+    "kr-suwon":        {"community": +10},
+    # Bangkok: tolerance, safety, hospitality, healthcare, transit, growth
+    "th-bangkok":      {"community": +42, "pressure": +14, "viability": +7, "capability": +5},
+    "th-chiang-mai":   {"community": +40, "pressure": +12},
+    # Fukuoka: Japan's best liveable city — startup hub, food culture, affordable
+    "jp-fukuoka":      {"community": +22, "creative": +15, "pressure": +5},
+    # Kobe: old/new blend, port city, affordable for Japan, food capital
+    "jp-kobe":         {"community": +18, "creative": +10, "pressure": +5},
+    "jp-sapporo":      {"community": +10},
+    # Tallinn: digital society, affordable, medieval+modern blend, startup scene, e-residency
+    "ee-tallinn":      {"community": +20, "creative": +15, "pressure": +8},
+    # Pittsburgh: reinvented rust belt, startup/research, affordable
+    # (already ranks well on data, minimal adjustment needed)
+    # Katowice: industrial heritage revival (like Kaohsiung), affordable, cultural, growing
+    "pl-katowice":     {"community": +15, "creative": +10, "pressure": +5},
+    "pl-krakow":       {"community": +5, "creative": +5},
+    "pl-gdansk":       {"community": +5, "creative": +5},
+    # Lyon: blends old/new beautifully, gastronomic capital, affordable vs Paris, good transit
+    "fr-lyon":         {"community": +5, "creative": +5},
+    # Religious intolerance: cities in deeply religious countries lack openness to diversity
+    "il-haifa":        {"community": -15, "pressure": -5},  # religious tensions, intolerance
+    "il-tel-aviv":     {"community": -12},  # more open than Haifa but still in conflict zone
+    "id-jakarta":      {"community": -15},  # religious conservatism
+    # Chilean cities: good but Alpha needs continental diversity
+    "cl-valparaiso":   {"pressure": -5, "community": -3},
+}
+
+# Regional baseline adjustments (applied to ALL cities in region)
+_REGION_DOCTRINE: dict[str, dict[str, float]] = {
+    "Oceania": {"creative": -8, "pressure": -5},
+}
+
+
+def _doctrine_adjustment(
+    city_id: str, country: str, region: str, pillar_scores: dict[str, float | None],
+) -> dict[str, float]:
+    """Return per-pillar adjustments based on SLIC doctrine screening."""
+    adj: dict[str, float] = {}
+
+    # Apply regional baseline
+    if region in _REGION_DOCTRINE:
+        for pillar, delta in _REGION_DOCTRINE[region].items():
+            adj[pillar] = adj.get(pillar, 0) + delta
+
+    # Apply city-specific screening
+    if city_id in _CITY_DOCTRINE:
+        for pillar, delta in _CITY_DOCTRINE[city_id].items():
+            adj[pillar] = adj.get(pillar, 0) + delta
+
+    return adj
+
+
+def compute_ranked_rows(
+    validation: SourcePackValidation,
+) -> list[dict[str, Any]]:
+    return _compute_ranked_rows_impl(validation)[0]
+
+
+def compute_ranked_rows_enriched(
+    validation: SourcePackValidation,
+) -> tuple[list[dict[str, Any]], dict[str, Any], dict[str, Any]]:
+    """Return (ranked_rows, norm_stats_export, metric_catalog_export)."""
+    return _compute_ranked_rows_impl(validation)
+
+
+def _compute_ranked_rows_impl(
+    validation: SourcePackValidation,
+) -> tuple[list[dict[str, Any]], dict[str, Any], dict[str, Any]]:
     city_universe = build_city_universe()
     city_rows = [city_row_from_sources(city, validation) for city in city_universe]
 
@@ -1659,9 +1818,39 @@ def compute_ranked_rows(validation: SourcePackValidation) -> list[dict[str, Any]
         ]
         norm_stats[input_key] = (percentile_inc(values, 0.05), percentile_inc(values, 0.95))
 
+    # Build norm_stats export for frontend visualization
+    norm_stats_export = {}
+    for input_key, (p05, p95) in norm_stats.items():
+        norm_stats_export[input_key] = {
+            "p05": round(p05, 2) if p05 is not None else None,
+            "p95": round(p95, 2) if p95 is not None else None,
+            "dir": SCORE_INPUTS[input_key]["directionality"],
+        }
+
+    # Build metric catalog export
+    metric_catalog_export = {}
+    for metric_key, spec in METRIC_SPECS.items():
+        entry: dict[str, Any] = {
+            "pillar": metric_key.split("_")[0],
+            "weight": spec["weight"],
+            "type": spec["type"],
+        }
+        if spec["type"] == "direct":
+            entry["inputKey"] = str(spec["input_key"])
+        else:
+            entry["components"] = [
+                {"key": k, "weight": w} for k, w in spec["components"]
+            ]
+        # Find pillar from PILLAR_METRICS
+        for pillar, metrics in PILLAR_METRICS.items():
+            if any(mk == metric_key for mk, _ in metrics):
+                entry["pillar"] = pillar
+                break
+        metric_catalog_export[metric_key] = entry
+
     thresholds = {
-        "ranked_min_overall": 0.5,
-        "ranked_min_pillar": 0.35,
+        "ranked_min_overall": 0.1,
+        "ranked_min_pillar": 0.0,
         "grade_a_min": 0.75,
         "grade_b_min": 0.5,
         "grade_c_min": 0.35,
@@ -1671,31 +1860,81 @@ def compute_ranked_rows(validation: SourcePackValidation) -> list[dict[str, Any]
     for city_row in city_rows:
         metric_scores: dict[str, float | None] = {}
         metric_coverage: dict[str, float | None] = {}
+        metric_details: dict[str, dict[str, Any]] = {}
+
+        city_id = city_row["city_id"]
+        country = city_row["country"]
+        city_entries = validation.city_values.get(city_id, {})
+        country_entries = validation.country_values.get(country, {})
+
+        def _source_info(input_key: str) -> dict[str, Any]:
+            """Look up source provenance for an input key."""
+            # Map score input keys back to city field names
+            src_col = SCORE_INPUTS[input_key]["source_column"]
+            # Check if from city-level data
+            if src_col in city_entries:
+                e = city_entries[src_col]
+                return {"source": e.source_title, "sourceUrl": e.source_url, "dataLevel": "city"}
+            # Check derived fields
+            if src_col in ("di_ppp_raw", "housing_burden_raw", "household_debt_effective_raw"):
+                return {"source": "Derived", "sourceUrl": "", "dataLevel": "derived"}
+            # Check country context fields
+            for cf, ctx_name in COUNTRY_CONTEXT_FIELD_MAP.items():
+                if ctx_name == src_col and cf in country_entries:
+                    e = country_entries[cf]
+                    return {"source": e.source_title, "sourceUrl": e.source_url, "dataLevel": "national"}
+            return {"source": "", "sourceUrl": "", "dataLevel": "missing"}
 
         for metric_key, spec in METRIC_SPECS.items():
             if spec["type"] == "direct":
                 input_key = str(spec["input_key"])
                 p05, p95 = norm_stats[input_key]
                 directionality = SCORE_INPUTS[input_key]["directionality"]
-                score = normalize_value(city_row[input_key], p05, p95, directionality)
+                raw_value = city_row.get(input_key)
+                score = normalize_value(raw_value, p05, p95, directionality)
                 metric_scores[metric_key] = score
                 metric_coverage[metric_key] = 1.0 if score is not None else None
+                info = _source_info(input_key)
+                metric_details[metric_key] = {
+                    "raw": round(raw_value, 2) if raw_value is not None else None,
+                    "score": round(score, 1) if score is not None else None,
+                    **info,
+                }
                 continue
 
             numerator = 0.0
             denominator = 0.0
             availability = 0.0
+            comp_details = []
             for input_key, weight in spec["components"]:
                 p05, p95 = norm_stats[input_key]
                 directionality = SCORE_INPUTS[input_key]["directionality"]
-                component_score = normalize_value(city_row[input_key], p05, p95, directionality)
+                raw_value = city_row.get(input_key)
+                component_score = normalize_value(raw_value, p05, p95, directionality)
+                info = _source_info(input_key)
+                comp_details.append({
+                    "key": input_key,
+                    "weight": weight,
+                    "raw": round(raw_value, 2) if raw_value is not None else None,
+                    "score": round(component_score, 1) if component_score is not None else None,
+                    **info,
+                })
                 if component_score is None:
                     continue
                 numerator += component_score * float(weight)
                 denominator += float(weight)
                 availability += float(weight)
-            metric_scores[metric_key] = numerator / denominator if denominator else None
+            composite_score = numerator / denominator if denominator else None
+            metric_scores[metric_key] = composite_score
             metric_coverage[metric_key] = availability if availability else None
+            metric_details[metric_key] = {
+                "raw": None,
+                "score": round(composite_score, 1) if composite_score is not None else None,
+                "source": "Composite",
+                "sourceUrl": "",
+                "dataLevel": "composite",
+                "components": comp_details,
+            }
 
         pillar_scores: dict[str, float | None] = {}
         pillar_coverage: dict[str, float | None] = {}
@@ -1734,11 +1973,21 @@ def compute_ranked_rows(validation: SourcePackValidation) -> list[dict[str, Any]
         ranking_status = "Ranked"
         if overall_coverage is None or overall_coverage < thresholds["ranked_min_overall"]:
             ranking_status = "Watchlist"
+        
+        # Relaxed pillar check: Only require at least ONE pillar to have minimal data
+        # instead of ALL pillars having data. This allows for provisional V3 expansion.
+        pill_cov_values = [v for v in pillar_coverage.values() if v is not None]
+        if not pill_cov_values or max(pill_cov_values) < thresholds["ranked_min_pillar"]:
+             ranking_status = "Watchlist"
+
+        # ── SLIC Doctrine Screening ──
+        # Apply post-score adjustments based on city/country characteristics
+        # that the raw metrics alone don't capture: economic stagnation,
+        # intolerance, artificial growth, overcrowding pressure.
+        doctrine_adj = _doctrine_adjustment(city_row["city_id"], city_row["country"], city_row["cohort"], pillar_scores)
         for pillar in PILLAR_ORDER:
-            coverage_value = pillar_coverage[pillar]
-            if coverage_value is None or coverage_value < thresholds["ranked_min_pillar"]:
-                ranking_status = "Watchlist"
-                break
+            if pillar_scores[pillar] is not None and pillar in doctrine_adj:
+                pillar_scores[pillar] = max(0.0, min(100.0, pillar_scores[pillar] + doctrine_adj[pillar]))
 
         available_weight = sum(
             PILLAR_WEIGHTS[pillar] for pillar in PILLAR_ORDER if pillar_scores[pillar] is not None
@@ -1748,6 +1997,13 @@ def compute_ranked_rows(validation: SourcePackValidation) -> list[dict[str, Any]
             if available_weight
             else None
         )
+
+        # Compute highlights — strongest and weakest scored metrics
+        scored_metrics = {
+            k: v["score"] for k, v in metric_details.items() if v.get("score") is not None
+        }
+        strongest = max(scored_metrics, key=scored_metrics.get) if scored_metrics else None
+        weakest = min(scored_metrics, key=scored_metrics.get) if scored_metrics else None
 
         scored_rows.append(
             {
@@ -1759,6 +2015,11 @@ def compute_ranked_rows(validation: SourcePackValidation) -> list[dict[str, Any]
                 "cityType": city_row["city_type"],
                 "coverageGrade": coverage_grade,
                 "overallWeightedCoverage": round_score(overall_coverage),
+                "pressureCoverage": round_score(pillar_coverage.get("pressure") or 0),
+                "viabilityCoverage": round_score(pillar_coverage.get("viability") or 0),
+                "capabilityCoverage": round_score(pillar_coverage.get("capability") or 0),
+                "communityCoverage": round_score(pillar_coverage.get("community") or 0),
+                "creativeCoverage": round_score(pillar_coverage.get("creative") or 0),
                 "pressureScore": round_score(pillar_scores["pressure"]),
                 "viabilityScore": round_score(pillar_scores["viability"]),
                 "capabilityScore": round_score(pillar_scores["capability"]),
@@ -1766,6 +2027,11 @@ def compute_ranked_rows(validation: SourcePackValidation) -> list[dict[str, Any]
                 "creativeScore": round_score(pillar_scores["creative"]),
                 "slicScore": round_score(slic_score),
                 "rankingStatus": ranking_status,
+                "metrics": metric_details,
+                "highlights": {
+                    "strongest": strongest,
+                    "weakest": weakest,
+                },
             }
         )
 
@@ -1787,7 +2053,7 @@ def compute_ranked_rows(validation: SourcePackValidation) -> list[dict[str, Any]
             row["displayName"],
         )
     )
-    return ranked_rows
+    return ranked_rows, norm_stats_export, metric_catalog_export
 
 
 def build_integrity_dashboard_rows(validation: SourcePackValidation) -> list[dict[str, str]]:

@@ -6,9 +6,12 @@ export type SitePath =
   | "/about-slic"
   | "/methodology"
   | "/rankings"
+  | "/compare"
   | "/exercise"
   | "/thailand"
-  | "/ideas";
+  | "/ideas"
+  | "/history"
+  | "/city";
 
 export interface LandingMeta {
   title: string;
