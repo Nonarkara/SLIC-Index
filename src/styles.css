@@ -7532,40 +7532,59 @@ section[id] {
 
 /* ═══════ COMPARE RANKINGS PAGE ═══════ */
 
-/* 01. Hero */
+/* 01. Hero — photo-backed, dramatic */
 .compare-hero {
-  background: var(--text);
+  position: relative;
   color: var(--bg);
-  padding: 10rem 0 4rem;
+  padding: 8rem 0 4rem;
+  overflow: hidden;
+  min-height: 85vh;
+  display: flex;
+  align-items: flex-end;
+}
+
+.compare-hero-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  filter: brightness(0.2) saturate(1.2);
+  z-index: 0;
 }
 
 .compare-hero-inner {
+  position: relative;
+  z-index: 1;
   max-width: 800px;
 }
 
-.compare-overline {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  opacity: 0.4;
-  margin-bottom: 20px;
+.compare-hero-logo {
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 2rem;
+  padding: 6px 12px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 6px;
 }
 
 .compare-hero-title {
   font-family: var(--font-heading);
-  font-size: clamp(32px, 6vw, 72px);
+  font-size: clamp(32px, 6vw, 64px);
   font-weight: 700;
-  line-height: 1.0;
+  line-height: 1.05;
   letter-spacing: -0.03em;
   margin: 0 0 28px;
   white-space: pre-line;
+  text-shadow: 0 2px 30px rgba(0,0,0,0.3);
 }
 
 .compare-hero-thesis {
   font-size: 16px;
-  line-height: 1.8;
-  opacity: 0.6;
+  line-height: 1.85;
+  opacity: 0.65;
   max-width: 640px;
 }
 
@@ -8058,11 +8077,16 @@ section[id] {
 /* Compare responsive */
 @media (max-width: 768px) {
   .compare-hero {
-    padding: 7rem 0 3rem;
+    padding: 6rem 0 2.5rem;
+    min-height: 70vh;
   }
 
   .compare-hero-title {
-    font-size: clamp(28px, 8vw, 48px);
+    font-size: clamp(24px, 8vw, 42px);
+  }
+
+  .compare-hero-logo {
+    height: 2rem;
   }
 
   .compare-meth-grid {

@@ -72,7 +72,7 @@ export default function SiteMasthead({
       <div className="mh-inner">
         {/* Left: wordmark */}
         <button type="button" className="mh-wordmark" onClick={() => handleNav("/")}>
-          <img src="/Logos/SLIC logo.jpg" alt="SLIC Index" className="mh-logo-img" />
+          <img src="/Logos/slic-index-logo.jpg" alt="SLIC Index" className="mh-logo-img" />
         </button>
 
         {/* Center: edition tag */}

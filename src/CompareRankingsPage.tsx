@@ -96,12 +96,19 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
 
   return (
     <>
-      {/* ═══════ 01. HERO ═══════ */}
+      {/* ═══════ 01. HERO — dramatic, photo-backed ═══════ */}
       <header className="compare-hero">
+        <img src="/launch-photos/20260318145941_DSC09480.jpg" alt="" className="compare-hero-photo" />
         <div className="compare-hero-inner section">
-          <p className="compare-overline">{COMPARE_HERO.eyebrow}</p>
-          <h1 className="compare-hero-title">{COMPARE_HERO.title}</h1>
-          <p className="compare-hero-thesis">{COMPARE_HERO.thesis}</p>
+          <img src="/Logos/slic-index-logo.jpg" alt="SLIC Index" className="compare-hero-logo" />
+          <h1 className="compare-hero-title">{t(locale,
+            "Six indices rank cities.\nFive of them agree.\nWe don\u2019t.",
+            "หกดัชนีจัดอันดับเมือง\nห้าดัชนีเห็นพ้องกัน\nเราไม่",
+            "六个指数给城市排名\n五个意见一致\n我们不同意")}</h1>
+          <p className="compare-hero-thesis">{t(locale,
+            "EIU calculates hardship pay for expats. Mercer does the same for HR departments. Resonance measures Instagram buzz. Monocle curates lifestyle for people who can already afford anywhere. Yonsei counts smart city apps without asking if they help anyone. Their top 10 cities are separated by less than 2 points. SLIC measures what\u2019s left after rent.",
+            "EIU คำนวณค่าลำบากสำหรับชาวต่างชาติ Mercer ทำแบบเดียวกันสำหรับฝ่ายบุคคล Resonance วัดกระแส Instagram Monocle จัดไลฟ์สไตล์สำหรับคนที่จ่ายไหวทุกที่อยู่แล้ว Yonsei นับแอปสมาร์ทซิตี้โดยไม่ถามว่ามันช่วยใครหรือเปล่า ท็อป 10 ของพวกเขาต่างกันไม่ถึง 2 คะแนน SLIC วัดว่าจ่ายค่าเช่าแล้วเหลืออะไร",
+            "EIU为外派人员计算艰苦津贴 Mercer为HR部门做同样的事 Resonance衡量Instagram热度 Monocle为本就负担得起任何地方的人策展生活方式 延世数智慧城市应用却不问它们是否帮助了任何人 他们的前10名相差不到2分 SLIC衡量的是付完房租后还剩什么")}</p>
         </div>
       </header>
 

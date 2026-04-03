@@ -6,7 +6,7 @@ export interface BrandAsset {
 
 export const slicLogo: BrandAsset = {
   name: "SLIC",
-  src: "/Logos/SLIC logo.jpg",
+  src: "/Logos/slic-index-logo.jpg",
   alt: "SLIC logo",
 };
 
