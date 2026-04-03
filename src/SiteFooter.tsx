@@ -161,7 +161,7 @@ export default function SiteFooter({
           <a href="https://slic-index.onrender.com" target="_blank" rel="noopener noreferrer">
             V1 Archive
           </a>
-          <a href="https://slic-index-v2.onrender.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://nonarkara.github.io/slic-index-V2/" target="_blank" rel="noopener noreferrer">
             V2 Archive
           </a>
         </nav>

@@ -24,7 +24,8 @@ export default function LocaleSwitch({
           onClick={() => onChange(option)}
           aria-pressed={option === locale}
         >
-          {localeLabels[option]}
+          <span className="locale-label-full">{localeLabels[option]}</span>
+          <span className="locale-label-short">{option.toUpperCase()}</span>
         </button>
       ))}
     </div>
