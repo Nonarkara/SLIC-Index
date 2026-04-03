@@ -1,0 +1,7 @@
+{
+  "buildCommand": "",
+  "outputDirectory": ".",
+  "rewrites": [
+    { "source": "/((?!assets|Logos|launch-photos|city-photos|downloads|knowledge-rack|photos|SLIC).*)", "destination": "/index.html" }
+  ]
+}

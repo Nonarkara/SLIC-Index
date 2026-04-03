@@ -7583,6 +7583,7 @@ section[id] {
   min-height: 85vh;
   display: flex;
   align-items: flex-end;
+  background: var(--text);
 }
 
 .compare-hero-photo {
