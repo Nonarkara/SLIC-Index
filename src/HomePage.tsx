@@ -126,7 +126,7 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
           </div>
         </div>
         <div className="section">
-          <a className="hp-callout-cta" href="/compare" onClick={(e) => { e.preventDefault(); onNavigate("/compare"); }}>
+          <a className="hp-callout-cta" href="/" onClick={(e) => { e.preventDefault(); onNavigate("/"); }}>
             {t(locale, "See the full comparison \u2014 six indices, side by side", "ดูการเปรียบเทียบเต็ม \u2014 หกดัชนีเทียบกัน", "查看完整对比 \u2014 六个指数并排")} &rarr;
           </a>
         </div>
@@ -226,7 +226,7 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
 
       {/* ════ 07. CTA ════ */}
       <section className="v3-cta-section section">
-        <a className="v3-cta" href="/compare" onClick={(e) => { e.preventDefault(); onNavigate("/compare"); }}>
+        <a className="v3-cta" href="/" onClick={(e) => { e.preventDefault(); onNavigate("/"); }}>
           {t(locale, "THE FULL COMPARISON", "เปรียบเทียบเต็ม", "完整对比")} &rarr;
         </a>
         <a className="v3-cta-secondary" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>

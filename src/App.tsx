@@ -165,10 +165,10 @@ export default function App() {
                     : "Steal This Idea"
               : route === "/compare"
                 ? locale === "th"
-                  ? "เปรียบเทียบดัชนี"
+                  ? "สร้างอันดับเมืองของคุณ"
                   : locale === "zh"
-                    ? "对比排名"
-                    : "Compare Rankings"
+                    ? "构建你的城市排名"
+                    : "Build Your City Ranking"
               : route === "/history"
                 ? locale === "th"
                   ? "เบื้องหลัง SLIC"
@@ -178,10 +178,10 @@ export default function App() {
               : route === "/city"
                 ? "City Scorecard"
                 : locale === "th"
-                  ? "สร้างอันดับเมืองของคุณ"
+                  ? "ดัชนีเมืองน่าอยู่"
                   : locale === "zh"
-                    ? "构建你的城市排名"
-                    : "Build Your City Ranking";
+                    ? "宜居城市指数"
+                    : "Smart and Liveable Cities Index";
 
     document.title = `${routeTitle} · ${localeTitlePrefix}`;
   }, [locale, route]);
@@ -227,13 +227,13 @@ export default function App() {
           ) : route === "/ideas" ? (
             <IdeasPage onNavigate={navigate} locale={locale} onLocaleChange={setLocale} />
           ) : route === "/compare" ? (
-            <CompareRankingsPage onNavigate={navigate} locale={locale} />
+            <HomePage onNavigate={navigate} locale={locale} />
           ) : route === "/history" ? (
             <HistoryPage onNavigate={navigate} locale={locale} />
           ) : route === "/city" ? (
             <CityScorecardPage onNavigate={navigate} locale={locale} />
           ) : (
-            <HomePage onNavigate={navigate} locale={locale} />
+            <CompareRankingsPage onNavigate={navigate} locale={locale} />
           )}
         </Suspense>
       </div>
