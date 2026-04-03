@@ -127,7 +127,7 @@ const SpiderWebChart: FC<{
         stroke="rgba(99,179,237,0.7)"
         strokeWidth={2.5}
         strokeLinejoin="round"
-        style={{ transition: draggingIndex !== null ? "none" : "d 0.2s ease", pointerEvents: "none" }}
+        style={{ transition: draggingIndex !== null ? "none" : "d 0.12s cubic-bezier(0.16,1,0.3,1)", pointerEvents: "none" }}
       />
 
       {/* Colored segment fills — wedge from center to vertex (non-interactive) */}
@@ -144,7 +144,7 @@ const SpiderWebChart: FC<{
               d={`M ${cx} ${cy} L ${pt.x} ${pt.y} L ${nextPt.x} ${nextPt.y} Z`}
               fill={p.color}
               fillOpacity={0.06}
-              style={{ transition: draggingIndex !== null ? "none" : "d 0.2s ease" }}
+              style={{ transition: draggingIndex !== null ? "none" : "d 0.12s cubic-bezier(0.16,1,0.3,1)" }}
             />
           );
         })}
@@ -216,7 +216,7 @@ const SpiderWebChart: FC<{
               strokeWidth={isDragging ? 3 : 2}
               style={{
                 cursor: "grab",
-                transition: isDragging ? "none" : "all 0.2s ease",
+                transition: isDragging ? "none" : "all 0.1s cubic-bezier(0.16,1,0.3,1)",
                 filter: isDragging ? "url(#glow)" : "none",
               }}
               data-index={i}
@@ -413,47 +413,25 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
         />
       </div>
 
-      {/* Slider controls — compact */}
-      <div style={{ width: "100%", maxWidth: 380, display: "flex", flexDirection: "column", gap: 4 }}>
+      {/* Slider controls */}
+      <div style={{ width: "100%", maxWidth: 420, display: "flex", flexDirection: "column", gap: 6 }}>
         {pillars.map((p, i) => (
-          <div key={p.id} style={{ display: "flex", alignItems: "center", gap: 6 }}>
-            <span style={{
-              width: 6, height: 6, background: p.color, flexShrink: 0,
-            }} />
-            <span style={{
-              width: 80,
-              fontSize: 11,
-              fontWeight: 600,
-              fontFamily: "'JetBrains Mono', monospace",
-              color: "rgba(255,255,255,0.7)",
-            }}>
-              {p.label}
-            </span>
-            <input
-              type="range"
-              min={min}
-              max={max}
-              value={p.value}
-              onChange={(e) => handleSliderChange(i, parseInt(e.target.value))}
-              style={{
-                flex: 1,
-                accentColor: p.color,
-                height: 4,
-              }}
-            />
-            <span
-              style={{
-                width: 28,
-                textAlign: "right",
-                fontSize: 13,
-                fontWeight: 800,
-                fontVariantNumeric: "tabular-nums",
-                fontFamily: "'JetBrains Mono', monospace",
-                color: p.color,
-              }}
-            >
-              {p.value}
-            </span>
+          <div key={p.id} className="spider-slider-row">
+            <span className="spider-slider-dot" style={{ background: p.color }} />
+            <span className="spider-slider-label">{p.label}</span>
+            <div className="spider-slider-track">
+              <div className="spider-slider-fill" style={{ width: `${(p.value / max) * 100}%`, background: p.color }} />
+              <input
+                type="range"
+                min={min}
+                max={max}
+                value={p.value}
+                onChange={(e) => handleSliderChange(i, parseInt(e.target.value))}
+                className="spider-slider-input"
+                style={{ "--accent": p.color } as React.CSSProperties}
+              />
+            </div>
+            <span className="spider-slider-value" style={{ color: p.color }}>{p.value}</span>
           </div>
         ))}
       </div>

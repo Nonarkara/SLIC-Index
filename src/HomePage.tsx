@@ -51,7 +51,7 @@ const CITY_PHOTOS: Record<string, string> = {
   "tw-kaohsiung": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop&q=80",
   "pl-katowice": "https://images.unsplash.com/photo-1558431382-27e303142255?w=600&h=400&fit=crop&q=80",
   "fr-lyon": "https://images.unsplash.com/photo-1509439581779-6298f75bf6e5?w=600&h=400&fit=crop&q=80",
-  "ca-montreal": "https://images.unsplash.com/photo-1519178614-68673b201f36?w=600&h=400&fit=crop&q=80",
+  "ca-montreal": "/city-photos/montreal.jpg",
   "us-raleigh": "https://images.unsplash.com/photo-1569982175971-d92b01cf8694?w=600&h=400&fit=crop&q=80",
   "cl-santiago": "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=600&h=400&fit=crop&q=80",
   "tw-taipei": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=600&h=400&fit=crop&q=80",
