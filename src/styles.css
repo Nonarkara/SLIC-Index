@@ -1701,26 +1701,21 @@ section[id] {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.mh--hidden { transform: translateY(-110%); }
+/* masthead always visible — no hide on scroll */
 
 .mh-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: min(var(--max-width), calc(100% - 2rem));
-  margin: 0.6rem auto 0;
-  padding: 0.5rem 1.2rem;
+  margin: 0.5rem auto 0;
+  padding: 0.45rem 1.2rem;
   pointer-events: auto;
-  background: transparent;
-  border-bottom: 1px solid transparent;
-  transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
-}
-
-.mh--scrolled .mh-inner {
-  background: rgba(248, 245, 240, 0.92);
+  background: rgba(248, 245, 240, 0.94);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border-color: rgba(40, 32, 20, 0.08);
+  border: 1px solid rgba(40, 32, 20, 0.06);
+  border-radius: 100px;
   box-shadow: 0 2px 16px rgba(28, 25, 20, 0.06);
 }
 
@@ -1736,9 +1731,15 @@ section[id] {
 }
 
 .mh-logo-img {
-  height: 1.6rem;
+  height: 1.8rem;
   width: auto;
   object-fit: contain;
+}
+
+@media (min-width: 900px) {
+  .mh-logo-img {
+    height: 2rem;
+  }
 }
 
 /* Edition tag — hidden on nav-heavy layouts */
