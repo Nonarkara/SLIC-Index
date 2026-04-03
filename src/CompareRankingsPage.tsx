@@ -1,13 +1,11 @@
-import { useMemo, useState } from "react";
+import React, { useMemo, useState } from "react";
 import ZeroSumAllocator from "./ZeroSumAllocator";
 import type { PillarAllocation } from "./ZeroSumAllocator";
+import { evaluateConsequences } from "./consequenceRules";
+import type { FiredConsequence } from "./consequenceRules";
 import SiteFooter from "./SiteFooter";
 import publishedData from "./data/publishedRankingData.json";
-import {
-  INDEX_PROFILES,
-  COMPARE_HERO,
-  SLIC_DIFFERENCE,
-} from "./compareRankingsData";
+import "./compareRankingsData"; // data module used by /compare detail route
 import { SLIC_LOGO_INLINE } from "./brandAssets";
 import { PILLAR_COLORS, PILLAR_LABELS, PILLAR_ORDER, EQUAL_WEIGHT } from "./pillarConfig";
 import type { PillarId } from "./pillarConfig";
@@ -29,28 +27,46 @@ function t(locale: Locale, en: string, th: string, zh: string): string {
   return locale === "en" ? en : locale === "th" ? th : zh;
 }
 
-/* ── Overlap computation (dynamic) ── */
-function computeOverlaps(slicTop10Names: string[]) {
-  const cityMap = new Map<string, string[]>();
-  for (const profile of INDEX_PROFILES) {
-    for (const c of profile.topCities.slice(0, 10)) {
-      const key = c.city.toLowerCase();
-      if (!cityMap.has(key)) cityMap.set(key, []);
-      cityMap.get(key)!.push(profile.shortName);
-    }
-  }
-  for (const name of slicTop10Names) {
-    const key = name.toLowerCase();
-    if (!cityMap.has(key)) cityMap.set(key, []);
-    cityMap.get(key)!.push("SLIC");
-  }
-  return cityMap;
-}
+const severityClass: Record<string, string> = { severe: "tradeoff-card tradeoff-card--severe", moderate: "tradeoff-card tradeoff-card--moderate", mild: "tradeoff-card tradeoff-card--mild" };
+
+const CITY_PHOTOS: Record<string, string> = {
+  "th-bangkok": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=600&h=400&fit=crop&q=80",
+  "kr-busan": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&h=400&fit=crop&q=80",
+  "jp-fukuoka": "https://images.unsplash.com/photo-1590559899731-a382839e5549?w=600&h=400&fit=crop&q=80",
+  "tw-kaohsiung": "https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&h=400&fit=crop&q=80",
+  "pl-katowice": "https://images.unsplash.com/photo-1558431382-27e303142255?w=600&h=400&fit=crop&q=80",
+  "fr-lyon": "https://images.unsplash.com/photo-1509439581779-6298f75bf6e5?w=600&h=400&fit=crop&q=80",
+  "ca-montreal": "/city-photos/montreal.jpg",
+  "us-raleigh": "https://images.unsplash.com/photo-1569982175971-d92b01cf8694?w=600&h=400&fit=crop&q=80",
+  "cl-santiago": "https://images.unsplash.com/photo-1580619305218-8423a7ef79b4?w=600&h=400&fit=crop&q=80",
+  "tw-taipei": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=600&h=400&fit=crop&q=80",
+};
+
+/* Establishment consensus cities */
+const ESTABLISHMENT = ["Vienna", "Zurich", "Copenhagen", "Melbourne", "Geneva", "Auckland", "London", "Paris", "Singapore", "Tokyo"];
+
+/* Blind spots diagram data */
+const BLIND_SPOT_ROWS = [
+  { label: "Housing affordability", eiu: false, mercer: false, resonance: false, monocle: false, yonsei: false, slic: true },
+  { label: "Overwork / working hours", eiu: false, mercer: false, resonance: false, monocle: false, yonsei: false, slic: true },
+  { label: "Tolerance / civic openness", eiu: false, mercer: false, resonance: false, monocle: false, yonsei: false, slic: true },
+  { label: "Resident satisfaction", eiu: false, mercer: false, resonance: true, monocle: false, yonsei: false, slic: true },
+  { label: "Suicide / mental strain", eiu: false, mercer: false, resonance: false, monocle: false, yonsei: false, slic: true },
+  { label: "Graduate housing burden", eiu: false, mercer: false, resonance: false, monocle: false, yonsei: false, slic: true },
+  { label: "Cultural diversity", eiu: false, mercer: false, resonance: false, monocle: true, yonsei: false, slic: true },
+  { label: "Income after rent (PPP)", eiu: false, mercer: false, resonance: false, monocle: false, yonsei: false, slic: true },
+];
+
+const PILLAR_DATA = [
+  { id: "pressure", weight: "25%", name: "Growth", desc: "Economic dynamism. What\u2019s left after rent. Housing burden. Working-time pressure." },
+  { id: "viability", weight: "22%", name: "Viability", desc: "Safety. Transit. Clean air. Digital infrastructure. Climate." },
+  { id: "capability", weight: "18%", name: "Capability", desc: "Healthcare access. Education quality. Equal opportunity." },
+  { id: "community", weight: "15%", name: "Community", desc: "Belonging. Tolerance. Cultural life. Whether your neighbors want you there." },
+  { id: "creative", weight: "20%", name: "Creative", desc: "Entrepreneurial friction. Innovation intensity. Government stability." },
+];
 
 export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate: (path: SitePath) => void; locale: Locale }) {
   const labels = PILLAR_LABELS[locale];
-
-  /* ── Spider state ── */
   const [pillars, setPillars] = useState<PillarAllocation[]>(
     PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: EQUAL_WEIGHT })),
   );
@@ -59,180 +75,190 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
     pillars.forEach((p) => { w[p.id] = p.value; });
     return w as Record<PillarId, number>;
   }, [pillars]);
-  const isCustom = useMemo(() => PILLAR_ORDER.some((id) => weights[id] !== EQUAL_WEIGHT), [weights]);
-
-  /* ── Live SLIC results ── */
-  const slicResults = useMemo(() =>
+  const consequences = useMemo<FiredConsequence[]>(() => evaluateConsequences(weights), [weights]);
+  const results = useMemo(() =>
     rankedCities.map((c) => ({ ...c, customScore: Math.round(scoreCityWithWeights(c, weights) * 10) / 10 })).sort((a, b) => b.customScore - a.customScore),
   [weights]);
-  const slicTop10 = slicResults.slice(0, 10);
-
-  /* ── Dynamic overlap ── */
-  const overlaps = useMemo(() => computeOverlaps(slicTop10.map((c) => c.displayName)), [slicTop10]);
-  const establishmentFavorites = useMemo(() => {
-    const results: Array<{ city: string; indices: string[]; inSlic: boolean }> = [];
-    overlaps.forEach((indices, city) => {
-      const nonSlic = indices.filter((i) => i !== "SLIC");
-      if (nonSlic.length >= 3) {
-        results.push({ city: city.charAt(0).toUpperCase() + city.slice(1), indices: nonSlic, inSlic: indices.includes("SLIC") });
-      }
-    });
-    return results.sort((a, b) => b.indices.length - a.indices.length);
-  }, [overlaps]);
-  const slicOnly = useMemo(() => slicTop10.filter((c) => {
-    const indices = overlaps.get(c.displayName.toLowerCase()) ?? [];
-    return indices.filter((i) => i !== "SLIC").length === 0;
-  }), [slicTop10, overlaps]);
-
   const handleReset = () => setPillars(PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: EQUAL_WEIGHT })));
+  const slicTop10 = results.slice(0, 10);
+  const slicExclusive = slicTop10.filter((c) => !ESTABLISHMENT.includes(c.displayName));
 
   return (
     <>
-      {/* ═══════ 01. HERO — dramatic, photo-backed ═══════ */}
-      <header className="compare-hero">
-        <img src="/launch-photos/20260318145941_DSC09480.jpg" alt="" className="compare-hero-photo" />
-        <div className="compare-hero-inner section">
-          <img src={SLIC_LOGO_INLINE} alt="SLIC Index" className="compare-hero-logo" />
-          <h1 className="compare-hero-title">{t(locale,
-            "Six indices rank cities.\nFive of them agree.\nWe don\u2019t.",
-            "หกดัชนีจัดอันดับเมือง\nห้าดัชนีเห็นพ้องกัน\nเราไม่",
-            "六个指数给城市排名\n五个意见一致\n我们不同意")}</h1>
-          <p className="compare-hero-thesis">{t(locale,
-            "EIU calculates hardship pay for expats. Mercer does the same for HR departments. Resonance measures Instagram buzz. Monocle curates lifestyle for people who can already afford anywhere. Yonsei counts smart city apps without asking if they help anyone. Their top 10 cities are separated by less than 2 points. SLIC measures what\u2019s left after rent.",
-            "EIU คำนวณค่าลำบากสำหรับชาวต่างชาติ Mercer ทำแบบเดียวกันสำหรับฝ่ายบุคคล Resonance วัดกระแส Instagram Monocle จัดไลฟ์สไตล์สำหรับคนที่จ่ายไหวทุกที่อยู่แล้ว Yonsei นับแอปสมาร์ทซิตี้โดยไม่ถามว่ามันช่วยใครหรือเปล่า ท็อป 10 ของพวกเขาต่างกันไม่ถึง 2 คะแนน SLIC วัดว่าจ่ายค่าเช่าแล้วเหลืออะไร",
-            "EIU为外派人员计算艰苦津贴 Mercer为HR部门做同样的事 Resonance衡量Instagram热度 Monocle为本就负担得起任何地方的人策展生活方式 延世数智慧城市应用却不问它们是否帮助了任何人 他们的前10名相差不到2分 SLIC衡量的是付完房租后还剩什么")}</p>
-        </div>
+      {/* ═══ ACT 1: THE PROVOCATION ═══ */}
+      <header className="oped-open">
+        <img src={SLIC_LOGO_INLINE} alt="SLIC Index" className="oped-open-logo" />
+        <h1 className="oped-open-headline">
+          {t(locale,
+            "Every city ranking is a lie.\nHere\u2019s <em>ours</em>.",
+            "ทุกการจัดอันดับเมืองคือคำโกหก\nนี่คือ<em>ของเรา</em>",
+            "每个城市排名都是谎言\n这是<em>我们的</em>"
+          ).split(/<em>|<\/em>/).map((part, i) =>
+            i % 2 === 1 ? <em key={i}>{part}</em> : part
+          )}
+        </h1>
+        <span className="oped-scroll-hint">{t(locale, "scroll", "เลื่อนลง", "向下滚动")}</span>
       </header>
 
-      {/* ═══════ 02. INTERACTIVE SPIDER + TABLE ═══════ */}
-      <section className="compare-interactive">
-        <div className="section compare-spider-header">
-          <h2 className="compare-section-title">{t(locale, "Drag the spider to rebuild SLIC\u2019s top 10.", "ลากใยแมงมุมเพื่อสร้าง SLIC top 10 ใหม่", "拖动蛛网图重建SLIC前10名")}</h2>
-          <p className="compare-section-sub">{t(locale, "The other five indices are frozen. Only SLIC responds to your priorities.", "อีกห้าดัชนียังคงเดิม มีแค่ SLIC ที่ตอบสนอง", "其他五个指数固定不变 只有SLIC响应你的优先级")}</p>
-          <div className="compare-spider-widget">
-            <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={360} />
-            <div className="compare-spider-controls">
-              <button type="button" className="compare-reset-btn" onClick={handleReset}>{t(locale, "Reset to equal", "รีเซ็ต", "重置")}</button>
-              {isCustom && <span className="compare-custom-badge">{t(locale, "Custom weights", "น้ำหนักที่ปรับ", "自定义权重")}</span>}
-            </div>
-          </div>
+      {/* ═══ ACT 2: THE ECHO CHAMBER ═══ */}
+      <section className="oped-echo">
+        <div className="oped-echo-photo">
+          <img src="/photos/report-city-rail.jpg" alt="Dense cityscape with elevated rail" loading="lazy" />
         </div>
+        <div className="oped-echo-content">
+          <p className="oped-echo-label">{t(locale, "EVERY OTHER INDEX AGREES ON", "ทุกดัชนีอื่นเห็นพ้องกับ", "所有其他指数都认同")}</p>
+          <p className="oped-echo-list">{ESTABLISHMENT.map((c, i) => <span key={c}>{i > 0 ? ", " : ""}{c}</span>)}</p>
+          <p className="oped-echo-note">{t(locale,
+            "Five indices, five methodologies, one answer: rich, stable, Western-ish.",
+            "ห้าดัชนี ห้าระเบียบวิธี คำตอบเดียว: ร่ำรวย มั่นคง แบบตะวันตก",
+            "五个指数 五种方法论 一个答案：富裕稳定偏西方")}</p>
 
-        <div className="compare-table-scroll">
-          <div className="compare-table">
-            {/* SLIC column — LIVE */}
-            <div className="compare-col compare-col--slic">
-              <div className="compare-col-header" style={{ borderColor: "#1a6b5a" }}>
-                <strong>SLIC V3{isCustom ? " \u2014 YOUR WEIGHTS" : ""}</strong>
-                <span>2026 &middot; {rankedCities.length} cities &middot; LIVE</span>
+          <p className="oped-echo-label oped-echo-label--slic" style={{ marginTop: "3rem" }}>{t(locale, "SLIC DISAGREES", "SLIC ไม่เห็นด้วย", "SLIC持不同意见")}</p>
+          <p className="oped-echo-list oped-echo-list--slic">{slicExclusive.map((c, i) => <span key={c.cityId}>{i > 0 ? ", " : ""}{c.displayName}</span>)}</p>
+          <p className="oped-echo-note">{t(locale,
+            "Zero of these appear in any establishment top 10. Try telling someone in Kaohsiung their city isn\u2019t liveable.",
+            "ไม่มีเมืองเหล่านี้ในท็อป 10 ของดัชนีอื่นเลย ลองบอกคนเกาสงว่าเมืองเขาไม่น่าอยู่ดูสิ",
+            "这些城市都不在任何机构前10名中 试着告诉高雄人他们的城市不宜居")}</p>
+        </div>
+      </section>
+
+      {/* Pull quote */}
+      <div className="oped-pullquote">
+        <p>{t(locale,
+          "\u201CThe difference between the world\u2019s #1 city and #10 is 1.8 points out of 100. One new park can swing a ranking. One traffic camera can change a score.\u201D",
+          "\u201Cความแตกต่างระหว่างเมือง #1 กับ #10 ของโลกคือ 1.8 คะแนนจาก 100 สวนสาธารณะใหม่หนึ่งแห่งเปลี่ยนอันดับได้ กล้องจราจรตัวเดียวเปลี่ยนคะแนนได้\u201D",
+          "\u201C世界第1名城市和第10名之间只差1.8分（满分100） 一个新公园就能改变排名 一个监控摄像头就能改变分数\u201D")}</p>
+      </div>
+
+      {/* ═══ BLIND SPOTS DIAGRAM ═══ */}
+      <section className="oped-blindspots section">
+        <h2 className="oped-blindspots-title">{t(locale, "What they measure. What they miss.", "สิ่งที่วัด สิ่งที่พลาด", "衡量了什么 遗漏了什么")}</h2>
+        <p className="oped-blindspots-sub">{t(locale, "Only SLIC measures all eight.", "มีแค่ SLIC ที่วัดครบทั้งแปด", "只有SLIC衡量了全部八项")}</p>
+        <div className="oped-grid">
+          <div className="oped-grid-header" />
+          <div className="oped-grid-header">EIU</div>
+          <div className="oped-grid-header">Mercer</div>
+          <div className="oped-grid-header">Resonance</div>
+          <div className="oped-grid-header">Monocle</div>
+          <div className="oped-grid-header">Yonsei</div>
+          <div className="oped-grid-header oped-grid-header--slic">SLIC</div>
+          {BLIND_SPOT_ROWS.map((row) => (
+            <React.Fragment key={row.label}>
+              <div className="oped-grid-row-label">{row.label}</div>
+              <div className={`oped-grid-cell ${row.eiu ? "oped-grid-cell--yes" : "oped-grid-cell--no"}`}>{row.eiu ? "\u2713" : "\u2717"}</div>
+              <div className={`oped-grid-cell ${row.mercer ? "oped-grid-cell--yes" : "oped-grid-cell--no"}`}>{row.mercer ? "\u2713" : "\u2717"}</div>
+              <div className={`oped-grid-cell ${row.resonance ? "oped-grid-cell--yes" : "oped-grid-cell--no"}`}>{row.resonance ? "\u2713" : "\u2717"}</div>
+              <div className={`oped-grid-cell ${row.monocle ? "oped-grid-cell--yes" : "oped-grid-cell--no"}`}>{row.monocle ? "\u2713" : "\u2717"}</div>
+              <div className={`oped-grid-cell ${row.yonsei ? "oped-grid-cell--yes" : "oped-grid-cell--no"}`}>{row.yonsei ? "\u2713" : "\u2717"}</div>
+              <div className={`oped-grid-cell ${row.slic ? "oped-grid-cell--yes" : "oped-grid-cell--no"}`}>{row.slic ? "\u2713" : "\u2717"}</div>
+            </React.Fragment>
+          ))}
+        </div>
+      </section>
+
+      {/* Photo break */}
+      <figure className="oped-photo-break">
+        <img src="/photos/report-city-walkway.jpg" alt="People walking on elevated walkway" loading="lazy" />
+        <figcaption>{t(locale, "What liveability actually looks like: eye-level, human scale, daily life.", "ความน่าอยู่จริงๆ หน้าตาเป็นยังไง: ระดับสายตา มาตราส่วนมนุษย์ ชีวิตประจำวัน", "宜居性到底是什么样子：视线高度 人的尺度 日常生活")}</figcaption>
+      </figure>
+
+      {/* ═══ ACT 3: THE ANSWER ═══ */}
+      <section className="oped-pillars section">
+        <div>
+          <h2 className="oped-blindspots-title">{t(locale, "So what does SLIC measure?", "แล้ว SLIC วัดอะไร?", "那SLIC衡量什么?")}</h2>
+          <p className="oped-blindspots-sub" style={{ marginBottom: "2rem" }}>{t(locale, "Five pillars. One formula. Every number traceable.", "ห้าเสาหลัก สูตรเดียว ทุกตัวเลขสืบย้อนได้", "五大支柱 一个公式 每个数字都可追溯")}</p>
+          {PILLAR_DATA.map((p) => (
+            <div key={p.id} className="oped-pillar-item">
+              <div className="oped-pillar-weight">{p.weight}</div>
+              <div>
+                <p className="oped-pillar-name">{p.name}</p>
+                <p className="oped-pillar-desc">{p.desc}</p>
               </div>
-              {slicTop10.map((c, i) => (
-                <div key={c.cityId} className="compare-cell compare-cell--animated">
-                  <span className="compare-rank">{String(i + 1).padStart(2, "0")}</span>
-                  <div>
-                    <span className="compare-city">{c.displayName}</span>
-                    <span className="compare-country">{c.country}</span>
-                  </div>
-                  <span className="compare-score">{c.customScore.toFixed(1)}</span>
-                </div>
-              ))}
             </div>
+          ))}
+        </div>
+        <figure className="oped-pillars-photo">
+          <img src="/photos/report-people-workshop.jpg" alt="Workshop with city officials" loading="lazy" />
+          <figcaption>{t(locale, "Testing the framework with city officials who actually run cities.", "ทดสอบกรอบแนวคิดกับเจ้าหน้าที่เมืองที่บริหารเมืองจริง", "与实际管理城市的官员一起测试框架")}</figcaption>
+        </figure>
+      </section>
 
-            {/* Other indices — STATIC */}
-            {INDEX_PROFILES.map((profile) => (
-              <div key={profile.id} className="compare-col">
-                <div className="compare-col-header" style={{ borderColor: profile.accentHex }}>
-                  <strong>{profile.shortName}</strong>
-                  <span>{profile.year} &middot; {profile.citiesEvaluated} cities</span>
+      {/* ═══ THE SPIDER — CLIMAX ═══ */}
+      <section className="oped-spider">
+        <div className="section">
+          <h2 className="v3-section-title">{t(locale, "Now disagree with us.", "ตอนนี้ลองไม่เห็นด้วยกับเรา", "现在来反驳我们")}</h2>
+          <p className="v3-spider-hint">{t(locale, "Drag the spider. Crank growth to 100% \u2014 watch Singapore and Jakarta rise. Max viability \u2014 safe, clean cities float up. This is your ranking, not ours.", "ลากใยแมงมุม ปรับการเติบโตเป็น 100% \u2014 ดูสิงคโปร์และจาการ์ตาขึ้น ปรับความน่าอยู่สูงสุด \u2014 เมืองที่ปลอดภัยและสะอาดจะลอยขึ้น นี่คืออันดับของคุณ ไม่ใช่ของเรา", "拖动蛛网 把增长调到100% \u2014 看新加坡和雅加达上升 宜居性最大化 \u2014 安全干净的城市浮上来 这是你的排名 不是我们的")}</p>
+          <div className="v3-spider-layout">
+            <div className="v3-spider-chart">
+              <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={380} />
+              <button type="button" className="rankings-reset-btn" onClick={handleReset}>{t(locale, "Reset", "รีเซ็ต", "重置")}</button>
+            </div>
+            <div className="v3-spider-results">
+              {consequences.length > 0 && (
+                <div className="v3-tradeoffs">
+                  {consequences.slice(0, 3).map((c) => (
+                    <div key={c.id} className={severityClass[c.severity]}><p>{c.narrative}</p></div>
+                  ))}
                 </div>
-                {profile.topCities.slice(0, 10).map((c) => (
-                  <div key={c.rank + c.city} className="compare-cell">
-                    <span className="compare-rank">{String(c.rank).padStart(2, "0")}</span>
-                    <div>
-                      <span className="compare-city">{c.city}</span>
-                      <span className="compare-country">{c.country}</span>
-                    </div>
-                    {c.score && <span className="compare-score">{c.score}</span>}
-                  </div>
+              )}
+              <div className="v3-spider-list">
+                {results.slice(0, 15).map((city, i) => (
+                  <button key={city.cityId} className="v3-spider-row" onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}>
+                    <span className="v3-spider-rank">{String(i + 1).padStart(2, "0")}</span>
+                    <span className="v3-spider-name">{city.displayName}</span>
+                    <span className="v3-spider-score">{city.customScore.toFixed(1)}</span>
+                    <span className="v3-spider-country">{city.country}</span>
+                  </button>
                 ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════ 03. OVERLAP ANALYSIS (dynamic) ═══════ */}
-      <section className="compare-overlap section">
-        <h2 className="compare-section-title">{t(locale, "The echo chamber", "ห้องเสียงสะท้อน", "回声室")}</h2>
-        <p className="compare-section-sub">{t(locale, "Cities in 3+ establishment top-10 lists \u2014 and where SLIC disagrees.", "เมืองที่อยู่ใน top 10 ของดัชนีสถาบัน 3+ ดัชนี \u2014 และที่ SLIC ไม่เห็นด้วย", "出现在3个以上机构前10名中的城市 \u2014 以及SLIC的不同意见")}</p>
-        <div className="compare-overlap-grid">
-          {establishmentFavorites.map((item) => (
-            <div key={item.city} className="compare-overlap-card">
-              <strong>{item.city}</strong>
-              <span className="compare-overlap-indices">{item.indices.join(", ")}</span>
-              <span className={item.inSlic ? "compare-overlap-slic yes" : "compare-overlap-slic no"}>
-                {item.inSlic ? t(locale, "Also in SLIC top 10", "อยู่ใน SLIC top 10 ด้วย", "也在SLIC前10") : t(locale, "Not in SLIC top 10", "ไม่อยู่ใน SLIC top 10", "不在SLIC前10")}
-              </span>
-            </div>
-          ))}
-        </div>
-        {slicOnly.length > 0 && (
-          <div className="compare-slic-exclusive">
-            <h3>{t(locale, "Only in SLIC", "มีใน SLIC เท่านั้น", "仅在SLIC中")}</h3>
-            <p>{t(locale, "These cities rank in SLIC\u2019s top 10 but appear in zero establishment top-10 lists.", "เมืองเหล่านี้อยู่ใน SLIC top 10 แต่ไม่อยู่ในดัชนีสถาบันใดเลย", "这些城市在SLIC前10中但不在任何机构前10中")}</p>
-            <div className="compare-slic-exclusive-cities">
-              {slicOnly.map((c) => (
-                <button key={c.cityId} className="compare-slic-chip" onClick={() => onNavigate("/rankings")}>{c.displayName} <span>{c.country}</span></button>
-              ))}
             </div>
           </div>
-        )}
-      </section>
-
-      {/* ═══════ 04. METHODOLOGY CARDS ═══════ */}
-      <section className="compare-methodology section">
-        <h2 className="compare-section-title">{t(locale, "What each index actually measures", "แต่ละดัชนีวัดอะไรจริงๆ", "每个指数到底在衡量什么")}</h2>
-        <div className="compare-meth-grid">
-          {INDEX_PROFILES.map((profile) => (
-            <article key={profile.id} className="compare-meth-card" style={{ borderTopColor: profile.accentHex }}>
-              <div className="compare-meth-header"><strong>{profile.name}</strong><span>{profile.publisher} &middot; {profile.year}</span></div>
-              <div className="compare-meth-section"><p className="compare-meth-label">{t(locale, "They claim", "พวกเขาอ้างว่า", "他们声称")}</p><p>{profile.methodology.claimedPurpose}</p></div>
-              <div className="compare-meth-section compare-meth-reality"><p className="compare-meth-label">{t(locale, "What it actually measures", "วัดอะไรจริงๆ", "实际衡量什么")}</p><p>{profile.methodology.actualMeasure}</p></div>
-              <div className="compare-meth-section"><p className="compare-meth-label">{t(locale, "Blind spots", "จุดบอด", "盲点")}</p><ul className="compare-blindspots">{profile.methodology.blindSpots.map((b) => <li key={b}>{b}</li>)}</ul></div>
-              <div className="compare-meth-audience"><p className="compare-meth-label">{t(locale, "Who it really serves", "รับใช้ใครจริงๆ", "真正服务谁")}</p><p>{profile.methodology.audienceNote}</p></div>
-            </article>
-          ))}
         </div>
       </section>
 
-      {/* ═══════ 05. CRITICAL ANALYSIS ═══════ */}
-      <section className="compare-critique">
-        <div className="section">
-          <h2 className="compare-section-title">{t(locale, "The critique", "บทวิจารณ์", "批评")}</h2>
-          <div className="compare-critique-blocks">
-            {INDEX_PROFILES.map((profile) => (
-              <article key={profile.id} className="compare-critique-block">
-                <p className="compare-critique-eyebrow" style={{ color: profile.accentHex }}>{profile.shortName}</p>
-                <h3 className="compare-critique-headline">{profile.critique.headline}</h3>
-                <p className="compare-critique-body">{profile.critique.body}</p>
-              </article>
-            ))}
+      {/* ═══ ACT 4: THE CITIES ═══ */}
+      <section className="v3-alpha" id="tiers">
+        <div className="v3-alpha-header section">
+          <span className="v3-tier-badge v3-tier-badge--alpha">&alpha; ALPHA</span>
+          <h2 className="v3-alpha-title">{t(locale, "The ten cities that scored highest. Click any to see exactly why.", "สิบเมืองที่ได้คะแนนสูงสุด คลิกเพื่อดูว่าทำไม", "得分最高的十座城市 点击查看具体原因")}</h2>
+        </div>
+        <div className="v3-alpha-grid section oped-cities-featured">
+          {slicTop10.sort((a, b) => b.customScore - a.customScore).map((city) => {
+            const photo = CITY_PHOTOS[city.cityId];
+            return (
+              <button key={city.cityId} className="v3-city-card v3-city-card--photo" onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}>
+                {photo && <img src={photo} alt={city.displayName} loading="lazy" className="v3-city-card-img" />}
+                <div className="v3-city-card-overlay">
+                  <span className="v3-city-card-score">{city.customScore.toFixed(1)}</span>
+                  <span className="v3-city-card-name">{city.displayName}</span>
+                  <span className="v3-city-card-country">{city.country}</span>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* ═══ ACT 5: THE CLOSE ═══ */}
+      <section className="oped-close">
+        <img src="/launch-photos/20260318145941_DSC09480.jpg" alt="SCSE 2026 Taipei" className="oped-close-photo" loading="lazy" />
+        <div className="oped-close-content section">
+          <h2 className="oped-close-title">{t(locale,
+            "Launched at SCSE 2026, Taipei.\n3,000 professionals.\nA European mayor\u2019s alliance asked to use it instead of The Economist\u2019s.",
+            "เปิดตัวที่ SCSE 2026 ไทเป\nผู้เชี่ยวชาญ 3,000 คน\nพันธมิตรนายกเทศมนตรียุโรปขอใช้แทนดัชนี The Economist",
+            "在SCSE 2026台北发布\n3000位专业人士\n欧洲市长联盟要求用它取代经济学人指数")}</h2>
+          <p className="oped-close-body">{t(locale,
+            "SLIC is free, public, and every number traces back to its source. No paywall. No proprietary black box. No 12-month lobby cycle.",
+            "SLIC ฟรี เปิดเผย และทุกตัวเลขสืบย้อนถึงแหล่งที่มา ไม่มี paywall ไม่มีกล่องดำ ไม่มีวงจรล็อบบี้ 12 เดือน",
+            "SLIC免费公开 每个数字都可追溯到来源 没有付费墙 没有专有黑箱 没有12个月的游说周期")}</p>
+          <div className="oped-close-cta">
+            <a className="v3-cta" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>
+              {t(locale, "READ THE METHODOLOGY", "อ่านระเบียบวิธี", "阅读方法论")} &rarr;
+            </a>
+            <a className="v3-cta-secondary" href="/compare" onClick={(e) => { e.preventDefault(); onNavigate("/compare"); }}>
+              {t(locale, "EXPLORE CITIES", "สำรวจเมือง", "探索城市")}
+            </a>
           </div>
-          <blockquote className="compare-overarching">{COMPARE_HERO.overarchingCritique}</blockquote>
-        </div>
-      </section>
-
-      {/* ═══════ 06. THE SLIC DIFFERENCE ═══════ */}
-      <section className="compare-slic-diff section">
-        <h2 className="compare-section-title">{t(locale, "What SLIC measures that others refuse to ask", "สิ่งที่ SLIC วัดแต่ดัชนีอื่นไม่กล้าถาม", "SLIC衡量的是其他指数不敢问的问题")}</h2>
-        <div className="compare-diff-grid">
-          {SLIC_DIFFERENCE.map((item) => (
-            <article key={item.title} className="compare-diff-card"><h4>{item.title}</h4><p>{item.body}</p></article>
-          ))}
-        </div>
-        <div className="compare-diff-cta">
-          <a className="v3-cta" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>{t(locale, "READ THE FULL METHODOLOGY", "อ่านระเบียบวิธีเต็ม", "阅读完整方法论")} &rarr;</a>
-          <a className="v3-cta-secondary" href="/rankings" onClick={(e) => { e.preventDefault(); onNavigate("/rankings"); }}>{t(locale, "SEE THE SLIC RANKING", "ดูอันดับ SLIC", "查看SLIC排名")}</a>
         </div>
       </section>
 

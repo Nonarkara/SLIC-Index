@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useState } from "react";
 import LocaleSwitch from "./LocaleSwitch";
 import { getCopy } from "./siteCopy";
 import { SLIC_LOGO_INLINE } from "./brandAssets";
@@ -41,18 +41,11 @@ export default function SiteMasthead({
   const navPanelId = useId();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
-  const lastScrollY = useRef(0);
 
   useEffect(() => { setMenuOpen(false); }, [currentPath, locale]);
 
   const handleScroll = useCallback(() => {
-    const y = window.scrollY;
-    setScrolled(y > 40);
-    if (y < 80) setHidden(false);
-    else if (y > lastScrollY.current + 8) setHidden(true);
-    else if (y < lastScrollY.current - 8) setHidden(false);
-    lastScrollY.current = y;
+    setScrolled(window.scrollY > 40);
   }, []);
 
   useEffect(() => {
@@ -62,10 +55,13 @@ export default function SiteMasthead({
 
   const handleNav = (path: SitePath) => { setMenuOpen(false); onNavigate(path); };
 
+  /* Hide masthead on first viewport (homepage provocation), show after scroll */
+  const isHomepage = currentPath === "/" || currentPath === "/compare";
+
   const cls = [
     "mh",
     scrolled ? "mh--scrolled" : "",
-    hidden && !menuOpen ? "mh--hidden" : "",
+    !scrolled && isHomepage && !menuOpen ? "mh--intro-hidden" : "",
     menuOpen ? "mh--open" : "",
   ].filter(Boolean).join(" ");
 

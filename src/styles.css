@@ -21,6 +21,13 @@
   --accent-red: #a0382a;
   --accent-green: #1a6b5a;
   --accent-blue: #2a5a8c;
+
+  /* ── SLIC brand (from logo) ── */
+  --slic-navy: #2B3A67;
+  --slic-teal: #2A9D8F;
+  --slic-teal-light: #3DB8A9;
+  --slic-navy-light: #4A5A87;
+
   --shadow-lg: 0 20px 60px rgba(28, 25, 20, 0.08);
   --shadow-sm: 0 6px 20px rgba(28, 25, 20, 0.05);
   --max-width: 1200px;
@@ -1746,7 +1753,18 @@ section[id] {
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* masthead always visible — no hide on scroll */
+/* masthead hidden on intro, appears on scroll */
+.mh--intro-hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-20px);
+}
+
+.mh--scrolled {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
 
 .mh-inner {
   display: flex;
@@ -8152,5 +8170,421 @@ section[id] {
 @media (max-width: 480px) {
   .compare-overlap-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════ OP-ED HOMEPAGE — magazine editorial layout ═══════ */
+
+/* Act 1: The Provocation */
+.oped-open {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+}
+
+.oped-open-logo {
+  height: 4rem;
+  width: auto;
+  margin-bottom: 3rem;
+}
+
+.oped-open-headline {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 5vw, 3.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  max-width: 700px;
+  margin: 0;
+}
+
+.oped-open-headline em {
+  font-style: italic;
+  color: var(--slic-teal);
+}
+
+.oped-scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.25;
+  animation: float-hint 2s ease-in-out infinite;
+}
+
+@keyframes float-hint {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* Act 2: The Evidence */
+.oped-echo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 80vh;
+}
+
+.oped-echo-photo {
+  position: relative;
+  overflow: hidden;
+}
+
+.oped-echo-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85);
+}
+
+.oped-echo-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 5vw, 5rem);
+}
+
+.oped-echo-label {
+  font-family: var(--font-mono);
+  font-size: var(--type-xs);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  opacity: 0.35;
+  margin-bottom: 1.5rem;
+}
+
+.oped-echo-label--slic {
+  color: var(--slic-teal);
+  opacity: 1;
+}
+
+.oped-echo-list {
+  font-family: var(--font-heading);
+  font-size: clamp(1.1rem, 2vw, 1.6rem);
+  font-weight: 700;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.oped-echo-list--slic {
+  color: var(--slic-teal);
+}
+
+.oped-echo-note {
+  font-size: var(--type-sm);
+  line-height: 1.6;
+  opacity: 0.4;
+  margin-top: 1.5rem;
+  font-style: italic;
+}
+
+/* Pull quote */
+.oped-pullquote {
+  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 8vw, 8rem);
+  text-align: center;
+}
+
+.oped-pullquote p {
+  font-family: var(--font-heading);
+  font-size: clamp(1.3rem, 3vw, 2.2rem);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.5;
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--slic-navy);
+}
+
+/* Blind spots diagram */
+.oped-blindspots {
+  padding: var(--space-3xl) 0;
+}
+
+.oped-blindspots-title {
+  font-family: var(--font-heading);
+  font-size: var(--type-3xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.5rem;
+}
+
+.oped-blindspots-sub {
+  font-size: var(--type-sm);
+  opacity: 0.4;
+  margin: 0 0 2rem;
+}
+
+.oped-grid {
+  display: grid;
+  grid-template-columns: 200px repeat(6, 1fr);
+  gap: 1px;
+  background: var(--border);
+  font-size: var(--type-xs);
+  overflow-x: auto;
+}
+
+.oped-grid-header {
+  background: var(--bg);
+  padding: 0.75rem 0.5rem;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.oped-grid-header--slic {
+  background: var(--slic-teal);
+  color: #fff;
+}
+
+.oped-grid-row-label {
+  background: var(--bg);
+  padding: 0.6rem 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+.oped-grid-cell {
+  background: var(--bg);
+  padding: 0.6rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.oped-grid-cell--yes { color: var(--slic-teal); }
+.oped-grid-cell--no { color: var(--accent-red); opacity: 0.4; }
+
+/* Photo break — editorial breathing */
+.oped-photo-break {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.oped-photo-break img {
+  width: 100%;
+  height: 45vh;
+  object-fit: cover;
+  filter: saturate(0.9);
+}
+
+.oped-photo-break figcaption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 3rem 2rem 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  color: #fff;
+  font-family: var(--font-mono);
+  font-size: var(--type-xs);
+  letter-spacing: 0.04em;
+  opacity: 0.8;
+}
+
+/* The 0.05 problem */
+.oped-editorial {
+  padding: var(--space-3xl) 0;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.oped-editorial-big {
+  font-family: var(--font-heading);
+  font-size: clamp(1.4rem, 3vw, 2.4rem);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  margin: 0 0 1.5rem;
+}
+
+.oped-editorial-body {
+  font-size: var(--type-md);
+  line-height: 1.85;
+  opacity: 0.55;
+  margin: 0 0 1.5rem;
+}
+
+/* Act 3: Pillars — editorial flowing layout */
+.oped-pillars {
+  display: grid;
+  grid-template-columns: 0.4fr 0.6fr;
+  gap: var(--space-xl);
+  padding: var(--space-3xl) 0;
+  align-items: start;
+}
+
+.oped-pillar-item {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.oped-pillar-weight {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--slic-navy);
+  line-height: 1;
+}
+
+.oped-pillar-name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0 0 4px;
+}
+
+.oped-pillar-desc {
+  font-size: var(--type-sm);
+  opacity: 0.5;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.oped-pillars-photo {
+  position: sticky;
+  top: 5rem;
+}
+
+.oped-pillars-photo img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  filter: saturate(0.9);
+}
+
+.oped-pillars-photo figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--type-xs);
+  opacity: 0.35;
+  margin-top: 0.5rem;
+}
+
+/* Spider section — navy from SLIC brand */
+.oped-spider {
+  padding: var(--space-3xl) 0;
+  background: var(--slic-navy);
+  color: #fff;
+}
+
+.oped-spider .v3-section-title { color: #fff; }
+.oped-spider .v3-spider-hint { opacity: 0.4; }
+.oped-spider .rankings-reset-btn { color: rgba(255,255,255,0.6); border-color: rgba(255,255,255,0.15); }
+.oped-spider .rankings-reset-btn:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+.oped-spider .v3-spider-row { border-color: rgba(255,255,255,0.06); }
+.oped-spider .v3-spider-row:hover { background: rgba(255,255,255,0.04); }
+.oped-spider .tradeoff-card { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.08); }
+
+/* Act 4: Alpha cities — magazine layout (top 3 large, rest small) */
+.oped-cities-featured {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 6px;
+}
+
+.oped-cities-featured .v3-city-card--photo:first-child {
+  grid-row: span 2;
+  aspect-ratio: auto;
+  min-height: 500px;
+}
+
+/* Act 5: Close */
+.oped-close {
+  position: relative;
+  padding: var(--space-4xl) 0 var(--space-3xl);
+  overflow: hidden;
+}
+
+.oped-close-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.25) saturate(1.1);
+  z-index: 0;
+}
+
+.oped-close-content {
+  position: relative;
+  z-index: 1;
+  color: #fff;
+  max-width: 640px;
+}
+
+.oped-close-title {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+.oped-close-body {
+  font-size: var(--type-md);
+  line-height: 1.8;
+  opacity: 0.6;
+  margin: 0 0 2rem;
+}
+
+.oped-close-cta {
+  display: inline-flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Op-ed responsive */
+@media (max-width: 768px) {
+  .oped-echo {
+    grid-template-columns: 1fr;
+  }
+
+  .oped-echo-photo img {
+    height: 40vh;
+  }
+
+  .oped-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .oped-pillars-photo {
+    position: static;
+    order: -1;
+  }
+
+  .oped-pillars-photo img {
+    aspect-ratio: 16 / 9;
+  }
+
+  .oped-cities-featured {
+    grid-template-columns: 1fr;
+  }
+
+  .oped-cities-featured .v3-city-card--photo:first-child {
+    grid-row: auto;
+    min-height: 250px;
+  }
+
+  .oped-grid {
+    font-size: 0.6rem;
+  }
+
+  .oped-grid-header,
+  .oped-grid-row-label {
+    padding: 0.4rem;
   }
 }
