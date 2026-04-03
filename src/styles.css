@@ -4377,10 +4377,10 @@ section[id] {
 }
 
 .site-footer {
-  gap: 1.25rem;
-  padding-top: 1.5rem;
-  padding-bottom: 2rem;
-  font-size: 0.9rem;
+  gap: 1rem;
+  padding-top: 1.25rem;
+  padding-bottom: 1.5rem;
+  font-size: 0.85rem;
 }
 
 .site-footer-brand,
@@ -8286,8 +8286,10 @@ section[id] {
 
 /* Pull quote */
 .oped-pullquote {
-  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 8vw, 8rem);
+  padding: clamp(2rem, 4vw, 4rem) clamp(2rem, 8vw, 8rem);
   text-align: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .oped-pullquote p {
@@ -8545,6 +8547,45 @@ section[id] {
   display: inline-flex;
   gap: 1rem;
   flex-wrap: wrap;
+}
+
+/* Op-ed scroll reveals */
+.oped-echo-content,
+.oped-pullquote p,
+.oped-blindspots-title,
+.oped-editorial-big,
+.oped-pillar-item,
+.oped-close-title {
+  opacity: 0;
+  transform: translateY(24px);
+  animation: oped-reveal 0.8s var(--ease, cubic-bezier(0.16, 1, 0.3, 1)) forwards;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+@keyframes oped-reveal {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pillar items stagger */
+.oped-pillar-item:nth-child(2) { animation-delay: 0.05s; }
+.oped-pillar-item:nth-child(3) { animation-delay: 0.1s; }
+.oped-pillar-item:nth-child(4) { animation-delay: 0.15s; }
+.oped-pillar-item:nth-child(5) { animation-delay: 0.2s; }
+
+/* Blind spots grid subtle highlight on SLIC column */
+.oped-grid-header--slic {
+  position: relative;
+}
+
+.oped-grid-header--slic::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--slic-teal);
 }
 
 /* Op-ed responsive */
