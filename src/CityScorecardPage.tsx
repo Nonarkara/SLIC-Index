@@ -1,4 +1,6 @@
 import publishedData from "./data/publishedRankingData.json";
+import { PILLAR_COLORS, PILLAR_ORDER } from "./pillarConfig";
+import type { PillarId } from "./pillarConfig";
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
 
@@ -56,15 +58,9 @@ interface PillarMetricEntry {
   weight: number;
 }
 
-type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
+/* PillarId imported from pillarConfig */
 
-const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#b85c28",
-  viability: "#1a6b5a",
-  capability: "#2a5a8c",
-  community: "#8c4a2a",
-  creative: "#a0382a",
-};
+/* PILLAR_COLORS imported from pillarConfig */
 
 const PILLAR_LABELS: Record<string, Record<PillarId, string>> = {
   en: { pressure: "Growth Pressure", viability: "Viability", capability: "Capability", community: "Community", creative: "Creative" },
@@ -80,7 +76,7 @@ const PILLAR_WEIGHTS: Record<PillarId, number> = {
   creative: 20,
 };
 
-const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
+/* PILLAR_ORDER imported from pillarConfig */
 
 const METRIC_LABELS: Record<string, string> = {
   pressure_disposable_income_ppp: "Disposable Income (PPP)",

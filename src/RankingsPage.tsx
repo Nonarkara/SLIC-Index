@@ -8,25 +8,9 @@ import RankingIntegrityBanner from "./RankingIntegrityBanner";
 import { rankingRegions } from "./rankingsData";
 import { getCopy } from "./siteCopy";
 import SiteFooter from "./SiteFooter";
+import { PILLAR_COLORS, PILLAR_LABELS, PILLAR_ORDER } from "./pillarConfig";
+import type { PillarId } from "./pillarConfig";
 import type { Locale, SitePath } from "./types";
-
-/* ───── pillar config ───── */
-
-type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
-
-const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#f97316",
-  viability: "#22c55e",
-  capability: "#3b82f6",
-  community: "#a855f7",
-  creative: "#ec4899",
-};
-
-const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
-  en: { pressure: "Growth", viability: "Viability", capability: "Capability", community: "Community", creative: "Creative" },
-  th: { pressure: "การเติบโต", viability: "ความน่าอยู่", capability: "ศักยภาพ", community: "ชุมชน", creative: "ความสร้างสรรค์" },
-  zh: { pressure: "增长", viability: "宜居", capability: "能力", community: "社区", creative: "创新" },
-};
 
 const PILLAR_HINTS: Record<Locale, Record<PillarId, string>> = {
   en: {
@@ -52,7 +36,7 @@ const PILLAR_HINTS: Record<Locale, Record<PillarId, string>> = {
   },
 };
 
-const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
+/* PILLAR_ORDER imported from pillarConfig */
 
 /* ───── published data ───── */
 
