@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import LocaleSwitch from "./LocaleSwitch";
 import { getCopy } from "./siteCopy";
+import { SLIC_LOGO_INLINE } from "./brandAssets";
+const slicLogoSrc = SLIC_LOGO_INLINE;
 import type { Locale, SitePath } from "./types";
 
 const navPaths: SitePath[] = [
@@ -72,7 +74,7 @@ export default function SiteMasthead({
       <div className="mh-inner">
         {/* Left: wordmark */}
         <button type="button" className="mh-wordmark" onClick={() => handleNav("/")}>
-          <img src="/Logos/slic-index-logo.jpg" alt="SLIC Index" className="mh-logo-img" />
+          <img src={slicLogoSrc} alt="SLIC Index" className="mh-logo-img" />
         </button>
 
         {/* Center: edition tag */}

@@ -6,6 +6,7 @@ import type { FiredConsequence } from "./consequenceRules";
 import publishedData from "./data/publishedRankingData.json";
 import { getVisitorStats } from "./visitorTracking";
 import SiteFooter from "./SiteFooter";
+import { SLIC_LOGO_INLINE } from "./brandAssets";
 import type { Locale, SitePath } from "./types";
 
 type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
@@ -83,7 +84,7 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
       {/* ════ 01. HERO — The thesis, not just a tagline ════ */}
       <header className="hp-opening">
         <div className="hp-opening-inner section">
-          <img src="/Logos/slic-index-logo.jpg" alt="SLIC Index" className="hp-hero-logo" />
+          <img src={SLIC_LOGO_INLINE} alt="SLIC Index" className="hp-hero-logo" />
           <p className="hp-kicker">{t(locale, "157 cities, 35 signals, zero bullshit", "157 เมือง 35 สัญญาณ ไม่มีมุก", "157城市 35信号 零废话")}</p>
           <h1 className="hp-headline">
             {t(locale,

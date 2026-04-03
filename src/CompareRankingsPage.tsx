@@ -8,6 +8,7 @@ import {
   COMPARE_HERO,
   SLIC_DIFFERENCE,
 } from "./compareRankingsData";
+import { SLIC_LOGO_INLINE } from "./brandAssets";
 import type { Locale, SitePath } from "./types";
 
 /* ── Pillar config (same as HomePage) ── */
@@ -100,7 +101,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
       <header className="compare-hero">
         <img src="/launch-photos/20260318145941_DSC09480.jpg" alt="" className="compare-hero-photo" />
         <div className="compare-hero-inner section">
-          <img src="/Logos/slic-index-logo.jpg" alt="SLIC Index" className="compare-hero-logo" />
+          <img src={SLIC_LOGO_INLINE} alt="SLIC Index" className="compare-hero-logo" />
           <h1 className="compare-hero-title">{t(locale,
             "Six indices rank cities.\nFive of them agree.\nWe don\u2019t.",
             "หกดัชนีจัดอันดับเมือง\nห้าดัชนีเห็นพ้องกัน\nเราไม่",
