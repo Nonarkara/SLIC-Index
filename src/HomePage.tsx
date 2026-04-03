@@ -9,10 +9,7 @@ import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
 
 type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
-
-const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#b85c28", viability: "#1a6b5a", capability: "#2a5a8c", community: "#8c4a2a", creative: "#a0382a",
-};
+const PILLAR_COLORS: Record<PillarId, string> = { pressure: "#b85c28", viability: "#1a6b5a", capability: "#2a5a8c", community: "#8c4a2a", creative: "#a0382a" };
 const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   en: { pressure: "Growth", viability: "Viability", capability: "Capability", community: "Community", creative: "Creative" },
   th: { pressure: "การเติบโต", viability: "ความน่าอยู่", capability: "ศักยภาพ", community: "ชุมชน", creative: "ความสร้างสรรค์" },
@@ -25,7 +22,6 @@ interface PublishedCity {
   cityId: string; displayName: string; country: string; region: string; rankingStatus: string;
   pressureScore: number; viabilityScore: number; capabilityScore: number; communityScore: number; creativeScore: number; slicScore: number; rank: number;
 }
-
 const allCities = (publishedData.cities ?? []) as PublishedCity[];
 const rankedCities = allCities.filter((c) => c.rankingStatus === "Ranked");
 
@@ -35,15 +31,9 @@ function scoreCityWithWeights(city: PublishedCity, weights: Record<PillarId, num
   return PILLAR_ORDER.reduce((s, p) => s + ((city[`${p}Score` as keyof PublishedCity] as number) * weights[p]) / total, 0);
 }
 
-const severityClass: Record<string, string> = {
-  severe: "tradeoff-card tradeoff-card--severe",
-  moderate: "tradeoff-card tradeoff-card--moderate",
-  mild: "tradeoff-card tradeoff-card--mild",
-};
+const severityClass: Record<string, string> = { severe: "tradeoff-card tradeoff-card--severe", moderate: "tradeoff-card tradeoff-card--moderate", mild: "tradeoff-card tradeoff-card--mild" };
 
-/* ── photos ── */
 const HERO_PHOTO = "/launch-photos/20260318145941_DSC09480.jpg";
-const STAGE_PHOTO = "/launch-photos/20260318145249_ABC01948.jpg";
 const CITY_PHOTOS: Record<string, string> = {
   "th-bangkok": "https://images.unsplash.com/photo-1563492065599-3520f775eeed?w=600&h=400&fit=crop&q=80",
   "kr-busan": "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=600&h=400&fit=crop&q=80",
@@ -60,6 +50,9 @@ const CITY_PHOTOS: Record<string, string> = {
 function t(locale: Locale, en: string, th: string, zh: string): string {
   return locale === "en" ? en : locale === "th" ? th : zh;
 }
+
+/* ── The establishment's favorites (for the callout) ── */
+const ESTABLISHMENT_TOP = ["Vienna", "Zurich", "Copenhagen", "Melbourne", "Geneva", "Auckland", "London", "Paris", "Singapore", "Tokyo"];
 
 export default function HomePage({ onNavigate, locale }: { onNavigate: (path: SitePath) => void; locale: Locale }) {
   const ui = { allocatorHint: t(locale, "Drag the web or use sliders. Total = 100.", "ลากใยแมงมุมหรือใช้แถบเลื่อน ผลรวม = 100", "拖动蛛网图或使用滑块，总分 = 100"), resetLabel: t(locale, "Reset", "รีเซ็ต", "重置") };
@@ -82,45 +75,26 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
   [weights]);
   const handleReset = () => setPillars(PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: EQUAL_WEIGHT })));
 
-  /* ── rotating mottos ── */
-  const mottos: string[][] = [
-    ["Where can you still\nbuild a life?", "เมืองไหน\nยังสร้างชีวิตได้?", "哪座城市\n还能安身立命?"],
-    ["What\u2019s left\nafter rent?", "จ่ายค่าเช่าแล้ว\nเหลืออะไร?", "付完房租\n还剩什么?"],
-    ["Not a ranking.\nA reality check.", "ไม่ใช่การจัดอันดับ\nแต่คือความจริง", "不是排名\n而是现实检验"],
-    ["Does your city\nwork for you?", "เมืองของคุณ\nทำงานให้คุณไหม?", "你的城市\n为你服务吗?"],
-    ["157 cities.\nNo bullshit.", "157 เมือง\nไม่มีมุก", "157座城市\n没有废话"],
-  ];
-
-  const [mottoIndex, setMottoIndex] = useState(0);
-  const [mottoFade, setMottoFade] = useState(true);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setMottoFade(false);
-      setTimeout(() => {
-        setMottoIndex((i) => (i + 1) % mottos.length);
-        setMottoFade(true);
-      }, 600);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [mottos.length]);
-
-  const currentMotto = mottos[mottoIndex];
+  /* Which SLIC top 10 cities are NOT in the establishment top 10? */
+  const slicExclusive = results.slice(0, 10).filter((c) => !ESTABLISHMENT_TOP.includes(c.displayName));
 
   return (
     <>
-      {/* ════ 01. OPENING — typographic, rotating mottos ════ */}
+      {/* ════ 01. HERO — The thesis, not just a tagline ════ */}
       <header className="hp-opening">
         <div className="hp-opening-inner section">
-          <p className="hp-kicker">{t(locale, "SLIC Index V3", "ดัชนี SLIC V3", "SLIC 指数 V3")}</p>
-          <h1 className={mottoFade ? "hp-headline hp-headline--visible" : "hp-headline hp-headline--fading"}>
-            {t(locale, currentMotto[0], currentMotto[1], currentMotto[2])}
+          <p className="hp-kicker">{t(locale, "SLIC Index V3 \u2014 2026", "ดัชนี SLIC V3 \u2014 2026", "SLIC 指数 V3 \u2014 2026")}</p>
+          <h1 className="hp-headline">
+            {t(locale,
+              "Where can you still\nbuild a life?",
+              "เมืองไหน\nยังสร้างชีวิตได้?",
+              "哪座城市\n还能安身立命?")}
           </h1>
           <p className="hp-deck">
             {t(locale,
-              "Not prestige. Not GDP. What\u2019s left after rent, how long you work, whether your neighbors tolerate you. 157 cities scored on what actually matters.",
-              "ไม่ใช่ชื่อเสียง ไม่ใช่ GDP แต่คือเงินเหลือหลังค่าเช่า ชั่วโมงทำงาน และว่าเพื่อนบ้านรับคุณได้ไหม 157 เมืองวัดในสิ่งที่สำคัญจริง",
-              "不比声望不比GDP 而是租房后还剩多少 工作多久 邻居是否包容你 157座城市只衡量真正重要的事")}
+              "Not prestige. Not GDP. What\u2019s left after rent, how long you work, whether your neighbors tolerate you. 157 cities scored on what actually matters. Every number traceable.",
+              "ไม่ใช่ชื่อเสียง ไม่ใช่ GDP แต่คือเงินเหลือหลังค่าเช่า ชั่วโมงทำงาน และว่าเพื่อนบ้านรับคุณได้ไหม 157 เมืองวัดในสิ่งที่สำคัญจริง ทุกตัวเลขสืบย้อนได้",
+              "不比声望不比GDP 而是租房后还剩多少 工作多久 邻居是否包容你 157座城市只衡量真正重要的事 每个数字都可追溯")}
           </p>
           <div className="hp-opening-stats">
             <span><strong>{rankedCities.length}</strong> {t(locale, "cities", "เมือง", "城市")}</span>
@@ -132,34 +106,38 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
         </div>
       </header>
 
-      {/* ════ 02. FULL-BLEED PHOTO — the stage ════ */}
-      <section className="hp-photo-break">
-        <img src={HERO_PHOTO} alt="SCSE 2026" className="hp-photo-break-img" />
-        <p className="hp-photo-caption">{t(locale, "Smart City Summit & Expo 2026, Taipei \u2014 where SLIC V2 launched to 3,000 people", "Smart City Summit & Expo 2026 ไทเป \u2014 ที่ที่ SLIC V2 เปิดตัวต่อหน้า 3,000 คน", "2026智慧城市峰会 台北 \u2014 SLIC V2向3000人发布")}</p>
-      </section>
-
-      {/* ════ 03. THE THESIS — editorial text block ════ */}
-      <section className="hp-thesis section">
-        <div className="hp-thesis-inner">
-          <h2 className="hp-thesis-title">
-            {t(locale,
-              "Every city ranking is an ideology.\nThis one admits it.",
-              "ทุกการจัดอันดับเมืองคืออุดมการณ์\nดัชนีนี้ยอมรับมัน",
-              "每个城市排名都是一种意识形态\n这个排名承认这一点")}
-          </h2>
-          <p className="hp-thesis-body">
-            {t(locale,
-              "EIU rewards stability for expats. Mercer calculates hardship allowances. Monocle curates lifestyle for the already-rich. SLIC asks a different question: where can an ordinary person afford life, keep dignity, find community, and still have ambition left over?",
-              "EIU ให้รางวัลเสถียรภาพสำหรับชาวต่างชาติ Mercer คำนวณค่าตอบแทนความลำบาก Monocle จัดไลฟ์สไตล์สำหรับคนรวยอยู่แล้ว SLIC ถามคำถามที่ต่าง: คนธรรมดาจะมีชีวิตที่จ่ายไหว รักษาศักดิ์ศรี มีชุมชน และยังมีพลังเหลือได้ที่ไหน?",
-              "EIU奖赏外派安定 Mercer计算艰苦津贴 Monocle为已经富有的人策展生活方式 SLIC问的是另一个问题：普通人在哪里还负担得起生活、保有尊严、找到社区、还有余力追求理想？")}
-          </p>
-          <a className="hp-thesis-link" href="/compare" onClick={(e) => { e.preventDefault(); onNavigate("/compare"); }}>
-            {t(locale, "Read the full comparison", "อ่านการเปรียบเทียบเต็ม", "阅读完整对比")} &rarr;
+      {/* ════ 02. THE PUNCHLINE — comparison callout ════ */}
+      <section className="hp-callout">
+        <div className="hp-callout-inner section">
+          <div className="hp-callout-left">
+            <p className="hp-callout-label">{t(locale, "THE OTHER INDICES SAY", "ดัชนีอื่นบอกว่า", "其他指数说")}</p>
+            <p className="hp-callout-list">Vienna, Zurich, Copenhagen, Melbourne, Geneva, Auckland, London, Paris, Singapore, Tokyo</p>
+            <p className="hp-callout-note">{t(locale, "EIU, Mercer, Monocle, Resonance, Yonsei \u2014 five different methodologies, same ten cities.", "EIU, Mercer, Monocle, Resonance, Yonsei \u2014 ห้าระเบียบวิธี สิบเมืองเดิม", "EIU、Mercer、Monocle、Resonance、延世 \u2014 五种方法论 同样十座城市")}</p>
+          </div>
+          <div className="hp-callout-divider" />
+          <div className="hp-callout-right">
+            <p className="hp-callout-label hp-callout-label--slic">{t(locale, "SLIC SAYS", "SLIC บอกว่า", "SLIC说")}</p>
+            <p className="hp-callout-list hp-callout-list--slic">{slicExclusive.map((c) => c.displayName).join(", ")}</p>
+            <p className="hp-callout-note">{t(locale,
+              "None of these appear in any establishment top 10. Are you going to tell us they\u2019re not liveable?",
+              "ไม่มีเมืองเหล่านี้ในท็อป 10 ของดัชนีสถาบันใดเลย คุณจะบอกว่าเมืองเหล่านี้ไม่น่าอยู่เหรอ?",
+              "这些城市都不在任何机构前10名中 你要说它们不宜居吗？")}</p>
+          </div>
+        </div>
+        <div className="section">
+          <a className="hp-callout-cta" href="/compare" onClick={(e) => { e.preventDefault(); onNavigate("/compare"); }}>
+            {t(locale, "See the full comparison \u2014 six indices, side by side", "ดูการเปรียบเทียบเต็ม \u2014 หกดัชนีเทียบกัน", "查看完整对比 \u2014 六个指数并排")} &rarr;
           </a>
         </div>
       </section>
 
-      {/* ════ 04. ALPHA TIER — the answer ════ */}
+      {/* ════ 03. FULL-BLEED PHOTO ════ */}
+      <section className="hp-photo-break">
+        <img src={HERO_PHOTO} alt="SCSE 2026" className="hp-photo-break-img" />
+        <p className="hp-photo-caption">{t(locale, "SCSE 2026, Taipei \u2014 3,000 professionals. A European mayor\u2019s alliance asked to use SLIC instead of The Economist\u2019s index.", "SCSE 2026 ไทเป \u2014 ผู้เชี่ยวชาญ 3,000 คน พันธมิตรนายกเทศมนตรียุโรปขอใช้ SLIC แทนดัชนี The Economist", "SCSE 2026 台北 \u2014 3000位专业人士 欧洲市长联盟要求用SLIC取代经济学人指数")}</p>
+      </section>
+
+      {/* ════ 04. ALPHA TIER ════ */}
       <section className="v3-alpha" id="tiers">
         <div className="v3-alpha-header section">
           <span className="v3-tier-badge v3-tier-badge--alpha">&alpha; ALPHA</span>
@@ -188,13 +166,7 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
         </div>
       </section>
 
-      {/* ════ 05. SECOND PHOTO BREAK ════ */}
-      <section className="hp-photo-break hp-photo-break--narrow">
-        <img src={STAGE_PHOTO} alt="Dr Non on stage" className="hp-photo-break-img" />
-        <p className="hp-photo-caption">{t(locale, "Dr Non presenting SLIC V2 at SCSE Taipei. European mayors asked to replace The Economist\u2019s index.", "ดร.ณณ นำเสนอ SLIC V2 ที่ SCSE ไทเป นายกเทศมนตรียุโรปขอใช้แทนดัชนี The Economist", "Non博士在台北SCSE展示SLIC V2 欧洲市长联盟要求用它取代经济学人指数")}</p>
-      </section>
-
-      {/* ════ 06. BETA + GAMMA ════ */}
+      {/* ════ 05. BETA + GAMMA ════ */}
       <section className="section v3-lower-tiers">
         <div className="v3-lower-tier-row">
           <span className="v3-tier-badge v3-tier-badge--beta">&beta; BETA</span>
@@ -218,7 +190,7 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
         </div>
       </section>
 
-      {/* ════ 07. SPIDER — your turn ════ */}
+      {/* ════ 06. SPIDER ════ */}
       <section className="v3-spider-full">
         <div className="section">
           <h2 className="v3-section-title">{t(locale, "Now disagree with us.", "ตอนนี้ลองไม่เห็นด้วยกับเรา", "现在来反驳我们")}</h2>
@@ -251,16 +223,16 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
         </div>
       </section>
 
-      {/* ════ 08. CTA ════ */}
+      {/* ════ 07. CTA ════ */}
       <section className="v3-cta-section section">
-        <a className="v3-cta" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>
-          {t(locale, "READ THE METHODOLOGY", "อ่านระเบียบวิธี", "阅读方法论")} &rarr;
+        <a className="v3-cta" href="/compare" onClick={(e) => { e.preventDefault(); onNavigate("/compare"); }}>
+          {t(locale, "THE FULL COMPARISON", "เปรียบเทียบเต็ม", "完整对比")} &rarr;
+        </a>
+        <a className="v3-cta-secondary" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>
+          {t(locale, "METHODOLOGY", "ระเบียบวิธี", "方法论")}
         </a>
         <a className="v3-cta-secondary" href="/about-slic" onClick={(e) => { e.preventDefault(); onNavigate("/about-slic"); }}>
           {t(locale, "ABOUT SLIC", "เกี่ยวกับ SLIC", "关于 SLIC")}
-        </a>
-        <a className="v3-cta-secondary" href="/history" onClick={(e) => { e.preventDefault(); onNavigate("/history"); }}>
-          {t(locale, "THE JOURNEY", "เบื้องหลัง", "发展历程")}
         </a>
       </section>
 
