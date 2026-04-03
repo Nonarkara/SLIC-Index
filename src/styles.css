@@ -7526,10 +7526,58 @@ section[id] {
   max-width: 640px;
 }
 
-/* 02. Side-by-side table */
-.compare-table-section {
+/* 02. Interactive spider + table */
+.compare-interactive {
   padding: 3rem 0;
   border-bottom: 1px solid var(--border);
+}
+
+.compare-spider-widget {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin: 1.5rem auto;
+  max-width: 360px;
+  padding: 1.5rem;
+  background: var(--text);
+  border-radius: 12px;
+}
+
+.compare-spider-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.compare-reset-btn {
+  padding: 6px 16px;
+  border: 1px solid rgba(248, 245, 240, 0.15);
+  background: transparent;
+  color: rgba(248, 245, 240, 0.6);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.compare-reset-btn:hover {
+  border-color: rgba(248, 245, 240, 0.4);
+  color: rgba(248, 245, 240, 0.9);
+}
+
+.compare-custom-badge {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent-cyan);
+}
+
+.compare-cell--animated {
+  transition: background 0.15s;
 }
 
 .compare-section-title {
