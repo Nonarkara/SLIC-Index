@@ -83,7 +83,8 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
       {/* ════ 01. HERO — The thesis, not just a tagline ════ */}
       <header className="hp-opening">
         <div className="hp-opening-inner section">
-          <p className="hp-kicker">{t(locale, "SLIC Index V3 \u2014 2026", "ดัชนี SLIC V3 \u2014 2026", "SLIC 指数 V3 \u2014 2026")}</p>
+          <img src="/Logos/SLIC logo.jpg" alt="SLIC Index" className="hp-hero-logo" />
+          <p className="hp-kicker">{t(locale, "157 cities, 35 signals, zero bullshit", "157 เมือง 35 สัญญาณ ไม่มีมุก", "157城市 35信号 零废话")}</p>
           <h1 className="hp-headline">
             {t(locale,
               "Where can you still\nbuild a life?",
@@ -110,18 +111,18 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
       <section className="hp-callout">
         <div className="hp-callout-inner section">
           <div className="hp-callout-left">
-            <p className="hp-callout-label">{t(locale, "THE OTHER INDICES SAY", "ดัชนีอื่นบอกว่า", "其他指数说")}</p>
+            <p className="hp-callout-label">{t(locale, "EVERY OTHER INDEX AGREES ON", "ทุกดัชนีอื่นเห็นพ้องกับ", "所有其他指数都认同")}</p>
             <p className="hp-callout-list">Vienna, Zurich, Copenhagen, Melbourne, Geneva, Auckland, London, Paris, Singapore, Tokyo</p>
-            <p className="hp-callout-note">{t(locale, "EIU, Mercer, Monocle, Resonance, Yonsei \u2014 five different methodologies, same ten cities.", "EIU, Mercer, Monocle, Resonance, Yonsei \u2014 ห้าระเบียบวิธี สิบเมืองเดิม", "EIU、Mercer、Monocle、Resonance、延世 \u2014 五种方法论 同样十座城市")}</p>
+            <p className="hp-callout-note">{t(locale, "Five indices, five methodologies, one answer: rich, stable, Western-ish. The top 10 are separated by less than 2 points. The difference between #1 and #10 is smaller than a rounding error.", "ห้าดัชนี ห้าระเบียบวิธี คำตอบเดียว: ร่ำรวย มั่นคง แบบตะวันตก ท็อป 10 ต่างกันไม่ถึง 2 คะแนน", "五个指数 五种方法论 一个答案：富裕稳定偏西方 前10名相差不到2分")}</p>
           </div>
           <div className="hp-callout-divider" />
           <div className="hp-callout-right">
-            <p className="hp-callout-label hp-callout-label--slic">{t(locale, "SLIC SAYS", "SLIC บอกว่า", "SLIC说")}</p>
+            <p className="hp-callout-label hp-callout-label--slic">{t(locale, "SLIC DISAGREES", "SLIC ไม่เห็นด้วย", "SLIC持不同意见")}</p>
             <p className="hp-callout-list hp-callout-list--slic">{slicExclusive.map((c) => c.displayName).join(", ")}</p>
             <p className="hp-callout-note">{t(locale,
-              "None of these appear in any establishment top 10. Are you going to tell us they\u2019re not liveable?",
-              "ไม่มีเมืองเหล่านี้ในท็อป 10 ของดัชนีสถาบันใดเลย คุณจะบอกว่าเมืองเหล่านี้ไม่น่าอยู่เหรอ?",
-              "这些城市都不在任何机构前10名中 你要说它们不宜居吗？")}</p>
+              "Zero of these cities appear in any establishment top 10. But people actually live here, build careers, raise families, and stay. Try telling someone in Kaohsiung their city isn\u2019t liveable.",
+              "ไม่มีเมืองเหล่านี้ในท็อป 10 ของดัชนีอื่นเลย แต่คนอาศัยอยู่จริง สร้างอาชีพ เลี้ยงครอบครัว และอยู่ต่อ ลองบอกคนเกาสงว่าเมืองเขาไม่น่าอยู่ดูสิ",
+              "这些城市都不在任何机构前10名中 但人们真的住在这里 建立事业 养育家庭 并且留下来 试着告诉高雄人他们的城市不宜居")}</p>
           </div>
         </div>
         <div className="section">

@@ -1724,30 +1724,21 @@ section[id] {
   box-shadow: 0 2px 16px rgba(28, 25, 20, 0.06);
 }
 
-/* Wordmark */
+/* Wordmark / Logo */
 .mh-wordmark {
   display: flex;
-  align-items: baseline;
-  gap: 0.35rem;
+  align-items: center;
   border: 0;
   background: 0;
   cursor: pointer;
   padding: 0;
+  flex-shrink: 0;
 }
 
-.mh-wordmark-main {
-  font-family: var(--font-heading);
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-}
-
-.mh-wordmark-sub {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  opacity: 0.4;
+.mh-logo-img {
+  height: 1.6rem;
+  width: auto;
+  object-fit: contain;
 }
 
 /* Edition tag — hidden on nav-heavy layouts */
@@ -1862,6 +1853,14 @@ section[id] {
 
 .hp-opening-inner {
   max-width: 720px;
+}
+
+.hp-hero-logo {
+  height: 2.5rem;
+  width: auto;
+  object-fit: contain;
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
 }
 
 .hp-kicker {
