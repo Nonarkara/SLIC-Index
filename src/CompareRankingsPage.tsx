@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from "react";
+import ComparisonGrid from "./ComparisonGrid";
 import ZeroSumAllocator from "./ZeroSumAllocator";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import { evaluateConsequences } from "./consequenceRules";
@@ -42,8 +43,7 @@ const CITY_PHOTOS: Record<string, string> = {
   "tw-taipei": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=600&h=400&fit=crop&q=80",
 };
 
-/* Establishment consensus cities */
-const ESTABLISHMENT = ["Vienna", "Zurich", "Copenhagen", "Melbourne", "Geneva", "Auckland", "London", "Paris", "Singapore", "Tokyo"];
+
 
 /* Blind spots diagram data */
 const BLIND_SPOT_ROWS = [
@@ -81,7 +81,6 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
   [weights]);
   const handleReset = () => setPillars(PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: EQUAL_WEIGHT })));
   const slicTop10 = results.slice(0, 10);
-  const slicExclusive = slicTop10.filter((c) => !ESTABLISHMENT.includes(c.displayName));
 
   return (
     <>
@@ -100,25 +99,15 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
         <span className="oped-scroll-hint">{t(locale, "scroll", "เลื่อนลง", "向下滚动")}</span>
       </header>
 
-      {/* ═══ ACT 2: THE ECHO CHAMBER ═══ */}
-      <section className="oped-echo">
-        <div className="oped-echo-photo">
-          <img src="/photos/report-city-rail.jpg" alt="Dense cityscape with elevated rail" loading="lazy" />
-        </div>
-        <div className="oped-echo-content">
-          <p className="oped-echo-label">{t(locale, "EVERY OTHER INDEX AGREES ON", "ทุกดัชนีอื่นเห็นพ้องกับ", "所有其他指数都认同")}</p>
-          <p className="oped-echo-list">{ESTABLISHMENT.map((c, i) => <span key={c}>{i > 0 ? ", " : ""}{c}</span>)}</p>
-          <p className="oped-echo-note">{t(locale,
-            "Five indices, five methodologies, one answer: rich, stable, Western-ish.",
-            "ห้าดัชนี ห้าระเบียบวิธี คำตอบเดียว: ร่ำรวย มั่นคง แบบตะวันตก",
-            "五个指数 五种方法论 一个答案：富裕稳定偏西方")}</p>
-
-          <p className="oped-echo-label oped-echo-label--slic" style={{ marginTop: "3rem" }}>{t(locale, "SLIC DISAGREES", "SLIC ไม่เห็นด้วย", "SLIC持不同意见")}</p>
-          <p className="oped-echo-list oped-echo-list--slic">{slicExclusive.map((c, i) => <span key={c.cityId}>{i > 0 ? ", " : ""}{c.displayName}</span>)}</p>
-          <p className="oped-echo-note">{t(locale,
-            "Zero of these appear in any establishment top 10. Try telling someone in Kaohsiung their city isn\u2019t liveable.",
-            "ไม่มีเมืองเหล่านี้ในท็อป 10 ของดัชนีอื่นเลย ลองบอกคนเกาสงว่าเมืองเขาไม่น่าอยู่ดูสิ",
-            "这些城市都不在任何机构前10名中 试着告诉高雄人他们的城市不宜居")}</p>
+      {/* ═══ ACT 2: THE COMPARISON GRID ═══ */}
+      <section className="hp-grid-reveal">
+        <div className="section">
+          <p className="hp-grid-kicker">{t(locale, "SIX INDICES. SIDE BY SIDE.", "หกดัชนี เทียบกัน", "六个指数 并排对比")}</p>
+          <ComparisonGrid locale={locale} />
+          <p className="hp-grid-note">{t(locale,
+            "Five indices, five methodologies, one answer: rich, stable, Western-ish. SLIC asks a different question. Hover any city to see where else it appears.",
+            "ห้าดัชนี ห้าระเบียบวิธี คำตอบเดียว: ร่ำรวย มั่นคง แบบตะวันตก SLIC ถามคำถามที่ต่าง วางเมาส์ที่เมืองใดก็ได้",
+            "五个指数 五种方法论 一个答案：富裕稳定偏西方 SLIC问的是另一个问题 悬停在任何城市上查看")}</p>
         </div>
       </section>
 
@@ -161,6 +150,22 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
         <img src="/photos/report-city-walkway.jpg" alt="People walking on elevated walkway" loading="lazy" />
         <figcaption>{t(locale, "What liveability actually looks like: eye-level, human scale, daily life.", "ความน่าอยู่จริงๆ หน้าตาเป็นยังไง: ระดับสายตา มาตราส่วนมนุษย์ ชีวิตประจำวัน", "宜居性到底是什么样子：视线高度 人的尺度 日常生活")}</figcaption>
       </figure>
+
+      {/* ═══ DATA COVERAGE ACKNOWLEDGMENT ═══ */}
+      <section className="oped-editorial section" style={{ borderBottom: `1px solid var(--border)` }}>
+        <h2 className="oped-editorial-big">{t(locale,
+          "What we don\u2019t cover yet.",
+          "สิ่งที่เรายังไม่ครอบคลุม",
+          "我们尚未覆盖的内容")}</h2>
+        <p className="oped-editorial-body">{t(locale,
+          "SLIC ranks 157 cities across 35 signals. That\u2019s not every city in the world. War zones \u2014 Syria, Yemen, Sudan, Myanmar \u2014 lack the reliable, verifiable data our methodology requires. Micro-states and cities under active conflict are on our watchlist, not quietly dropped. We\u2019d rather show you the gap than pretend it doesn\u2019t exist.",
+          "SLIC จัดอันดับ 157 เมือง ใน 35 สัญญาณ นั่นไม่ใช่ทุกเมืองในโลก เขตสงคราม \u2014 ซีเรีย เยเมน ซูดาน เมียนมาร์ \u2014 ขาดข้อมูลที่เชื่อถือได้ตามระเบียบวิธีของเรา เราเลือกแสดงช่องว่างแทนที่จะเงียบๆ ตัดเมืองออก",
+          "SLIC对157座城市进行排名 涵盖35个信号 这不是世界上所有的城市 战区 \u2014 叙利亚、也门、苏丹、缅甸 \u2014 缺乏我们方法论所需的可靠可验证数据 我们宁愿展示差距也不愿假装它不存在")}</p>
+        <p className="oped-editorial-body">{t(locale,
+          "Every city has a coverage grade \u2014 A, B, C, or Watchlist \u2014 published alongside its score. No hiding behind averages. V4 target: 350+ cities. Every new data point makes the index more honest, not more impressive.",
+          "ทุกเมืองมีเกรดความครอบคลุม \u2014 A, B, C, หรือ Watchlist \u2014 เผยแพร่คู่กับคะแนน ไม่ซ่อนหลังค่าเฉลี่ย เป้าหมาย V4: 350+ เมือง ข้อมูลใหม่ทุกจุดทำให้ดัชนีซื่อสัตย์ขึ้น ไม่ใช่น่าประทับใจขึ้น",
+          "每座城市都有覆盖等级 \u2014 A、B、C或观察名单 \u2014 与分数一起公布 不在平均值背后隐藏 V4目标：350+城市 每个新数据点让指数更诚实 而非更令人印象深刻")}</p>
+      </section>
 
       {/* ═══ ACT 3: THE ANSWER ═══ */}
       <section className="oped-pillars section">
@@ -248,15 +253,18 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
             "เปิดตัวที่ SCSE 2026 ไทเป\nผู้เชี่ยวชาญ 3,000 คน\nพันธมิตรนายกเทศมนตรียุโรปขอใช้แทนดัชนี The Economist",
             "在SCSE 2026台北发布\n3000位专业人士\n欧洲市长联盟要求用它取代经济学人指数")}</h2>
           <p className="oped-close-body">{t(locale,
-            "SLIC is free, public, and every number traces back to its source. No paywall. No proprietary black box. No 12-month lobby cycle.",
-            "SLIC ฟรี เปิดเผย และทุกตัวเลขสืบย้อนถึงแหล่งที่มา ไม่มี paywall ไม่มีกล่องดำ ไม่มีวงจรล็อบบี้ 12 เดือน",
-            "SLIC免费公开 每个数字都可追溯到来源 没有付费墙 没有专有黑箱 没有12个月的游说周期")}</p>
+            "Free. Public. Transparent. We show our watchlist. We show our coverage grades. We show every data source. War zones and cities with no reliable data are on our watchlist \u2014 not quietly dropped. No paywall. No proprietary black box. No 12-month lobby cycle.",
+            "ฟรี เปิดเผย โปร่งใส เราแสดง watchlist แสดงเกรดความครอบคลุม แสดงแหล่งข้อมูลทุกจุด เขตสงครามและเมืองที่ไม่มีข้อมูลอยู่ใน watchlist ไม่ใช่ถูกตัดออกอย่างเงียบๆ",
+            "免费 公开 透明 我们展示观察名单 展示覆盖等级 展示每个数据来源 战区和没有可靠数据的城市在我们的观察名单上 而非被悄悄丢弃")}</p>
           <div className="oped-close-cta">
             <a className="v3-cta" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>
               {t(locale, "READ THE METHODOLOGY", "อ่านระเบียบวิธี", "阅读方法论")} &rarr;
             </a>
             <a className="v3-cta-secondary" href="/compare" onClick={(e) => { e.preventDefault(); onNavigate("/compare"); }}>
               {t(locale, "EXPLORE CITIES", "สำรวจเมือง", "探索城市")}
+            </a>
+            <a className="v3-cta-secondary" href="/rankings" onClick={(e) => { e.preventDefault(); onNavigate("/rankings"); }}>
+              {t(locale, "FULL RANKING", "อันดับเต็ม", "完整排名")}
             </a>
           </div>
         </div>

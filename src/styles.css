@@ -8629,3 +8629,232 @@ section[id] {
     padding: 0.4rem;
   }
 }
+
+/* ════════ Comparison Grid ════════ */
+.comp-grid-wrapper {
+  margin: 3rem 0;
+  width: 100%;
+  /* Center on desktop, but allow wide focus */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comp-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem; /* Increased gap for editorial air */
+  width: 100%;
+  max-width: 1600px;
+}
+
+.comp-col {
+  background: var(--surface-soft);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s var(--ease);
+  min-width: 0;
+  border-radius: 4px;
+}
+
+.comp-col:hover {
+  background: var(--surface);
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.comp-header {
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.comp-header-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.comp-header h3 {
+  font-family: var(--font-heading);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin: 0;
+  line-height: 1.2;
+  color: var(--text);
+}
+
+.comp-list {
+  padding: 0.5rem 0;
+}
+
+.comp-item {
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.85rem;
+  transition: all 0.2s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
+  cursor: default;
+}
+
+.comp-rank {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  opacity: 0.3;
+  width: 1.2rem;
+}
+
+.comp-city-info {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex: 1;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.comp-city-name {
+  color: var(--text);
+  opacity: 0.8;
+  white-space: normal;
+  line-height: 1.3;
+  font-weight: 500;
+}
+
+.comp-city-freq {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* Frequency Intensity Scales */
+.comp-item--freq-2 {
+  background: rgba(42, 157, 143, 0.08); /* slic-teal tint */
+}
+.comp-item--freq-3 {
+  background: rgba(42, 157, 143, 0.15);
+}
+.comp-item--freq-3 .comp-city-name { opacity: 1; }
+
+.comp-item--freq-4 {
+  background: rgba(43, 58, 103, 0.12); /* slic-navy tint */
+}
+.comp-item--freq-4 .comp-city-name { opacity: 1; font-weight: 600; }
+
+.comp-item--freq-5, .comp-item--freq-6 {
+  background: rgba(43, 58, 103, 0.2);
+}
+.comp-item--freq-5 .comp-city-name, .comp-item--freq-6 .comp-city-name { 
+  opacity: 1; 
+  font-weight: 700;
+}
+
+.comp-item--highlight {
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 2;
+}
+
+.comp-item--highlight .comp-city-name {
+  opacity: 1;
+  font-weight: 600;
+}
+
+.comp-item--highlight::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--accent);
+}
+
+.comp-item--exclusive {
+  background: rgba(26, 107, 90, 0.05); /* accent-green tint */
+}
+
+.comp-item--exclusive .comp-city-name {
+  color: var(--accent-green);
+  opacity: 1;
+}
+
+.comp-grid-note {
+  margin-top: 1rem;
+  font-size: 0.75rem;
+  opacity: 0.4;
+  font-style: italic;
+}
+
+@media (max-width: 1024px) {
+  .comp-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .comp-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 400px) {
+  .comp-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ════ 02. HP GRID REVEAL ════ */
+.hp-grid-reveal {
+  padding: 6rem 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.hp-grid-reveal .section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hp-grid-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.hp-grid-note {
+  margin-top: 3rem;
+  max-width: 700px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-align: center;
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .hp-grid-reveal {
+    padding: 4rem 1rem;
+  }
+  .hp-grid-kicker {
+    margin-bottom: 2rem;
+  }
+}

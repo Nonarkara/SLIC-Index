@@ -227,13 +227,13 @@ export default function App() {
           ) : route === "/ideas" ? (
             <IdeasPage onNavigate={navigate} locale={locale} onLocaleChange={setLocale} />
           ) : route === "/compare" ? (
-            <HomePage onNavigate={navigate} locale={locale} />
+            <CompareRankingsPage onNavigate={navigate} locale={locale} />
           ) : route === "/history" ? (
             <HistoryPage onNavigate={navigate} locale={locale} />
           ) : route === "/city" ? (
             <CityScorecardPage onNavigate={navigate} locale={locale} />
           ) : (
-            <CompareRankingsPage onNavigate={navigate} locale={locale} />
+            <HomePage onNavigate={navigate} locale={locale} />
           )}
         </Suspense>
       </div>

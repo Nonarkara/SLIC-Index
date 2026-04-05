@@ -6,6 +6,7 @@ import type { FiredConsequence } from "./consequenceRules";
 import publishedData from "./data/publishedRankingData.json";
 import { getVisitorStats } from "./visitorTracking";
 import SiteFooter from "./SiteFooter";
+import ComparisonGrid from "./ComparisonGrid";
 import { SLIC_LOGO_INLINE } from "./brandAssets";
 import { PILLAR_COLORS, PILLAR_LABELS, PILLAR_ORDER, EQUAL_WEIGHT } from "./pillarConfig";
 import type { PillarId } from "./pillarConfig";
@@ -44,8 +45,6 @@ function t(locale: Locale, en: string, th: string, zh: string): string {
   return locale === "en" ? en : locale === "th" ? th : zh;
 }
 
-/* ── The establishment's favorites (for the callout) ── */
-const ESTABLISHMENT_TOP = ["Vienna", "Zurich", "Copenhagen", "Melbourne", "Geneva", "Auckland", "London", "Paris", "Singapore", "Tokyo"];
 
 export default function HomePage({ onNavigate, locale }: { onNavigate: (path: SitePath) => void; locale: Locale }) {
   const ui = { allocatorHint: t(locale, "Drag the web or use sliders. Total = 100.", "ลากใยแมงมุมหรือใช้แถบเลื่อน ผลรวม = 100", "拖动蛛网图或使用滑块，总分 = 100"), resetLabel: t(locale, "Reset", "รีเซ็ต", "重置") };
@@ -68,8 +67,6 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
   [weights]);
   const handleReset = () => setPillars(PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: EQUAL_WEIGHT })));
 
-  /* Which SLIC top 10 cities are NOT in the establishment top 10? */
-  const slicExclusive = results.slice(0, 10).filter((c) => !ESTABLISHMENT_TOP.includes(c.displayName));
 
   return (
     <>
@@ -80,9 +77,9 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
           <p className="hp-kicker">{t(locale, "157 cities, 35 signals, zero bullshit", "157 เมือง 35 สัญญาณ ไม่มีมุก", "157城市 35信号 零废话")}</p>
           <h1 className="hp-headline">
             {t(locale,
-              "Where can you still\nbuild a life?",
-              "เมืองไหน\nยังสร้างชีวิตได้?",
-              "哪座城市\n还能安身立命?")}
+              "Every city ranking\nis a lie. Here's ours.",
+              "ทุกการจัดอันดับเมืองคือคำลวง—\nนี่คือความจริงของเรา",
+              "所有的城市排名都是谎言。\n这是我们的真实排名。")}
           </h1>
           <p className="hp-deck">
             {t(locale,
@@ -100,28 +97,17 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
         </div>
       </header>
 
-      {/* ════ 02. THE PUNCHLINE — comparison callout ════ */}
-      <section className="hp-callout">
-        <div className="hp-callout-inner section">
-          <div className="hp-callout-left">
-            <p className="hp-callout-label">{t(locale, "EVERY OTHER INDEX AGREES ON", "ทุกดัชนีอื่นเห็นพ้องกับ", "所有其他指数都认同")}</p>
-            <p className="hp-callout-list">Vienna, Zurich, Copenhagen, Melbourne, Geneva, Auckland, London, Paris, Singapore, Tokyo</p>
-            <p className="hp-callout-note">{t(locale, "Five indices, five methodologies, one answer: rich, stable, Western-ish. The top 10 are separated by less than 2 points. The difference between #1 and #10 is smaller than a rounding error.", "ห้าดัชนี ห้าระเบียบวิธี คำตอบเดียว: ร่ำรวย มั่นคง แบบตะวันตก ท็อป 10 ต่างกันไม่ถึง 2 คะแนน", "五个指数 五种方法论 一个答案：富裕稳定偏西方 前10名相差不到2分")}</p>
-          </div>
-          <div className="hp-callout-divider" />
-          <div className="hp-callout-right">
-            <p className="hp-callout-label hp-callout-label--slic">{t(locale, "SLIC DISAGREES", "SLIC ไม่เห็นด้วย", "SLIC持不同意见")}</p>
-            <p className="hp-callout-list hp-callout-list--slic">{slicExclusive.map((c) => c.displayName).join(", ")}</p>
-            <p className="hp-callout-note">{t(locale,
-              "Zero of these cities appear in any establishment top 10. But people actually live here, build careers, raise families, and stay. Try telling someone in Kaohsiung their city isn\u2019t liveable.",
-              "ไม่มีเมืองเหล่านี้ในท็อป 10 ของดัชนีอื่นเลย แต่คนอาศัยอยู่จริง สร้างอาชีพ เลี้ยงครอบครัว และอยู่ต่อ ลองบอกคนเกาสงว่าเมืองเขาไม่น่าอยู่ดูสิ",
-              "这些城市都不在任何机构前10名中 但人们真的住在这里 建立事业 养育家庭 并且留下来 试着告诉高雄人他们的城市不宜居")}</p>
-          </div>
-        </div>
+      {/* ════ 02. THE REVEAL — Six Indices Side-by-Side ════ */}
+      <section className="hp-grid-reveal">
         <div className="section">
-          <a className="hp-callout-cta" href="/" onClick={(e) => { e.preventDefault(); onNavigate("/"); }}>
-            {t(locale, "See the full comparison \u2014 six indices, side by side", "ดูการเปรียบเทียบเต็ม \u2014 หกดัชนีเทียบกัน", "查看完整对比 \u2014 六个指数并排")} &rarr;
-          </a>
+          <p className="hp-grid-kicker">{t(locale, "SIX INDICES. SIDE BY SIDE.", "หกดัชนีเทียบกัน", "六个指数并排")}</p>
+          <ComparisonGrid locale={locale} />
+          <p className="hp-grid-note">
+            {t(locale,
+              "Five indices, five methodologies, one answer: rich, stable, Western-ish. SLIC weights the world differently. This visualizes the 'lie' of universal agreement.",
+              "ห้าดัชนี ห้าระเบียบวิธี คำตอบเดียว: ร่ำรวย มั่นคง แบบตะวันตก SLIC ให้น้ำหนักโลกต่างออกไป นี่คือภาพสะท้อนของ 'คำลวง' เรื่องความเห็นพ้องสากล",
+              "五个指数 五种方法论 一个答案：富裕稳定偏西方 SLIC 对世界的权重不同 这形象化了全球共识的“谎言”")}
+          </p>
         </div>
       </section>
 
