@@ -58,7 +58,7 @@ export async function trackVisitor(page = "/") {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "text/plain" },
-    body: JSON.stringify({ ...geo, userAgent, referrer }),
+    body: JSON.stringify({ ...geo, userAgent, referrer, page: window.location.href, version: "v3" }),
   }).catch(() => {});
 
   // 2. Supabase (parallel, silent on failure)
@@ -73,7 +73,7 @@ export async function trackVisitor(page = "/") {
         user_agent: userAgent,
         referrer,
         page,
-        version: "v2",
+        version: "v3",
       })
       .then(({ error }) => {
         if (error) console.warn("Supabase visitor insert failed:", error.message);
