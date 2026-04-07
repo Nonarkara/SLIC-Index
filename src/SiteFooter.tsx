@@ -158,7 +158,7 @@ export default function SiteFooter({
           <a href="/history" onClick={(event) => navigateLink(event, onNavigate, "/history")}>
             {copy.nav.history}
           </a>
-          <a href="https://slic-index.onrender.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://nonarkara.github.io/slic-landing-page/" target="_blank" rel="noopener noreferrer">
             V1 Archive
           </a>
           <a href="https://nonarkara.github.io/slic-index-V2/" target="_blank" rel="noopener noreferrer">
