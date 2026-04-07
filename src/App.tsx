@@ -1,18 +1,16 @@
 import { Suspense, lazy, useEffect, useState } from "react";
-import HomePage from "./HomePage";
 import SiteMasthead from "./SiteMasthead";
 import { localeLabels } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
 import { trackVisitor } from "./visitorTracking";
 
+const LandingPage = lazy(() => import("./CompareRankingsPage"));
 const IdeasPage = lazy(() => import("./IdeasPage"));
-const ExercisePage = lazy(() => import("./ExercisePage"));
 const MethodologyPage = lazy(() => import("./MethodologyPage"));
 const RankingsPage = lazy(() => import("./RankingsPage"));
 const SlicProfilePage = lazy(() => import("./SlicProfilePage"));
 const ThailandPage = lazy(() => import("./ThailandPage"));
 const HistoryPage = lazy(() => import("./HistoryPage"));
-const CompareRankingsPage = lazy(() => import("./CompareRankingsPage"));
 const CityScorecardPage = lazy(() => import("./CityScorecardPage"));
 
 type DocumentWithViewTransition = Document & {
@@ -32,9 +30,6 @@ function resolvePath(pathname: string): SitePath {
     return "/rankings";
   }
 
-  if (pathname === "/exercise") {
-    return "/exercise";
-  }
 
   if (pathname === "/thailand") {
     return "/thailand";
@@ -44,9 +39,6 @@ function resolvePath(pathname: string): SitePath {
     return "/ideas";
   }
 
-  if (pathname === "/compare") {
-    return "/compare";
-  }
 
   if (pathname === "/history") {
     return "/history";
@@ -145,12 +137,6 @@ export default function App() {
               : locale === "zh"
                 ? "SLIC 城市排名"
                 : "SLIC Rankings"
-            : route === "/exercise"
-              ? locale === "th"
-                ? "แบบฝึกหาเมืองที่เหมาะกับคุณ"
-                : locale === "zh"
-                  ? "城市匹配练习"
-                  : "City Match Exercise"
             : route === "/thailand"
               ? locale === "th"
                 ? "SLIC ประเทศไทย"
@@ -163,12 +149,6 @@ export default function App() {
                   : locale === "zh"
                     ? "偷师这个创意"
                     : "Steal This Idea"
-              : route === "/compare"
-                ? locale === "th"
-                  ? "สร้างอันดับเมืองของคุณ"
-                  : locale === "zh"
-                    ? "构建你的城市排名"
-                    : "Build Your City Ranking"
               : route === "/history"
                 ? locale === "th"
                   ? "เบื้องหลัง SLIC"
@@ -220,20 +200,16 @@ export default function App() {
             <SlicProfilePage onNavigate={navigate} locale={locale} />
           ) : route === "/rankings" ? (
             <RankingsPage onNavigate={navigate} locale={locale} />
-          ) : route === "/exercise" ? (
-            <ExercisePage onNavigate={navigate} locale={locale} />
           ) : route === "/thailand" ? (
             <ThailandPage onNavigate={navigate} locale={locale} />
           ) : route === "/ideas" ? (
             <IdeasPage onNavigate={navigate} locale={locale} onLocaleChange={setLocale} />
-          ) : route === "/compare" ? (
-            <CompareRankingsPage onNavigate={navigate} locale={locale} />
           ) : route === "/history" ? (
             <HistoryPage onNavigate={navigate} locale={locale} />
           ) : route === "/city" ? (
             <CityScorecardPage onNavigate={navigate} locale={locale} />
           ) : (
-            <HomePage onNavigate={navigate} locale={locale} />
+            <LandingPage onNavigate={navigate} locale={locale} />
           )}
         </Suspense>
       </div>

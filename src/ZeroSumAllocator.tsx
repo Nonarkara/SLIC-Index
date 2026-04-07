@@ -200,7 +200,7 @@ const SpiderWebChart: FC<{
             <circle
               cx={pt.x}
               cy={pt.y}
-              r={40}
+              r={48}
               fill="transparent"
               style={{ cursor: "grab" }}
               data-index={i}
@@ -371,21 +371,27 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
     [hasInteracted]
   );
 
+  const rafRef = useRef<number | null>(null);
   const handlePointerMove = useCallback(
     (e: React.PointerEvent) => {
       if (draggingIndex === null || !svgRef.current) return;
-      const svg = svgRef.current.querySelector("svg");
-      if (!svg) return;
-      const rect = svg.getBoundingClientRect();
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-      const mx = e.clientX - rect.left - cx;
-      const my = e.clientY - rect.top - cy;
-      const dist = Math.sqrt(mx * mx + my * my);
-      const maxR = rect.width * 0.36;
-      const fraction = Math.max(0, Math.min(1, dist / maxR));
-      const newValue = Math.round(fraction * total);
-      handleSliderChange(draggingIndex, newValue);
+      const clientX = e.clientX;
+      const clientY = e.clientY;
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(() => {
+        const svg = svgRef.current?.querySelector("svg");
+        if (!svg) return;
+        const rect = svg.getBoundingClientRect();
+        const cx = rect.width / 2;
+        const cy = rect.height / 2;
+        const mx = clientX - rect.left - cx;
+        const my = clientY - rect.top - cy;
+        const dist = Math.sqrt(mx * mx + my * my);
+        const maxR = rect.width * 0.40;
+        const fraction = Math.max(0, Math.min(1, dist / maxR));
+        const newValue = Math.round(fraction * total);
+        handleSliderChange(draggingIndex, newValue);
+      });
     },
     [draggingIndex, handleSliderChange, total]
   );

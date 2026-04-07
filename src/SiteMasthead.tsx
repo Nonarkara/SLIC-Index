@@ -7,7 +7,6 @@ import type { Locale, SitePath } from "./types";
 
 const navPaths: SitePath[] = [
   "/rankings",
-  "/compare",
   "/methodology",
   "/thailand",
   "/ideas",
@@ -22,7 +21,7 @@ function navLabel(path: SitePath, locale: Locale): string {
   if (path === "/rankings") return copy.nav.rankings;
   if (path === "/methodology") return copy.nav.methodology;
   if (path === "/ideas") return copy.nav.ideas;
-  if (path === "/compare") return copy.nav.compare;
+
   if (path === "/history") return copy.nav.history;
   return copy.nav.thailand;
 }
@@ -56,7 +55,7 @@ export default function SiteMasthead({
   const handleNav = (path: SitePath) => { setMenuOpen(false); onNavigate(path); };
 
   /* Hide masthead on first viewport (homepage provocation), show after scroll */
-  const isHomepage = currentPath === "/" || currentPath === "/compare";
+  const isHomepage = currentPath === "/";
 
   const cls = [
     "mh",

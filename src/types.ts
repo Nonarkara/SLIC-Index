@@ -6,8 +6,6 @@ export type SitePath =
   | "/about-slic"
   | "/methodology"
   | "/rankings"
-  | "/compare"
-  | "/exercise"
   | "/thailand"
   | "/ideas"
   | "/history"
