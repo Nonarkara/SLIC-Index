@@ -146,6 +146,19 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
         </div>
       </section>
 
+      {/* ═══ ENDORSEMENT ═══ */}
+      <div className="oped-pullquote oped-pullquote--endorsement">
+        <p>{t(locale,
+          "\u201CThey built the index. But you build the ranking.\u201D",
+          "\u201Cพวกเขาสร้างดัชนี แต่คุณสร้างอันดับ\u201D",
+          "\u201C他们建立了指数 但排名由你来定\u201D")}</p>
+        <cite>
+          <a href="https://mayorsofeurope.eu/news/they-built-the-index-but-you-build-the-ranking/" target="_blank" rel="noopener noreferrer">
+            {t(locale, "Svetlana Tesic, CoFounder, Mayors of Europe", "Svetlana Tesic ผู้ร่วมก่อตั้ง Mayors of Europe", "Svetlana Tesic Mayors of Europe联合创始人")}
+          </a>
+        </cite>
+      </div>
+
       {/* ═══ THE CLOSE ═══ */}
       <section className="oped-close">
         <img src="/launch-photos/20260318145941_DSC09480.jpg" alt="SCSE 2026 Taipei" className="oped-close-photo" loading="lazy" />
