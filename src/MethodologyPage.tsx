@@ -266,13 +266,13 @@ export default function MethodologyPage({
               <a className="primary-action" href="#scoring-framework">
                 {ui.openEquation}
               </a>
-              <button
-                type="button"
+              <a
                 className="secondary-action"
-                onClick={() => setPdfOpen(true)}
+                href={pdfPath}
+                download
               >
-                {ui.openPdf}
-              </button>
+                {ui.downloadPdf}
+              </a>
               <a
                 className="secondary-action"
                 href="/"
@@ -634,34 +634,7 @@ export default function MethodologyPage({
         <KnowledgeRackPanel locale={locale} />
       </main>
 
-      {pdfOpen ? (
-        <div className="pdf-viewer-modal" role="dialog" aria-modal="true" aria-label={ui.pdfWindowTitle}>
-          <div className="pdf-viewer-shell">
-            <div className="pdf-viewer-head">
-              <div>
-                <p className="panel-label">{ui.pdfWindowTitle}</p>
-                <p className="pdf-viewer-note">{ui.pdfWindowNote}</p>
-              </div>
-              <div className="pdf-viewer-actions">
-                <a className="primary-action" href={pdfPath} download>
-                  {ui.downloadPdf}
-                </a>
-                <button
-                  type="button"
-                  className="secondary-action"
-                  onClick={() => setPdfOpen(false)}
-                >
-                  {ui.closePdf}
-                </button>
-              </div>
-            </div>
-
-            <div className="pdf-viewer-frame-shell" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "3rem", textAlign: "center" }}>
-              <p style={{ opacity: 0.5, fontFamily: "var(--font-mono)", fontSize: "0.85rem" }}>Click &ldquo;Download PDF&rdquo; above to read the full methodology paper.</p>
-            </div>
-          </div>
-        </div>
-      ) : null}
+      {/* PDF modal removed — direct download only */}
 
       <SiteFooter onNavigate={onNavigate} locale={locale} />
     </>
