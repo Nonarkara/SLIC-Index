@@ -656,8 +656,8 @@ export default function MethodologyPage({
               </div>
             </div>
 
-            <div className="pdf-viewer-frame-shell">
-              <iframe className="pdf-viewer-frame" src={pdfPath} title={ui.pdfWindowTitle} />
+            <div className="pdf-viewer-frame-shell" style={{ display: "flex", alignItems: "center", justifyContent: "center", padding: "3rem", textAlign: "center" }}>
+              <p style={{ opacity: 0.5, fontFamily: "var(--font-mono)", fontSize: "0.85rem" }}>Click &ldquo;Download PDF&rdquo; above to read the full methodology paper.</p>
             </div>
           </div>
         </div>

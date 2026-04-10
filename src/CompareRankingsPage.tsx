@@ -111,6 +111,22 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           "每座城市都有覆盖等级 \u2014 A、B、C或观察名单 \u2014 与分数一起公布 V4目标：350+城市")}</p>
       </section>
 
+      {/* ═══ MONEYBALL ═══ */}
+      <section className="oped-editorial section">
+        <h2 className="oped-editorial-big">{t(locale,
+          "The Moneyball of city investment.",
+          "Moneyball ของการลงทุนในเมือง",
+          "城市投资的Moneyball")}</h2>
+        <p className="oped-editorial-body">{t(locale,
+          "You don\u2019t have to invest in Vienna because The Economist told you to. Kaohsiung has cheaper rent, better weather, a government that actively courts foreign business, and local universities producing graduates who want to stay. Bangkok has 12 million consumers, a cost of living that lets startups survive year one, and tolerance that makes diverse teams possible. Santiago has Latin America\u2019s strongest business climate with European infrastructure at a third of the price.",
+          "คุณไม่จำเป็นต้องลงทุนในเวียนนาเพราะ The Economist บอกให้ทำ เกาสงมีค่าเช่าถูกกว่า อากาศดีกว่า รัฐบาลที่ดึงดูดธุรกิจต่างชาติ และมหาวิทยาลัยท้องถิ่นที่ผลิตบัณฑิตที่อยากอยู่ต่อ กรุงเทพมีผู้บริโภค 12 ล้านคน ค่าครองชีพที่ให้สตาร์ทอัพรอดปีแรก และความอดทนที่ทำให้ทีมที่หลากหลายเป็นไปได้",
+          "你不必因为经济学人说了就投资维也纳 高雄租金更便宜 天气更好 政府积极招商引资 本地大学培养的毕业生愿意留下来 曼谷有1200万消费者 生活成本让创业公司撑过第一年 包容性让多元团队成为可能")}</p>
+        <p className="oped-editorial-body">{t(locale,
+          "The establishment indices measure where Goldman Sachs should send its London bankers. SLIC measures where your next office should actually be.",
+          "ดัชนีสถาบันวัดว่า Goldman Sachs ควรส่งนักการธนาคารลอนดอนไปไหน SLIC วัดว่าออฟฟิศถัดไปของคุณควรอยู่ที่ไหนจริงๆ",
+          "传统指数衡量的是高盛应该把伦敦银行家派到哪里 SLIC衡量的是你的下一个办公室到底应该在哪里")}</p>
+      </section>
+
       {/* ═══ ACT 3: WHAT SLIC MEASURES ═══ */}
       <section className="oped-pillars section">
         <div>
