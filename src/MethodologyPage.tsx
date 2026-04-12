@@ -372,7 +372,13 @@ export default function MethodologyPage({
           <div className="methodology-figure-grid">
             {methodology.processSection.figures.map((figure) => (
               <figure className="photo-frame methodology-figure" key={figure.id}>
-                <img src={figure.src} alt={figure.alt} loading="lazy" />
+                <img
+                  src={figure.src}
+                  alt={figure.alt}
+                  loading="lazy"
+                  width={figure.width}
+                  height={figure.height}
+                />
                 <figcaption>{figure.caption}</figcaption>
               </figure>
             ))}

@@ -289,14 +289,14 @@ export default function ThailandPage({
             <div className="rankings-filter-group">
               <div>
                 <p className="panel-label">{ui.scope}</p>
-                <div className="region-switch" role="tablist">
+                <div className="region-switch" role="group" aria-label="Board scope">
                   <button type="button" className={scope === "ranked" ? "region-button active" : "region-button"} onClick={() => setScope("ranked")}>{ui.ranked}</button>
                   <button type="button" className={scope === "all" ? "region-button active" : "region-button"} onClick={() => setScope("all")}>{ui.all}</button>
                 </div>
               </div>
 
               <p className="panel-label">{ui.region}</p>
-              <div className="region-switch" role="tablist">
+              <div className="region-switch" role="group" aria-label="Region filter">
                 <button type="button" className={region === "All" ? "region-button active" : "region-button"} onClick={() => setRegion("All")}>{ui.allRegions}</button>
                 {thailandRegions.map((r) => (
                   <button key={r} type="button" className={region === r ? "region-button active" : "region-button"} onClick={() => setRegion(r)}>{r}</button>
@@ -306,7 +306,7 @@ export default function ThailandPage({
 
             <div>
               <p className="panel-label">{ui.sortBy}</p>
-              <div className="mode-switch" role="tablist">
+              <div className="mode-switch" role="group" aria-label="Pillar filter">
                 {(Object.keys(pillarLabels[locale]) as ScorePillar[]).map((p) => (
                   <button key={p} type="button" className={p === pillar ? "mode-button active" : "mode-button"} onClick={() => setPillar(p)}>{pillarLabels[locale][p]}</button>
                 ))}

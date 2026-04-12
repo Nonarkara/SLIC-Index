@@ -37,6 +37,15 @@ function t(locale: Locale, en: string, th: string, zh: string): string {
   return locale === "en" ? en : locale === "th" ? th : zh;
 }
 
+function navigateLink(
+  event: React.MouseEvent<HTMLAnchorElement>,
+  onNavigate: (path: SitePath) => void,
+  path: SitePath,
+) {
+  event.preventDefault();
+  onNavigate(path);
+}
+
 /* ── Overlap computation (dynamic) ── */
 function computeOverlaps(slicTop10Names: string[]) {
   const cityMap = new Map<string, string[]>();
@@ -183,7 +192,14 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
             <p>{t(locale, "These cities rank in SLIC\u2019s top 10 but appear in zero establishment top-10 lists.", "เมืองเหล่านี้อยู่ใน SLIC top 10 แต่ไม่อยู่ในดัชนีสถาบันใดเลย", "这些城市在SLIC前10中但不在任何机构前10中")}</p>
             <div className="compare-slic-exclusive-cities">
               {slicOnly.map((c) => (
-                <button key={c.cityId} className="compare-slic-chip" onClick={() => onNavigate("/rankings")}>{c.displayName} <span>{c.country}</span></button>
+                <a
+                  key={c.cityId}
+                  className="compare-slic-chip"
+                  href="/rankings"
+                  onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
+                >
+                  {c.displayName} <span>{c.country}</span>
+                </a>
               ))}
             </div>
           </div>
@@ -232,8 +248,8 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           ))}
         </div>
         <div className="compare-diff-cta">
-          <a className="v3-cta" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>{t(locale, "READ THE FULL METHODOLOGY", "อ่านระเบียบวิธีเต็ม", "阅读完整方法论")} &rarr;</a>
-          <a className="v3-cta-secondary" href="/rankings" onClick={(e) => { e.preventDefault(); onNavigate("/rankings"); }}>{t(locale, "SEE THE SLIC RANKING", "ดูอันดับ SLIC", "查看SLIC排名")}</a>
+          <a className="v3-cta" href="/methodology" onClick={(event) => navigateLink(event, onNavigate, "/methodology")}>{t(locale, "READ THE FULL METHODOLOGY", "อ่านระเบียบวิธีเต็ม", "阅读完整方法论")} &rarr;</a>
+          <a className="v3-cta-secondary" href="/rankings" onClick={(event) => navigateLink(event, onNavigate, "/rankings")}>{t(locale, "SEE THE SLIC RANKING", "ดูอันดับ SLIC", "查看SLIC排名")}</a>
         </div>
       </section>
 

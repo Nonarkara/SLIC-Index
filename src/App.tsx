@@ -19,6 +19,36 @@ type DocumentWithViewTransition = Document & {
   startViewTransition?: Document["startViewTransition"];
 };
 
+const localeMap: Record<Locale, string> = {
+  en: "en",
+  th: "th",
+  zh: "zh-CN",
+};
+
+function detectLocale(): Locale {
+  if (typeof window === "undefined") {
+    return "en";
+  }
+
+  const savedLocale = window.localStorage.getItem("slic-locale");
+  if (savedLocale === "en" || savedLocale === "th" || savedLocale === "zh") {
+    return savedLocale;
+  }
+
+  const candidates = [navigator.language, ...navigator.languages]
+    .filter(Boolean)
+    .map((value) => value.toLowerCase());
+
+  if (candidates.some((value) => value.startsWith("th"))) {
+    return "th";
+  }
+  if (candidates.some((value) => value.startsWith("zh"))) {
+    return "zh";
+  }
+
+  return "en";
+}
+
 function resolvePath(pathname: string): SitePath {
   if (pathname === "/about-slic") {
     return "/about-slic";
@@ -109,7 +139,7 @@ function RouteLoading({ locale }: { locale: Locale }) {
 
 export default function App() {
   const [route, setCurrentRoute] = useState<SitePath>(() => resolvePath(window.location.pathname));
-  const [locale, setLocale] = useState<Locale>("en");
+  const [locale, setLocale] = useState<Locale>(detectLocale);
 
   useEffect(() => {
     const syncRoute = () => {
@@ -123,6 +153,11 @@ export default function App() {
   useEffect(() => {
     trackVisitor();
   }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem("slic-locale", locale);
+    document.documentElement.lang = localeMap[locale];
+  }, [locale]);
 
   useEffect(() => {
     const localeTitlePrefix = localeLabels[locale];

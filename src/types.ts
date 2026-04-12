@@ -197,6 +197,8 @@ export interface MethodologyFigure {
   src: string;
   alt: string;
   caption: string;
+  width?: number;
+  height?: number;
 }
 
 export interface MethodologySectionCopy {

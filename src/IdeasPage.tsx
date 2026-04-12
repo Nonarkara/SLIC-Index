@@ -69,7 +69,14 @@ export default function IdeasPage({
       <header className="rankings-hero section">
         <div className="topbar topbar-stack">
           <div className="topbar-left">
-            <button type="button" className="back-arrow" onClick={() => onNavigate("/")} aria-label="Back to home">&larr;</button>
+            <a
+              href="/"
+              className="back-arrow"
+              onClick={(event) => navigateLink(event, onNavigate, "/")}
+              aria-label="Back to home"
+            >
+              &larr;
+            </a>
             <BrandLockup eyebrow="Steal This Idea" microCopy="City innovation studio" />
           </div>
 
@@ -102,7 +109,7 @@ export default function IdeasPage({
           <div className="rankings-controls">
             <div className="rankings-filter-group">
               <p className="panel-label">Category</p>
-              <div className="region-switch" role="tablist">
+              <div className="region-switch" role="group" aria-label="Idea category filter">
                 <button type="button" className={category === "all" ? "region-button active" : "region-button"} onClick={() => setCategory("all")}>All</button>
                 {ideaCategories.map((cat) => (
                   <button key={cat.value} type="button" className={category === cat.value ? "region-button active" : "region-button"} onClick={() => setCategory(cat.value)}>{cat.label}</button>
@@ -112,7 +119,7 @@ export default function IdeasPage({
 
             <div>
               <p className="panel-label">Difficulty</p>
-              <div className="mode-switch" role="tablist">
+              <div className="mode-switch" role="group" aria-label="Idea difficulty filter">
                 <button type="button" className={difficulty === "all" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("all")}>All</button>
                 <button type="button" className={difficulty === "starter" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("starter")}>Starter</button>
                 <button type="button" className={difficulty === "intermediate" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("intermediate")}>Intermediate</button>

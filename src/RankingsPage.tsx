@@ -73,6 +73,15 @@ const PILLAR_HINTS: Record<Locale, Record<PillarId, string>> = {
   },
 };
 
+function navigateLink(
+  event: React.MouseEvent<HTMLAnchorElement>,
+  onNavigate: (path: SitePath | string) => void,
+  path: SitePath | string,
+) {
+  event.preventDefault();
+  onNavigate(path);
+}
+
 const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
 
 /* ───── published data ───── */
@@ -669,7 +678,7 @@ export default function RankingsPage({
                         </button>
                       ))}
                     </div>
-                    <div className="region-switch" role="tablist" aria-label={ui.regionLabel}>
+                    <div className="region-switch" role="group" aria-label={ui.regionLabel}>
                       {exerciseRegions.map((entry) => (
                         <button
                           key={entry}
@@ -733,13 +742,11 @@ export default function RankingsPage({
                   };
                   const isTop = index < 3;
                   return (
-                    <div
+                    <a
                       key={city.cityId}
                       className={`rankings-city-row${isTop ? " is-top" : ""}`}
-                      role="button"
-                      tabIndex={0}
-                      onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}
-                      onKeyDown={(e) => { if (e.key === "Enter") onNavigate(`/city/${city.cityId}` as SitePath); }}
+                      href={`/city/${city.cityId}`}
+                      onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
                       style={{ cursor: "pointer" }}
                     >
                       <div style={{ minWidth: 0 }}>
@@ -760,7 +767,7 @@ export default function RankingsPage({
                         </div>
                       </div>
                       <span className="city-tier-arrow">&#8250;</span>
-                    </div>
+                    </a>
                   );
                 })}
               </div>

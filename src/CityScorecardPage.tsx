@@ -117,6 +117,15 @@ const DATA_LEVEL_LABELS: Record<string, string> = {
 
 /* ── Helpers ── */
 
+function navigateLink(
+  event: React.MouseEvent<HTMLAnchorElement>,
+  onNavigate: (path: SitePath) => void,
+  path: SitePath,
+) {
+  event.preventDefault();
+  onNavigate(path);
+}
+
 const _normStats = (publishedData as any).normStats as Record<string, NormStat>; void _normStats;
 const pillarMetrics = (publishedData as any).pillarMetrics as Record<string, PillarMetricEntry[]>;
 const allCities = (publishedData.cities ?? []) as PublishedCity[];
@@ -319,9 +328,13 @@ export default function CityScorecardPage({
       <section className="section" style={{ paddingTop: "8rem" }}>
         <p className="eyebrow">City not found</p>
         <h1>No data for "{cityId}"</h1>
-        <button type="button" className="secondary-action" onClick={() => onNavigate("/rankings")}>
+        <a
+          className="secondary-action"
+          href="/rankings"
+          onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
+        >
           Back to rankings
-        </button>
+        </a>
       </section>
     );
   }
@@ -337,13 +350,13 @@ export default function CityScorecardPage({
   return (
     <>
       <section className="scorecard-hero section">
-        <button
-          type="button"
+        <a
           className="scorecard-back"
-          onClick={() => onNavigate("/rankings")}
+          href="/rankings"
+          onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
         >
           &larr; {locale === "en" ? "Back to rankings" : locale === "th" ? "กลับสู่อันดับ" : "返回排名"}
-        </button>
+        </a>
 
         <div className="scorecard-hero-split">
           <div>
@@ -448,13 +461,13 @@ export default function CityScorecardPage({
 
       {/* ── Sticky bottom back button ── */}
       <div className="scorecard-bottom-nav">
-        <button
-          type="button"
+        <a
           className="scorecard-back"
-          onClick={() => onNavigate("/")}
+          href="/"
+          onClick={(event) => navigateLink(event, onNavigate, "/")}
         >
           &larr; {locale === "en" ? "Back to all cities" : locale === "th" ? "กลับสู่เมืองทั้งหมด" : "返回所有城市"}
-        </button>
+        </a>
       </div>
 
       <SiteFooter onNavigate={onNavigate} locale={locale} />

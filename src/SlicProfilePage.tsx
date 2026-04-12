@@ -122,7 +122,13 @@ export default function SlicProfilePage({
                 className={index === 2 ? "photo-frame photo-frame-wide" : "photo-frame"}
                 key={photo.id}
               >
-                <img src={photo.src} alt={photo.alt} loading="lazy" />
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  loading="lazy"
+                  width={photo.width}
+                  height={photo.height}
+                />
                 <figcaption>{photo.caption}</figcaption>
               </figure>
             ))}

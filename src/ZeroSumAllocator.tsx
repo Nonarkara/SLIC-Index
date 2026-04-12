@@ -1,5 +1,4 @@
-import { useCallback, useRef, useState } from "react";
-import type { CSSProperties, FC, PointerEvent as ReactPointerEvent } from "react";
+import { type CSSProperties, type FC, type PointerEvent as ReactPointerEvent, useCallback, useRef, useState } from "react";
 
 export interface PillarAllocation {
   id: string;
@@ -24,7 +23,7 @@ function allocatorLayout(size: number) {
   const cx = canvas / 2;
   const cy = canvas / 2;
   const maxR = size * 0.35;
-  const labelR = maxR + 62;
+  const labelR = maxR + 70;
   return { canvas, cx, cy, maxR, labelR };
 }
 
@@ -35,15 +34,24 @@ function polarToCartesian(cx: number, cy: number, r: number, angleDeg: number) {
 
 function radarPath(cx: number, cy: number, maxR: number, values: number[], total: number): string {
   const step = 360 / values.length;
-  const pts = values.map((value, index) => {
+  const points = values.map((value, index) => {
     const r = (value / total) * maxR;
     return polarToCartesian(cx, cy, r, index * step);
   });
-  return pts.map((point, index) => `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`).join(" ") + " Z";
+
+  return `${points
+    .map((point, index) => `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`)
+    .join(" ")} Z`;
 }
 
 function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max);
+}
+
+function labelAnchor(x: number, cx: number): "start" | "middle" | "end" {
+  if (x > cx + 16) return "start";
+  if (x < cx - 16) return "end";
+  return "middle";
 }
 
 const SpiderWebChart: FC<{
@@ -60,18 +68,13 @@ const SpiderWebChart: FC<{
   return (
     <svg viewBox={`0 0 ${canvas} ${canvas}`} className="allocator-svg" aria-hidden="true">
       <defs>
-        <radialGradient id="allocatorSurfaceGlow" cx="50%" cy="44%" r="70%">
-          <stop offset="0%" stopColor="rgba(23, 201, 203, 0.22)" />
-          <stop offset="58%" stopColor="rgba(59, 111, 212, 0.12)" />
-          <stop offset="100%" stopColor="rgba(11, 17, 32, 0)" />
-        </radialGradient>
         <linearGradient id="allocatorRadarStroke" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="rgba(23, 201, 203, 0.95)" />
           <stop offset="100%" stopColor="rgba(123, 167, 255, 0.95)" />
         </linearGradient>
         <radialGradient id="allocatorRadarFill" cx="50%" cy="40%" r="70%">
-          <stop offset="0%" stopColor="rgba(123, 167, 255, 0.32)" />
-          <stop offset="100%" stopColor="rgba(23, 201, 203, 0.08)" />
+          <stop offset="0%" stopColor="rgba(123, 167, 255, 0.28)" />
+          <stop offset="100%" stopColor="rgba(23, 201, 203, 0.06)" />
         </radialGradient>
         <filter id="allocatorGlow" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="6" result="blur" />
@@ -83,29 +86,27 @@ const SpiderWebChart: FC<{
         {!hasInteracted && (
           <style>{`
             @keyframes allocatorPulse {
-              0%, 100% { opacity: 0.22; r: 14; }
-              50% { opacity: 0.6; r: 22; }
+              0%, 100% { opacity: 0.18; r: 14; }
+              50% { opacity: 0.55; r: 22; }
             }
             .allocator-drag-pulse { animation: allocatorPulse 2.1s ease-in-out infinite; }
           `}</style>
         )}
       </defs>
 
-      {/* Background rings — labels moved to non-interfering position */}
       <g style={{ pointerEvents: "none" }}>
         {rings.map((frac) => (
-          <g key={frac}>
-            <polygon
-              points={Array.from({ length: n }, (_, i) => {
-                const p = polarToCartesian(cx, cy, maxR * frac, i * step);
-                return `${p.x},${p.y}`;
-              }).join(" ")}
-              fill="none"
-              stroke="rgba(255,255,255,0.06)"
-              strokeWidth={frac === 1.0 ? 1.5 : 0.8}
-              strokeDasharray={frac < 1.0 ? "3 3" : "none"}
-            />
-          </g>
+          <polygon
+            key={frac}
+            points={Array.from({ length: pillars.length }, (_, index) => {
+              const point = polarToCartesian(cx, cy, maxR * frac, index * step);
+              return `${point.x},${point.y}`;
+            }).join(" ")}
+            fill="none"
+            stroke="rgba(255,255,255,0.06)"
+            strokeWidth={frac === 1 ? 1.35 : 0.8}
+            strokeDasharray={frac < 1 ? "3 3" : undefined}
+          />
         ))}
       </g>
 
@@ -125,43 +126,26 @@ const SpiderWebChart: FC<{
         );
       })}
 
-      {/* Filled radar area — non-interactive so handles underneath can be grabbed */}
       <path
-        d={radarPath(cx, cy, maxR, pillars.map((p) => p.value), total)}
-        fill="url(#radarFill)"
-        stroke="rgba(99,179,237,0.7)"
+        d={radarPath(cx, cy, maxR, pillars.map((pillar) => pillar.value), total)}
+        fill="url(#allocatorRadarFill)"
+        stroke="url(#allocatorRadarStroke)"
         strokeWidth={2.5}
         strokeLinejoin="round"
-        style={{ transition: draggingIndex !== null ? "none" : "d 0.12s cubic-bezier(0.16,1,0.3,1)", pointerEvents: "none" }}
+        style={{
+          pointerEvents: "none",
+          transition: draggingIndex === null ? "d 0.12s cubic-bezier(0.16, 1, 0.3, 1)" : "none",
+        }}
       />
 
-      {/* Colored segment fills — wedge from center to vertex (non-interactive) */}
-      <g style={{ pointerEvents: "none" }}>
-        {pillars.map((p, i) => {
-          const r = (p.value / total) * maxR;
-          const pt = polarToCartesian(cx, cy, r, i * step);
-          const nextIdx = (i + 1) % n;
-          const nextR = (pillars[nextIdx].value / total) * maxR;
-          const nextPt = polarToCartesian(cx, cy, nextR, nextIdx * step);
-          return (
-            <path
-              key={`wedge-${p.id}`}
-              d={`M ${cx} ${cy} L ${pt.x} ${pt.y} L ${nextPt.x} ${nextPt.y} Z`}
-              fill={p.color}
-              fillOpacity={0.06}
-              style={{ transition: draggingIndex !== null ? "none" : "d 0.12s cubic-bezier(0.16,1,0.3,1)" }}
-            />
-          );
-        })}
-      </g>
-
-      {/* Vertex dots + labels */}
-      {pillars.map((p, i) => {
-        const r = (p.value / total) * maxR;
-        const pt = polarToCartesian(cx, cy, r, i * step);
-        const labelR = maxR + 36;
-        const labelPt = polarToCartesian(cx, cy, labelR, i * step);
-        const isDragging = draggingIndex === i;
+      {pillars.map((pillar, index) => {
+        const r = (pillar.value / total) * maxR;
+        const point = polarToCartesian(cx, cy, r, index * step);
+        const labelPoint = polarToCartesian(cx, cy, labelR, index * step);
+        const isDragging = draggingIndex === index;
+        const anchor = labelAnchor(labelPoint.x, cx);
+        const labelOffsetX = anchor === "start" ? 12 : anchor === "end" ? -12 : 0;
+        const valueOffsetY = labelPoint.y > cy + 8 ? 16 : 12;
 
         return (
           <g key={pillar.id}>
@@ -175,8 +159,16 @@ const SpiderWebChart: FC<{
                 className="allocator-drag-pulse"
               />
             )}
+
             {isDragging && (
-              <circle cx={point.x} cy={point.y} r={17} fill={pillar.color} fillOpacity={0.18} filter="url(#allocatorGlow)" />
+              <circle
+                cx={point.x}
+                cy={point.y}
+                r={17}
+                fill={pillar.color}
+                fillOpacity={0.18}
+                filter="url(#allocatorGlow)"
+              />
             )}
 
             <line
@@ -185,42 +177,39 @@ const SpiderWebChart: FC<{
               x2={labelPoint.x}
               y2={labelPoint.y}
               stroke={pillar.color}
-              strokeOpacity={isDragging ? 0.78 : 0.3}
-              strokeWidth={isDragging ? 1.5 : 1}
+              strokeOpacity={isDragging ? 0.76 : 0.28}
+              strokeWidth={isDragging ? 1.4 : 1}
               strokeDasharray="3 5"
             />
 
-            {/* Invisible larger hit target for easier grabbing */}
             <circle
-              cx={pt.x}
-              cy={pt.y}
-              r={40}
+              cx={point.x}
+              cy={point.y}
+              r={36}
               fill="transparent"
               style={{ cursor: "grab" }}
-              data-index={i}
+              data-index={index}
             />
 
-            {/* Visible handle */}
             <circle
-              cx={pt.x}
-              cy={pt.y}
-              r={isDragging ? 13 : 10}
-              fill={p.color}
-              stroke="#fff"
+              cx={point.x}
+              cy={point.y}
+              r={isDragging ? 12 : 9}
+              fill={pillar.color}
+              stroke="rgba(255,255,255,0.92)"
               strokeWidth={isDragging ? 3 : 2}
+              filter={isDragging ? "url(#allocatorGlow)" : undefined}
               style={{
                 cursor: "grab",
-                transition: isDragging ? "none" : "all 0.1s cubic-bezier(0.16,1,0.3,1)",
-                filter: isDragging ? "url(#glow)" : "none",
+                transition: isDragging ? "none" : "r 160ms ease, stroke-width 160ms ease",
               }}
-              data-index={i}
+              data-index={index}
             />
 
-            {/* Label with pillar name */}
             <text
-              x={labelX + labelWidth / 2}
-              y={labelY + 14}
-              textAnchor="middle"
+              x={labelPoint.x + labelOffsetX}
+              y={labelPoint.y}
+              textAnchor={anchor}
               dominantBaseline="central"
               fontSize={11.5}
               fontWeight={700}
@@ -231,21 +220,10 @@ const SpiderWebChart: FC<{
               {pillar.label}
             </text>
 
-            <rect
-              x={valueX}
-              y={labelY + 33}
-              width={54}
-              height={22}
-              rx={11}
-              fill={pillar.color}
-              fillOpacity={0.16}
-              stroke={pillar.color}
-              strokeOpacity={0.46}
-            />
             <text
-              x={valueX + 27}
-              y={labelY + 44}
-              textAnchor="middle"
+              x={labelPoint.x + labelOffsetX}
+              y={labelPoint.y + valueOffsetY}
+              textAnchor={anchor}
               dominantBaseline="central"
               fontSize={12}
               fontWeight={800}
@@ -254,34 +232,18 @@ const SpiderWebChart: FC<{
             >
               {pillar.value}
             </text>
-
-            <circle
-              cx={point.x}
-              cy={point.y}
-              r={20}
-              fill="transparent"
-              style={{ cursor: "grab" }}
-              data-index={index}
-            />
-            <circle
-              cx={point.x}
-              cy={point.y}
-              r={isDragging ? 11 : 8}
-              fill={pillar.color}
-              stroke="rgba(255,255,255,0.92)"
-              strokeWidth={isDragging ? 3 : 2}
-              filter={isDragging ? "url(#allocatorGlow)" : undefined}
-              style={{
-                cursor: "grab",
-                transition: isDragging ? "none" : "all 160ms ease",
-              }}
-              data-index={index}
-            />
           </g>
         );
       })}
 
-      <circle cx={cx} cy={cy} r={28} fill="rgba(7, 12, 24, 0.94)" stroke="rgba(140, 170, 220, 0.18)" strokeWidth="1.2" />
+      <circle
+        cx={cx}
+        cy={cy}
+        r={28}
+        fill="rgba(7, 12, 24, 0.94)"
+        stroke="rgba(140, 170, 220, 0.18)"
+        strokeWidth="1.2"
+      />
       <text
         x={cx}
         y={cy - 4}
@@ -339,24 +301,33 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
 
   const handleSliderChange = useCallback(
     (index: number, newValue: number) => {
-      const clamped = Math.max(min, Math.min(max, Math.round(newValue)));
+      const clamped = clamp(Math.round(newValue), min, max);
       const oldValue = pillars[index].value;
       const delta = clamped - oldValue;
-      if (delta === 0) return;
 
-      if (!hasInteracted) setHasInteracted(true);
+      if (delta === 0) {
+        return;
+      }
+
+      if (!hasInteracted) {
+        setHasInteracted(true);
+      }
 
       const others = pillars.filter((_, pillarIndex) => pillarIndex !== index);
       const othersTotal = others.reduce((sum, pillar) => sum + pillar.value, 0);
 
       const updated = pillars.map((pillar, pillarIndex) => {
-        if (pillarIndex === index) return { ...pillar, value: clamped };
+        if (pillarIndex === index) {
+          return { ...pillar, value: clamped };
+        }
+
         if (othersTotal === 0) {
           return {
             ...pillar,
             value: Math.max(min, Math.round((total - clamped) / (pillars.length - 1))),
           };
         }
+
         const share = pillar.value / othersTotal;
         const nextValue = Math.max(min, Math.round(pillar.value - delta * share));
         return { ...pillar, value: nextValue };
@@ -364,6 +335,7 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
 
       const currentTotal = updated.reduce((sum, pillar) => sum + pillar.value, 0);
       const diff = total - currentTotal;
+
       if (diff !== 0) {
         const adjustIndex = updated
           .map((pillar, pillarIndex) => ({ pillarIndex, value: pillar.value }))
@@ -373,14 +345,14 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
         if (adjustIndex !== undefined) {
           updated[adjustIndex] = {
             ...updated[adjustIndex],
-            value: Math.max(min, Math.min(max, updated[adjustIndex].value + diff)),
+            value: clamp(updated[adjustIndex].value + diff, min, max),
           };
         }
       }
 
       onChange(updated);
     },
-    [pillars, onChange, total, min, max, hasInteracted],
+    [hasInteracted, max, min, onChange, pillars, total],
   );
 
   const handlePointerDown = useCallback(
@@ -388,9 +360,11 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
       const target = event.target as SVGElement;
       const index = target.getAttribute("data-index");
       if (index !== null) {
-        setDraggingIndex(parseInt(index, 10));
+        setDraggingIndex(Number.parseInt(index, 10));
         target.setPointerCapture?.(event.pointerId);
-        if (!hasInteracted) setHasInteracted(true);
+        if (!hasInteracted) {
+          setHasInteracted(true);
+        }
       }
     },
     [hasInteracted],
@@ -398,18 +372,22 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
 
   const handlePointerMove = useCallback(
     (event: ReactPointerEvent) => {
-      if (draggingIndex === null || !svgRef.current) return;
+      if (draggingIndex === null || !svgRef.current) {
+        return;
+      }
+
       const svg = svgRef.current.querySelector("svg");
-      if (!svg) return;
+      if (!svg) {
+        return;
+      }
 
       const rect = svg.getBoundingClientRect();
-      const cx = rect.width / 2;
-      const cy = rect.height / 2;
-      const dx = event.clientX - rect.left - cx;
-      const dy = event.clientY - rect.top - cy;
+      const dx = event.clientX - rect.left - rect.width / 2;
+      const dy = event.clientY - rect.top - rect.height / 2;
       const distance = Math.sqrt(dx * dx + dy * dy);
       const layout = allocatorLayout(size);
-      const fraction = Math.max(0, Math.min(1, distance / (layout.maxR * (rect.width / layout.canvas))));
+      const fraction = clamp(distance / (layout.maxR * (rect.width / layout.canvas)), 0, 1);
+
       handleSliderChange(draggingIndex, Math.round(fraction * total));
     },
     [draggingIndex, handleSliderChange, size, total],
@@ -438,25 +416,30 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
         />
       </div>
 
-      {/* Slider controls */}
       <div style={{ width: "100%", maxWidth: 420, display: "flex", flexDirection: "column", gap: 6 }}>
-        {pillars.map((p, i) => (
-          <div key={p.id} className="spider-slider-row">
-            <span className="spider-slider-dot" style={{ background: p.color }} />
-            <span className="spider-slider-label">{p.label}</span>
+        {pillars.map((pillar, index) => (
+          <div key={pillar.id} className="spider-slider-row">
+            <span className="spider-slider-dot" style={{ background: pillar.color }} />
+            <span className="spider-slider-label">{pillar.label}</span>
             <div className="spider-slider-track">
-              <div className="spider-slider-fill" style={{ width: `${(p.value / max) * 100}%`, background: p.color }} />
+              <div
+                className="spider-slider-fill"
+                style={{ width: `${(pillar.value / max) * 100}%`, background: pillar.color }}
+              />
               <input
                 type="range"
                 min={min}
                 max={max}
-                value={p.value}
-                onChange={(e) => handleSliderChange(i, parseInt(e.target.value))}
+                value={pillar.value}
+                aria-label={descriptions[pillar.id] ?? pillar.label}
+                onChange={(event) => handleSliderChange(index, Number.parseInt(event.target.value, 10))}
                 className="spider-slider-input"
-                style={{ "--accent": p.color } as React.CSSProperties}
+                style={{ "--accent": pillar.color } as CSSProperties}
               />
             </div>
-            <span className="spider-slider-value" style={{ color: p.color }}>{p.value}</span>
+            <span className="spider-slider-value" style={{ color: pillar.color }}>
+              {pillar.value}
+            </span>
           </div>
         ))}
       </div>

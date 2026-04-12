@@ -15,7 +15,7 @@ export default function LocaleSwitch({
   onChange: (locale: Locale) => void;
 }) {
   return (
-    <div className="locale-switch" role="tablist" aria-label={localeSwitchLabel[locale]}>
+    <div className="locale-switch" role="group" aria-label={localeSwitchLabel[locale]}>
       {(Object.keys(localeLabels) as Locale[]).map((option) => (
         <button
           key={option}

@@ -69,6 +69,17 @@ function navigateLink(
   onNavigate: (path: SitePath) => void,
   path: SitePath,
 ) {
+  if (
+    event.defaultPrevented ||
+    event.button !== 0 ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey
+  ) {
+    return;
+  }
+
   event.preventDefault();
   onNavigate(path);
 }
@@ -82,6 +93,27 @@ export default function SiteFooter({
 }) {
   const copy = getCopy(locale);
   const endnotes = footerEndnoteCopy[locale];
+  const footerHighlights = [
+    copy.footer.disclosure,
+    copy.footer.privacy,
+    copy.footer.coverage,
+  ];
+  const protocolCards = [
+    {
+      label: endnotes.reuseLabel,
+      body: `${endnotes.reuseBody} ${endnotes.creditBody}`,
+    },
+    {
+      label: endnotes.aiLabel,
+      body: `${endnotes.aiBody} ${endnotes.liveBody}`,
+    },
+  ];
+  const footerNote =
+    locale === "th"
+      ? "ระเบียบวิธี น้ำหนัก และแหล่งอ้างอิงยังคงเปิดเผยต่อสาธารณะ"
+      : locale === "zh"
+        ? "方法、权重与来源链条仍保持公开。"
+        : "Methodology, weights, and provenance remain public.";
 
   return (
     <footer className="site-footer section">
@@ -93,9 +125,11 @@ export default function SiteFooter({
 
         <article className="site-footer-card">
           <p className="panel-label">{copy.footer.transparencyLabel}</p>
-          <p>{copy.footer.disclosure}</p>
-          <p>{copy.footer.privacy}</p>
-          <p>{copy.footer.coverage}</p>
+          <ul className="site-footer-brief-list">
+            {footerHighlights.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
         </article>
 
         <article className="site-footer-card">
@@ -104,7 +138,13 @@ export default function SiteFooter({
           <div className="partner-logo-strip" aria-label={copy.footer.collaborationLabel}>
             {collaborationLogos.map((logo) => (
               <div className="partner-logo-card" key={logo.name}>
-                <img src={logo.src} alt={logo.alt} loading="lazy" />
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  loading="lazy"
+                  width={logo.width}
+                  height={logo.height}
+                />
               </div>
             ))}
           </div>
@@ -116,22 +156,12 @@ export default function SiteFooter({
           <p className="eyebrow">{endnotes.eyebrow}</p>
         </div>
         <div className="site-footer-endnote-grid">
-          <article className="site-footer-endnote">
-            <p className="panel-label">{endnotes.reuseLabel}</p>
-            <p>{endnotes.reuseBody}</p>
-          </article>
-          <article className="site-footer-endnote">
-            <p className="panel-label">{endnotes.creditLabel}</p>
-            <p>{endnotes.creditBody}</p>
-          </article>
-          <article className="site-footer-endnote">
-            <p className="panel-label">{endnotes.aiLabel}</p>
-            <p>{endnotes.aiBody}</p>
-          </article>
-          <article className="site-footer-endnote">
-            <p className="panel-label">{endnotes.liveLabel}</p>
-            <p>{endnotes.liveBody}</p>
-          </article>
+          {protocolCards.map((card) => (
+            <article className="site-footer-endnote" key={card.label}>
+              <p className="panel-label">{card.label}</p>
+              <p>{card.body}</p>
+            </article>
+          ))}
         </div>
       </div>
 
@@ -165,7 +195,7 @@ export default function SiteFooter({
             V2 Archive
           </a>
         </nav>
-        <p className="site-footer-note">{copy.footer.note}</p>
+        <p className="site-footer-note">{footerNote}</p>
       </div>
     </footer>
   );

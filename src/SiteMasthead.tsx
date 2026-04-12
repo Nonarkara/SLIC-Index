@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { type MouseEvent, useCallback, useEffect, useId, useRef, useState } from "react";
 import LocaleSwitch from "./LocaleSwitch";
 import { getCopy } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
@@ -13,6 +13,27 @@ const navPaths: SitePath[] = [
   "/history",
 ];
 
+const menuLabels: Record<Locale, { open: string; close: string; primary: string; mobile: string }> = {
+  en: {
+    open: "Open navigation",
+    close: "Close navigation",
+    primary: "Primary navigation",
+    mobile: "Mobile navigation",
+  },
+  th: {
+    open: "เปิดเมนูนำทาง",
+    close: "ปิดเมนูนำทาง",
+    primary: "เมนูหลัก",
+    mobile: "เมนูบนมือถือ",
+  },
+  zh: {
+    open: "打开导航",
+    close: "关闭导航",
+    primary: "主导航",
+    mobile: "移动导航",
+  },
+};
+
 function navLabel(path: SitePath, locale: Locale): string {
   const copy = getCopy(locale);
   if (path === "/") return copy.nav.home;
@@ -23,6 +44,26 @@ function navLabel(path: SitePath, locale: Locale): string {
   if (path === "/compare") return copy.nav.compare;
   if (path === "/history") return copy.nav.history;
   return copy.nav.thailand;
+}
+
+function navigateLink(
+  event: MouseEvent<HTMLAnchorElement>,
+  onNavigate: (path: SitePath) => void,
+  path: SitePath,
+) {
+  if (
+    event.defaultPrevented ||
+    event.button !== 0 ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey
+  ) {
+    return;
+  }
+
+  event.preventDefault();
+  onNavigate(path);
 }
 
 export default function SiteMasthead({
@@ -41,15 +82,24 @@ export default function SiteMasthead({
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const lastScrollY = useRef(0);
+  const labels = menuLabels[locale];
 
-  useEffect(() => { setMenuOpen(false); }, [currentPath, locale]);
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [currentPath, locale]);
 
   const handleScroll = useCallback(() => {
     const y = window.scrollY;
     setScrolled(y > 40);
-    if (y < 80) setHidden(false);
-    else if (y > lastScrollY.current + 8) setHidden(true);
-    else if (y < lastScrollY.current - 8) setHidden(false);
+
+    if (y < 80) {
+      setHidden(false);
+    } else if (y > lastScrollY.current + 8) {
+      setHidden(true);
+    } else if (y < lastScrollY.current - 8) {
+      setHidden(false);
+    }
+
     lastScrollY.current = y;
   }, []);
 
@@ -58,39 +108,46 @@ export default function SiteMasthead({
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  const handleNav = (path: SitePath) => { setMenuOpen(false); onNavigate(path); };
+  const handleNav = (path: SitePath) => {
+    setMenuOpen(false);
+    onNavigate(path);
+  };
 
-  const cls = [
+  const classes = [
     "mh",
     scrolled ? "mh--scrolled" : "",
     hidden && !menuOpen ? "mh--hidden" : "",
     menuOpen ? "mh--open" : "",
-  ].filter(Boolean).join(" ");
+  ]
+    .filter(Boolean)
+    .join(" ");
 
   return (
-    <header className={cls}>
+    <header className={classes}>
       <div className="mh-inner">
-        {/* Left: wordmark */}
-        <button type="button" className="mh-wordmark" onClick={() => handleNav("/")}>
+        <a
+          href="/"
+          className="mh-wordmark"
+          onClick={(event) => navigateLink(event, onNavigate, "/")}
+          aria-label="SLIC home"
+        >
           <span className="mh-wordmark-main">SLIC</span>
           <span className="mh-wordmark-sub">Index</span>
-        </button>
+        </a>
 
-        {/* Center: edition tag */}
         <span className="mh-edition">V3 &middot; 2026</span>
 
-        {/* Right: nav links, locale, hamburger */}
-        <nav className="mh-nav" aria-label="Primary navigation">
+        <nav className="mh-nav" aria-label={labels.primary}>
           {navPaths.map((path) => (
-            <button
+            <a
               key={path}
-              type="button"
+              href={path}
               className={path === currentPath ? "mh-link mh-link--active" : "mh-link"}
-              onClick={() => handleNav(path)}
+              onClick={(event) => navigateLink(event, onNavigate, path)}
               aria-current={path === currentPath ? "page" : undefined}
             >
               {navLabel(path, locale)}
-            </button>
+            </a>
           ))}
         </nav>
 
@@ -101,23 +158,36 @@ export default function SiteMasthead({
             className={menuOpen ? "mh-burger mh-burger--open" : "mh-burger"}
             aria-expanded={menuOpen}
             aria-controls={navPanelId}
-            onClick={() => setMenuOpen((o) => !o)}
+            aria-label={menuOpen ? labels.close : labels.open}
+            onClick={() => setMenuOpen((open) => !open)}
           >
-            <span /><span /><span />
+            <span />
+            <span />
+            <span />
           </button>
         </div>
       </div>
 
-      {/* Mobile panel */}
       <div className={menuOpen ? "mh-panel mh-panel--open" : "mh-panel"} id={navPanelId}>
-        <nav className="mh-panel-nav">
-          <button className={currentPath === "/" ? "mh-panel-link mh-panel-link--active" : "mh-panel-link"} onClick={() => handleNav("/")}>
+        <nav className="mh-panel-nav" aria-label={labels.mobile}>
+          <a
+            href="/"
+            className={currentPath === "/" ? "mh-panel-link mh-panel-link--active" : "mh-panel-link"}
+            onClick={(event) => navigateLink(event, handleNav, "/")}
+            aria-current={currentPath === "/" ? "page" : undefined}
+          >
             {navLabel("/", locale)}
-          </button>
+          </a>
           {navPaths.map((path) => (
-            <button key={path} className={path === currentPath ? "mh-panel-link mh-panel-link--active" : "mh-panel-link"} onClick={() => handleNav(path)}>
+            <a
+              key={path}
+              href={path}
+              className={path === currentPath ? "mh-panel-link mh-panel-link--active" : "mh-panel-link"}
+              onClick={(event) => navigateLink(event, handleNav, path)}
+              aria-current={path === currentPath ? "page" : undefined}
+            >
               {navLabel(path, locale)}
-            </button>
+            </a>
           ))}
         </nav>
       </div>
