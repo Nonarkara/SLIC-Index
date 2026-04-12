@@ -9,6 +9,7 @@ const navPaths: SitePath[] = [
   "/rankings",
   "/methodology",
   "/thailand",
+  "/compare",
   "/ideas",
   "/about-slic",
   "/history",
@@ -16,14 +17,17 @@ const navPaths: SitePath[] = [
 
 function navLabel(path: SitePath, locale: Locale): string {
   const copy = getCopy(locale);
-  if (path === "/") return copy.nav.home;
-  if (path === "/about-slic") return copy.nav.aboutSlic;
-  if (path === "/rankings") return copy.nav.rankings;
-  if (path === "/methodology") return copy.nav.methodology;
-  if (path === "/ideas") return copy.nav.ideas;
-
-  if (path === "/history") return copy.nav.history;
-  return copy.nav.thailand;
+  switch (path) {
+    case "/": return copy.nav.home;
+    case "/rankings": return copy.nav.rankings;
+    case "/methodology": return copy.nav.methodology;
+    case "/thailand": return copy.nav.thailand;
+    case "/compare": return copy.nav.compare;
+    case "/ideas": return copy.nav.ideas;
+    case "/about-slic": return copy.nav.aboutSlic;
+    case "/history": return copy.nav.history;
+    default: return copy.nav.home;
+  }
 }
 
 export default function SiteMasthead({
@@ -52,9 +56,11 @@ export default function SiteMasthead({
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
-  const handleNav = (path: SitePath) => { setMenuOpen(false); onNavigate(path); };
+  const handleNav = (path: SitePath) => {
+    setMenuOpen(false);
+    onNavigate(path);
+  };
 
-  /* Hide masthead on first viewport (homepage provocation), show after scroll */
   const isHomepage = currentPath === "/";
 
   const cls = [
@@ -67,15 +73,12 @@ export default function SiteMasthead({
   return (
     <header className={cls}>
       <div className="mh-inner">
-        {/* Left: wordmark */}
         <button type="button" className="mh-wordmark" onClick={() => handleNav("/")}>
           <img src={slicLogoSrc} alt="SLIC Index" className="mh-logo-img" />
         </button>
 
-        {/* Center: edition tag */}
         <span className="mh-edition">V3 &middot; 2026</span>
 
-        {/* Right: nav links, locale, hamburger */}
         <nav className="mh-nav" aria-label="Primary navigation">
           {navPaths.map((path) => (
             <button
@@ -98,21 +101,22 @@ export default function SiteMasthead({
             aria-expanded={menuOpen}
             aria-controls={navPanelId}
             onClick={() => setMenuOpen((o) => !o)}
+            aria-label="Toggle menu"
           >
             <span /><span /><span />
           </button>
         </div>
       </div>
 
-      {/* Mobile panel */}
       <div className={menuOpen ? "mh-panel mh-panel--open" : "mh-panel"} id={navPanelId}>
         <nav className="mh-panel-nav">
-          <button className={currentPath === "/" ? "mh-panel-link mh-panel-link--active" : "mh-panel-link"} onClick={() => handleNav("/")}>
-            {navLabel("/", locale)}
-          </button>
-          {navPaths.map((path) => (
-            <button key={path} className={path === currentPath ? "mh-panel-link mh-panel-link--active" : "mh-panel-link"} onClick={() => handleNav(path)}>
-              {navLabel(path, locale)}
+          {["/", ...navPaths].map((path) => (
+            <button
+              key={path}
+              className={path === currentPath ? "mh-panel-link mh-panel-link--active" : "mh-panel-link"}
+              onClick={() => handleNav(path as SitePath)}
+            >
+              {navLabel(path as SitePath, locale)}
             </button>
           ))}
         </nav>

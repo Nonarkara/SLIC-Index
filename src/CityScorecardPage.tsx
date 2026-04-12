@@ -45,6 +45,11 @@ interface PublishedCity {
   capabilityCoverage: number;
   communityCoverage: number;
   creativeCoverage: number;
+  qualitative?: {
+    economyAndState: string;
+    funFact: string;
+    tags: string[];
+  };
 }
 
 interface NormStat {
@@ -358,6 +363,32 @@ export default function CityScorecardPage({
             </span>
           </div>
         </div>
+
+        {/* ── Qualitative Narrative ── */}
+        {city.qualitative && (
+          <div className="scorecard-hero-narrative" style={{ marginTop: 32, padding: 24, background: "var(--glass-bg)", border: "1px solid var(--glass-border)", borderRadius: "var(--radius, 8px)", backdropFilter: "blur(40px) saturate(180%)", WebkitBackdropFilter: "blur(40px) saturate(180%)", boxShadow: "var(--shadow-sm), inset 0 1px 1px var(--glass-hyper-border)" }}>
+            <p style={{ fontSize: "1.05rem", lineHeight: 1.8, color: "var(--text)", opacity: 0.9, marginBottom: 20, fontFamily: "var(--font-body)" }}>
+              {city.qualitative.economyAndState}
+            </p>
+            <div style={{ display: "flex", gap: 20, alignItems: "stretch", flexWrap: "wrap" }}>
+              <div style={{ flex: "1 1 300px", padding: 16, background: "rgba(0,0,0,0.03)", borderRadius: 6, borderLeft: "4px solid var(--accent-cyan)" }}>
+                <strong style={{ fontSize: "0.75rem", fontFamily: "var(--font-mono)", textTransform: "uppercase", letterSpacing: "0.08em", opacity: 0.5, display: "block", marginBottom: 8 }}>
+                  Noteworthy Context
+                </strong>
+                <p style={{ margin: 0, fontSize: "0.9rem", lineHeight: 1.55 }}>
+                  {city.qualitative.funFact}
+                </p>
+              </div>
+              <div style={{ flex: "0 1 auto", display: "flex", gap: 8, flexWrap: "wrap", alignContent: "center" }}>
+                {city.qualitative.tags?.map((tag) => (
+                  <span key={tag} style={{ padding: "6px 12px", fontSize: "0.8rem", background: "rgba(0,0,0,0.05)", border: "1px solid rgba(0,0,0,0.05)", borderRadius: 100, fontWeight: 600, color: "var(--text-soft)" }}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        )}
       </section>
 
       {/* ── Equation bar ── */}

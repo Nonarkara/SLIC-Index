@@ -22,7 +22,7 @@ const difficultyColors: Record<CityIdea["difficulty"], string> = {
   advanced: "var(--accent-red)",
 };
 
-function CopyButton({ text }: { text: string }) {
+function CopyButton({ text, ui }: { text: string; ui: any }) {
   const [copied, setCopied] = useState(false);
 
   function handleCopy() {
@@ -34,7 +34,7 @@ function CopyButton({ text }: { text: string }) {
 
   return (
     <button type="button" className="idea-copy-btn" onClick={handleCopy}>
-      {copied ? "Copied!" : "Copy code"}
+      {copied ? ui.copied : ui.copyCode}
     </button>
   );
 }
@@ -49,6 +49,7 @@ export default function IdeasPage({
   onLocaleChange: (locale: Locale) => void;
 }) {
   const copy = getCopy(locale);
+  const ui = copy.ideas;
   const [category, setCategory] = useState<string>("all");
   const [difficulty, setDifficulty] = useState<string>("all");
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -70,7 +71,7 @@ export default function IdeasPage({
         <div className="topbar topbar-stack">
           <div className="topbar-left">
             <button type="button" className="back-arrow" onClick={() => onNavigate("/")} aria-label="Back to home">&larr;</button>
-            <BrandLockup eyebrow="Steal This Idea" microCopy="City innovation studio" />
+            <BrandLockup eyebrow={ui.eyebrow} microCopy={ui.title} />
           </div>
 
           <div className="topbar-actions">
@@ -91,19 +92,15 @@ export default function IdeasPage({
 
         <div className="rankings-hero-grid">
           <div>
-            <h1 className="rankings-title">Steal This Idea</h1>
-            <p className="hero-intro">
-              Real city innovations with working code you can copy, adapt, and deploy.
-              Each idea comes from a real programme in a real city. The code snippets
-              are starter templates you can drop into a no-code platform or build on directly.
-            </p>
+            <h1 className="rankings-title">{ui.title}</h1>
+            <p className="hero-intro">{ui.intro}</p>
           </div>
 
           <div className="rankings-controls">
             <div className="rankings-filter-group">
-              <p className="panel-label">Category</p>
+              <p className="panel-label">{ui.category}</p>
               <div className="region-switch" role="tablist">
-                <button type="button" className={category === "all" ? "region-button active" : "region-button"} onClick={() => setCategory("all")}>All</button>
+                <button type="button" className={category === "all" ? "region-button active" : "region-button"} onClick={() => setCategory("all")}>{ui.all}</button>
                 {ideaCategories.map((cat) => (
                   <button key={cat.value} type="button" className={category === cat.value ? "region-button active" : "region-button"} onClick={() => setCategory(cat.value)}>{cat.label}</button>
                 ))}
@@ -111,12 +108,12 @@ export default function IdeasPage({
             </div>
 
             <div>
-              <p className="panel-label">Difficulty</p>
+              <p className="panel-label">{ui.difficulty}</p>
               <div className="mode-switch" role="tablist">
-                <button type="button" className={difficulty === "all" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("all")}>All</button>
-                <button type="button" className={difficulty === "starter" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("starter")}>Starter</button>
-                <button type="button" className={difficulty === "intermediate" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("intermediate")}>Intermediate</button>
-                <button type="button" className={difficulty === "advanced" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("advanced")}>Advanced</button>
+                <button type="button" className={difficulty === "all" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("all")}>{ui.all}</button>
+                <button type="button" className={difficulty === "starter" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("starter")}>{ui.difficultyLabels.starter}</button>
+                <button type="button" className={difficulty === "intermediate" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("intermediate")}>{ui.difficultyLabels.intermediate}</button>
+                <button type="button" className={difficulty === "advanced" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("advanced")}>{ui.difficultyLabels.advanced}</button>
               </div>
             </div>
           </div>
@@ -127,12 +124,9 @@ export default function IdeasPage({
         <section className="rankings-top section">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">{filtered.length} ideas</p>
-              <h2>Copy, adapt, deploy</h2>
+              <p className="eyebrow">{filtered.length} {copy.rankings.citiesLabel}</p>
+              <h2>{ui.summary}</h2>
             </div>
-            <p className="section-summary">
-              Click any card to reveal the working code snippet. Copy it directly or use it as a starting point.
-            </p>
           </div>
 
           <div className="idea-grid">
@@ -141,7 +135,7 @@ export default function IdeasPage({
                 <div className="idea-card-head">
                   <div>
                     <div className="idea-card-meta">
-                      <span className="idea-difficulty" style={{ color: difficultyColors[idea.difficulty] }}>{idea.difficulty}</span>
+                      <span className="idea-difficulty" style={{ color: difficultyColors[idea.difficulty] }}>{ui.difficultyLabels[idea.difficulty]}</span>
                       <span className="idea-category">{ideaCategories.find((c) => c.value === idea.category)?.label}</span>
                     </div>
                     <h3>{idea.title}</h3>
@@ -149,9 +143,9 @@ export default function IdeasPage({
                   </div>
                 </div>
 
-                <p className="idea-problem"><strong>Problem:</strong> {idea.problem}</p>
-                <p className="idea-solution"><strong>Solution:</strong> {idea.solution}</p>
-                <p className="idea-impact"><strong>Impact:</strong> {idea.impact}</p>
+                <p className="idea-problem"><strong>{ui.problem}:</strong> {idea.problem}</p>
+                <p className="idea-solution"><strong>{ui.solution}:</strong> {idea.solution}</p>
+                <p className="idea-impact"><strong>{ui.impact}:</strong> {idea.impact}</p>
 
                 <div className="metric-taglist">
                   {idea.techStack.map((tech) => (
@@ -164,14 +158,14 @@ export default function IdeasPage({
                   className={expanded === idea.id ? "idea-toggle active" : "idea-toggle"}
                   onClick={() => setExpanded(expanded === idea.id ? null : idea.id)}
                 >
-                  {expanded === idea.id ? "Hide code" : "Show code"}
+                  {expanded === idea.id ? ui.hideCode : ui.showCode}
                 </button>
 
                 {expanded === idea.id && (
                   <div className="idea-code-block">
                     <div className="idea-code-header">
-                      <span>Starter code</span>
-                      <CopyButton text={idea.codeSnippet} />
+                      <span>{ui.starterCode}</span>
+                      <CopyButton text={idea.codeSnippet} ui={ui} />
                     </div>
                     <pre className="idea-code"><code>{idea.codeSnippet}</code></pre>
                     <p className="idea-repo-hint">{idea.repoHint}</p>

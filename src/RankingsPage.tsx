@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import ZeroSumAllocator from "./ZeroSumAllocator";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import { evaluateConsequences } from "./consequenceRules";
@@ -12,33 +13,7 @@ import { PILLAR_COLORS, PILLAR_LABELS, PILLAR_ORDER } from "./pillarConfig";
 import type { PillarId } from "./pillarConfig";
 import type { Locale, SitePath } from "./types";
 
-const PILLAR_HINTS: Record<Locale, Record<PillarId, string>> = {
-  en: {
-    pressure: "Economic dynamism, market forces, affordability as natural outcome",
-    viability: "Safety, transit, clean air, climate & sunlight",
-    capability: "Healthcare access, education, opportunity",
-    community: "Belonging, tolerance, cultural life, birth rate",
-    creative: "Innovation, research, entrepreneurship",
-  },
-  th: {
-    pressure: "พลวัตเศรษฐกิจ กลไกตลาด ค่าครองชีพตามกลไก",
-    viability: "ความปลอดภัย ขนส่ง อากาศ ภูมิอากาศ",
-    capability: "สาธารณสุข การศึกษา โอกาส",
-    community: "ความเป็นส่วนหนึ่ง ความอดทน วัฒนธรรม",
-    creative: "นวัตกรรม วิจัย ผู้ประกอบการ",
-  },
-  zh: {
-    pressure: "经济活力、市场力量、自然可负担性",
-    viability: "安全、交通、空气、气候与日照",
-    capability: "医疗、教育、机会",
-    community: "归属、包容、文化生活",
-    creative: "创新、研究、创业",
-  },
-};
-
 /* PILLAR_ORDER imported from pillarConfig */
-
-/* ───── published data ───── */
 
 interface PublishedCity {
   cityId: string;
@@ -90,106 +65,6 @@ function scoreCityWithWeights(city: PublishedCity, weights: Record<PillarId, num
   }, 0);
 }
 
-/* ───── copy ───── */
-
-const interactiveCopy: Record<Locale, {
-  heroEyebrow: string;
-  heroTitle: string;
-  heroIntro: string;
-  allocatorTitle: string;
-  allocatorHint: string;
-  resetLabel: string;
-  canonicalBadge: string;
-  customBadge: string;
-  canonicalNote: string;
-  consequencesTitle: string;
-  noConsequences: string;
-  yourScore: string;
-  slicScore: string;
-  slicRank: string;
-  citiesLabel: string;
-  top10: string;
-  top50: string;
-  showAll: string;
-  regionLabel: string;
-  allRegions: string;
-  whyThisRanking: string;
-  whyExplanation: string;
-}> = {
-  en: {
-    heroEyebrow: "Explore the index",
-    heroTitle: "Your city, your priorities",
-    heroIntro: "Distribute 100 points across five dimensions of city life. Watch cities re-rank in real time as your priorities shift. The SLIC canonical ranking is a starting point — your ranking is what matters to you.",
-    allocatorTitle: "Set your priorities",
-    allocatorHint: "Drag the spider web or use the sliders. Total stays at 100.",
-    resetLabel: "Reset to SLIC defaults",
-    canonicalBadge: "SLIC canonical",
-    customBadge: "Your priorities",
-    canonicalNote: "SLIC default: G 25 / V 22 / C 18 / Co 15 / Cr 20",
-    consequencesTitle: "Trade-off insights",
-    noConsequences: "Adjust weights to see trade-off insights.",
-    yourScore: "Your",
-    slicScore: "SLIC",
-    slicRank: "SLIC #",
-    citiesLabel: "cities",
-    top10: "Top 10",
-    top50: "Top 50",
-    showAll: "All",
-    regionLabel: "Region",
-    allRegions: "All",
-    whyThisRanking: "Why this default ranking?",
-    whyExplanation: "SLIC weights Growth highest (25%) because economic dynamism determines a city's trajectory — growth invites capitalism and market forces that shape affordability unless the state provides welfare. Viability (22%) covers safety, transit, and climate. Creative (20%) captures innovation and entrepreneurship. Capability (18%) is healthcare and education access. Community (15%) is belonging and tolerance. Kaohsiung and Taipei lead because they combine strong Capability (95+), excellent Viability (87+), and solid Creative scores with managed growth.",
-  },
-  th: {
-    heroEyebrow: "สำรวจดัชนี",
-    heroTitle: "เมืองของคุณ ลำดับความสำคัญของคุณ",
-    heroIntro: "แจก 100 คะแนนให้ 5 มิติของชีวิตในเมือง ดูเมืองจัดอันดับใหม่ตามลำดับความสำคัญของคุณ อันดับ SLIC เป็นจุดเริ่มต้น — อันดับของคุณคือสิ่งที่สำคัญสำหรับคุณ",
-    allocatorTitle: "ตั้งลำดับความสำคัญ",
-    allocatorHint: "ลากใยแมงมุมหรือใช้แถบเลื่อน ผลรวมคงที่ที่ 100",
-    resetLabel: "รีเซ็ตเป็นค่า SLIC",
-    canonicalBadge: "อันดับ SLIC",
-    customBadge: "ลำดับของคุณ",
-    canonicalNote: "ค่าเริ่มต้น SLIC: G 25 / V 22 / C 18 / Co 15 / Cr 20",
-    consequencesTitle: "มุมมองข้อแลกเปลี่ยน",
-    noConsequences: "ปรับน้ำหนักเพื่อดูข้อแลกเปลี่ยน",
-    yourScore: "ของคุณ",
-    slicScore: "SLIC",
-    slicRank: "SLIC #",
-    citiesLabel: "เมือง",
-    top10: "10 อันดับ",
-    top50: "50 อันดับ",
-    showAll: "ทั้งหมด",
-    regionLabel: "ภูมิภาค",
-    allRegions: "ทั้งหมด",
-    whyThisRanking: "ทำไมอันดับเริ่มต้นนี้?",
-    whyExplanation: "SLIC ให้น้ำหนักการเติบโตสูงสุด (25%) เพราะพลวัตเศรษฐกิจกำหนดทิศทางเมือง การเติบโตเชิญชวนทุนนิยมและกลไกตลาดที่กำหนดค่าครองชีพโดยอัตโนมัติ ความน่าอยู่ (22%) ครอบคลุมความปลอดภัย ขนส่ง และภูมิอากาศ เกาสงและไทเปนำเพราะรวมศักยภาพสูง (95+) ความน่าอยู่ดี (87+) และการเติบโตที่จัดการได้ดี",
-  },
-  zh: {
-    heroEyebrow: "探索指数",
-    heroTitle: "你的城市，你的优先级",
-    heroIntro: "将100分分配到城市生活的五个维度。随着你的优先级变化，城市实时重新排名。SLIC标准排名是起点——你的排名才是对你有意义的。",
-    allocatorTitle: "设定你的优先级",
-    allocatorHint: "拖动蛛网图或使用滑块，总分保持100。",
-    resetLabel: "重置为SLIC默认值",
-    canonicalBadge: "SLIC标准",
-    customBadge: "你的优先级",
-    canonicalNote: "SLIC默认: G 25 / V 22 / C 18 / Co 15 / Cr 20",
-    consequencesTitle: "权衡洞察",
-    noConsequences: "调整权重以查看权衡洞察。",
-    yourScore: "你的",
-    slicScore: "SLIC",
-    slicRank: "SLIC #",
-    citiesLabel: "城市",
-    top10: "前10",
-    top50: "前50",
-    showAll: "全部",
-    regionLabel: "地区",
-    allRegions: "全部",
-    whyThisRanking: "为什么是这个默认排名?",
-    whyExplanation: "SLIC将增长权重设为最高(25%)，因为经济活力决定城市的发展轨迹——增长带来资本主义和市场力量，除非国家提供福利，否则自然影响可负担性。宜居(22%)涵盖安全、交通和气候。高雄和台北领先，因为它们结合了强大的能力(95+)、优秀的宜居(87+)和良好管理的增长。",
-  },
-};
-
 /* ───── severity styles ───── */
 
 const severityStyles: Record<string, React.CSSProperties> = {
@@ -208,9 +83,9 @@ export default function RankingsPage({
   locale: Locale;
 }) {
   const copy = getCopy(locale);
-  const ui = interactiveCopy[locale];
+  const ui = copy.rankings;
   const labels = PILLAR_LABELS[locale];
-  const hints = PILLAR_HINTS[locale];
+  const hints = ui.pillarHints;
 
   // Weight allocation state
   const [pillars, setPillars] = useState<PillarAllocation[]>(
@@ -276,10 +151,10 @@ export default function RankingsPage({
     <>
       <header className="rankings-hero section">
         <div style={{ maxWidth: 800, margin: "0 auto", textAlign: "center" }}>
-          <p className="eyebrow">{ui.heroEyebrow}</p>
-          <h1 className="rankings-title">{ui.heroTitle}</h1>
+          <p className="eyebrow">{ui.eyebrow}</p>
+          <h1 className="rankings-title">{ui.title}</h1>
           <p className="hero-intro" style={{ maxWidth: 640, margin: "12px auto 0" }}>
-            {ui.heroIntro}
+            {ui.intro}
           </p>
           <RankingIntegrityBanner locale={locale} />
         </div>
@@ -297,10 +172,35 @@ export default function RankingsPage({
                 <p style={{ fontSize: 12, opacity: 0.5, margin: 0 }}>{ui.allocatorHint}</p>
               </div>
 
+              {/* Scenarios feature */}
+              <div style={{ padding: "12px 14px", background: "rgba(255, 255, 255, 0.2)", borderRadius: "var(--radius, 8px)", border: "1px solid var(--glass-border)", backdropFilter: "blur(10px) saturate(120%)", display: "flex", flexDirection: "column", gap: 10 }}>
+                <span style={{ fontSize: 10, letterSpacing: "0.1em", textTransform: "uppercase", opacity: 0.7, fontWeight: 600 }}>{ui.scenariosLabel}</span>
+                <div style={{ display: "flex", gap: 6, flexWrap: "wrap", width: "100%" }}>
+                  <button type="button" className="mode-button" style={{ flex: 1, padding: "6px 10px", fontSize: 11, minHeight: "unset" }} onClick={() => {
+                    const preset = { pressure: 5, viability: 30, capability: 15, community: 20, creative: 30 };
+                    setPillars(PILLAR_ORDER.map(id => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: preset[id] })));
+                  }}>
+                    {ui.scenarioNomad}
+                  </button>
+                  <button type="button" className="mode-button" style={{ flex: 1, padding: "6px 10px", fontSize: 11, minHeight: "unset" }} onClick={() => {
+                     const preset = { pressure: 10, viability: 30, capability: 35, community: 20, creative: 5 };
+                     setPillars(PILLAR_ORDER.map(id => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: preset[id] })));
+                  }}>
+                    {ui.scenarioFamily}
+                  </button>
+                  <button type="button" className="mode-button" style={{ flex: 1, padding: "6px 10px", fontSize: 11, minHeight: "unset" }} onClick={() => {
+                     const preset = { pressure: 40, viability: 10, capability: 15, community: 5, creative: 30 };
+                     setPillars(PILLAR_ORDER.map(id => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: preset[id] })));
+                  }}>
+                    {ui.scenarioGrowth}
+                  </button>
+                </div>
+              </div>
+
               <ZeroSumAllocator pillars={pillars} onChange={setPillars} />
 
               <button type="button" className="rankings-reset-btn" onClick={handleReset}>
-                {ui.resetLabel}
+                {ui.reset}
               </button>
 
               {/* Pillar hints */}
@@ -308,7 +208,7 @@ export default function RankingsPage({
                 {PILLAR_ORDER.map((id) => (
                   <div key={id} style={{ display: "flex", alignItems: "center", gap: 7, fontSize: 11, opacity: 0.5 }}>
                     <span style={{ width: 7, height: 7, borderRadius: "50%", background: PILLAR_COLORS[id], flexShrink: 0 }} />
-                    <span><strong>{labels[id]}</strong> — {hints[id]}</span>
+                    <span><strong>{labels[id]}</strong> — {hints[id as keyof typeof hints]}</span>
                   </div>
                 ))}
               </div>
@@ -402,7 +302,8 @@ export default function RankingsPage({
 
               {/* Coverage legend */}
               <div className="coverage-legend">
-                {locale === "en" ? "Data coverage: " : locale === "th" ? "ครอบคลุมข้อมูล: " : "数据覆盖: "}
+                {ui.labels.coverage}:
+                {" "}
                 <span style={{ color: GRADE_COLORS.A }}>A</span> 75%+
                 {" · "}
                 <span style={{ color: GRADE_COLORS.B }}>B</span> 50–74%
@@ -411,48 +312,55 @@ export default function RankingsPage({
               </div>
 
               {/* City list */}
-              <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                {displayResults.map((city, index) => {
-                  const pillarScores = {
-                    pressure: city.pressureScore,
-                    viability: city.viabilityScore,
-                    capability: city.capabilityScore,
-                    community: city.communityScore,
-                    creative: city.creativeScore,
-                  };
-                  const isTop = index < 3;
-                  return (
-                    <div
-                      key={city.cityId}
-                      className={`rankings-city-row${isTop ? " is-top" : ""}`}
-                      role="button"
-                      tabIndex={0}
-                      onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}
-                      onKeyDown={(e) => { if (e.key === "Enter") onNavigate(`/city/${city.cityId}` as SitePath); }}
-                      style={{ cursor: "pointer" }}
-                    >
-                      <div style={{ minWidth: 0 }}>
-                        <div className="city-name-row">
-                          <span className="city-display-name">{city.displayName}</span>
-                          <span className="city-country">{city.country}</span>
+              <motion.div layout style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                <AnimatePresence>
+                  {displayResults.map((city, index) => {
+                    const pillarScores = {
+                      pressure: city.pressureScore,
+                      viability: city.viabilityScore,
+                      capability: city.capabilityScore,
+                      community: city.communityScore,
+                      creative: city.creativeScore,
+                    };
+                    const isTop = index < 3;
+                    return (
+                      <motion.div
+                        layout
+                        initial={{ opacity: 0, scale: 0.98 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        key={city.cityId}
+                        className={`rankings-city-row${isTop ? " is-top" : ""}`}
+                        role="button"
+                        tabIndex={0}
+                        onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}
+                        onKeyDown={(e) => { if (e.key === "Enter") onNavigate(`/city/${city.cityId}` as SitePath); }}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <div style={{ minWidth: 0 }}>
+                          <div className="city-name-row">
+                            <span className="city-display-name">{city.displayName}</span>
+                            <span className="city-country">{city.country}</span>
+                          </div>
+                          <div className="rankings-pillar-bars">
+                            {PILLAR_ORDER.map((pid) => {
+                              const covKey = `${pid}Coverage` as keyof PublishedCity;
+                              const cov = city[covKey] as number | undefined;
+                              return (
+                                <div key={pid}>
+                                  <div style={{ width: `${pillarScores[pid]}%`, background: PILLAR_COLORS[pid], opacity: coverageOpacity(cov) }} />
+                                </div>
+                              );
+                            })}
+                          </div>
                         </div>
-                        <div className="rankings-pillar-bars">
-                          {PILLAR_ORDER.map((pid) => {
-                            const covKey = `${pid}Coverage` as keyof PublishedCity;
-                            const cov = city[covKey] as number | undefined;
-                            return (
-                              <div key={pid}>
-                                <div style={{ width: `${pillarScores[pid]}%`, background: PILLAR_COLORS[pid], opacity: coverageOpacity(cov) }} />
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                      <span className="city-tier-arrow">&#8250;</span>
-                    </div>
-                  );
-                })}
-              </div>
+                        <span className="city-tier-arrow">&#8250;</span>
+                      </motion.div>
+                    );
+                  })}
+                </AnimatePresence>
+              </motion.div>
 
               {/* Actions */}
               <div style={{ marginTop: 24, display: "flex", gap: 12, flexWrap: "wrap" }}>

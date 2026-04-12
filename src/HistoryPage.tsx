@@ -1,3 +1,4 @@
+import { getCopy } from "./siteCopy";
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
 
@@ -134,21 +135,17 @@ export default function HistoryPage({
   onNavigate: (path: SitePath) => void;
   locale: Locale;
 }) {
+  const copy = getCopy(locale);
+  const ui = copy.history;
   const entries = timeline[locale];
-  const heading = locale === "en" ? "How the SLIC Index Was Built" : locale === "th" ? "SLIC Index ถูกสร้างขึ้นมาอย่างไร" : "SLIC指数是如何构建的";
-  const subtitle = locale === "en"
-    ? "Years of real fieldwork, stakeholder workshops, and ground-truth data collection — before a single line of code was written."
-    : locale === "th"
-      ? "หลายปีของการลงพื้นที่จริง เวิร์กช็อปผู้มีส่วนได้ส่วนเสีย และการเก็บข้อมูลภาคสนาม — ก่อนที่จะเขียนโค้ดแม้แต่บรรทัดเดียว"
-      : "多年的实地调研、利益相关者研讨会和一手数据收集——在写下第一行代码之前。";
 
   return (
     <>
       <main>
         <section className="history-page section">
-          <p className="eyebrow">{locale === "en" ? "THE JOURNEY" : locale === "th" ? "เส้นทาง" : "历程"}</p>
-          <h1 className="history-title">{heading}</h1>
-          <p className="history-subtitle">{subtitle}</p>
+          <p className="eyebrow">{ui.eyebrow}</p>
+          <h1 className="history-title">{ui.heading}</h1>
+          <p className="history-subtitle">{ui.subtitle}</p>
 
           <div className="history-timeline">
             {entries.map((entry, i) => (

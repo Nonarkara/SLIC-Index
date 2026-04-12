@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import ZeroSumAllocator from "./ZeroSumAllocator";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import { evaluateConsequences } from "./consequenceRules";
@@ -7,6 +8,7 @@ import publishedData from "./data/publishedRankingData.json";
 import { getVisitorStats } from "./visitorTracking";
 import SiteFooter from "./SiteFooter";
 import ComparisonGrid from "./ComparisonGrid";
+import { getCopy } from "./siteCopy";
 import { SLIC_LOGO_INLINE } from "./brandAssets";
 import { PILLAR_COLORS, PILLAR_LABELS, PILLAR_ORDER, EQUAL_WEIGHT } from "./pillarConfig";
 import type { PillarId } from "./pillarConfig";
@@ -41,13 +43,9 @@ const CITY_PHOTOS: Record<string, string> = {
   "tw-taipei": "https://images.unsplash.com/photo-1470004914212-05527e49370b?w=600&h=400&fit=crop&q=80",
 };
 
-function t(locale: Locale, en: string, th: string, zh: string): string {
-  return locale === "en" ? en : locale === "th" ? th : zh;
-}
-
-
 export default function HomePage({ onNavigate, locale }: { onNavigate: (path: SitePath) => void; locale: Locale }) {
-  const ui = { allocatorHint: t(locale, "Drag the web or use sliders. Total = 100.", "ลากใยแมงมุมหรือใช้แถบเลื่อน ผลรวม = 100", "拖动蛛网图或使用滑块，总分 = 100"), resetLabel: t(locale, "Reset", "รีเซ็ต", "重置") };
+  const copy = getCopy(locale);
+  const ui = copy.home;
   const labels = PILLAR_LABELS[locale];
 
   const [visitors, setVisitors] = useState(12424);
@@ -67,32 +65,25 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
   [weights]);
   const handleReset = () => setPillars(PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: EQUAL_WEIGHT })));
 
-
   return (
     <>
       {/* ════ 01. HERO — The thesis, not just a tagline ════ */}
       <header className="hp-opening">
         <div className="hp-opening-inner section">
           <img src={SLIC_LOGO_INLINE} alt="SLIC Index" className="hp-hero-logo" />
-          <p className="hp-kicker">{t(locale, "157 cities, 35 signals, zero bullshit", "157 เมือง 35 สัญญาณ ไม่มีมุก", "157城市 35信号 零废话")}</p>
+          <p className="hp-kicker">{ui.kicker}</p>
           <h1 className="hp-headline">
-            {t(locale,
-              "Every city ranking\nis a lie. Here's ours.",
-              "ทุกการจัดอันดับเมืองคือคำลวง—\nนี่คือความจริงของเรา",
-              "所有的城市排名都是谎言。\n这是我们的真实排名。")}
+            {ui.headline}
           </h1>
           <p className="hp-deck">
-            {t(locale,
-              "Not prestige. Not GDP. What\u2019s left after rent, how long you work, whether your neighbors tolerate you. 157 cities scored on what actually matters. Every number traceable.",
-              "ไม่ใช่ชื่อเสียง ไม่ใช่ GDP แต่คือเงินเหลือหลังค่าเช่า ชั่วโมงทำงาน และว่าเพื่อนบ้านรับคุณได้ไหม 157 เมืองวัดในสิ่งที่สำคัญจริง ทุกตัวเลขสืบย้อนได้",
-              "不比声望不比GDP 而是租房后还剩多少 工作多久 邻居是否包容你 157座城市只衡量真正重要的事 每个数字都可追溯")}
+            {ui.deck}
           </p>
           <div className="hp-opening-stats">
-            <span><strong>{rankedCities.length}</strong> {t(locale, "cities", "เมือง", "城市")}</span>
+            <span><strong>{rankedCities.length}</strong> {ui.cities}</span>
             <span className="hp-stat-sep">/</span>
-            <span><strong>5</strong> {t(locale, "pillars", "เสาหลัก", "支柱")}</span>
+            <span><strong>5</strong> {ui.pillars}</span>
             <span className="hp-stat-sep">/</span>
-            <span><strong>{visitors.toLocaleString()}</strong> {t(locale, "visitors", "ผู้เข้าชม", "访客")}</span>
+            <span><strong>{visitors.toLocaleString()}</strong> {ui.visitors}</span>
           </div>
         </div>
       </header>
@@ -100,13 +91,10 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
       {/* ════ 02. THE REVEAL — Six Indices Side-by-Side ════ */}
       <section className="hp-grid-reveal">
         <div className="section">
-          <p className="hp-grid-kicker">{t(locale, "SIX INDICES. SIDE BY SIDE.", "หกดัชนีเทียบกัน", "六个指数并排")}</p>
+          <p className="hp-grid-kicker">{ui.gridKicker}</p>
           <ComparisonGrid locale={locale} />
           <p className="hp-grid-note">
-            {t(locale,
-              "Five indices, five methodologies, one answer: rich, stable, Western-ish. SLIC weights the world differently. This visualizes the 'lie' of universal agreement.",
-              "ห้าดัชนี ห้าระเบียบวิธี คำตอบเดียว: ร่ำรวย มั่นคง แบบตะวันตก SLIC ให้น้ำหนักโลกต่างออกไป นี่คือภาพสะท้อนของ 'คำลวง' เรื่องความเห็นพ้องสากล",
-              "五个指数 五种方法论 一个答案：富裕稳定偏西方 SLIC 对世界的权重不同 这形象化了全球共识的“谎言”")}
+            {ui.gridNote}
           </p>
         </div>
       </section>
@@ -114,17 +102,14 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
       {/* ════ 03. FULL-BLEED PHOTO ════ */}
       <section className="hp-photo-break">
         <img src={HERO_PHOTO} alt="SCSE 2026" className="hp-photo-break-img" />
-        <p className="hp-photo-caption">{t(locale, "SCSE 2026, Taipei \u2014 3,000 professionals. A European mayor\u2019s alliance asked to use SLIC instead of The Economist\u2019s index.", "SCSE 2026 ไทเป \u2014 ผู้เชี่ยวชาญ 3,000 คน พันธมิตรนายกเทศมนตรียุโรปขอใช้ SLIC แทนดัชนี The Economist", "SCSE 2026 台北 \u2014 3000位专业人士 欧洲市长联盟要求用SLIC取代经济学人指数")}</p>
+        <p className="hp-photo-caption">{ui.photoCaption}</p>
       </section>
 
       {/* ════ 04. ALPHA TIER ════ */}
       <section className="v3-alpha" id="tiers">
         <div className="v3-alpha-header section">
           <span className="v3-tier-badge v3-tier-badge--alpha">&alpha; ALPHA</span>
-          <h2 className="v3-alpha-title">{t(locale,
-            "These ten cities scored highest. Click any to see exactly why.",
-            "สิบเมืองนี้ได้คะแนนสูงสุด คลิกเพื่อดูว่าทำไม",
-            "这十座城市得分最高 点击查看具体原因")}</h2>
+          <h2 className="v3-alpha-title">{ui.alphaTitle}</h2>
         </div>
         <div className="v3-alpha-grid section">
           {results.slice(0, 10).sort((a, b) => a.displayName.localeCompare(b.displayName)).map((city) => {
@@ -149,7 +134,7 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
       {/* ════ 05. BETA + GAMMA ════ */}
       <section className="section v3-lower-tiers">
         <div className="v3-lower-tier-row">
-          <span className="v3-tier-badge v3-tier-badge--beta">&beta; BETA</span>
+          <span className="v3-tier-badge v3-tier-badge--beta">&beta; {ui.beta}</span>
           <div className="v3-lower-tier-cities">
             {results.slice(10, 20).sort((a, b) => a.displayName.localeCompare(b.displayName)).map((city) => (
               <button key={city.cityId} className="v3-tier-chip" onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}>
@@ -159,7 +144,7 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
           </div>
         </div>
         <div className="v3-lower-tier-row">
-          <span className="v3-tier-badge v3-tier-badge--gamma">&gamma; GAMMA</span>
+          <span className="v3-tier-badge v3-tier-badge--gamma">&gamma; {ui.gamma}</span>
           <div className="v3-lower-tier-cities">
             {results.slice(20, 30).sort((a, b) => a.displayName.localeCompare(b.displayName)).map((city) => (
               <button key={city.cityId} className="v3-tier-chip" onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}>
@@ -173,12 +158,12 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
       {/* ════ 06. SPIDER ════ */}
       <section className="v3-spider-full">
         <div className="section">
-          <h2 className="v3-section-title">{t(locale, "Now disagree with us.", "ตอนนี้ลองไม่เห็นด้วยกับเรา", "现在来反驳我们")}</h2>
-          <p className="v3-spider-hint">{t(locale, "Drag the spider. Crank growth to 100% \u2014 watch Singapore and Jakarta rise. Max viability \u2014 safe, clean cities float up. This is your ranking, not ours.", ui.allocatorHint, ui.allocatorHint)}</p>
+          <h2 className="v3-section-title">{ui.disagreeTitle}</h2>
+          <p className="v3-spider-hint">{ui.disagreeHint}. {ui.allocatorHint}</p>
           <div className="v3-spider-layout">
             <div className="v3-spider-chart">
               <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={380} />
-              <button type="button" className="rankings-reset-btn" onClick={handleReset}>{ui.resetLabel}</button>
+              <button type="button" className="rankings-reset-btn" onClick={handleReset}>{ui.reset}</button>
             </div>
             <div className="v3-spider-results">
               {consequences.length > 0 && (
@@ -188,16 +173,27 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
                   ))}
                 </div>
               )}
-              <div className="v3-spider-list">
-                {results.slice(0, 15).map((city, i) => (
-                  <button key={city.cityId} className="v3-spider-row" onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}>
-                    <span className="v3-spider-rank">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="v3-spider-name">{city.displayName}</span>
-                    <span className="v3-spider-score">{city.customScore.toFixed(1)}</span>
-                    <span className="v3-spider-country">{city.country}</span>
-                  </button>
-                ))}
-              </div>
+              <motion.div layout className="v3-spider-list">
+                <AnimatePresence>
+                  {results.slice(0, 15).map((city, i) => (
+                    <motion.button 
+                      layout
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      key={city.cityId} 
+                      className="v3-spider-row" 
+                      onClick={() => onNavigate(`/city/${city.cityId}` as SitePath)}
+                    >
+                      <span className="v3-spider-rank">{String(i + 1).padStart(2, "0")}</span>
+                      <span className="v3-spider-name">{city.displayName}</span>
+                      <span className="v3-spider-score">{city.customScore.toFixed(1)}</span>
+                      <span className="v3-spider-country">{city.country}</span>
+                    </motion.button>
+                  ))}
+                </AnimatePresence>
+              </motion.div>
             </div>
           </div>
         </div>
@@ -205,14 +201,14 @@ export default function HomePage({ onNavigate, locale }: { onNavigate: (path: Si
 
       {/* ════ 07. CTA ════ */}
       <section className="v3-cta-section section">
-        <a className="v3-cta" href="/" onClick={(e) => { e.preventDefault(); onNavigate("/"); }}>
-          {t(locale, "THE FULL COMPARISON", "เปรียบเทียบเต็ม", "完整对比")} &rarr;
+        <a className="v3-cta" href="/compare" onClick={(e) => { e.preventDefault(); onNavigate("/compare"); }}>
+          {ui.fullComparison} &rarr;
         </a>
         <a className="v3-cta-secondary" href="/methodology" onClick={(e) => { e.preventDefault(); onNavigate("/methodology"); }}>
-          {t(locale, "METHODOLOGY", "ระเบียบวิธี", "方法论")}
+          {copy.nav.methodology}
         </a>
         <a className="v3-cta-secondary" href="/about-slic" onClick={(e) => { e.preventDefault(); onNavigate("/about-slic"); }}>
-          {t(locale, "ABOUT SLIC", "เกี่ยวกับ SLIC", "关于 SLIC")}
+          {copy.nav.aboutSlic}
         </a>
       </section>
 

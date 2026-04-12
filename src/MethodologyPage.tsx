@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { getMethodologyData } from "./methodologyData";
 import KnowledgeRackPanel from "./KnowledgeRackPanel";
 import MethodologySpiderChart from "./MethodologySpiderChart";
 import PillarWeightChart from "./PillarWeightChart";
-import { getCopy } from "./siteCopy";
+import { getCopy, type SiteCopy } from "./siteCopy";
 import SiteFooter from "./SiteFooter";
 import type {
   Locale,
@@ -14,153 +13,8 @@ import type {
   SitePath,
 } from "./types";
 
-const methodUiCopy: Record<
-  Locale,
-  {
-    openEquation: string;
-    openPdf: string;
-    downloadPdf: string;
-    closePdf: string;
-    pdfWindowTitle: string;
-    pdfWindowNote: string;
-    home: string;
-    guide: string;
-    critique: string;
-    remote: string;
-    scoring: string;
-    glossary: string;
-    example: string;
-    models: string;
-    references: string;
-    rack: string;
-    glossarySymbol: string;
-    glossaryDefinition: string;
-    glossaryExplanation: string;
-    worksheetColumn: string;
-    worksheetPurpose: string;
-    worksheetSource: string;
-    sourceTierLabel: string;
-    protocolLabel: string;
-    roleLabel: string;
-    finalScore: string;
-    illustrative: string;
-    citations: string;
-    contextLabel: string;
-    dataMixTitle: string;
-    dataMixSummary: string;
-  }
-> = {
-  en: {
-    openEquation: "See the score equation",
-    openPdf: "Read the technical PDF",
-    downloadPdf: "Download PDF",
-    closePdf: "Close paper",
-    pdfWindowTitle: "SLIC technical methodology paper",
-    pdfWindowNote: "Embedded reader for the downloadable English master edition.",
-    home: "Home",
-    guide: "Guide",
-    critique: "Critique",
-    remote: "Satellite layer",
-    scoring: "Scoring",
-    glossary: "Glossary",
-    example: "Example",
-    models: "Boundaries",
-    references: "References",
-    rack: "Knowledge rack",
-    glossarySymbol: "Symbol",
-    glossaryDefinition: "Definition",
-    glossaryExplanation: "Explanation",
-    worksheetColumn: "Column",
-    worksheetPurpose: "Purpose",
-    worksheetSource: "Primary source",
-    sourceTierLabel: "Tier",
-    protocolLabel: "Protocol",
-    roleLabel: "Role",
-    finalScore: "Final SLIC score",
-    illustrative: "Illustrative preview computation",
-    citations: "Citations",
-    contextLabel: "Context term",
-    dataMixTitle: "Data reliance mix",
-    dataMixSummary:
-      "The public model leans hardest on official urban and official macro data, while satellite and testimony layers remain disciplined supporting evidence.",
-  },
-  th: {
-    openEquation: "ดูสมการคะแนน",
-    openPdf: "อ่าน Technical PDF",
-    downloadPdf: "ดาวน์โหลด PDF",
-    closePdf: "ปิดเอกสาร",
-    pdfWindowTitle: "เอกสารเทคนิคของ SLIC",
-    pdfWindowNote: "หน้าต่างอ่านเอกสารแบบฝัง พร้อมไฟล์ English master edition ที่ดาวน์โหลดได้",
-    home: "หน้าแรก",
-    guide: "คู่มือ",
-    critique: "ข้อวิจารณ์",
-    remote: "ชั้นข้อมูลดาวเทียม",
-    scoring: "สมการ",
-    glossary: "สัญลักษณ์",
-    example: "ตัวอย่าง",
-    models: "ขอบเขตวิธี",
-    references: "อ้างอิง",
-    rack: "คลังความรู้",
-    glossarySymbol: "สัญลักษณ์",
-    glossaryDefinition: "ความหมาย",
-    glossaryExplanation: "คำอธิบาย",
-    worksheetColumn: "คอลัมน์",
-    worksheetPurpose: "หน้าที่",
-    worksheetSource: "แหล่งข้อมูลหลัก",
-    sourceTierLabel: "ชั้นข้อมูล",
-    protocolLabel: "โปรโตคอล",
-    roleLabel: "บทบาท",
-    finalScore: "คะแนน SLIC สุดท้าย",
-    illustrative: "ตัวอย่างคำนวณเชิงอธิบาย",
-    citations: "อ้างอิง",
-    contextLabel: "ตัวแปรบริบท",
-    dataMixTitle: "สัดส่วนการพึ่งพาข้อมูล",
-    dataMixSummary:
-      "โมเดลสาธารณะพึ่งข้อมูลทางการระดับเมืองและมหภาคเป็นหลัก ส่วนข้อมูลดาวเทียมและ testimony ทำหน้าที่เป็น supporting evidence ที่ถูกควบคุม",
-  },
-  zh: {
-    openEquation: "查看评分公式",
-    openPdf: "阅读技术 PDF",
-    downloadPdf: "下载 PDF",
-    closePdf: "关闭文档",
-    pdfWindowTitle: "SLIC 技术方法论文",
-    pdfWindowNote: "内嵌阅读窗口，提供可下载的英文主版本 PDF。",
-    home: "首页",
-    guide: "指南",
-    critique: "批评",
-    remote: "卫星层",
-    scoring: "公式",
-    glossary: "符号",
-    example: "示例",
-    models: "方法边界",
-    references: "参考",
-    rack: "知识架",
-    glossarySymbol: "符号",
-    glossaryDefinition: "定义",
-    glossaryExplanation: "说明",
-    worksheetColumn: "列",
-    worksheetPurpose: "用途",
-    worksheetSource: "主要来源",
-    sourceTierLabel: "层级",
-    protocolLabel: "规则",
-    roleLabel: "角色",
-    finalScore: "最终 SLIC 分数",
-    illustrative: "说明性预览计算",
-    citations: "引用",
-    contextLabel: "背景项",
-    dataMixTitle: "数据依赖结构",
-    dataMixSummary:
-      "公开模型最依赖城市与宏观官方数据，卫星层与证词层则作为受控的辅助证据使用。",
-  },
-};
-
-const relianceMix: Record<
-  Locale,
-  Array<{
-    label: string;
-    value: number;
-  }>
-> = {
+/* ───── Reliance Mix ───── */
+const relianceMix: Record<Locale, Array<{ label: string; value: number }>> = {
   en: [
     { label: "City official", value: 94 },
     { label: "Macro official", value: 82 },
@@ -227,9 +81,9 @@ export default function MethodologyPage({
   locale: Locale;
 }) {
   const copy = getCopy(locale);
-  const ui = methodUiCopy[locale];
+  const ui = copy.methodology.ui;
   const methodology = getMethodologyData(locale);
-  const [pdfOpen, setPdfOpen] = useState(false);
+// Removed unused pdfOpen state
   const pdfPath = "/downloads/slic-methodology-technical-paper-en.pdf";
   const officialEquation = methodology.equationSection.groups[0]?.equations[0];
   const paperAnchors = [
@@ -278,7 +132,7 @@ export default function MethodologyPage({
                 href="/"
                 onClick={(event) => navigateLink(event, onNavigate, "/")}
               >
-                {ui.home || copy.nav.home}
+                {copy.nav.home}
               </a>
             </div>
 
@@ -671,7 +525,7 @@ function WorkedExample({
   ui,
 }: {
   example: MethodologyWorkedExample;
-  ui: (typeof methodUiCopy)[Locale];
+  ui: SiteCopy["methodology"]["ui"];
 }) {
   return (
     <div className="worked-example-grid">
@@ -715,7 +569,7 @@ function ReferenceCard({
   ui,
 }: {
   reference: MethodologyReference;
-  ui: (typeof methodUiCopy)[Locale];
+  ui: SiteCopy["methodology"]["ui"];
 }) {
   return (
     <article className="paper-card reference-card">

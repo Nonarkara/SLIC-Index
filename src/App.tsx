@@ -1,6 +1,6 @@
 import { Suspense, lazy, useEffect, useState } from "react";
 import SiteMasthead from "./SiteMasthead";
-import { localeLabels } from "./siteCopy";
+import { localeLabels, getCopy } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
 import { trackVisitor } from "./visitorTracking";
 
@@ -11,6 +11,7 @@ const RankingsPage = lazy(() => import("./RankingsPage"));
 const SlicProfilePage = lazy(() => import("./SlicProfilePage"));
 const ThailandPage = lazy(() => import("./ThailandPage"));
 const HistoryPage = lazy(() => import("./HistoryPage"));
+const CompareCitiesPage = lazy(() => import("./CompareCitiesPage"));
 const CityScorecardPage = lazy(() => import("./CityScorecardPage"));
 
 type DocumentWithViewTransition = Document & {
@@ -48,6 +49,10 @@ function resolvePath(pathname: string): SitePath {
     return "/city";
   }
 
+  if (pathname === "/compare") {
+    return "/compare";
+  }
+
   return "/";
 }
 
@@ -60,33 +65,8 @@ function commitRoute(path: SitePath | string): SitePath {
   return resolvePath(path);
 }
 
-const routeLoadingCopy: Record<
-  Locale,
-  {
-    eyebrow: string;
-    title: string;
-    body: string;
-  }
-> = {
-  en: {
-    eyebrow: "Loading view",
-    title: "Preparing the next section.",
-    body: "Pulling in the page module and interface assets.",
-  },
-  th: {
-    eyebrow: "กำลังโหลดหน้า",
-    title: "กำลังเตรียมส่วนถัดไป",
-    body: "กำลังดึงโมดูลของหน้าและองค์ประกอบของอินเทอร์เฟซ",
-  },
-  zh: {
-    eyebrow: "正在加载页面",
-    title: "正在准备下一个版块。",
-    body: "正在载入页面模块与界面资源。",
-  },
-};
-
 function RouteLoading({ locale }: { locale: Locale }) {
-  const copy = routeLoadingCopy[locale];
+  const copy = getCopy(locale).app.loading;
 
   return (
     <section className="route-loading section" aria-live="polite" aria-busy="true">
@@ -117,51 +97,18 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    const copy = getCopy(locale);
     const localeTitlePrefix = localeLabels[locale];
-    const routeTitle =
-      route === "/about-slic"
-        ? locale === "th"
-          ? "เกี่ยวกับ SLIC"
-          : locale === "zh"
-            ? "关于 SLIC"
-            : "About SLIC"
-        : route === "/methodology"
-          ? locale === "th"
-            ? "ระเบียบวิธี SLIC"
-            : locale === "zh"
-              ? "SLIC 方法论"
-              : "SLIC Methodology"
-          : route === "/rankings"
-            ? locale === "th"
-              ? "การจัดอันดับเมือง SLIC"
-              : locale === "zh"
-                ? "SLIC 城市排名"
-                : "SLIC Rankings"
-            : route === "/thailand"
-              ? locale === "th"
-                ? "SLIC ประเทศไทย"
-                : locale === "zh"
-                  ? "SLIC 泰国"
-                  : "SLIC Thailand"
-              : route === "/ideas"
-                ? locale === "th"
-                  ? "ขโมยไอเดียนี้"
-                  : locale === "zh"
-                    ? "偷师这个创意"
-                    : "Steal This Idea"
-              : route === "/history"
-                ? locale === "th"
-                  ? "เบื้องหลัง SLIC"
-                  : locale === "zh"
-                    ? "SLIC 发展历程"
-                    : "How SLIC Was Built"
-              : route === "/city"
-                ? "City Scorecard"
-                : locale === "th"
-                  ? "ดัชนีเมืองน่าอยู่"
-                  : locale === "zh"
-                    ? "宜居城市指数"
-                    : "Smart and Liveable Cities Index";
+    
+    let routeTitle = copy.app.titles.default;
+    
+    if (route === "/about-slic") routeTitle = copy.app.titles.about;
+    else if (route === "/methodology") routeTitle = copy.app.titles.methodology;
+    else if (route === "/rankings") routeTitle = copy.app.titles.rankings;
+    else if (route === "/thailand") routeTitle = copy.app.titles.thailand;
+    else if (route === "/ideas") routeTitle = copy.app.titles.ideas;
+    else if (route === "/history") routeTitle = copy.app.titles.history;
+    else if (route === "/city") routeTitle = copy.app.titles.city;
 
     document.title = `${routeTitle} · ${localeTitlePrefix}`;
   }, [locale, route]);
@@ -194,7 +141,9 @@ export default function App() {
       />
       <div className="page-frame" key={route}>
         <Suspense fallback={<RouteLoading locale={locale} />}>
-          {route === "/methodology" ? (
+          {route === "/compare" ? (
+            <CompareCitiesPage locale={locale} onNavigate={navigate} />
+          ) : route === "/methodology" ? (
             <MethodologyPage onNavigate={navigate} locale={locale} />
           ) : route === "/about-slic" ? (
             <SlicProfilePage onNavigate={navigate} locale={locale} />

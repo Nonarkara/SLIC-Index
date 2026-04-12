@@ -7,6 +7,7 @@ export type SitePath =
   | "/methodology"
   | "/rankings"
   | "/thailand"
+  | "/compare"
   | "/ideas"
   | "/history"
   | "/city";
