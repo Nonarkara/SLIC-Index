@@ -3,6 +3,10 @@ import type { Locale, SitePath } from "./types";
 
 const PHOTO_BASE = "/Photos history of development/";
 
+function resolvePhotoSrc(photo: string) {
+  return photo.startsWith("/") ? photo : `${PHOTO_BASE}${photo}`;
+}
+
 interface TimelineEntry {
   year: string;
   title: string;
@@ -40,7 +44,13 @@ const timeline: Record<Locale, TimelineEntry[]> = {
       year: "2026",
       title: "V2 — you build the ranking",
       body: "Version 2 changed the game. Instead of handing people a ranking and saying 'trust us,' V2 puts an interactive spider diagram in your hands. Drag the five vertices. Shift your priorities. Watch 103 cities re-rank in real time based on what matters to you. The scoring engine uses cosine similarity and Mazziotta-Pareto penalized means — the same math used in academic composite indices, but exposed to the user instead of hidden behind a PDF. In March 2026, Dr. Non launched V2 as a keynote at the Smart City Summit & Expo in Taipei — the largest smart city event in Asia. 174 cities, 53 countries, 3,000+ professionals. The room went quiet. Then the questions started.",
-      photos: [],
+      photos: [
+        "/launch-photos/20260317094731-_DON7077.jpg",
+        "/launch-photos/20260318145941_DSC09480.jpg",
+        "/launch-photos/20260318145249_ABC01948.jpg",
+        "/launch-photos/20260318145319_DSC09441.jpg",
+        "/launch-photos/20260318151147_DSC09510.jpg",
+      ],
     },
     {
       year: "What's next",
@@ -78,7 +88,13 @@ const timeline: Record<Locale, TimelineEntry[]> = {
       year: "2569",
       title: "V2 — คุณสร้างอันดับเอง",
       body: "เวอร์ชัน 2 เปลี่ยนเกม แทนที่จะให้อันดับแล้วบอกว่า 'เชื่อเรา' V2 วางแผนภาพแมงมุมแบบโต้ตอบไว้ในมือคุณ ลากจุดทั้ง 5 เปลี่ยนลำดับความสำคัญ ดู 103 เมืองจัดอันดับใหม่แบบเรียลไทม์ ในเดือนมีนาคม 2569 ดร.นนท์ เปิดตัว V2 บนเวทีหลัก Smart City Summit & Expo ไทเป — งานเมืองอัจฉริยะที่ใหญ่ที่สุดในเอเชีย",
-      photos: [],
+      photos: [
+        "/launch-photos/20260317094731-_DON7077.jpg",
+        "/launch-photos/20260318145941_DSC09480.jpg",
+        "/launch-photos/20260318145249_ABC01948.jpg",
+        "/launch-photos/20260318145319_DSC09441.jpg",
+        "/launch-photos/20260318151147_DSC09510.jpg",
+      ],
     },
     {
       year: "ก้าวต่อไป",
@@ -116,7 +132,13 @@ const timeline: Record<Locale, TimelineEntry[]> = {
       year: "2026",
       title: "V2——你来构建排名",
       body: "版本2改变了游戏规则。V2将交互式蛛网图放在你手中。拖动五个顶点，改变你的优先级，看103个城市根据对你重要的事实时重新排名。2026年3月，Non博士在台北智慧城市峰会上作为主题演讲发布了V2——亚洲最大的智慧城市活动。",
-      photos: [],
+      photos: [
+        "/launch-photos/20260317094731-_DON7077.jpg",
+        "/launch-photos/20260318145941_DSC09480.jpg",
+        "/launch-photos/20260318145249_ABC01948.jpg",
+        "/launch-photos/20260318145319_DSC09441.jpg",
+        "/launch-photos/20260318151147_DSC09510.jpg",
+      ],
     },
     {
       year: "下一步",
@@ -165,7 +187,7 @@ export default function HistoryPage({
                       {entry.photos.map((photo) => (
                         <img
                           key={photo}
-                          src={`${PHOTO_BASE}${photo}`}
+                          src={resolvePhotoSrc(photo)}
                           alt=""
                           loading="lazy"
                           className="history-photo"
