@@ -6410,6 +6410,7 @@ section[id] {
 .scorecard-grade--a { border-color: rgba(26, 122, 88, 0.3); color: var(--accent-green); }
 .scorecard-grade--b { border-color: rgba(197, 101, 26, 0.3); color: var(--accent-amber); }
 .scorecard-grade--c { border-color: rgba(184, 58, 40, 0.3); color: var(--accent-red); }
+.scorecard-grade--exercise { border-color: rgba(26, 58, 107, 0.22); color: var(--accent-blue, #1a3a6b); }
 
 /* ── Equation bar ── */
 .scorecard-equation {
@@ -6426,6 +6427,14 @@ section[id] {
   text-transform: uppercase;
   opacity: 0.55;
   margin: 0 0 8px;
+}
+
+.scorecard-equation-note {
+  max-width: 62ch;
+  margin: 0 0 12px;
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.72;
 }
 
 .scorecard-equation-bar {
@@ -7083,7 +7092,7 @@ section[id] {
 
 .v3-spider-layout {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: minmax(320px, 480px) 1fr;
   gap: 2rem;
   align-items: start;
   margin-top: 1.5rem;

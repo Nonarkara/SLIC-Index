@@ -32,10 +32,13 @@ function polarToCartesian(cx: number, cy: number, r: number, angleDeg: number) {
   return { x: cx + r * Math.cos(rad), y: cy + r * Math.sin(rad) };
 }
 
+const MIN_R_FRAC = 0.14;
+
 function radarPath(cx: number, cy: number, maxR: number, values: number[], total: number): string {
   const step = 360 / values.length;
+  const minR = maxR * MIN_R_FRAC;
   const points = values.map((value, index) => {
-    const r = (value / total) * maxR;
+    const r = minR + (value / total) * (maxR - minR);
     return polarToCartesian(cx, cy, r, index * step);
   });
 
@@ -134,12 +137,13 @@ const SpiderWebChart: FC<{
         strokeLinejoin="round"
         style={{
           pointerEvents: "none",
-          transition: draggingIndex === null ? "d 0.12s cubic-bezier(0.16, 1, 0.3, 1)" : "none",
+          transition: draggingIndex === null ? "d 80ms cubic-bezier(0.16, 1, 0.3, 1)" : "none",
         }}
       />
 
       {pillars.map((pillar, index) => {
-        const r = (pillar.value / total) * maxR;
+        const minR = maxR * MIN_R_FRAC;
+        const r = minR + (pillar.value / total) * (maxR - minR);
         const point = polarToCartesian(cx, cy, r, index * step);
         const labelPoint = polarToCartesian(cx, cy, labelR, index * step);
         const isDragging = draggingIndex === index;
@@ -164,7 +168,7 @@ const SpiderWebChart: FC<{
               <circle
                 cx={point.x}
                 cy={point.y}
-                r={17}
+                r={22}
                 fill={pillar.color}
                 fillOpacity={0.18}
                 filter="url(#allocatorGlow)"
@@ -185,7 +189,7 @@ const SpiderWebChart: FC<{
             <circle
               cx={point.x}
               cy={point.y}
-              r={36}
+              r={48}
               fill="transparent"
               style={{ cursor: "grab" }}
               data-index={index}
@@ -194,14 +198,14 @@ const SpiderWebChart: FC<{
             <circle
               cx={point.x}
               cy={point.y}
-              r={isDragging ? 12 : 9}
+              r={isDragging ? 14 : 11}
               fill={pillar.color}
               stroke="rgba(255,255,255,0.92)"
               strokeWidth={isDragging ? 3 : 2}
               filter={isDragging ? "url(#allocatorGlow)" : undefined}
               style={{
                 cursor: "grab",
-                transition: isDragging ? "none" : "r 160ms ease, stroke-width 160ms ease",
+                transition: isDragging ? "none" : "r 120ms ease, stroke-width 120ms ease",
               }}
               data-index={index}
             />
@@ -236,40 +240,6 @@ const SpiderWebChart: FC<{
         );
       })}
 
-      <circle
-        cx={cx}
-        cy={cy}
-        r={28}
-        fill="rgba(7, 12, 24, 0.94)"
-        stroke="rgba(140, 170, 220, 0.18)"
-        strokeWidth="1.2"
-      />
-      <text
-        x={cx}
-        y={cy - 4}
-        textAnchor="middle"
-        dominantBaseline="central"
-        fontSize={18}
-        fontWeight={800}
-        fontFamily="'JetBrains Mono', monospace"
-        fill="rgba(226, 232, 240, 0.88)"
-      >
-        {total}
-      </text>
-      <text
-        x={cx}
-        y={cy + 12}
-        textAnchor="middle"
-        dominantBaseline="central"
-        fontSize={8}
-        fontWeight={600}
-        fontFamily="'JetBrains Mono', monospace"
-        fill="rgba(226, 232, 240, 0.32)"
-        letterSpacing="0.16em"
-      >
-        LOCKED
-      </text>
-
       {!hasInteracted && (
         <text
           x={cx}
@@ -279,7 +249,7 @@ const SpiderWebChart: FC<{
           fontFamily="'JetBrains Mono', monospace"
           fill="rgba(226, 232, 240, 0.42)"
         >
-          drag a point or move a slider
+          drag a bar to weight what matters to you
         </text>
       )}
     </svg>
@@ -291,7 +261,7 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
   onChange,
   total = 100,
   min = 0,
-  max = 50,
+  max = 100,
   size = 440,
   descriptions = {},
 }) => {
@@ -386,7 +356,10 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
       const dy = event.clientY - rect.top - rect.height / 2;
       const distance = Math.sqrt(dx * dx + dy * dy);
       const layout = allocatorLayout(size);
-      const fraction = clamp(distance / (layout.maxR * (rect.width / layout.canvas)), 0, 1);
+      const scale = rect.width / layout.canvas;
+      const minR = layout.maxR * MIN_R_FRAC * scale;
+      const usableR = layout.maxR * scale - minR;
+      const fraction = clamp((distance - minR) / usableR, 0, 1);
 
       handleSliderChange(draggingIndex, Math.round(fraction * total));
     },
@@ -398,14 +371,14 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
   }, []);
 
   return (
-    <div className="allocator-shell">
+    <div className="allocator-shell" style={{ width: "100%", maxWidth: size + 208, display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
       <div
         ref={svgRef}
         className="allocator-chart-frame"
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
-        style={{ touchAction: "none", userSelect: "none" }}
+        style={{ touchAction: "none", userSelect: "none", width: "100%", maxWidth: size + 208 }}
       >
         <SpiderWebChart
           pillars={pillars}
