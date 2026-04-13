@@ -3,6 +3,8 @@ import { OFFICIAL_SLIC_URL, slicProfileData } from "./slicProfileData";
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 function navigateLink(
   event: React.MouseEvent<HTMLAnchorElement>,
   onNavigate: (path: SitePath) => void,
@@ -123,7 +125,7 @@ export default function SlicProfilePage({
                 key={photo.id}
               >
                 <img
-                  src={photo.src}
+                  src={`${BASE}${photo.src}`}
                   alt={photo.alt}
                   loading="lazy"
                   width={photo.width}

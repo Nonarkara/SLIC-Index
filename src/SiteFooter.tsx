@@ -3,6 +3,8 @@ import { collaborationLogos } from "./brandAssets";
 import { getCopy } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const footerEndnoteCopy: Record<
   Locale,
   {
@@ -139,7 +141,7 @@ export default function SiteFooter({
             {collaborationLogos.map((logo) => (
               <div className="partner-logo-card" key={logo.name}>
                 <img
-                  src={logo.src}
+                  src={`${BASE}${logo.src}`}
                   alt={logo.alt}
                   loading="lazy"
                   width={logo.width}

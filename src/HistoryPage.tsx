@@ -1,10 +1,11 @@
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
 
-const PHOTO_BASE = "/history-photos/";
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+const PHOTO_BASE = `${BASE}/history-photos/`;
 
 function resolvePhotoSrc(photo: string) {
-  return photo.startsWith("/") ? photo : `${PHOTO_BASE}${photo}`;
+  return photo.startsWith("/") ? `${BASE}${photo}` : `${PHOTO_BASE}${photo}`;
 }
 
 interface TimelineEntry {

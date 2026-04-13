@@ -14,6 +14,8 @@ import type {
   SitePath,
 } from "./types";
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const methodUiCopy: Record<
   Locale,
   {
@@ -373,7 +375,7 @@ export default function MethodologyPage({
             {methodology.processSection.figures.map((figure) => (
               <figure className="photo-frame methodology-figure" key={figure.id}>
                 <img
-                  src={figure.src}
+                  src={`${BASE}${figure.src}`}
                   alt={figure.alt}
                   loading="lazy"
                   width={figure.width}

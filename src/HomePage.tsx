@@ -59,8 +59,9 @@ const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
 
 const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
 const EQUAL_WEIGHT = 20;
-const HERO_PHOTO = "/launch-photos/20260318145941_DSC09480.jpg";
-const STAGE_PHOTO = "/launch-photos/20260318145249_ABC01948.jpg";
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+const HERO_PHOTO = `${BASE}/launch-photos/20260318145941_DSC09480.jpg`;
+const STAGE_PHOTO = `${BASE}/launch-photos/20260318145249_ABC01948.jpg`;
 
 const localeNumberFormat: Record<Locale, string> = {
   en: "en-US",
