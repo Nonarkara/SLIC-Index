@@ -1,7 +1,7 @@
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
 
-const PHOTO_BASE = "/Photos history of development/";
+const PHOTO_BASE = "/history-photos/";
 
 function resolvePhotoSrc(photo: string) {
   return photo.startsWith("/") ? photo : `${PHOTO_BASE}${photo}`;
@@ -191,6 +191,7 @@ export default function HistoryPage({
                           alt=""
                           loading="lazy"
                           className="history-photo"
+                          onError={(e) => { (e.target as HTMLElement).style.display = "none"; }}
                         />
                       ))}
                     </div>

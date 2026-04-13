@@ -420,14 +420,6 @@ function profileMatchScore(city: Pick<FullRankedCity, "scores">, weights: Record
   return { score, shapeFit: Math.round(shapeFit * 10) / 10 };
 }
 
-function scoreToBars(city: Pick<FullRankedCity, "scores">) {
-  return PILLAR_ORDER.map((pillar) => ({
-    id: pillar,
-    score: city.scores[pillar],
-    color: PILLAR_COLORS[pillar],
-  }));
-}
-
 function applyValuesToPillars(labels: Record<PillarId, string>, values: Record<PillarId, number>): PillarAllocation[] {
   return PILLAR_ORDER.map((id) => ({
     id,
@@ -435,14 +427,6 @@ function applyValuesToPillars(labels: Record<PillarId, string>, values: Record<P
     color: PILLAR_COLORS[id],
     value: values[id],
   }));
-}
-
-function describePriorityFit(city: FullRankedCity, weights: Record<PillarId, number>, labels: Record<PillarId, string>) {
-  return [...PILLAR_ORDER]
-    .sort((left, right) => weights[right] - weights[left])
-    .slice(0, 2)
-    .map((pillar) => `${labels[pillar]} ${city.scores[pillar]}`)
-    .join(" · ");
 }
 
 function profileReadout(
@@ -475,12 +459,6 @@ function profileReadout(
     title: `${labels[top[0]]} first · ${labels[top[1]]} second`,
     body: `This profile actively rewards ${labels[top[0]].toLowerCase()} and ${labels[top[1]].toLowerCase()}, while discounting ${labels[low[0]].toLowerCase()} and ${labels[low[1]].toLowerCase()} so the field shifts toward a more specific city type.`,
   };
-}
-
-function formatRankShift(rankShift: number) {
-  if (rankShift > 0) return `+${rankShift}`;
-  if (rankShift < 0) return `${rankShift}`;
-  return "0";
 }
 
 export default function RankingsPage({
@@ -565,7 +543,7 @@ export default function RankingsPage({
   const displayResults = showCountValue >= results.length ? results : results.slice(0, showCountValue);
   const featuredCity = displayResults[0] ?? null;
   const spotlightCities = displayResults.slice(1, Math.min(displayResults.length, 5));
-  const listCities = displayResults.slice(5);
+
 
   const handleReset = () => {
     setPillars(applyValuesToPillars(labels, CANONICAL));
@@ -701,7 +679,7 @@ export default function RankingsPage({
                   <span>{isCustom ? ui.customBadge : ui.canonicalBadge}</span>
                 </div>
 
-                {featuredCity ? (
+                {featuredCity && (
                   <section className="rankings-feature-card">
                     <div className="rankings-feature-topline">
                       <div>
@@ -719,95 +697,60 @@ export default function RankingsPage({
                         </small>
                       </div>
                     </div>
+                  </section>
+                )}
 
-              {/* Coverage legend */}
-              <div className="coverage-legend">
-                {locale === "en" ? "Data coverage: " : locale === "th" ? "ครอบคลุมข้อมูล: " : "数据覆盖: "}
-                <span style={{ color: GRADE_COLORS.A }}>A</span> 75%+
-                {" · "}
-                <span style={{ color: GRADE_COLORS.B }}>B</span> 50–74%
-                {" · "}
-                <span style={{ color: GRADE_COLORS.C }}>C</span> 35–49%
-              </div>
+                {/* Coverage legend */}
+                <div className="coverage-legend">
+                  {locale === "en" ? "Data coverage: " : locale === "th" ? "ครอบคลุมข้อมูล: " : "数据覆盖: "}
+                  <span style={{ color: GRADE_COLORS.A }}>A</span> 75%+
+                  {" · "}
+                  <span style={{ color: GRADE_COLORS.B }}>B</span> 50–74%
+                  {" · "}
+                  <span style={{ color: GRADE_COLORS.C }}>C</span> 35–49%
+                </div>
 
-              {/* City list */}
-              <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                {displayResults.map((city, index) => {
-                  const pillarScores = {
-                    pressure: city.pressureScore,
-                    viability: city.viabilityScore,
-                    capability: city.capabilityScore,
-                    community: city.communityScore,
-                    creative: city.creativeScore,
-                  };
-                  const isTop = index < 3;
-                  return (
-                    <a
-                      key={city.cityId}
-                      className={`rankings-city-row${isTop ? " is-top" : ""}`}
-                      href={`/city/${city.cityId}`}
-                      onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
-                      style={{ cursor: "pointer" }}
-                    >
-                      <div style={{ minWidth: 0 }}>
-                        <div className="city-name-row">
-                          <span className="city-display-name">{city.displayName}</span>
-                          <span className="city-country">{city.country}</span>
-                        </div>
-                        <div className="rankings-pillar-bars">
-                          {PILLAR_ORDER.map((pid) => {
-                            const covKey = `${pid}Coverage` as keyof PublishedCity;
-                            const cov = city[covKey] as number | undefined;
-                            return (
-                              <div key={pid}>
-                                <div style={{ width: `${pillarScores[pid]}%`, background: PILLAR_COLORS[pid], opacity: coverageOpacity(cov) }} />
-                              </div>
-                            );
-                          })}
-                        </div>
-                      </div>
-                      <span className="city-tier-arrow">&#8250;</span>
-                    </a>
-                  );
-                })}
-              </div>
-
-                  <div className="rankings-row-list">
-                    {listCities.map((city) => (
-                      <article key={city.id} className="rankings-city-row">
-                        <div className="rankings-row-rank">
-                          <strong>{String(city.customRank).padStart(2, "0")}</strong>
-                          <span>{formatRankShift(city.rankShift)}</span>
-                        </div>
-
-                        <div className="rankings-row-main">
-                          <div className="rankings-row-title">
-                            <h4>{city.name}</h4>
-                            <p>
-                              {city.country} · {city.region}
-                            </p>
+                {/* City list */}
+                <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
+                  {displayResults.map((city, index) => {
+                    const pillarScores = {
+                      pressure: city.pressureScore,
+                      viability: city.viabilityScore,
+                      capability: city.capabilityScore,
+                      community: city.communityScore,
+                      creative: city.creativeScore,
+                    };
+                    const isTop = index < 3;
+                    return (
+                      <a
+                        key={city.cityId}
+                        className={`rankings-city-row${isTop ? " is-top" : ""}`}
+                        href={`/city/${city.cityId}`}
+                        onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <div style={{ minWidth: 0 }}>
+                          <div className="city-name-row">
+                            <span className="city-display-name">{city.displayName}</span>
+                            <span className="city-country">{city.country}</span>
                           </div>
-                          <p className="rankings-row-priority">{describePriorityFit(city, weights, labels)}</p>
                           <div className="rankings-pillar-bars">
-                            {scoreToBars(city).map((bar) => (
-                              <div key={bar.id}>
-                                <div style={{ width: `${bar.score}%`, background: bar.color }} />
-                              </div>
-                            ))}
+                            {PILLAR_ORDER.map((pid) => {
+                              const covKey = `${pid}Coverage` as keyof PublishedCity;
+                              const cov = city[covKey] as number | undefined;
+                              return (
+                                <div key={pid}>
+                                  <div style={{ width: `${pillarScores[pid]}%`, background: PILLAR_COLORS[pid], opacity: coverageOpacity(cov) }} />
+                                </div>
+                              );
+                            })}
                           </div>
                         </div>
-
-                        <div className="rankings-dual-score">
-                          <span>{ui.scoreNow}</span>
-                          <strong>{city.customScore.toFixed(1)}</strong>
-                          <small>
-                            {ui.baseRank} #{city.globalRank}
-                          </small>
-                        </div>
-                      </article>
-                    ))}
-                  </div>
-                </section>
+                        <span className="city-tier-arrow">&#8250;</span>
+                      </a>
+                    );
+                  })}
+                </div>
 
                 <div className="rankings-actions">
                   <a

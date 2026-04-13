@@ -6074,6 +6074,7 @@ section[id] {
 
 .history-photo {
   height: 160px;
+  min-width: 200px;
   width: auto;
   border-radius: 4px;
   object-fit: cover;
@@ -6106,6 +6107,7 @@ section[id] {
 
   .history-photo {
     height: 120px;
+    min-width: 160px;
   }
 }
 
