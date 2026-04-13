@@ -137,7 +137,7 @@ nl-eindhoven,"Western, Northern, and Southern Europe",provisional,secondary,Neth
 ca-vancouver,North America,provisional,primary,Canada,Reserve Canadian Pacific comparator added for high-amenity urban life tested against acute housing pressure.
 ca-ottawa,North America,provisional,primary,Canada,Reserve Canadian capital comparator added for public-sector stability and bilingual institutional depth.
 us-minneapolis,North America,provisional,primary,United States,"Reserve U.S. upper-midwest comparator added for strong services, education, and moderate-scale urban benchmarking."
-us-raleigh,North America,provisional,secondary,United States,"Reserve U.S. research-region comparator added for innovation, education, and fast-growth governance testing."
+us-raleigh,North America,locked,primary,United States,"Research Triangle knowledge economy with affordable housing, strong universities, and high growth momentum."
 do-santo-domingo,North America,provisional,primary,Dominican Republic,"Reserve Caribbean capital comparator added for climate, tourism, and metropolitan services benchmarking."
 br-florianopolis,Latin America,provisional,secondary,Brazil,"Reserve Brazilian coastal challenger added for innovation, safety tradeoffs, and quality-of-life comparison."
 pe-arequipa,Latin America,provisional,secondary,Peru,"Reserve Peruvian second-city comparator added for altitude, affordability, and regional depth outside Lima."
