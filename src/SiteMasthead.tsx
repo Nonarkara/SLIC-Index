@@ -1,6 +1,7 @@
 import { type MouseEvent, useCallback, useEffect, useId, useRef, useState } from "react";
 import LocaleSwitch from "./LocaleSwitch";
 import { getCopy } from "./siteCopy";
+import { slicLogo } from "./brandAssets";
 import type { Locale, SitePath } from "./types";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -135,9 +136,13 @@ export default function SiteMasthead({
           onClick={(event) => navigateLink(event, onNavigate, "/")}
           aria-label="SLIC home"
         >
-          <img src={`${BASE}/Logos/slic-index-120.png`} alt="SLIC Index" className="mh-logo-img" width={36} height={36} />
-          <span className="mh-wordmark-main">SLIC</span>
-          <span className="mh-wordmark-sub">INDEX</span>
+          <img 
+            src={`${BASE}${slicLogo.src}`} 
+            alt={slicLogo.alt} 
+            className="mh-logo-img" 
+            height={32}
+            style={{ width: "auto" }} 
+          />
         </a>
 
         <span className="mh-edition">V3 &middot; 2026</span>

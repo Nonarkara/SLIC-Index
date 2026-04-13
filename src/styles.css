@@ -1695,7 +1695,7 @@ section[id] {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 50;
+  z-index: 1000;
   width: 100%;
   pointer-events: none;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -1736,10 +1736,9 @@ section[id] {
 }
 
 .mh-logo-img {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
-  object-fit: cover;
+  height: 28px;
+  width: auto;
+  object-fit: contain;
 }
 
 .mh-wordmark-main {
@@ -2188,7 +2187,7 @@ section[id] {
 .hero,
 .methodology-hero,
 .rankings-hero {
-  padding-top: 6rem;
+  padding-top: 8rem;
 }
 
 /* Masthead responsive */
@@ -8792,7 +8791,7 @@ section[id] {
 
 /* ═══════ Side-by-Side Comparison Page ═══════ */
 
-.sbs-page { padding-top: 6rem; }
+.sbs-page { padding-top: 8rem; }
 .sbs-title { font-family: var(--font-heading); font-size: clamp(28px, 4vw, 48px); font-weight: 700; margin: 0 0 0.5rem; }
 .sbs-subtitle { color: var(--text-soft); font-size: 1rem; margin: 0 0 2.5rem; max-width: 36em; }
 

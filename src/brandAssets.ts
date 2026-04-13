@@ -8,10 +8,10 @@ export interface BrandAsset {
 
 export const slicLogo: BrandAsset = {
   name: "SLIC Index",
-  src: "/Logos/slic-index-120.png",
+  src: "/Logos/slic-index-full.png",
   alt: "SLIC Index logo",
-  width: 120,
-  height: 120,
+  width: 140, // Approximate horizontal ratio
+  height: 36,
 };
 
 export const collaborationLogos: BrandAsset[] = [
