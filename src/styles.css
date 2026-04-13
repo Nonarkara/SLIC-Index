@@ -1727,12 +1727,19 @@ section[id] {
 /* Wordmark */
 .mh-wordmark {
   display: flex;
-  align-items: baseline;
+  align-items: center;
   gap: 0.35rem;
   border: 0;
   background: 0;
   cursor: pointer;
   padding: 0;
+}
+
+.mh-logo-img {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: cover;
 }
 
 .mh-wordmark-main {
@@ -8309,7 +8316,8 @@ section[id] {
 }
 
 .hp-photo-break--narrow .hp-photo-break-img {
-  height: clamp(18rem, 34vh, 26rem);
+  height: clamp(20rem, 38vh, 30rem);
+  object-position: center 25%;
 }
 
 .hp-photo-caption {
@@ -8687,4 +8695,166 @@ section[id] {
   .v3-spider-row:hover {
     transform: none !important;
   }
+}
+
+/* ═══════ Side-by-Side Comparison Page ═══════ */
+
+.sbs-page { padding-top: 6rem; }
+.sbs-title { font-family: var(--font-heading); font-size: clamp(28px, 4vw, 48px); font-weight: 700; margin: 0 0 0.5rem; }
+.sbs-subtitle { color: var(--text-soft); font-size: 1rem; margin: 0 0 2.5rem; max-width: 36em; }
+
+.sbs-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.sbs-column {
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 8px;
+  padding: 1.25rem 1rem;
+  background: var(--bg);
+  position: relative;
+}
+
+.sbs-city-header { margin-bottom: 1rem; }
+
+.sbs-city-name-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 700;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  color: var(--text);
+}
+
+.sbs-city-name-btn:hover { opacity: 0.7; }
+
+.sbs-swap-icon { font-size: 0.85rem; opacity: 0.4; }
+
+.sbs-city-country {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sbs-picker {
+  position: absolute;
+  top: 3.5rem;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: var(--bg);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  padding: 0.75rem;
+}
+
+.sbs-search {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.sbs-picker-list { max-height: 200px; overflow-y: auto; }
+
+.sbs-picker-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0.4rem 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  color: var(--text);
+}
+
+.sbs-picker-item:hover { background: rgba(0,0,0,0.04); }
+.sbs-picker-item strong { font-weight: 600; }
+.sbs-picker-item span { color: var(--text-soft); font-size: 0.75rem; }
+
+.sbs-slic-score { margin-bottom: 1.25rem; }
+
+.sbs-slic-number {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent, var(--text));
+}
+
+.sbs-slic-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  margin-left: 0.35rem;
+}
+
+.sbs-slic-bar {
+  height: 4px;
+  background: rgba(0,0,0,0.06);
+  border-radius: 2px;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.sbs-slic-bar > div {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.3s;
+}
+
+.sbs-pillars { display: flex; flex-direction: column; gap: 0.6rem; }
+
+.sbs-pillar-row { display: grid; grid-template-columns: 5.5rem 2rem 1fr; align-items: center; gap: 0.35rem; }
+
+.sbs-pillar-label { font-size: 0.72rem; color: var(--text-soft); }
+.sbs-pillar-score { font-size: 0.8rem; font-weight: 600; text-align: right; font-variant-numeric: tabular-nums; }
+
+.sbs-pillar-bar {
+  height: 6px;
+  background: rgba(0,0,0,0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.sbs-pillar-bar > div {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+.sbs-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-size: 0.72rem;
+  color: var(--text-soft);
+}
+
+@media (max-width: 900px) {
+  .sbs-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 600px) {
+  .sbs-grid { grid-template-columns: 1fr 1fr; }
+  .sbs-pillar-row { grid-template-columns: 3.5rem 2rem 1fr; }
+  .sbs-pillar-label { font-size: 0.65rem; }
 }

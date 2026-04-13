@@ -1,4 +1,5 @@
 import publishedData from "./data/publishedRankingData.json";
+import { getExerciseCities } from "./rankingsData";
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
 
@@ -131,7 +132,34 @@ const pillarMetrics = (publishedData as any).pillarMetrics as Record<string, Pil
 const allCities = (publishedData.cities ?? []) as PublishedCity[];
 
 function findCity(cityId: string): PublishedCity | undefined {
-  return allCities.find((c) => c.cityId === cityId);
+  const published = allCities.find((c) => c.cityId === cityId);
+  if (published) return published;
+
+  // Fallback: synthesize from exercise data
+  const exercise = getExerciseCities().find((c) => c.id === cityId.replace(/^[a-z]{2}-/, ""));
+  if (!exercise) return undefined;
+
+  return {
+    cityId,
+    displayName: exercise.name,
+    country: exercise.country,
+    region: exercise.region,
+    coverageGrade: "B",
+    overallWeightedCoverage: 0.5,
+    slicScore: exercise.scores.slic,
+    pressureScore: exercise.scores.pressure,
+    viabilityScore: exercise.scores.viability,
+    capabilityScore: exercise.scores.capability,
+    communityScore: exercise.scores.community,
+    creativeScore: exercise.scores.creative,
+    pressureCoverage: 0.5,
+    viabilityCoverage: 0.5,
+    capabilityCoverage: 0.5,
+    communityCoverage: 0.5,
+    creativeCoverage: 0.5,
+    rank: exercise.globalRank,
+    metrics: {},
+  } as PublishedCity;
 }
 
 function pillarScoreKey(pillar: PillarId): keyof PublishedCity {

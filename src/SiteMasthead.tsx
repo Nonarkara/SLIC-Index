@@ -3,9 +3,12 @@ import LocaleSwitch from "./LocaleSwitch";
 import { getCopy } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const navPaths: SitePath[] = [
   "/rankings",
   "/compare",
+  "/side-by-side",
   "/methodology",
   "/thailand",
   "/ideas",
@@ -42,6 +45,7 @@ function navLabel(path: SitePath, locale: Locale): string {
   if (path === "/methodology") return copy.nav.methodology;
   if (path === "/ideas") return copy.nav.ideas;
   if (path === "/compare") return copy.nav.compare;
+  if (path === "/side-by-side") return locale === "en" ? "Side by Side" : locale === "th" ? "เทียบเมือง" : "城市对比";
   if (path === "/history") return copy.nav.history;
   return copy.nav.thailand;
 }
@@ -131,8 +135,9 @@ export default function SiteMasthead({
           onClick={(event) => navigateLink(event, onNavigate, "/")}
           aria-label="SLIC home"
         >
+          <img src={`${BASE}/Logos/SLIC logo.jpg`} alt="SLIC Index" className="mh-logo-img" width={36} height={36} />
           <span className="mh-wordmark-main">SLIC</span>
-          <span className="mh-wordmark-sub">Index</span>
+          <span className="mh-wordmark-sub">INDEX</span>
         </a>
 
         <span className="mh-edition">V3 &middot; 2026</span>

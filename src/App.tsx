@@ -13,6 +13,7 @@ const SlicProfilePage = lazy(() => import("./SlicProfilePage"));
 const ThailandPage = lazy(() => import("./ThailandPage"));
 const HistoryPage = lazy(() => import("./HistoryPage"));
 const CompareRankingsPage = lazy(() => import("./CompareRankingsPage"));
+const SideBySidePage = lazy(() => import("./SideBySidePage"));
 const CityScorecardPage = lazy(() => import("./CityScorecardPage"));
 
 type DocumentWithViewTransition = Document & {
@@ -76,6 +77,10 @@ function resolvePath(pathname: string): SitePath {
 
   if (pathname === "/compare") {
     return "/compare";
+  }
+
+  if (pathname === "/side-by-side") {
+    return "/side-by-side";
   }
 
   if (pathname === "/history") {
@@ -263,6 +268,8 @@ export default function App() {
             <IdeasPage onNavigate={navigate} locale={locale} onLocaleChange={setLocale} />
           ) : route === "/compare" ? (
             <CompareRankingsPage onNavigate={navigate} locale={locale} />
+          ) : route === "/side-by-side" ? (
+            <SideBySidePage onNavigate={navigate} locale={locale} />
           ) : route === "/history" ? (
             <HistoryPage onNavigate={navigate} locale={locale} />
           ) : route === "/city" ? (
