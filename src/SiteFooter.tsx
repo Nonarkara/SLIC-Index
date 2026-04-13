@@ -29,10 +29,10 @@ const footerEndnoteCopy: Record<
       "Non Arkara and Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [date], plus the deployment URL used.",
     aiLabel: "Algorithmic and AI disclosure",
     aiBody:
-      "This ranking is produced from the verified SLIC workbook with 103 cities scored across 92 signals and 35 connected sources. Source URLs and source tiers are attached to every data point. The ranking uses one declared public formula with five explicit pillars.",
+      "The published board is issued from the verified SLIC workbook export. Each city is shown with one public score, five pillar values, and metric-level provenance where available.",
     liveLabel: "Continuous model",
     liveBody:
-      "Rankings are published from the verified workbook export. Country_Context and City_Inputs have been populated from trusted sources with full provenance. The model is designed for continuous updates as new verified data becomes available.",
+      "Published pages reflect the current verified workbook export. When new verified data is adopted, the workbook export and the public board are updated together.",
   },
   th: {
     eyebrow: "ข้อกำหนดการเผยแพร่",
@@ -44,10 +44,10 @@ const footerEndnoteCopy: Record<
       "Non Arkara และ Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [วันที่], พร้อม URL ของหน้าที่ใช้งานจริง",
     aiLabel: "คำชี้แจงเรื่องอัลกอริทึมและ AI",
     aiBody:
-      "การจัดอันดับนี้ผลิตจากเวิร์กบุ๊ก SLIC ที่ผ่านการตรวจสอบแล้ว ครอบคลุม 103 เมือง 92 สัญญาณ และ 35 แหล่งข้อมูลที่เชื่อมต่อ URL แหล่งข้อมูลและระดับแหล่งข้อมูลแนบอยู่กับทุกจุดข้อมูล",
+      "บอร์ดที่เผยแพร่ถูกออกจากเวิร์กบุ๊ก SLIC ที่ผ่านการตรวจสอบแล้ว แต่ละเมืองจะแสดงด้วยคะแนนสาธารณะหนึ่งค่า ค่าเสาหลักทั้งห้า และข้อมูลแหล่งที่มาระดับเมตริกเมื่อมีพร้อม",
     liveLabel: "โมเดลต่อเนื่อง",
     liveBody:
-      "อันดับเผยแพร่จากเวิร์กบุ๊กที่ผ่านการตรวจสอบแล้ว Country_Context และ City_Inputs ถูกกรอกจากแหล่งที่เชื่อถือได้พร้อมแหล่งที่มาครบถ้วน โมเดลออกแบบมาเพื่อการอัปเดตอย่างต่อเนื่อง",
+      "หน้าที่เผยแพร่สะท้อนเวิร์กบุ๊กที่ผ่านการตรวจสอบล่าสุด เมื่อมีการรับข้อมูลใหม่ที่ผ่านการตรวจสอบ เวิร์กบุ๊กและบอร์ดสาธารณะจะอัปเดตร่วมกัน",
   },
   zh: {
     eyebrow: "发布协议",
@@ -59,10 +59,10 @@ const footerEndnoteCopy: Record<
       "Non Arkara 与 Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [访问日期]，并附上所使用页面的部署 URL。",
     aiLabel: "算法与 AI 披露",
     aiBody:
-      "本排名由经过验证的 SLIC 工作簿生成，涵盖 103 个城市、92 个信号和 35 个连接数据源。每个数据点均附有来源 URL 和来源层级。",
+      "已发布榜单来自经过核验的 SLIC 工作簿导出。每座城市都显示一个公开分数、五个支柱数值，以及可用时的指标级来源信息。",
     liveLabel: "持续模型",
     liveBody:
-      "排名由经过验证的工作簿导出发布。Country_Context 和 City_Inputs 已由可信来源填充，具有完整的数据溯源。模型设计支持持续更新。",
+      "已发布页面反映当前经过核验的工作簿导出。一旦采用新的已核验数据，工作簿导出与公开榜单会同步更新。",
   },
 };
 

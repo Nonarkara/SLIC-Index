@@ -302,7 +302,7 @@ const regionScreenProfiles: Record<string, CityScreenProfile> = {
   Oceania: { safety: 82, affordability: 48, equality: 70, civicFreedom: 84, ecology: 83, crowding: 49 },
 };
 
-const cityScreenOverrides: Record<string, Partial<CityScreenProfile>> = {
+const baseCityScreenOverrides: Record<string, Partial<CityScreenProfile>> = {
 
   pyongyang: { safety: 50, affordability: 30, equality: 20, civicFreedom: 5, ecology: 30, crowding: 50, boringIndex: 90, religiousViolence: 5, taxReturn: 30, flatExperience: 90 },
   kabul: { safety: 10, affordability: 50, equality: 10, civicFreedom: 10, ecology: 30, crowding: 80, religiousViolence: 95, hygiene: 30 },
@@ -492,7 +492,9 @@ const cityScreenOverrides: Record<string, Partial<CityScreenProfile>> = {
   lausanne: { safety: 94, affordability: 12, equality: 76, civicFreedom: 88, ecology: 86, crowding: 28, boringIndex: 85, flatExperience: 82, housingPriceIndex: 94, growthMomentum: 22 },
   roskilde: { safety: 90, affordability: 32, equality: 80, civicFreedom: 88, ecology: 82, crowding: 28, boringIndex: 86, flatExperience: 80, taxReturn: 18 },
 
-  // ── Additional cities needing overrides ──
+};
+
+const additionalCityScreenOverrides: Record<string, Partial<CityScreenProfile>> = {
   singapore: { safety: 95, affordability: 42, equality: 71, civicFreedom: 60, ecology: 74, crowding: 67, growthMomentum: 68, toleranceOpenness: 32 },
   vienna: { safety: 92, affordability: 46, equality: 82, civicFreedom: 86, ecology: 84, crowding: 49, boringIndex: 65, growthMomentum: 30 },
   paris: { safety: 80, affordability: 27, equality: 70, civicFreedom: 82, ecology: 63, crowding: 78, housingPriceIndex: 92, toleranceOpenness: 85 },
@@ -526,6 +528,10 @@ const cityScreenOverrides: Record<string, Partial<CityScreenProfile>> = {
   raleigh: { safety: 80, affordability: 72, equality: 62, civicFreedom: 84, ecology: 72, crowding: 34, growthMomentum: 88, toleranceOpenness: 74 },
 };
 
+const cityScreenOverrides: Record<string, Partial<CityScreenProfile>> = {
+  ...baseCityScreenOverrides,
+  ...additionalCityScreenOverrides,
+};
 const defaultAccentByRegion: Record<string, CityAccent> = {
   "Southeast Asia": {
     accentHex: "#0f3f99",

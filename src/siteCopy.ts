@@ -30,7 +30,7 @@ export const siteCopy = {
       coreBoard: "Screened board",
       extendedField: "candidate field",
       liveStatus: "Published ranking live",
-      liveScope: "157 cities / 35 signals / 35 sources / verified workbook export",
+      liveScope: "157 published cities / five public pillars / verified workbook export",
       localTime: "Local time",
     },
     rankings: {
@@ -62,13 +62,13 @@ export const siteCopy = {
         "Suggested credit: Non Arkara and Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [date of access]. Include the deployment URL of the public page when republishing.",
       aiLabel: "Algorithmic and AI disclosure",
       aiBody:
-        "This ranking is produced from the verified SLIC workbook export with 157 cities scored across 35 signals, 35 connected sources, and five declared public pillars. Source URLs and source tiers are attached to every data point in the workbook.",
+        "This ranking is published from the verified SLIC workbook export. Each city carries one public score, five public pillars, and workbook-level provenance.",
       liveLabel: "Live-system note",
       liveBody:
-        "Rankings are published from the verified workbook export. Country_Context and City_Inputs have been populated from trusted sources with full provenance. City positions reflect audited data and declared mathematics.",
+        "Rankings are published from the verified workbook export. Each city number is traceable through declared pillar weights, coverage grades, and workbook-backed sources.",
       cautionLabel: "Reading note",
       cautionBody:
-        "The ranking should be read as a declared algorithmic judgement about city life, not as investment advice, legal advice, or a claim that any single metric can settle what makes a city worth living in.",
+        "Read the ranking as a declared measurement frame with known limits. It is not investment advice, legal advice, or a claim that one metric can settle what every city means to every person.",
       income: "PPP income / head",
       disposable: "Post-tax PPP room",
       housing: "Graduate housing load",
@@ -145,7 +145,7 @@ export const siteCopy = {
       coreBoard: "บอร์ดที่ผ่านเกณฑ์",
       extendedField: "ชุดเมืองทั้งหมด",
       liveStatus: "กำลังจัดอันดับใหม่ด้วยข้อมูลที่ตรวจสอบได้",
-      liveScope: "157 เมือง / 35 สัญญาณ / 35 แหล่งข้อมูล / การส่งออกเวิร์กบุ๊กที่ได้รับการยืนยัน",
+      liveScope: "157 เมืองที่เผยแพร่แล้ว / 5 เสาหลักสาธารณะ / การส่งออกเวิร์กบุ๊กที่ได้รับการยืนยัน",
       localTime: "เวลาท้องถิ่น",
     },
     rankings: {
@@ -177,13 +177,13 @@ export const siteCopy = {
         "ตัวอย่างการให้เครดิต: Non Arkara และ Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [วันที่เข้าถึง]. เมื่อนำไปเผยแพร่ต่อควรแนบ URL ของหน้าสาธารณะที่ใช้ด้วย",
       aiLabel: "คำชี้แจงเรื่องอัลกอริทึมและ AI",
       aiBody:
-        "หน้าสาธารณะปัจจุบันยังเป็นเพียงรอบ preview ระหว่างการจัดอันดับใหม่ ขณะที่เวิร์กบุ๊ก SLIC กำลังถูกเติมด้วยข้อมูลจากแหล่งที่เชื่อถือได้ อันดับสุดท้ายต้องมาจากเวิร์กบุ๊กที่ผ่านการยืนยันแล้วและแนบ URL แหล่งข้อมูลพร้อมระดับแหล่งข้อมูลอย่างชัดเจน ไม่ใช่ตรรกะชั่วคราวของรอบ preview",
+        "การจัดอันดับนี้เผยแพร่จากการส่งออกเวิร์กบุ๊ก SLIC ที่ผ่านการตรวจสอบแล้ว แต่ละเมืองมีคะแนนสาธารณะหนึ่งค่า 5 เสาหลักสาธารณะ และเส้นทางแหล่งที่มาระดับเวิร์กบุ๊ก",
       liveLabel: "หมายเหตุเรื่องระบบสด",
       liveBody:
-        "ขณะนี้กำลังอยู่ระหว่างการจัดอันดับใหม่ จนกว่า Country_Context และ City_Inputs จะถูกกรอกด้วยข้อมูลจากแหล่งที่เชื่อถือได้และถูกนำขึ้นผ่านเวิร์กบุ๊กสู่หน้าสาธารณะ ลำดับเมืองไม่ควรถูกอ้างว่าเป็นอันดับสุดท้าย",
+        "อันดับถูกเผยแพร่จากการส่งออกเวิร์กบุ๊กที่ผ่านการตรวจสอบแล้ว ตัวเลขของแต่ละเมืองสามารถไล่ย้อนกลับได้ผ่านน้ำหนักเสาหลักที่ประกาศ เกรดความครอบคลุม และแหล่งข้อมูลที่รองรับในเวิร์กบุ๊ก",
       cautionLabel: "ข้อควรอ่าน",
       cautionBody:
-        "อันดับนี้ควรถูกอ่านในฐานะ algorithmic judgement ที่ประกาศสูตรอย่างชัดเจน ไม่ใช่คำแนะนำด้านการลงทุน กฎหมาย หรือคำอ้างว่าตัวชี้วัดใดตัวเดียวสามารถตัดสินคุณค่าของเมืองได้ทั้งหมด",
+        "โปรดอ่านอันดับนี้ในฐานะกรอบการวัดที่ประกาศชัดเจนและมีข้อจำกัด ไม่ใช่คำแนะนำด้านการลงทุน กฎหมาย หรือคำอ้างว่าตัวชี้วัดเดียวสามารถตัดสินความหมายของเมืองสำหรับทุกคนได้",
       income: "รายได้ต่อหัวแบบ PPP",
       disposable: "พื้นที่รายได้หลังภาษี",
       housing: "ภาระที่อยู่อาศัยของคนเริ่มทำงาน",
@@ -260,7 +260,7 @@ export const siteCopy = {
       coreBoard: "筛选榜单",
       extendedField: "候选城市池",
       liveStatus: "已验证数据重排进行中",
-      liveScope: "157 座城市 / 35 个信号 / 35 个数据源 / 已验证的工作簿导出",
+      liveScope: "157 座已发布城市 / 五个公开支柱 / 已验证的工作簿导出",
       localTime: "当地时间",
     },
     rankings: {
@@ -292,13 +292,13 @@ export const siteCopy = {
         "建议署名：Non Arkara 与 Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [访问日期]。转载时建议同时附上公开页面的部署 URL。",
       aiLabel: "算法与 AI 披露",
       aiBody:
-        "这份排名由经过验证的 SLIC 工作簿导出生成，包含 157 座城市的 35 个信号、35 个连接的数据源以及五个公开支柱。工作簿中的每个数据点都附带了来源 URL 和来源层级。",
+        "本排名从经过核验的 SLIC 工作簿导出发布。每座城市都带有一个公开分数、五个公开支柱，以及工作簿层级的来源追溯。",
       liveLabel: "实时系统说明",
       liveBody:
-        "重排仍在进行中。在 Country_Context 与 City_Inputs 由可信来源填充并通过工作簿进入公开页面之前，当前城市位置不应被视为最终排序，也不应作为定稿引用。",
+        "排名从经过核验的工作簿导出发布。每座城市的数字都可以通过已声明的支柱权重、覆盖等级与工作簿来源回溯。",
       cautionLabel: "阅读提醒",
       cautionBody:
-        "这份榜单应被理解为一个公开声明过公式的算法性城市判断，而不是投资建议、法律建议，或某个单一指标能够裁定城市价值的宣称。",
+        "请将本排名理解为一套已声明且有边界的测量框架，而不是投资建议、法律建议，或声称单一指标就能定义一座城市对所有人的意义。",
       income: "PPP 调整后人均收入",
       disposable: "税后生活空间",
       housing: "初入职场住房负担",

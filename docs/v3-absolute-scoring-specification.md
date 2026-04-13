@@ -27,7 +27,7 @@ If raw is between anchor_i (raw_i, score_i) and anchor_{i+1} (raw_{i+1}, score_{
 
 ## Pillar 1: GROWTH (Economic Dynamism)
 
-Rewards cities with expanding economies, entrepreneurial ecosystems, innovation output, and civic freedom. Cheap but stagnant cities score low.
+Captures expansion, entrepreneurial ecosystems, innovation output, and civic freedom through fixed public thresholds.
 
 ### Indicators
 
@@ -103,7 +103,7 @@ Composite: 0.6 * Freedom House score (rescaled 0-100) + 0.4 * V-Dem liberal demo
 
 ## Pillar 2: VIABILITY (Lived Sustainability)
 
-Can you actually build a life here? Measures safety, environmental quality, healthcare access, and real disposable income after all essential costs.
+Measures safety, environmental quality, healthcare access, and real disposable income after all essential costs.
 
 ### Indicators
 

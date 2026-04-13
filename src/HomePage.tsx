@@ -1,6 +1,7 @@
 import { type CSSProperties, type MouseEvent, useEffect, useMemo, useState } from "react";
 import { evaluateConsequences } from "./consequenceRules";
 import type { FiredConsequence } from "./consequenceRules";
+import { rankingPublication } from "./rankingPublication";
 import { getExerciseCities } from "./rankingsData";
 import SiteFooter from "./SiteFooter";
 import type { PillarAllocation } from "./ZeroSumAllocator";
@@ -75,7 +76,24 @@ const severityClass: Record<string, string> = {
   mild: "tradeoff-card tradeoff-card--mild",
 };
 
-const rankedCities: HomeCity[] = getExerciseCities().map((city) => ({
+const publishedBoard: HomeCity[] = rankingPublication.cities
+  .map((city) => ({
+    cityId: city.cityId,
+    displayName: city.displayName,
+    country: city.country,
+    region: city.region,
+    rankingStatus: city.manifestStatus,
+    pressureScore: city.pressureScore ?? 0,
+    viabilityScore: city.viabilityScore ?? 0,
+    capabilityScore: city.capabilityScore ?? 0,
+    communityScore: city.communityScore ?? 0,
+    creativeScore: city.creativeScore ?? 0,
+    slicScore: city.slicScore,
+    rank: city.rank,
+  }))
+  .sort((left, right) => left.rank - right.rank);
+
+const exerciseCities: HomeCity[] = getExerciseCities().map((city) => ({
   cityId: city.id,
   displayName: city.name,
   country: city.country,
@@ -183,7 +201,7 @@ export default function HomePage({
 
   const results = useMemo(
     () =>
-      rankedCities
+      exerciseCities
         .map((city) => ({
           ...city,
           customScore: Math.round(scoreCityWithWeights(city, weights) * 10) / 10,
@@ -214,22 +232,22 @@ export default function HomePage({
           <h1 className="hp-headline">
             {t(
               locale,
-              "Where can you still build a life?",
-              "เมืองไหนยังสร้างชีวิตได้จริง?",
-              "哪座城市还容得下真正的生活？",
+              "Which cities score highest under this metric?",
+              "เมืองใดได้คะแนนสูงสุดภายใต้เมตริกนี้?",
+              "哪些城市在这一指标下得分最高？",
             )}
           </h1>
           <p className="hp-deck">
             {t(
               locale,
-              "157 cities, ranked by what remains after rent, time pressure, safety, dignity, and room for ambition. Not prestige. Not fantasy. Daily life.",
-              "157 เมือง จัดอันดับจากสิ่งที่เหลืออยู่หลังค่าเช่า เวลาที่ถูกบีบ ความปลอดภัย ศักดิ์ศรี และพื้นที่ให้ความทะเยอทะยาน ไม่ใช่ชื่อเสียง ไม่ใช่ภาพฝัน แต่คือชีวิตประจำวัน",
-              "157 座城市，按照房租之后还剩下什么、时间压力、安全、尊严与抱负空间来排序。不是名望，不是幻觉，而是日常生活。",
+              "157 published cities. One declared score per city, traced through five public pillars: pressure, viability, capability, community, and creative momentum.",
+              "157 เมืองที่เผยแพร่แล้ว แต่ละเมืองมีคะแนนที่ประกาศชัดเจนหนึ่งค่า และสามารถไล่ย้อนกลับได้ผ่าน 5 เสาหลักสาธารณะ: แรงกดดัน ความน่าอยู่ ศักยภาพ ชุมชน และพลังสร้างสรรค์",
+              "157 座已发布城市。每座城市对应一个公开分数，并可追溯到五个公开支柱：压力、宜居性、能力、社区与创造动能。",
             )}
           </p>
           <div className="hp-opening-stats">
             <span className="hp-opening-stat">
-              <strong>{rankedCities.length}</strong>
+              <strong>{publishedBoard.length}</strong>
               <em>{t(locale, "cities", "เมือง", "城市")}</em>
             </span>
             <span className="hp-opening-stat">
@@ -257,9 +275,9 @@ export default function HomePage({
         <p className="hp-photo-caption">
           {t(
             locale,
-            "Smart City Summit & Expo 2026, Taipei. SLIC entered the room as a public argument, not a brand deck.",
-            "Smart City Summit & Expo 2026, ไทเป — SLIC เปิดตัวในฐานะข้อถกเถียงสาธารณะ ไม่ใช่เพียงสไลด์ขายภาพลักษณ์",
-            "2026 台北智慧城市峰会。SLIC 作为一套公开论点进入现场，而不是一份品牌演示稿。",
+            "Smart City Summit & Expo 2026, Taipei. SLIC entered the room as a public method, not a brand deck.",
+            "Smart City Summit & Expo 2026, ไทเป — SLIC เปิดตัวในฐานะระเบียบวิธีสาธารณะ ไม่ใช่เพียงสไลด์ภาพลักษณ์",
+            "2026 台北智慧城市峰会。SLIC 作为一套公开方法进入现场，而不是一份品牌演示稿。",
           )}
         </p>
       </section>
@@ -269,17 +287,17 @@ export default function HomePage({
           <h2 className="hp-thesis-title">
             {t(
               locale,
-              "Every city ranking is an argument.\nThis one states its terms.",
-              "ทุกการจัดอันดับเมืองคือข้อถกเถียง\nดัชนีนี้บอกเงื่อนไขของตัวเองตรงๆ",
-              "每个城市排名都是一种立场。\n这个排名把自己的前提说清楚。",
+              "A public metric.\nDeclared terms.",
+              "เมตริกสาธารณะ\nพร้อมเงื่อนไขที่ประกาศชัดเจน",
+              "一个公开指标。\n前提明确。",
             )}
           </h2>
           <p className="hp-thesis-body">
             {t(
               locale,
-              "Many global lists reward executive comfort, expat stability, or polished lifestyle theatre. SLIC asks where ordinary people can still afford life, keep dignity, find community, and preserve some ambition after the bills are paid.",
-              "หลายดัชนีเมืองให้รางวัลกับความสะดวกสบายของผู้บริหาร ความมั่นคงของชาวต่างชาติ หรือภาพลักษณ์ไลฟ์สไตล์ที่ถูกจัดฉาก แต่ SLIC ถามว่าคนธรรมดายังมีชีวิตที่จ่ายไหว รักษาศักดิ์ศรี มีชุมชน และเหลือพลังให้ความใฝ่ฝันอยู่ที่ไหน",
-              "许多全球榜单奖励的是高管舒适感、外派稳定性，或被精心包装的生活方式。SLIC 问的是：普通人在哪里还负担得起生活、保有尊严、找到社区，并在付完账单后仍留得住抱负。",
+              "SLIC publishes one city number built from five declared pillars. It is not a claim that one score can settle what a city means to every person; it is a transparent statement of what this model measures and how each number can be traced.",
+              "SLIC เผยแพร่ตัวเลขหนึ่งค่าต่อหนึ่งเมือง โดยสร้างจาก 5 เสาหลักที่ประกาศชัดเจน ไม่ได้อ้างว่าคะแนนเดียวสามารถตัดสินความหมายของเมืองต่อทุกคนได้ แต่ประกาศอย่างโปร่งใสว่าโมเดลนี้วัดอะไร และไล่ย้อนกลับตัวเลขแต่ละค่าได้อย่างไร",
+              "SLIC 为每座城市发布一个由五个公开支柱构成的分数。它并不声称一个数字就能定义一座城市对所有人的意义，而是透明说明这个模型测量什么，以及每个数字如何回溯。",
             )}
           </p>
           <a
@@ -298,14 +316,14 @@ export default function HomePage({
           <h2 className="v3-alpha-title">
             {t(
               locale,
-              "The published leaders, in order.",
-              "ผู้นำของบอร์ดฉบับเผยแพร่ เรียงตามลำดับจริง",
-              "已发布榜单的领先城市，按真实顺序排列。",
+              "Published board, verified order.",
+              "บอร์ดที่เผยแพร่แล้ว ตามลำดับที่ตรวจสอบแล้ว",
+              "已发布榜单，按已核验顺序呈现。",
             )}
           </h2>
         </div>
         <div className="v3-alpha-grid section">
-          {results.slice(0, 10).map((city, index) => (
+          {publishedBoard.slice(0, 10).map((city) => (
             <a
               key={city.cityId}
               className="v3-city-card"
@@ -314,12 +332,12 @@ export default function HomePage({
               style={{ "--city-accent": PILLAR_COLORS[leadPillarForCity(city)] } as CSSProperties}
             >
               <span className="v3-city-card-meta">
-                <span className="v3-city-card-rank">#{String(index + 1).padStart(2, "0")}</span>
+                <span className="v3-city-card-rank">#{String(city.rank).padStart(2, "0")}</span>
                 <span>{t(locale, "Published board", "บอร์ดที่เผยแพร่", "已发布榜单")}</span>
               </span>
               <div className="v3-city-card-topline">
                 <span className="v3-city-card-name">{city.displayName}</span>
-                <span className="v3-city-card-score">{city.customScore.toFixed(1)}</span>
+                <span className="v3-city-card-score">{city.slicScore.toFixed(1)}</span>
               </div>
               <span className="v3-city-card-country">{city.country}</span>
               <span className="v3-city-card-region">{city.region}</span>
@@ -351,9 +369,9 @@ export default function HomePage({
         <p className="hp-photo-caption">
           {t(
             locale,
-            "On stage in Taipei. The pitch was simple: replace lifestyle fantasy with auditable city life.",
-            "บนเวทีที่ไทเป ข้อเสนอมีเพียงอย่างเดียว: เปลี่ยนภาพฝันแบบไลฟ์สไตล์ให้เป็นคุณภาพชีวิตเมืองที่ตรวจสอบได้",
-            "在台北的舞台上，主张很简单：用可审计的城市生活，取代生活方式幻象。",
+            "On stage in Taipei. The pitch was simple: replace lifestyle fantasy with an auditable city metric.",
+            "บนเวทีที่ไทเป ข้อเสนอเรียบง่ายมาก: เปลี่ยนภาพฝันแบบไลฟ์สไตล์ให้เป็นเมตริกเมืองที่ตรวจสอบได้",
+            "在台北的舞台上，主张很简单：用可审计的城市指标，取代生活方式幻象。",
           )}
         </p>
       </section>
@@ -362,14 +380,14 @@ export default function HomePage({
         <div className="v3-lower-tier-row">
           <span className="v3-tier-badge v3-tier-badge--beta">&beta; BETA</span>
           <div className="v3-lower-tier-cities">
-            {results.slice(10, 20).map((city, index) => (
+            {publishedBoard.slice(10, 20).map((city) => (
               <a
                 key={city.cityId}
                 className="v3-tier-chip"
                 href={`/city/${city.cityId}`}
                 onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
               >
-                <span className="v3-tier-chip-rank">#{index + 11}</span>
+                <span className="v3-tier-chip-rank">#{city.rank}</span>
                 <span className="v3-tier-chip-body">
                   <strong>{city.displayName}</strong>
                   <span>{city.country}</span>
@@ -381,14 +399,14 @@ export default function HomePage({
         <div className="v3-lower-tier-row">
           <span className="v3-tier-badge v3-tier-badge--gamma">&gamma; GAMMA</span>
           <div className="v3-lower-tier-cities">
-            {results.slice(20, 30).map((city, index) => (
+            {publishedBoard.slice(20, 30).map((city) => (
               <a
                 key={city.cityId}
                 className="v3-tier-chip"
                 href={`/city/${city.cityId}`}
                 onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
               >
-                <span className="v3-tier-chip-rank">#{index + 21}</span>
+                <span className="v3-tier-chip-rank">#{city.rank}</span>
                 <span className="v3-tier-chip-body">
                   <strong>{city.displayName}</strong>
                   <span>{city.country}</span>
@@ -402,14 +420,14 @@ export default function HomePage({
       <section className="v3-spider-full">
         <div className="section">
           <h2 className="v3-section-title">
-            {t(locale, "Now disagree with us.", "ตอนนี้ลองไม่เห็นด้วยกับเรา", "现在来反驳我们")}
+            {t(locale, "Now test the weights yourself.", "ตอนนี้ลองทดสอบน้ำหนักด้วยตัวเอง", "现在自己测试这些权重。")}
           </h2>
           <p className="v3-spider-hint">
             {t(
               locale,
-              "Drag the spider. Push growth to 100% and fast-moving cities rise. Push viability and calmer, cleaner places take over. This board is yours, not ours.",
-              "ลากใยแมงมุม แล้วลองดันการเติบโตให้สุด เมืองที่กำลังพุ่งจะขึ้นมา ดันความน่าอยู่ให้สุด เมืองที่สงบและสะอาดจะลอยขึ้น นี่คืออันดับของคุณ ไม่ใช่ของเรา",
-              "拖动蛛网图。把增长拉满，快速上升的城市会冲上来；把宜居拉满，更安静干净的城市会浮上去。这是你的榜单，不是我们的。",
+              "Drag the spider. This does not overwrite the published board; it creates a personal comparison view using the same five pillars.",
+              "ลากใยแมงมุมได้เลย การทำเช่นนี้ไม่ได้เขียนทับบอร์ดที่เผยแพร่ แต่สร้างมุมมองเปรียบเทียบส่วนบุคคลจาก 5 เสาหลักเดียวกัน",
+              "拖动蛛网图即可。这不会改写已发布榜单，而是用同样的五个支柱生成你的个人对比视图。",
             )}
           </p>
           <div className="v3-spider-layout">

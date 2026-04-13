@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import type { KnowledgeRackChunk, KnowledgeRackDocument, Locale } from "./types";
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const rackUiCopy: Record<
   Locale,
   {
@@ -225,7 +227,7 @@ export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
 
     async function loadManifest() {
       try {
-        const response = await fetch("/knowledge-rack/catalog/manifest.json");
+        const response = await fetch(`${BASE}/knowledge-rack/catalog/manifest.json`);
         if (!response.ok) {
           throw new Error(`Manifest request failed: ${response.status}`);
         }
@@ -256,7 +258,7 @@ export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
       return chunks;
     }
 
-    const response = await fetch("/knowledge-rack/catalog/chunks.json");
+    const response = await fetch(`${BASE}/knowledge-rack/catalog/chunks.json`);
     if (!response.ok) {
       throw new Error(`Chunk request failed: ${response.status}`);
     }

@@ -1,20 +1,8 @@
 import { useMemo, useState } from "react";
-import BrandLockup from "./BrandLockup";
-import LocaleSwitch from "./LocaleSwitch";
 import { cityIdeas, ideaCategories } from "./ideasData";
 import type { CityIdea } from "./ideasData";
-import { getCopy } from "./siteCopy";
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
-
-function navigateLink(
-  event: React.MouseEvent<HTMLAnchorElement>,
-  onNavigate: (path: SitePath) => void,
-  path: SitePath,
-) {
-  event.preventDefault();
-  onNavigate(path);
-}
 
 const difficultyColors: Record<CityIdea["difficulty"], string> = {
   starter: "var(--accent-green)",
@@ -42,13 +30,10 @@ function CopyButton({ text }: { text: string }) {
 export default function IdeasPage({
   onNavigate,
   locale,
-  onLocaleChange,
 }: {
   onNavigate: (path: SitePath) => void;
   locale: Locale;
-  onLocaleChange: (locale: Locale) => void;
 }) {
-  const copy = getCopy(locale);
   const [category, setCategory] = useState<string>("all");
   const [difficulty, setDifficulty] = useState<string>("all");
   const [expanded, setExpanded] = useState<string | null>(null);
@@ -67,34 +52,7 @@ export default function IdeasPage({
   return (
     <>
       <header className="rankings-hero section">
-        <div className="topbar topbar-stack">
-          <div className="topbar-left">
-            <a
-              href="/"
-              className="back-arrow"
-              onClick={(event) => navigateLink(event, onNavigate, "/")}
-              aria-label="Back to home"
-            >
-              &larr;
-            </a>
-            <BrandLockup eyebrow="Steal This Idea" microCopy="City innovation studio" />
-          </div>
 
-          <div className="topbar-actions">
-            <LocaleSwitch locale={locale} onChange={onLocaleChange} />
-            <nav className="topnav" aria-label="Page navigation">
-              <a href="/" onClick={(event) => navigateLink(event, onNavigate, "/")}>
-                {copy.nav.home}
-              </a>
-              <a href="/rankings" onClick={(event) => navigateLink(event, onNavigate, "/rankings")}>
-                {copy.nav.rankings}
-              </a>
-              <a href="/methodology" onClick={(event) => navigateLink(event, onNavigate, "/methodology")}>
-                {copy.nav.methodology}
-              </a>
-            </nav>
-          </div>
-        </div>
 
         <div className="rankings-hero-grid">
           <div>

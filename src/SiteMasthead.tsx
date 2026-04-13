@@ -135,7 +135,7 @@ export default function SiteMasthead({
           onClick={(event) => navigateLink(event, onNavigate, "/")}
           aria-label="SLIC home"
         >
-          <img src={`${BASE}/Logos/SLIC logo.jpg`} alt="SLIC Index" className="mh-logo-img" width={36} height={36} />
+          <img src={`${BASE}/Logos/slic-index-120.png`} alt="SLIC Index" className="mh-logo-img" width={36} height={36} />
           <span className="mh-wordmark-main">SLIC</span>
           <span className="mh-wordmark-sub">INDEX</span>
         </a>

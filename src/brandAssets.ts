@@ -7,11 +7,11 @@ export interface BrandAsset {
 }
 
 export const slicLogo: BrandAsset = {
-  name: "SLIC",
-  src: "/Logos/SLIC logo.jpg",
-  alt: "SLIC logo",
-  width: 200,
-  height: 200,
+  name: "SLIC Index",
+  src: "/Logos/slic-index-120.png",
+  alt: "SLIC Index logo",
+  width: 120,
+  height: 120,
 };
 
 export const collaborationLogos: BrandAsset[] = [

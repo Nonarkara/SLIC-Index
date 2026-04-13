@@ -416,12 +416,12 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       eyebrow: "Methodology paper",
       title: "The SLIC methodology",
       strapline:
-        "V3: Not a ranking anymore. A diagnostic tool that shows you exactly how the numbers work.",
+        "V3: A diagnostic model that shows how the numbers are built.",
       intro:
-        "V1 was a spreadsheet that put Busan at #1. V2 launched on stage in Taipei and got city leaders asking: can you do this for my city? V3 grew up. We stopped pretending that 0.3 points separating two cities means anything. We built tiers (Alpha, Beta, Gamma), made every number traceable to its source, added growth momentum and tolerance as real metrics, penalized overwork and crushing rent, and let you drag the priorities yourself. The model is open. The formula is declared. Every city can be audited.",
+        "V1 was a spreadsheet that put Busan at #1. V2 launched on stage in Taipei and got city leaders asking: can you do this for my city? V3 tightened the measurement logic. Small score gaps are handled more cautiously, every number is tied back to declared inputs, growth momentum and tolerance were added as explicit metrics, and the workbench lets readers test different weight profiles. The model is open. The formula is declared. Every city number can be audited.",
       doctrineTitle: "V3 Doctrine",
       doctrineBody:
-        "A city is not a spreadsheet. It is a place where people try to build a life. SLIC measures whether that life is affordable, safe, culturally rich, tolerant, growing, and possible — not whether the city looks impressive from a helicopter.",
+        "SLIC treats a city as a lived system, not only as a brand or balance sheet. The model tracks affordability, safety, cultural/public life, tolerance, growth conditions, and the practical room people have to live.",
       contextTitle: "Country-context inputs",
       contextItems: [
         "GDP per capita (PPP)",
@@ -445,10 +445,10 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       layTitle: "Plain-language reading path",
       technicalTitle: "Technical replication path",
       laySteps: [
-        "Read the five pillars as five human questions: can I afford life here, can I move and breathe here, can I build capability here, do I belong here, and does the city still generate ambition?",
-        "Treat technology as an enabling layer. It only counts when it improves real daily outcomes.",
-        "Read expensive prestige cities skeptically. Strong systems do not erase pressure, housing burden, or thin lived variety.",
-        "Read secondary cities carefully. SLIC is built to let them win when they deliver real value, hospitality, and room to live.",
+        "Read the five pillars as five public questions: affordability, daily viability, capability, belonging, and creative/economic momentum.",
+        "Treat technology as an enabling layer. It matters when it improves measurable daily conditions.",
+        "Read high-cost cities alongside their pressure terms. Institutional strength does not erase housing or time pressure.",
+        "Read secondary cities through the same declared thresholds. Lower visibility does not remove them from the measurement frame.",
       ],
       technicalSteps: [
         "Define the city as a functional urban area or the closest defensible metro unit.",
@@ -461,7 +461,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       eyebrow: "Why legacy rankings fail",
       title: "The gap SLIC is trying to close",
       summary:
-        "Existing city indices are useful to study, but most of them encode a theory of the good city that SLIC does not share.",
+        "Existing city indices are useful to study, but many of them encode a city theory that differs from SLIC's declared measurement frame.",
     },
     critiques: [
       {
@@ -836,16 +836,16 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         id: "pressure",
         name: "Growth",
         weight: 25,
-        thesis: "Can a person build a life here without being crushed? Housing that eats your income, overwork that erases your evenings, and mental health crisis are the strongest signals that a city has failed — regardless of how wealthy it looks on paper.",
-        justification: "V3 rebalanced this pillar to penalize misery harder. Housing burden, working hours, and suicide rate now carry the heaviest weights. GDP growth was added as a direct metric — stagnant economies with no domestic consumption offer no future. Disposable income was reduced: having money means nothing if the city drains you.",
+        thesis: "This pillar tracks whether housing cost, overwork, mental-strain indicators, and economic momentum leave residents with usable room to live.",
+        justification: "V3 increased the weight on housing burden, working hours, and suicide-related strain indicators. GDP growth remains visible as a forward-looking signal, while disposable income and debt stay in the model as context for residual room after essentials.",
         citations: [2, 3, 7],
         metrics: [
-          { name: "Housing burden", weight: 8, description: "Rent as share of income. The single strongest signal of whether a city is affordable to live in. Cities where people spend 40%+ of income on rent are structurally unliveable.", inputs: ["median rent", "gross income"] },
-          { name: "Working time pressure", weight: 7, description: "Average weekly hours worked. Cities where people work 45+ hours have no room for life — the city becomes a machine, not a home.", inputs: ["weekly hours", "overwork share"] },
-          { name: "Suicide and severe mental strain", weight: 7, description: "Suicide rate per 100k. The most honest signal of urban pressure. If people are dying, the city has failed at the most basic level.", inputs: ["age-standardized suicide rate"] },
-          { name: "Economic growth momentum", weight: 6, description: "GDP growth rate. Stagnant economies with no domestic consumption offer no future. Retirement cities score low here.", inputs: ["GDP growth %", "country context"] },
+          { name: "Housing burden", weight: 8, description: "Rent as share of income. One of the clearest signals of affordability pressure; 40%+ rent-to-income ratios indicate a heavily constrained housing situation.", inputs: ["median rent", "gross income"] },
+          { name: "Working time pressure", weight: 7, description: "Average weekly hours worked. Sustained 45+ hour norms usually indicate high time pressure and less residual time outside work.", inputs: ["weekly hours", "overwork share"] },
+          { name: "Suicide and severe mental strain", weight: 7, description: "Suicide rate per 100k. A severe pressure indicator used here as a public-health signal of urban strain.", inputs: ["age-standardized suicide rate"] },
+          { name: "Economic growth momentum", weight: 6, description: "GDP growth rate. Included as a forward-looking signal of economic momentum; lower-growth contexts tend to offer fewer expansion opportunities.", inputs: ["GDP growth %", "country context"] },
           { name: "Tax-adjusted disposable income", weight: 4, description: "Residual money after tax and essential costs. V3 no longer divides by PPP — income and costs are already comparable in USD.", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food"] },
-          { name: "Household debt burden", weight: 4, description: "Debt relative to income. Countries where citizens are leveraged to the hilt offer fragile prosperity.", inputs: ["household debt proxy"] },
+          { name: "Household debt burden", weight: 4, description: "Debt relative to income. High leverage suggests more fragile household resilience.", inputs: ["household debt proxy"] },
         ],
       },
       {
@@ -861,7 +861,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "Clean air", weight: 4, description: "PM2.5 and severe pollution exposure with CAMS and OpenAQ context.", inputs: ["PM2.5", "exceedance", "aerosol context"] },
           { name: "Water, sanitation, and utility reliability", weight: 4, description: "Safe water, sanitation, and basic service reliability.", inputs: ["WASH access", "interruptions", "compliance"] },
           { name: "Digital infrastructure", weight: 4, description: "Broadband quality, affordability, and fibre readiness.", inputs: ["fixed broadband", "affordability", "internet performance"] },
-          { name: "Climate and sunlight livability", weight: 7, description: "Composite of sunshine hours, temperature comfort, and extreme weather. V3 increased this weight — sunlight directly affects happiness and wellbeing. Scandinavian cities with 6 hours of winter daylight score low. Desert cities with extreme heat also penalized.", inputs: ["sunshine hours", "temperature comfort", "extreme weather"] },
+          { name: "Climate and sunlight livability", weight: 7, description: "Composite of sunshine hours, temperature comfort, and extreme weather exposure. V3 increased this weight because sunlight and thermal comfort affect daily conditions across cities.", inputs: ["sunshine hours", "temperature comfort", "extreme weather"] },
         ],
       },
       {
@@ -882,10 +882,10 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         name: "Community",
         weight: 15,
         thesis: "A city is not a spreadsheet. Hospitality, tolerance, cultural richness, and the feeling of belonging are what make people stay — or leave.",
-        justification: "V3 elevated cultural life as the heaviest community signal. Cities people actually visit (33M visitors to Bangkok, 23M to Istanbul) are doing something right. Birth rate was reduced — it is too noisy a proxy for lived community quality. Tolerance now includes a doctrine screening: cities in deeply religious states (theocratic, ethno-nationalist, or legally discriminatory) are penalized because structural intolerance is observable and measurable.",
+        justification: "V3 elevated cultural and public life within the community pillar and reduced birth rate to a lighter contextual role. Tolerance includes observable legal and civic openness signals because structural inclusion affects daily participation.",
         citations: [1, 14, 16],
         metrics: [
-          { name: "Cultural and public-life vitality", weight: 7, description: "Third places, historic continuity, visitor pull, street life. The strongest signal of a city that people actually want to be in. 33M visitors don't lie.", inputs: ["tourism arrivals per 1000", "events", "public attention"] },
+          { name: "Cultural and public-life vitality", weight: 7, description: "Third places, historic continuity, visitor pull, and street life. Used as a public-life signal alongside safety, ecology, and resident-room checks.", inputs: ["tourism arrivals per 1000", "events", "public attention"] },
           { name: "Hospitality and belonging", weight: 6, description: "Do people feel welcome? Net migration, resident attachment, multilingual usability, and the culture of helping strangers.", inputs: ["net migration", "testimony audit", "multilingual services"] },
           { name: "Tolerance and pluralism", weight: 4, description: "LGBTQ acceptance, religious pluralism, ethnic inclusion, lifestyle freedom. V3 replaces the women-in-parliament proxy with composite tolerance scores for cities where the proxy fails (Bangkok, Taipei).", inputs: ["composite tolerance score", "legal openness", "same-sex marriage status"] },
           { name: "Birth rate optimism", weight: 2, description: "Total fertility rate as a weak societal signal. Reduced from 4 to 2 in V3 — too many confounders (education, culture, policy) make this a poor proxy for city-level livability.", inputs: ["World Bank TFR"] },
@@ -950,17 +950,17 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       },
       {
         title: "V3: Religious and structural intolerance screening",
-        body: "Cities in countries with dominant theocratic, ethno-nationalist, or legally discriminatory structures receive community penalties. Observable pattern: countries with sacred-state governance (religious law, ethnic supremacy, anti-LGBTQ legislation) consistently produce cities hostile to diversity. This is not a judgment on religion — it is a measurement of openness.",
+        body: "Cities in countries with legally discriminatory or structurally exclusionary systems receive community penalties where those conditions are observable in the data. The aim is to measure openness in daily life, not to rank beliefs or identities.",
         citations: [],
       },
       {
         title: "V3: Sterility and one-dimensional experience penalty",
-        body: "Cities that are industrious but offer one-dimensional lived experience — all work, no cultural contrast, no old-meets-new texture — receive community and viability penalties. Building skyscrapers is not the same as building a city worth living in.",
+        body: "Cities with narrow lived-experience profiles can receive community and viability penalties when the data indicate low cultural/public-life diversity and limited everyday variation.",
         citations: [],
       },
       {
         title: "V3: PPP double-adjustment removed",
-        body: "V2 divided disposable income by the PPP factor, but income data was already in comparable USD. This double-adjustment crushed affordable developing cities (Bangkok's disposable income dropped from $809 to $69). V3 removes the PPP division — the normalization across all cities handles purchasing power comparison.",
+        body: "V2 divided disposable income by the PPP factor, but income data was already in comparable USD. That double-adjustment suppressed scores in lower-cost cities (Bangkok's disposable income dropped from $809 to $69). V3 removes the extra PPP division and lets the normalization layer handle cross-city comparison.",
         citations: [],
       },
     ],

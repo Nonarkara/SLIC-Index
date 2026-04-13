@@ -5,6 +5,8 @@ import { localeLabels } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
 import { trackVisitor } from "./visitorTracking";
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const IdeasPage = lazy(() => import("./IdeasPage"));
 const ExercisePage = lazy(() => import("./ExercisePage"));
 const MethodologyPage = lazy(() => import("./MethodologyPage"));
@@ -50,57 +52,74 @@ function detectLocale(): Locale {
   return "en";
 }
 
+/** Strip the Vite base prefix so route matching uses bare paths. */
+function stripBase(pathname: string): string {
+  if (BASE && pathname.startsWith(BASE)) {
+    return pathname.slice(BASE.length) || "/";
+  }
+  return pathname;
+}
+
 function resolvePath(pathname: string): SitePath {
-  if (pathname === "/about-slic") {
+  const bare = stripBase(pathname);
+
+  if (bare === "/about-slic") {
     return "/about-slic";
   }
 
-  if (pathname === "/methodology") {
+  if (bare === "/methodology") {
     return "/methodology";
   }
 
-  if (pathname === "/rankings") {
+  if (bare === "/rankings") {
     return "/rankings";
   }
 
-  if (pathname === "/exercise") {
+  if (bare === "/exercise") {
     return "/exercise";
   }
 
-  if (pathname === "/thailand") {
+  if (bare === "/thailand") {
     return "/thailand";
   }
 
-  if (pathname === "/ideas") {
+  if (bare === "/ideas") {
     return "/ideas";
   }
 
-  if (pathname === "/compare") {
+  if (bare === "/compare") {
     return "/compare";
   }
 
-  if (pathname === "/side-by-side") {
+  if (bare === "/side-by-side") {
     return "/side-by-side";
   }
 
-  if (pathname === "/history") {
+  if (bare === "/history") {
     return "/history";
   }
 
-  if (pathname.startsWith("/city/")) {
+  if (bare.startsWith("/city/")) {
     return "/city";
   }
 
   return "/";
 }
 
+/** Prepend the base to a bare app path for pushState. */
+function withBase(path: string): string {
+  if (path.startsWith(BASE)) return path;
+  return `${BASE}${path}`;
+}
+
 function commitRoute(path: SitePath | string): SitePath {
-  if (window.location.pathname !== path) {
-    window.history.pushState({}, "", path);
+  const full = withBase(path);
+  if (window.location.pathname !== full) {
+    window.history.pushState({}, "", full);
   }
 
   window.scrollTo({ top: 0, behavior: "auto" });
-  return resolvePath(path);
+  return resolvePath(full);
 }
 
 const routeLoadingCopy: Record<
@@ -265,7 +284,7 @@ export default function App() {
           ) : route === "/thailand" ? (
             <ThailandPage onNavigate={navigate} locale={locale} />
           ) : route === "/ideas" ? (
-            <IdeasPage onNavigate={navigate} locale={locale} onLocaleChange={setLocale} />
+            <IdeasPage onNavigate={navigate} locale={locale} />
           ) : route === "/compare" ? (
             <CompareRankingsPage onNavigate={navigate} locale={locale} />
           ) : route === "/side-by-side" ? (

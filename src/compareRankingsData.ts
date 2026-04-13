@@ -81,8 +81,8 @@ export const INDEX_PROFILES: IndexProfile[] = [
       audienceNote: "Corporate relocation teams calculating hardship allowances. Not designed for residents, locals, or anyone deciding where to actually live.",
     },
     critique: {
-      headline: "Stability is not liveability",
-      body: "EIU obsesses over \"stability\" and expat comfort, producing permanent Northern European/Anglosphere dominance. The top 10 cities are often separated by 0.1\u20132 points out of 100 \u2014 the narcissism of small differences. One new park or one traffic tweak can swing rankings. Melbourne vs. Auckland at a ~1.8% gap? Statistically meaningless. Yet the annual \"World\u2019s Most Liveable City\" headline drives millions in city marketing. The methodology is proprietary \u2014 you can\u2019t audit it, replicate it, or verify it. Studies comparing EIU rankings to actual surveys of locals show weak correlation. The same \"liveable\" cities (Vancouver, Melbourne) have brutal housing crises that locals endure while expats get hardship allowances.",
+      headline: "Stability is a narrow proxy",
+      body: "EIU places heavy emphasis on stability and expat-oriented comfort, which helps explain its repeated preference for Northern European and Anglosphere cities. The top 10 cities are often separated by only 0.1\u20132 points out of 100, so small methodological choices can produce headline changes that look larger than they are. The methodology is also proprietary, which limits auditability and replication. Studies comparing EIU outputs with resident experience surveys often show only partial overlap, especially where housing costs are severe.",
     },
   },
 
@@ -297,8 +297,8 @@ export const INDEX_PROFILES: IndexProfile[] = [
       audienceNote: "Urban planners, tech policymakers, and smart city consultants. Academic, not commercial \u2014 but still narrowly focused on digital transformation rather than lived experience.",
     },
     critique: {
-      headline: "Gadgetry is not governance",
-      body: "The Yonsei\u2013Cambridge index is the most specialized of the five \u2014 an academic exercise that counts smart city apps and platforms rather than measuring whether technology improves anyone\u2019s life. Only 31 cities, pre-selected as \"leading\" \u2014 an elite club that excludes 96% of the world\u2019s urban population. It tells you New York has impressive digital infrastructure, not that New York\u2019s subway is falling apart while its apps are slick. SLIC was built specifically to ask the question Yonsei avoids: does the technology actually translate into a city where people can afford to live, work reasonable hours, and find community? Outcomes over gadgetry. That\u2019s the SLIC doctrine.",
+      headline: "Digital infrastructure is not the same as lived outcomes",
+      body: "The Yonsei\u2013Cambridge index is the most specialized of the five \u2014 an academic exercise focused on smart-city apps and platforms rather than on broader lived outcomes. With only 31 pre-selected cities, it covers a narrow slice of the urban world. It can tell you whether a city has visible digital infrastructure; it says much less about whether that infrastructure translates into affordability, workable hours, or stronger community conditions. SLIC was built to carry those outcome terms directly in the metric.",
     },
   },
 ];
@@ -309,24 +309,24 @@ export const COMPARE_HERO = {
   title: "Six indices. Same planet.\nCompletely different answers.",
   subtitle: "Drag the spider to rebuild SLIC\u2019s top 10 in real time.",
   thesis:
-    "Every major city ranking is an ideological artifact engineered to serve a specific constituency \u2014 corporate HR, tourism boards, tech consultants, or lifestyle journalists \u2014 while masquerading as objective science. EIU and Mercer exist to calculate hardship pay for expats. Resonance sells \"Place Power\u2122\" to mayors chasing FDI. Monocle curates lifestyle for the already-rich. Yonsei counts smart city apps without asking if they help anyone. The top 10 cities in most rankings are separated by less than 2 points on a 100-point scale \u2014 the narcissism of small differences, amplified into headline news. None seriously weights affordability, overwork, tolerance, or whether a 25-year-old can still build a life there. SLIC does.",
+    "Each major city ranking serves a different use case and weighting frame. EIU and Mercer lean toward relocation and hardship logic; Resonance toward brand and visitor signals; Monocle toward editorial lifestyle framing; Yonsei toward smart-city platforms. Small score gaps are often over-read as hard fact. SLIC differs by placing affordability, overwork, tolerance, and community conditions directly inside the published formula.",
   overarchingCritique:
-    "All six rankings are self-reinforcing echo chambers for the global professional class. They converge on safe, clean, rich, Western-ish cities because that\u2019s who funds and consumes them. Cities know the annual cycle and invest in branding, infrastructure tweaks, and direct outreach to polish scores \u2014 a 12-month lobby cycle that rewards PR-savvy cities over substantive long-term improvements. Studies comparing these rankings to actual surveys of locals show weak correlation \u2014 people\u2019s satisfaction diverges sharply from expat-focused metrics. In 2026, with housing crises, migration pressures, and climate disruption, these lists feel not just outdated but actively harmful \u2014 selling a fantasy of \"best cities\" that excludes the majority of their actual inhabitants.",
+    "These rankings often converge on wealthy, globally legible cities because their inputs and audiences reward those conditions. Cities also learn the annual cycle and can optimize for the visible variables. Studies comparing ranking outputs with resident surveys often show only partial overlap. The point of this comparison is not to declare one list fraudulent; it is to show that every board reflects its chosen frame.",
 };
 
 /* ── SLIC difference cards ── */
 export const SLIC_DIFFERENCE = [
   {
     title: "Disposable income after rent",
-    body: "Not GDP. Not median salary. What\u2019s actually left in your pocket after housing costs, adjusted for purchasing power. The question every other index refuses to center.",
+    body: "Tracks what remains after housing costs, adjusted for purchasing power. It measures residual room to live rather than treating GDP or salary alone as sufficient.",
   },
   {
     title: "Overwork and working-time pressure",
-    body: "Tokyo scores high elsewhere because it\u2019s \"efficient.\" SLIC penalizes cities where people work themselves to exhaustion. A city that burns out its residents is not liveable.",
+    body: "Adds working-time pressure directly into the score so that efficiency and long-hour cultures are not treated as automatic positives.",
   },
   {
     title: "Tolerance and civic openness",
-    body: "SLIC measures whether a city welcomes difference \u2014 not as a tourism asset, but as a structural condition of daily life. Authoritarian-capitalist \"efficiency\" (Dubai, Singapore) gets no free pass.",
+    body: "Measures whether difference can be lived with low friction in daily life, using structural openness rather than tourism branding or surface cosmopolitanism.",
   },
   {
     title: "Cultural experience diversity",
@@ -334,10 +334,10 @@ export const SLIC_DIFFERENCE = [
   },
   {
     title: "Suicide and mental strain",
-    body: "A negative signal that most indices quietly ignore. If your city\u2019s residents are killing themselves at high rates, your \"liveability\" score is a lie.",
+    body: "Includes severe mental-strain indicators as a public-health pressure term rather than leaving them outside the city score.",
   },
   {
     title: "Graduate housing burden",
-    body: "How much of a young graduate\u2019s salary goes to housing. The question that exposes whether a city is liveable for the next generation, or only for those who already own property.",
+    body: "Tracks how much of a young graduate\u2019s salary goes to housing, making early-career affordability visible instead of assuming all residents enter the market with assets.",
   },
 ];

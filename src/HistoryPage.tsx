@@ -20,7 +20,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2020–2022",
       title: "The question that started it all",
-      body: "Dr. Non Arkara kept running into the same problem: every global city ranking told you where rich people live — not where real people thrive. As a senior official at Thailand's Digital Economy Promotion Agency (depa), he had access to what most index-makers don't — ground truth. Years of stakeholder meetings across Southeast Asia, policy workshops with mayors, and late-night conversations with urban planners who actually live in the cities they study. The question was simple: what if we measured what's left after rent, not what flows through the economy?",
+      body: "Dr. Non Arkara kept running into the same problem: many global city rankings described prestige and headline prosperity more clearly than the lived conditions of ordinary residents. As a senior official at Thailand's Digital Economy Promotion Agency (depa), he had access to what most index-makers do not — ground-level feedback. Years of stakeholder meetings across Southeast Asia, policy workshops with mayors, and late-night conversations with urban planners who actually live in the cities they study led to a practical question: what if the metric focused on what remains after essential costs, not only on what flows through the economy?",
       photos: ["WhatsApp Image 2023-03-17 at 05.20.05 (1).jpeg", "IMG_6651.JPG"],
     },
     {
@@ -32,19 +32,19 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2024",
       title: "From framework to formula",
-      body: "The five pillars crystallized: Growth, Viability, Capability, Community, Creative. Not because they sound good on a slide — because every workshop kept circling back to the same five tensions. Can I afford to live here? Is it safe? Can I grow? Do I belong? Is there friction worth fighting for? Dr. Non brought these to panels at Big Tech Asia in Kuala Lumpur and smart city forums across the region, pressure-testing each pillar against real policy questions. The methodology was peer-reviewed against existing indices — EIU, Monocle, Mercer — and deliberately designed to disagree with them.",
+      body: "The five pillars crystallized: Growth, Viability, Capability, Community, Creative. Not because they sounded good on a slide, but because workshop inputs kept returning to the same five tensions. Can I afford to live here? Is it safe? Can I grow? Do I belong? Does the city still create room for initiative? Dr. Non brought these to panels at Big Tech Asia in Kuala Lumpur and smart city forums across the region, pressure-testing each pillar against real policy questions. The methodology was then reviewed against existing indices — EIU, Monocle, Mercer — and made explicit where the measurement frame differed.",
       photos: ["Smart Cities _ Nex Big Tech Event Cam B_1144.jpg", "Smart Cities _ Nex Big Tech Event Cam B_1184.jpg", "DAY1_0368.jpg", "CQW03907.jpg"],
     },
     {
       year: "2025",
       title: "Building V1 — the first public prototype",
-      body: "The SLIC Index went from spreadsheets to code. Version 1 launched as a static ranking of 103 cities across five dimensions — the first time this data was public, free, and transparent. No black boxes. No paywall. Every weight visible, every source cited. The response was immediate: city officials, urban researchers, and international organizations started asking questions. The V1 site featured Busan, Taipei, Fukuoka, Bangkok, and Kuching in the top ranks — cities that traditional indices routinely undervalue.",
+      body: "The SLIC Index went from spreadsheets to code. Version 1 launched as a static ranking of 103 cities across five dimensions — the first time this data was public, free, and transparent. No black boxes. No paywall. Every weight visible, every source cited. The response was immediate: city officials, urban researchers, and international organizations started asking questions. The V1 site surfaced cities such as Busan, Taipei, Fukuoka, Bangkok, and Kuching near the top of the first published board, showing how a different metric could produce a different ordering.",
       photos: ["DSC_2572.jpg", "IMG_3687.JPG"],
     },
     {
       year: "2026",
       title: "V2 — you build the ranking",
-      body: "Version 2 changed the game. Instead of handing people a ranking and saying 'trust us,' V2 puts an interactive spider diagram in your hands. Drag the five vertices. Shift your priorities. Watch 103 cities re-rank in real time based on what matters to you. The scoring engine uses cosine similarity and Mazziotta-Pareto penalized means — the same math used in academic composite indices, but exposed to the user instead of hidden behind a PDF. In March 2026, Dr. Non launched V2 as a keynote at the Smart City Summit & Expo in Taipei — the largest smart city event in Asia. 174 cities, 53 countries, 3,000+ professionals. The room went quiet. Then the questions started.",
+      body: "Version 2 opened the ranking instrument to the audience. Instead of handing people a fixed order alone, V2 puts an interactive spider diagram in your hands. Drag the five vertices. Shift your priorities. Watch cities re-rank in real time based on what matters to you. The point was not just interactivity; it was to let people interrogate the weight structure directly rather than treat the method as a black box. In March 2026, Dr. Non launched V2 as a keynote at the Smart City Summit & Expo in Taipei — the largest smart city event in Asia. 174 cities, 53 countries, 3,000+ professionals. The questions began immediately.",
       photos: [
         "/launch-photos/20260317094731-_DON7077.jpg",
         "/launch-photos/20260318145941_DSC09480.jpg",
@@ -56,7 +56,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "What's next",
       title: "V3 — 1,000 cities, absolute scoring",
-      body: "Version 3 is in development. The city universe is expanding from 103 to 352+ cities across the top 50 economies. The scoring engine is moving from relative normalization to absolute anchor-point formulas — meaning a city's score won't change just because a new city enters the index. Every indicator gets fixed goalposts. The goal: a living, breathing dashboard that any city in the world can use to benchmark itself — not against Vienna or Singapore, but against what a good life actually requires.",
+      body: "Version 3 is in development. The city universe is expanding from 103 to 352+ cities across the top 50 economies. The scoring engine is moving from relative normalization to absolute anchor-point formulas — meaning a city's score will not change just because a new city enters the index. Every indicator gets fixed goalposts. The goal is a living dashboard that any city can use to benchmark itself against the declared baseline rather than against whichever comparator city happens to sit at the top.",
       photos: [],
     },
   ],

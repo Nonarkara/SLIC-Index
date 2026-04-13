@@ -9,6 +9,8 @@ import { exerciseRegions, getExerciseCities } from "./rankingsData";
 import SiteFooter from "./SiteFooter";
 import type { FullRankedCity, Locale, SitePath } from "./types";
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
 type MatchedCity = FullRankedCity & {
@@ -84,44 +86,12 @@ function navigateLink(
 
 const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
 
-/* ───── published data ───── */
-
-interface PublishedCity {
-  cityId: string;
-  displayName: string;
-  country: string;
-  region: string;
-  cityType: string;
-  coverageGrade: string;
-  manifestStatus: string;
-  pressureScore: number;
-  viabilityScore: number;
-  capabilityScore: number;
-  communityScore: number;
-  creativeScore: number;
-  slicScore: number;
-  rank: number;
-  rankingStatus: string;
-  overallWeightedCoverage?: number;
-  pressureCoverage?: number;
-  viabilityCoverage?: number;
-  capabilityCoverage?: number;
-  communityCoverage?: number;
-  creativeCoverage?: number;
-}
 
 const GRADE_COLORS: Record<string, string> = {
   A: "#22c55e",
   B: "#f59e0b",
   C: "#f97316",
 };
-
-function coverageOpacity(coverage: number | undefined): number {
-  if (coverage === undefined) return 1;
-  if (coverage >= 75) return 1;
-  if (coverage >= 50) return 0.7;
-  return 0.4;
-}
 
 const CANONICAL = publishedData.canonicalWeights as Record<PillarId, number>;
 const indexedCities = getExerciseCities();
@@ -227,9 +197,9 @@ const interactiveCopy: Record<
     heroTitle: "Tune the city field to your life",
     heroIntro:
       "This workbench reranks the full 350-city indexed field in real time. Drag the spider web, move the sliders, or use a preset to see which cities match the kind of life you actually want.",
-    heroNoteTitle: "Why this should feel credible",
+    heroNoteTitle: "Why this is traceable",
     heroNoteBody:
-      "This is meant to read like a declared ranking instrument, not a vibe list. The frame is traceable: post-tax room after essentials, daily viability, capability, community texture, and creative edge, all held inside one explicit five-part model.",
+      "This is a declared ranking instrument, not a vibe list. The published board keeps one baseline score per city; this workbench lets you compare how the same five pillars behave when you change the weights.",
     indexedCitiesLabel: "Indexed cities",
     lockedPointsLabel: "Locked points",
     pillarsLabel: "Declared pillars",
@@ -242,14 +212,14 @@ const interactiveCopy: Record<
     canonicalNote: "Declared baseline: Growth 25 / Viability 22 / Capability 18 / Community 15 / Creative 20",
     methodologyTitle: "Declared method",
     methodologyBody:
-      "Growth measures economic dynamism and market forces that shape a city's trajectory. It rewards disposable room after essentials and punishes false prosperity. If you want hard competitive edge, the Creative pillar is the sharper signal.",
+      "Growth captures economic momentum and residual room after essentials. Reweighting here changes emphasis for comparison; it does not rewrite the published workbook score.",
     consequencesTitle: "Trade-off signals",
     noConsequences: "Keep moving the weights. When your profile becomes distinctive, the main trade-offs appear here.",
     resultsTitle: "Closest matches",
-    resultsBody: "At baseline you are seeing the official SLIC order. Once you move the bars, the workbench switches into profile matching across the full 350-city indexed field.",
-    bestMatchTitle: "Best current match",
-    bestMatchBody: "The lead city below is the closest shape-match to your current five-part profile.",
-    fitScore: "Profile fit",
+    resultsBody: "At baseline you are seeing the published SLIC order. Once you move the bars, the workbench switches into profile matching across the indexed field.",
+    bestMatchTitle: "Top current result",
+    bestMatchBody: "The lead city below is the closest match to the current five-pillar profile.",
+    fitScore: "Current score",
     baseRank: "Base rank",
     citiesLabel: "cities in view",
     top10: "Top 10",
@@ -271,9 +241,9 @@ const interactiveCopy: Record<
     heroTitle: "จูนสนามเมืองให้เข้ากับชีวิตของคุณ",
     heroIntro:
       "หน้านี้จัดอันดับใหม่แบบสดจากเมืองทั้ง 200 เมืองในสนามดัชนี ลากใยแมงมุม ขยับสไลเดอร์ หรือใช้ preset เพื่อดูว่าเมืองไหนใกล้กับชีวิตที่คุณต้องการจริง ๆ",
-    heroNoteTitle: "ทำไมหน้านี้ต้องดูน่าเชื่อถือ",
+    heroNoteTitle: "ทำไมหน้านี้จึงไล่ย้อนกลับได้",
     heroNoteBody:
-      "หน้านี้ตั้งใจให้เป็นเครื่องมือจัดอันดับที่ประกาศวิธีคิดชัดเจน ไม่ใช่ลิสต์ตามอารมณ์ เรามองพื้นที่รายได้หลังภาษีและค่าใช้จ่ายจำเป็น ความน่าอยู่ ศักยภาพมนุษย์ พลังชุมชน และขอบการสร้างสรรค์ ภายใต้โมเดลเดียวที่ตรวจย้อนกลับได้",
+      "หน้านี้เป็นเครื่องมือจัดอันดับที่ประกาศกรอบชัดเจน ไม่ใช่ลิสต์ตามอารมณ์ บอร์ดที่เผยแพร่เก็บคะแนนพื้นฐานหนึ่งค่าต่อเมือง ส่วนเวิร์กเบนช์นี้ให้คุณเปรียบเทียบว่า 5 เสาหลักเดียวกันตอบสนองอย่างไรเมื่อคุณเปลี่ยนน้ำหนัก",
     indexedCitiesLabel: "เมืองในสนาม",
     lockedPointsLabel: "คะแนนคงที่",
     pillarsLabel: "เสาหลัก",
@@ -286,14 +256,14 @@ const interactiveCopy: Record<
     canonicalNote: "ฐานที่ประกาศ: Growth 25 / Viability 22 / Capability 18 / Community 15 / Creative 20",
     methodologyTitle: "วิธีคิดที่ประกาศไว้",
     methodologyBody:
-      "Growth วัดพลวัตเศรษฐกิจและกลไกตลาดที่กำหนดทิศทางเมือง เสานี้ให้คะแนนพื้นที่ทางการเงินหลังค่าใช้จ่ายจำเป็น และลงโทษความเจริญที่ไม่จริง ถ้าต้องการดูความแข่งขันเชิงทุนนิยมจริง ๆ ให้ดูเสา Creative",
+      "Growth สะท้อนโมเมนตัมทางเศรษฐกิจและพื้นที่รายได้หลังจ่ายสิ่งจำเป็น การปรับน้ำหนักที่นี่เป็นการเปลี่ยนมุมเปรียบเทียบเท่านั้น ไม่ได้เขียนทับคะแนนจากเวิร์กบุ๊กที่เผยแพร่",
     consequencesTitle: "สัญญาณข้อแลกเปลี่ยน",
     noConsequences: "ลองขยับน้ำหนักต่อไป เมื่อโปรไฟล์ของคุณชัดขึ้น ข้อแลกเปลี่ยนหลักจะปรากฏตรงนี้",
     resultsTitle: "เมืองที่ใกล้ที่สุด",
-    resultsBody: "ถ้าอยู่ที่ค่า baseline คุณกำลังเห็นอันดับ SLIC ทางการ แต่เมื่อคุณขยับแถบ ระบบจะเปลี่ยนเป็นการจับคู่โปรไฟล์กับเมืองทั้ง 200 เมืองในสนาม",
-    bestMatchTitle: "เมืองที่ตรงที่สุดตอนนี้",
-    bestMatchBody: "เมืองด้านล่างคือเมืองที่มีรูปทรงคะแนนใกล้กับโปรไฟล์ห้ามิติของคุณมากที่สุดในตอนนี้",
-    fitScore: "คะแนนการจับคู่",
+    resultsBody: "ที่ค่า baseline คุณกำลังเห็นลำดับ SLIC ที่เผยแพร่แล้ว เมื่อคุณขยับแถบ เวิร์กเบนช์จะเปลี่ยนเป็นการจับคู่โปรไฟล์กับสนามเมืองที่จัดทำดัชนีไว้",
+    bestMatchTitle: "ผลลัพธ์นำตอนนี้",
+    bestMatchBody: "เมืองด้านล่างคือเมืองที่ใกล้กับโปรไฟล์ 5 เสาหลักปัจจุบันมากที่สุด",
+    fitScore: "คะแนนปัจจุบัน",
     baseRank: "อันดับฐาน",
     citiesLabel: "เมืองในมุมมอง",
     top10: "10 อันดับ",
@@ -315,9 +285,9 @@ const interactiveCopy: Record<
     heroTitle: "把城市场域调到适合你的生活",
     heroIntro:
       "这个工作台会对完整的 200 城市索引场进行实时重排。拖动蛛网图、调整滑块，或使用预设，看看哪些城市最接近你真正想要的生活。",
-    heroNoteTitle: "为什么它应该显得可信",
+    heroNoteTitle: "为什么它可以被追溯",
     heroNoteBody:
-      "这应该像一个声明清楚的方法工具，而不是情绪化榜单。它把税后和基本开支后的剩余空间、日常宜居性、人力能力、社区质感和创造性动能放进同一个可追溯的五部分模型里。",
+      "这是一套公开声明的方法工具，而不是一份凭感觉的榜单。已发布榜单为每座城市保留一个基线分数；这个工作台则让你比较同样五个支柱在改动权重后会如何变化。",
     indexedCitiesLabel: "索引城市",
     lockedPointsLabel: "锁定点数",
     pillarsLabel: "声明支柱",
@@ -330,14 +300,14 @@ const interactiveCopy: Record<
     canonicalNote: "声明基线：Growth 25 / Viability 22 / Capability 18 / Community 15 / Creative 20",
     methodologyTitle: "声明方法",
     methodologyBody:
-      "Growth 衡量经济活力和塑造城市轨迹的市场力量。它奖励基本开支后的可支配空间，惩罚虚假繁荣。如果你要看更强的竞争锋芒，Creative 才是更直接的支柱。",
+      "Growth 反映的是经济动能，以及扣除必要开支后的剩余空间。这里的权重调整只会改变比较视角，不会改写已发布的工作簿分数。",
     consequencesTitle: "权衡信号",
     noConsequences: "继续调整权重。你的画像越鲜明，这里出现的主要权衡就越清楚。",
     resultsTitle: "最接近的匹配",
-    resultsBody: "在基线状态下你看到的是官方 SLIC 排名。一旦你移动滑块，工作台就会切换成对完整 200 城市索引场的画像匹配。",
-    bestMatchTitle: "当前最佳匹配",
-    bestMatchBody: "下面领先的城市，是与你当前五维画像形状最接近的城市。",
-    fitScore: "画像匹配分",
+    resultsBody: "在基线状态下你看到的是已发布的 SLIC 顺序。一旦你移动滑块，工作台就会切换成索引城市场中的画像匹配。",
+    bestMatchTitle: "当前最高结果",
+    bestMatchBody: "下面领先的城市，是与当前五支柱画像最接近的结果。",
+    fitScore: "当前分数",
     baseRank: "基础排名",
     citiesLabel: "城市可见",
     top10: "前10",
@@ -465,7 +435,7 @@ export default function RankingsPage({
   onNavigate,
   locale,
 }: {
-  onNavigate: (path: SitePath) => void;
+  onNavigate: (path: SitePath | string) => void;
   locale: Locale;
 }) {
   const ui = interactiveCopy[locale];
@@ -542,7 +512,6 @@ export default function RankingsPage({
 
   const displayResults = showCountValue >= results.length ? results : results.slice(0, showCountValue);
   const featuredCity = displayResults[0] ?? null;
-  const spotlightCities = displayResults.slice(1, Math.min(displayResults.length, 5));
 
 
   const handleReset = () => {
@@ -714,36 +683,32 @@ export default function RankingsPage({
                 <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   {displayResults.map((city, index) => {
                     const pillarScores = {
-                      pressure: city.pressureScore,
-                      viability: city.viabilityScore,
-                      capability: city.capabilityScore,
-                      community: city.communityScore,
-                      creative: city.creativeScore,
+                      pressure: city.scores.pressure,
+                      viability: city.scores.viability,
+                      capability: city.scores.capability,
+                      community: city.scores.community,
+                      creative: city.scores.creative,
                     };
                     const isTop = index < 3;
                     return (
                       <a
-                        key={city.cityId}
+                        key={city.id}
                         className={`rankings-city-row${isTop ? " is-top" : ""}`}
-                        href={`/city/${city.cityId}`}
-                        onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
+                        href={`/city/${city.id}`}
+                        onClick={(event) => navigateLink(event, onNavigate, `/city/${city.id}`)}
                         style={{ cursor: "pointer" }}
                       >
                         <div style={{ minWidth: 0 }}>
                           <div className="city-name-row">
-                            <span className="city-display-name">{city.displayName}</span>
+                            <span className="city-display-name">{city.name}</span>
                             <span className="city-country">{city.country}</span>
                           </div>
                           <div className="rankings-pillar-bars">
-                            {PILLAR_ORDER.map((pid) => {
-                              const covKey = `${pid}Coverage` as keyof PublishedCity;
-                              const cov = city[covKey] as number | undefined;
-                              return (
-                                <div key={pid}>
-                                  <div style={{ width: `${pillarScores[pid]}%`, background: PILLAR_COLORS[pid], opacity: coverageOpacity(cov) }} />
-                                </div>
-                              );
-                            })}
+                            {PILLAR_ORDER.map((pid) => (
+                              <div key={pid}>
+                                <div style={{ width: `${pillarScores[pid]}%`, background: PILLAR_COLORS[pid] }} />
+                              </div>
+                            ))}
                           </div>
                         </div>
                         <span className="city-tier-arrow">&#8250;</span>
@@ -763,7 +728,7 @@ export default function RankingsPage({
                   >
                     {ui.reviewMethodology}
                   </a>
-                  <a className="secondary-action" href="/downloads/slic-google-sheets-template.xlsx" download>
+                  <a className="secondary-action" href={`${BASE}/downloads/slic-google-sheets-template.xlsx`} download>
                     {ui.downloadSheet}
                   </a>
                 </div>
