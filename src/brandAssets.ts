@@ -37,10 +37,10 @@ export const collaborationLogos: BrandAsset[] = [
     height: 1182,
   },
   {
-    name: "ReTL",
-    src: "/Logos/retl_logo.png",
-    alt: "ReTL — The Reason to Live Company",
-    width: 1125,
-    height: 1093,
+    name: "Axiom × ReTL",
+    src: "/Logos/axiom_retl_logo.png",
+    alt: "Axiom × ReTL",
+    width: 528,
+    height: 266,
   },
 ];

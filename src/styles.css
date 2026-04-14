@@ -2204,7 +2204,8 @@ section[id] {
 @media (max-width: 760px) {
   .hero,
   .methodology-hero,
-  .rankings-hero {
+  .rankings-hero,
+  .history-page {
     padding-top: 5rem;
   }
 }
@@ -2332,6 +2333,11 @@ section[id] {
 
 .paper-visual-strip .photo-frame img {
   aspect-ratio: 4 / 3;
+}
+
+.paper-visual-strip .methodology-figure img {
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 .benchmark-strip {
@@ -3188,6 +3194,11 @@ section[id] {
 
 .methodology-figure {
   margin: 0;
+}
+
+.methodology-figure img {
+  aspect-ratio: auto;
+  object-fit: contain;
 }
 
 .worked-example-grid {
@@ -5998,6 +6009,7 @@ section[id] {
 .history-page {
   max-width: 900px;
   margin: 0 auto;
+  padding-top: 8rem;
 }
 
 .history-title {
