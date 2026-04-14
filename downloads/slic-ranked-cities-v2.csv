@@ -1,94 +1,158 @@
 rank,cityId,displayName,country,region,cityType,slicScore,pressureScore,viabilityScore,capabilityScore,communityScore,creativeScore,coverageGrade,overallWeightedCoverage,rankingStatus
-1,nl-amsterdam,Amsterdam,Netherlands,"Western, Northern, and Southern Europe",primary,77.5,68.9,98.2,87.8,66.6,64.6,B,0.6,Ranked
-1,nl-eindhoven,Eindhoven,Netherlands,"Western, Northern, and Southern Europe",secondary,77.5,68.9,98.2,87.8,66.6,64.6,B,0.6,Ranked
-3,dk-copenhagen,Copenhagen,Denmark,"Western, Northern, and Southern Europe",primary,76.2,54.8,98.5,82.6,65.6,80.6,B,0.6,Ranked
-4,fi-helsinki,Helsinki,Finland,"Western, Northern, and Southern Europe",secondary,74.1,59.1,92.0,94.8,60.6,64.8,B,0.6,Ranked
-5,ae-abu-dhabi,Abu Dhabi,United Arab Emirates,Middle East,primary,74.0,49.1,93.2,77.6,100.0,61.0,B,0.6,Ranked
-5,ae-dubai,Dubai,United Arab Emirates,Middle East,primary,74.0,49.1,93.2,77.6,100.0,61.0,B,0.6,Ranked
-7,us-chicago,Chicago,United States,North America,primary,73.7,60.0,85.4,76.1,54.8,89.9,B,0.6,Ranked
-7,us-minneapolis,Minneapolis,United States,North America,primary,73.7,60.0,85.4,76.1,54.8,89.9,B,0.6,Ranked
-7,us-pittsburgh,Pittsburgh,United States,North America,secondary,73.7,60.0,85.4,76.1,54.8,89.9,B,0.6,Ranked
-7,us-raleigh,Raleigh,United States,North America,secondary,73.7,60.0,85.4,76.1,54.8,89.9,B,0.6,Ranked
-11,at-graz,Graz,Austria,"Western, Northern, and Southern Europe",secondary,72.6,62.5,87.5,84.1,57.3,69.8,B,0.6,Ranked
-11,at-vienna,Vienna,Austria,"Western, Northern, and Southern Europe",primary,72.6,62.5,87.5,84.1,57.3,69.8,B,0.6,Ranked
-13,sg-singapore,Singapore,Singapore,Southeast Asia,primary,71.7,38.2,87.7,94.7,72.8,74.7,B,0.6,Ranked
-14,ch-zurich,Zurich,Switzerland,"Western, Northern, and Southern Europe",primary,71.5,39.5,97.7,79.4,64.5,80.7,B,0.6,Ranked
-15,au-adelaide,Adelaide,Australia,Oceania,secondary,71.1,55.1,90.3,93.5,64.4,54.6,B,0.6,Ranked
-15,au-brisbane,Brisbane,Australia,Oceania,primary,71.1,55.1,90.3,93.5,64.4,54.6,B,0.6,Ranked
-15,au-hobart,Hobart,Australia,Oceania,secondary,71.1,55.1,90.3,93.5,64.4,54.6,B,0.6,Ranked
-15,au-melbourne,Melbourne,Australia,Oceania,primary,71.1,55.1,90.3,93.5,64.4,54.6,B,0.6,Ranked
-15,au-perth,Perth,Australia,Oceania,secondary,71.1,55.1,90.3,93.5,64.4,54.6,B,0.6,Ranked
-15,au-sydney,Sydney,Australia,Oceania,primary,71.1,55.1,90.3,93.5,64.4,54.6,B,0.6,Ranked
-21,ca-montreal,Montreal,Canada,North America,secondary,69.7,55.5,94.1,85.1,65.2,50.1,B,0.6,Ranked
-21,ca-ottawa,Ottawa,Canada,North America,primary,69.7,55.5,94.1,85.1,65.2,50.1,B,0.6,Ranked
-21,ca-toronto,Toronto,Canada,North America,primary,69.7,55.5,94.1,85.1,65.2,50.1,B,0.6,Ranked
-21,ca-vancouver,Vancouver,Canada,North America,primary,69.7,55.5,94.1,85.1,65.2,50.1,B,0.6,Ranked
-25,nz-auckland,Auckland,New Zealand,Oceania,primary,68.5,54.9,93.2,86.4,68.0,42.4,B,0.6,Ranked
-25,nz-christchurch,Christchurch,New Zealand,Oceania,secondary,68.5,54.9,93.2,86.4,68.0,42.4,B,0.6,Ranked
-25,nz-dunedin,Dunedin,New Zealand,Oceania,secondary,68.5,54.9,93.2,86.4,68.0,42.4,B,0.6,Ranked
-25,nz-wellington,Wellington,New Zealand,Oceania,primary,68.5,54.9,93.2,86.4,68.0,42.4,B,0.6,Ranked
-29,il-haifa,Haifa,Israel,Middle East,secondary,68.1,69.0,86.7,66.5,35.5,72.5,B,0.6,Ranked
-29,il-tel-aviv,Tel Aviv,Israel,Middle East,primary,68.1,69.0,86.7,66.5,35.5,72.5,B,0.6,Ranked
-31,kr-busan,Busan,South Korea,East Asia,primary,67.8,22.2,99.2,93.0,54.4,77.9,B,0.6,Ranked
-31,kr-incheon,Incheon,South Korea,East Asia,primary,67.8,22.2,99.2,93.0,54.4,77.9,B,0.6,Ranked
-31,kr-jeju-city,Jeju City,South Korea,East Asia,secondary,67.8,22.2,99.2,93.0,54.4,77.9,B,0.6,Ranked
-34,it-bologna,Bologna,Italy,"Western, Northern, and Southern Europe",secondary,66.5,72.2,88.7,72.9,50.3,41.6,B,0.6,Ranked
-35,pt-braga,Braga,Portugal,"Western, Northern, and Southern Europe",secondary,66.2,58.7,96.3,75.3,49.2,47.2,B,0.6,Ranked
-35,pt-porto,Porto,Portugal,"Western, Northern, and Southern Europe",secondary,66.2,58.7,96.3,75.3,49.2,47.2,B,0.6,Ranked
-37,fr-lyon,Lyon,France,"Western, Northern, and Southern Europe",primary,65.5,49.4,98.1,73.0,48.4,55.8,B,0.6,Ranked
-37,fr-paris,Paris,France,"Western, Northern, and Southern Europe",primary,65.5,49.4,98.1,73.0,48.4,55.8,B,0.6,Ranked
-39,pl-gdansk,Gdansk,Poland,Southern/Eastern Europe and Eurasia,secondary,61.7,63.4,80.1,78.1,32.2,46.5,B,0.6,Ranked
-39,pl-katowice,Katowice,Poland,Southern/Eastern Europe and Eurasia,secondary,61.7,63.4,80.1,78.1,32.2,46.5,B,0.6,Ranked
-39,pl-krakow,Krakow,Poland,Southern/Eastern Europe and Eurasia,primary,61.7,63.4,80.1,78.1,32.2,46.5,B,0.6,Ranked
-39,pl-torun,Torun,Poland,Southern/Eastern Europe and Eurasia,secondary,61.7,63.4,80.1,78.1,32.2,46.5,B,0.6,Ranked
-43,jp-fukuoka,Fukuoka,Japan,East Asia,secondary,61.6,41.0,95.0,75.9,25.0,65.2,B,0.6,Ranked
-43,jp-hiroshima,Hiroshima,Japan,East Asia,primary,61.6,41.0,95.0,75.9,25.0,65.2,B,0.6,Ranked
-43,jp-kobe,Kobe,Japan,East Asia,secondary,61.6,41.0,95.0,75.9,25.0,65.2,B,0.6,Ranked
-43,jp-sapporo,Sapporo,Japan,East Asia,secondary,61.6,41.0,95.0,75.9,25.0,65.2,B,0.6,Ranked
-47,ar-buenos-aires,Buenos Aires,Argentina,Latin America,primary,61.5,81.2,70.5,74.3,62.2,14.8,B,0.6,Ranked
-47,ar-cordoba,Cordoba,Argentina,Latin America,secondary,61.5,81.2,70.5,74.3,62.2,14.8,B,0.6,Ranked
-49,cl-santiago,Santiago,Chile,Latin America,primary,60.5,60.5,73.9,79.2,67.3,23.6,B,0.6,Ranked
-49,cl-valparaiso,Valparaiso,Chile,Latin America,secondary,60.5,60.5,73.9,79.2,67.3,23.6,B,0.6,Ranked
-51,hu-budapest,Budapest,Hungary,Southern/Eastern Europe and Eurasia,primary,60.4,63.4,93.6,66.1,32.6,36.0,B,0.6,Ranked
-52,ee-tallinn,Tallinn,Estonia,"Western, Northern, and Southern Europe",secondary,59.9,61.6,90.7,68.8,27.7,40.1,B,0.6,Ranked
-53,sk-bratislava,Bratislava,Slovakia,Southern/Eastern Europe and Eurasia,secondary,59.7,63.7,90.2,66.0,34.1,34.7,B,0.6,Ranked
-54,ro-bucharest,Bucharest,Romania,Southern/Eastern Europe and Eurasia,primary,57.3,71.3,82.3,62.2,36.1,23.9,B,0.6,Ranked
-55,rs-belgrade,Belgrade,Serbia,Southern/Eastern Europe and Eurasia,primary,56.0,56.4,75.9,61.0,47.8,35.5,B,0.6,Ranked
-56,uy-montevideo,Montevideo,Uruguay,Latin America,secondary,54.7,57.9,62.5,73.7,48.8,29.3,B,0.6,Ranked
-57,qa-doha,Doha,Qatar,Middle East,primary,54.5,32.9,74.1,59.7,66.7,46.0,B,0.6,Ranked
-58,mu-port-louis,Port Louis,Mauritius,Africa,secondary,54.0,59.4,77.1,50.2,50.1,28.0,B,0.6,Ranked
-59,my-george-town,George Town,Malaysia,Southeast Asia,secondary,52.2,39.9,74.0,50.9,56.1,41.8,B,0.6,Ranked
-59,my-kuala-lumpur,Kuala Lumpur,Malaysia,Southeast Asia,primary,52.2,39.9,74.0,50.9,56.1,41.8,B,0.6,Ranked
-59,my-kuching,Kuching,Malaysia,Southeast Asia,secondary,52.2,39.9,74.0,50.9,56.1,41.8,B,0.6,Ranked
-62,it-milan,Milan,Italy,"Western, Northern, and Southern Europe",primary,51.9,72.2,50.7,37.9,50.3,41.6,B,0.6,Ranked
-63,ru-moscow,Moscow,Russia,Southern/Eastern Europe and Eurasia,primary,51.7,46.7,64.1,66.9,36.2,42.1,B,0.6,Ranked
-63,ru-nizhny-novgorod,Nizhny Novgorod,Russia,Southern/Eastern Europe and Eurasia,secondary,51.7,46.7,64.1,66.9,36.2,42.1,B,0.6,Ranked
-65,cr-san-jose,San Jose,Costa Rica,North America,primary,51.6,56.9,46.8,58.2,74.0,27.3,B,0.6,Ranked
-66,pa-panama-city,Panama City,Panama,North America,primary,49.9,74.8,46.8,51.8,46.7,23.0,B,0.6,Ranked
-67,br-curitiba,Curitiba,Brazil,Latin America,secondary,49.3,60.7,48.6,55.4,46.3,32.6,B,0.6,Ranked
-67,br-florianopolis,Florianopolis,Brazil,Latin America,secondary,49.3,60.7,48.6,55.4,46.3,32.6,B,0.6,Ranked
-67,br-sao-paulo,Sao Paulo,Brazil,Latin America,primary,49.3,60.7,48.6,55.4,46.3,32.6,B,0.6,Ranked
-70,rw-kigali,Kigali,Rwanda,Africa,primary,48.6,87.4,47.9,15.2,51.3,29.2,B,0.6,Ranked
-71,id-jakarta,Jakarta,Indonesia,Southeast Asia,primary,48.5,81.2,40.8,40.6,48.5,23.3,B,0.6,Ranked
-71,id-surabaya,Surabaya,Indonesia,Southeast Asia,secondary,48.5,81.2,40.8,40.6,48.5,23.3,B,0.6,Ranked
-73,pe-arequipa,Arequipa,Peru,Latin America,secondary,46.2,74.3,36.5,40.0,61.2,16.1,B,0.6,Ranked
-73,pe-lima,Lima,Peru,Latin America,primary,46.2,74.3,36.5,40.0,61.2,16.1,B,0.6,Ranked
-75,ph-cebu-city,Cebu City,Philippines,Southeast Asia,secondary,45.7,70.0,39.9,40.6,48.5,24.4,B,0.6,Ranked
-75,ph-makati,Makati,Philippines,Southeast Asia,primary,45.7,70.0,39.9,40.6,48.5,24.4,B,0.6,Ranked
-77,co-bogota,Bogota,Colombia,Latin America,primary,43.9,64.2,28.7,51.4,64.0,13.7,B,0.6,Ranked
-77,co-medellin,Medellin,Colombia,Latin America,secondary,43.9,64.2,28.7,51.4,64.0,13.7,B,0.6,Ranked
-79,in-bengaluru,Bengaluru,India,South Asia,primary,43.6,44.6,54.0,46.8,42.2,29.0,B,0.6,Ranked
-79,in-hyderabad,Hyderabad,India,South Asia,primary,43.6,44.6,54.0,46.8,42.2,29.0,B,0.6,Ranked
-79,in-pune,Pune,India,South Asia,primary,43.6,44.6,54.0,46.8,42.2,29.0,B,0.6,Ranked
-82,mx-guadalajara,Guadalajara,Mexico,North America,secondary,42.0,66.0,14.6,50.6,68.5,14.3,B,0.6,Ranked
-82,mx-merida,Merida,Mexico,North America,secondary,42.0,66.0,14.6,50.6,68.5,14.3,B,0.6,Ranked
-82,mx-mexico-city,Mexico City,Mexico,North America,primary,42.0,66.0,14.6,50.6,68.5,14.3,B,0.6,Ranked
-85,ke-nairobi,Nairobi,Kenya,Africa,primary,41.1,73.9,46.1,13.9,31.4,26.3,B,0.6,Ranked
-86,lk-colombo,Colombo,Sri Lanka,South Asia,primary,37.8,51.7,42.3,36.0,32.2,21.2,B,0.6,Ranked
-86,lk-kandy,Kandy,Sri Lanka,South Asia,secondary,37.8,51.7,42.3,36.0,32.2,21.2,B,0.6,Ranked
-88,na-windhoek,Windhoek,Namibia,Africa,secondary,34.8,52.2,33.0,17.4,45.6,22.3,B,0.6,Ranked
-89,za-cape-town,Cape Town,South Africa,Africa,primary,31.2,38.6,15.7,27.2,71.4,12.2,B,0.6,Ranked
-89,za-johannesburg,Johannesburg,South Africa,Africa,primary,31.2,38.6,15.7,27.2,71.4,12.2,B,0.6,Ranked
-91,pk-islamabad,Islamabad,Pakistan,South Asia,primary,30.6,60.6,34.4,19.3,14.7,10.8,B,0.6,Ranked
-91,pk-karachi,Karachi,Pakistan,South Asia,primary,30.6,60.6,34.4,19.3,14.7,10.8,B,0.6,Ranked
-91,pk-lahore,Lahore,Pakistan,South Asia,secondary,30.6,60.6,34.4,19.3,14.7,10.8,B,0.6,Ranked
+1,tw-kaohsiung,"Kaohsiung","Taiwan","East Asia",primary,67.6,52.4,87.4,90.6,70.2,42,A,0.8,Ranked
+2,tw-taipei,"Taipei","Taiwan","East Asia",primary,66.9,40.5,85.1,89.7,68.1,58.7,A,0.8,Ranked
+3,us-raleigh,"Raleigh","United States","North America",secondary,64,54.8,80.7,79.1,39.3,62,A,0.9,Ranked
+4,kr-busan,"Busan","South Korea","East Asia",primary,63.7,47.2,92.3,85.8,40.5,50.6,A,0.9,Ranked
+4,pl-katowice,"Katowice","Poland","Southern/Eastern Europe and Eurasia",secondary,63.7,65.7,79.5,65.1,64.9,41.9,A,0.9,Ranked
+6,jp-fukuoka,"Fukuoka","Japan","East Asia",secondary,62.4,50.7,92,67.4,46,52.3,A,0.9,Ranked
+7,th-bangkok,"Bangkok","Thailand","Southeast Asia",primary,61.8,56.4,85.7,61.4,88.3,22.8,A,1,Ranked
+8,fr-lyon,"Lyon","France","Western, Northern, and Southern Europe",primary,61.6,42.2,84.3,63.9,73.7,50.1,A,0.9,Ranked
+8,ca-montreal,"Montreal","Canada","North America",secondary,61.6,51.6,70.4,75.3,58.7,54.1,A,0.9,Ranked
+10,cl-santiago,"Santiago","Chile","Latin America",primary,61.3,54,78.6,83.8,43,44.6,A,0.9,Ranked
+11,us-pittsburgh,"Pittsburgh","United States","North America",secondary,61.2,56.3,66.3,79.1,39.3,62,A,0.9,Ranked
+12,jp-kobe,"Kobe","Japan","East Asia",secondary,61.1,49.5,94.6,67.4,42,47.3,A,0.9,Ranked
+13,us-minneapolis,"Minneapolis","United States","North America",primary,60.6,52.4,68.1,79.1,39.3,62,A,0.9,Ranked
+14,il-haifa,"Haifa","Israel","Middle East",secondary,60.3,54.5,89.2,64.7,29.8,54.7,A,0.9,Ranked
+15,kr-suwon,"Suwon","South Korea","East Asia",primary,60.2,41.3,86.1,85.8,35.8,50.6,A,1,Ranked
+16,ca-ottawa,"Ottawa","Canada","North America",primary,60,47,68.6,75.3,58.7,54.1,A,0.9,Ranked
+17,cl-valparaiso,"Valparaiso","Chile","Latin America",secondary,59.8,55,72.7,83.8,40,44.6,A,0.9,Ranked
+18,it-milan,"Milan","Italy","Western, Northern, and Southern Europe",primary,59.5,72.2,76.4,66.9,45,29.4,A,1,Ranked
+19,nl-eindhoven,"Eindhoven","Netherlands","Western, Northern, and Southern Europe",secondary,59.3,53.2,75.1,71.8,53.2,42.8,A,0.9,Ranked
+20,at-graz,"Graz","Austria","Western, Northern, and Southern Europe",secondary,59.2,47.3,71.8,74.4,66.2,41.4,A,0.9,Ranked
+21,pt-braga,"Braga","Portugal","Western, Northern, and Southern Europe",secondary,59.1,52.5,84.6,68.8,41.7,43.8,A,0.9,Ranked
+21,il-tel-aviv,"Tel Aviv","Israel","Middle East",primary,59.1,46.2,91,64.7,32.8,54.7,A,0.9,Ranked
+23,us-chicago,"Chicago","United States","North America",primary,58.9,42.5,71.7,79.1,39.3,62,A,0.9,Ranked
+24,pt-porto,"Porto","Portugal","Western, Northern, and Southern Europe",secondary,58.8,48.2,88.2,68.8,41.7,43.8,A,0.9,Ranked
+25,ee-tallinn,"Tallinn","Estonia","Western, Northern, and Southern Europe",secondary,58.7,47.5,59.3,58.4,58.1,72.8,A,0.9,Ranked
+25,pl-torun,"Torun","Poland","Southern/Eastern Europe and Eurasia",secondary,58.7,62.3,79.5,65.1,49.9,31.9,A,0.9,Ranked
+27,kr-incheon,"Incheon","South Korea","East Asia",primary,58.6,41.3,86,85.8,25.5,50.6,A,0.9,Ranked
+27,sg-singapore,"Singapore","Singapore","Southeast Asia",primary,58.6,35.2,74.8,94.1,11.3,73.3,A,0.9,Ranked
+29,ch-zurich,"Zurich","Switzerland","Western, Northern, and Southern Europe",primary,58.4,32.3,78.6,72.7,66.8,49.4,A,0.9,Ranked
+30,dk-copenhagen,"Copenhagen","Denmark","Western, Northern, and Southern Europe",primary,58.3,37.6,61.8,71.3,67.8,61.5,A,0.9,Ranked
+31,sa-khobar,"Khobar","Saudi Arabia","Middle East",secondary,58,75,96.3,78.9,17.4,6.1,A,0.8,Ranked
+31,au-sydney,"Sydney","Australia","Oceania",primary,58,22.4,94.1,87.1,40.5,49.7,A,0.9,Ranked
+33,sa-jeddah,"Jeddah","Saudi Arabia","Middle East",secondary,57.6,73.7,96.3,78.9,17.4,6.1,A,0.8,Ranked
+34,au-brisbane,"Brisbane","Australia","Oceania",primary,57.5,28.8,94.1,87.1,37.5,41.7,A,0.9,Ranked
+35,at-vienna,"Vienna","Austria","Western, Northern, and Southern Europe",primary,57.2,37.5,73.6,74.4,66.2,41.4,A,0.9,Ranked
+36,au-melbourne,"Melbourne","Australia","Oceania",primary,56.9,30.8,82.9,87.1,39.5,46.7,A,0.9,Ranked
+36,au-perth,"Perth","Australia","Oceania",secondary,56.9,28.9,94.1,87.1,35.5,39.7,A,0.9,Ranked
+38,bh-manama,"Manama","Bahrain","Middle East",secondary,56.8,70.1,52.6,57.8,41.7,55.5,A,0.8,Ranked
+39,au-adelaide,"Adelaide","Australia","Oceania",secondary,56.3,31.1,91.9,87.1,35.5,36.7,A,0.9,Ranked
+40,ca-toronto,"Toronto","Canada","North America",primary,56.1,28.2,72.2,75.3,58.7,54.1,A,0.9,Ranked
+41,pr-san-juan,"San Juan","Puerto Rico","North America",secondary,55.9,48.9,59.2,68.3,61.2,45.8,B,0.6,Ranked
+42,nl-amsterdam,"Amsterdam","Netherlands","Western, Northern, and Southern Europe",primary,55.7,38.8,75.1,71.8,53.2,42.8,A,0.9,Ranked
+43,cn-tianjin,"Tianjin","China","East Asia",secondary,55.5,57,76.7,71.9,26.5,37.1,A,0.9,Ranked
+44,jp-hiroshima,"Hiroshima","Japan","East Asia",primary,55.4,45.7,94.6,67.4,24,37.3,A,0.9,Ranked
+44,fr-paris,"Paris","France","Western, Northern, and Southern Europe",primary,55.4,28.9,78.9,63.9,68.7,45.1,A,0.9,Ranked
+46,pl-gdansk,"Gdansk","Poland","Southern/Eastern Europe and Eurasia",secondary,55.2,57.3,61.5,65.1,54.9,36.9,A,0.9,Ranked
+47,ca-vancouver,"Vancouver","Canada","North America",primary,55,22.3,74,75.3,58.7,54.1,A,0.9,Ranked
+48,sk-bratislava,"Bratislava","Slovakia","Southern/Eastern Europe and Eurasia",secondary,54.7,54.7,75.3,49.7,56.2,35.3,A,0.9,Ranked
+48,kr-jeju-city,"Jeju City","South Korea","East Asia",secondary,54.7,35.1,88.7,85.8,25.5,35.6,A,0.9,Ranked
+48,pl-krakow,"Krakow","Poland","Southern/Eastern Europe and Eurasia",primary,54.7,52.3,65.1,65.1,54.9,36.9,A,0.9,Ranked
+51,th-chiang-mai,"Chiang Mai","Thailand","Southeast Asia",secondary,54.6,61.9,60.7,56.4,73.9,22.8,A,0.9,Ranked
+51,mu-port-louis,"Port Louis","Mauritius","Africa",secondary,54.6,66,76.2,47,25.3,45.4,A,0.8,Ranked
+53,it-bologna,"Bologna","Italy","Western, Northern, and Southern Europe",secondary,54.1,49.2,77.9,66.9,45,29.4,A,0.9,Ranked
+54,my-kota-kinabalu,"Kota Kinabalu","Malaysia","Southeast Asia",secondary,53.8,67.3,75.4,52.4,31.4,31.5,A,1,Ranked
+55,my-kuching,"Kuching","Malaysia","Southeast Asia",secondary,53.7,67.3,73.7,52.4,32.6,31.5,A,0.9,Ranked
+56,tw-taichung,"Taichung","Taiwan","East Asia",primary,53.2,67.8,,,0,74.7,Watchlist,0.1,Ranked
+57,my-melaka,"Melaka","Malaysia","Southeast Asia",secondary,53.1,68.2,70.5,52.4,31.7,31.5,A,1,Ranked
+58,my-george-town,"George Town","Malaysia","Southeast Asia",secondary,53,64.7,73.7,52.4,32.6,31.5,A,0.9,Ranked
+58,jp-sapporo,"Sapporo","Japan","East Asia",secondary,53,45.7,76.7,67.4,34,37.3,A,0.9,Ranked
+60,om-salalah,"Salalah","Oman","Middle East",secondary,52.6,69.9,71.1,42,38.5,30.6,A,0.8,Ranked
+61,ar-cordoba,"Cordoba","Argentina","Latin America",secondary,52.3,59.5,69.2,78.6,40.6,10.1,A,0.8,Ranked
+61,ae-dubai,"Dubai","United Arab Emirates","Middle East",primary,52.3,55.8,61.9,62,48.9,31.2,A,0.9,Ranked
+61,cn-guangzhou,"Guangzhou","China","East Asia",primary,52.3,41.7,88,71.9,14.5,37.1,A,0.9,Ranked
+64,ae-abu-dhabi,"Abu Dhabi","United Arab Emirates","Middle East",primary,52.2,56.9,60.2,62,48.9,31.2,A,0.9,Ranked
+65,hu-budapest,"Budapest","Hungary","Southern/Eastern Europe and Eurasia",primary,52,41.5,79.3,55.5,59.6,26.2,A,0.9,Ranked
+65,uy-montevideo,"Montevideo","Uruguay","Latin America",secondary,52,50.5,61.5,74.6,50.5,24.3,A,0.9,Ranked
+67,cn-hangzhou,"Hangzhou","China","East Asia",primary,51.9,42.4,76.7,71.9,27.4,37.1,A,1,Ranked
+68,nz-auckland,"Auckland","New Zealand","Oceania",primary,51.7,20.2,82.6,85.7,40.7,35.1,A,0.9,Ranked
+69,cn-shenzhen,"Shenzhen","China","East Asia",primary,51.6,36.5,92.5,71.9,11.5,37.1,A,0.9,Ranked
+70,nz-christchurch,"Christchurch","New Zealand","Oceania",secondary,51.4,25.7,80.8,85.7,38.7,30.1,A,0.9,Ranked
+71,om-muscat,"Muscat","Oman","Middle East",secondary,51.2,64.3,71.1,42,38.5,30.6,A,0.8,Ranked
+72,mv-male,"Male","Maldives","South Asia",secondary,50.9,64.4,72.1,39.8,31.2,35.4,A,0.8,Ranked
+73,cr-san-jose,"San Jose","Costa Rica","North America",primary,50.8,49.6,56.1,66,46.7,35.8,A,0.9,Ranked
+74,ar-buenos-aires,"Buenos Aires","Argentina","Latin America",primary,50.3,49.4,71.4,78.6,40.6,10.1,A,0.9,Ranked
+74,cn-chongqing,"Chongqing","China","East Asia",primary,50.3,49.3,61.5,71.9,27.1,37.1,A,1,Ranked
+76,au-hobart,"Hobart","Australia","Oceania",secondary,50.1,29.1,71.6,87.1,33.5,31.7,A,0.9,Ranked
+77,cn-chengdu,"Chengdu","China","East Asia",primary,50,48.2,61.2,71.9,27.3,37.1,A,1,Ranked
+77,ge-tbilisi,"Tbilisi","Georgia","Southern/Eastern Europe and Eurasia",primary,50,59.7,58.9,33.1,,43.1,Watchlist,0.3,Ranked
+79,nz-dunedin,"Dunedin","New Zealand","Oceania",secondary,49.4,27.6,73.6,85.7,36.7,27.1,A,0.9,Ranked
+79,rw-kigali,"Kigali","Rwanda","Africa",primary,49.4,76.2,68,15.8,50.7,24.8,A,0.9,Ranked
+81,nz-wellington,"Wellington","New Zealand","Oceania",primary,49.2,20,77.2,85.7,38.7,30.1,A,0.9,Ranked
+82,ma-casablanca,"Casablanca","Morocco","Africa",primary,48.8,60,70.3,34.1,26.1,41.2,A,0.9,Ranked
+83,cn-shanghai,"Shanghai","China","East Asia",primary,48.7,33,83.5,71.9,11.5,37.1,A,0.9,Ranked
+84,ro-bucharest,"Bucharest","Romania","Southern/Eastern Europe and Eurasia",primary,48.6,50.8,71.7,50.6,26.8,34.8,A,0.9,Ranked
+85,my-kuala-lumpur,"Kuala Lumpur","Malaysia","Southeast Asia",primary,48.5,59.7,68.5,52.4,18.6,31.5,A,0.9,Ranked
+86,fi-helsinki,"Helsinki","Finland","Western, Northern, and Southern Europe",secondary,48.4,29.8,47.4,81,35.3,52.9,A,0.9,Ranked
+86,ug-kampala,"Kampala","Uganda","Africa",primary,48.4,54.6,,68.7,,22.4,Watchlist,0.3,Ranked
+88,rs-belgrade,"Belgrade","Serbia","Southern/Eastern Europe and Eurasia",primary,48.3,51.4,67.5,53.2,33.3,30.3,A,0.9,Ranked
+88,ec-cuenca,"Cuenca","Ecuador","Latin America",secondary,48.3,58.6,,78.8,,8,Watchlist,0.2,Ranked
+90,pa-panama-city,"Panama City","Panama","North America",primary,48,59.1,52.7,64.2,31.5,26.9,A,0.9,Ranked
+91,br-curitiba,"Curitiba","Brazil","Latin America",secondary,47.3,59.5,49.9,69.5,22.9,27.5,A,0.9,Ranked
+91,sa-riyadh,"Riyadh","Saudi Arabia","Middle East",primary,47.3,72.3,54.2,78.9,15.4,4.1,A,0.8,Ranked
+93,co-medellin,"Medellin","Colombia","Latin America",secondary,46.8,55.6,53.2,66.3,35.6,19.6,A,0.9,Ranked
+94,py-asuncion,"Asuncion","Paraguay","Latin America",primary,46.7,52,,74.7,,14.9,Watchlist,0.3,Ranked
+94,ma-rabat,"Rabat","Morocco","Africa",primary,46.7,61,59.9,34.1,26.1,41.2,A,0.8,Ranked
+96,es-valencia,"Valencia","Spain","Western, Northern, and Southern Europe",primary,46.5,43.6,100,31.1,12.9,30.4,C,0.4,Ranked
+97,th-hat-yai,"Hat Yai","Thailand","Southeast Asia",secondary,46.2,50.2,62.8,56.4,33.9,22.8,A,0.9,Ranked
+98,vn-da-nang,"Da Nang","Vietnam","Southeast Asia",secondary,46.1,69.6,,44.3,43,20.7,C,0.4,Ranked
+98,ru-nizhny-novgorod,"Nizhny Novgorod","Russia","Southern/Eastern Europe and Eurasia",secondary,46.1,62.4,62.4,59.2,20.1,15.5,A,0.9,Ranked
+100,th-phuket,"Phuket","Thailand","Southeast Asia",secondary,46,44.7,68.4,56.4,33.9,22.8,A,0.9,Ranked
+101,br-florianopolis,"Florianopolis","Brazil","Latin America",secondary,45.9,58.1,45.1,69.5,22.9,27.5,A,0.9,Ranked
+102,br-sao-paulo,"Sao Paulo","Brazil","Latin America",primary,45.8,50.3,53.5,69.5,22.9,27.5,A,0.9,Ranked
+103,jo-amman,"Amman","Jordan","Middle East",secondary,45.7,48.6,71.6,46.5,8.5,40.8,A,0.9,Ranked
+104,jo-aqaba,"Aqaba","Jordan","Middle East",secondary,45.4,52.2,66,46.5,8.5,40.8,A,0.8,Ranked
+105,hr-zagreb,"Zagreb","Croatia","Southern/Eastern Europe and Eurasia",primary,44.1,60.5,48.6,17.8,,42.3,Watchlist,0.3,Ranked
+106,kh-phnom-penh,"Phnom Penh","Cambodia","Southeast Asia",primary,43.1,66.5,,18.2,,36.3,Watchlist,0.3,Ranked
+107,tz-dar-es-salaam,"Dar es Salaam","Tanzania","Africa",primary,42.8,54.6,,59.8,,12.7,Watchlist,0.2,Ranked
+108,pe-arequipa,"Arequipa","Peru","Latin America",secondary,42.6,67.7,34.1,42.3,37.6,24.7,A,0.8,Ranked
+109,id-surabaya,"Surabaya","Indonesia","Southeast Asia",secondary,42.5,79.4,40.8,35.1,25.6,17.7,A,0.9,Ranked
+110,co-bogota,"Bogota","Colombia","Latin America",primary,41.9,50.2,37,66.3,35.6,19.6,A,0.9,Ranked
+111,ph-cebu-city,"Cebu City","Philippines","Southeast Asia",secondary,41.8,74.2,38.2,40.4,27,17.5,A,0.9,Ranked
+112,ke-nairobi,"Nairobi","Kenya","Africa",primary,41.6,64.3,69.1,12.5,34.2,14.5,A,0.9,Ranked
+113,in-pune,"Pune","India","South Asia",primary,41.4,58.6,67.7,30.4,23.2,14.6,A,0.9,Ranked
+114,pe-lima,"Lima","Peru","Latin America",primary,41,61.3,34.1,42.3,37.6,24.7,A,0.8,Ranked
+115,ph-makati,"Makati","Philippines","Southeast Asia",primary,40.8,70.2,38.2,40.4,27,17.5,A,0.9,Ranked
+116,kw-kuwait-city,"Kuwait City","Kuwait","Middle East",secondary,40.7,65,45,65,16.7,1.9,A,0.8,Ranked
+117,ru-moscow,"Moscow","Russia","Southern/Eastern Europe and Eurasia",primary,40.6,40.6,62.4,59.2,20.1,15.5,A,0.9,Ranked
+118,in-hyderabad,"Hyderabad","India","South Asia",primary,40.3,58.7,62.3,30.4,23.2,14.6,A,0.9,Ranked
+119,mx-guadalajara,"Guadalajara","Mexico","North America",secondary,40.2,46.1,40,55.5,47,14.1,A,0.9,Ranked
+120,id-jakarta,"Jakarta","Indonesia","Southeast Asia",primary,40,74.2,45.3,35.1,10.6,17.7,A,0.9,Ranked
+120,bt-thimphu,"Thimphu","Bhutan","South Asia",secondary,40,60.6,47,25.2,20.1,34.7,A,0.9,Ranked
+122,cz-brno,"Brno","Czechia","Southern/Eastern Europe and Eurasia",secondary,39.8,67.6,38.3,0,,42.3,Watchlist,0.3,Ranked
+123,gh-accra,"Accra","Ghana","Africa",secondary,38.9,74.3,44,14.9,29.6,17.7,A,0.9,Ranked
+124,lt-vilnius,"Vilnius","Lithuania","Southern/Eastern Europe and Eurasia",primary,38.7,62.1,7.5,41.6,,41.4,Watchlist,0.3,Ranked
+125,gh-kumasi,"Kumasi","Ghana","Africa",secondary,38.3,79.1,35.9,14.9,29.6,17.7,A,0.9,Ranked
+126,eg-alexandria,"Alexandria","Egypt","Africa",primary,38.2,63.7,,11.3,,30.6,Watchlist,0.3,Ranked
+127,in-bengaluru,"Bengaluru","India","South Asia",primary,37.9,57.4,53.1,30.4,23.2,14.6,A,0.9,Ranked
+128,si-ljubljana,"Ljubljana","Slovenia","Southern/Eastern Europe and Eurasia",primary,37.6,63.1,43.4,0,,33.2,Watchlist,0.3,Ranked
+129,mx-mexico-city,"Mexico City","Mexico","North America",primary,37.4,36.4,38.2,55.5,47,14.1,A,0.9,Ranked
+129,na-windhoek,"Windhoek","Namibia","Africa",secondary,37.4,55.3,30.5,32.1,40.1,25.4,A,0.8,Ranked
+131,in-chandigarh,"Chandigarh","India","South Asia",primary,37.2,59,47.7,30.4,23.9,14.6,A,1,Ranked
+132,qa-doha,"Doha","Qatar","Middle East",primary,37,44.4,48,54.4,11.1,19.6,A,0.9,Ranked
+133,do-santo-domingo,"Santo Domingo","Dominican Republic","North America",primary,36.9,31.7,,53.7,,28.2,Watchlist,0.2,Ranked
+134,lk-kandy,"Kandy","Sri Lanka","South Asia",secondary,35.9,62.7,40.7,33.7,19.5,11.7,A,0.9,Ranked
+135,za-cape-town,"Cape Town","South Africa","Africa",primary,35.6,31.6,44.8,26.3,47.3,29.8,A,0.9,Ranked
+135,lv-riga,"Riga","Latvia","Southern/Eastern Europe and Eurasia",primary,35.6,62.5,2.3,33.5,,40.3,Watchlist,0.3,Ranked
+137,bd-chattogram,"Chattogram","Bangladesh","South Asia",secondary,35.5,65.2,48.3,10.8,23.3,15.7,A,0.9,Ranked
+137,bw-gaborone,"Gaborone","Botswana","Africa",secondary,35.5,49.7,31.9,22.2,28.6,39,A,0.9,Ranked
+139,lk-colombo,"Colombo","Sri Lanka","South Asia",primary,35.4,60.7,40.7,33.7,19.5,11.7,A,0.9,Ranked
+140,mx-merida,"Merida","Mexico","North America",secondary,35.2,49.8,13.3,55.5,47,14.1,A,0.9,Ranked
+141,bd-dhaka,"Dhaka","Bangladesh","South Asia",primary,35.1,63.4,48.3,10.8,23.3,15.7,A,0.9,Ranked
+142,za-johannesburg,"Johannesburg","South Africa","Africa",primary,34.8,31.7,41.2,26.3,47.3,29.8,A,0.9,Ranked
+143,fj-suva,"Suva","Fiji","Oceania",secondary,34.6,49.6,36.1,47.7,14.8,17.1,A,0.8,Ranked
+144,np-pokhara,"Pokhara","Nepal","South Asia",secondary,31.6,62.5,37.6,12.2,14.8,16.6,A,0.8,Ranked
+145,se-gothenburg,"Gothenburg","Sweden","Western, Northern, and Southern Europe",primary,31.5,42.6,7.5,14.5,26.1,63.3,C,0.4,Ranked
+146,np-kathmandu,"Kathmandu","Nepal","South Asia",secondary,31.1,60.4,37.6,12.2,14.8,16.6,A,0.8,Ranked
+147,ie-cork,"Cork","Ireland","Western, Northern, and Southern Europe",secondary,30.7,51.4,17.7,13.3,26.9,37.4,C,0.4,Ranked
+148,be-antwerp,"Antwerp","Belgium","Western, Northern, and Southern Europe",secondary,29.8,42.6,28,4.4,27.7,40.4,C,0.4,Ranked
+149,sn-dakar,"Dakar","Senegal","Africa",secondary,28.6,58.2,0.7,10.6,44.6,26.7,A,0.8,Ranked
+150,pk-karachi,"Karachi","Pakistan","South Asia",primary,27.8,59.3,32.7,8.1,22.8,4.3,A,0.9,Ranked
+150,pk-lahore,"Lahore","Pakistan","South Asia",secondary,27.8,59.5,32.7,8.1,22.8,4.3,A,0.9,Ranked
+152,pk-islamabad,"Islamabad","Pakistan","South Asia",primary,27.6,58.6,32.7,8.1,22.8,4.3,A,0.9,Ranked
+153,de-munich,"Munich","Germany","Western, Northern, and Southern Europe",primary,26.9,4.5,48.6,27.1,19.7,36.2,C,0.4,Ranked
+154,no-bergen,"Bergen","Norway","Western, Northern, and Southern Europe",secondary,24.7,44.6,0,3.2,21.7,48.8,C,0.4,Ranked
+155,vu-port-vila,"Port Vila","Vanuatu","Oceania",primary,20.8,22.1,,26.7,,13.9,Watchlist,0.2,Ranked
+156,ws-apia,"Apia","Samoa","Oceania",primary,16.5,27.9,,,,2.2,Watchlist,0.2,Ranked
+157,pg-port-moresby,"Port Moresby","Papua New Guinea","Oceania",primary,5.7,10.3,,,,0,Watchlist,0.2,Ranked
