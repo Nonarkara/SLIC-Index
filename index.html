@@ -17,6 +17,22 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%231a6b5a'/%3E%3Ctext x='50' y='50' font-size='60' font-weight='bold' dominant-baseline='central' text-anchor='middle' fill='%23ffffff' font-family='Georgia, serif'%3ES%3C/text%3E%3C/svg%3E" />
+    <!-- GitHub Pages SPA: restore path from 404.html redirect -->
+    <script>
+      (function() {
+        var qs = window.location.search;
+        if (qs.indexOf('?p=') === 0) {
+          var decoded = decodeURIComponent(qs.slice(3));
+          var hashIdx = decoded.indexOf('#');
+          var hash = hashIdx !== -1 ? decoded.slice(hashIdx) : '';
+          var pathAndQuery = hashIdx !== -1 ? decoded.slice(0, hashIdx) : decoded;
+          var qIdx = pathAndQuery.indexOf('&');
+          var path = '/' + (qIdx !== -1 ? pathAndQuery.slice(0, qIdx) : pathAndQuery);
+          var query = qIdx !== -1 ? '?' + pathAndQuery.slice(qIdx + 1) : '';
+          window.history.replaceState(null, null, path + query + hash);
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>
