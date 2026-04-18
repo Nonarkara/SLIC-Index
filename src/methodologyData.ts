@@ -639,9 +639,9 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "disposable-income",
               title: "Tax-adjusted PPP disposable income",
               formula:
-                "DI(c) = (GrossIncome(c) x (1 - TaxRate(country(c)))) - Rent(c) - Utilities(c) - Transit(c) - Internet(c) - Food(c)",
+                "DI_ppp(c) = ((GrossIncome(c) x (1 - TaxRate(country(c)))) - Rent(c) - Utilities(c) - Transit(c) - Internet(c) - Food(c)) / PPPPrivateConsumptionFactor(country(c))",
               explanation:
-                "This is the core room-to-live term. It converts post-tax money left after essentials into comparable purchasing-power space.",
+                "This is the core room-to-live term. It converts post-tax money left after essentials into comparable purchasing-power space once, explicitly, inside the metric.",
               citations: [2, 7],
             },
           ],
@@ -727,7 +727,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         { symbol: "alpha_(p,m)", definition: "Metric weight inside a pillar", explanation: "How strongly metric m contributes to pillar p." },
         { symbol: "gamma_m", definition: "Coverage weight", explanation: "Importance weight used for missing-data coverage tests." },
         { symbol: "w_p", definition: "Public pillar weight", explanation: "Fixed public weight applied to each pillar in the final score." },
-        { symbol: "DI(c)", definition: "Disposable income", explanation: "Post-tax income minus essential costs (rent, utilities, transit, internet, food). V3 removed PPP division — income data is already in comparable USD." },
+        { symbol: "DI_ppp(c)", definition: "PPP-adjusted disposable income", explanation: "Post-tax income minus essential costs, converted once through the PPP private-consumption factor so purchasing room is comparable across cities." },
       ],
     },
     workedExampleSection: {
@@ -745,16 +745,16 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { label: "PPP factor", value: "15.3", note: "World Bank PPP private consumption conversion" },
           { label: "Climate sunlight", value: "82", note: "Subtropical warmth, good sunshine hours" },
           { label: "Birth rate (TFR)", value: "1.09", note: "National fertility rate" },
-          { label: "Illustrative pillar bundle", value: "Pressure 78 / Viability 80 / Capability 74 / Community 72 / Creative 73", note: "Values after internal metric aggregation" },
+          { label: "Illustrative pillar bundle", value: "Pressure 78.1 / Viability 80 / Capability 74 / Community 72 / Creative 73", note: "Values after internal metric aggregation" },
         ],
         steps: [
           {
-            title: "Disposable room after tax and essentials",
+            title: "PPP-adjusted room after tax and essentials",
             formula:
-              "DI = (55,000 x (1 - 0.12)) - 28,000 = 20,400 USD/year",
-            result: "DI = 1,700 USD/month disposable",
+              "DI_ppp = ((55,000 x (1 - 0.12)) - 28,000) / 15.3",
+            result: "DI_ppp = 1,333 PPP-adjusted USD/month",
             explanation:
-              "This converts residual income into PPP terms so money left after essentials is comparable across cities.",
+              "Residual income is converted through the PPP private-consumption factor once so comparable purchasing room can be scored across cities.",
           },
           {
             title: "Negative-metric normalization example",
@@ -767,16 +767,16 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           {
             title: "Pressure pillar aggregation",
             formula:
-              "Pressure = (9x85 + 5x72 + 4x68 + 4x78 + 5x62) / 27",
-            result: "Pressure = 75.6",
+              "Pressure = (4x85 + 8x75 + 6x78 + 4x78 + 7x76 + 7x80) / 36",
+            result: "Pressure = 78.1",
             explanation:
-              "Internal metric weights sum to 27, then collapse to a single public pillar score.",
+              "Internal metric weights sum to 36, then collapse to a single public pillar score.",
           },
           {
             title: "Final public score",
             formula:
-              "SLIC = 0.25x78 + 0.22x80 + 0.18x74 + 0.15x72 + 0.20x73",
-            result: "SLIC = 75.82",
+              "SLIC = 0.25x78.1 + 0.22x80 + 0.18x74 + 0.15x72 + 0.20x73",
+            result: "SLIC = 75.85",
             explanation:
               "The five public pillars are combined once, with fixed public weights and no hidden override layer.",
           },
@@ -844,7 +844,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "Working time pressure", weight: 7, description: "Average weekly hours worked. Sustained 45+ hour norms usually indicate high time pressure and less residual time outside work.", inputs: ["weekly hours", "overwork share"] },
           { name: "Suicide and severe mental strain", weight: 7, description: "Suicide rate per 100k. A severe pressure indicator used here as a public-health signal of urban strain.", inputs: ["age-standardized suicide rate"] },
           { name: "Economic growth momentum", weight: 6, description: "GDP growth rate. Included as a forward-looking signal of economic momentum; lower-growth contexts tend to offer fewer expansion opportunities.", inputs: ["GDP growth %", "country context"] },
-          { name: "Tax-adjusted disposable income", weight: 4, description: "Residual money after tax and essential costs. V3 no longer divides by PPP — income and costs are already comparable in USD.", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food"] },
+          { name: "Tax-adjusted disposable income", weight: 4, description: "Residual money after tax and essential costs, converted once through the PPP private-consumption factor so purchasing room is comparable across cities.", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
           { name: "Household debt burden", weight: 4, description: "Debt relative to income. High leverage suggests more fragile household resilience.", inputs: ["household debt proxy"] },
         ],
       },
@@ -959,8 +959,8 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         citations: [],
       },
       {
-        title: "V3: PPP double-adjustment removed",
-        body: "V2 divided disposable income by the PPP factor, but income data was already in comparable USD. That double-adjustment suppressed scores in lower-cost cities (Bangkok's disposable income dropped from $809 to $69). V3 removes the extra PPP division and lets the normalization layer handle cross-city comparison.",
+        title: "V3: PPP conversion is explicit and applied once",
+        body: "SLIC converts residual income through the PPP private-consumption factor once, inside the disposable-income metric. That keeps cross-country money comparisons comparable without introducing any second hidden adjustment elsewhere in the score.",
         citations: [],
       },
     ],
@@ -1183,9 +1183,9 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "disposable-income-th",
               title: "รายได้ใช้สอยจริงแบบ PPP หลังภาษี",
               formula:
-                "DI(c) = (GrossIncome(c) x (1 - TaxRate(country(c)))) - Rent(c) - Utilities(c) - Transit(c) - Internet(c) - Food(c)",
+                "DI_ppp(c) = ((GrossIncome(c) x (1 - TaxRate(country(c)))) - Rent(c) - Utilities(c) - Transit(c) - Internet(c) - Food(c)) / PPPPrivateConsumptionFactor(country(c))",
               explanation:
-                "นี่คือตัวแปรหลักของพื้นที่ชีวิตจริง เปลี่ยนเงินที่เหลือหลังภาษีและค่าใช้จ่ายจำเป็นให้เทียบกันข้ามเมืองได้",
+                "นี่คือตัวแปรหลักของพื้นที่ชีวิตจริง โดยแปลงเงินที่เหลือหลังภาษีและค่าใช้จ่ายจำเป็นผ่าน PPP เพียงครั้งเดียวเพื่อให้เทียบกำลังซื้อกันข้ามเมืองได้",
               citations: [2, 7],
             },
           ],
@@ -1302,9 +1302,9 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           },
           {
             title: "การรวมคะแนนภายในเสาแรงกดดัน",
-            formula: "Pressure = (9x82 + 5x64 + 4x61 + 4x74 + 3x58) / 25",
-            result: "Pressure = 70.9",
-            explanation: "น้ำหนักตัวแปรภายในเสารวมกันเป็น 25 ก่อนยุบเป็นคะแนนเสาหลักเดียว",
+            formula: "Pressure = (4x82 + 8x68 + 6x76 + 4x61 + 7x74 + 7x67) / 36",
+            result: "Pressure = 71.1",
+            explanation: "น้ำหนักตัวแปรภายในเสารวมกันเป็น 36 ก่อนยุบเป็นคะแนนเสาหลักเดียว",
           },
           {
             title: "คะแนนสาธารณะสุดท้าย",
@@ -1369,11 +1369,12 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         justification: "เสานี้วัดพลังเศรษฐกิจและผลกระทบต่อชีวิตจริงของคนเมือง",
         citations: [2, 3, 7],
         metrics: [
-          { name: "รายได้ใช้สอยจริงแบบ PPP หลังภาษี", weight: 9, description: "เงินคงเหลือหลังภาษีและค่าใช้จ่ายจำเป็น แปลงเป็น PPP", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
-          { name: "ภาระที่อยู่อาศัย", weight: 5, description: "สัดส่วนต้นทุนที่อยู่อาศัยต่อรายได้ครัวเรือนหรือรายได้ของคนเริ่มทำงาน", inputs: ["median rent", "housing-cost share"] },
+          { name: "ภาระที่อยู่อาศัย", weight: 8, description: "สัดส่วนต้นทุนที่อยู่อาศัยต่อรายได้ครัวเรือนหรือรายได้ของคนเริ่มทำงาน", inputs: ["median rent", "housing-cost share"] },
+          { name: "แรงกดดันจากชั่วโมงงาน", weight: 7, description: "ชั่วโมงงานเฉลี่ยและสัดส่วนการทำงานเกิน 48 ชั่วโมง", inputs: ["weekly hours", "overwork share"] },
+          { name: "การฆ่าตัวตายและภาวะเครียดรุนแรง", weight: 7, description: "การฆ่าตัวตายหรือ mental-harm proxy ที่ป้องกันเชิงวิชาการได้", inputs: ["suicide rate", "mental-health harm proxy"] },
+          { name: "โมเมนตัมการเติบโตทางเศรษฐกิจ", weight: 6, description: "อัตราการเติบโต GDP ใช้เป็นสัญญาณล่วงหน้าของแรงส่งทางเศรษฐกิจ", inputs: ["GDP growth %", "country context"] },
+          { name: "รายได้ใช้สอยจริงแบบ PPP หลังภาษี", weight: 4, description: "เงินคงเหลือหลังภาษีและค่าใช้จ่ายจำเป็น แปลงผ่าน PPP เพียงครั้งเดียวเพื่อให้เทียบกำลังซื้อข้ามเมืองได้", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
           { name: "ภาระหนี้ครัวเรือน", weight: 4, description: "หนี้เทียบกับรายได้ใช้สอยจริงหรือ proxy ที่ดีที่สุด", inputs: ["household debt", "disposable income"] },
-          { name: "แรงกดดันจากชั่วโมงงาน", weight: 4, description: "ชั่วโมงงานเฉลี่ยและสัดส่วนการทำงานเกิน 48 ชั่วโมง", inputs: ["weekly hours", "overwork share"] },
-          { name: "การฆ่าตัวตายและภาวะเครียดรุนแรง", weight: 3, description: "การฆ่าตัวตายหรือ mental-harm proxy ที่ป้องกันเชิงวิชาการได้", inputs: ["suicide rate", "mental-health harm proxy"] },
         ],
       },
       {
@@ -1389,6 +1390,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "อากาศสะอาด", weight: 4, description: "PM2.5 และการเผชิญมลพิษรุนแรง พร้อมข้อมูล CAMS และ OpenAQ", inputs: ["PM2.5", "exceedance", "aerosol context"] },
           { name: "น้ำ สุขาภิบาล และความเสถียรของสาธารณูปโภค", weight: 4, description: "น้ำสะอาด สุขาภิบาล และความต่อเนื่องของบริการพื้นฐาน", inputs: ["WASH access", "interruptions", "compliance"] },
           { name: "โครงสร้างพื้นฐานดิจิทัล", weight: 4, description: "คุณภาพอินเทอร์เน็ต ความสามารถในการจ่าย และความพร้อมด้านไฟเบอร์", inputs: ["fixed broadband", "affordability", "internet performance"] },
+          { name: "ความน่าอยู่ด้านภูมิอากาศและแสงแดด", weight: 7, description: "ตัวชี้วัดผสมของชั่วโมงแสงแดด ความสบายทางอุณหภูมิ และความเสี่ยงจากสภาพอากาศสุดขั้ว", inputs: ["sunshine hours", "temperature comfort", "extreme weather"] },
         ],
       },
       {
@@ -1412,9 +1414,10 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         justification: "นี่คือพื้นที่ที่เมืองที่เป็นมิตรสามารถชนะเมืองที่เย็นชาได้ แม้ทั้งคู่จะมีระบบจัดการที่ดี",
         citations: [1, 14, 16],
         metrics: [
-          { name: "การต้อนรับและความรู้สึกเป็นส่วนหนึ่ง", weight: 5, description: "ความรู้สึกต้อนรับ ความผูกพันของผู้อยู่อาศัย และการใช้งานหลายภาษา", inputs: ["social listening", "testimony audit", "multilingual services"] },
-          { name: "ความเปิดกว้างและพหุนิยม", weight: 5, description: "การอยู่ร่วมกันได้อย่างลื่นไหล การเข้าถึงตลาดอย่างเท่าเทียม และเสรีภาพในการใช้ชีวิต", inputs: ["legal openness", "discrimination proxy", "market-access signal"] },
-          { name: "ชีวิตสาธารณะและพลังทางวัฒนธรรม", weight: 5, description: "third places ความต่อเนื่องทางประวัติศาสตร์ และ visitor pull ที่ถูกตรวจด้วย civic strain", inputs: ["venues", "events", "public attention", "visitor flow"] },
+          { name: "ชีวิตสาธารณะและพลังทางวัฒนธรรม", weight: 7, description: "third places ความต่อเนื่องทางประวัติศาสตร์ และ visitor pull ที่ถูกตรวจด้วย civic strain", inputs: ["venues", "events", "public attention", "visitor flow"] },
+          { name: "การต้อนรับและความรู้สึกเป็นส่วนหนึ่ง", weight: 6, description: "ความรู้สึกต้อนรับ ความผูกพันของผู้อยู่อาศัย และการใช้งานหลายภาษา", inputs: ["social listening", "testimony audit", "multilingual services"] },
+          { name: "ความเปิดกว้างและพหุนิยม", weight: 4, description: "การอยู่ร่วมกันได้อย่างลื่นไหล การเข้าถึงตลาดอย่างเท่าเทียม และเสรีภาพในการใช้ชีวิต", inputs: ["legal openness", "discrimination proxy", "market-access signal"] },
+          { name: "ความเชื่อมั่นต่ออนาคตจากอัตราเกิด", weight: 2, description: "ใช้อัตราการเกิดรวมเป็นสัญญาณเชิงบริบทที่มีน้ำหนักเบา ไม่ใช่ตัวตัดสินหลักของคุณภาพชีวิตเมือง", inputs: ["World Bank TFR"] },
         ],
       },
       {
@@ -1689,9 +1692,9 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "disposable-income-zh",
               title: "税后 PPP 可支配生活空间",
               formula:
-                "DI(c) = (GrossIncome(c) x (1 - TaxRate(country(c)))) - Rent(c) - Utilities(c) - Transit(c) - Internet(c) - Food(c)",
+                "DI_ppp(c) = ((GrossIncome(c) x (1 - TaxRate(country(c)))) - Rent(c) - Utilities(c) - Transit(c) - Internet(c) - Food(c)) / PPPPrivateConsumptionFactor(country(c))",
               explanation:
-                "这是最核心的生活空间项：把税后扣除必需支出后的剩余收入，换算成可比较的 PPP 空间。",
+                "这是最核心的生活空间项：把税后扣除必需支出后的剩余收入通过 PPP 因子转换一次，得到可比较的购买力空间。",
               citations: [2, 7],
             },
           ],
@@ -1808,9 +1811,9 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           },
           {
             title: "压力支柱聚合",
-            formula: "Pressure = (9x82 + 5x64 + 4x61 + 4x74 + 3x58) / 25",
-            result: "Pressure = 70.9",
-            explanation: "内部指标权重先合并成一个公开支柱分数。",
+            formula: "Pressure = (4x82 + 8x68 + 6x76 + 4x61 + 7x74 + 7x67) / 36",
+            result: "Pressure = 71.1",
+            explanation: "内部指标权重先合并成 36，再折叠成一个公开支柱分数。",
           },
           {
             title: "最终公开分数",
@@ -1875,11 +1878,12 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         justification: "这一支柱惩罚虚假繁荣，并将可支配空间放在评分核心。",
         citations: [2, 3, 7],
         metrics: [
-          { name: "税后 PPP 可支配生活空间", weight: 9, description: "税后扣除必需支出后的 PPP 剩余空间。", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
-          { name: "住房负担", weight: 5, description: "住房成本占家庭或年轻职业人收入的比例。", inputs: ["median rent", "housing-cost share"] },
+          { name: "住房负担", weight: 8, description: "住房成本占家庭或年轻职业人收入的比例。", inputs: ["median rent", "housing-cost share"] },
+          { name: "工时压力", weight: 7, description: "平均工时与超长工时 prevalence。", inputs: ["weekly hours", "overwork share"] },
+          { name: "自杀与严重心理压力", weight: 7, description: "自杀率或最可辩护的心理伤害 proxy。", inputs: ["suicide rate", "mental-health harm proxy"] },
+          { name: "经济增长动能", weight: 6, description: "GDP 增速作为前瞻性的经济势头信号。", inputs: ["GDP growth %", "country context"] },
+          { name: "税后 PPP 可支配生活空间", weight: 4, description: "税后扣除必需支出后的剩余空间，通过 PPP 因子转换一次后再做跨城市比较。", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
           { name: "家庭债务负担", weight: 4, description: "债务相对于可支配收入或最佳可得 proxy 的比率。", inputs: ["household debt", "disposable income"] },
-          { name: "工时压力", weight: 4, description: "平均工时与超长工时 prevalence。", inputs: ["weekly hours", "overwork share"] },
-          { name: "自杀与严重心理压力", weight: 3, description: "自杀率或最可辩护的心理伤害 proxy。", inputs: ["suicide rate", "mental-health harm proxy"] },
         ],
       },
       {
@@ -1895,6 +1899,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "清洁空气", weight: 4, description: "PM2.5、严重污染暴露以及 CAMS / OpenAQ 支撑。", inputs: ["PM2.5", "exceedance", "aerosol context"] },
           { name: "供水、卫生与公用事业可靠性", weight: 4, description: "饮水、卫生与基础服务稳定性。", inputs: ["WASH access", "interruptions", "compliance"] },
           { name: "数字基础设施", weight: 4, description: "宽带质量、可负担性与光纤准备度。", inputs: ["fixed broadband", "affordability", "internet performance"] },
+          { name: "气候与日照宜居性", weight: 7, description: "由日照时数、温度舒适度与极端天气暴露构成的综合指标。", inputs: ["sunshine hours", "temperature comfort", "extreme weather"] },
         ],
       },
       {
@@ -1918,9 +1923,10 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         justification: "这让更欢迎人的城市有机会压过更冷的城市，即使它们行政能力都不错。",
         citations: [1, 14, 16],
         metrics: [
-          { name: "好客与归属", weight: 5, description: "欢迎感、居民依附与多语言可用性。", inputs: ["social listening", "testimony audit", "multilingual services"] },
-          { name: "包容与多元共处", weight: 5, description: "低摩擦共处、平等市场准入与生活方式自由。", inputs: ["legal openness", "discrimination proxy", "market-access signal"] },
-          { name: "文化与公共生活活力", weight: 5, description: "第三空间、历史连续性与经 civic strain 校正后的游客吸引力。", inputs: ["venues", "events", "public attention", "visitor flow"] },
+          { name: "文化与公共生活活力", weight: 7, description: "第三空间、历史连续性与经 civic strain 校正后的游客吸引力。", inputs: ["venues", "events", "public attention", "visitor flow"] },
+          { name: "好客与归属", weight: 6, description: "欢迎感、居民依附与多语言可用性。", inputs: ["social listening", "testimony audit", "multilingual services"] },
+          { name: "包容与多元共处", weight: 4, description: "低摩擦共处、平等市场准入与生活方式自由。", inputs: ["legal openness", "discrimination proxy", "market-access signal"] },
+          { name: "生育乐观度", weight: 2, description: "总和生育率作为一个轻量的社会预期信号，不应被误读成城市生活质量的主导指标。", inputs: ["World Bank TFR"] },
         ],
       },
       {

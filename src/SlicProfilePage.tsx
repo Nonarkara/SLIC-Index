@@ -1,4 +1,5 @@
 import { profilePhotos } from "./profilePhotos";
+import { appHref } from "./routing";
 import { OFFICIAL_SLIC_URL, slicProfileData } from "./slicProfileData";
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
@@ -43,7 +44,7 @@ export default function SlicProfilePage({
               </a>
               <a
                 className="secondary-action"
-                href="/methodology"
+                href={appHref("/methodology")}
                 onClick={(event) => navigateLink(event, onNavigate, "/methodology")}
               >
                 {profile.methodologyLabel}

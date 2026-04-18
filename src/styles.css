@@ -6320,6 +6320,11 @@ section[id] {
   padding-top: 6rem;
 }
 
+.scorecard-hero-shell {
+  position: relative;
+  z-index: 2;
+}
+
 .scorecard-back {
   display: inline-flex;
   align-items: center;
@@ -6366,6 +6371,10 @@ section[id] {
   gap: 2rem;
 }
 
+.scorecard-hero-copy {
+  max-width: 38rem;
+}
+
 .scorecard-city-name {
   font-family: var(--font-heading);
   font-size: clamp(28px, 4vw, 48px);
@@ -6379,6 +6388,15 @@ section[id] {
   font-size: 15px;
   opacity: 0.55;
   margin-top: 4px;
+}
+
+.scorecard-hero-line {
+  margin: 1rem 0 0;
+  max-width: 34rem;
+  font-size: clamp(16px, 1vw + 12px, 21px);
+  line-height: 1.7;
+  color: var(--text-soft);
+  text-wrap: balance;
 }
 
 .scorecard-hero-scores {
@@ -6422,6 +6440,202 @@ section[id] {
 .scorecard-grade--b { border-color: rgba(197, 101, 26, 0.3); color: var(--accent-amber); }
 .scorecard-grade--c { border-color: rgba(184, 58, 40, 0.3); color: var(--accent-red); }
 .scorecard-grade--exercise { border-color: rgba(26, 58, 107, 0.22); color: var(--accent-blue, #1a3a6b); }
+
+.scorecard-hero--visual.section {
+  position: relative;
+  width: 100%;
+  max-width: none;
+  min-height: min(82svh, 820px);
+  margin: 0 0 2rem;
+  padding: 0;
+  color: var(--text-inverse);
+  overflow: clip;
+  background: #17120d;
+}
+
+.scorecard-hero-media {
+  position: absolute;
+  inset: 0;
+}
+
+.scorecard-hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  animation: scorecard-hero-drift 22s ease-in-out infinite alternate;
+}
+
+@keyframes scorecard-hero-drift {
+  from {
+    transform: scale(1.02) translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: scale(1.08) translate3d(0, -1.5%, 0);
+  }
+}
+
+.scorecard-hero-scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(115deg, rgba(15, 12, 9, 0.85) 10%, rgba(15, 12, 9, 0.54) 42%, rgba(15, 12, 9, 0.16) 100%),
+    linear-gradient(180deg, rgba(15, 12, 9, 0.12) 0%, rgba(15, 12, 9, 0.12) 38%, rgba(15, 12, 9, 0.82) 100%);
+}
+
+.scorecard-hero--visual .scorecard-hero-shell {
+  width: min(1400px, calc(100% - 3rem));
+  min-height: min(82svh, 820px);
+  margin: 0 auto;
+  padding: 6.5rem 0 2.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.scorecard-hero--visual .scorecard-back {
+  background: rgba(248, 245, 240, 0.08);
+  border-color: rgba(248, 245, 240, 0.22);
+  color: var(--text-inverse);
+  backdrop-filter: blur(18px);
+}
+
+.scorecard-hero--visual .scorecard-back:hover {
+  border-color: rgba(248, 245, 240, 0.58);
+  color: var(--text-inverse);
+  background: rgba(248, 245, 240, 0.14);
+}
+
+.scorecard-hero--visual .scorecard-hero-split {
+  align-items: flex-end;
+  gap: clamp(1.5rem, 4vw, 4rem);
+}
+
+.scorecard-hero--visual .eyebrow {
+  color: rgba(248, 245, 240, 0.72);
+}
+
+.scorecard-hero--visual .scorecard-city-name {
+  max-width: 10ch;
+  font-size: clamp(40px, 7vw, 96px);
+  color: var(--text-inverse);
+  text-wrap: balance;
+}
+
+.scorecard-hero--visual .scorecard-country {
+  color: rgba(248, 245, 240, 0.78);
+  opacity: 1;
+}
+
+.scorecard-hero--visual .scorecard-hero-line {
+  max-width: 30rem;
+  color: rgba(248, 245, 240, 0.92);
+}
+
+.scorecard-hero--visual .scorecard-slic-score {
+  color: #ffd0a6;
+  text-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+}
+
+.scorecard-hero--visual .scorecard-rank {
+  color: rgba(248, 245, 240, 0.94);
+}
+
+.scorecard-hero--visual .scorecard-rank span {
+  opacity: 0.72;
+}
+
+.scorecard-hero--visual .scorecard-grade {
+  background: rgba(15, 12, 9, 0.2);
+}
+
+.scorecard-hero--visual .scorecard-grade--a {
+  border-color: rgba(157, 224, 200, 0.4);
+  color: #c7f2e1;
+}
+
+.scorecard-hero--visual .scorecard-grade--b {
+  border-color: rgba(255, 210, 159, 0.45);
+  color: #ffe0bc;
+}
+
+.scorecard-hero--visual .scorecard-grade--c {
+  border-color: rgba(255, 183, 168, 0.45);
+  color: #ffd0c4;
+}
+
+.scorecard-hero--visual .scorecard-grade--exercise {
+  border-color: rgba(185, 215, 255, 0.4);
+  color: #d7e7ff;
+}
+
+@media (min-width: 1800px) {
+  .scorecard-hero--visual .scorecard-hero-shell {
+    width: min(1600px, calc(100% - 4rem));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scorecard-hero-image {
+    animation: none;
+    transform: none;
+  }
+}
+
+/* ── SLIC reading ── */
+.scorecard-editorial {
+  padding-top: 0;
+  padding-bottom: 1.5rem;
+}
+
+.scorecard-editorial-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3.2fr) minmax(220px, 1fr);
+  gap: 1.5rem 3rem;
+  align-items: end;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.scorecard-editorial-copy {
+  margin: 0;
+  max-width: 62rem;
+  font-size: clamp(1rem, 0.7rem + 0.9vw, 1.32rem);
+  line-height: 1.78;
+  color: rgba(28, 25, 20, 0.88);
+  text-wrap: pretty;
+}
+
+.scorecard-editorial-credit {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  gap: 0.35rem;
+  min-width: 0;
+  padding-left: 1.25rem;
+  border-left: 1px solid var(--border);
+}
+
+.scorecard-editorial-credit-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
+.scorecard-editorial-credit-meta {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--text-soft);
+}
+
+.scorecard-editorial-credit a {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
 
 /* ── City Overview ── */
 .scorecard-overview {
@@ -6852,6 +7066,41 @@ section[id] {
 
   .scorecard-highlight-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .scorecard-hero--visual.section {
+    min-height: 70svh;
+    margin-bottom: 1.5rem;
+  }
+
+  .scorecard-hero--visual .scorecard-hero-shell {
+    width: min(var(--max-width), calc(100% - 1.25rem));
+    min-height: 70svh;
+    padding: 5.25rem 0 1.5rem;
+  }
+
+  .scorecard-hero--visual .scorecard-city-name {
+    max-width: 8ch;
+    font-size: clamp(36px, 13vw, 62px);
+  }
+
+  .scorecard-hero-line {
+    max-width: 24rem;
+    font-size: 16px;
+  }
+
+  .scorecard-editorial-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .scorecard-editorial-credit {
+    padding-top: 0.9rem;
+    padding-left: 0;
+    border-top: 1px solid var(--border);
+    border-left: 0;
   }
 }
 

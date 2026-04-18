@@ -3,6 +3,7 @@ import ZeroSumAllocator from "./ZeroSumAllocator";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import SiteFooter from "./SiteFooter";
 import publishedData from "./data/publishedRankingData.json";
+import { appHref } from "./routing";
 import {
   INDEX_PROFILES,
   COMPARE_HERO,
@@ -195,7 +196,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
                 <a
                   key={c.cityId}
                   className="compare-slic-chip"
-                  href="/rankings"
+                  href={appHref("/rankings")}
                   onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
                 >
                   {c.displayName} <span>{c.country}</span>
@@ -248,8 +249,8 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           ))}
         </div>
         <div className="compare-diff-cta">
-          <a className="v3-cta" href="/methodology" onClick={(event) => navigateLink(event, onNavigate, "/methodology")}>{t(locale, "READ THE FULL METHODOLOGY", "อ่านระเบียบวิธีเต็ม", "阅读完整方法论")} &rarr;</a>
-          <a className="v3-cta-secondary" href="/rankings" onClick={(event) => navigateLink(event, onNavigate, "/rankings")}>{t(locale, "SEE THE SLIC RANKING", "ดูอันดับ SLIC", "查看SLIC排名")}</a>
+          <a className="v3-cta" href={appHref("/methodology")} onClick={(event) => navigateLink(event, onNavigate, "/methodology")}>{t(locale, "READ THE FULL METHODOLOGY", "อ่านระเบียบวิธีเต็ม", "阅读完整方法论")} &rarr;</a>
+          <a className="v3-cta-secondary" href={appHref("/rankings")} onClick={(event) => navigateLink(event, onNavigate, "/rankings")}>{t(locale, "SEE THE SLIC RANKING", "ดูอันดับ SLIC", "查看SLIC排名")}</a>
         </div>
       </section>
 

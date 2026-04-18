@@ -1,5 +1,6 @@
 import BrandLockup from "./BrandLockup";
 import { collaborationLogos } from "./brandAssets";
+import { appHref } from "./routing";
 import { getCopy } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
 
@@ -169,25 +170,25 @@ export default function SiteFooter({
 
       <div className="site-footer-bottom">
         <nav className="topnav" aria-label="Site navigation">
-          <a href="/" onClick={(event) => navigateLink(event, onNavigate, "/")}>
+          <a href={appHref("/")} onClick={(event) => navigateLink(event, onNavigate, "/")}>
             {copy.nav.home}
           </a>
-          <a href="/about-slic" onClick={(event) => navigateLink(event, onNavigate, "/about-slic")}>
+          <a href={appHref("/about-slic")} onClick={(event) => navigateLink(event, onNavigate, "/about-slic")}>
             {copy.nav.aboutSlic}
           </a>
-          <a href="/rankings" onClick={(event) => navigateLink(event, onNavigate, "/rankings")}>
+          <a href={appHref("/rankings")} onClick={(event) => navigateLink(event, onNavigate, "/rankings")}>
             {copy.nav.rankings}
           </a>
-          <a href="/methodology" onClick={(event) => navigateLink(event, onNavigate, "/methodology")}>
+          <a href={appHref("/methodology")} onClick={(event) => navigateLink(event, onNavigate, "/methodology")}>
             {copy.nav.methodology}
           </a>
-          <a href="/thailand" onClick={(event) => navigateLink(event, onNavigate, "/thailand")}>
+          <a href={appHref("/thailand")} onClick={(event) => navigateLink(event, onNavigate, "/thailand")}>
             {copy.nav.thailand}
           </a>
-          <a href="/ideas" onClick={(event) => navigateLink(event, onNavigate, "/ideas")}>
+          <a href={appHref("/ideas")} onClick={(event) => navigateLink(event, onNavigate, "/ideas")}>
             {copy.nav.ideas}
           </a>
-          <a href="/history" onClick={(event) => navigateLink(event, onNavigate, "/history")}>
+          <a href={appHref("/history")} onClick={(event) => navigateLink(event, onNavigate, "/history")}>
             {copy.nav.history}
           </a>
           <a href="https://slic-index.onrender.com" target="_blank" rel="noopener noreferrer">

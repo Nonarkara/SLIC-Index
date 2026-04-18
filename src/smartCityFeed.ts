@@ -10,7 +10,41 @@ export interface SmartCityFeedItem {
 }
 
 export const smartCityFeed: SmartCityFeedItem[] = [
+  /* ── April 2026 ── */
+  {
+    id: "dpi-ai-citizen-services",
+    source: "World Economic Forum",
+    headline: "Why AI needs digital public infrastructure to deliver for citizens",
+    publishedAt: "2026-04-17",
+    url: "https://www.weforum.org/stories/2026/04/ai-digital-public-infrastructure-deliver-citizens/",
+    topic: "Digital public infrastructure",
+  },
+  {
+    id: "cities-climate-action-plans",
+    source: "World Economic Forum",
+    headline: "How cities are turning urban complexity into coherent climate plans",
+    publishedAt: "2026-04-07",
+    url: "https://www.weforum.org/stories/2026/04/cities-climate-action-plans/",
+    topic: "Climate planning",
+  },
+  {
+    id: "tomorrow-city-expo-usa",
+    source: "SmartCitiesWorld",
+    headline: "Tomorrow.City Expo USA 2026",
+    publishedAt: "2026-04-14",
+    url: "https://www.smartcitiesworld.net/events/tomorrowcity-expo-usa-2026",
+    topic: "Urban innovation event",
+  },
   /* ── March 2026 ── */
+  {
+    id: "san-jose-power-ready",
+    source: "SmartCitiesWorld",
+    headline: "San José to become the most “power-ready” city in California",
+    publishedAt: "2026-03-26",
+    url: "https://www.smartcitiesworld.net/smart-grids/smart-grids/san-jose-to-become-the-most-power-ready-city-in-california-12595",
+    topic: "Smart grids",
+    cityKey: "san jose",
+  },
   {
     id: "taiwan-smart-city-expo-ai",
     source: "Digitimes",
@@ -19,6 +53,15 @@ export const smartCityFeed: SmartCityFeedItem[] = [
     url: "https://www.digitimes.com/news/a20260311PD202/expo-smart-city-summit-robotics-virtual-power-plant-expansion.html",
     topic: "AI for cities",
     cityKey: "taipei",
+  },
+  {
+    id: "san-jose-ai-centre",
+    source: "SmartCitiesWorld",
+    headline: "San José AI Centre for Civic and Social Good opens",
+    publishedAt: "2026-03-04",
+    url: "https://www.smartcitiesworld.net/ai-and-machine-learning/san-jose-ai-centre-for-civic-and-social-good-opens",
+    topic: "Civic AI",
+    cityKey: "san jose",
   },
   {
     id: "raleigh-idc-award",
@@ -146,13 +189,5 @@ export const smartCityFeed: SmartCityFeedItem[] = [
     publishedAt: "2026-01-03",
     url: "https://www.smartcitiesworld.net/ai-and-machine-learning/st-engineering-to-provide-smart-city-platform-for-lusail-city",
     topic: "Digital twins",
-  },
-  {
-    id: "tomorrow-city-expo-usa",
-    source: "Tomorrow.City",
-    headline: "Tomorrow.City Expo USA 2026 announced for West Palm Beach",
-    publishedAt: "2026-02-24",
-    url: "https://tomorrowcity.us/",
-    topic: "Smart governance",
   },
 ];

@@ -6,6 +6,7 @@ import type { FiredConsequence } from "./consequenceRules";
 import publishedData from "./data/publishedRankingData.json";
 import RankingIntegrityBanner from "./RankingIntegrityBanner";
 import { exerciseRegions, getExerciseCities } from "./rankingsData";
+import { appHref } from "./routing";
 import SiteFooter from "./SiteFooter";
 import type { FullRankedCity, Locale, SitePath } from "./types";
 
@@ -694,7 +695,7 @@ export default function RankingsPage({
                       <a
                         key={city.id}
                         className={`rankings-city-row${isTop ? " is-top" : ""}`}
-                        href={`/city/${city.id}`}
+                        href={appHref(`/city/${city.id}`)}
                         onClick={(event) => navigateLink(event, onNavigate, `/city/${city.id}`)}
                         style={{ cursor: "pointer" }}
                       >
@@ -720,7 +721,7 @@ export default function RankingsPage({
                 <div className="rankings-actions">
                   <a
                     className="primary-action"
-                    href="/methodology"
+                    href={appHref("/methodology")}
                     onClick={(event) => {
                       event.preventDefault();
                       onNavigate("/methodology");

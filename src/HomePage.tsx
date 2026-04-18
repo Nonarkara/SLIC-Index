@@ -6,6 +6,7 @@ import { getExerciseCities } from "./rankingsData";
 import SiteFooter from "./SiteFooter";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import ZeroSumAllocator from "./ZeroSumAllocator";
+import { appHref } from "./routing";
 import type { Locale, SitePath } from "./types";
 import { getVisitorStats } from "./visitorTracking";
 
@@ -302,7 +303,7 @@ export default function HomePage({
           </p>
           <a
             className="hp-thesis-link"
-            href="/compare"
+            href={appHref("/compare")}
             onClick={(event) => navigateLink(event, onNavigate, "/compare")}
           >
             {t(locale, "Read the full comparison", "อ่านการเปรียบเทียบเต็ม", "阅读完整对比")} &rarr;
@@ -324,13 +325,13 @@ export default function HomePage({
         </div>
         <div className="v3-alpha-grid section">
           {publishedBoard.slice(0, 10).map((city) => (
-            <a
-              key={city.cityId}
-              className="v3-city-card"
-              href={`/city/${city.cityId}`}
-              onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
-              style={{ "--city-accent": PILLAR_COLORS[leadPillarForCity(city)] } as CSSProperties}
-            >
+              <a
+                key={city.cityId}
+                className="v3-city-card"
+                href={appHref(`/city/${city.cityId}`)}
+                onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
+                style={{ "--city-accent": PILLAR_COLORS[leadPillarForCity(city)] } as CSSProperties}
+              >
               <span className="v3-city-card-meta">
                 <span className="v3-city-card-rank">#{String(city.rank).padStart(2, "0")}</span>
                 <span>{t(locale, "Published board", "บอร์ดที่เผยแพร่", "已发布榜单")}</span>
@@ -384,7 +385,7 @@ export default function HomePage({
               <a
                 key={city.cityId}
                 className="v3-tier-chip"
-                href={`/city/${city.cityId}`}
+                href={appHref(`/city/${city.cityId}`)}
                 onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
               >
                 <span className="v3-tier-chip-rank">#{city.rank}</span>
@@ -403,7 +404,7 @@ export default function HomePage({
               <a
                 key={city.cityId}
                 className="v3-tier-chip"
-                href={`/city/${city.cityId}`}
+                href={appHref(`/city/${city.cityId}`)}
                 onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
               >
                 <span className="v3-tier-chip-rank">#{city.rank}</span>
@@ -452,7 +453,7 @@ export default function HomePage({
                   <a
                     key={city.cityId}
                     className="v3-spider-row"
-                    href={`/city/${city.cityId}`}
+                    href={appHref(`/city/${city.cityId}`)}
                     onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
                   >
                     <span className="v3-spider-rank">{String(index + 1).padStart(2, "0")}</span>
@@ -470,21 +471,21 @@ export default function HomePage({
       <section className="v3-cta-section section">
         <a
           className="v3-cta"
-          href="/methodology"
+          href={appHref("/methodology")}
           onClick={(event) => navigateLink(event, onNavigate, "/methodology")}
         >
           {t(locale, "Read the methodology", "อ่านระเบียบวิธี", "阅读方法论")}
         </a>
         <a
           className="v3-cta-secondary"
-          href="/about-slic"
+          href={appHref("/about-slic")}
           onClick={(event) => navigateLink(event, onNavigate, "/about-slic")}
         >
           {t(locale, "About SLIC", "เกี่ยวกับ SLIC", "关于 SLIC")}
         </a>
         <a
           className="v3-cta-secondary"
-          href="/history"
+          href={appHref("/history")}
           onClick={(event) => navigateLink(event, onNavigate, "/history")}
         >
           {t(locale, "How it was built", "เบื้องหลังการสร้าง", "它是如何被建造出来的")}

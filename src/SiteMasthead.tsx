@@ -1,6 +1,7 @@
 import { type MouseEvent, useCallback, useEffect, useId, useRef, useState } from "react";
 import LocaleSwitch from "./LocaleSwitch";
 import { getCopy } from "./siteCopy";
+import { appHref } from "./routing";
 import { slicLogo } from "./brandAssets";
 import type { Locale, SitePath } from "./types";
 
@@ -131,7 +132,7 @@ export default function SiteMasthead({
     <header className={classes}>
       <div className="mh-inner">
         <a
-          href="/"
+          href={appHref("/")}
           className="mh-wordmark"
           onClick={(event) => navigateLink(event, onNavigate, "/")}
           aria-label="SLIC home"
@@ -151,7 +152,7 @@ export default function SiteMasthead({
           {navPaths.map((path) => (
             <a
               key={path}
-              href={path}
+              href={appHref(path)}
               className={path === currentPath ? "mh-link mh-link--active" : "mh-link"}
               onClick={(event) => navigateLink(event, onNavigate, path)}
               aria-current={path === currentPath ? "page" : undefined}
@@ -181,7 +182,7 @@ export default function SiteMasthead({
       <div className={menuOpen ? "mh-panel mh-panel--open" : "mh-panel"} id={navPanelId}>
         <nav className="mh-panel-nav" aria-label={labels.mobile}>
           <a
-            href="/"
+            href={appHref("/")}
             className={currentPath === "/" ? "mh-panel-link mh-panel-link--active" : "mh-panel-link"}
             onClick={(event) => navigateLink(event, handleNav, "/")}
             aria-current={currentPath === "/" ? "page" : undefined}
@@ -191,7 +192,7 @@ export default function SiteMasthead({
           {navPaths.map((path) => (
             <a
               key={path}
-              href={path}
+              href={appHref(path)}
               className={path === currentPath ? "mh-panel-link mh-panel-link--active" : "mh-panel-link"}
               onClick={(event) => navigateLink(event, handleNav, path)}
               aria-current={path === currentPath ? "page" : undefined}

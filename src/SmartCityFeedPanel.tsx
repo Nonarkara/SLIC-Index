@@ -45,21 +45,44 @@ const topicColors: Record<string, string> = {
   "Climate resilience": "var(--accent-red)",
   "Urban climate": "var(--accent-amber)",
   "AI for cities": "var(--accent-cyan)",
+  "Civic AI": "var(--accent-cyan)",
   Inclusion: "var(--accent-green)",
   "Digital twins": "var(--accent-cyan)",
+  "Digital public infrastructure": "var(--accent-cyan)",
   "Clean air": "var(--accent-green)",
   "Green buildings": "var(--accent-green)",
+  "Climate planning": "var(--accent-red)",
   "Mobility AI": "var(--accent-amber)",
   Mobility: "var(--accent-amber)",
   "Smart governance": "var(--accent-cyan)",
+  "Smart grids": "var(--accent-green)",
+  "Urban innovation event": "var(--accent-amber)",
   "Urban planning": "var(--accent-amber)",
 };
 
-function timeAgo(dateStr: string): string {
+function timeAgo(dateStr: string, locale: Locale): string {
   const now = new Date();
   const then = new Date(dateStr);
   const diffMs = now.getTime() - then.getTime();
   const diffDays = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+  if (locale === "th") {
+    if (diffDays === 0) return "วันนี้";
+    if (diffDays === 1) return "1 วันก่อน";
+    if (diffDays < 7) return `${diffDays} วันก่อน`;
+    if (diffDays < 30) return `${Math.floor(diffDays / 7)} สัปดาห์ก่อน`;
+    if (diffDays < 365) return `${Math.floor(diffDays / 30)} เดือนก่อน`;
+    return `${Math.floor(diffDays / 365)} ปีก่อน`;
+  }
+
+  if (locale === "zh") {
+    if (diffDays === 0) return "今天";
+    if (diffDays === 1) return "1天前";
+    if (diffDays < 7) return `${diffDays}天前`;
+    if (diffDays < 30) return `${Math.floor(diffDays / 7)}周前`;
+    if (diffDays < 365) return `${Math.floor(diffDays / 30)}个月前`;
+    return `${Math.floor(diffDays / 365)}年前`;
+  }
 
   if (diffDays === 0) return "today";
   if (diffDays === 1) return "1d ago";
@@ -102,7 +125,7 @@ export default function SmartCityFeedPanel({ locale }: { locale: Locale }) {
                   aria-hidden="true"
                 />
                 <span className="feed-topic">{item.topic}</span>
-                <span className="feed-time">{timeAgo(item.publishedAt)}</span>
+                <span className="feed-time">{timeAgo(item.publishedAt, locale)}</span>
               </div>
 
               <h3 className="feed-headline">{item.headline}</h3>

@@ -3,6 +3,7 @@ import { getMethodologyData } from "./methodologyData";
 import KnowledgeRackPanel from "./KnowledgeRackPanel";
 import MethodologySpiderChart from "./MethodologySpiderChart";
 import PillarWeightChart from "./PillarWeightChart";
+import { appHref } from "./routing";
 import { getCopy } from "./siteCopy";
 import SiteFooter from "./SiteFooter";
 import type {
@@ -277,7 +278,7 @@ export default function MethodologyPage({
               </button>
               <a
                 className="secondary-action"
-                href="/"
+                href={appHref("/")}
                 onClick={(event) => navigateLink(event, onNavigate, "/")}
               >
                 {ui.home || copy.nav.home}
