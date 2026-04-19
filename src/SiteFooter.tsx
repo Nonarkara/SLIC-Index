@@ -118,6 +118,13 @@ export default function SiteFooter({
         ? "方法、权重与来源链条仍保持公开。"
         : "Methodology, weights, and provenance remain public.";
 
+  const vintageNote =
+    locale === "th"
+      ? "ข้อมูล: วินเทจปี 2024–2025 · เผยแพร่ครั้งล่าสุด: เมษายน 2026"
+      : locale === "zh"
+        ? "数据：2024–2025 年版本 · 最后发布：2026 年 4 月"
+        : "Data: 2024–2025 vintage · Last published: April 2026";
+
   return (
     <footer className="site-footer section">
       <div className="site-footer-grid">
@@ -199,6 +206,7 @@ export default function SiteFooter({
           </a>
         </nav>
         <p className="site-footer-note">{footerNote}</p>
+        <p className="site-footer-vintage">{vintageNote}</p>
       </div>
     </footer>
   );

@@ -230,6 +230,14 @@ export default function HomePage({
           <p className="hp-kicker">
             {t(locale, "SLIC Index V3 / 2026 edition", "ดัชนี SLIC V3 / ฉบับปี 2026", "SLIC 指数 V3 / 2026 版")}
           </p>
+          <p className="hp-lede">
+            {t(
+              locale,
+              "Most city rankings measure prestige. SLIC measures what it actually costs to build a life here.",
+              "ดัชนีเมืองส่วนใหญ่วัดความมีชื่อเสียง SLIC วัดว่าการสร้างชีวิตที่นี่ใช้ต้นทุนจริงเท่าไร",
+              "大多数城市排名衡量声望。SLIC 衡量在这里生活的真实成本。",
+            )}
+          </p>
           <h1 className="hp-headline">
             {t(
               locale,

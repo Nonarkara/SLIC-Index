@@ -1879,6 +1879,16 @@ section[id] {
   margin: 0 0 1.5rem;
 }
 
+.hp-lede {
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.45;
+  font-style: italic;
+  opacity: 0.72;
+  margin: 0.5rem 0 0.25rem;
+  max-width: 36rem;
+}
+
 .hp-headline {
   font-family: var(--font-heading);
   font-size: clamp(2.8rem, 7vw, 5.5rem);
@@ -8984,6 +8994,14 @@ section[id] {
 
 .site-footer-note {
   max-width: 26rem;
+}
+
+.site-footer-vintage {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  opacity: 0.4;
+  margin: 0.25rem 0 0;
 }
 
 @media (max-width: 1100px) {

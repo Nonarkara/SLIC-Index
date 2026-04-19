@@ -49,6 +49,8 @@ export interface ThailandProvince {
   highlights: string[];
   tagline: string;
   status: ProvinceStatus;
+  mayor?: string;
+  mayorTh?: string;
 }
 
 export const thailandProvinces: ThailandProvince[] = [
@@ -493,6 +495,8 @@ export const thailandProvinces: ThailandProvince[] = [
     highlights: ["Excellent air quality: 17.5 PM2.5 annual average", "Population: 1,545k in South region", "Population: 1,545k in South region"],
     tagline: "Emerging province with potential, especially in culture.",
     status: "ranked",
+    mayor: "Kanop Ketchart",
+    mayorTh: "กณพ เกตุชาติ",
   },
   {
     id: "lopburi",
