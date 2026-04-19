@@ -135,7 +135,7 @@ export default function SiteMasthead({
           href={appHref("/")}
           className="mh-wordmark"
           onClick={(event) => navigateLink(event, onNavigate, "/")}
-          aria-label="SLIC home"
+          aria-label={locale === "th" ? "กลับหน้าหลัก SLIC" : locale === "zh" ? "SLIC 首页" : "SLIC home"}
         >
           <img 
             src={`${BASE}${slicLogo.src}`} 

@@ -118,6 +118,16 @@ export default function SiteFooter({
         ? "方法、权重与来源链条仍保持公开。"
         : "Methodology, weights, and provenance remain public.";
 
+  const archiveLabels =
+    locale === "th"
+      ? { v1: "คลัง V1", v2: "คลัง V2" }
+      : locale === "zh"
+        ? { v1: "V1 归档", v2: "V2 归档" }
+        : { v1: "V1 Archive", v2: "V2 Archive" };
+
+  const navAriaLabel =
+    locale === "th" ? "เมนูหลัก" : locale === "zh" ? "网站导航" : "Site navigation";
+
   const vintageNote =
     locale === "th"
       ? "ข้อมูล: วินเทจปี 2024–2025 · เผยแพร่ครั้งล่าสุด: เมษายน 2026"
@@ -176,7 +186,7 @@ export default function SiteFooter({
       </div>
 
       <div className="site-footer-bottom">
-        <nav className="topnav" aria-label="Site navigation">
+        <nav className="topnav" aria-label={navAriaLabel}>
           <a href={appHref("/")} onClick={(event) => navigateLink(event, onNavigate, "/")}>
             {copy.nav.home}
           </a>
@@ -199,10 +209,10 @@ export default function SiteFooter({
             {copy.nav.history}
           </a>
           <a href="https://slic-index.onrender.com" target="_blank" rel="noopener noreferrer">
-            V1 Archive
+            {archiveLabels.v1}
           </a>
           <a href="https://nonarkara.github.io/slic-index-V2/" target="_blank" rel="noopener noreferrer">
-            V2 Archive
+            {archiveLabels.v2}
           </a>
         </nav>
         <p className="site-footer-note">{footerNote}</p>

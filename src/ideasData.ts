@@ -844,16 +844,42 @@ if __name__ == "__main__":
 // Category metadata for UI display
 // ---------------------------------------------------------------------------
 
+import type { Locale } from "./types";
+
 export const ideaCategories: {
   value: CityIdea["category"];
-  label: string;
+  labels: Record<Locale, string>;
 }[] = [
-  { value: "citizen-reporting", label: "Citizen Reporting" },
-  { value: "smart-infrastructure", label: "Smart Infrastructure" },
-  { value: "civic-ai", label: "Civic AI" },
-  { value: "mobility", label: "Mobility" },
-  { value: "sustainability", label: "Sustainability" },
-  { value: "community", label: "Community" },
-  { value: "governance", label: "Governance" },
-  { value: "health", label: "Health" },
+  {
+    value: "citizen-reporting",
+    labels: { en: "Citizen Reporting", th: "การแจ้งเหตุโดยพลเมือง", zh: "市民举报" },
+  },
+  {
+    value: "smart-infrastructure",
+    labels: { en: "Smart Infrastructure", th: "โครงสร้างพื้นฐานอัจฉริยะ", zh: "智慧基础设施" },
+  },
+  {
+    value: "civic-ai",
+    labels: { en: "Civic AI", th: "AI เพื่อพลเมือง", zh: "公共 AI" },
+  },
+  {
+    value: "mobility",
+    labels: { en: "Mobility", th: "การเดินทาง", zh: "交通出行" },
+  },
+  {
+    value: "sustainability",
+    labels: { en: "Sustainability", th: "ความยั่งยืน", zh: "可持续性" },
+  },
+  {
+    value: "community",
+    labels: { en: "Community", th: "ชุมชน", zh: "社区" },
+  },
+  {
+    value: "governance",
+    labels: { en: "Governance", th: "ธรรมาภิบาล", zh: "治理" },
+  },
+  {
+    value: "health",
+    labels: { en: "Health", th: "สุขภาพ", zh: "健康" },
+  },
 ];
