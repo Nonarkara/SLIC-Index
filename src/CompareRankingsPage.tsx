@@ -91,7 +91,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
     const results: Array<{ city: string; indices: string[]; inSlic: boolean }> = [];
     overlaps.forEach((indices, city) => {
       const nonSlic = indices.filter((i) => i !== "SLIC");
-      if (nonSlic.length >= 3) {
+      if (nonSlic.length >= 5) {
         results.push({ city: city.charAt(0).toUpperCase() + city.slice(1), indices: nonSlic, inSlic: indices.includes("SLIC") });
       }
     });

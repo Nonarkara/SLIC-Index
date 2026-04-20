@@ -254,6 +254,23 @@ export default function HomePage({
               "157 座已发布城市。每座城市对应一个公开分数，并可追溯到五个公开支柱：压力、宜居性、能力、社区与创造动能。",
             )}
           </p>
+          <div className="hp-opening-actions">
+            <a
+              className="hp-cta-primary"
+              href={appHref("/rankings")}
+              onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
+            >
+              {t(locale, "See all 157 cities", "ดูเมืองทั้ง 157 แห่ง", "查看全部 157 座城市")} →
+            </a>
+            <a
+              className="hp-cta-secondary"
+              href={appHref("/compare")}
+              onClick={(event) => navigateLink(event, onNavigate, "/compare")}
+            >
+              {t(locale, "Compare with other indices", "เปรียบเทียบกับดัชนีอื่น", "与其他指数对比")}
+            </a>
+          </div>
+
           <div className="hp-opening-stats">
             <span className="hp-opening-stat">
               <strong>{publishedBoard.length}</strong>

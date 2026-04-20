@@ -64,6 +64,26 @@ button {
   min-height: 100vh;
 }
 
+/* ── Skip-to-content ── */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 9999;
+  padding: 0.5rem 1rem;
+  background: var(--text);
+  color: var(--text-inverse);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 0 0 4px 4px;
+  text-decoration: none;
+  transition: top 0.15s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
 .page-shell {
   position: relative;
   overflow: clip;
@@ -1625,8 +1645,10 @@ section[id] {
 }
 
 .partner-logo-card img {
-  max-width: 100%;
-  max-height: 4rem;
+  max-width: 140px;
+  max-height: 52px;
+  width: auto;
+  height: auto;
   object-fit: contain;
 }
 
@@ -1916,9 +1938,56 @@ section[id] {
 .hp-deck {
   font-size: 1.1rem;
   line-height: 1.75;
-  opacity: 0.55;
+  color: #6b6459;
   max-width: 540px;
-  margin: 0 0 2rem;
+  margin: 0 0 1.5rem;
+}
+
+/* ── Homepage primary CTAs ── */
+.hp-opening-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.5rem;
+}
+
+.hp-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  padding: 0.6rem 1.25rem;
+  background: var(--text);
+  color: var(--text-inverse);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  transition: opacity 0.15s;
+}
+
+.hp-cta-primary:hover {
+  opacity: 0.8;
+}
+
+.hp-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6rem 1.1rem;
+  border: 1px solid var(--border-strong);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  transition: border-color 0.15s, opacity 0.15s;
+}
+
+.hp-cta-secondary:hover {
+  border-color: var(--text);
 }
 
 .hp-opening-stats {
@@ -1927,17 +1996,17 @@ section[id] {
   gap: 0.75rem;
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  opacity: 0.35;
+  color: #9a9088;
   letter-spacing: 0.02em;
 }
 
 .hp-opening-stats strong {
   font-weight: 700;
-  opacity: 1;
+  color: var(--text);
   margin-right: 0.2rem;
 }
 
-.hp-stat-sep { opacity: 0.2; }
+.hp-stat-sep { color: #c8c0b8; }
 
 /* Photo break — full bleed editorial moment */
 .hp-photo-break {
@@ -4010,6 +4079,11 @@ section[id] {
   .pdf-viewer-actions {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  /* On mobile, hide the iframe (unusable) — the download button is the only action */
+  .pdf-viewer-frame-shell {
+    display: none;
   }
 
   .ticker-chip {
@@ -8207,7 +8281,7 @@ section[id] {
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 700;
-  opacity: 0.25;
+  color: #b0a89e;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -8249,11 +8323,50 @@ section[id] {
   background: rgba(26, 107, 90, 0.055);
 }
 
+/* ── Compare matrix scroll hint on mobile ── */
+@media (max-width: 768px) {
+  .compare-matrix-scroll {
+    position: relative;
+  }
+
+  .compare-matrix-scroll::after {
+    content: "← scroll →";
+    display: block;
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: #8a8078;
+    padding: 0.5rem 0 0;
+  }
+
+  .compare-matrix-hd strong {
+    font-size: 9px;
+  }
+
+  .compare-matrix-hd span {
+    display: none;
+  }
+
+  .compare-matrix-cell {
+    padding: 7px 8px 6px;
+    min-height: 38px;
+  }
+
+  .compare-city {
+    font-size: 11px;
+  }
+
+  .compare-country {
+    font-size: 9px;
+  }
+}
+
 .compare-rank {
   font-family: var(--font-mono);
   font-size: 11px;
   font-weight: 700;
-  opacity: 0.3;
+  color: #b0a89e;
 }
 
 .compare-city {
@@ -8266,7 +8379,7 @@ section[id] {
 .compare-country {
   display: block;
   font-size: 10px;
-  opacity: 0.4;
+  color: #8a8078;
   font-family: var(--font-mono);
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -8276,7 +8389,7 @@ section[id] {
   font-family: var(--font-mono);
   font-size: 12px;
   font-weight: 700;
-  opacity: 0.5;
+  color: #7a7269;
 }
 
 .compare-col--slic .compare-cell {

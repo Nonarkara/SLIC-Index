@@ -130,6 +130,13 @@ export default function SiteMasthead({
 
   return (
     <header className={classes}>
+      <a
+        href="#main-content"
+        className="skip-link"
+        tabIndex={0}
+      >
+        {locale === "th" ? "ข้ามไปเนื้อหาหลัก" : locale === "zh" ? "跳至主要内容" : "Skip to content"}
+      </a>
       <div className="mh-inner">
         <a
           href={appHref("/")}

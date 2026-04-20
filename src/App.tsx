@@ -275,7 +275,7 @@ export default function App() {
         onLocaleChange={setLocale}
         onNavigate={navigate}
       />
-      <div className="page-frame" key={route}>
+      <div className="page-frame" id="main-content" key={route}>
         <Suspense fallback={<RouteLoading locale={locale} />}>
           {route === "/methodology" ? (
             <MethodologyPage onNavigate={navigate} locale={locale} />
