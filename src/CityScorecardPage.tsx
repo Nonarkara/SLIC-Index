@@ -264,6 +264,14 @@ const SCORECARD_TEXT = {
     tagSameRegion: "Same region",
     tagSimilarScale: "Similar scale",
     tagSimilarIncome: "Similar income",
+    derivedFormulaLabel: "Calculation formula",
+    derivedDiFormula: "DI_PPP = (GrossIncome × (1 − TaxRate) − Rent − Utilities − Transit − Internet − Food) ÷ PPPFactor",
+    derivedGenericNote: "Calculated from city-level inputs and country benchmarks.",
+    coverageBreakdownTitle: "Data level breakdown",
+    coverageCityDirect: "City-direct",
+    coverageNationalProxy: "National proxy",
+    coverageDerived: "Derived",
+    coverageMissing: "No data",
   },
   th: {
     cityNotFound: "ไม่พบเมืองนี้",
@@ -322,6 +330,14 @@ const SCORECARD_TEXT = {
     tagSameRegion: "ภูมิภาคเดียวกัน",
     tagSimilarScale: "ขนาดใกล้เคียง",
     tagSimilarIncome: "รายได้ใกล้เคียง",
+    derivedFormulaLabel: "สูตรคำนวณ",
+    derivedDiFormula: "DI_PPP = (รายได้รวม × (1 − อัตราภาษี) − ค่าเช่า − ค่าสาธารณูปโภค − ค่าเดินทาง − ค่าอินเทอร์เน็ต − ค่าอาหาร) ÷ ตัวประกอบ PPP",
+    derivedGenericNote: "คำนวณจากข้อมูลระดับเมืองและเกณฑ์มาตรฐานระดับประเทศ",
+    coverageBreakdownTitle: "แบ่งตามระดับข้อมูล",
+    coverageCityDirect: "ข้อมูลเมืองโดยตรง",
+    coverageNationalProxy: "ตัวแทนระดับประเทศ",
+    coverageDerived: "คำนวณต่อยอด",
+    coverageMissing: "ไม่มีข้อมูล",
   },
   zh: {
     cityNotFound: "未找到城市",
@@ -380,6 +396,14 @@ const SCORECARD_TEXT = {
     tagSameRegion: "同一地区",
     tagSimilarScale: "规模相似",
     tagSimilarIncome: "收入相近",
+    derivedFormulaLabel: "计算公式",
+    derivedDiFormula: "DI_PPP = (税前收入 × (1 − 税率) − 房租 − 水电 − 交通 − 网络 − 餐饮) ÷ PPP系数",
+    derivedGenericNote: "由城市级输入数据和国家基准计算得出。",
+    coverageBreakdownTitle: "数据层级分布",
+    coverageCityDirect: "城市直接数据",
+    coverageNationalProxy: "国家代理数据",
+    coverageDerived: "推导值",
+    coverageMissing: "无数据",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -589,6 +613,8 @@ function MetricRow({
   locale: Locale;
 }) {
   const label = getMetricLabel(metricKey, locale);
+  const copy = SCORECARD_TEXT[locale];
+  const isDiPpp = metricKey === "pressure_disposable_income_ppp";
   return (
     <div className="scorecard-metric-row-wrapper">
       <div className="scorecard-metric-row">
@@ -617,6 +643,13 @@ function MetricRow({
           <span className="scorecard-source-link">{detail.source}</span>
         ) : null}
       </div>
+      {/* Derived metric formula disclosure */}
+      {detail.dataLevel === "derived" && (
+        <details className="scorecard-derived-formula">
+          <summary>{copy.derivedFormulaLabel}</summary>
+          <code>{isDiPpp ? copy.derivedDiFormula : copy.derivedGenericNote}</code>
+        </details>
+      )}
       {detail.components && detail.components.length > 0 && (
         <div className="scorecard-metric-components">
           {detail.components.map((comp) => (
@@ -633,6 +666,16 @@ function MetricRow({
                   />
                 )}
               </div>
+              {/* Component source link */}
+              {comp.source && (
+                comp.sourceUrl ? (
+                  <a className="scorecard-component-source" href={comp.sourceUrl} target="_blank" rel="noopener noreferrer">
+                    {comp.source}
+                  </a>
+                ) : (
+                  <span className="scorecard-component-source">{comp.source}</span>
+                )
+              )}
             </div>
           ))}
         </div>
@@ -1078,6 +1121,32 @@ export default function CityScorecardPage({
                 );
               })}
             </div>
+            {/* Coverage breakdown by data level */}
+            {(() => {
+              const counts: Record<string, number> = { city: 0, national: 0, derived: 0, missing: 0 };
+              Object.values(city.metrics ?? {}).forEach((m) => {
+                const lvl = m.dataLevel ?? "missing";
+                counts[lvl] = (counts[lvl] ?? 0) + 1;
+              });
+              const items: Array<{ key: string; label: string; count: number }> = [
+                { key: "city",     label: copy.coverageCityDirect,    count: counts.city ?? 0 },
+                { key: "national", label: copy.coverageNationalProxy, count: counts.national ?? 0 },
+                { key: "derived",  label: copy.coverageDerived,       count: counts.derived ?? 0 },
+                { key: "missing",  label: copy.coverageMissing,       count: counts.missing ?? 0 },
+              ].filter((i) => i.count > 0);
+              return (
+                <div className="scorecard-coverage-breakdown">
+                  <span className="scorecard-coverage-breakdown-title">{copy.coverageBreakdownTitle}</span>
+                  <div className="scorecard-coverage-breakdown-items">
+                    {items.map((i) => (
+                      <span key={i.key} className={`scorecard-coverage-item scorecard-coverage-item--${i.key}`}>
+                        {i.count} {i.label}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              );
+            })()}
             <p className="scorecard-transparency-note">
               {copy.transparencyNote}
             </p>

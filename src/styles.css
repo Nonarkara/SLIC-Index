@@ -6925,6 +6925,61 @@ section[id] {
   opacity: 0.75;
 }
 
+.scorecard-component-source {
+  grid-column: 1 / -1;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  color: #9a9088;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+
+a.scorecard-component-source:hover {
+  color: var(--accent-amber);
+  text-decoration: underline;
+}
+
+.scorecard-derived-formula {
+  margin-top: 4px;
+  padding-left: 12px;
+  border-left: 2px solid var(--border);
+}
+
+.scorecard-derived-formula summary {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #9a9088;
+  cursor: pointer;
+  list-style: none;
+  padding: 3px 0;
+}
+
+.scorecard-derived-formula summary::-webkit-details-marker { display: none; }
+
+.scorecard-derived-formula summary::before {
+  content: "▸ ";
+  font-size: 9px;
+}
+
+details[open].scorecard-derived-formula summary::before {
+  content: "▾ ";
+}
+
+.scorecard-derived-formula code {
+  display: block;
+  margin-top: 4px;
+  padding: 6px 8px;
+  background: var(--surface);
+  border-radius: 3px;
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  line-height: 1.5;
+  color: var(--text);
+  word-break: break-all;
+}
+
 .scorecard-component-name {
   font-weight: 400;
   white-space: nowrap;
@@ -7272,6 +7327,41 @@ section[id] {
   line-height: 1.6;
   max-width: 600px;
 }
+
+.scorecard-coverage-breakdown {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.scorecard-coverage-breakdown-title {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #9a9088;
+}
+
+.scorecard-coverage-breakdown-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.scorecard-coverage-item {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  padding: 3px 8px;
+  border-radius: 3px;
+  background: var(--surface);
+  color: var(--text);
+}
+
+.scorecard-coverage-item--city     { background: rgba(26, 107, 90, 0.08);  color: #1a6b5a; }
+.scorecard-coverage-item--national { background: rgba(42, 90, 140, 0.08);  color: #2a5a8c; }
+.scorecard-coverage-item--derived  { background: rgba(184, 92, 40, 0.08);  color: #b85c28; }
+.scorecard-coverage-item--missing  { background: rgba(40, 32, 20, 0.05);   color: #9a9088; }
 
 /* ── Scorecard mobile ── */
 @media (max-width: 640px) {
