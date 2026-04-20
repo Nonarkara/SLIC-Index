@@ -41,6 +41,13 @@ function getTierLabel(rank: number): string {
   return `#${rank}`;
 }
 
+function getTierGlyph(rank: number): string {
+  if (rank <= 10) return "α";
+  if (rank <= 20) return "β";
+  if (rank <= 30) return "γ";
+  return "·";
+}
+
 export default function SideBySidePage({
   onNavigate,
   locale,
@@ -102,7 +109,7 @@ export default function SideBySidePage({
             <div className="sbs-basket-chips">
               {selectedCities.map((city, idx) => (
                 <div key={city.id} className={`sbs-chip tier-${getTier(city.globalRank)}`}>
-                  <div className="sbs-chip-color"></div>
+                  <span className="sbs-chip-tier-glyph" aria-label={getTierLabel(city.globalRank)}>{getTierGlyph(city.globalRank)}</span>
                   <span>{city.name}</span>
                   <button type="button" onClick={() => handleRemove(idx)} aria-label={t(locale, `Remove ${city.name}`, `ลบ ${city.name}`, `移除${city.name}`)}>&times;</button>
                 </div>

@@ -34,6 +34,8 @@ const ideasUiCopy: Record<
     copied: string;
     categoryAria: string;
     difficultyAria: string;
+    stackLabel: string;
+    tagsLabel: string;
   }
 > = {
   en: {
@@ -60,6 +62,8 @@ const ideasUiCopy: Record<
     copied: "Copied!",
     categoryAria: "Idea category filter",
     difficultyAria: "Idea difficulty filter",
+    stackLabel: "Stack",
+    tagsLabel: "Tags",
   },
   th: {
     title: "ขโมยไอเดียนี้ไปใช้",
@@ -85,6 +89,8 @@ const ideasUiCopy: Record<
     copied: "คัดลอกแล้ว!",
     categoryAria: "ตัวกรองหมวดหมู่ไอเดีย",
     difficultyAria: "ตัวกรองระดับความยาก",
+    stackLabel: "ชุดเทคโนโลยี",
+    tagsLabel: "แท็ก",
   },
   zh: {
     title: "拿去用吧",
@@ -109,6 +115,8 @@ const ideasUiCopy: Record<
     copied: "已复制！",
     categoryAria: "想法类别筛选",
     difficultyAria: "想法难度筛选",
+    stackLabel: "技术栈",
+    tagsLabel: "标签",
   },
 };
 
@@ -222,16 +230,20 @@ export default function IdeasPage({
                 <p className="idea-solution"><strong>{ui.solution}:</strong> {idea.solution}</p>
                 <p className="idea-impact"><strong>{ui.impact}:</strong> {idea.impact}</p>
 
-                <div className="metric-taglist">
-                  {idea.techStack.map((tech) => (
-                    <span key={tech}>{tech}</span>
-                  ))}
+                <div className="metric-taglist-group">
+                  <span className="metric-taglist-label">{ui.stackLabel}</span>
+                  <div className="metric-taglist">
+                    {idea.techStack.map((tech) => (
+                      <span key={tech}>{tech}</span>
+                    ))}
+                  </div>
                 </div>
 
                 <button
                   type="button"
                   className={expanded === idea.id ? "idea-toggle active" : "idea-toggle"}
                   onClick={() => setExpanded(expanded === idea.id ? null : idea.id)}
+                  aria-expanded={expanded === idea.id}
                 >
                   {expanded === idea.id ? ui.hideCode : ui.showCode}
                 </button>
@@ -243,14 +255,17 @@ export default function IdeasPage({
                       <CopyButton text={idea.codeSnippet} locale={locale} />
                     </div>
                     <pre className="idea-code"><code>{idea.codeSnippet}</code></pre>
-                    <p className="idea-repo-hint">{idea.repoHint}</p>
+                    <p className="idea-repo-hint">{idea.repoHint[locale]}</p>
                   </div>
                 )}
 
-                <div className="metric-taglist">
-                  {idea.tags.map((tag) => (
-                    <span key={tag}>{tag}</span>
-                  ))}
+                <div className="metric-taglist-group">
+                  <span className="metric-taglist-label">{ui.tagsLabel}</span>
+                  <div className="metric-taglist metric-taglist--secondary">
+                    {idea.tags.map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
+                  </div>
                 </div>
               </article>
             ))}

@@ -42,6 +42,8 @@ from reportlab.platypus import (
     Table,
     TableStyle,
 )
+from reportlab.graphics.shapes import Drawing, Polygon, Line, String, Rect
+import math
 
 # ── Paths ────────────────────────────────────────────────────────────────────
 ROOT = Path(__file__).parent.parent
@@ -694,6 +696,148 @@ def _fmt(v):
     return f"{v:.1f}" if v is not None else "—"
 
 
+# ── Diagram: pentagon radar (cover) ───────────────────────────────────────────
+RADAR_CAPTIONS = {
+    "en": "Five pillars. Fifty-point symmetry. Absolute anchors.",
+    "th": "ห้าเสาหลัก สมมาตรห้าสิบจุด จุดยึดสัมบูรณ์",
+    "zh": "五大支柱。五十点对称。绝对锚点。",
+}
+RADAR_LABELS = {
+    "en": ["Growth", "Viability", "Capability", "Community", "Creative"],
+    "th": ["Growth", "Viability", "Capability", "Community", "Creative"],
+    "zh": ["Growth", "Viability", "Capability", "Community", "Creative"],
+}
+
+
+def draw_pentagon_radar(locale: str, width_pt: float = 340) -> Drawing:
+    """A 5-spoke pentagon radar armature — no filled score polygon."""
+    d = Drawing(width_pt, width_pt * 0.78)
+    cx, cy = width_pt / 2, width_pt * 0.42
+    r = width_pt * 0.28
+    n = 5
+    angles = [math.pi / 2 + 2 * math.pi * i / n for i in range(n)]
+
+    # Grid rings at 25 / 50 / 75 / 100
+    for frac in (0.25, 0.50, 0.75, 1.0):
+        pts = []
+        for a in angles:
+            pts.extend([cx + r * frac * math.cos(a), cy + r * frac * math.sin(a)])
+        poly = Polygon(points=pts)
+        poly.strokeColor = C_RULE
+        poly.strokeWidth = 0.4 if frac < 1.0 else 0.8
+        poly.fillColor = None
+        d.add(poly)
+
+    # Spokes
+    for a in angles:
+        line = Line(cx, cy, cx + r * math.cos(a), cy + r * math.sin(a))
+        line.strokeColor = C_RULE
+        line.strokeWidth = 0.4
+        d.add(line)
+
+    # Vertex dots (amber)
+    for a in angles:
+        from reportlab.graphics.shapes import Circle
+        dot = Circle(cx + r * math.cos(a), cy + r * math.sin(a), 2.5)
+        dot.fillColor = C_ACCENT
+        dot.strokeColor = None
+        d.add(dot)
+
+    # Labels
+    label_r = r + 18
+    for a, label in zip(angles, RADAR_LABELS[locale]):
+        lx = cx + label_r * math.cos(a)
+        ly = cy + label_r * math.sin(a)
+        s = String(lx, ly - 3, label)
+        s.fontName = "Helvetica-Bold"
+        s.fontSize = 8.5
+        s.fillColor = C_TEXT
+        if math.cos(a) > 0.3:
+            s.textAnchor = "start"
+        elif math.cos(a) < -0.3:
+            s.textAnchor = "end"
+        else:
+            s.textAnchor = "middle"
+        d.add(s)
+
+    return d
+
+
+# ── Diagram: coverage grade distribution (Chapter 8) ─────────────────────────
+def draw_coverage_histogram(locale: str, cities: list, width_pt: float = 440) -> Drawing:
+    """Horizontal bar chart showing count of cities per coverage grade."""
+    counts = {"A": 0, "B": 0, "C": 0, "D": 0, "F": 0}
+    for c in cities:
+        g = c.get("coverageGrade", "")
+        if g in counts:
+            counts[g] += 1
+    # Drop empty grades
+    active = [(g, n) for g, n in counts.items() if n > 0]
+    total = sum(n for _, n in active) or 1
+
+    row_h = 26
+    h = row_h * len(active) + 30
+    d = Drawing(width_pt, h)
+
+    # Palette per grade
+    grade_colors = {
+        "A": colors.HexColor("#1a6b5a"),
+        "B": colors.HexColor("#b85c28"),
+        "C": colors.HexColor("#a0382a"),
+        "D": colors.HexColor("#8c4a2a"),
+        "F": colors.HexColor("#5a3a3a"),
+    }
+
+    # Bar origin
+    label_w = 100
+    bar_x = label_w + 10
+    max_bar_w = width_pt - bar_x - 90
+    max_n = max(n for _, n in active) or 1
+
+    # Title
+    title = String(0, h - 14, {
+        "en": "Coverage grade distribution across 157 cities",
+        "th": "การกระจายเกรดความครอบคลุมในเมือง 157 แห่ง",
+        "zh": "157 座城市的覆盖度等级分布",
+    }[locale])
+    title.fontName = "Helvetica-Bold"
+    title.fontSize = 9
+    title.fillColor = C_TEXT
+    d.add(title)
+
+    for i, (grade, n) in enumerate(active):
+        y = h - 30 - i * row_h
+        bar_w = (n / max_n) * max_bar_w
+
+        # Grade label
+        gl = String(0, y + 3, f"Grade {grade}")
+        gl.fontName = "Helvetica-Bold"
+        gl.fontSize = 10
+        gl.fillColor = grade_colors.get(grade, C_TEXT)
+        d.add(gl)
+
+        # Bar
+        r = Rect(bar_x, y, bar_w, 14)
+        r.fillColor = grade_colors.get(grade, C_TEXT)
+        r.strokeColor = None
+        d.add(r)
+
+        # Count + percentage (with proper singular/plural for English)
+        pct = n / total * 100
+        unit = {
+            "en": "city" if n == 1 else "cities",
+            "th": "เมือง",
+            "zh": "座",
+        }[locale]
+        s = String(bar_x + bar_w + 8, y + 3, f"{n} {unit}  ({pct:.1f}%)")
+        s.fontName = "Helvetica"
+        s.fontSize = 9
+        s.fillColor = C_TEXT
+        d.add(s)
+
+    return d
+
+
 # ── Pillar definitions (English technical content, reused across locales) ─────
 PILLARS = [
     ("Growth", "2", C_GROWTH, [
@@ -898,6 +1042,13 @@ def build_story(S, locale: str):
     story.append(Paragraph(C["partnership"], S["CoverMeta"]))
     story.append(Spacer(1, 12 * mm))
     story.append(Paragraph(C["cover_note"], S["Body"]))
+
+    # Pentagon radar armature on cover
+    story.append(Spacer(1, 8 * mm))
+    story.append(draw_pentagon_radar(locale))
+    story.append(Spacer(1, 2 * mm))
+    story.append(Paragraph(RADAR_CAPTIONS[locale], S["Caption"]))
+
     story.append(PageBreak())
 
     # ── EXECUTIVE SUMMARY ─────────────────────────────────────────────────────
@@ -1037,7 +1188,12 @@ def build_story(S, locale: str):
     t = Table([cov_hdr] + cov_body, colWidths=[14 * mm, 56 * mm, 28 * mm, 68 * mm], repeatRows=1)
     t.setStyle(hdr_style())
     story.append(t)
+    story.append(Spacer(1, 6 * mm))
+
+    # Coverage grade distribution across the actual 157 cities
+    story.append(draw_coverage_histogram(locale, cities))
     story.append(Spacer(1, 4 * mm))
+
     story.append(Paragraph(C["ch8_note"], S["Body"]))
     story.append(PageBreak())
 

@@ -23,7 +23,7 @@ export interface CityIdea {
   techStack: string[];
   difficulty: "starter" | "intermediate" | "advanced";
   codeSnippet: string;
-  repoHint: string;
+  repoHint: Record<Locale, string>;
   tags: string[];
 }
 
@@ -75,8 +75,11 @@ document.getElementById("reportForm").addEventListener("submit", async (e) => {
     alert("Could not submit report. Please try again.");
   }
 });`,
-    repoHint:
-      "Search GitHub for 'mysociety/fixmystreet' -- the original open-source Perl/Catalyst codebase that powers FixMyStreet.com and dozens of international forks.",
+    repoHint: {
+      en: "Search GitHub for 'mysociety/fixmystreet' — the original open-source Perl/Catalyst codebase that powers FixMyStreet.com and dozens of international forks.",
+      th: "ค้นหา GitHub สำหรับ 'mysociety/fixmystreet' — โค้ด Perl/Catalyst ต้นฉบับแบบโอเพนซอร์สที่ขับเคลื่อน FixMyStreet.com และ fork นานาชาติอีกหลายสิบแห่ง",
+      zh: "在 GitHub 上搜索 'mysociety/fixmystreet' — FixMyStreet.com 及其数十个国际分支背后的开源 Perl/Catalyst 原始代码库。",
+    },
     tags: ["open-source", "civic-tech", "reporting", "map", "local-government"],
   },
 
@@ -129,8 +132,11 @@ def route_citizen_query(question: str) -> dict:
 # result = route_citizen_query("How do I renew my business permit?")
 # print(result)
 # => {"department": "permits", "answer": "You can renew ...", "needs_human": false}`,
-    repoHint:
-      "Look at 'langchain-ai/langchain' for retrieval-augmented generation patterns, or 'run-llama/llama_index' for building knowledge-base chatbots over municipal documents.",
+    repoHint: {
+      en: "Look at 'langchain-ai/langchain' for retrieval-augmented generation patterns, or 'run-llama/llama_index' for building knowledge-base chatbots over municipal documents.",
+      th: "ดู 'langchain-ai/langchain' สำหรับแพทเทิร์น retrieval-augmented generation หรือ 'run-llama/llama_index' สำหรับสร้างแชตบ็อตฐานความรู้บนเอกสารราชการ",
+      zh: "可参考 'langchain-ai/langchain' 了解检索增强生成模式，或 'run-llama/llama_index' 用于在市政文档上构建知识库聊天机器人。",
+    },
     tags: ["AI", "chatbot", "NLP", "citizen-services", "automation"],
   },
 
@@ -185,8 +191,11 @@ plt.savefig("superblock_traffic.png", dpi=150)
 print(f"Before avg: {df[df.period=='before'].vehicles.mean():.0f} veh/hr")
 print(f"After avg:  {df[df.period=='after'].vehicles.mean():.0f} veh/hr")
 print(f"Reduction:  {1 - df[df.period=='after'].vehicles.mean() / df[df.period=='before'].vehicles.mean():.1%}")`,
-    repoHint:
-      "Search GitHub for 'cityflows' or 'uber/kepler.gl' for open-source traffic visualisation tools. Also see 'a]b-street/abstreet' for urban traffic simulation.",
+    repoHint: {
+      en: "Search GitHub for 'cityflows' or 'uber/kepler.gl' for open-source traffic visualisation tools. Also see 'a-b-street/abstreet' for urban traffic simulation.",
+      th: "ค้นหา GitHub สำหรับ 'cityflows' หรือ 'uber/kepler.gl' เครื่องมือโอเพนซอร์สแสดงภาพการจราจร และดู 'a-b-street/abstreet' สำหรับการจำลองการจราจรในเมือง",
+      zh: "在 GitHub 搜索 'cityflows' 或 'uber/kepler.gl' 等开源交通可视化工具。亦可参考 'a-b-street/abstreet' 用于城市交通仿真。",
+    },
     tags: ["urban-design", "traffic", "data-analysis", "pedestrian", "air-quality"],
   },
 
@@ -244,8 +253,11 @@ ws.onmessage = (event) => {
 };
 
 ws.onerror = (err) => console.error("WebSocket error:", err);`,
-    repoHint:
-      "Look at 'transitland/transitland-server' for GTFS-based transit APIs, or 'openstreetmap/leaflet' for map rendering. Search for 'fleet-tracking open source' on GitHub.",
+    repoHint: {
+      en: "Look at 'transitland/transitland-server' for GTFS-based transit APIs, or 'openstreetmap/leaflet' for map rendering. Search for 'fleet-tracking open source' on GitHub.",
+      th: "ดู 'transitland/transitland-server' สำหรับ API การขนส่งบน GTFS หรือ 'openstreetmap/leaflet' สำหรับการเรนเดอร์แผนที่ ค้นหา 'fleet-tracking open source' บน GitHub",
+      zh: "可参考 'transitland/transitland-server' 了解基于 GTFS 的交通 API，或 'openstreetmap/leaflet' 用于地图渲染。在 GitHub 搜索 'fleet-tracking open source'。",
+    },
     tags: ["real-time", "GPS", "waste-management", "maps", "IoT"],
   },
 
@@ -304,8 +316,11 @@ client.connect("mqtt.city.example", 1883)
 client.subscribe("traffic/sensors/#")
 print("Adaptive traffic controller running...")
 client.loop_forever()`,
-    repoHint:
-      "Explore 'eclipse/sumo' (Simulation of Urban Mobility) for traffic simulation, or 'CityFlow-project/CityFlow' for reinforcement-learning traffic signal control.",
+    repoHint: {
+      en: "Explore 'eclipse/sumo' (Simulation of Urban Mobility) for traffic simulation, or 'CityFlow-project/CityFlow' for reinforcement-learning traffic signal control.",
+      th: "สำรวจ 'eclipse/sumo' (Simulation of Urban Mobility) สำหรับการจำลองการจราจร หรือ 'CityFlow-project/CityFlow' สำหรับการควบคุมสัญญาณไฟจราจรด้วย reinforcement learning",
+      zh: "探索 'eclipse/sumo'（城市交通仿真）用于交通模拟，或 'CityFlow-project/CityFlow' 用于强化学习的交通信号控制。",
+    },
     tags: ["IoT", "sensors", "traffic", "real-time", "emissions", "MQTT"],
   },
 
@@ -374,8 +389,11 @@ candidates = [
 result = score_route(candidates, metro_lat=6.2826, metro_lng=-75.5590)
 for k, v in result.items():
     print(f"  {k}: {v}")`,
-    repoHint:
-      "Search for 'gboeing/osmnx' for street-network and elevation analysis with OpenStreetMap data, or 'uber/h3' for hexagonal spatial indexing of population density.",
+    repoHint: {
+      en: "Search for 'gboeing/osmnx' for street-network and elevation analysis with OpenStreetMap data, or 'uber/h3' for hexagonal spatial indexing of population density.",
+      th: "ค้นหา 'gboeing/osmnx' สำหรับการวิเคราะห์เครือข่ายถนนและภูมิประเทศด้วย OpenStreetMap หรือ 'uber/h3' สำหรับการทำดัชนีเชิงพื้นที่แบบเฮกซาโกนัลของความหนาแน่นประชากร",
+      zh: "搜索 'gboeing/osmnx' 用于基于 OpenStreetMap 的街道网络与高程分析，或 'uber/h3' 用于人口密度的六边形空间索引。",
+    },
     tags: ["transit", "equity", "elevation", "urban-planning", "community"],
   },
 
@@ -463,8 +481,11 @@ export default function FeedbackForm() {
     </form>
   );
 }`,
-    repoHint:
-      "Look at 'open311/open311.github.io' for the Open311 standard used by many cities for service requests, or 'codeforamerica/open311dashboard' for a reference dashboard.",
+    repoHint: {
+      en: "Look at 'open311/open311.github.io' for the Open311 standard used by many cities for service requests, or 'codeforamerica/open311dashboard' for a reference dashboard.",
+      th: "ดู 'open311/open311.github.io' สำหรับมาตรฐาน Open311 ที่หลายเมืองใช้รับคำขอบริการ หรือ 'codeforamerica/open311dashboard' สำหรับแดชบอร์ดอ้างอิง",
+      zh: "可参考 'open311/open311.github.io' 了解众多城市采用的 Open311 服务请求标准，或 'codeforamerica/open311dashboard' 提供参考仪表板。",
+    },
     tags: ["mobile-app", "feedback", "AI", "image-recognition", "cross-agency"],
   },
 
@@ -533,8 +554,11 @@ async function submitVote(rankedIds) {
 }
 
 // Initialise: renderBallot(document.getElementById("ballot"));`,
-    repoHint:
-      "Search for 'DemocracyOS/democracyos' or 'consul/consul' -- both are open-source participatory democracy platforms used by dozens of cities worldwide.",
+    repoHint: {
+      en: "Search for 'DemocracyOS/democracyos' or 'consul/consul' — both are open-source participatory democracy platforms used by dozens of cities worldwide.",
+      th: "ค้นหา 'DemocracyOS/democracyos' หรือ 'consul/consul' — ทั้งสองเป็นแพลตฟอร์มประชาธิปไตยแบบมีส่วนร่วมโอเพนซอร์สที่เมืองหลายสิบแห่งทั่วโลกใช้งาน",
+      zh: "搜索 'DemocracyOS/democracyos' 或 'consul/consul' — 两者均为世界各地数十座城市采用的开源参与式民主平台。",
+    },
     tags: ["democracy", "participation", "budgeting", "voting", "transparency"],
   },
 
@@ -608,8 +632,11 @@ client.connect("mqtt.water.example", 1883)
 client.subscribe("water/sensors/#")
 print("Water quality monitor running...")
 client.loop_forever()`,
-    repoHint:
-      "Explore 'UCHIC/GWSDAT' for groundwater monitoring, or search 'water-quality-monitoring IoT' on GitHub. InfluxDB + Grafana templates for water utilities are also widely shared.",
+    repoHint: {
+      en: "Explore 'UCHIC/GWSDAT' for groundwater monitoring, or search 'water-quality-monitoring IoT' on GitHub. InfluxDB + Grafana templates for water utilities are widely shared.",
+      th: "สำรวจ 'UCHIC/GWSDAT' สำหรับการตรวจสอบน้ำใต้ดิน หรือค้นหา 'water-quality-monitoring IoT' บน GitHub เทมเพลต InfluxDB + Grafana สำหรับการประปามีแชร์กันอย่างกว้างขวาง",
+      zh: "探索 'UCHIC/GWSDAT' 用于地下水监测，或在 GitHub 搜索 'water-quality-monitoring IoT'。InfluxDB + Grafana 用于水务的模板也广泛共享。",
+    },
     tags: ["IoT", "water", "environment", "sensors", "public-health", "anomaly-detection"],
   },
 
@@ -686,8 +713,11 @@ zones = [
 schedule = generate_rotation(groups, zones, date.today(), weeks=8)
 for entry in schedule[:6]:  # preview first 6 assignments
     print(f"  {entry['date']}  {entry['group']:>25s}  ->  {entry['zone']}")`,
-    repoHint:
-      "Search for 'codeforafrica/sensors.AFRICA' for community-driven environmental monitoring, or 'ushahidi/platform' for community reporting and accountability tools.",
+    repoHint: {
+      en: "Search for 'codeforafrica/sensors.AFRICA' for community-driven environmental monitoring, or 'ushahidi/platform' for community reporting and accountability tools.",
+      th: "ค้นหา 'codeforafrica/sensors.AFRICA' สำหรับการตรวจสอบสิ่งแวดล้อมโดยชุมชน หรือ 'ushahidi/platform' สำหรับเครื่องมือรายงานและความรับผิดชอบระดับชุมชน",
+      zh: "搜索 'codeforafrica/sensors.AFRICA' 了解社区驱动的环境监测，或 'ushahidi/platform' 用于社区报告与问责工具。",
+    },
     tags: ["community", "volunteer", "scheduling", "accountability", "SMS"],
   },
 
@@ -757,8 +787,11 @@ function validateStage(stage: number, data: unknown) {
 // Example usage:
 // const step1 = validateStage(0, { fullName: "Tanaka Yuki", ... });
 // if (step1.valid) proceedToStage(1);`,
-    repoHint:
-      "Look at 'colinhacks/zod' for the validation library, or search 'multi-step-form react zod' on GitHub for full implementations with React Hook Form integration.",
+    repoHint: {
+      en: "Look at 'colinhacks/zod' for the validation library, or search 'multi-step-form react zod' on GitHub for full implementations with React Hook Form integration.",
+      th: "ดู 'colinhacks/zod' สำหรับไลบรารี validation หรือค้นหา 'multi-step-form react zod' บน GitHub สำหรับการใช้งานเต็มรูปแบบร่วมกับ React Hook Form",
+      zh: "可参考 'colinhacks/zod' 验证库，或在 GitHub 搜索 'multi-step-form react zod' 获取与 React Hook Form 集成的完整实现。",
+    },
     tags: ["immigration", "digital-government", "forms", "validation", "startups"],
   },
 
@@ -834,8 +867,11 @@ if __name__ == "__main__":
             print()
     if not stations:
         print("  No stations returned. Check API key or city name.")`,
-    repoHint:
-      "See 'openaq/openaq-api' for the open air quality API, or 'breathe-free/breathe' for community air quality dashboards. Also search 'purple-air open-source' for sensor firmware.",
+    repoHint: {
+      en: "See 'openaq/openaq-api' for the open air quality API, or 'breathe-free/breathe' for community air quality dashboards. Also search 'purple-air open-source' for sensor firmware.",
+      th: "ดู 'openaq/openaq-api' สำหรับ API คุณภาพอากาศแบบเปิด หรือ 'breathe-free/breathe' สำหรับแดชบอร์ดคุณภาพอากาศของชุมชน ยังค้นหา 'purple-air open-source' สำหรับเฟิร์มแวร์เซ็นเซอร์ได้",
+      zh: "参考 'openaq/openaq-api' 开放空气质量 API，或 'breathe-free/breathe' 社区空气质量仪表板。亦可搜索 'purple-air open-source' 获取传感器固件。",
+    },
     tags: ["air-quality", "PM2.5", "health", "sensors", "public-api", "advisories"],
   },
 ];

@@ -1181,6 +1181,31 @@ section[id] {
   font-size: 0.85rem;
 }
 
+.metric-taglist-group {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+}
+
+.metric-taglist-label {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9a9088;
+  padding-top: 0.45rem;
+}
+
+.metric-taglist--secondary span {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  padding: 0.3rem 0.55rem;
+}
+
 .index-sidebar {
   display: grid;
   gap: 1rem;
@@ -9593,6 +9618,20 @@ details[open].scorecard-derived-formula summary::before {
   border-radius: 50%;
   background: var(--border);
 }
+
+.sbs-chip-tier-glyph {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 1.1em;
+  text-align: center;
+  color: var(--border-strong);
+}
+
+.tier-alpha .sbs-chip-tier-glyph { color: var(--accent-cyan); }
+.tier-beta  .sbs-chip-tier-glyph { color: var(--accent-amber); }
+.tier-gamma .sbs-chip-tier-glyph { color: var(--accent-green); }
 
 .sbs-chip button {
   background: none;
