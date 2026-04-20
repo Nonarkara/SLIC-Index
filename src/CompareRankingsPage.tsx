@@ -119,7 +119,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
       <section className="compare-interactive">
         <div className="section compare-spider-header">
           <h2 className="compare-section-title">{t(locale, "Drag the spider to rebuild SLIC\u2019s top 10.", "ลากใยแมงมุมเพื่อสร้าง SLIC top 10 ใหม่", "拖动蛛网图重建SLIC前10名")}</h2>
-          <p className="compare-section-sub">{t(locale, "The other five indices are frozen. Only SLIC responds to your priorities.", "อีกห้าดัชนียังคงเดิม มีแค่ SLIC ที่ตอบสนอง", "其他五个指数固定不变 只有SLIC响应你的优先级")}</p>
+          <p className="compare-section-sub">{t(locale, "The other seven indices are frozen. Only SLIC responds to your priorities.", "อีกเจ็ดดัชนียังคงเดิม มีแค่ SLIC ที่ตอบสนอง", "其他七个指数固定不变，只有SLIC响应你的优先级")}</p>
           <div className="compare-spider-widget">
             <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={360} />
             <div className="compare-spider-controls">
@@ -129,45 +129,47 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           </div>
         </div>
 
-        <div className="compare-table-scroll">
-          <div className="compare-table">
-            {/* SLIC column — LIVE */}
-            <div className="compare-col compare-col--slic">
-              <div className="compare-col-header" style={{ borderColor: "#1a6b5a" }}>
-                <strong>SLIC V3{isCustom ? ` \u2014 ${t(locale, "YOUR WEIGHTS", "น้ำหนักที่ปรับ", "自定义权重")}` : ""}</strong>
-                <span>2026 &middot; {rankedCities.length} {t(locale, "cities", "เมือง", "座城市")} &middot; {t(locale, "LIVE", "สด", "实时")}</span>
-              </div>
-              {slicTop10.map((c, i) => (
-                <div key={c.cityId} className="compare-cell compare-cell--animated">
-                  <span className="compare-rank">{String(i + 1).padStart(2, "0")}</span>
-                  <div>
-                    <span className="compare-city">{c.displayName}</span>
-                    <span className="compare-country">{c.country}</span>
-                  </div>
-                  <span className="compare-score">{c.customScore.toFixed(1)}</span>
-                </div>
-              ))}
+        <div className="compare-matrix-scroll">
+          <div
+            className="compare-matrix"
+            style={{ gridTemplateColumns: `2.4rem 1.4fr ${INDEX_PROFILES.map(() => "1fr").join(" ")}` }}
+          >
+            {/* ── Header row ── */}
+            <div className="compare-matrix-rank-label" />
+            <div className="compare-matrix-hd compare-matrix-hd--slic">
+              <strong>SLIC V3{isCustom ? ` — ${t(locale, "CUSTOM", "ปรับแล้ว", "自定义")}` : ""}</strong>
+              <span>2026 · {rankedCities.length} {t(locale, "cities", "เมือง", "座城市")} · {t(locale, "LIVE", "สด", "实时")}</span>
             </div>
-
-            {/* Other indices — STATIC */}
             {INDEX_PROFILES.map((profile) => (
-              <div key={profile.id} className="compare-col">
-                <div className="compare-col-header" style={{ borderColor: profile.accentHex }}>
-                  <strong>{profile.shortName}</strong>
-                  <span>{profile.year} &middot; {profile.citiesEvaluated} {t(locale, "cities", "เมือง", "座城市")}</span>
-                </div>
-                {profile.topCities.slice(0, 10).map((c) => (
-                  <div key={c.rank + c.city} className="compare-cell">
-                    <span className="compare-rank">{String(c.rank).padStart(2, "0")}</span>
-                    <div>
-                      <span className="compare-city">{c.city}</span>
-                      <span className="compare-country">{c.country}</span>
-                    </div>
-                    {c.score && <span className="compare-score">{c.score}</span>}
-                  </div>
-                ))}
+              <div key={profile.id} className="compare-matrix-hd" style={{ borderTopColor: profile.accentHex }}>
+                <strong>{profile.shortName}</strong>
+                <span>{profile.year} · {profile.citiesEvaluated} {t(locale, "cities", "เมือง", "座城市")}</span>
               </div>
             ))}
+
+            {/* ── Rank rows 1–10 ── */}
+            {Array.from({ length: 10 }, (_, i) => {
+              const slic = slicTop10[i];
+              return (
+                <>
+                  <div key={`rank-${i}`} className="compare-matrix-rank">{i + 1}</div>
+                  <div key={`slic-${i}`} className="compare-matrix-cell compare-matrix-cell--slic compare-cell--animated">
+                    <span className="compare-city">{slic?.displayName}</span>
+                    <span className="compare-country">{slic?.country}</span>
+                    <span className="compare-score">{slic?.customScore.toFixed(1)}</span>
+                  </div>
+                  {INDEX_PROFILES.map((profile) => {
+                    const city = profile.topCities[i];
+                    return (
+                      <div key={`${profile.id}-${i}`} className="compare-matrix-cell">
+                        <span className="compare-city">{city?.city ?? "—"}</span>
+                        <span className="compare-country">{city?.country ?? ""}</span>
+                      </div>
+                    );
+                  })}
+                </>
+              );
+            })}
           </div>
         </div>
       </section>

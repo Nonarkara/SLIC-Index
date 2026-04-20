@@ -409,15 +409,69 @@ export const INDEX_PROFILES: IndexProfile[] = [
       body: "Mori GPCI is the most transparent about what it values: the ability to attract capital, talent, and enterprise. It makes no pretence of measuring quality of life for ordinary residents. \"Livability\" is one of six functions and is weighted for professionals on the move, not locals. Tokyo's persistent top-three finish is interesting: Mori Building is a major Tokyo developer with a direct financial interest in Tokyo\u2019s global prestige ranking. The index excludes the overwhelming majority of the world\u2019s cities, all of Sub-Saharan Africa, and most of Southeast Asia and South America \u2014 because they are not yet hubs for mobile global capital. The index is honest about serving global elites; the problem is when its results are used to guide public policy for ordinary residents.",
     },
   },
+
+  /* ── 8. Oxford Economics Global Cities Index ── */
+  {
+    id: "oxford",
+    name: "Oxford Economics Global Cities Index",
+    shortName: "Oxford Econ",
+    publisher: "Oxford Economics",
+    year: 2024,
+    citiesEvaluated: 300,
+    accentHex: "#2a4c6c",
+    focus: "Economic performance and future growth trajectory \u2014 which cities offer the best conditions for business, investment, and high-skill labour. Essentially a forward-looking investment map.",
+    topCities: [
+      { rank: 1, city: "New York", country: "United States" },
+      { rank: 2, city: "London", country: "United Kingdom" },
+      { rank: 3, city: "Tokyo", country: "Japan" },
+      { rank: 4, city: "Paris", country: "France" },
+      { rank: 5, city: "Singapore", country: "Singapore" },
+      { rank: 6, city: "Los Angeles", country: "United States" },
+      { rank: 7, city: "Seoul", country: "South Korea" },
+      { rank: 8, city: "Sydney", country: "Australia" },
+      { rank: 9, city: "Amsterdam", country: "Netherlands" },
+      { rank: 10, city: "Chicago", country: "United States" },
+    ],
+    methodology: {
+      claimedPurpose: "Measure current city performance and growth potential across economics, human capital, quality of life, environment, and governance.",
+      actualMeasure: "Economics and human capital together dominate the score. The index is explicitly designed to inform corporate location decisions and public-sector investment strategies \u2014 the same clients who pay Oxford Economics for customised city benchmarking reports. Quality of life is a sub-pillar but is weighted much lower than economic output and labour-market depth. Future growth outlook (a separate but related product) is frequently conflated with the current index in media coverage, blurring present-day performance with forecast trajectories. Oxford Economics sells bespoke city analysis to governments and developers \u2014 the same entities whose cities appear in the ranking.",
+      categories: [
+        "Economics: GDP, growth rate, trade, financial depth, business environment",
+        "Human Capital: talent pool, education levels, research output, skills",
+        "Quality of Life: healthcare access, safety, environment, housing (weakly weighted)",
+        "Environment: emissions, green infrastructure, climate risk",
+        "Governance: institutional quality, transparency, regulatory efficiency",
+      ],
+      dataInputs: [
+        "IMF, World Bank, OECD, national statistics offices",
+        "Oxford Economics proprietary GDP and growth models",
+        "Business environment indices (World Bank Doing Business)",
+        "No resident surveys \u2014 entirely data-model driven",
+      ],
+      blindSpots: [
+        "Housing affordability and rent burden for residents",
+        "Income inequality within cities",
+        "Working conditions, burnout, overwork (absent)",
+        "Community social capital and civic health",
+        "Digital divide and technology access inequality",
+        "Conflict of interest: publisher sells advisory services to cities in the ranking",
+      ],
+      audienceNote: "Corporate real estate teams, sovereign wealth funds, city economic development agencies, and consultants advising governments on investment attraction. Not designed for residents.",
+    },
+    critique: {
+      headline: "A location map for capital, not a quality-of-life index",
+      body: "Oxford Economics GCI is the most candid of the eight about its purpose: it is a product for investors and corporations deciding where to place capital and talent. Economics accounts for the largest share of the score, and \u2018quality of life\u2019 is included primarily because it affects the ability to attract high-skill workers \u2014 not because residents\u2019 wellbeing matters in its own right. The publisher also sells bespoke city analysis to governments and developers, creating a structural incentive to include influential clients as \u2018top performers.\u2019 Housing affordability, working hours, and inequality are absent. The resulting top 10 is entirely predictable: the cities where the most capital already sits.",
+    },
+  },
 ];
 
 /* ── Editorial hero copy ── */
 export const COMPARE_HERO = {
   eyebrow: "COMPARE RANKINGS",
-  title: "Seven indices. Same planet.\nCompletely different answers.",
+  title: "Eight indices. Same planet.\nCompletely different answers.",
   subtitle: "Drag the spider to rebuild SLIC\u2019s top 10 in real time.",
   thesis:
-    "Each major city ranking serves a different use case and weighting frame. EIU and Mercer lean toward relocation and hardship logic; Resonance toward brand and visitor signals; Monocle toward editorial lifestyle framing; Yonsei toward smart-city platforms; IMD toward resident perception of tech; Mori GPCI toward global financial magnetism. Small score gaps are often over-read as hard fact. SLIC differs by placing affordability, overwork, tolerance, and community conditions directly inside the published formula.",
+    "Each major city ranking serves a different use case and weighting frame. EIU and Mercer lean toward relocation and hardship logic; Resonance toward brand and visitor signals; Monocle toward editorial lifestyle framing; Yonsei toward smart-city platforms; IMD toward resident perception of tech; Mori GPCI toward global financial magnetism; Oxford Economics toward investment return. Small score gaps are often over-read as hard fact. SLIC differs by placing affordability, overwork, tolerance, and community conditions directly inside the published formula.",
   overarchingCritique:
     "These rankings often converge on wealthy, globally legible cities because their inputs and audiences reward those conditions. Cities also learn the annual cycle and can optimize for the visible variables. Studies comparing ranking outputs with resident surveys often show only partial overlap. The point of this comparison is not to declare one list fraudulent; it is to show that every board reflects its chosen frame.",
 };
