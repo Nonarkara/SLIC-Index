@@ -8241,8 +8241,12 @@ section[id] {
 }
 
 /* alternating row tint */
-.compare-matrix > .compare-matrix-rank:nth-child(odd of .compare-matrix-rank) {
-  background: rgba(0,0,0,0.015);
+.compare-matrix-row-even {
+  background: rgba(0, 0, 0, 0.018);
+}
+
+.compare-matrix-cell--slic.compare-matrix-row-even {
+  background: rgba(26, 107, 90, 0.055);
 }
 
 .compare-rank {

@@ -132,44 +132,44 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
         <div className="compare-matrix-scroll">
           <div
             className="compare-matrix"
-            style={{ gridTemplateColumns: `2.4rem 1.4fr ${INDEX_PROFILES.map(() => "1fr").join(" ")}` }}
+            style={{ gridTemplateColumns: `2.2rem 1.3fr ${INDEX_PROFILES.map(() => "1fr").join(" ")}` }}
           >
-            {/* ── Header row ── */}
-            <div className="compare-matrix-rank-label" />
-            <div className="compare-matrix-hd compare-matrix-hd--slic">
-              <strong>SLIC V3{isCustom ? ` — ${t(locale, "CUSTOM", "ปรับแล้ว", "自定义")}` : ""}</strong>
-              <span>2026 · {rankedCities.length} {t(locale, "cities", "เมือง", "座城市")} · {t(locale, "LIVE", "สด", "实时")}</span>
-            </div>
-            {INDEX_PROFILES.map((profile) => (
-              <div key={profile.id} className="compare-matrix-hd" style={{ borderTopColor: profile.accentHex }}>
-                <strong>{profile.shortName}</strong>
-                <span>{profile.year} · {profile.citiesEvaluated} {t(locale, "cities", "เมือง", "座城市")}</span>
-              </div>
-            ))}
-
-            {/* ── Rank rows 1–10 ── */}
-            {Array.from({ length: 10 }, (_, i) => {
-              const slic = slicTop10[i];
-              return (
-                <>
-                  <div key={`rank-${i}`} className="compare-matrix-rank">{i + 1}</div>
-                  <div key={`slic-${i}`} className="compare-matrix-cell compare-matrix-cell--slic compare-cell--animated">
+            {/* ── All cells rendered as a flat list; CSS grid auto-places row by row ── */}
+            {[
+              // Header row: rank-label + SLIC + all indexes
+              <div key="h-0" className="compare-matrix-rank-label" />,
+              <div key="h-slic" className="compare-matrix-hd compare-matrix-hd--slic">
+                <strong>SLIC V3{isCustom ? ` — ${t(locale, "CUSTOM", "ปรับแล้ว", "自定义")}` : ""}</strong>
+                <span>2026 · {rankedCities.length} {t(locale, "cities", "เมือง", "座城市")} · {t(locale, "LIVE", "สด", "实时")}</span>
+              </div>,
+              ...INDEX_PROFILES.map((profile) => (
+                <div key={`h-${profile.id}`} className="compare-matrix-hd" style={{ borderTopColor: profile.accentHex }}>
+                  <strong>{profile.shortName}</strong>
+                  <span>{profile.year} · {profile.citiesEvaluated} {t(locale, "cities", "เมือง", "座城市")}</span>
+                </div>
+              )),
+              // Data rows: for each rank i, one rank cell + SLIC cell + all index cells
+              ...Array.from({ length: 10 }, (_, i) => {
+                const slic = slicTop10[i];
+                return [
+                  <div key={`rk-${i}`} className="compare-matrix-rank">{i + 1}</div>,
+                  <div key={`sc-${i}`} className={`compare-matrix-cell compare-matrix-cell--slic${i % 2 === 0 ? " compare-matrix-row-even" : ""} compare-cell--animated`}>
                     <span className="compare-city">{slic?.displayName}</span>
                     <span className="compare-country">{slic?.country}</span>
                     <span className="compare-score">{slic?.customScore.toFixed(1)}</span>
-                  </div>
-                  {INDEX_PROFILES.map((profile) => {
+                  </div>,
+                  ...INDEX_PROFILES.map((profile) => {
                     const city = profile.topCities[i];
                     return (
-                      <div key={`${profile.id}-${i}`} className="compare-matrix-cell">
+                      <div key={`${profile.id}-${i}`} className={`compare-matrix-cell${i % 2 === 0 ? " compare-matrix-row-even" : ""}`}>
                         <span className="compare-city">{city?.city ?? "—"}</span>
                         <span className="compare-country">{city?.country ?? ""}</span>
                       </div>
                     );
-                  })}
-                </>
-              );
-            })}
+                  }),
+                ];
+              }).flat(),
+            ]}
           </div>
         </div>
       </section>
