@@ -1,4 +1,5 @@
 import publishedData from "./data/publishedRankingData.json";
+import { CITY_CONTEXT } from "./data/cityContext";
 import { getCityEditorialEntry } from "./cityEditorial";
 import { getExerciseCities } from "./rankingsData";
 import { appHref, stripBase } from "./routing";
@@ -246,6 +247,23 @@ const SCORECARD_TEXT = {
     transparencyPending: "No published workbook coverage snapshot is attached to this city yet. Metric-level provenance appears after the city enters the verified board.",
     stronger: "Strongest signal",
     weaker: "Weakest signal",
+    ofIncome: "% of income",
+    per100k: "per 100k",
+    pctEnrollment: "% enrollment",
+    population: "Population",
+    cityShare: "National share",
+    birthRate: "Birth rate (TFR)",
+    nationalData: "(national)",
+    workingHours: "Working hours",
+    waterAccess: "Clean water",
+    broadband: "Broadband",
+    climateScore: "Climate",
+    gdpGrowth: "GDP growth",
+    peersEyebrow: "City peers",
+    peersTitle: "Cities like this one",
+    tagSameRegion: "Same region",
+    tagSimilarScale: "Similar scale",
+    tagSimilarIncome: "Similar income",
   },
   th: {
     cityNotFound: "ไม่พบเมืองนี้",
@@ -287,6 +305,23 @@ const SCORECARD_TEXT = {
     transparencyPending: "เมืองนี้ยังไม่มีสแนปช็อตความครอบคลุมจากเวิร์กบุ๊กที่เผยแพร่แล้ว โดยข้อมูลแหล่งที่มาระดับตัวชี้วัดจะปรากฏเมื่อเมืองเข้าสู่บอร์ดที่ผ่านการตรวจสอบ",
     stronger: "สัญญาณที่แข็งแรงที่สุด",
     weaker: "สัญญาณที่อ่อนที่สุด",
+    ofIncome: "% ของรายได้",
+    per100k: "ต่อ 100,000 คน",
+    pctEnrollment: "% อัตราการลงทะเบียนเรียน",
+    population: "ประชากร",
+    cityShare: "สัดส่วนในประเทศ",
+    birthRate: "อัตราเกิด (TFR)",
+    nationalData: "(ระดับประเทศ)",
+    workingHours: "ชั่วโมงทำงาน",
+    waterAccess: "น้ำสะอาด",
+    broadband: "อินเทอร์เน็ต",
+    climateScore: "ภูมิอากาศ",
+    gdpGrowth: "การเติบโต GDP",
+    peersEyebrow: "เพื่อนเมือง",
+    peersTitle: "เมืองที่ใกล้เคียงกัน",
+    tagSameRegion: "ภูมิภาคเดียวกัน",
+    tagSimilarScale: "ขนาดใกล้เคียง",
+    tagSimilarIncome: "รายได้ใกล้เคียง",
   },
   zh: {
     cityNotFound: "未找到城市",
@@ -328,6 +363,23 @@ const SCORECARD_TEXT = {
     transparencyPending: "这座城市目前尚未附带已发布工作簿的覆盖率快照。待其进入已核验榜单后，才会显示指标级溯源信息。",
     stronger: "最强信号",
     weaker: "最弱信号",
+    ofIncome: "% 的收入",
+    per100k: "每10万人",
+    pctEnrollment: "% 入学率",
+    population: "人口",
+    cityShare: "全国占比",
+    birthRate: "出生率（TFR）",
+    nationalData: "（全国）",
+    workingHours: "工作时长",
+    waterAccess: "洁净水",
+    broadband: "宽带",
+    climateScore: "气候",
+    gdpGrowth: "GDP增长",
+    peersEyebrow: "城市同伴",
+    peersTitle: "同类城市",
+    tagSameRegion: "同一地区",
+    tagSimilarScale: "规模相似",
+    tagSimilarIncome: "收入相近",
   },
 } satisfies Record<Locale, Record<string, string>>;
 
@@ -344,6 +396,86 @@ function navigateLink(
 
 const _normStats = (publishedData as any).normStats as Record<string, NormStat>; void _normStats;
 const pillarMetrics = (publishedData as any).pillarMetrics as Record<string, PillarMetricEntry[]>;
+
+/* ── Peer comparison ── */
+
+const INDUSTRY_LABELS: Record<Locale, Record<string, string>> = {
+  en: {
+    manufacturing: "Industrial", shipping: "Port city", tech: "Tech hub", finance: "Finance hub",
+    tourism: "Tourism hub", government: "Capital region", energy: "Energy sector", mining: "Resource-based",
+    education: "University city", pharma: "Pharma hub", automotive: "Auto & industry", trade: "Trade hub",
+    services: "Service economy", agriculture: "Agricultural", media: "Media hub", garments: "Garments",
+    biotech: "Biotech hub", fashion: "Fashion hub", healthcare: "Healthcare hub",
+  },
+  th: {
+    manufacturing: "อุตสาหกรรม", shipping: "เมืองท่า", tech: "ศูนย์กลางเทคฯ", finance: "ศูนย์การเงิน",
+    tourism: "ท่องเที่ยว", government: "ราชการ/เมืองหลวง", energy: "พลังงาน", mining: "ทรัพยากร",
+    education: "มหาวิทยาลัย", pharma: "เภสัชกรรม", automotive: "ยานยนต์", trade: "การค้า",
+    services: "บริการ", agriculture: "เกษตรกรรม", media: "สื่อ", garments: "สิ่งทอ",
+    biotech: "ชีวเทค", fashion: "แฟชั่น", healthcare: "สาธารณสุข",
+  },
+  zh: {
+    manufacturing: "工业", shipping: "港口城市", tech: "科技中心", finance: "金融中心",
+    tourism: "旅游业", government: "首都/行政中心", energy: "能源产业", mining: "资源型城市",
+    education: "大学城", pharma: "医药产业", automotive: "汽车工业", trade: "贸易中心",
+    services: "服务业", agriculture: "农业", media: "传媒中心", garments: "纺织业",
+    biotech: "生物科技", fashion: "时尚产业", healthcare: "医疗产业",
+  },
+};
+
+function computePillarDistance(a: PublishedCity, b: PublishedCity): number {
+  return PILLAR_ORDER.reduce((sum, p) => {
+    const aScore = (a[pillarScoreKey(p)] as number) ?? 50;
+    const bScore = (b[pillarScoreKey(p)] as number) ?? 50;
+    return sum + Math.pow(aScore - bScore, 2);
+  }, 0);
+}
+
+type PeerTag = string;
+
+function computePeerTags(target: PublishedCity, peer: PublishedCity): PeerTag[] {
+  const tags: PeerTag[] = [];
+  const tc = CITY_CONTEXT[target.cityId];
+  const pc = CITY_CONTEXT[peer.cityId];
+
+  if (target.region === peer.region) tags.push("region");
+
+  if (tc && pc) {
+    const ratio = Math.max(tc.cityPop, pc.cityPop) / Math.min(tc.cityPop, pc.cityPop);
+    if (ratio < 2.5) tags.push("scale");
+    const shared = tc.industries.find((i) => pc.industries.includes(i));
+    if (shared) tags.push(shared);
+  }
+
+  const ti = target.metrics?.pressure_disposable_income_ppp?.raw;
+  const pi = peer.metrics?.pressure_disposable_income_ppp?.raw;
+  if (ti && pi && tags.length < 3) {
+    const incomeRatio = Math.max(ti, pi) / Math.min(ti, pi);
+    if (incomeRatio < 1.5) tags.push("income");
+  }
+
+  return tags.slice(0, 3);
+}
+
+function getPeerTagLabel(tag: PeerTag, locale: Locale): string {
+  const copy = SCORECARD_TEXT[locale];
+  if (tag === "region") return copy.tagSameRegion;
+  if (tag === "scale") return copy.tagSimilarScale;
+  if (tag === "income") return copy.tagSimilarIncome;
+  return INDUSTRY_LABELS[locale][tag] ?? tag;
+}
+
+function findComparableCities(
+  target: PublishedCity,
+  ranked: PublishedCity[],
+): Array<{ city: PublishedCity; tags: PeerTag[] }> {
+  return ranked
+    .filter((c) => c.cityId !== target.cityId)
+    .map((c) => ({ city: c, dist: computePillarDistance(target, c) }))
+    .sort((a, b) => a.dist - b.dist)
+    .slice(0, 3)
+    .map(({ city }) => ({ city, tags: computePeerTags(target, city) }));
+}
 const allCities = (publishedData.cities ?? []) as PublishedCity[];
 
 function humanizeKey(key: string) {
@@ -610,7 +742,8 @@ export default function CityScorecardPage({
   const cityId = decodeURIComponent(pathSegments[pathSegments.length - 1] ?? "");
   const city = findCity(cityId);
   const copy = SCORECARD_TEXT[locale];
-  const rankedCityCount = allCities.filter((c) => c.rankingStatus === "Ranked").length;
+  const rankedCities = allCities.filter((c) => c.rankingStatus === "Ranked");
+  const rankedCityCount = rankedCities.length;
 
   if (!city) {
     return (
@@ -636,6 +769,8 @@ export default function CityScorecardPage({
     label: PILLAR_LABELS[locale]?.[p] ?? PILLAR_LABELS.en[p],
   }));
   const isPublished = city.publicationStatus !== "exercise";
+  const cityCtx = CITY_CONTEXT[city.cityId];
+  const peers = isPublished ? findComparableCities(city, rankedCities) : [];
   const cityEditorial = getCityEditorialEntry(city.cityId);
 
   return (
@@ -750,13 +885,13 @@ export default function CityScorecardPage({
             {city.metrics?.pressure_housing_burden?.raw !== null && city.metrics?.pressure_housing_burden?.raw !== undefined && (
               <div className="scorecard-overview-card">
                 <span className="scorecard-overview-label">{copy.housingBurden}</span>
-                <strong>{city.metrics.pressure_housing_burden.raw.toFixed(1)}% of income</strong>
+                <strong>{city.metrics.pressure_housing_burden.raw.toFixed(1)}{copy.ofIncome}</strong>
               </div>
             )}
             {city.metrics?.viability_personal_safety?.raw !== null && city.metrics?.viability_personal_safety?.raw !== undefined && (
               <div className="scorecard-overview-card">
                 <span className="scorecard-overview-label">{copy.safetyRate}</span>
-                <strong>{city.metrics.viability_personal_safety.raw.toFixed(1)} per 100k</strong>
+                <strong>{city.metrics.viability_personal_safety.raw.toFixed(1)} {copy.per100k}</strong>
               </div>
             )}
             {city.metrics?.viability_clean_air?.raw !== null && city.metrics?.viability_clean_air?.raw !== undefined && (
@@ -774,9 +909,95 @@ export default function CityScorecardPage({
             {city.metrics?.capability_education_quality?.raw !== null && city.metrics?.capability_education_quality?.raw !== undefined && (
               <div className="scorecard-overview-card">
                 <span className="scorecard-overview-label">{copy.education}</span>
-                <strong>{city.metrics.capability_education_quality.raw.toFixed(0)}% enrollment</strong>
+                <strong>{city.metrics.capability_education_quality.raw.toFixed(0)}{copy.pctEnrollment}</strong>
               </div>
             )}
+            {cityCtx && (
+              <div className="scorecard-overview-card">
+                <span className="scorecard-overview-label">{copy.population}</span>
+                <strong>{cityCtx.cityPop >= 1 ? `${cityCtx.cityPop.toFixed(1)}M` : `${(cityCtx.cityPop * 1000).toFixed(0)}k`}</strong>
+              </div>
+            )}
+            {cityCtx && (
+              <div className="scorecard-overview-card scorecard-overview-card--highlight">
+                <span className="scorecard-overview-label">{copy.cityShare}</span>
+                <strong>{((cityCtx.cityPop / cityCtx.countryPop) * 100).toFixed(1)}%</strong>
+              </div>
+            )}
+            {city.metrics?.community_birth_rate_optimism?.raw !== null && city.metrics?.community_birth_rate_optimism?.raw !== undefined && (
+              <div className="scorecard-overview-card">
+                <span className="scorecard-overview-label">{copy.birthRate}</span>
+                <strong>{city.metrics.community_birth_rate_optimism.raw.toFixed(2)}</strong>
+              </div>
+            )}
+            {city.metrics?.pressure_working_time_pressure?.raw !== null && city.metrics?.pressure_working_time_pressure?.raw !== undefined && (
+              <div className="scorecard-overview-card">
+                <span className="scorecard-overview-label">{copy.workingHours}</span>
+                <strong>{city.metrics.pressure_working_time_pressure.raw.toFixed(1)} hrs/wk</strong>
+              </div>
+            )}
+            {city.metrics?.viability_water_sanitation_utility?.raw !== null && city.metrics?.viability_water_sanitation_utility?.raw !== undefined && (
+              <div className="scorecard-overview-card">
+                <span className="scorecard-overview-label">{copy.waterAccess}</span>
+                <strong>{city.metrics.viability_water_sanitation_utility.raw.toFixed(0)}%</strong>
+              </div>
+            )}
+            {city.metrics?.viability_digital_infrastructure?.raw !== null && city.metrics?.viability_digital_infrastructure?.raw !== undefined && (
+              <div className="scorecard-overview-card">
+                <span className="scorecard-overview-label">{copy.broadband}</span>
+                <strong>{city.metrics.viability_digital_infrastructure.raw.toFixed(0)}/100</strong>
+              </div>
+            )}
+            {city.metrics?.viability_climate_sunlight_livability?.raw !== null && city.metrics?.viability_climate_sunlight_livability?.raw !== undefined && (
+              <div className="scorecard-overview-card">
+                <span className="scorecard-overview-label">{copy.climateScore}</span>
+                <strong>{city.metrics.viability_climate_sunlight_livability.raw.toFixed(0)}/100</strong>
+              </div>
+            )}
+            {city.metrics?.pressure_economic_growth_momentum?.raw !== null && city.metrics?.pressure_economic_growth_momentum?.raw !== undefined && (
+              <div className="scorecard-overview-card">
+                <span className="scorecard-overview-label">{copy.gdpGrowth}{city.metrics.pressure_economic_growth_momentum.dataLevel === "national" ? ` ${copy.nationalData}` : ""}</span>
+                <strong>{city.metrics.pressure_economic_growth_momentum.raw >= 0 ? "+" : ""}{city.metrics.pressure_economic_growth_momentum.raw.toFixed(1)}%</strong>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
+
+      {/* ── City Peers ── */}
+      {isPublished && peers.length > 0 && (
+        <section className="section scorecard-peers">
+          <div className="scorecard-peers-header">
+            <p className="eyebrow">{copy.peersEyebrow}</p>
+            <h2 className="scorecard-peers-title">{copy.peersTitle}</h2>
+          </div>
+          <div className="scorecard-peers-grid">
+            {peers.map(({ city: peer, tags }) => (
+              <a
+                key={peer.cityId}
+                className="scorecard-peer-card"
+                href={appHref(`/city/${peer.cityId}`)}
+                onClick={(e) => navigateLink(e, onNavigate, `/city/${peer.cityId}`)}
+              >
+                <div className="scorecard-peer-rank">#{peer.rank}</div>
+                <div className="scorecard-peer-name">{peer.displayName}</div>
+                <div className="scorecard-peer-country">{peer.country}</div>
+                <div className="scorecard-peer-score">{peer.slicScore.toFixed(1)}</div>
+                {(() => {
+                  const pCtx = CITY_CONTEXT[peer.cityId];
+                  return pCtx ? (
+                    <div className="scorecard-peer-pop">{pCtx.cityPop >= 1 ? `${pCtx.cityPop.toFixed(1)}M` : `${(pCtx.cityPop * 1000).toFixed(0)}k`} · {pCtx.industries.slice(0, 2).map((i) => INDUSTRY_LABELS[locale][i] ?? i).join(", ")}</div>
+                  ) : null;
+                })()}
+                {tags.length > 0 && (
+                  <div className="scorecard-peer-tags">
+                    {tags.map((tag) => (
+                      <span key={tag} className="scorecard-peer-tag">{getPeerTagLabel(tag, locale)}</span>
+                    ))}
+                  </div>
+                )}
+              </a>
+            ))}
           </div>
         </section>
       )}

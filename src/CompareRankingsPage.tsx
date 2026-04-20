@@ -134,8 +134,8 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
             {/* SLIC column — LIVE */}
             <div className="compare-col compare-col--slic">
               <div className="compare-col-header" style={{ borderColor: "#1a6b5a" }}>
-                <strong>SLIC V3{isCustom ? " \u2014 YOUR WEIGHTS" : ""}</strong>
-                <span>2026 &middot; {rankedCities.length} cities &middot; LIVE</span>
+                <strong>SLIC V3{isCustom ? ` \u2014 ${t(locale, "YOUR WEIGHTS", "น้ำหนักที่ปรับ", "自定义权重")}` : ""}</strong>
+                <span>2026 &middot; {rankedCities.length} {t(locale, "cities", "เมือง", "座城市")} &middot; {t(locale, "LIVE", "สด", "实时")}</span>
               </div>
               {slicTop10.map((c, i) => (
                 <div key={c.cityId} className="compare-cell compare-cell--animated">
@@ -154,7 +154,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
               <div key={profile.id} className="compare-col">
                 <div className="compare-col-header" style={{ borderColor: profile.accentHex }}>
                   <strong>{profile.shortName}</strong>
-                  <span>{profile.year} &middot; {profile.citiesEvaluated} cities</span>
+                  <span>{profile.year} &middot; {profile.citiesEvaluated} {t(locale, "cities", "เมือง", "座城市")}</span>
                 </div>
                 {profile.topCities.slice(0, 10).map((c) => (
                   <div key={c.rank + c.city} className="compare-cell">
