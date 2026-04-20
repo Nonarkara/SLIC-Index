@@ -458,7 +458,7 @@ export default function HomePage({
           </p>
           <div className="v3-spider-layout">
             <div className="v3-spider-chart">
-              <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={380} />
+              <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={380} locale={locale} />
               <button type="button" className="rankings-reset-btn" onClick={handleReset}>
                 {ui.resetLabel}
               </button>

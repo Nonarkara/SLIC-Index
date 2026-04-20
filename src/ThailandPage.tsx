@@ -344,7 +344,7 @@ export default function ThailandPage({
                 <p className="city-tagline">{province.tagline}</p>
 
                 {province.mayor && (
-                  <p className="city-mayor" style={{ fontSize: "0.78rem", opacity: 0.65, margin: "0 0 0.6rem" }}>
+                  <p className="city-mayor" style={{ fontSize: "0.78rem", color: "#6b6459", margin: "0 0 0.6rem" }}>
                     {locale === "th" ? "ผู้ว่าฯ" : locale === "zh" ? "市长" : "Mayor"}{" "}
                     <strong>{locale === "th" && province.mayorTh ? province.mayorTh : province.mayor}</strong>
                   </p>

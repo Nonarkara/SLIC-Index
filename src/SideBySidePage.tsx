@@ -104,7 +104,7 @@ export default function SideBySidePage({
                 <div key={city.id} className={`sbs-chip tier-${getTier(city.globalRank)}`}>
                   <div className="sbs-chip-color"></div>
                   <span>{city.name}</span>
-                  <button type="button" onClick={() => handleRemove(idx)} aria-label="Remove">&times;</button>
+                  <button type="button" onClick={() => handleRemove(idx)} aria-label={t(locale, `Remove ${city.name}`, `ลบ ${city.name}`, `移除${city.name}`)}>&times;</button>
                 </div>
               ))}
               {selectedIds.length < 5 && !isAdding && (
@@ -165,16 +165,20 @@ export default function SideBySidePage({
 
                 <div className="sbs-slic-context">
                    <div className="sbs-context-item">
-                     <span>Type</span>
-                     <strong>{city.cityType === "primary" ? "Primary" : "Secondary"}</strong>
+                     <span>{t(locale, "Type", "ประเภท", "类型")}</span>
+                     <strong>
+                       {city.cityType === "primary"
+                         ? t(locale, "Primary", "เมืองหลัก", "主城市")
+                         : t(locale, "Secondary", "เมืองรอง", "次级城市")}
+                     </strong>
                    </div>
                    <div className="sbs-context-item">
-                     <span>Region</span>
+                     <span>{t(locale, "Region", "ภูมิภาค", "区域")}</span>
                      <strong>{city.region}</strong>
                    </div>
                    {city.metrics?.pppIncomePerHead && (
                      <div className="sbs-context-item">
-                       <span>Income (PPP)</span>
+                       <span>{t(locale, "Income (PPP)", "รายได้ (PPP)", "收入（PPP）")}</span>
                        <strong>${Math.round(city.metrics.pppIncomePerHead).toLocaleString()}</strong>
                      </div>
                    )}

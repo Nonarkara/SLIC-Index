@@ -7,6 +7,8 @@ export interface PillarAllocation {
   value: number;
 }
 
+export type AllocatorLocale = "en" | "th" | "zh";
+
 interface ZeroSumAllocatorProps {
   pillars: PillarAllocation[];
   onChange: (pillars: PillarAllocation[]) => void;
@@ -15,7 +17,14 @@ interface ZeroSumAllocatorProps {
   max?: number;
   size?: number;
   descriptions?: Record<string, string>;
+  locale?: AllocatorLocale;
 }
+
+const ALLOCATOR_HINT: Record<AllocatorLocale, string> = {
+  en: "drag a bar to weight what matters to you",
+  th: "ลากแถบเพื่อให้น้ำหนักสิ่งที่สำคัญกับคุณ",
+  zh: "拖动滑块以赋予你所重视事物的权重",
+};
 
 function allocatorLayout(size: number) {
   const padding = size < 410 ? 88 : 104;
@@ -63,7 +72,8 @@ const SpiderWebChart: FC<{
   size?: number;
   draggingIndex: number | null;
   hasInteracted: boolean;
-}> = ({ pillars, total, size = 380, draggingIndex, hasInteracted }) => {
+  locale: AllocatorLocale;
+}> = ({ pillars, total, size = 380, draggingIndex, hasInteracted, locale }) => {
   const { canvas, cx, cy, maxR, labelR } = allocatorLayout(size);
   const step = 360 / pillars.length;
   const rings = [0.25, 0.5, 0.75, 1];
@@ -249,7 +259,7 @@ const SpiderWebChart: FC<{
           fontFamily="'JetBrains Mono', monospace"
           fill="rgba(226, 232, 240, 0.42)"
         >
-          drag a bar to weight what matters to you
+          {ALLOCATOR_HINT[locale]}
         </text>
       )}
     </svg>
@@ -264,6 +274,7 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
   max = 100,
   size = 440,
   descriptions = {},
+  locale = "en",
 }) => {
   const [draggingIndex, setDraggingIndex] = useState<number | null>(null);
   const [hasInteracted, setHasInteracted] = useState(false);
@@ -386,6 +397,7 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
           size={size}
           draggingIndex={draggingIndex}
           hasInteracted={hasInteracted}
+          locale={locale}
         />
       </div>
 

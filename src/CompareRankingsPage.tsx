@@ -122,7 +122,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           <h2 className="compare-section-title">{t(locale, "Drag the spider to rebuild SLIC\u2019s top 10.", "ลากใยแมงมุมเพื่อสร้าง SLIC top 10 ใหม่", "拖动蛛网图重建SLIC前10名")}</h2>
           <p className="compare-section-sub">{t(locale, "The other seven indices are frozen. Only SLIC responds to your priorities.", "อีกเจ็ดดัชนียังคงเดิม มีแค่ SLIC ที่ตอบสนอง", "其他七个指数固定不变，只有SLIC响应你的优先级")}</p>
           <div className="compare-spider-widget">
-            <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={360} />
+            <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={360} locale={locale} />
             <div className="compare-spider-controls">
               <button type="button" className="compare-reset-btn" onClick={handleReset}>{t(locale, "Reset to equal", "รีเซ็ต", "重置")}</button>
               {isCustom && <span className="compare-custom-badge">{t(locale, "Custom weights", "น้ำหนักที่ปรับ", "自定义权重")}</span>}

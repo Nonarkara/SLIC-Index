@@ -54,7 +54,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
       ],
     },
     {
-      year: "Now",
+      year: "2026 · V3",
       title: "V3 — published board and live workbench",
       body: "Version 3 is live. The public board now publishes 157 verified cities, each with one declared SLIC score, five public pillar values, and a traceable methodology. Alongside that board, the live workbench lets readers rerank the wider 350-city indexed field without overwriting the published baseline. The next step is expansion — more cities, tighter source coverage, and deeper scorecards — while keeping the public trace transparent and auditable.",
       photos: [],
@@ -98,7 +98,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
       ],
     },
     {
-      year: "ปัจจุบัน",
+      year: "2026 · V3",
       title: "V3 — บอร์ดที่เผยแพร่แล้วและเวิร์กเบนช์แบบสด",
       body: "เวอร์ชัน 3 เปิดใช้งานแล้ว บอร์ดสาธารณะเผยแพร่ 157 เมืองที่ผ่านการตรวจสอบ แต่ละเมืองมีคะแนน SLIC ที่ประกาศชัด 1 ค่า มี 5 ค่าเสาหลักสาธารณะ และมีวิธีการที่ไล่ย้อนตรวจสอบได้ ขณะเดียวกัน เวิร์กเบนช์แบบสดเปิดให้ผู้อ่านจัดอันดับใหม่กับสนามข้อมูล 350 เมืองโดยไม่เขียนทับ baseline ที่เผยแพร่ ขั้นต่อไปคือขยายจำนวนเมือง เพิ่มความครอบคลุมของแหล่งข้อมูล และทำ scorecard ให้ลึกขึ้น โดยยังคงความโปร่งใสและการตรวจสอบย้อนกลับของคะแนนสาธารณะไว้",
       photos: [],
@@ -142,7 +142,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
       ],
     },
     {
-      year: "现在",
+      year: "2026 · V3",
       title: "V3——已发布榜单与实时工作台",
       body: "版本3已经上线。公开榜单目前发布了157座已核验城市，每座城市都有一个明确的 SLIC 分数、五个公开支柱值，以及可追溯的方法说明。与此同时，实时工作台允许读者在不改写已发布基线的前提下，对更大的350城索引字段进行重排。下一步是继续扩展城市范围、补强来源覆盖，并做出更深入的城市 scorecard，同时保持公开分数链路的透明与可审计性。",
       photos: [],
@@ -189,7 +189,7 @@ export default function HistoryPage({
                         <img
                           key={photo}
                           src={resolvePhotoSrc(photo)}
-                          alt=""
+                          alt={`${entry.title} — ${entry.year}`}
                           loading="lazy"
                           className="history-photo"
                           onError={(e) => { (e.target as HTMLElement).style.display = "none"; }}

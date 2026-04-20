@@ -197,7 +197,7 @@ const interactiveCopy: Record<
     heroEyebrow: "Preference engine",
     heroTitle: "Tune the city field to your life",
     heroIntro:
-      "This workbench reranks the full 350-city indexed field in real time. Drag the spider web, move the sliders, or use a preset to see which cities match the kind of life you actually want.",
+      "This workbench reranks the full {count}-city indexed field in real time. Drag the spider web, move the sliders, or use a preset to see which cities match the kind of life you actually want.",
     heroNoteTitle: "Why this is traceable",
     heroNoteBody:
       "This is a declared ranking instrument, not a vibe list. The published board keeps one baseline score per city; this workbench lets you compare how the same five pillars behave when you change the weights.",
@@ -241,7 +241,7 @@ const interactiveCopy: Record<
     heroEyebrow: "เครื่องมือปรับความชอบ",
     heroTitle: "จูนสนามเมืองให้เข้ากับชีวิตของคุณ",
     heroIntro:
-      "หน้านี้จัดอันดับใหม่แบบสดจากเมืองทั้ง 200 เมืองในสนามดัชนี ลากใยแมงมุม ขยับสไลเดอร์ หรือใช้ preset เพื่อดูว่าเมืองไหนใกล้กับชีวิตที่คุณต้องการจริง ๆ",
+      "หน้านี้จัดอันดับใหม่แบบสดจากเมืองทั้ง {count} เมืองในสนามดัชนี ลากใยแมงมุม ขยับสไลเดอร์ หรือใช้ preset เพื่อดูว่าเมืองไหนใกล้กับชีวิตที่คุณต้องการจริง ๆ",
     heroNoteTitle: "ทำไมหน้านี้จึงไล่ย้อนกลับได้",
     heroNoteBody:
       "หน้านี้เป็นเครื่องมือจัดอันดับที่ประกาศกรอบชัดเจน ไม่ใช่ลิสต์ตามอารมณ์ บอร์ดที่เผยแพร่เก็บคะแนนพื้นฐานหนึ่งค่าต่อเมือง ส่วนเวิร์กเบนช์นี้ให้คุณเปรียบเทียบว่า 5 เสาหลักเดียวกันตอบสนองอย่างไรเมื่อคุณเปลี่ยนน้ำหนัก",
@@ -285,7 +285,7 @@ const interactiveCopy: Record<
     heroEyebrow: "偏好引擎",
     heroTitle: "把城市场域调到适合你的生活",
     heroIntro:
-      "这个工作台会对完整的 200 城市索引场进行实时重排。拖动蛛网图、调整滑块，或使用预设，看看哪些城市最接近你真正想要的生活。",
+      "这个工作台会对完整的 {count} 城市索引场进行实时重排。拖动蛛网图、调整滑块，或使用预设，看看哪些城市最接近你真正想要的生活。",
     heroNoteTitle: "为什么它可以被追溯",
     heroNoteBody:
       "这是一套公开声明的方法工具，而不是一份凭感觉的榜单。已发布榜单为每座城市保留一个基线分数；这个工作台则让你比较同样五个支柱在改动权重后会如何变化。",
@@ -530,7 +530,7 @@ export default function RankingsPage({
           <div className="rankings-hero-copy">
             <p className="eyebrow">{ui.heroEyebrow}</p>
             <h1 className="rankings-title">{ui.heroTitle}</h1>
-            <p className="hero-intro">{ui.heroIntro}</p>
+            <p className="hero-intro">{ui.heroIntro.replace("{count}", String(indexedCities.length))}</p>
           </div>
 
           <div className="rankings-status-grid">
@@ -578,6 +578,7 @@ export default function RankingsPage({
               onChange={setPillars}
               size={520}
               descriptions={hints}
+              locale={locale}
             />
 
             <div className="rankings-stage-readout">

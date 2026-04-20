@@ -1,5 +1,4 @@
 import { Suspense, lazy, useEffect, useState } from "react";
-import HomePage from "./HomePage";
 import SiteMasthead from "./SiteMasthead";
 import { localeLabels } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
@@ -7,6 +6,7 @@ import { trackVisitor } from "./visitorTracking";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
+const HomePage = lazy(() => import("./HomePage"));
 const IdeasPage = lazy(() => import("./IdeasPage"));
 const ExercisePage = lazy(() => import("./ExercisePage"));
 const MethodologyPage = lazy(() => import("./MethodologyPage"));
