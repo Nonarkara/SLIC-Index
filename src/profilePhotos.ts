@@ -24,20 +24,4 @@ export const profilePhotos: ProfilePhoto[] = [
     width: 4032,
     height: 3024,
   },
-  {
-    id: "profile-origin-panel",
-    src: "/photos/report-origin-panel.jpg",
-    alt: "A formal public panel session focused on city systems and implementation.",
-    caption: "The public-facing index sits inside a wider institutional process of review, dialogue, and delivery.",
-    width: 4096,
-    height: 3072,
-  },
-  {
-    id: "profile-origin-stage",
-    src: "/photos/report-origin-stage.jpg",
-    alt: "A stage presentation during a public smart-city event.",
-    caption: "SLIC is framed as public city work: explanation, critique, programme design, and implementation readiness.",
-    width: 4096,
-    height: 3072,
-  },
 ];
