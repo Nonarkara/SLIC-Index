@@ -8,6 +8,7 @@ import {
   INDEX_PROFILES,
   COMPARE_HERO,
   SLIC_DIFFERENCE,
+  ECHO_CHAMBER_NOTES,
 } from "./compareRankingsData";
 import type { Locale, SitePath } from "./types";
 
@@ -91,7 +92,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
     const results: Array<{ city: string; indices: string[]; inSlic: boolean }> = [];
     overlaps.forEach((indices, city) => {
       const nonSlic = indices.filter((i) => i !== "SLIC");
-      if (nonSlic.length >= 5) {
+      if (nonSlic.length >= 3) {
         results.push({ city: city.charAt(0).toUpperCase() + city.slice(1), indices: nonSlic, inSlic: indices.includes("SLIC") });
       }
     });
@@ -177,17 +178,32 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
       {/* ═══════ 03. OVERLAP ANALYSIS (dynamic) ═══════ */}
       <section className="compare-overlap section">
         <h2 className="compare-section-title">{t(locale, "The echo chamber", "ห้องเสียงสะท้อน", "回声室")}</h2>
-        <p className="compare-section-sub">{t(locale, "Cities in 3+ establishment top-10 lists \u2014 and where SLIC disagrees.", "เมืองที่อยู่ใน top 10 ของดัชนีสถาบัน 3+ ดัชนี \u2014 และที่ SLIC ไม่เห็นด้วย", "出现在3个以上机构前10名中的城市 \u2014 以及SLIC的不同意见")}</p>
+        <p className="compare-section-sub">{t(locale, "Cities appearing in 3+ establishment top-10 lists — and the specific SLIC factors that tell a different story.", "เมืองที่ติด top 10 ของดัชนีสถาบันอย่างน้อย 3 ดัชนี — และปัจจัย SLIC ที่บอกเล่าเรื่องราวต่างออกไป", "出现在3个以上主流指数前10名的城市——以及SLIC给出不同答案的具体因素")}</p>
         <div className="compare-overlap-grid">
-          {establishmentFavorites.map((item) => (
-            <div key={item.city} className="compare-overlap-card">
-              <strong>{item.city}</strong>
-              <span className="compare-overlap-indices">{item.indices.join(", ")}</span>
-              <span className={item.inSlic ? "compare-overlap-slic yes" : "compare-overlap-slic no"}>
-                {item.inSlic ? t(locale, "Also in SLIC top 10", "อยู่ใน SLIC top 10 ด้วย", "也在SLIC前10") : t(locale, "Not in SLIC top 10", "ไม่อยู่ใน SLIC top 10", "不在SLIC前10")}
-              </span>
-            </div>
-          ))}
+          {establishmentFavorites.map((item) => {
+            const note = ECHO_CHAMBER_NOTES[item.city.toLowerCase()];
+            return (
+              <div key={item.city} className="compare-overlap-card">
+                <div className="compare-overlap-card-header">
+                  <strong>{item.city}</strong>
+                  {note?.slicRank && (
+                    <span className="compare-overlap-slic-rank">
+                      {t(locale, `SLIC #${note.slicRank}`, `SLIC อันดับ ${note.slicRank}`, `SLIC 第${note.slicRank}名`)}
+                    </span>
+                  )}
+                </div>
+                <span className="compare-overlap-indices">{item.indices.join(", ")}</span>
+                <span className={item.inSlic ? "compare-overlap-slic yes" : "compare-overlap-slic no"}>
+                  {item.inSlic ? t(locale, "Also in SLIC top 10", "อยู่ใน SLIC top 10 ด้วย", "也在SLIC前10") : t(locale, "Not in SLIC top 10", "ไม่อยู่ใน SLIC top 10", "不在SLIC前10")}
+                </span>
+                {note && (
+                  <p className="compare-overlap-note">
+                    {locale === "th" ? note.th : locale === "zh" ? note.zh : note.en}
+                  </p>
+                )}
+              </div>
+            );
+          })}
         </div>
         {slicOnly.length > 0 && (
           <div className="compare-slic-exclusive">

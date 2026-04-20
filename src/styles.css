@@ -8413,8 +8413,8 @@ section[id] {
 
 .compare-overlap-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 12px;
 }
 
 .compare-overlap-card {
@@ -8426,16 +8426,42 @@ section[id] {
   border: 1px solid var(--border);
 }
 
+.compare-overlap-card-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
 .compare-overlap-card strong {
   font-family: var(--font-heading);
   font-size: 16px;
   font-weight: 700;
 }
 
+.compare-overlap-slic-rank {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: #9a9088;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
 .compare-overlap-indices {
   font-size: 11px;
-  opacity: 0.4;
+  color: #9a9088;
   font-family: var(--font-mono);
+}
+
+.compare-overlap-note {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border);
+  font-size: 12px;
+  line-height: 1.6;
+  color: #5c5449;
+  font-style: italic;
 }
 
 .compare-overlap-slic {
