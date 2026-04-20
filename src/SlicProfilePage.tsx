@@ -1,6 +1,6 @@
 import { profilePhotos } from "./profilePhotos";
 import { appHref } from "./routing";
-import { OFFICIAL_SLIC_URL, slicProfileData } from "./slicProfileData";
+import { OFFICIAL_SLIC_URL, slicProfileData, type PartnerCard } from "./slicProfileData";
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
 
@@ -13,6 +13,26 @@ function navigateLink(
 ) {
   event.preventDefault();
   onNavigate(path);
+}
+
+function PartnerCardView({ card }: { card: PartnerCard }) {
+  return (
+    <article className="paper-card partner-card">
+      {card.logoSrc && (
+        <div className="partner-card-logo">
+          <img src={`${BASE}${card.logoSrc}`} alt={`${card.name} logo`} loading="lazy" />
+        </div>
+      )}
+      <p className="panel-label">{card.role}</p>
+      <h3>{card.name}</h3>
+      <p>{card.body}</p>
+      {card.url && (
+        <a className="inline-page-link" href={card.url} target="_blank" rel="noreferrer">
+          {card.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
+        </a>
+      )}
+    </article>
+  );
 }
 
 export default function SlicProfilePage({
@@ -36,14 +56,6 @@ export default function SlicProfilePage({
             <div className="hero-actions">
               <a
                 className="primary-action"
-                href={OFFICIAL_SLIC_URL}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {profile.externalLabel}
-              </a>
-              <a
-                className="secondary-action"
                 href={appHref("/methodology")}
                 onClick={(event) => navigateLink(event, onNavigate, "/methodology")}
               >
@@ -59,14 +71,6 @@ export default function SlicProfilePage({
                 <li key={item}>{item}</li>
               ))}
             </ul>
-            <a
-              className="inline-page-link"
-              href={OFFICIAL_SLIC_URL}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {OFFICIAL_SLIC_URL}
-            </a>
           </aside>
         </div>
       </header>
@@ -75,19 +79,15 @@ export default function SlicProfilePage({
         <section className="paper-section section">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">{profile.deliveryLabel}</p>
-              <h2>{profile.serviceTitle}</h2>
+              <p className="eyebrow">{profile.leadsLabel}</p>
+              <h2>{profile.leadsTitle}</h2>
             </div>
-            <p className="section-summary">{profile.deliverySummary}</p>
+            <p className="section-summary">{profile.leadsSummary}</p>
           </div>
 
           <div className="profile-card-grid">
-            {profile.services.map((service) => (
-              <article className="paper-card" key={service.title}>
-                <p className="panel-label">4C</p>
-                <h3>{service.title}</h3>
-                <p>{service.body}</p>
-              </article>
+            {profile.leads.map((lead) => (
+              <PartnerCardView key={lead.name} card={lead} />
             ))}
           </div>
         </section>
@@ -95,19 +95,52 @@ export default function SlicProfilePage({
         <section className="paper-section section">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">{profile.programmeLabel}</p>
-              <h2>{profile.programTitle}</h2>
+              <p className="eyebrow">{profile.privateLabel}</p>
+              <h2>{profile.privateTitle}</h2>
             </div>
-            <p className="section-summary">{profile.programmeSummary}</p>
+            <p className="section-summary">{profile.privateSummary}</p>
           </div>
 
-          <div className="profile-program-grid">
-            {profile.programs.map((program, index) => (
-              <article className={index === 0 ? "paper-card profile-program-card profile-program-card-wide" : "paper-card profile-program-card"} key={program.title}>
-                <p className="panel-label">{program.kicker}</p>
-                <h3>{program.title}</h3>
-                <p>{program.body}</p>
-              </article>
+          <div className="profile-card-grid">
+            <article className="paper-card partner-card partner-card-wide">
+              {profile.privatePartner.logoSrc && (
+                <div className="partner-card-logo">
+                  <img
+                    src={`${BASE}${profile.privatePartner.logoSrc}`}
+                    alt={`${profile.privatePartner.name} logo`}
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <p className="panel-label">{profile.privatePartner.role}</p>
+              <h3>{profile.privatePartner.name}</h3>
+              <p>{profile.privatePartner.body}</p>
+              {profile.privatePartner.url && (
+                <a
+                  className="inline-page-link"
+                  href={profile.privatePartner.url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {profile.slicFootnoteLabel}
+                </a>
+              )}
+            </article>
+          </div>
+        </section>
+
+        <section className="paper-section section">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">{profile.techLabel}</p>
+              <h2>{profile.techTitle}</h2>
+            </div>
+            <p className="section-summary">{profile.techSummary}</p>
+          </div>
+
+          <div className="profile-card-grid">
+            {profile.techPartners.map((tech) => (
+              <PartnerCardView key={tech.name} card={tech} />
             ))}
           </div>
         </section>
@@ -148,22 +181,26 @@ export default function SlicProfilePage({
           </div>
 
           <div className="profile-card-grid">
-            {profile.resources.map((resource) => (
-              <article className="paper-card" key={resource.title}>
-                <p className="panel-label">{profile.resourceLabel}</p>
-                <h3>{resource.title}</h3>
-                <p>{resource.body}</p>
-              </article>
-            ))}
-
-            <article className="paper-card profile-logo-card">
-              <p className="panel-label">{profile.partnersLabel}</p>
-              <h3>{profile.bridgeTitle}</h3>
+            <a
+              className="paper-card profile-logo-card"
+              href={appHref("/methodology")}
+              onClick={(event) => navigateLink(event, onNavigate, "/methodology")}
+            >
+              <p className="panel-label">{profile.resourceLabel}</p>
+              <h3>{profile.methodologyLabel}</h3>
               <p>{profile.bridgeBody}</p>
-              <a className="inline-page-link" href={OFFICIAL_SLIC_URL} target="_blank" rel="noreferrer">
-                {profile.externalLabel}
-              </a>
-            </article>
+            </a>
+
+            <a
+              className="paper-card profile-logo-card"
+              href={OFFICIAL_SLIC_URL}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <p className="panel-label">{profile.resourceLabel}</p>
+              <h3>{profile.externalLabel}</h3>
+              <p>{profile.slicFootnoteLabel}</p>
+            </a>
           </div>
         </section>
       </main>
