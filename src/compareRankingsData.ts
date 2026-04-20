@@ -301,15 +301,123 @@ export const INDEX_PROFILES: IndexProfile[] = [
       body: "The Yonsei\u2013Cambridge index is the most specialized of the five \u2014 an academic exercise focused on smart-city apps and platforms rather than on broader lived outcomes. With only 31 pre-selected cities, it covers a narrow slice of the urban world. It can tell you whether a city has visible digital infrastructure; it says much less about whether that infrastructure translates into affordability, workable hours, or stronger community conditions. SLIC was built to carry those outcome terms directly in the metric.",
     },
   },
+
+  /* ── 6. IMD Smart City Index ── */
+  {
+    id: "imd",
+    name: "IMD Smart City Index",
+    shortName: "IMD",
+    publisher: "IMD World Competitiveness Center + SUTD",
+    year: 2024,
+    citiesEvaluated: 142,
+    accentHex: "#3a5c8c",
+    focus: "How residents perceive smart technology in their city \u2014 the only major index based purely on citizen surveys rather than hard data.",
+    topCities: [
+      { rank: 1, city: "Zurich", country: "Switzerland" },
+      { rank: 2, city: "Oslo", country: "Norway" },
+      { rank: 3, city: "Canberra", country: "Australia" },
+      { rank: 4, city: "Geneva", country: "Switzerland" },
+      { rank: 5, city: "Auckland", country: "New Zealand" },
+      { rank: 6, city: "Taipei", country: "Taiwan" },
+      { rank: 7, city: "Singapore", country: "Singapore" },
+      { rank: 8, city: "Copenhagen", country: "Denmark" },
+      { rank: 9, city: "Abu Dhabi", country: "UAE" },
+      { rank: 10, city: "Lausanne", country: "Switzerland" },
+    ],
+    methodology: {
+      claimedPurpose: "Measure smart city performance through the perception of citizens who live and work there.",
+      actualMeasure: "Around 120 residents per city answer a survey about whether tech infrastructure \"works for them.\" No hard metrics \u2014 pure perception. Asks things like \"do you use mobile apps for city services?\" and \"do you feel safe?\" A city that has smart bus apps but crushing rents scores well if its residents report satisfaction with the apps. Wealth correlates with tech satisfaction, so wealthy cities top the list regardless of their actual urban performance.",
+      categories: [
+        "Structures \u2014 Physical: transport, health facilities, green space, housing",
+        "Structures \u2014 Institutional: governance, safety, social cohesion",
+        "Technology \u2014 Services: smart apps, digital payments, mobility tech",
+        "Technology \u2014 Connectivity: internet, 5G, digital infrastructure",
+      ],
+      dataInputs: [
+        "~120 resident interviews per city (very small samples)",
+        "Perception-based \u2014 no verified hard metrics",
+        "Conducted jointly with Singapore University of Technology and Design (SUTD)",
+        "Online surveys weighted to demographic quotas",
+      ],
+      blindSpots: [
+        "Housing affordability (not measured at all)",
+        "Actual tech outcomes vs. perceived satisfaction",
+        "Digital divide \u2014 who is surveyed vs. who is excluded",
+        "Labour rights, working hours, income inequality",
+        "Survey bias: satisfied residents in wealthy cities give high scores regardless of structural gaps",
+        "Small samples (120 people) cannot reliably represent cities of millions",
+      ],
+      audienceNote: "Smart city vendors, urban tech consultants, and government digital transformation teams. The ranking is frequently cited by tech companies as validation for their city deployments.",
+    },
+    critique: {
+      headline: "Perception of tech is not the same as liveable outcomes",
+      body: "The IMD index is methodologically unusual \u2014 it deliberately avoids hard data and measures only what residents think. This makes it resistant to gaming on metrics but extremely susceptible to wealth bias: residents of rich, stable cities simply report higher satisfaction with everything, including apps they barely use. Three Swiss cities appear in the top 10 on the strength of general satisfaction rather than measurable smart outcomes. The sample size (roughly 120 people per city) is statistically insufficient to represent cities of 1\u201310 million. The index is honest about measuring perception, but its headline rankings are regularly misread as measuring actual smart-city performance \u2014 which they do not.",
+    },
+  },
+
+  /* ── 7. Mori Foundation Global Power City Index ── */
+  {
+    id: "mori",
+    name: "Global Power City Index",
+    shortName: "Mori GPCI",
+    publisher: "Mori Memorial Foundation (Tokyo)",
+    year: 2024,
+    citiesEvaluated: 48,
+    accentHex: "#5a3a8c",
+    focus: "\"Magnetic power\" \u2014 how strongly a city attracts people and capital from around the world. Explicitly designed around the interests of global elites who move between cities.",
+    topCities: [
+      { rank: 1, city: "London", country: "United Kingdom" },
+      { rank: 2, city: "New York", country: "United States" },
+      { rank: 3, city: "Tokyo", country: "Japan" },
+      { rank: 4, city: "Paris", country: "France" },
+      { rank: 5, city: "Singapore", country: "Singapore" },
+      { rank: 6, city: "Amsterdam", country: "Netherlands" },
+      { rank: 7, city: "Beijing", country: "China" },
+      { rank: 8, city: "Seoul", country: "South Korea" },
+      { rank: 9, city: "Sydney", country: "Australia" },
+      { rank: 10, city: "Dubai", country: "UAE" },
+    ],
+    methodology: {
+      claimedPurpose: "Evaluate the comprehensive power of cities by their ability to attract people, capital, and enterprises from around the world.",
+      actualMeasure: "Six \"functions\" scored across 70 indicators. Economy is the dominant function \u2014 GDP, financial market size, corporate HQ concentration, ease of doing business. \"Livability\" exists as a sub-function but is weighted low and covers only residential comfort for mobile professionals. Backed by the Mori Building Company (a major Tokyo real estate developer), which creates a structural incentive to favor financial centers over resident-centric cities. Only 48 pre-selected \"global\" cities \u2014 not a representative world assessment.",
+      categories: [
+        "Economy (financial market size, corporate HQ, business ease, GDP)",
+        "R&D (patents, researchers, university rankings, innovation output)",
+        "Cultural Interaction (tourism, international events, language accessibility)",
+        "Livability (workplaces, cost of living, safety, shopping, schools for expatriates)",
+        "Environment (CO\u2082 emissions, green space, environmental policy)",
+        "Accessibility (international flights, transport links, connectivity)",
+      ],
+      dataInputs: [
+        "70 indicators from 48 cities",
+        "IMF, World Bank, UN, OECD data",
+        "Questionnaire surveys targeting mobile professionals (not general residents)",
+        "Mori Foundation research team in Tokyo",
+      ],
+      blindSpots: [
+        "Affordability and housing costs for ordinary residents",
+        "Inequality and income distribution within cities",
+        "Working conditions, overwork culture (notably absent for Tokyo)",
+        "Community cohesion and social capital",
+        "Excludes cities in Africa, most of South/Southeast Asia, Latin America",
+        "Structural conflict: publisher (Mori Building) profits from cities scoring highly on real estate value",
+      ],
+      audienceNote: "Global corporations, real estate investors, and high-net-worth individuals deciding where to base regional operations. Designed to serve the mobile global class, not residents.",
+    },
+    critique: {
+      headline: "Measuring global power, not the ability to build a life",
+      body: "Mori GPCI is the most transparent about what it values: the ability to attract capital, talent, and enterprise. It makes no pretence of measuring quality of life for ordinary residents. \"Livability\" is one of six functions and is weighted for professionals on the move, not locals. Tokyo's persistent top-three finish is interesting: Mori Building is a major Tokyo developer with a direct financial interest in Tokyo\u2019s global prestige ranking. The index excludes the overwhelming majority of the world\u2019s cities, all of Sub-Saharan Africa, and most of Southeast Asia and South America \u2014 because they are not yet hubs for mobile global capital. The index is honest about serving global elites; the problem is when its results are used to guide public policy for ordinary residents.",
+    },
+  },
 ];
 
 /* ── Editorial hero copy ── */
 export const COMPARE_HERO = {
   eyebrow: "COMPARE RANKINGS",
-  title: "Six indices. Same planet.\nCompletely different answers.",
+  title: "Seven indices. Same planet.\nCompletely different answers.",
   subtitle: "Drag the spider to rebuild SLIC\u2019s top 10 in real time.",
   thesis:
-    "Each major city ranking serves a different use case and weighting frame. EIU and Mercer lean toward relocation and hardship logic; Resonance toward brand and visitor signals; Monocle toward editorial lifestyle framing; Yonsei toward smart-city platforms. Small score gaps are often over-read as hard fact. SLIC differs by placing affordability, overwork, tolerance, and community conditions directly inside the published formula.",
+    "Each major city ranking serves a different use case and weighting frame. EIU and Mercer lean toward relocation and hardship logic; Resonance toward brand and visitor signals; Monocle toward editorial lifestyle framing; Yonsei toward smart-city platforms; IMD toward resident perception of tech; Mori GPCI toward global financial magnetism. Small score gaps are often over-read as hard fact. SLIC differs by placing affordability, overwork, tolerance, and community conditions directly inside the published formula.",
   overarchingCritique:
     "These rankings often converge on wealthy, globally legible cities because their inputs and audiences reward those conditions. Cities also learn the annual cycle and can optimize for the visible variables. Studies comparing ranking outputs with resident surveys often show only partial overlap. The point of this comparison is not to declare one list fraudulent; it is to show that every board reflects its chosen frame.",
 };
