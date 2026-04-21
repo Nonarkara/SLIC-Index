@@ -17,6 +17,7 @@ const HistoryPage = lazy(() => import("./HistoryPage"));
 const CompareRankingsPage = lazy(() => import("./CompareRankingsPage"));
 const SideBySidePage = lazy(() => import("./SideBySidePage"));
 const CityScorecardPage = lazy(() => import("./CityScorecardPage"));
+const MapPage = lazy(() => import("./MapPage"));
 
 type DocumentWithViewTransition = Document & {
   startViewTransition?: Document["startViewTransition"];
@@ -97,6 +98,10 @@ function resolvePath(pathname: string): SitePath {
 
   if (bare === "/history") {
     return "/history";
+  }
+
+  if (bare === "/map") {
+    return "/map";
   }
 
   if (bare.startsWith("/city/")) {
@@ -234,6 +239,12 @@ export default function App() {
                   : locale === "zh"
                     ? "SLIC 发展历程"
                     : "How SLIC Was Built"
+              : route === "/map"
+                ? locale === "th"
+                  ? "แผนที่โลก SLIC"
+                  : locale === "zh"
+                    ? "SLIC 全球地图"
+                    : "SLIC Global Map"
               : route === "/city"
                 ? locale === "th"
                   ? "สรุปคะแนนเมือง"
@@ -295,6 +306,8 @@ export default function App() {
             <SideBySidePage onNavigate={navigate} locale={locale} />
           ) : route === "/history" ? (
             <HistoryPage onNavigate={navigate} locale={locale} />
+          ) : route === "/map" ? (
+            <MapPage onNavigate={navigate} locale={locale} />
           ) : route === "/city" ? (
             <CityScorecardPage onNavigate={navigate} locale={locale} />
           ) : (

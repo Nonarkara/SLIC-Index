@@ -12,6 +12,7 @@ export type SitePath =
   | "/ideas"
   | "/history"
   | "/side-by-side"
+  | "/map"
   | "/city";
 
 export interface LandingMeta {

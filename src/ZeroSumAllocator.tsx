@@ -147,7 +147,7 @@ const SpiderWebChart: FC<{
         strokeLinejoin="round"
         style={{
           pointerEvents: "none",
-          transition: draggingIndex === null ? "d 80ms cubic-bezier(0.16, 1, 0.3, 1)" : "none",
+          transition: draggingIndex === null ? "d 220ms cubic-bezier(0.16, 1, 0.3, 1)" : "none",
         }}
       />
 

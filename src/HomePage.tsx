@@ -264,6 +264,13 @@ export default function HomePage({
             </a>
             <a
               className="hp-cta-secondary"
+              href={appHref("/map")}
+              onClick={(event) => navigateLink(event, onNavigate, "/map")}
+            >
+              {t(locale, "Open global map", "แผนที่โลก", "打开全球地图")}
+            </a>
+            <a
+              className="hp-cta-secondary"
               href={appHref("/compare")}
               onClick={(event) => navigateLink(event, onNavigate, "/compare")}
             >

@@ -9,6 +9,7 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const navPaths: SitePath[] = [
   "/rankings",
+  "/map",
   "/compare",
   "/side-by-side",
   "/methodology",
@@ -48,6 +49,7 @@ function navLabel(path: SitePath, locale: Locale): string {
   if (path === "/ideas") return copy.nav.ideas;
   if (path === "/compare") return copy.nav.compare;
   if (path === "/side-by-side") return locale === "en" ? "Side by Side" : locale === "th" ? "เทียบเมือง" : "城市对比";
+  if (path === "/map") return locale === "en" ? "Map" : locale === "th" ? "แผนที่" : "地图";
   if (path === "/history") return copy.nav.history;
   return copy.nav.thailand;
 }

@@ -1,0 +1,247 @@
+import { useMemo, useState } from "react";
+import { geoNaturalEarth1, geoPath } from "d3-geo";
+import { feature } from "topojson-client";
+import type { Topology, GeometryCollection } from "topojson-specification";
+import type { FeatureCollection } from "geojson";
+// @ts-expect-error — JSON import
+import land110m from "world-atlas/land-110m.json";
+import publishedData from "./data/publishedRankingData.json";
+import { CITY_COORDINATES } from "./data/cityCoordinates";
+import { appHref } from "./routing";
+import SiteFooter from "./SiteFooter";
+import type { Locale, SitePath } from "./types";
+
+interface PublishedCity {
+  cityId: string;
+  displayName: string;
+  country: string;
+  region: string;
+  slicScore: number | null;
+  rank: number;
+  rankingStatus: string;
+  coverageGrade: string;
+}
+
+const VIEW_W = 1200;
+const VIEW_H = 600;
+
+function t(locale: Locale, en: string, th: string, zh: string): string {
+  return locale === "en" ? en : locale === "th" ? th : zh;
+}
+
+function navigateLink(
+  event: React.MouseEvent<HTMLAnchorElement | SVGCircleElement>,
+  onNavigate: (path: SitePath) => void,
+  path: SitePath | string,
+) {
+  event.preventDefault();
+  event.stopPropagation();
+  onNavigate(path as SitePath);
+}
+
+/** Amber → teal colour ramp driven by SLIC score 0..100. */
+function scoreColor(score: number | null): string {
+  if (score == null) return "#9a9088";
+  // Palette: low = warm rust, mid = amber, high = teal-green.
+  const clamped = Math.max(0, Math.min(100, score));
+  if (clamped >= 65) return "#1a6b5a";     // teal (strong)
+  if (clamped >= 55) return "#3a7a6a";     // teal-muted
+  if (clamped >= 45) return "#b85c28";     // amber (mid)
+  if (clamped >= 35) return "#a0382a";     // warm rust
+  return "#8c4a2a";                         // deep brown (low)
+}
+
+/** Dot size by SLIC score — slightly larger for higher ranks so top cities are legible. */
+function dotRadius(score: number | null): number {
+  if (score == null) return 3;
+  if (score >= 60) return 6;
+  if (score >= 50) return 5;
+  if (score >= 40) return 4.2;
+  return 3.5;
+}
+
+export default function MapPage({
+  onNavigate,
+  locale,
+}: {
+  onNavigate: (path: SitePath) => void;
+  locale: Locale;
+}) {
+  const [hoveredId, setHoveredId] = useState<string | null>(null);
+
+  // Project once
+  const { landPath, cityPoints, hovered } = useMemo(() => {
+    const projection = geoNaturalEarth1()
+      .fitExtent([[10, 10], [VIEW_W - 10, VIEW_H - 10]], {
+        type: "Sphere",
+      } as unknown as GeoJSON.GeoJsonObject);
+    const path = geoPath(projection);
+
+    const topology = land110m as unknown as Topology;
+    const land = feature(topology, topology.objects.land as GeometryCollection) as FeatureCollection;
+    const landPath = path(land) ?? "";
+
+    const cities = (publishedData.cities as PublishedCity[])
+      .filter((c) => c.rankingStatus === "Ranked" && c.slicScore != null)
+      .map((c) => {
+        const coord = CITY_COORDINATES[c.cityId];
+        if (!coord) return null;
+        const [lat, lng] = coord;
+        const pt = projection([lng, lat]);
+        if (!pt) return null;
+        return { ...c, x: pt[0], y: pt[1] };
+      })
+      .filter((c): c is PublishedCity & { x: number; y: number } => c !== null);
+
+    const hovered = cities.find((c) => c.cityId === hoveredId);
+
+    return { landPath, cityPoints: cities, hovered };
+  }, [hoveredId]);
+
+  const rankedCount = cityPoints.length;
+
+  return (
+    <>
+      <section className="map-page section">
+        <p className="eyebrow">{t(locale, "GLOBAL MAP", "แผนที่โลก", "全球地图")}</p>
+        <h1 className="map-title">
+          {t(
+            locale,
+            "160 cities. One fixed instrument.",
+            "160 เมือง. เครื่องมือวัดเดียว.",
+            "160 座城市。一套固定的量尺。",
+          )}
+        </h1>
+        <p className="map-subtitle">
+          {t(
+            locale,
+            "Every SLIC city placed on the globe, coloured by its overall score. Hover a dot for the name and rank; click to open its scorecard.",
+            "ทุกเมืองของ SLIC บนแผนที่โลก สีตามคะแนนรวม เอาเมาส์ชี้เพื่อดูชื่อและอันดับ คลิกเพื่อเปิดสรุปคะแนน",
+            "SLIC 的每座城市都标注在地图上，颜色对应总分。悬停显示名称与排名，点击打开评分卡。",
+          )}
+        </p>
+
+        <div className="map-wrapper">
+          <svg
+            viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
+            role="img"
+            aria-label={t(locale, "World map of SLIC cities", "แผนที่โลกของเมือง SLIC", "SLIC 城市世界地图")}
+            className="map-svg"
+          >
+            {/* Graticule feel: soft background */}
+            <rect x={0} y={0} width={VIEW_W} height={VIEW_H} fill="none" />
+
+            {/* Land mass */}
+            <path
+              d={landPath}
+              fill="#efe9df"
+              stroke="#d8d0c8"
+              strokeWidth={0.4}
+            />
+
+            {/* City dots */}
+            <g className="map-dots">
+              {cityPoints.map((c) => {
+                const isHovered = c.cityId === hoveredId;
+                const r = dotRadius(c.slicScore);
+                return (
+                  <a
+                    key={c.cityId}
+                    href={appHref(`/city/${c.cityId}`)}
+                    onClick={(e) => navigateLink(e, onNavigate, `/city/${c.cityId}`)}
+                    onMouseEnter={() => setHoveredId(c.cityId)}
+                    onMouseLeave={() => setHoveredId(null)}
+                    onFocus={() => setHoveredId(c.cityId)}
+                    onBlur={() => setHoveredId(null)}
+                  >
+                    {/* Halo for hovered */}
+                    {isHovered && (
+                      <circle
+                        cx={c.x}
+                        cy={c.y}
+                        r={r + 5}
+                        fill={scoreColor(c.slicScore)}
+                        fillOpacity={0.18}
+                      />
+                    )}
+                    <circle
+                      cx={c.x}
+                      cy={c.y}
+                      r={r}
+                      fill={scoreColor(c.slicScore)}
+                      fillOpacity={isHovered ? 1 : 0.88}
+                      stroke="#ffffff"
+                      strokeWidth={0.8}
+                      style={{ cursor: "pointer", transition: "r 0.12s cubic-bezier(0.16, 1, 0.3, 1)" }}
+                    >
+                      <title>{`${c.displayName}, ${c.country} — Rank #${c.rank} (SLIC ${c.slicScore?.toFixed(1)})`}</title>
+                    </circle>
+                  </a>
+                );
+              })}
+            </g>
+
+            {/* Hovered city label */}
+            {hovered && (
+              <g className="map-hover-label" pointerEvents="none">
+                <text
+                  x={hovered.x + 10}
+                  y={hovered.y - 10}
+                  fontFamily="'Libre Baskerville', Georgia, serif"
+                  fontSize={13}
+                  fontWeight={700}
+                  fill="#1c1914"
+                >
+                  {hovered.displayName}
+                </text>
+                <text
+                  x={hovered.x + 10}
+                  y={hovered.y + 6}
+                  fontFamily="'JetBrains Mono', monospace"
+                  fontSize={10}
+                  fill="#6b6459"
+                >
+                  {`#${hovered.rank} · SLIC ${hovered.slicScore?.toFixed(1)} · Grade ${hovered.coverageGrade}`}
+                </text>
+              </g>
+            )}
+          </svg>
+
+          {/* Legend */}
+          <div className="map-legend">
+            <span className="map-legend-label">
+              {t(locale, "SLIC score", "คะแนน SLIC", "SLIC 分数")}
+            </span>
+            <div className="map-legend-scale">
+              <span><i style={{ background: "#8c4a2a" }} /> &lt;35</span>
+              <span><i style={{ background: "#a0382a" }} /> 35–45</span>
+              <span><i style={{ background: "#b85c28" }} /> 45–55</span>
+              <span><i style={{ background: "#3a7a6a" }} /> 55–65</span>
+              <span><i style={{ background: "#1a6b5a" }} /> ≥65</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="map-footer-note">
+          <p>
+            {t(
+              locale,
+              `${rankedCount} ranked cities shown. The map is not an equal-opportunity sample: SLIC's current coverage leans to Asia-Pacific and Europe, with recent additions of London, New York, and Tokyo as global reference cities. See the`,
+              `เมืองที่ติดอันดับ ${rankedCount} แห่ง แผนที่ไม่ใช่กลุ่มตัวอย่างที่เท่าเทียม SLIC เน้นเอเชีย-แปซิฟิกและยุโรป โดยเพิ่ม London, New York, Tokyo เป็นเมืองอ้างอิงระดับโลกไม่นานมานี้ ดูเพิ่มที่`,
+              `显示 ${rankedCount} 座已排名城市。地图不是等机会样本：SLIC 当前覆盖偏向亚太与欧洲，最近新增 London、New York、Tokyo 作为全球参考城市。详见`,
+            )}{" "}
+            <a
+              href={appHref("/methodology")}
+              onClick={(e) => navigateLink(e, onNavigate, "/methodology")}
+            >
+              {t(locale, "methodology", "ระเบียบวิธี", "方法论")}
+            </a>
+            .
+          </p>
+        </div>
+      </section>
+
+      <SiteFooter onNavigate={onNavigate} locale={locale} />
+    </>
+  );
+}
