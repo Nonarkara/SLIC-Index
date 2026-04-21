@@ -34,18 +34,24 @@ function getTier(rank: number): "alpha" | "beta" | "gamma" | "none" {
   return "none";
 }
 
+// Greek letter tier system: α/β/γ are colour-coded "elite" tiers (top 30);
+// δ–π extend the glyph distinction for colorblind users through rank 160.
+const TIER_GLYPHS = ["α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι", "κ", "λ", "μ", "ν", "ξ", "ο", "π"];
+const TIER_NAMES  = ["Alpha", "Beta", "Gamma", "Delta", "Epsilon", "Zeta", "Eta", "Theta", "Iota", "Kappa", "Lambda", "Mu", "Nu", "Xi", "Omicron", "Pi"];
+
+function getTierIndex(rank: number): number {
+  return Math.ceil(rank / 10) - 1; // 0-indexed
+}
+
 function getTierLabel(rank: number): string {
-  if (rank <= 10) return "α Alpha";
-  if (rank <= 20) return "β Beta";
-  if (rank <= 30) return "γ Gamma";
+  const i = getTierIndex(rank);
+  if (i >= 0 && i < TIER_GLYPHS.length) return `${TIER_GLYPHS[i]} ${TIER_NAMES[i]}`;
   return `#${rank}`;
 }
 
 function getTierGlyph(rank: number): string {
-  if (rank <= 10) return "α";
-  if (rank <= 20) return "β";
-  if (rank <= 30) return "γ";
-  return "·";
+  const i = getTierIndex(rank);
+  return TIER_GLYPHS[i] ?? "·";
 }
 
 export default function SideBySidePage({
@@ -98,9 +104,9 @@ export default function SideBySidePage({
           <p className="sbs-subtitle">
             {t(
               locale,
-              "Build a custom basket to compare cities. The colors indicate their tier: Alpha (Top 10), Beta (11-20), Gamma (21-30).",
-              "สร้างตะกร้าเมืองที่คุณต้องการเปรียบเทียบ สีแสดงถึงระดับเมือง Alpha (1-10), Beta (11-20), Gamma (21-30)",
-              "创建自定义篮子来比较城市。颜色表示其层级：Alpha (前 10)，Beta (11-20)，Gamma (21-30)。",
+              "Build a custom basket to compare cities. Greek letters mark tiers of ten: α Alpha (1-10), β Beta (11-20), γ Gamma (21-30), δ Delta (31-40) and so on. Colour highlights the elite top three tiers.",
+              "สร้างตะกร้าเมืองที่คุณต้องการเปรียบเทียบ อักษรกรีกระบุระดับทุก 10 อันดับ: α Alpha (1-10), β Beta (11-20), γ Gamma (21-30), δ Delta (31-40) และต่อไป สีเน้น 3 ระดับสูงสุด",
+              "创建自定义篮子来比较城市。希腊字母按每十名分层：α Alpha（1-10）、β Beta（11-20）、γ Gamma（21-30）、δ Delta（31-40）等。颜色突出前三级精英层。",
             )}
           </p>
 

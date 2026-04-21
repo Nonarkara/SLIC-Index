@@ -10,7 +10,7 @@ Run from project root:
     python3 scripts/generate_methodology_pdf.py          # all three
     python3 scripts/generate_methodology_pdf.py en       # one only
 
-Technical note: anchor tables, formulas, indicator codes, and the 157-city
+Technical note: anchor tables, formulas, indicator codes, and the 160-city
 tabulation stay in English in all editions (academic convention). Narrative
 prose, chapter titles, executive summary, principles, and glossary
 definitions are translated.
@@ -106,12 +106,12 @@ COPY = {
         "cover_note":       ("This paper documents the complete scoring methodology for the "
                               "SLIC Index V3: indicator definitions, normalization anchor tables, "
                               "aggregation formula, coverage grades, and the full published "
-                              "rankings for 157 cities."),
+                              "rankings for 160 cities."),
         "exec_title":       "Executive Summary",
         "exec_intro":       ("The Smart and Liveable Cities Index (SLIC) V3 is a transparent, "
                               "open-source city ranking system measuring quality of life for "
                               "people in the process of building lives — not tourists, not expats "
-                              "on hardship pay, not global capital seeking returns. It covers 157 "
+                              "on hardship pay, not global capital seeking returns. It covers 160 "
                               "published cities across an Asia-Pacific-centred but globally "
                               "inclusive dataset, scored on 35 indicators grouped into five pillars."),
         "five_pillars":     "Five pillars:",
@@ -247,13 +247,13 @@ COPY = {
         "cover_note":       ("เอกสารฉบับนี้บันทึกระเบียบวิธีการให้คะแนนของ SLIC Index V3 ครบถ้วน "
                               "ได้แก่ คำจำกัดความของตัวชี้วัด ตารางจุดยึดในการปรับเทียบคะแนน "
                               "สูตรการรวมคะแนน เกรดความครอบคลุม และตารางอันดับเมืองที่เผยแพร่ "
-                              "ทั้งหมด 157 เมือง"),
+                              "ทั้งหมด 160 เมือง"),
         "exec_title":       "บทสรุปผู้บริหาร",
         "exec_intro":       ("SLIC Index V3 (ดัชนีเมืองอัจฉริยะและน่าอยู่) เป็นระบบจัดอันดับเมือง"
                               "แบบโอเพนซอร์สที่โปร่งใส วัดคุณภาพชีวิตของคนที่กำลังสร้างชีวิตในเมือง — "
                               "ไม่ใช่นักท่องเที่ยว ไม่ใช่ผู้บริหารต่างชาติที่บริษัทจ่ายค่าเช่าให้ "
                               "และไม่ใช่ทุนโลกที่แสวงหาผลตอบแทน "
-                              "ดัชนีครอบคลุมเมืองที่เผยแพร่แล้ว 157 เมือง ในชุดข้อมูลที่เน้น"
+                              "ดัชนีครอบคลุมเมืองที่เผยแพร่แล้ว 160 เมือง ในชุดข้อมูลที่เน้น"
                               "เอเชีย-แปซิฟิกแต่ครอบคลุมทั่วโลก ให้คะแนนผ่าน 35 ตัวชี้วัด "
                               "จัดกลุ่มใน 5 เสาหลัก"),
         "five_pillars":     "เสาหลักทั้งห้า:",
@@ -384,13 +384,13 @@ COPY = {
         "published_by":     "由 SLIC 与 ReTL（The Reason to Live Company）联合出版",
         "partnership":      "与泰国 DEPA（数字经济促进局）及 PMU-A 合作",
         "cover_note":       ("本文档完整记录了 SLIC 指数 V3 的评分方法论：指标定义、"
-                              "归一化锚点表、聚合公式、覆盖度等级，以及 157 座已发布"
+                              "归一化锚点表、聚合公式、覆盖度等级，以及 160 座已发布"
                               "城市的完整排名。"),
         "exec_title":       "执行摘要",
         "exec_intro":       ("SLIC 指数（智慧宜居城市指数）V3 是一个透明、开源的城市排名系统，"
                               "衡量那些正在城市中建立生活的人们的生活质量——不是游客，"
                               "不是享受艰苦津贴的外派高管，也不是追逐回报的全球资本。"
-                              "指数覆盖 157 座已发布的城市，数据集以亚太地区为中心但"
+                              "指数覆盖 160 座已发布的城市，数据集以亚太地区为中心但"
                               "涵盖全球。基于 35 项指标，分为五大支柱进行评分。"),
         "five_pillars":     "五大支柱：",
         "pillar_header_rows": [
@@ -794,11 +794,12 @@ def draw_coverage_histogram(locale: str, cities: list, width_pt: float = 440) ->
     max_bar_w = width_pt - bar_x - 90
     max_n = max(n for _, n in active) or 1
 
-    # Title
+    # Title (dynamic city count)
+    n_total = sum(counts.values())
     title = String(0, h - 14, {
-        "en": "Coverage grade distribution across 157 cities",
-        "th": "การกระจายเกรดความครอบคลุมในเมือง 157 แห่ง",
-        "zh": "157 座城市的覆盖度等级分布",
+        "en": f"Coverage grade distribution across {n_total} cities",
+        "th": f"การกระจายเกรดความครอบคลุมในเมือง {n_total} แห่ง",
+        "zh": f"{n_total} 座城市的覆盖度等级分布",
     }[locale])
     title.fontName = "Helvetica-Bold"
     title.fontSize = 9

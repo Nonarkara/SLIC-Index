@@ -507,13 +507,13 @@ export const SLIC_DIFFERENCE = [
 /* ── Editorial notes for echo-chamber cities ──
    Keyed by lowercase city name.
    Each note calls out 1–2 specific SLIC dimensions where the city underperforms,
-   grounded in actual pillar scores where the city is in SLIC's 157-city dataset.
+   grounded in actual pillar scores where the city is in SLIC's 160-city dataset.
 */
 export interface EchoChamberNote {
   en: string;
   th: string;
   zh: string;
-  slicRank?: number; // omit if city is outside SLIC's current 157-city coverage
+  slicRank?: number; // omit if city is outside SLIC's current 160-city coverage
 }
 
 export const ECHO_CHAMBER_NOTES: Record<string, EchoChamberNote> = {
@@ -565,30 +565,34 @@ export const ECHO_CHAMBER_NOTES: Record<string, EchoChamberNote> = {
     th: "คะแนนเสาการเติบโต 20.2 — ต่ำที่สุดในบรรดาเมืองที่ติด top-10 ของดัชนีกระแสหลัก — เกือบทั้งหมดมาจากวิกฤตค่าที่อยู่อาศัยรุนแรงที่สุดแห่งหนึ่งในโลก คะแนนความสร้างสรรค์ 35.1 สะท้อนระบบเศรษฐกิจทางวัฒนธรรมขนาดเล็กที่แยกตัวทางภูมิศาสตร์",
     zh: "增长支柱仅20.2分——在所有出现于主流指数前10名的城市中最低——几乎完全由其全球最为严峻的住房成本危机所驱动。创意支柱35.1分，反映了一个规模较小、地理上相对孤立的文化经济体。",
   },
-  // Cities outside SLIC's current 157-city dataset
+  // ── Global reference cities now in SLIC (added April 2026) ────────────────
   london: {
-    en: "Outside SLIC's current 157-city coverage. Known metrics would penalize heavily on graduate housing burden — London rents have outpaced wages for a generation — and on working-time pressure at the professional tier.",
-    th: "ลอนดอนอยู่นอกชุดข้อมูล 157 เมืองของ SLIC ปัจจุบัน จากข้อมูลที่มี ภาระค่าเช่าของบัณฑิตและชั่วโมงทำงานระดับวิชาชีพจะกดคะแนนอย่างมาก",
-    zh: "伦敦目前不在SLIC的157座城市数据集中。从已知指标看，毕业生住房负担（伦敦租金数十年来持续跑赢工资增长）以及职场工时压力，将是主要扣分项。",
+    slicRank: 9,
+    en: "Enters SLIC at #9 with Growth 37.0 — a middling score that reflects London's housing-burden penalty (rent-to-income ratio clamped at the dataset's worst threshold) and working-time pressure at the professional tier. Strong on Capability (healthcare, education) and Creative (VC density, cultural depth).",
+    th: "เข้าสู่ SLIC อันดับที่ 9 ด้วยคะแนนเสาการเติบโต 37.0 — สะท้อนภาระค่าเช่าที่สูงสุดในชุดข้อมูล และชั่วโมงทำงานระดับวิชาชีพ แต่แข็งแกร่งด้านศักยภาพ (ระบบสุขภาพ การศึกษา) และความสร้างสรรค์ (VC ความอุดมทางวัฒนธรรม)",
+    zh: "以 #9 进入 SLIC，增长支柱 37.0 — 反映伦敦住房负担（租金收入比触及数据集最差阈值）与职业层工时压力。能力（医疗、教育）与创意（风投密度、文化深度）表现强劲。",
   },
   "new york": {
-    en: "Outside SLIC's current 157-city coverage. Known metrics would flag extreme housing burden relative to entry-level salaries and deep within-city inequality — two factors SLIC embeds directly in its formula.",
-    th: "นิวยอร์กอยู่นอกชุดข้อมูล 157 เมืองของ SLIC ปัจจุบัน ภาระค่าเช่าเทียบกับรายได้เริ่มต้นที่รุนแรงและความเหลื่อมล้ำภายในเมืองที่สูงมากจะเป็นปัจจัยกดคะแนนสำคัญ",
-    zh: "纽约目前不在SLIC的157座城市数据集中。从已知指标看，相对于入门级薪资的住房负担极为沉重，加上城市内部的深度不平等——这两项因素均被SLIC直接纳入评分公式。",
+    slicRank: 2,
+    en: "Enters SLIC at #2 just behind Kaohsiung. Creative pillar 75.3 leads the top-10 cohort (VC deal density, R&D intensity, cultural mass). Growth 39.3 is the drag — housing burden clamped to the dataset's worst value and severe working-time pressure penalise despite high Capability 82.0 and strong Community 71.5.",
+    th: "เข้าสู่ SLIC อันดับที่ 2 ตามหลัง Kaohsiung นิดเดียว คะแนนความสร้างสรรค์ 75.3 นำกลุ่ม top-10 (ความหนาแน่น VC การวิจัย ความอุดมทางวัฒนธรรม) คะแนนการเติบโต 39.3 เป็นตัวถ่วง — ภาระค่าเช่าถึงจุดแย่สุดในชุดข้อมูล แต่ศักยภาพ 82.0 และชุมชน 71.5 ยังแข็งแกร่ง",
+    zh: "以 #2 进入 SLIC，仅次于 Kaohsiung。创意支柱 75.3 居前十之首（风投密度、研发强度、文化规模）。增长 39.3 是主要拖累——住房负担触及数据集最差值，职业层工时压力严重，但能力 82.0 与社区 71.5 仍表现强劲。",
   },
   tokyo: {
-    en: "Outside SLIC's current 157-city coverage. Known metrics would penalize sharply on working-time pressure — Japan logs some of the world's highest annual working hours — and on mental-strain indicators, where outcomes remain severe.",
-    th: "โตเกียวอยู่นอกชุดข้อมูล 157 เมืองของ SLIC ปัจจุบัน ชั่วโมงทำงานที่สูงที่สุดในโลกและตัวชี้วัดสุขภาพจิตที่ยังรุนแรงจะเป็นปัจจัยลดคะแนนหลัก",
-    zh: "东京目前不在SLIC的157座城市数据集中。从已知指标看，工时压力——日本年均工作时长位居全球最高之列——以及心理健康压力指标结果严峻，将是主要扣分项。",
+    slicRank: 37,
+    en: "Enters SLIC at #37 with Growth 35.4 and Community 51.6 — both drag scores. Long working hours (39.1 h/week), severe suicide indicator (15.4 per 100k), and modest LGBTQ+ legal environment all weigh. Viability 81.5 is strong (low homicide, clean air); Capability 76.8 decent.",
+    th: "เข้าสู่ SLIC อันดับที่ 37 ด้วยคะแนนการเติบโต 35.4 และชุมชน 51.6 — ทั้งคู่ถ่วง ชั่วโมงทำงานยาว (39.1 ชม./สัปดาห์) ตัวชี้วัดการฆ่าตัวตายรุนแรง (15.4 ต่อ 100k) และกรอบกฎหมาย LGBTQ+ อ่อน ความน่าอยู่ 81.5 แข็งแกร่ง ศักยภาพ 76.8 พอใช้",
+    zh: "以 #37 进入 SLIC，增长支柱 35.4 与社区支柱 51.6 均为拖累项。长工时（39.1 小时/周）、严峻的自杀指标（15.4/10万）与较弱的 LGBTQ+ 法律环境共同拉低。宜居 81.5 表现突出，能力 76.8 中上。",
   },
+  // Cities still outside SLIC's 160-city dataset
   barcelona: {
-    en: "Outside SLIC's current 157-city coverage. Tourism-driven rent inflation and working-time pressure above Northern European norms would be SLIC's primary concerns, alongside documented deterioration in housing affordability.",
-    th: "บาร์เซโลนาอยู่นอกชุดข้อมูล 157 เมืองของ SLIC ปัจจุบัน ค่าเช่าที่พุ่งจากการท่องเที่ยวและชั่วโมงทำงานที่สูงกว่าค่าเฉลี่ยยุโรปเหนือจะเป็นปัญหาหลัก",
-    zh: "巴塞罗那目前不在SLIC的157座城市数据集中。旅游驱动的租金上涨、高于北欧规范的工时压力，以及有据可查的住房可负担性恶化，将是SLIC关注的首要问题。",
+    en: "Outside SLIC's current 160-city coverage. Tourism-driven rent inflation and working-time pressure above Northern European norms would be SLIC's primary concerns, alongside documented deterioration in housing affordability.",
+    th: "บาร์เซโลนาอยู่นอกชุดข้อมูล 160 เมืองของ SLIC ปัจจุบัน ค่าเช่าที่พุ่งจากการท่องเที่ยวและชั่วโมงทำงานที่สูงกว่าค่าเฉลี่ยยุโรปเหนือจะเป็นปัญหาหลัก",
+    zh: "巴塞罗那目前不在SLIC的160座城市数据集中。旅游驱动的租金上涨、高于北欧规范的工时压力，以及有据可查的住房可负担性恶化，将是SLIC关注的首要问题。",
   },
   madrid: {
-    en: "Outside SLIC's current 157-city coverage. Worsening housing affordability in recent years and documented working-time culture exceeding Northern European norms are the two likeliest SLIC pressure points.",
-    th: "มาดริดอยู่นอกชุดข้อมูล 157 เมืองของ SLIC ปัจจุบัน การที่อยู่อาศัยแย่ลงในช่วงหลัง และวัฒนธรรมการทำงานยาวนานกว่ายุโรปเหนือจะเป็นปัจจัยกดคะแนน",
-    zh: "马德里目前不在SLIC的157座城市数据集中。近年来住房可负担性持续恶化，以及高于北欧规范的工时文化，是SLIC最可能重点扣分的两项因素。",
+    en: "Outside SLIC's current 160-city coverage. Worsening housing affordability in recent years and documented working-time culture exceeding Northern European norms are the two likeliest SLIC pressure points.",
+    th: "มาดริดอยู่นอกชุดข้อมูล 160 เมืองของ SLIC ปัจจุบัน การที่อยู่อาศัยแย่ลงในช่วงหลัง และวัฒนธรรมการทำงานยาวนานกว่ายุโรปเหนือจะเป็นปัจจัยกดคะแนน",
+    zh: "马德里目前不在SLIC的160座城市数据集中。近年来住房可负担性持续恶化，以及高于北欧规范的工时文化，是SLIC最可能重点扣分的两项因素。",
   },
 };

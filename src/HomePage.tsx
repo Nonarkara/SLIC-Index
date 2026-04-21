@@ -249,9 +249,9 @@ export default function HomePage({
           <p className="hp-deck">
             {t(
               locale,
-              "157 published cities. One declared score per city, traced through five public pillars: pressure, viability, capability, community, and creative momentum.",
-              "157 เมืองที่เผยแพร่แล้ว แต่ละเมืองมีคะแนนที่ประกาศชัดเจนหนึ่งค่า และสามารถไล่ย้อนกลับได้ผ่าน 5 เสาหลักสาธารณะ: แรงกดดัน ความน่าอยู่ ศักยภาพ ชุมชน และพลังสร้างสรรค์",
-              "157 座已发布城市。每座城市对应一个公开分数，并可追溯到五个公开支柱：压力、宜居性、能力、社区与创造动能。",
+              "160 published cities. One declared score per city, traced through five public pillars: pressure, viability, capability, community, and creative momentum.",
+              "160 เมืองที่เผยแพร่แล้ว แต่ละเมืองมีคะแนนที่ประกาศชัดเจนหนึ่งค่า และสามารถไล่ย้อนกลับได้ผ่าน 5 เสาหลักสาธารณะ: แรงกดดัน ความน่าอยู่ ศักยภาพ ชุมชน และพลังสร้างสรรค์",
+              "160 座已发布城市。每座城市对应一个公开分数，并可追溯到五个公开支柱：压力、宜居性、能力、社区与创造动能。",
             )}
           </p>
           <div className="hp-opening-actions">
@@ -260,7 +260,7 @@ export default function HomePage({
               href={appHref("/rankings")}
               onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
             >
-              {t(locale, "See all 157 cities", "ดูเมืองทั้ง 157 แห่ง", "查看全部 157 座城市")} →
+              {t(locale, "See all 160 cities", "ดูเมืองทั้ง 160 แห่ง", "查看全部 160 座城市")} →
             </a>
             <a
               className="hp-cta-secondary"
