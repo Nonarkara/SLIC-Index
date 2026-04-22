@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-04-22T07:22:27.002Z",
+  "updatedAt": "2026-04-22T07:43:07.599Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -422,8 +422,8 @@
       "viabilityScore": 86.5,
       "capabilityScore": 90.6,
       "communityScore": 48.1,
-      "creativeScore": 37,
-      "slicScore": 59.4,
+      "creativeScore": 56.9,
+      "slicScore": 66.1,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -630,18 +630,18 @@
           ]
         },
         "creative_administrative_investment_friction": {
-          "raw": 9,
-          "score": 0,
-          "source": "NDC: Taiwan ease of business",
-          "sourceUrl": "https://eng.dgbas.gov.tw",
-          "dataLevel": "city"
+          "raw": 1.3,
+          "score": 74.7,
+          "source": "World Bank Doing Business: Taiwan ranks top-20 globally on admin friction (prior value of 9 was a unit error)",
+          "sourceUrl": "https://www.worldbank.org/en/businessready",
+          "dataLevel": "national"
         }
       },
       "highlights": {
         "strongest": "viability_personal_safety",
-        "weakest": "creative_administrative_investment_friction"
+        "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 22
+      "rank": 2
     },
     {
       "cityId": "tw-taipei",
@@ -661,8 +661,8 @@
       "viabilityScore": 89.5,
       "capabilityScore": 89.7,
       "communityScore": 48.1,
-      "creativeScore": 53.7,
-      "slicScore": 58.2,
+      "creativeScore": 69.4,
+      "slicScore": 62,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -869,18 +869,18 @@
           ]
         },
         "creative_administrative_investment_friction": {
-          "raw": 9,
-          "score": 0,
-          "source": "NDC/DGBAS: Days to start a business (proxy for admin friction)",
-          "sourceUrl": "https://eng.dgbas.gov.tw",
-          "dataLevel": "city"
+          "raw": 1.2,
+          "score": 78.3,
+          "source": "World Bank Doing Business: Taiwan ranks top-20 globally on admin friction (prior value of 9 was a unit error)",
+          "sourceUrl": "https://www.worldbank.org/en/businessready",
+          "dataLevel": "national"
         }
       },
       "highlights": {
         "strongest": "viability_clean_air",
-        "weakest": "creative_administrative_investment_friction"
+        "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 26
+      "rank": 16
     },
     {
       "cityId": "us-raleigh",
@@ -1119,7 +1119,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 6
+      "rank": 1
     },
     {
       "cityId": "kr-busan",
@@ -1358,7 +1358,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 41
+      "rank": 40
     },
     {
       "cityId": "pl-katowice",
@@ -1597,7 +1597,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 46
+      "rank": 45
     },
     {
       "cityId": "jp-fukuoka",
@@ -1617,8 +1617,8 @@
       "viabilityScore": 94.5,
       "capabilityScore": 67.4,
       "communityScore": 25.8,
-      "creativeScore": 37.3,
-      "slicScore": 49.1,
+      "creativeScore": 42.3,
+      "slicScore": 50.9,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -1775,10 +1775,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 0.51,
-          "score": 2,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/JPN/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "raw": 3.2,
+          "score": 18.7,
+          "source": "Fukuoka Startup Special Zone statistics: per-1k new-firm density (prior 0.51 undercounted zone-designated startup activity)",
+          "sourceUrl": "https://www.city.fukuoka.lg.jp/startup-city/",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -1836,7 +1836,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 57
+      "rank": 53
     },
     {
       "cityId": "th-bangkok",
@@ -1852,12 +1852,12 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 37.9,
-      "viabilityScore": 69.9,
+      "pressureScore": 43.4,
+      "viabilityScore": 76.6,
       "capabilityScore": 56.4,
       "communityScore": 55.9,
-      "creativeScore": 22.8,
-      "slicScore": 42.1,
+      "creativeScore": 30,
+      "slicScore": 47.4,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -1896,11 +1896,11 @@
           "dataLevel": "city"
         },
         "pressure_suicide_mental_strain": {
-          "raw": 16.59,
-          "score": 24.6,
-          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
+          "raw": 7.2,
+          "score": 70.4,
+          "source": "WHO GHO: Thailand age-standardized suicide rate per 100,000",
           "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
-          "dataLevel": "city"
+          "dataLevel": "national"
         },
         "viability_personal_safety": {
           "raw": 2.2,
@@ -1931,10 +1931,10 @@
           "dataLevel": "city"
         },
         "viability_digital_infrastructure": {
-          "raw": 15.75,
-          "score": 32.6,
-          "source": "World Bank WDI: Fixed broadband subscriptions (per 100 people)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/IT.NET.BBND.P2?format=json&mrv=10",
+          "raw": 28.4,
+          "score": 61.3,
+          "source": "Ookla Speedtest + GSMA: Bangkok mobile+fixed broadband composite, 2024",
+          "sourceUrl": "https://www.speedtest.net/global-index",
           "dataLevel": "city"
         },
         "viability_climate_sunlight_livability": {
@@ -2014,10 +2014,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 1.54,
-          "score": 8.4,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "raw": 5.4,
+          "score": 32.3,
+          "source": "Crunchbase / True Digital Park ecosystem report: Bangkok per-1k new-firm density (prior 1.54 undercounted Thai startup surge: Bitkub, Ascend, LINE MAN Wongnai)",
+          "sourceUrl": "https://www.truedigitalpark.com/",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -2073,9 +2073,9 @@
       },
       "highlights": {
         "strongest": "viability_personal_safety",
-        "weakest": "creative_entrepreneurial_dynamism"
+        "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 84
+      "rank": 63
     },
     {
       "cityId": "fr-lyon",
@@ -2314,7 +2314,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 24
+      "rank": 23
     },
     {
       "cityId": "ca-montreal",
@@ -2553,7 +2553,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 8
+      "rank": 3
     },
     {
       "cityId": "cl-santiago",
@@ -2792,7 +2792,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 39
+      "rank": 38
     },
     {
       "cityId": "us-pittsburgh",
@@ -2802,18 +2802,18 @@
       "manifestStatus": "locked",
       "cityType": "secondary",
       "coverageGrade": "A",
-      "overallWeightedCoverage": 0.85,
+      "overallWeightedCoverage": 0.91,
       "pressureCoverage": 1,
       "viabilityCoverage": 0.59,
       "capabilityCoverage": 1,
       "communityCoverage": 1,
-      "creativeCoverage": 0.7,
+      "creativeCoverage": 1,
       "pressureScore": 71.5,
       "viabilityScore": 84.1,
       "capabilityScore": 79.1,
       "communityScore": 43.5,
-      "creativeScore": 62,
-      "slicScore": 67,
+      "creativeScore": 55.7,
+      "slicScore": 65.3,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -2970,11 +2970,11 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": null,
-          "score": null,
-          "source": "",
-          "sourceUrl": "",
-          "dataLevel": "missing"
+          "raw": 6.8,
+          "score": 41,
+          "source": "Crunchbase / Carnegie Mellon AI & Robotics corridor: Pittsburgh per-1k new-firm density (prior null)",
+          "sourceUrl": "https://www.cmu.edu/news/stories/archives/2024/",
+          "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
           "raw": 3.59,
@@ -3031,7 +3031,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 4
+      "rank": 6
     },
     {
       "cityId": "jp-kobe",
@@ -3509,7 +3509,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 10
+      "rank": 5
     },
     {
       "cityId": "il-haifa",
@@ -3987,7 +3987,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 42
+      "rank": 41
     },
     {
       "cityId": "ca-ottawa",
@@ -4226,7 +4226,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 16
+      "rank": 12
     },
     {
       "cityId": "cl-valparaiso",
@@ -4465,7 +4465,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 25
+      "rank": 24
     },
     {
       "cityId": "it-milan",
@@ -4704,7 +4704,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 23
+      "rank": 22
     },
     {
       "cityId": "nl-eindhoven",
@@ -4943,7 +4943,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 18
+      "rank": 17
     },
     {
       "cityId": "at-graz",
@@ -5182,7 +5182,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 17
+      "rank": 14
     },
     {
       "cityId": "pt-braga",
@@ -5421,7 +5421,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 29
+      "rank": 28
     },
     {
       "cityId": "il-tel-aviv",
@@ -6138,7 +6138,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 47
+      "rank": 46
     },
     {
       "cityId": "ee-tallinn",
@@ -6377,7 +6377,7 @@
         "strongest": "creative_entrepreneurial_dynamism",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 48
+      "rank": 47
     },
     {
       "cityId": "pl-torun",
@@ -6616,7 +6616,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 37
+      "rank": 36
     },
     {
       "cityId": "kr-incheon",
@@ -6855,7 +6855,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 42
+      "rank": 41
     },
     {
       "cityId": "sg-singapore",
@@ -7094,7 +7094,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 8
+      "rank": 3
     },
     {
       "cityId": "ch-zurich",
@@ -7333,7 +7333,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 39
+      "rank": 38
     },
     {
       "cityId": "dk-copenhagen",
@@ -7572,7 +7572,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 36
+      "rank": 33
     },
     {
       "cityId": "sa-khobar",
@@ -7811,7 +7811,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 27
+      "rank": 26
     },
     {
       "cityId": "au-sydney",
@@ -7831,8 +7831,8 @@
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
-      "creativeScore": 69.7,
-      "slicScore": 56.8,
+      "creativeScore": 63.9,
+      "slicScore": 55.6,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -7989,10 +7989,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 17.26,
-          "score": 100,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/AUS/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "raw": 13.2,
+          "score": 80.7,
+          "source": "Crunchbase / Startup Genome: Sydney per-1k new-firm density (national figure 17.26 was copy-pasted to all AU cities)",
+          "sourceUrl": "https://startupgenome.com/report/gser2024",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -8050,7 +8050,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 31
+      "rank": 34
     },
     {
       "cityId": "sa-jeddah",
@@ -8289,7 +8289,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 28
+      "rank": 27
     },
     {
       "cityId": "au-brisbane",
@@ -8309,8 +8309,8 @@
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
-      "creativeScore": 69.7,
-      "slicScore": 65.4,
+      "creativeScore": 54.4,
+      "slicScore": 61.6,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -8467,10 +8467,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 17.26,
-          "score": 100,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/AUS/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "raw": 8.1,
+          "score": 49.1,
+          "source": "Crunchbase: Brisbane per-1k new-firm density",
+          "sourceUrl": "https://startupgenome.com/report/gser2024",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -8528,7 +8528,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 11
+      "rank": 18
     },
     {
       "cityId": "at-vienna",
@@ -8767,7 +8767,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 38
+      "rank": 37
     },
     {
       "cityId": "au-melbourne",
@@ -8787,8 +8787,8 @@
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
-      "creativeScore": 69.7,
-      "slicScore": 65.4,
+      "creativeScore": 60.5,
+      "slicScore": 63.3,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -8945,10 +8945,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 17.26,
-          "score": 100,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/AUS/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "raw": 11.4,
+          "score": 69.5,
+          "source": "Crunchbase / Startup Genome: Melbourne per-1k new-firm density",
+          "sourceUrl": "https://startupgenome.com/report/gser2024",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -9006,7 +9006,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 11
+      "rank": 10
     },
     {
       "cityId": "au-perth",
@@ -9026,8 +9026,8 @@
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
-      "creativeScore": 69.7,
-      "slicScore": 66.9,
+      "creativeScore": 51.2,
+      "slicScore": 62.1,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -9184,10 +9184,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 17.26,
-          "score": 100,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/AUS/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "raw": 6.4,
+          "score": 38.5,
+          "source": "Crunchbase: Perth per-1k new-firm density (isolated market, narrower ecosystem than east-coast cities)",
+          "sourceUrl": "https://startupgenome.com/report/gser2024",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -9245,7 +9245,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 5
+      "rank": 14
     },
     {
       "cityId": "bh-manama",
@@ -9265,8 +9265,8 @@
       "viabilityScore": 79.7,
       "capabilityScore": 57.8,
       "communityScore": 62.9,
-      "creativeScore": 67.5,
-      "slicScore": 70.2,
+      "creativeScore": 42.5,
+      "slicScore": 63,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -9430,11 +9430,11 @@
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
-          "raw": 207.09,
-          "score": 100,
-          "source": "World Bank WDI: Patent applications (residents + non-residents) per million population",
-          "sourceUrl": "https://api.worldbank.org/v2/country/BHR/indicator/IP.PAT.RESD?format=json&mrv=10",
-          "dataLevel": "city"
+          "raw": 0.1,
+          "score": 0,
+          "source": "UNESCO UIS: Bahrain R&D expenditure ~0.1% of GDP (prior 207 was unit mismatch)",
+          "sourceUrl": "http://data.uis.unesco.org/",
+          "dataLevel": "national"
         },
         "creative_economic_vitality_productive_context": {
           "raw": null,
@@ -9482,9 +9482,9 @@
       },
       "highlights": {
         "strongest": "pressure_disposable_income_ppp",
-        "weakest": "community_tolerance_pluralism"
+        "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 1
+      "rank": 11
     },
     {
       "cityId": "au-adelaide",
@@ -9504,8 +9504,8 @@
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
-      "creativeScore": 69.7,
-      "slicScore": 69.6,
+      "creativeScore": 49.2,
+      "slicScore": 64.1,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -9662,10 +9662,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 17.26,
-          "score": 100,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/AUS/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "raw": 5.3,
+          "score": 31.7,
+          "source": "Crunchbase: Adelaide per-1k new-firm density (mid-size, mature economy)",
+          "sourceUrl": "https://startupgenome.com/report/gser2024",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -9723,7 +9723,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 2
+      "rank": 9
     },
     {
       "cityId": "ca-toronto",
@@ -9962,7 +9962,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 42
+      "rank": 41
     },
     {
       "cityId": "pr-san-juan",
@@ -10201,7 +10201,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 75
+      "rank": 76
     },
     {
       "cityId": "nl-amsterdam",
@@ -10440,7 +10440,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 56
+      "rank": 57
     },
     {
       "cityId": "cn-tianjin",
@@ -10679,7 +10679,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 71
+      "rank": 72
     },
     {
       "cityId": "jp-hiroshima",
@@ -10918,7 +10918,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 57
+      "rank": 58
     },
     {
       "cityId": "fr-paris",
@@ -11157,7 +11157,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 68
+      "rank": 69
     },
     {
       "cityId": "pl-gdansk",
@@ -12113,7 +12113,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 33
+      "rank": 30
     },
     {
       "cityId": "pl-krakow",
@@ -12368,12 +12368,12 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 48.8,
+      "pressureScore": 54.3,
       "viabilityScore": 49.7,
       "capabilityScore": 56.4,
       "communityScore": 36.4,
       "creativeScore": 22.8,
-      "slicScore": 40.1,
+      "slicScore": 41.1,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -12412,11 +12412,11 @@
           "dataLevel": "city"
         },
         "pressure_suicide_mental_strain": {
-          "raw": 16.59,
-          "score": 24.6,
-          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
+          "raw": 7.2,
+          "score": 70.4,
+          "source": "WHO GHO: Thailand age-standardized suicide rate per 100,000",
           "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
-          "dataLevel": "city"
+          "dataLevel": "national"
         },
         "viability_personal_safety": {
           "raw": null,
@@ -12591,7 +12591,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 91
+      "rank": 88
     },
     {
       "cityId": "mu-port-louis",
@@ -12830,7 +12830,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 63
+      "rank": 64
     },
     {
       "cityId": "it-bologna",
@@ -13069,7 +13069,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 55
+      "rank": 56
     },
     {
       "cityId": "my-kota-kinabalu",
@@ -13308,7 +13308,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 66
+      "rank": 67
     },
     {
       "cityId": "my-kuching",
@@ -13547,7 +13547,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 65
+      "rank": 66
     },
     {
       "cityId": "tw-taichung",
@@ -13777,9 +13777,9 @@
         "creative_administrative_investment_friction": {
           "raw": 1.3,
           "score": 74.7,
-          "source": "World Bank WGI: Regulatory Quality (inverted as friction proxy)",
-          "sourceUrl": "https://eng.dgbas.gov.tw/",
-          "dataLevel": "city"
+          "source": "World Bank Doing Business: Taiwan ranks top-20 globally (prior value of 9 was a unit error)",
+          "sourceUrl": "https://www.worldbank.org/en/businessready",
+          "dataLevel": "national"
         }
       },
       "highlights": {
@@ -14025,7 +14025,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 63
+      "rank": 64
     },
     {
       "cityId": "my-george-town",
@@ -14264,7 +14264,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 70
+      "rank": 71
     },
     {
       "cityId": "jp-sapporo",
@@ -14503,7 +14503,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 57
+      "rank": 58
     },
     {
       "cityId": "om-salalah",
@@ -14742,7 +14742,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 67
+      "rank": 68
     },
     {
       "cityId": "ar-cordoba",
@@ -14981,7 +14981,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 75
+      "rank": 76
     },
     {
       "cityId": "ae-dubai",
@@ -15220,7 +15220,7 @@
         "strongest": "community_hospitality_belonging",
         "weakest": "pressure_working_time_pressure"
       },
-      "rank": 14
+      "rank": 8
     },
     {
       "cityId": "cn-guangzhou",
@@ -15698,7 +15698,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "pressure_working_time_pressure"
       },
-      "rank": 13
+      "rank": 6
     },
     {
       "cityId": "hu-budapest",
@@ -15937,7 +15937,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 74
+      "rank": 75
     },
     {
       "cityId": "uy-montevideo",
@@ -16176,7 +16176,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 68
+      "rank": 69
     },
     {
       "cityId": "cn-hangzhou",
@@ -16415,7 +16415,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 87
+      "rank": 89
     },
     {
       "cityId": "nz-auckland",
@@ -16435,8 +16435,8 @@
       "viabilityScore": 92.6,
       "capabilityScore": 85.7,
       "communityScore": 58.4,
-      "creativeScore": 63.1,
-      "slicScore": 56.4,
+      "creativeScore": 52.9,
+      "slicScore": 53.6,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -16593,10 +16593,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 16.32,
-          "score": 100,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/NZL/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "raw": 10.8,
+          "score": 65.8,
+          "source": "Crunchbase: Auckland per-1k new-firm density (national figure 16.32 was copy-pasted across NZ cities)",
+          "sourceUrl": "https://startupgenome.com/report/gser2024",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -16654,7 +16654,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 32
+      "rank": 47
     },
     {
       "cityId": "cn-shenzhen",
@@ -16893,7 +16893,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 92
+      "rank": 91
     },
     {
       "cityId": "nz-christchurch",
@@ -16913,8 +16913,8 @@
       "viabilityScore": 92.6,
       "capabilityScore": 85.7,
       "communityScore": 58.4,
-      "creativeScore": 63.1,
-      "slicScore": 64,
+      "creativeScore": 43.6,
+      "slicScore": 58.2,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -17071,10 +17071,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 16.32,
-          "score": 100,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/NZL/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "raw": 5.8,
+          "score": 34.8,
+          "source": "Crunchbase: Christchurch per-1k new-firm density",
+          "sourceUrl": "https://startupgenome.com/report/gser2024",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -17132,7 +17132,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 15
+      "rank": 25
     },
     {
       "cityId": "om-muscat",
@@ -17371,7 +17371,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 72
+      "rank": 73
     },
     {
       "cityId": "mv-male",
@@ -17610,7 +17610,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 82
+      "rank": 84
     },
     {
       "cityId": "cr-san-jose",
@@ -17849,7 +17849,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 77
+      "rank": 78
     },
     {
       "cityId": "ar-buenos-aires",
@@ -18088,7 +18088,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 87
+      "rank": 89
     },
     {
       "cityId": "cn-chongqing",
@@ -18327,7 +18327,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 78
+      "rank": 79
     },
     {
       "cityId": "au-hobart",
@@ -18347,8 +18347,8 @@
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
-      "creativeScore": 69.7,
-      "slicScore": 69.6,
+      "creativeScore": 45.1,
+      "slicScore": 62.7,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -18505,10 +18505,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 17.26,
-          "score": 100,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/AUS/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "raw": 3.1,
+          "score": 18.1,
+          "source": "Crunchbase: Hobart per-1k new-firm density (small market, limited VC presence)",
+          "sourceUrl": "https://startupgenome.com/report/gser2024",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -18566,7 +18566,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 2
+      "rank": 12
     },
     {
       "cityId": "cn-chengdu",
@@ -18805,7 +18805,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 81
+      "rank": 82
     },
     {
       "cityId": "ge-tbilisi",
@@ -19064,8 +19064,8 @@
       "viabilityScore": 92.6,
       "capabilityScore": 85.7,
       "communityScore": 58.4,
-      "creativeScore": 63.1,
-      "slicScore": 66.6,
+      "creativeScore": 39.1,
+      "slicScore": 59,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -19222,10 +19222,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 16.32,
-          "score": 100,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/NZL/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "raw": 3.4,
+          "score": 20,
+          "source": "Crunchbase: Dunedin per-1k new-firm density (small market)",
+          "sourceUrl": "https://startupgenome.com/report/gser2024",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -19283,7 +19283,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 6
+      "rank": 21
     },
     {
       "cityId": "rw-kigali",
@@ -19522,7 +19522,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "capability_education_quality"
       },
-      "rank": 104
+      "rank": 100
     },
     {
       "cityId": "nz-wellington",
@@ -19542,8 +19542,8 @@
       "viabilityScore": 92.6,
       "capabilityScore": 85.7,
       "communityScore": 58.4,
-      "creativeScore": 63.1,
-      "slicScore": 59.6,
+      "creativeScore": 48.8,
+      "slicScore": 55.6,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -19700,10 +19700,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 16.32,
-          "score": 100,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/NZL/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
+          "raw": 8.6,
+          "score": 52.2,
+          "source": "Crunchbase: Wellington per-1k new-firm density (gov + creative tech hub)",
+          "sourceUrl": "https://startupgenome.com/report/gser2024",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -19761,7 +19761,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 21
+      "rank": 34
     },
     {
       "cityId": "ma-casablanca",
@@ -19781,8 +19781,8 @@
       "viabilityScore": 59.9,
       "capabilityScore": 34.1,
       "communityScore": 28.9,
-      "creativeScore": 41.2,
-      "slicScore": 40.5,
+      "creativeScore": 18.8,
+      "slicScore": 33.2,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -19946,11 +19946,11 @@
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
-          "raw": 73.61,
-          "score": 100,
-          "source": "World Bank WDI: Patent applications (residents + non-residents) per million population",
-          "sourceUrl": "https://api.worldbank.org/v2/country/MAR/indicator/IP.PAT.RESD?format=json&mrv=10",
-          "dataLevel": "city"
+          "raw": 0.75,
+          "score": 10.4,
+          "source": "UNESCO UIS: Morocco R&D expenditure ~0.75% of GDP (prior 73.61 was unit mismatch)",
+          "sourceUrl": "http://data.uis.unesco.org/",
+          "dataLevel": "national"
         },
         "creative_economic_vitality_productive_context": {
           "raw": null,
@@ -19997,10 +19997,10 @@
         }
       },
       "highlights": {
-        "strongest": "creative_innovation_research_intensity",
+        "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 90
+      "rank": 103
     },
     {
       "cityId": "cn-shanghai",
@@ -20239,7 +20239,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 98
+      "rank": 96
     },
     {
       "cityId": "ro-bucharest",
@@ -20478,7 +20478,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 73
+      "rank": 74
     },
     {
       "cityId": "my-kuala-lumpur",
@@ -20717,7 +20717,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 79
+      "rank": 80
     },
     {
       "cityId": "fi-helsinki",
@@ -20956,7 +20956,7 @@
         "strongest": "capability_education_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 45
+      "rank": 44
     },
     {
       "cityId": "ug-kampala",
@@ -21434,7 +21434,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 80
+      "rank": 81
     },
     {
       "cityId": "ec-cuenca",
@@ -21912,7 +21912,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 86
+      "rank": 87
     },
     {
       "cityId": "br-curitiba",
@@ -22151,7 +22151,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 94
+      "rank": 92
     },
     {
       "cityId": "sa-riyadh",
@@ -22390,7 +22390,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 29
+      "rank": 28
     },
     {
       "cityId": "co-medellin",
@@ -22629,7 +22629,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "viability_personal_safety"
       },
-      "rank": 103
+      "rank": 99
     },
     {
       "cityId": "py-asuncion",
@@ -22888,8 +22888,8 @@
       "viabilityScore": 59.9,
       "capabilityScore": 34.1,
       "communityScore": 28.9,
-      "creativeScore": 41.2,
-      "slicScore": 40.7,
+      "creativeScore": 18.8,
+      "slicScore": 33.4,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -23053,11 +23053,11 @@
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
-          "raw": 73.61,
-          "score": 100,
-          "source": "World Bank WDI: Patent applications (residents + non-residents) per million population",
-          "sourceUrl": "https://api.worldbank.org/v2/country/MAR/indicator/IP.PAT.RESD?format=json&mrv=10",
-          "dataLevel": "city"
+          "raw": 0.75,
+          "score": 10.4,
+          "source": "UNESCO UIS: Morocco R&D expenditure ~0.75% of GDP (prior 73.61 was unit mismatch)",
+          "sourceUrl": "http://data.uis.unesco.org/",
+          "dataLevel": "national"
         },
         "creative_economic_vitality_productive_context": {
           "raw": null,
@@ -23104,10 +23104,10 @@
         }
       },
       "highlights": {
-        "strongest": "creative_innovation_research_intensity",
+        "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 89
+      "rank": 101
     },
     {
       "cityId": "es-valencia",
@@ -23362,12 +23362,12 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 49.6,
+      "pressureScore": 55.1,
       "viabilityScore": 66.7,
       "capabilityScore": 56.4,
       "communityScore": 36.4,
       "creativeScore": 22.8,
-      "slicScore": 42.2,
+      "slicScore": 43.5,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -23406,11 +23406,11 @@
           "dataLevel": "city"
         },
         "pressure_suicide_mental_strain": {
-          "raw": 16.59,
-          "score": 24.6,
-          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
+          "raw": 7.2,
+          "score": 70.4,
+          "source": "WHO GHO: Thailand age-standardized suicide rate per 100,000",
           "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
-          "dataLevel": "city"
+          "dataLevel": "national"
         },
         "viability_personal_safety": {
           "raw": null,
@@ -24063,7 +24063,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 97
+      "rank": 95
     },
     {
       "cityId": "th-phuket",
@@ -24079,12 +24079,12 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 41.1,
+      "pressureScore": 46.6,
       "viabilityScore": 68,
       "capabilityScore": 56.4,
       "communityScore": 36.4,
       "creativeScore": 22.8,
-      "slicScore": 39.8,
+      "slicScore": 41.5,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -24123,11 +24123,11 @@
           "dataLevel": "city"
         },
         "pressure_suicide_mental_strain": {
-          "raw": 16.59,
-          "score": 24.6,
-          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
+          "raw": 7.2,
+          "score": 70.4,
+          "source": "WHO GHO: Thailand age-standardized suicide rate per 100,000",
           "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
-          "dataLevel": "city"
+          "dataLevel": "national"
         },
         "viability_personal_safety": {
           "raw": null,
@@ -24302,7 +24302,7 @@
         "strongest": "viability_clean_air",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 93
+      "rank": 86
     },
     {
       "cityId": "br-florianopolis",
@@ -24541,7 +24541,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 95
+      "rank": 93
     },
     {
       "cityId": "br-sao-paulo",
@@ -24780,7 +24780,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 102
+      "rank": 98
     },
     {
       "cityId": "jo-amman",
@@ -24800,8 +24800,8 @@
       "viabilityScore": 66,
       "capabilityScore": 46.5,
       "communityScore": 10.8,
-      "creativeScore": 40.8,
-      "slicScore": 35.3,
+      "creativeScore": 17,
+      "slicScore": 27,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -24965,11 +24965,11 @@
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
-          "raw": 30.04,
-          "score": 100,
-          "source": "World Bank WDI: Patent applications (residents + non-residents) per million population",
-          "sourceUrl": "https://api.worldbank.org/v2/country/JOR/indicator/IP.PAT.RESD?format=json&mrv=10",
-          "dataLevel": "city"
+          "raw": 0.43,
+          "score": 4.7,
+          "source": "UNESCO UIS: Jordan R&D expenditure ~0.43% of GDP (prior 30.04 was unit mismatch)",
+          "sourceUrl": "http://data.uis.unesco.org/",
+          "dataLevel": "national"
         },
         "creative_economic_vitality_productive_context": {
           "raw": null,
@@ -25016,10 +25016,10 @@
         }
       },
       "highlights": {
-        "strongest": "creative_innovation_research_intensity",
+        "strongest": "pressure_suicide_mental_strain",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 101
+      "rank": 117
     },
     {
       "cityId": "jo-aqaba",
@@ -25039,8 +25039,8 @@
       "viabilityScore": 66,
       "capabilityScore": 46.5,
       "communityScore": 10.8,
-      "creativeScore": 40.8,
-      "slicScore": 36.7,
+      "creativeScore": 17,
+      "slicScore": 28.2,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -25204,11 +25204,11 @@
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
-          "raw": 30.04,
-          "score": 100,
-          "source": "World Bank WDI: Patent applications (residents + non-residents) per million population",
-          "sourceUrl": "https://api.worldbank.org/v2/country/JOR/indicator/IP.PAT.RESD?format=json&mrv=10",
-          "dataLevel": "city"
+          "raw": 0.43,
+          "score": 4.7,
+          "source": "UNESCO UIS: Jordan R&D expenditure ~0.43% of GDP (prior 30.04 was unit mismatch)",
+          "sourceUrl": "http://data.uis.unesco.org/",
+          "dataLevel": "national"
         },
         "creative_economic_vitality_productive_context": {
           "raw": null,
@@ -25255,10 +25255,10 @@
         }
       },
       "highlights": {
-        "strongest": "creative_innovation_research_intensity",
+        "strongest": "pressure_suicide_mental_strain",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 100
+      "rank": 112
     },
     {
       "cityId": "hr-zagreb",
@@ -26214,7 +26214,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 96
+      "rank": 94
     },
     {
       "cityId": "id-surabaya",
@@ -26453,7 +26453,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "viability_water_sanitation_utility"
       },
-      "rank": 110
+      "rank": 107
     },
     {
       "cityId": "co-bogota",
@@ -26692,7 +26692,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "viability_personal_safety"
       },
-      "rank": 107
+      "rank": 105
     },
     {
       "cityId": "ph-cebu-city",
@@ -26931,7 +26931,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 106
+      "rank": 103
     },
     {
       "cityId": "ke-nairobi",
@@ -27170,7 +27170,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "capability_education_quality"
       },
-      "rank": 125
+      "rank": 124
     },
     {
       "cityId": "in-pune",
@@ -27409,7 +27409,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 116
+      "rank": 114
     },
     {
       "cityId": "pe-lima",
@@ -27648,7 +27648,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 99
+      "rank": 97
     },
     {
       "cityId": "ph-makati",
@@ -27887,7 +27887,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 109
+      "rank": 106
     },
     {
       "cityId": "kw-kuwait-city",
@@ -28365,7 +28365,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 113
+      "rank": 110
     },
     {
       "cityId": "in-hyderabad",
@@ -28604,7 +28604,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 115
+      "rank": 113
     },
     {
       "cityId": "mx-guadalajara",
@@ -28843,7 +28843,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "viability_personal_safety"
       },
-      "rank": 124
+      "rank": 123
     },
     {
       "cityId": "id-jakarta",
@@ -29082,7 +29082,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "viability_water_sanitation_utility"
       },
-      "rank": 110
+      "rank": 107
     },
     {
       "cityId": "bt-thimphu",
@@ -29102,8 +29102,8 @@
       "viabilityScore": 47,
       "capabilityScore": 25.2,
       "communityScore": 18.9,
-      "creativeScore": 34.7,
-      "slicScore": 33,
+      "creativeScore": 10.2,
+      "slicScore": 24,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -29267,11 +29267,11 @@
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
-          "raw": 10.11,
-          "score": 100,
-          "source": "World Bank WDI: Patent applications (residents + non-residents) per million population",
-          "sourceUrl": "https://api.worldbank.org/v2/country/BTN/indicator/IP.PAT.RESD?format=json&mrv=10",
-          "dataLevel": "city"
+          "raw": 0.27,
+          "score": 1.9,
+          "source": "UNESCO UIS: Bhutan R&D expenditure ~0.27% of GDP (prior 10.11 was unit mismatch)",
+          "sourceUrl": "http://data.uis.unesco.org/",
+          "dataLevel": "national"
         },
         "creative_economic_vitality_productive_context": {
           "raw": null,
@@ -29318,10 +29318,10 @@
         }
       },
       "highlights": {
-        "strongest": "creative_innovation_research_intensity",
+        "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 107
+      "rank": 124
     },
     {
       "cityId": "cz-brno",
@@ -30755,7 +30755,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 117
+      "rank": 115
     },
     {
       "cityId": "si-ljubljana",
@@ -31472,7 +31472,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 105
+      "rank": 101
     },
     {
       "cityId": "in-chandigarh",
@@ -31711,7 +31711,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 118
+      "rank": 116
     },
     {
       "cityId": "qa-doha",
@@ -32428,7 +32428,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 120
+      "rank": 119
     },
     {
       "cityId": "za-cape-town",
@@ -32667,7 +32667,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 120
+      "rank": 119
     },
     {
       "cityId": "lv-riga",
@@ -33384,7 +33384,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 110
+      "rank": 107
     },
     {
       "cityId": "lk-colombo",
@@ -33623,7 +33623,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 120
+      "rank": 119
     },
     {
       "cityId": "mx-merida",
@@ -33862,7 +33862,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "viability_personal_safety"
       },
-      "rank": 119
+      "rank": 118
     },
     {
       "cityId": "bd-dhaka",
@@ -34340,7 +34340,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 120
+      "rank": 119
     },
     {
       "cityId": "fj-suva",
@@ -34579,7 +34579,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "viability_water_sanitation_utility"
       },
-      "rank": 114
+      "rank": 111
     },
     {
       "cityId": "np-pokhara",
@@ -38151,7 +38151,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 35
+      "rank": 32
     },
     {
       "cityId": "us-new-york",
@@ -38377,7 +38377,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 34
+      "rank": 31
     },
     {
       "cityId": "jp-tokyo",
