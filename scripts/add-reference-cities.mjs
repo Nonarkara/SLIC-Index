@@ -238,8 +238,8 @@ const REFERENCE_CITIES = [
     raw: {
       // Growth pillar
       di_ppp_raw: {
-        value: 742,
-        source: "Derived from Numbeo London cost basket and UK PPP (World Bank)",
+        value: -200,
+        source: "Derived: median-resident net salary minus Numbeo London center-1BR rent basket, UK PPP (World Bank)",
         sourceUrl: NUMBEO + "in/London",
         dataLevel: "derived",
       },
@@ -395,8 +395,8 @@ const REFERENCE_CITIES = [
     publicationStatus: "published",
     raw: {
       di_ppp_raw: {
-        value: 1085,
-        source: "Derived from Numbeo New York City cost basket and US PPP",
+        value: -800,
+        source: "Derived: median-resident net salary minus Numbeo Manhattan center-1BR rent basket, US PPP",
         sourceUrl: NUMBEO + "in/New-York",
         dataLevel: "derived",
       },
@@ -548,8 +548,8 @@ const REFERENCE_CITIES = [
     publicationStatus: "published",
     raw: {
       di_ppp_raw: {
-        value: 852,
-        source: "Derived from Numbeo Tokyo cost basket and Japan PPP (OECD)",
+        value: 950,
+        source: "Derived: median-resident net salary minus Numbeo Tokyo center-1BR rent basket, Japan PPP (OECD)",
         sourceUrl: NUMBEO + "in/Tokyo",
         dataLevel: "derived",
       },

@@ -567,22 +567,22 @@ export const ECHO_CHAMBER_NOTES: Record<string, EchoChamberNote> = {
   },
   // ── Global reference cities now in SLIC (added April 2026) ────────────────
   london: {
-    slicRank: 9,
-    en: "Enters SLIC at #9 with Growth 37.0 — a middling score that reflects London's housing-burden penalty (rent-to-income ratio clamped at the dataset's worst threshold) and working-time pressure at the professional tier. Strong on Capability (healthcare, education) and Creative (VC density, cultural depth).",
-    th: "เข้าสู่ SLIC อันดับที่ 9 ด้วยคะแนนเสาการเติบโต 37.0 — สะท้อนภาระค่าเช่าที่สูงสุดในชุดข้อมูล และชั่วโมงทำงานระดับวิชาชีพ แต่แข็งแกร่งด้านศักยภาพ (ระบบสุขภาพ การศึกษา) และความสร้างสรรค์ (VC ความอุดมทางวัฒนธรรม)",
-    zh: "以 #9 进入 SLIC，增长支柱 37.0 — 反映伦敦住房负担（租金收入比触及数据集最差阈值）与职业层工时压力。能力（医疗、教育）与创意（风投密度、文化深度）表现强劲。",
+    slicRank: 19,
+    en: "Enters SLIC tied at #19 with Milan. Growth collapses to 28.3 once disposable income is computed on the median-resident basis (not the City-of-London mean): for the typical Londoner, central rent wipes out net salary before other essentials. Capability 78.4 and Community 74.2 remain strong. London trades like a museum that's expensive to live inside.",
+    th: "เข้าสู่ SLIC อันดับที่ 19 เท่ากับ Milan คะแนนเสาการเติบโตร่วงลงเหลือ 28.3 เมื่อคำนวณรายได้คงเหลือตามฐานผู้อยู่อาศัยมัธยฐาน — ค่าเช่าใจกลางกินเงินเดือนสุทธิของคนลอนดอนทั่วไปก่อนหักค่าใช้จ่ายอื่น ศักยภาพ 78.4 และชุมชน 74.2 ยังแข็งแกร่ง ลอนดอนคือพิพิธภัณฑ์ที่แพงเหลือเกินถ้าอยากอาศัยอยู่ข้างใน",
+    zh: "以 #19 进入 SLIC，与米兰并列。当可支配收入按中位数居民基准（而非金融城均值）计算时，增长支柱降至 28.3：对典型伦敦人而言，市中心房租在扣除其他必需开销前便吞没净薪。能力 78.4 与社区 74.2 仍然强劲。伦敦像一座住进去极为昂贵的博物馆。",
   },
   "new york": {
-    slicRank: 2,
-    en: "Enters SLIC at #2 just behind Kaohsiung. Creative pillar 75.3 leads the top-10 cohort (VC deal density, R&D intensity, cultural mass). Growth 39.3 is the drag — housing burden clamped to the dataset's worst value and severe working-time pressure penalise despite high Capability 82.0 and strong Community 71.5.",
-    th: "เข้าสู่ SLIC อันดับที่ 2 ตามหลัง Kaohsiung นิดเดียว คะแนนความสร้างสรรค์ 75.3 นำกลุ่ม top-10 (ความหนาแน่น VC การวิจัย ความอุดมทางวัฒนธรรม) คะแนนการเติบโต 39.3 เป็นตัวถ่วง — ภาระค่าเช่าถึงจุดแย่สุดในชุดข้อมูล แต่ศักยภาพ 82.0 และชุมชน 71.5 ยังแข็งแกร่ง",
-    zh: "以 #2 进入 SLIC，仅次于 Kaohsiung。创意支柱 75.3 居前十之首（风投密度、研发强度、文化规模）。增长 39.3 是主要拖累——住房负担触及数据集最差值，职业层工时压力严重，但能力 82.0 与社区 71.5 仍表现强劲。",
+    slicRank: 3,
+    en: "Enters SLIC tied at #3 with Raleigh — a telling pairing. NYC's Creative 75.3 and Capability 82.0 are unmatched; but Growth at 25.8 (the median resident is underwater after Manhattan rent) drags it level with a mid-size city that has no Broadway, no MoMA, no Wall Street — also no housing crisis. The headline: NYC is extraordinary for the top decile and punishing for everyone else.",
+    th: "เข้าสู่ SLIC อันดับที่ 3 เท่ากับ Raleigh — คู่ที่บอกอะไรได้มาก คะแนนความสร้างสรรค์ 75.3 และศักยภาพ 82.0 ของ NYC ไม่มีที่ไหนเทียบ แต่การเติบโต 25.8 (ผู้อยู่อาศัยมัธยฐานติดลบหลังค่าเช่าแมนฮัตตัน) ดึงให้อยู่ระดับเดียวกับเมืองขนาดกลางที่ไม่มี Broadway ไม่มี MoMA ไม่มี Wall Street — และไม่มีวิกฤตที่อยู่อาศัยเช่นกัน NYC เก่งกาจสำหรับ top 10% และโหดร้ายกับคนที่เหลือ",
+    zh: "以 #3 进入 SLIC，与 Raleigh 并列——一个意味深长的配对。纽约的创意 75.3 与能力 82.0 无出其右；但增长支柱仅 25.8（中位数居民在扣除曼哈顿房租后为负），将其拉至与一座没有百老汇、没有 MoMA、没有华尔街——也没有住房危机的中型城市持平。标题：纽约对顶层 10% 而言非凡，对其他所有人而言苛刻。",
   },
   tokyo: {
-    slicRank: 37,
-    en: "Enters SLIC at #37 with Growth 35.4 and Community 51.6 — both drag scores. Long working hours (39.1 h/week), severe suicide indicator (15.4 per 100k), and modest LGBTQ+ legal environment all weigh. Viability 81.5 is strong (low homicide, clean air); Capability 76.8 decent.",
-    th: "เข้าสู่ SLIC อันดับที่ 37 ด้วยคะแนนการเติบโต 35.4 และชุมชน 51.6 — ทั้งคู่ถ่วง ชั่วโมงทำงานยาว (39.1 ชม./สัปดาห์) ตัวชี้วัดการฆ่าตัวตายรุนแรง (15.4 ต่อ 100k) และกรอบกฎหมาย LGBTQ+ อ่อน ความน่าอยู่ 81.5 แข็งแกร่ง ศักยภาพ 76.8 พอใช้",
-    zh: "以 #37 进入 SLIC，增长支柱 35.4 与社区支柱 51.6 均为拖累项。长工时（39.1 小时/周）、严峻的自杀指标（15.4/10万）与较弱的 LGBTQ+ 法律环境共同拉低。宜居 81.5 表现突出，能力 76.8 中上。",
+    slicRank: 36,
+    en: "Enters SLIC at #36. Unlike NYC and London, Tokyo's rent-to-income ratio for the median resident is genuinely livable — Growth 36.7 and disposable income positive. What holds Tokyo back is overwork (39.1 h/week average), severe mental-strain indicators (suicide 15.4 per 100k), and a restrictive LGBTQ+ legal environment. Viability 81.5 is excellent (homicide 0.25/100k, clean air, safe streets); Capability 76.8 decent.",
+    th: "เข้าสู่ SLIC อันดับที่ 36 ต่างจาก NYC และ London ตรงที่ภาระค่าเช่าต่อรายได้ของผู้อยู่อาศัยมัธยฐานในโตเกียวอยู่ในระดับที่ใช้ชีวิตได้จริง — การเติบโต 36.7 และรายได้คงเหลือเป็นบวก สิ่งที่ถ่วงโตเกียวคือการทำงานหนัก (39.1 ชม./สัปดาห์) ตัวชี้วัดสุขภาพจิตรุนแรง (ฆ่าตัวตาย 15.4 ต่อ 100k) และสภาพแวดล้อมกฎหมาย LGBTQ+ ที่จำกัด ความน่าอยู่ 81.5 ยอดเยี่ยม ศักยภาพ 76.8 พอใช้",
+    zh: "以 #36 进入 SLIC。不同于纽约与伦敦，东京中位数居民的租金收入比仍属可宜居——增长 36.7，可支配收入为正。拖累东京的是过度劳作（周均 39.1 小时）、严峻的心理压力指标（自杀率 15.4/10万）与较受限的 LGBTQ+ 法律环境。宜居 81.5 卓越（凶杀率 0.25/10万、空气清洁、街道安全），能力 76.8 中上。",
   },
   // Cities still outside SLIC's 160-city dataset
   barcelona: {

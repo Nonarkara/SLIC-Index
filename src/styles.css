@@ -9511,6 +9511,532 @@ details[open].scorecard-derived-formula summary::before {
   }
 }
 
+/* ═══════ 2.5.2 RED DOT COVER PASS — image-led first impression ═══════ */
+
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+.page-shell {
+  overflow-x: clip;
+}
+
+.mh-inner {
+  width: min(1280px, calc(100% - 2.5rem));
+}
+
+.mh:not(.mh--scrolled) .mh-inner {
+  color: var(--text-inverse);
+  text-shadow: 0 1px 18px rgba(0, 0, 0, 0.34);
+}
+
+.mh:not(.mh--scrolled) .mh-wordmark {
+  padding: 0.28rem 0.42rem;
+  border-radius: 999px;
+  background: rgba(248, 245, 240, 0.9);
+  text-shadow: none;
+}
+
+.mh:not(.mh--scrolled) .mh-link,
+.mh:not(.mh--scrolled) .mh-edition {
+  color: rgba(248, 245, 240, 0.76);
+}
+
+.mh:not(.mh--scrolled) .mh-link:hover,
+.mh:not(.mh--scrolled) .mh-link--active {
+  color: #fff;
+  border-bottom-color: rgba(248, 245, 240, 0.72);
+}
+
+.mh:not(.mh--scrolled) .locale-button {
+  border-color: rgba(248, 245, 240, 0.28);
+  background: rgba(0, 0, 0, 0.16);
+  color: rgba(248, 245, 240, 0.84);
+}
+
+.mh:not(.mh--scrolled) .locale-button.active {
+  border-color: rgba(248, 245, 240, 0.95);
+  background: rgba(248, 245, 240, 0.95);
+  color: var(--text);
+}
+
+.mh:not(.mh--scrolled) .mh-burger {
+  border-color: rgba(248, 245, 240, 0.32);
+  background: rgba(0, 0, 0, 0.16);
+}
+
+.mh:not(.mh--scrolled) .mh-burger span {
+  background: var(--text-inverse);
+}
+
+.hp-opening {
+  position: relative;
+  isolation: isolate;
+  min-height: 92svh;
+  align-items: flex-end;
+  padding: 8.8rem 0 4.5rem;
+  overflow: hidden;
+  background: #12100d;
+  color: var(--text-inverse);
+  border-bottom: 1px solid rgba(18, 16, 13, 0.9);
+}
+
+.hp-opening::before,
+.hp-opening::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.hp-opening::before {
+  background:
+    linear-gradient(90deg, rgba(18, 16, 13, 0.9) 0%, rgba(18, 16, 13, 0.7) 38%, rgba(18, 16, 13, 0.2) 72%, rgba(18, 16, 13, 0.58) 100%),
+    linear-gradient(180deg, rgba(18, 16, 13, 0.62) 0%, rgba(18, 16, 13, 0.12) 36%, rgba(18, 16, 13, 0.76) 100%);
+}
+
+.hp-opening::after {
+  background:
+    linear-gradient(180deg, transparent 0%, transparent 74%, rgba(0, 0, 0, 0.24) 100%),
+    repeating-linear-gradient(90deg, rgba(248, 245, 240, 0.055) 0 1px, transparent 1px 8.333%);
+  mix-blend-mode: screen;
+  opacity: 0.48;
+}
+
+.hp-opening-media {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.hp-opening-media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 38%;
+  filter: saturate(0.92) contrast(1.04) brightness(0.82);
+  transform: scale(1.018);
+  animation: hp-cover-drift 24s ease-out both;
+}
+
+@keyframes hp-cover-drift {
+  from {
+    transform: scale(1.04) translate3d(0, 0, 0);
+  }
+  to {
+    transform: scale(1.018) translate3d(0, -0.7rem, 0);
+  }
+}
+
+.hp-opening-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 58rem;
+  gap: 1rem;
+}
+
+:is(.hp-headline, .hp-lede, .hp-thesis-title, .v3-alpha-title, .v3-city-card-name, .v3-section-title) {
+  letter-spacing: 0;
+}
+
+.hp-kicker {
+  color: rgba(248, 245, 240, 0.64);
+  opacity: 1;
+}
+
+.hp-lede {
+  max-width: 40rem;
+  color: rgba(248, 245, 240, 0.82);
+  opacity: 1;
+}
+
+.hp-headline {
+  max-width: 10ch;
+  color: #fff;
+  font-size: 6.35rem;
+  line-height: 0.94;
+  text-shadow: 0 2px 30px rgba(0, 0, 0, 0.28);
+}
+
+.hp-deck {
+  max-width: 42rem;
+  color: rgba(248, 245, 240, 0.84);
+}
+
+.hp-opening-actions {
+  margin: 0.2rem 0 0.1rem;
+}
+
+.hp-cta-primary {
+  min-height: 2.85rem;
+  background: rgba(248, 245, 240, 0.96);
+  color: var(--text);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.24);
+}
+
+.hp-cta-primary:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.hp-cta-secondary {
+  min-height: 2.85rem;
+  border-color: rgba(248, 245, 240, 0.34);
+  background: rgba(0, 0, 0, 0.18);
+  color: rgba(248, 245, 240, 0.92);
+}
+
+.hp-cta-secondary:hover {
+  border-color: rgba(248, 245, 240, 0.72);
+  background: rgba(248, 245, 240, 0.08);
+}
+
+.hp-opening-stats {
+  width: min(100%, 39rem);
+  color: rgba(248, 245, 240, 0.68);
+}
+
+.hp-opening-stat {
+  border-top-color: rgba(248, 245, 240, 0.28);
+}
+
+.hp-opening-stat strong {
+  color: #fff;
+}
+
+.hp-opening-stat em {
+  color: rgba(248, 245, 240, 0.62);
+}
+
+.hp-opening-credit {
+  margin: 0.2rem 0 0;
+  color: rgba(248, 245, 240, 0.52);
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.hp-photo-break {
+  background: #12100d;
+}
+
+.hp-photo-break-img {
+  height: 60svh;
+  min-height: 28rem;
+  object-position: center 46%;
+  filter: saturate(0.92) contrast(1.02);
+}
+
+.hp-photo-break--narrow .hp-photo-break-img {
+  height: 42svh;
+  min-height: 22rem;
+}
+
+.v3-alpha {
+  border-top: 0;
+  padding: 5.2rem 0 3.6rem;
+}
+
+.v3-alpha-header {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 1rem 1.4rem;
+  align-items: end;
+}
+
+.v3-tier-badge {
+  margin: 0;
+  border-radius: 999px;
+}
+
+.v3-alpha-title {
+  max-width: 14ch;
+}
+
+.v3-city-card {
+  min-height: 10rem;
+  border-radius: var(--radius, 4px);
+  background: rgba(255, 255, 255, 0.68);
+}
+
+.v3-city-card-name {
+  font-size: 1.42rem;
+}
+
+.v3-city-card-bars > div {
+  transform-origin: left center;
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.v3-city-card:hover .v3-city-card-bars > div {
+  transform: scaleY(1.55);
+  opacity: 1;
+}
+
+.allocator-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.v3-spider-chart {
+  min-width: 0;
+}
+
+@media (min-width: 980px) {
+  .v3-alpha-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .v3-city-card:first-child {
+    grid-column: span 2;
+    grid-row: span 2;
+    min-height: 20.5rem;
+    padding: 1.45rem;
+    background:
+      linear-gradient(180deg, rgba(28, 25, 20, 0.96) 0%, rgba(28, 25, 20, 0.9) 100%);
+    border-color: rgba(28, 25, 20, 0.9);
+    color: var(--text-inverse);
+  }
+
+  .v3-city-card:first-child::before {
+    height: 4px;
+  }
+
+  .v3-city-card:first-child .v3-city-card-meta,
+  .v3-city-card:first-child .v3-city-card-country,
+  .v3-city-card:first-child .v3-city-card-region {
+    color: rgba(248, 245, 240, 0.62);
+  }
+
+  .v3-city-card:first-child .v3-city-card-rank,
+  .v3-city-card:first-child .v3-city-card-name,
+  .v3-city-card:first-child .v3-city-card-score {
+    color: #fff;
+  }
+
+  .v3-city-card:first-child .v3-city-card-name {
+    max-width: 7.5ch;
+    font-size: 2.8rem;
+    line-height: 0.96;
+  }
+
+  .v3-city-card:first-child .v3-city-card-score {
+    font-size: 1.35rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .hp-headline {
+    font-size: 5.35rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .mh-inner {
+    width: calc(100% - 1rem);
+    min-height: 3.25rem;
+    gap: 0.55rem;
+  }
+
+  .mh-logo-img {
+    height: 24px;
+  }
+
+  .mh-actions {
+    min-width: 0;
+    gap: 0.4rem;
+  }
+
+  .locale-switch {
+    flex-wrap: nowrap;
+    gap: 0.25rem;
+  }
+
+  .locale-button {
+    min-width: 2.1rem;
+    min-height: 2rem;
+    padding: 0 0.48rem;
+    font-size: 0.64rem;
+  }
+
+  .mh-burger {
+    width: 2.1rem;
+    height: 2.1rem;
+    flex: 0 0 auto;
+  }
+
+  .hp-opening {
+    min-height: 100svh;
+    padding: 5.8rem 0 2rem;
+  }
+
+  .hp-opening::before {
+    background:
+      linear-gradient(90deg, rgba(18, 16, 13, 0.9) 0%, rgba(18, 16, 13, 0.72) 58%, rgba(18, 16, 13, 0.4) 100%),
+      linear-gradient(180deg, rgba(18, 16, 13, 0.64) 0%, rgba(18, 16, 13, 0.2) 34%, rgba(18, 16, 13, 0.82) 100%);
+  }
+
+  .hp-opening::after {
+    opacity: 0.28;
+  }
+
+  .hp-opening-media img {
+    object-position: 43% center;
+  }
+
+  .hp-opening-inner {
+    width: calc(100% - 1.25rem);
+    max-width: none;
+    gap: 0.82rem;
+  }
+
+  .hp-kicker {
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+  }
+
+  .hp-lede {
+    max-width: 100%;
+    font-size: 1rem;
+    line-height: 1.48;
+  }
+
+  .hp-headline {
+    max-width: 7.4ch;
+    font-size: 3.08rem;
+    line-height: 0.96;
+    overflow-wrap: break-word;
+  }
+
+  .hp-deck {
+    max-width: 100%;
+    font-size: 0.98rem;
+    line-height: 1.58;
+  }
+
+  .hp-opening-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 0.6rem;
+  }
+
+  .hp-cta-primary,
+  .hp-cta-secondary {
+    width: 100%;
+    min-height: 2.85rem;
+    justify-content: center;
+    padding: 0.76rem 0.85rem;
+    text-align: center;
+  }
+
+  .hp-opening-stats {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.45rem;
+    width: 100%;
+  }
+
+  .hp-opening-stat {
+    padding-top: 0.7rem;
+  }
+
+  .hp-opening-stat strong {
+    font-size: 0.92rem;
+  }
+
+  .hp-opening-stat em {
+    font-size: 0.56rem;
+    letter-spacing: 0.08em;
+  }
+
+  .hp-photo-break-img {
+    height: 52svh;
+    min-height: 24rem;
+  }
+
+  .hp-photo-caption {
+    font-size: 0.58rem;
+    line-height: 1.45;
+  }
+
+  .v3-alpha {
+    padding: 3.25rem 0 2.3rem;
+  }
+
+  .v3-alpha-header {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .v3-alpha-title {
+    max-width: 100%;
+  }
+
+  .v3-alpha-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .v3-city-card {
+    min-height: auto;
+  }
+
+  .v3-spider-row {
+    grid-template-columns: 2.2rem minmax(0, 1fr) auto;
+  }
+
+  .v3-spider-country {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .mh-inner {
+    width: calc(100% - 1rem);
+    max-width: 23rem;
+    margin-left: 0.5rem;
+    margin-right: auto;
+  }
+
+  .hp-opening-inner {
+    width: calc(100% - 1.25rem);
+    max-width: 23rem;
+  }
+
+  .hp-lede {
+    max-width: 28ch;
+  }
+
+  .hp-deck {
+    max-width: 32ch;
+  }
+}
+
+@media (max-width: 430px) {
+  .hp-headline {
+    max-width: 7.2ch;
+    font-size: 2.82rem;
+  }
+
+  .hp-opening-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hp-opening-media img {
+    animation: none !important;
+    transform: scale(1.018);
+  }
+}
+
 /* ═══════ Side-by-Side Comparison Page ═══════ */
 
 .sbs-page { padding-top: 8rem; }

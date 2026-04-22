@@ -63,6 +63,7 @@ const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "commun
 const EQUAL_WEIGHT = 20;
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 const HERO_PHOTO = `${BASE}/launch-photos/20260318145941_DSC09480.jpg`;
+const METHOD_PHOTO = `${BASE}/launch-photos/20260318145319_DSC09441.jpg`;
 const STAGE_PHOTO = `${BASE}/launch-photos/20260318145249_ABC01948.jpg`;
 
 const localeNumberFormat: Record<Locale, string> = {
@@ -226,6 +227,16 @@ export default function HomePage({
   return (
     <>
       <header className="hp-opening">
+        <div className="hp-opening-media" aria-hidden="true">
+          <img
+            src={HERO_PHOTO}
+            alt=""
+            width={6000}
+            height={4000}
+            loading="eager"
+            fetchPriority="high"
+          />
+        </div>
         <div className="hp-opening-inner section">
           <p className="hp-kicker">
             {t(locale, "SLIC Index V3 / 2026 edition", "ดัชนี SLIC V3 / ฉบับปี 2026", "SLIC 指数 V3 / 2026 版")}
@@ -292,18 +303,25 @@ export default function HomePage({
               <em>{t(locale, "visitors", "ผู้เข้าชม", "访客")}</em>
             </span>
           </div>
+          <p className="hp-opening-credit">
+            {t(
+              locale,
+              "Smart City Summit & Expo 2026, Taipei",
+              "Smart City Summit & Expo 2026, ไทเป",
+              "2026 台北智慧城市峰会",
+            )}
+          </p>
         </div>
       </header>
 
       <section className="hp-photo-break">
         <img
-          src={HERO_PHOTO}
-          alt="Smart City Summit and Expo 2026 in Taipei"
+          src={METHOD_PHOTO}
+          alt="SLIC presentation slide at Smart City Summit and Expo 2026"
           className="hp-photo-break-img"
           width={6000}
           height={4000}
-          loading="eager"
-          fetchPriority="high"
+          loading="lazy"
         />
         <p className="hp-photo-caption">
           {t(

@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-04-21T13:48:44.962Z",
+  "updatedAt": "2026-04-21T14:54:53.211Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -880,7 +880,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_birth_rate_optimism"
       },
-      "rank": 3
+      "rank": 2
     },
     {
       "cityId": "us-raleigh",
@@ -1119,7 +1119,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 4
+      "rank": 3
     },
     {
       "cityId": "kr-busan",
@@ -2314,7 +2314,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_economic_growth_momentum"
       },
-      "rank": 10
+      "rank": 9
     },
     {
       "cityId": "ca-montreal",
@@ -2553,7 +2553,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_birth_rate_optimism"
       },
-      "rank": 10
+      "rank": 9
     },
     {
       "cityId": "cl-santiago",
@@ -2792,7 +2792,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 12
+      "rank": 11
     },
     {
       "cityId": "us-pittsburgh",
@@ -3031,7 +3031,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 13
+      "rank": 12
     },
     {
       "cityId": "jp-kobe",
@@ -3270,7 +3270,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 14
+      "rank": 13
     },
     {
       "cityId": "us-minneapolis",
@@ -3509,7 +3509,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 15
+      "rank": 14
     },
     {
       "cityId": "il-haifa",
@@ -3748,7 +3748,7 @@
         "strongest": "creative_innovation_research_intensity",
         "weakest": "pressure_economic_growth_momentum"
       },
-      "rank": 16
+      "rank": 15
     },
     {
       "cityId": "kr-suwon",
@@ -3987,7 +3987,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 17
+      "rank": 16
     },
     {
       "cityId": "ca-ottawa",
@@ -4226,7 +4226,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_birth_rate_optimism"
       },
-      "rank": 18
+      "rank": 17
     },
     {
       "cityId": "cl-valparaiso",
@@ -4465,7 +4465,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 19
+      "rank": 18
     },
     {
       "cityId": "it-milan",
@@ -4704,7 +4704,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "pressure_economic_growth_momentum"
       },
-      "rank": 20
+      "rank": 19
     },
     {
       "cityId": "nl-eindhoven",
@@ -8767,7 +8767,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_economic_growth_momentum"
       },
-      "rank": 37
+      "rank": 38
     },
     {
       "cityId": "au-melbourne",
@@ -37942,18 +37942,18 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 37,
+      "pressureScore": 28.3,
       "viabilityScore": 69.5,
       "capabilityScore": 78.4,
       "communityScore": 74.2,
       "creativeScore": 59.3,
-      "slicScore": 61.7,
+      "slicScore": 59.5,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 742,
-          "score": 27,
-          "source": "Derived from Numbeo London cost basket and UK PPP (World Bank)",
+          "raw": -200,
+          "score": 0,
+          "source": "Derived: median-resident net salary minus Numbeo London center-1BR rent basket, UK PPP (World Bank)",
           "sourceUrl": "https://www.numbeo.com/cost-of-living/in/London",
           "dataLevel": "derived"
         },
@@ -38151,7 +38151,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 9
+      "rank": 19
     },
     {
       "cityId": "us-new-york",
@@ -38168,18 +38168,18 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 39.3,
+      "pressureScore": 25.8,
       "viabilityScore": 77.2,
       "capabilityScore": 82,
       "communityScore": 71.5,
       "creativeScore": 75.3,
-      "slicScore": 67.3,
+      "slicScore": 64,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 1085,
-          "score": 41.8,
-          "source": "Derived from Numbeo New York City cost basket and US PPP",
+          "raw": -800,
+          "score": 0,
+          "source": "Derived: median-resident net salary minus Numbeo Manhattan center-1BR rent basket, US PPP",
           "sourceUrl": "https://www.numbeo.com/cost-of-living/in/New-York",
           "dataLevel": "derived"
         },
@@ -38377,7 +38377,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 2
+      "rank": 3
     },
     {
       "cityId": "jp-tokyo",
@@ -38394,18 +38394,18 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 35.4,
+      "pressureScore": 36.7,
       "viabilityScore": 81.5,
       "capabilityScore": 76.8,
       "communityScore": 51.6,
       "creativeScore": 44.2,
-      "slicScore": 57.2,
+      "slicScore": 57.5,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 852,
-          "score": 31.8,
-          "source": "Derived from Numbeo Tokyo cost basket and Japan PPP (OECD)",
+          "raw": 950,
+          "score": 36,
+          "source": "Derived: median-resident net salary minus Numbeo Tokyo center-1BR rent basket, Japan PPP (OECD)",
           "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Tokyo",
           "dataLevel": "derived"
         },
@@ -38603,7 +38603,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_economic_growth_momentum"
       },
-      "rank": 37
+      "rank": 36
     }
   ]
 }
