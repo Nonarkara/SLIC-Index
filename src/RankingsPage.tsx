@@ -333,13 +333,31 @@ const severityLabel: Record<Locale, Record<FiredConsequence["severity"], string>
   zh: { mild: "轻微信号", moderate: "重要权衡", severe: "强警示" },
 };
 
+/**
+ * AMPI across pillars — matches the published SLIC aggregation.
+ *
+ *   μ    = weighted mean of pillar scores (with user-chosen weights)
+ *   σ²   = weighted variance
+ *   AMPI = μ − σ²/μ   (penalises pillar imbalance)
+ */
 function scoreCityWithWeights(city: Pick<FullRankedCity, "scores">, weights: Record<PillarId, number>) {
   const total = PILLAR_ORDER.reduce((sum, pillar) => sum + weights[pillar], 0);
   if (total === 0) return 0;
 
-  return PILLAR_ORDER.reduce((sum, pillar) => {
-    return sum + (city.scores[pillar] * weights[pillar]) / total;
-  }, 0);
+  const values: Array<[number, number]> = PILLAR_ORDER
+    .map((p) => [city.scores[p], weights[p]] as [number, number])
+    .filter(([s]) => s != null);
+  if (values.length === 0) return 0;
+
+  const sumW = values.reduce((s, [, w]) => s + w, 0);
+  if (sumW === 0) return 0;
+
+  const mu = values.reduce((s, [v, w]) => s + v * w, 0) / sumW;
+  if (values.length < 2 || mu === 0) return Math.max(0, Math.min(100, mu));
+
+  const variance = values.reduce((s, [v, w]) => s + w * (v - mu) ** 2, 0) / sumW;
+  const ampi = mu - variance / mu;
+  return Math.max(0, Math.min(100, ampi));
 }
 
 function clamp(value: number, min: number, max: number) {

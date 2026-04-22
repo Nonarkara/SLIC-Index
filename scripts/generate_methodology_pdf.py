@@ -989,9 +989,9 @@ GLOSSARY = [
     ("AMPI",         {"en": "Adjusted Mazziotta–Pareto Index: μ − σ²/μ",
                        "th": "ดัชนี Mazziotta–Pareto ที่ปรับแล้ว: μ − σ²/μ",
                        "zh": "调整后的马齐奥塔-帕累托指数：μ − σ²/μ"}),
-    ("t_k",          {"en": "Fixed absolute anchor threshold at score k (k ∈ {0, 25, 50, 75, 100})",
-                       "th": "จุดยึดสัมบูรณ์ที่คะแนน k (k ∈ {0, 25, 50, 75, 100})",
-                       "zh": "分数 k 处的固定绝对锚点阈值（k ∈ {0, 25, 50, 75, 100}）"}),
+    ("p05_m, p95_m", {"en": "5th and 95th percentile bounds for metric m, frozen at first publication",
+                       "th": "ขอบเขตเปอร์เซ็นไทล์ที่ 5 และ 95 ของตัวชี้วัด m ที่ตรึงไว้เมื่อเผยแพร่ครั้งแรก",
+                       "zh": "指标 m 的 5 与 95 分位边界，于首次发布时冻结"}),
     ("DI_PPP(c)",    {"en": "PPP-adjusted monthly disposable income after essential costs for city c",
                        "th": "รายได้คงเหลือรายเดือนของเมือง c ปรับด้วย PPP หลังหักค่าใช้จ่ายจำเป็น",
                        "zh": "城市 c 扣除必要成本后经 PPP 调整的月度可支配收入"}),
@@ -1080,36 +1080,56 @@ def build_story(S, locale: str):
     story.append(Paragraph(C["sec_1_1"], S["SectionHead"]))
     story.append(Paragraph(C["sec_1_1_body"], S["Body"]))
     story.append(Preformatted(
-        "s_m(c) = piecewise_linear(x_m(c), [(t_0, 0), (t_1, 25), (t_2, 50), (t_3, 75), (t_4, 100)])\n"
+        "s_m(c) = 100 × (winsor(x_m(c), p05_m, p95_m) − p05_m) / (p95_m − p05_m)\n"
         "\n"
         "Where:\n"
-        "  x_m(c)   = raw metric value for city c on metric m\n"
-        "  t_0..t_4 = fixed absolute anchor thresholds (see indicator chapters)\n"
-        "  s_m(c)   = normalized metric score, clamped to [0, 100]",
+        "  x_m(c)    = raw metric value for city c on metric m\n"
+        "  p05_m     = 5th percentile across the reference set, frozen at first publication\n"
+        "  p95_m     = 95th percentile, likewise frozen\n"
+        "  winsor()  = clamps to [p05, p95] before normalising\n"
+        "  s_m(c)    = normalized metric score, clamped to [0, 100]\n"
+        "\n"
+        "For lower-is-better indicators (homicide, housing burden, hours worked,\n"
+        "etc.), the numerator is inverted so that lower raw values map to higher\n"
+        "normalized scores. Anchors are frozen — adding city #501 never\n"
+        "retroactively changes cities #1–500.",
         S["MonoFormula"]
     ))
 
     story.append(Paragraph(C["sec_1_2"], S["SectionHead"]))
     story.append(Paragraph(C["sec_1_2_body"], S["Body"]))
     story.append(Preformatted(
-        "μ    = (1/n) × Σ s_m(c)                 [arithmetic mean]\n"
-        "σ    = √((1/n) × Σ (s_m(c) − μ)²)       [population standard deviation]\n"
-        "cv   = σ / μ                              [coefficient of variation]\n"
+        "pillar_score = Σ(s_m × α_(p,m)) / Σ α_(p,m)     [weighted mean]\n"
         "\n"
-        "AMPI = μ − (σ × cv)  =  μ − σ²/μ\n"
+        "Where:\n"
+        "  α_(p,m) = published metric weight within pillar p (see Chapter 7)\n"
+        "  s_m     = normalized metric scores for that city, non-null only\n"
         "\n"
-        "pillar_score = max(0, AMPI − coverage_penalty)",
+        "Pillar weights are designed so that Σ α_(p,m) within each pillar equals\n"
+        "the pillar's public weight: Pressure 25, Viability 22, Capability 18,\n"
+        "Community 15, Creative 20 (sum = 100).",
         S["MonoFormula"]
     ))
 
     story.append(Paragraph(C["sec_1_3"], S["SectionHead"]))
     story.append(Preformatted(
-        "SLIC(c) = AMPI applied across five pillar scores\n"
+        "Overall SLIC score is aggregated across the five pillar scores using\n"
+        "the Adjusted Mazziotta–Pareto Index (AMPI):\n"
         "\n"
-        "μ_p  = (G×0.25 + V×0.22 + Cap×0.18 + Com×0.15 + Cr×0.20) / 1.00\n"
+        "  μ_p   = weighted mean of pillar scores (weights w_p = 25/22/18/15/20)\n"
+        "  σ²_p  = Σ(w_p × (pillar_p − μ_p)²) / Σ w_p         [weighted variance]\n"
+        "  AMPI  = μ_p − σ²_p / μ_p\n"
         "\n"
-        "Then AMPI(μ_p, σ_p) is applied once more to penalise\n"
-        "cities with extreme pillar imbalance.",
+        "SLIC(c) = max(0, AMPI(c) − coverage_penalty(c))\n"
+        "\n"
+        "AMPI penalises pillar imbalance. A city with four strong pillars and\n"
+        "one catastrophic pillar scores lower than a city with five moderate\n"
+        "pillars — even if their weighted means are identical. This is the\n"
+        "single distinctive claim SLIC makes versus other indices: you cannot\n"
+        "compensate for a broken pillar with excellence in another. AMPI is\n"
+        "applied at the pillar combination level (n=5, stable variance) rather\n"
+        "than within pillars (where missing metrics would make variance\n"
+        "unreliable).",
         S["MonoFormula"]
     ))
 

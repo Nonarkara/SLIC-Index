@@ -134,17 +134,32 @@ function navigateLink(
   onNavigate(path);
 }
 
+/**
+ * AMPI across pillars — matches the published SLIC aggregation.
+ *
+ *   μ    = weighted mean of pillar scores (with user-chosen weights)
+ *   σ²   = weighted variance
+ *   AMPI = μ − σ²/μ   (penalises pillar imbalance)
+ */
 function scoreCityWithWeights(city: HomeCity, weights: Record<PillarId, number>): number {
   const total = PILLAR_ORDER.reduce((sum, pillar) => sum + weights[pillar], 0);
-  if (total === 0) {
-    return 0;
-  }
+  if (total === 0) return 0;
 
-  return PILLAR_ORDER.reduce(
-    (sum, pillar) =>
-      sum + ((city[`${pillar}Score` as keyof HomeCity] as number) * weights[pillar]) / total,
-    0,
-  );
+  const pillarValues: Array<[number, number]> = PILLAR_ORDER
+    .map((p) => [city[`${p}Score` as keyof HomeCity] as number, weights[p]] as [number, number])
+    .filter(([s]) => s != null);
+
+  if (pillarValues.length === 0) return 0;
+
+  const sumW = pillarValues.reduce((s, [, w]) => s + w, 0);
+  if (sumW === 0) return 0;
+
+  const mu = pillarValues.reduce((s, [v, w]) => s + v * w, 0) / sumW;
+  if (pillarValues.length < 2 || mu === 0) return Math.max(0, Math.min(100, mu));
+
+  const variance = pillarValues.reduce((s, [v, w]) => s + w * (v - mu) ** 2, 0) / sumW;
+  const ampi = mu - variance / mu;
+  return Math.max(0, Math.min(100, ampi));
 }
 
 function leadPillarForCity(city: HomeCity): PillarId {

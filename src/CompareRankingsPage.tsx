@@ -29,10 +29,20 @@ interface PublishedCity {
 }
 const rankedCities = ((publishedData.cities ?? []) as PublishedCity[]).filter((c) => c.rankingStatus === "Ranked");
 
+/** AMPI across pillars — matches the published SLIC aggregation. */
 function scoreCityWithWeights(city: PublishedCity, weights: Record<PillarId, number>): number {
   const total = PILLAR_ORDER.reduce((s, p) => s + weights[p], 0);
   if (total === 0) return 0;
-  return PILLAR_ORDER.reduce((s, p) => s + ((city[`${p}Score` as keyof PublishedCity] as number) * weights[p]) / total, 0);
+  const entries: Array<[number, number]> = PILLAR_ORDER
+    .map((p) => [city[`${p}Score` as keyof PublishedCity] as number, weights[p]] as [number, number])
+    .filter(([v]) => v != null);
+  if (entries.length === 0) return 0;
+  const sumW = entries.reduce((s, [, w]) => s + w, 0);
+  if (sumW === 0) return 0;
+  const mu = entries.reduce((s, [v, w]) => s + v * w, 0) / sumW;
+  if (entries.length < 2 || mu === 0) return Math.max(0, Math.min(100, mu));
+  const variance = entries.reduce((s, [v, w]) => s + w * (v - mu) ** 2, 0) / sumW;
+  return Math.max(0, Math.min(100, mu - variance / mu));
 }
 
 function t(locale: Locale, en: string, th: string, zh: string): string {
