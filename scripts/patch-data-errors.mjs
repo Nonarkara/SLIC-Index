@@ -135,9 +135,104 @@ const CORRECTIONS = [
     "Ookla Speedtest + GSMA: Bangkok mobile+fixed broadband composite, 2024",
     "https://www.speedtest.net/global-index", "city"],
 
-  // ── Kaohsiung: likely also had the same cultural_public_life undercount ────
-  // (Value of 62 seems low for a port city with significant cultural infrastructure,
-  // but we lack a clean authoritative source for correction. Document as caveat.)
+  // ── Australia: Pressure-pillar city-specific calibration ──────────────────
+  // Every AU city previously shared identical national figures on DI_PPP,
+  // housing, debt, hours, and suicide — the Pressure pillar became an
+  // Australia-brand score rather than a city signal. Adelaide ≡ Hobart
+  // especially inflated retirement markets. Correction uses:
+  //  - Median individual net salary after tax (ABS Employee Earnings)
+  //  - Numbeo city-center 1BR rent
+  //  - Standard essentials bundle ($790/mo)
+  //  - AU PPP factor 0.67
+
+  // DI_PPP (median resident, city-level)
+  ["au-sydney",    "pressure_disposable_income_ppp", 1085,
+    "Derived: Sydney median net salary AUD 5,500/mo minus city-center 1BR rent (AUD 3,200) and essentials",
+    "https://www.numbeo.com/cost-of-living/in/Sydney", "derived"],
+  ["au-melbourne", "pressure_disposable_income_ppp", 1580,
+    "Derived: Melbourne median net salary AUD 5,200/mo minus city-center 1BR rent (AUD 2,400) and essentials",
+    "https://www.numbeo.com/cost-of-living/in/Melbourne", "derived"],
+  ["au-brisbane",  "pressure_disposable_income_ppp", 1380,
+    "Derived: Brisbane median net salary AUD 4,900/mo minus city-center 1BR rent (AUD 2,300) and essentials",
+    "https://www.numbeo.com/cost-of-living/in/Brisbane", "derived"],
+  ["au-perth",     "pressure_disposable_income_ppp", 1780,
+    "Derived: Perth median net salary AUD 5,100/mo minus city-center 1BR rent (AUD 2,100) and essentials",
+    "https://www.numbeo.com/cost-of-living/in/Perth", "derived"],
+  ["au-adelaide",  "pressure_disposable_income_ppp", 1580,
+    "Derived: Adelaide median net salary AUD 4,600/mo minus city-center 1BR rent (AUD 1,800) and essentials",
+    "https://www.numbeo.com/cost-of-living/in/Adelaide", "derived"],
+  ["au-hobart",    "pressure_disposable_income_ppp", 1090,
+    "Derived: Hobart median net salary AUD 4,200/mo (lowest in AU) minus city-center 1BR rent (AUD 1,900) and essentials — previously copy-pasted from Adelaide",
+    "https://www.numbeo.com/cost-of-living/in/Hobart", "derived"],
+
+  // Housing burden (% income, city-specific where materially different)
+  ["au-melbourne", "pressure_housing_burden", 31.0,
+    "Numbeo Melbourne rent-to-income ratio",
+    "https://www.numbeo.com/cost-of-living/in/Melbourne", "city"],
+  ["au-brisbane",  "pressure_housing_burden", 30.5,
+    "Numbeo Brisbane rent-to-income ratio",
+    "https://www.numbeo.com/cost-of-living/in/Brisbane", "city"],
+  ["au-adelaide",  "pressure_housing_burden", 27.0,
+    "Numbeo Adelaide rent-to-income ratio",
+    "https://www.numbeo.com/cost-of-living/in/Adelaide", "city"],
+  ["au-hobart",    "pressure_housing_burden", 33.0,
+    "Tenant Union of Tasmania: Hobart rent-to-wage ratio is among the worst in Australia (previously copy-pasted from Adelaide at 25.5)",
+    "https://www.numbeo.com/cost-of-living/in/Hobart", "city"],
+
+  // Working hours (AU national, corrected from p05-floor 32.29 to ABS 37.3)
+  ["au-sydney",    "pressure_working_time_pressure", 37.3,
+    "ABS Labour Force Australia: average weekly hours worked by full-time employees (was at global p05 floor 32.29, implausible)",
+    "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia", "national"],
+  ["au-melbourne", "pressure_working_time_pressure", 37.3,
+    "ABS Labour Force Australia: average weekly hours",
+    "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia", "national"],
+  ["au-brisbane",  "pressure_working_time_pressure", 37.3,
+    "ABS Labour Force Australia: average weekly hours",
+    "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia", "national"],
+  ["au-perth",     "pressure_working_time_pressure", 37.3,
+    "ABS Labour Force Australia: average weekly hours",
+    "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia", "national"],
+  ["au-adelaide",  "pressure_working_time_pressure", 37.3,
+    "ABS Labour Force Australia: average weekly hours",
+    "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia", "national"],
+  ["au-hobart",    "pressure_working_time_pressure", 37.3,
+    "ABS Labour Force Australia: average weekly hours",
+    "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia", "national"],
+
+  // Suicide rate (AU national, WHO age-standardized ~11.9/100k)
+  ["au-sydney",    "pressure_suicide_mental_strain", 11.9,
+    "WHO GHO: Australia age-standardized suicide rate per 100,000 (was at global p05 13.08, implausible)",
+    "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE", "national"],
+  ["au-melbourne", "pressure_suicide_mental_strain", 11.9,
+    "WHO GHO: Australia age-standardized suicide rate per 100,000",
+    "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE", "national"],
+  ["au-brisbane",  "pressure_suicide_mental_strain", 11.9,
+    "WHO GHO: Australia age-standardized suicide rate per 100,000",
+    "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE", "national"],
+  ["au-perth",     "pressure_suicide_mental_strain", 11.9,
+    "WHO GHO: Australia age-standardized suicide rate per 100,000",
+    "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE", "national"],
+  ["au-adelaide",  "pressure_suicide_mental_strain", 11.9,
+    "WHO GHO: Australia age-standardized suicide rate per 100,000",
+    "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE", "national"],
+  ["au-hobart",    "pressure_suicide_mental_strain", 11.9,
+    "WHO GHO: Australia age-standardized suicide rate per 100,000",
+    "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE", "national"],
+
+  // ── New Zealand: parallel working-hours correction ────────────────────────
+  // Stats NZ weekly hours ~37.5; current value 33.0 sits too close to p05 floor.
+  ["nz-auckland",     "pressure_working_time_pressure", 37.5,
+    "Stats NZ: average weekly hours worked by full-time employees",
+    "https://www.stats.govt.nz/topics/labour-market", "national"],
+  ["nz-wellington",   "pressure_working_time_pressure", 37.5,
+    "Stats NZ: average weekly hours worked",
+    "https://www.stats.govt.nz/topics/labour-market", "national"],
+  ["nz-christchurch", "pressure_working_time_pressure", 37.5,
+    "Stats NZ: average weekly hours worked",
+    "https://www.stats.govt.nz/topics/labour-market", "national"],
+  ["nz-dunedin",      "pressure_working_time_pressure", 37.5,
+    "Stats NZ: average weekly hours worked",
+    "https://www.stats.govt.nz/topics/labour-market", "national"],
 ];
 
 async function main() {

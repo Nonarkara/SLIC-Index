@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-04-22T07:43:07.599Z",
+  "updatedAt": "2026-04-22T07:50:36.527Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -880,7 +880,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 16
+      "rank": 14
     },
     {
       "cityId": "us-raleigh",
@@ -1358,7 +1358,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 40
+      "rank": 39
     },
     {
       "cityId": "pl-katowice",
@@ -1597,7 +1597,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 45
+      "rank": 44
     },
     {
       "cityId": "jp-fukuoka",
@@ -2314,7 +2314,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 23
+      "rank": 22
     },
     {
       "cityId": "ca-montreal",
@@ -2792,7 +2792,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 38
+      "rank": 37
     },
     {
       "cityId": "us-pittsburgh",
@@ -3748,7 +3748,7 @@
         "strongest": "creative_innovation_research_intensity",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 19
+      "rank": 18
     },
     {
       "cityId": "kr-suwon",
@@ -3987,7 +3987,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 41
+      "rank": 40
     },
     {
       "cityId": "ca-ottawa",
@@ -4465,7 +4465,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 24
+      "rank": 23
     },
     {
       "cityId": "it-milan",
@@ -4704,7 +4704,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 22
+      "rank": 21
     },
     {
       "cityId": "nl-eindhoven",
@@ -4943,7 +4943,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 17
+      "rank": 15
     },
     {
       "cityId": "at-graz",
@@ -5182,7 +5182,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 14
+      "rank": 13
     },
     {
       "cityId": "pt-braga",
@@ -5421,7 +5421,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 28
+      "rank": 27
     },
     {
       "cityId": "il-tel-aviv",
@@ -5660,7 +5660,7 @@
         "strongest": "creative_innovation_research_intensity",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 52
+      "rank": 51
     },
     {
       "cityId": "us-chicago",
@@ -5899,7 +5899,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 20
+      "rank": 19
     },
     {
       "cityId": "pt-porto",
@@ -6138,7 +6138,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 46
+      "rank": 45
     },
     {
       "cityId": "ee-tallinn",
@@ -6377,7 +6377,7 @@
         "strongest": "creative_entrepreneurial_dynamism",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 47
+      "rank": 46
     },
     {
       "cityId": "pl-torun",
@@ -6616,7 +6616,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 36
+      "rank": 34
     },
     {
       "cityId": "kr-incheon",
@@ -6855,7 +6855,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 41
+      "rank": 40
     },
     {
       "cityId": "sg-singapore",
@@ -7333,7 +7333,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 38
+      "rank": 37
     },
     {
       "cityId": "dk-copenhagen",
@@ -7811,7 +7811,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 26
+      "rank": 24
     },
     {
       "cityId": "au-sydney",
@@ -7827,19 +7827,19 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 31,
+      "pressureScore": 37.7,
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
       "creativeScore": 63.9,
-      "slicScore": 55.6,
+      "slicScore": 59,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 370.91,
-          "score": 11,
-          "source": "Derived",
-          "sourceUrl": "",
+          "raw": 1085,
+          "score": 41.8,
+          "source": "Derived: Sydney median net salary AUD 5,500/mo minus city-center 1BR rent (AUD 3,200) and essentials",
+          "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Sydney",
           "dataLevel": "derived"
         },
         "pressure_housing_burden": {
@@ -7864,18 +7864,18 @@
           "dataLevel": "derived"
         },
         "pressure_working_time_pressure": {
-          "raw": 32.29,
-          "score": 100,
-          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
-          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=AUS",
-          "dataLevel": "city"
+          "raw": 37.3,
+          "score": 68.2,
+          "source": "ABS Labour Force Australia: average weekly hours worked by full-time employees (was at global p05 floor 32.29, implausible)",
+          "sourceUrl": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia",
+          "dataLevel": "national"
         },
         "pressure_suicide_mental_strain": {
-          "raw": 13.08,
-          "score": 41.7,
-          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
+          "raw": 11.9,
+          "score": 47.5,
+          "source": "WHO GHO: Australia age-standardized suicide rate per 100,000 (was at global p05 13.08, implausible)",
           "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
-          "dataLevel": "city"
+          "dataLevel": "national"
         },
         "viability_personal_safety": {
           "raw": 0.85,
@@ -8047,10 +8047,10 @@
         }
       },
       "highlights": {
-        "strongest": "pressure_working_time_pressure",
+        "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 34
+      "rank": 20
     },
     {
       "cityId": "sa-jeddah",
@@ -8289,7 +8289,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 27
+      "rank": 26
     },
     {
       "cityId": "au-brisbane",
@@ -8305,26 +8305,26 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 49.1,
+      "pressureScore": 47.8,
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
       "creativeScore": 54.4,
-      "slicScore": 61.6,
+      "slicScore": 61.1,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 1156.43,
-          "score": 44.9,
-          "source": "Derived",
-          "sourceUrl": "",
+          "raw": 1380,
+          "score": 54.6,
+          "source": "Derived: Brisbane median net salary AUD 4,900/mo minus city-center 1BR rent (AUD 2,300) and essentials",
+          "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Brisbane",
           "dataLevel": "derived"
         },
         "pressure_housing_burden": {
-          "raw": 30,
-          "score": 34.8,
-          "source": "Computed from city_inputs + country_context",
-          "sourceUrl": "https://data.worldbank.org/indicator/NY.GNP.PCAP.PP.CD",
+          "raw": 30.5,
+          "score": 32.8,
+          "source": "Numbeo Brisbane rent-to-income ratio",
+          "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Brisbane",
           "dataLevel": "city"
         },
         "pressure_economic_growth_momentum": {
@@ -8342,18 +8342,18 @@
           "dataLevel": "derived"
         },
         "pressure_working_time_pressure": {
-          "raw": 32.29,
-          "score": 100,
-          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
-          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=AUS",
-          "dataLevel": "city"
+          "raw": 37.3,
+          "score": 68.2,
+          "source": "ABS Labour Force Australia: average weekly hours",
+          "sourceUrl": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia",
+          "dataLevel": "national"
         },
         "pressure_suicide_mental_strain": {
-          "raw": 13.08,
-          "score": 41.7,
-          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
+          "raw": 11.9,
+          "score": 47.5,
+          "source": "WHO GHO: Australia age-standardized suicide rate per 100,000",
           "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
-          "dataLevel": "city"
+          "dataLevel": "national"
         },
         "viability_personal_safety": {
           "raw": 0.85,
@@ -8525,10 +8525,10 @@
         }
       },
       "highlights": {
-        "strongest": "pressure_working_time_pressure",
+        "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 18
+      "rank": 17
     },
     {
       "cityId": "at-vienna",
@@ -8767,7 +8767,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 37
+      "rank": 36
     },
     {
       "cityId": "au-melbourne",
@@ -8783,26 +8783,26 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 49.1,
+      "pressureScore": 50.5,
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
       "creativeScore": 60.5,
-      "slicScore": 63.3,
+      "slicScore": 63.9,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 1156.43,
-          "score": 44.9,
-          "source": "Derived",
-          "sourceUrl": "",
+          "raw": 1580,
+          "score": 63.2,
+          "source": "Derived: Melbourne median net salary AUD 5,200/mo minus city-center 1BR rent (AUD 2,400) and essentials",
+          "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Melbourne",
           "dataLevel": "derived"
         },
         "pressure_housing_burden": {
-          "raw": 30,
-          "score": 34.8,
-          "source": "Computed from city_inputs + country_context",
-          "sourceUrl": "https://data.worldbank.org/indicator/NY.GNP.PCAP.PP.CD",
+          "raw": 31,
+          "score": 30.8,
+          "source": "Numbeo Melbourne rent-to-income ratio",
+          "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Melbourne",
           "dataLevel": "city"
         },
         "pressure_economic_growth_momentum": {
@@ -8820,18 +8820,18 @@
           "dataLevel": "derived"
         },
         "pressure_working_time_pressure": {
-          "raw": 32.29,
-          "score": 100,
-          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
-          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=AUS",
-          "dataLevel": "city"
+          "raw": 37.3,
+          "score": 68.2,
+          "source": "ABS Labour Force Australia: average weekly hours",
+          "sourceUrl": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia",
+          "dataLevel": "national"
         },
         "pressure_suicide_mental_strain": {
-          "raw": 13.08,
-          "score": 41.7,
-          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
+          "raw": 11.9,
+          "score": 47.5,
+          "source": "WHO GHO: Australia age-standardized suicide rate per 100,000",
           "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
-          "dataLevel": "city"
+          "dataLevel": "national"
         },
         "viability_personal_safety": {
           "raw": 0.85,
@@ -9003,10 +9003,10 @@
         }
       },
       "highlights": {
-        "strongest": "pressure_working_time_pressure",
+        "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 10
+      "rank": 9
     },
     {
       "cityId": "au-perth",
@@ -9022,19 +9022,19 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 52.9,
+      "pressureScore": 55.6,
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
       "creativeScore": 51.2,
-      "slicScore": 62.1,
+      "slicScore": 63.1,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 1320.28,
-          "score": 52,
-          "source": "Derived",
-          "sourceUrl": "",
+          "raw": 1780,
+          "score": 71.9,
+          "source": "Derived: Perth median net salary AUD 5,100/mo minus city-center 1BR rent (AUD 2,100) and essentials",
+          "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Perth",
           "dataLevel": "derived"
         },
         "pressure_housing_burden": {
@@ -9059,18 +9059,18 @@
           "dataLevel": "derived"
         },
         "pressure_working_time_pressure": {
-          "raw": 32.29,
-          "score": 100,
-          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
-          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=AUS",
-          "dataLevel": "city"
+          "raw": 37.3,
+          "score": 68.2,
+          "source": "ABS Labour Force Australia: average weekly hours",
+          "sourceUrl": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia",
+          "dataLevel": "national"
         },
         "pressure_suicide_mental_strain": {
-          "raw": 13.08,
-          "score": 41.7,
-          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
+          "raw": 11.9,
+          "score": 47.5,
+          "source": "WHO GHO: Australia age-standardized suicide rate per 100,000",
           "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
-          "dataLevel": "city"
+          "dataLevel": "national"
         },
         "viability_personal_safety": {
           "raw": 0.85,
@@ -9242,10 +9242,10 @@
         }
       },
       "highlights": {
-        "strongest": "pressure_working_time_pressure",
+        "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 14
+      "rank": 10
     },
     {
       "cityId": "bh-manama",
@@ -9500,26 +9500,26 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 60.3,
+      "pressureScore": 53.7,
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
       "creativeScore": 49.2,
-      "slicScore": 64.1,
+      "slicScore": 61.8,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 1647.98,
-          "score": 66.2,
-          "source": "Derived",
-          "sourceUrl": "",
+          "raw": 1580,
+          "score": 63.2,
+          "source": "Derived: Adelaide median net salary AUD 4,600/mo minus city-center 1BR rent (AUD 1,800) and essentials",
+          "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Adelaide",
           "dataLevel": "derived"
         },
         "pressure_housing_burden": {
-          "raw": 25.5,
-          "score": 52.5,
-          "source": "Computed from city_inputs + country_context",
-          "sourceUrl": "https://data.worldbank.org/indicator/NY.GNP.PCAP.PP.CD",
+          "raw": 27,
+          "score": 46.6,
+          "source": "Numbeo Adelaide rent-to-income ratio",
+          "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Adelaide",
           "dataLevel": "city"
         },
         "pressure_economic_growth_momentum": {
@@ -9537,18 +9537,18 @@
           "dataLevel": "derived"
         },
         "pressure_working_time_pressure": {
-          "raw": 32.29,
-          "score": 100,
-          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
-          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=AUS",
-          "dataLevel": "city"
+          "raw": 37.3,
+          "score": 68.2,
+          "source": "ABS Labour Force Australia: average weekly hours",
+          "sourceUrl": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia",
+          "dataLevel": "national"
         },
         "pressure_suicide_mental_strain": {
-          "raw": 13.08,
-          "score": 41.7,
-          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
+          "raw": 11.9,
+          "score": 47.5,
+          "source": "WHO GHO: Australia age-standardized suicide rate per 100,000",
           "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
-          "dataLevel": "city"
+          "dataLevel": "national"
         },
         "viability_personal_safety": {
           "raw": 0.85,
@@ -9720,10 +9720,10 @@
         }
       },
       "highlights": {
-        "strongest": "pressure_working_time_pressure",
+        "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 9
+      "rank": 15
     },
     {
       "cityId": "ca-toronto",
@@ -9962,7 +9962,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 41
+      "rank": 40
     },
     {
       "cityId": "pr-san-juan",
@@ -11396,7 +11396,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 49
+      "rank": 47
     },
     {
       "cityId": "ca-vancouver",
@@ -11635,7 +11635,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 50
+      "rank": 48
     },
     {
       "cityId": "sk-bratislava",
@@ -12113,7 +12113,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 30
+      "rank": 29
     },
     {
       "cityId": "pl-krakow",
@@ -16431,12 +16431,12 @@
       "capabilityCoverage": 0.78,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 30.6,
+      "pressureScore": 26,
       "viabilityScore": 92.6,
       "capabilityScore": 85.7,
       "communityScore": 58.4,
       "creativeScore": 52.9,
-      "slicScore": 53.6,
+      "slicScore": 51.1,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -16468,11 +16468,11 @@
           "dataLevel": "derived"
         },
         "pressure_working_time_pressure": {
-          "raw": 33,
-          "score": 95.5,
-          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
-          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=NZL",
-          "dataLevel": "city"
+          "raw": 37.5,
+          "score": 66.9,
+          "source": "Stats NZ: average weekly hours worked by full-time employees",
+          "sourceUrl": "https://www.stats.govt.nz/topics/labour-market",
+          "dataLevel": "national"
         },
         "pressure_suicide_mental_strain": {
           "raw": 11.92,
@@ -16654,7 +16654,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 47
+      "rank": 52
     },
     {
       "cityId": "cn-shenzhen",
@@ -16909,12 +16909,12 @@
       "capabilityCoverage": 0.78,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 46.3,
+      "pressureScore": 41.7,
       "viabilityScore": 92.6,
       "capabilityScore": 85.7,
       "communityScore": 58.4,
       "creativeScore": 43.6,
-      "slicScore": 58.2,
+      "slicScore": 56.2,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -16946,11 +16946,11 @@
           "dataLevel": "derived"
         },
         "pressure_working_time_pressure": {
-          "raw": 33,
-          "score": 95.5,
-          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
-          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=NZL",
-          "dataLevel": "city"
+          "raw": 37.5,
+          "score": 66.9,
+          "source": "Stats NZ: average weekly hours worked",
+          "sourceUrl": "https://www.stats.govt.nz/topics/labour-market",
+          "dataLevel": "national"
         },
         "pressure_suicide_mental_strain": {
           "raw": 11.92,
@@ -17132,7 +17132,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 25
+      "rank": 30
     },
     {
       "cityId": "om-muscat",
@@ -18343,26 +18343,26 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 60.3,
+      "pressureScore": 41.3,
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
       "creativeScore": 45.1,
-      "slicScore": 62.7,
+      "slicScore": 55.4,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 1647.98,
-          "score": 66.2,
-          "source": "Derived",
-          "sourceUrl": "",
+          "raw": 1090,
+          "score": 42.1,
+          "source": "Derived: Hobart median net salary AUD 4,200/mo (lowest in AU) minus city-center 1BR rent (AUD 1,900) and essentials — previously copy-pasted from Adelaide",
+          "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Hobart",
           "dataLevel": "derived"
         },
         "pressure_housing_burden": {
-          "raw": 25.5,
-          "score": 52.5,
-          "source": "Computed from city_inputs + country_context",
-          "sourceUrl": "https://data.worldbank.org/indicator/NY.GNP.PCAP.PP.CD",
+          "raw": 33,
+          "score": 23,
+          "source": "Tenant Union of Tasmania: Hobart rent-to-wage ratio is among the worst in Australia (previously copy-pasted from Adelaide at 25.5)",
+          "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Hobart",
           "dataLevel": "city"
         },
         "pressure_economic_growth_momentum": {
@@ -18380,18 +18380,18 @@
           "dataLevel": "derived"
         },
         "pressure_working_time_pressure": {
-          "raw": 32.29,
-          "score": 100,
-          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
-          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=AUS",
-          "dataLevel": "city"
+          "raw": 37.3,
+          "score": 68.2,
+          "source": "ABS Labour Force Australia: average weekly hours",
+          "sourceUrl": "https://www.abs.gov.au/statistics/labour/employment-and-unemployment/labour-force-australia",
+          "dataLevel": "national"
         },
         "pressure_suicide_mental_strain": {
-          "raw": 13.08,
-          "score": 41.7,
-          "source": "WHO GHO: Age-standardized suicide rate (per 100,000 population)",
+          "raw": 11.9,
+          "score": 47.5,
+          "source": "WHO GHO: Australia age-standardized suicide rate per 100,000",
           "sourceUrl": "https://www.who.int/data/gho/data/indicators/indicator-details/GHO/SDGSUICIDE",
-          "dataLevel": "city"
+          "dataLevel": "national"
         },
         "viability_personal_safety": {
           "raw": 0.85,
@@ -18563,10 +18563,10 @@
         }
       },
       "highlights": {
-        "strongest": "pressure_working_time_pressure",
+        "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 12
+      "rank": 35
     },
     {
       "cityId": "cn-chengdu",
@@ -19060,12 +19060,12 @@
       "capabilityCoverage": 0.78,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 52.6,
+      "pressureScore": 48,
       "viabilityScore": 92.6,
       "capabilityScore": 85.7,
       "communityScore": 58.4,
       "creativeScore": 39.1,
-      "slicScore": 59,
+      "slicScore": 57.3,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -19097,11 +19097,11 @@
           "dataLevel": "derived"
         },
         "pressure_working_time_pressure": {
-          "raw": 33,
-          "score": 95.5,
-          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
-          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=NZL",
-          "dataLevel": "city"
+          "raw": 37.5,
+          "score": 66.9,
+          "source": "Stats NZ: average weekly hours worked",
+          "sourceUrl": "https://www.stats.govt.nz/topics/labour-market",
+          "dataLevel": "national"
         },
         "pressure_suicide_mental_strain": {
           "raw": 11.92,
@@ -19283,7 +19283,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 21
+      "rank": 25
     },
     {
       "cityId": "rw-kigali",
@@ -19538,12 +19538,12 @@
       "capabilityCoverage": 0.78,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 36.8,
+      "pressureScore": 32.3,
       "viabilityScore": 92.6,
       "capabilityScore": 85.7,
       "communityScore": 58.4,
       "creativeScore": 48.8,
-      "slicScore": 55.6,
+      "slicScore": 53.3,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -19575,11 +19575,11 @@
           "dataLevel": "derived"
         },
         "pressure_working_time_pressure": {
-          "raw": 33,
-          "score": 95.5,
-          "source": "ILO ILOSTAT: Mean weekly hours actually worked per employed person",
-          "sourceUrl": "https://ilostat.ilo.org/data/indicator/?id=HOW_TEMP_SEX_ECO_NB_A&ref_area=NZL",
-          "dataLevel": "city"
+          "raw": 37.5,
+          "score": 66.9,
+          "source": "Stats NZ: average weekly hours worked",
+          "sourceUrl": "https://www.stats.govt.nz/topics/labour-market",
+          "dataLevel": "national"
         },
         "pressure_suicide_mental_strain": {
           "raw": 11.92,
@@ -19761,7 +19761,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 34
+      "rank": 48
     },
     {
       "cityId": "ma-casablanca",
@@ -20956,7 +20956,7 @@
         "strongest": "capability_education_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 44
+      "rank": 43
     },
     {
       "cityId": "ug-kampala",
@@ -22390,7 +22390,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 28
+      "rank": 27
     },
     {
       "cityId": "co-medellin",
@@ -38377,7 +38377,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 31
+      "rank": 30
     },
     {
       "cityId": "jp-tokyo",
@@ -38603,7 +38603,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 50
+      "rank": 48
     }
   ]
 }
