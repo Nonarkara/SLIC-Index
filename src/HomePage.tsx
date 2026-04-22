@@ -60,7 +60,14 @@ const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
 };
 
 const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
-const EQUAL_WEIGHT = 20;
+/** Canonical SLIC weights matching the published score (sum = 100). */
+const CANONICAL_WEIGHTS: Record<PillarId, number> = {
+  pressure: 25,
+  viability: 22,
+  capability: 18,
+  community: 15,
+  creative: 20,
+};
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 const HERO_PHOTO = `${BASE}/launch-photos/20260318145941_DSC09480.jpg`;
 const METHOD_PHOTO = `${BASE}/launch-photos/20260318145319_DSC09441.jpg`;
@@ -199,7 +206,7 @@ export default function HomePage({
       id,
       label: labels[id],
       color: PILLAR_COLORS[id],
-      value: EQUAL_WEIGHT,
+      value: CANONICAL_WEIGHTS[id],
     })),
   );
 
@@ -216,9 +223,14 @@ export default function HomePage({
     [weights],
   );
 
+  // Both the top tier cards and the spider results read from this. One source
+  // of truth: the published 160-city board, live-scored under the current
+  // weight profile. At the canonical default, this exactly matches each city's
+  // stored slicScore. When the user drags the spider, every tier card updates
+  // in lockstep.
   const results = useMemo(
     () =>
-      exerciseCities
+      publishedBoard
         .map((city) => ({
           ...city,
           customScore: Math.round(scoreCityWithWeights(city, weights) * 10) / 10,
@@ -233,7 +245,7 @@ export default function HomePage({
         id,
         label: labels[id],
         color: PILLAR_COLORS[id],
-        value: EQUAL_WEIGHT,
+        value: CANONICAL_WEIGHTS[id],
       })),
     );
 
@@ -389,7 +401,7 @@ export default function HomePage({
           </h2>
         </div>
         <div className="v3-alpha-grid section">
-          {publishedBoard.slice(0, 10).map((city) => (
+          {results.slice(0, 10).map((city, idx) => (
               <a
                 key={city.cityId}
                 className="v3-city-card"
@@ -398,12 +410,12 @@ export default function HomePage({
                 style={{ "--city-accent": PILLAR_COLORS[leadPillarForCity(city)] } as CSSProperties}
               >
               <span className="v3-city-card-meta">
-                <span className="v3-city-card-rank">#{String(city.rank).padStart(2, "0")}</span>
+                <span className="v3-city-card-rank">#{String(idx + 1).padStart(2, "0")}</span>
                 <span>{t(locale, "Published board", "บอร์ดที่เผยแพร่", "已发布榜单")}</span>
               </span>
               <div className="v3-city-card-topline">
                 <span className="v3-city-card-name">{city.displayName}</span>
-                <span className="v3-city-card-score">{city.slicScore.toFixed(1)}</span>
+                <span className="v3-city-card-score">{city.customScore.toFixed(1)}</span>
               </div>
               <span className="v3-city-card-country">{city.country}</span>
               <span className="v3-city-card-region">{city.region}</span>
@@ -446,14 +458,14 @@ export default function HomePage({
         <div className="v3-lower-tier-row">
           <span className="v3-tier-badge v3-tier-badge--beta">&beta; BETA</span>
           <div className="v3-lower-tier-cities">
-            {publishedBoard.slice(10, 20).map((city) => (
+            {results.slice(10, 20).map((city, idx) => (
               <a
                 key={city.cityId}
                 className="v3-tier-chip"
                 href={appHref(`/city/${city.cityId}`)}
                 onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
               >
-                <span className="v3-tier-chip-rank">#{city.rank}</span>
+                <span className="v3-tier-chip-rank">#{idx + 11}</span>
                 <span className="v3-tier-chip-body">
                   <strong>{city.displayName}</strong>
                   <span>{city.country}</span>
@@ -465,14 +477,14 @@ export default function HomePage({
         <div className="v3-lower-tier-row">
           <span className="v3-tier-badge v3-tier-badge--gamma">&gamma; GAMMA</span>
           <div className="v3-lower-tier-cities">
-            {publishedBoard.slice(20, 30).map((city) => (
+            {results.slice(20, 30).map((city, idx) => (
               <a
                 key={city.cityId}
                 className="v3-tier-chip"
                 href={appHref(`/city/${city.cityId}`)}
                 onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
               >
-                <span className="v3-tier-chip-rank">#{city.rank}</span>
+                <span className="v3-tier-chip-rank">#{idx + 21}</span>
                 <span className="v3-tier-chip-body">
                   <strong>{city.displayName}</strong>
                   <span>{city.country}</span>

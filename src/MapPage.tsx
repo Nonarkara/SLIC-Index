@@ -81,8 +81,9 @@ export default function MapPage({
     const land = feature(topology, topology.objects.land as GeometryCollection) as FeatureCollection;
     const landPath = path(land) ?? "";
 
+    // All 160 cities — ranked ones get scored colour, Watchlist gets a
+    // neutral grey dot so the map shows the full dataset honestly.
     const cities = (publishedData.cities as PublishedCity[])
-      .filter((c) => c.rankingStatus === "Ranked" && c.slicScore != null)
       .map((c) => {
         const coord = CITY_COORDINATES[c.cityId];
         if (!coord) return null;
@@ -139,11 +140,16 @@ export default function MapPage({
               strokeWidth={0.4}
             />
 
-            {/* City dots */}
+            {/* City dots — ranked cities first (coloured), then Watchlist on top as neutral */}
             <g className="map-dots">
               {cityPoints.map((c) => {
                 const isHovered = c.cityId === hoveredId;
-                const r = dotRadius(c.slicScore);
+                const isRanked = c.rankingStatus === "Ranked";
+                const r = isRanked ? dotRadius(c.slicScore) : 2.5;
+                const fill = isRanked ? scoreColor(c.slicScore) : "#b8ada0";
+                const tooltip = isRanked
+                  ? `${c.displayName}, ${c.country} — Rank #${c.rank} (SLIC ${c.slicScore?.toFixed(1)})`
+                  : `${c.displayName}, ${c.country} — Watchlist (coverage below publish threshold)`;
                 return (
                   <a
                     key={c.cityId}
@@ -154,13 +160,12 @@ export default function MapPage({
                     onFocus={() => setHoveredId(c.cityId)}
                     onBlur={() => setHoveredId(null)}
                   >
-                    {/* Halo for hovered */}
-                    {isHovered && (
+                    {isHovered && isRanked && (
                       <circle
                         cx={c.x}
                         cy={c.y}
                         r={r + 5}
-                        fill={scoreColor(c.slicScore)}
+                        fill={fill}
                         fillOpacity={0.18}
                       />
                     )}
@@ -168,13 +173,13 @@ export default function MapPage({
                       cx={c.x}
                       cy={c.y}
                       r={r}
-                      fill={scoreColor(c.slicScore)}
-                      fillOpacity={isHovered ? 1 : 0.88}
+                      fill={fill}
+                      fillOpacity={isHovered ? 1 : (isRanked ? 0.88 : 0.55)}
                       stroke="#ffffff"
-                      strokeWidth={0.8}
+                      strokeWidth={isRanked ? 0.8 : 0.5}
                       style={{ cursor: "pointer", transition: "r 0.12s cubic-bezier(0.16, 1, 0.3, 1)" }}
                     >
-                      <title>{`${c.displayName}, ${c.country} — Rank #${c.rank} (SLIC ${c.slicScore?.toFixed(1)})`}</title>
+                      <title>{tooltip}</title>
                     </circle>
                   </a>
                 );
@@ -218,6 +223,7 @@ export default function MapPage({
               <span><i style={{ background: "#b85c28" }} /> 45–55</span>
               <span><i style={{ background: "#3a7a6a" }} /> 55–65</span>
               <span><i style={{ background: "#1a6b5a" }} /> ≥65</span>
+              <span><i style={{ background: "#b8ada0" }} /> Watchlist</span>
             </div>
           </div>
         </div>
