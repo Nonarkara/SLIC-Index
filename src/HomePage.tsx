@@ -282,17 +282,17 @@ export default function HomePage({
           <h1 className="hp-headline">
             {t(
               locale,
-              "SLIC evaluates them for people still building a life.",
-              "SLIC ประเมินเมืองให้กับคนที่กำลังสร้างชีวิต",
-              "SLIC 则为正在建设生活的人评估这些城市。",
+              "Thriving, and still affordable. Everything else is marketing.",
+              "เมืองที่เติบโต และยังพอใช้ชีวิตได้ นอกนั้นคือการตลาด",
+              "既在增长，也还住得起。其余都是营销。",
             )}
           </h1>
           <p className="hp-deck">
             {t(
               locale,
-              "160 published cities. One declared score per city, traced through five public pillars: pressure, viability, capability, community, and creative momentum.",
-              "160 เมืองที่เผยแพร่แล้ว แต่ละเมืองมีคะแนนที่ประกาศชัดเจนหนึ่งค่า และสามารถไล่ย้อนกลับได้ผ่าน 5 เสาหลักสาธารณะ: แรงกดดัน ความน่าอยู่ ศักยภาพ ชุมชน และพลังสร้างสรรค์",
-              "160 座已发布城市。每座城市对应一个公开分数，并可追溯到五个公开支柱：压力、宜居性、能力、社区与创造动能。",
+              "154 ranked cities plus a conflict-zone and low-coverage watchlist. One declared score per city, traced through five public pillars: pressure, viability, capability, community, and creative momentum. Alpha requires a liveability floor — no city trades its residents for its skyline.",
+              "154 เมืองในการจัดอันดับ พร้อมรายชื่อเฝ้าระวังสำหรับเขตขัดแย้งและข้อมูลไม่สมบูรณ์ แต่ละเมืองมีคะแนนที่ประกาศชัดเจนหนึ่งค่า และสามารถไล่ย้อนกลับได้ผ่าน 5 เสาหลักสาธารณะ ได้แก่ แรงกดดัน ความน่าอยู่ ศักยภาพ ชุมชน และพลังสร้างสรรค์ ระดับ Alpha ต้องผ่านเกณฑ์ขั้นต่ำของความน่าอยู่ — ไม่มีเมืองใดที่ยอมแลกผู้คนกับภาพลักษณ์",
+              "154 座已排名城市，另设冲突区与数据覆盖观察名单。每座城市对应一个公开分数，可追溯到五个公开支柱：压力、宜居性、能力、社区与创造动能。Alpha 级须跨过宜居门槛——没有哪座城市能用居民换天际线。",
             )}
           </p>
           <div className="hp-opening-actions">
@@ -301,7 +301,7 @@ export default function HomePage({
               href={appHref("/rankings")}
               onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
             >
-              {t(locale, "See all 160 cities", "ดูเมืองทั้ง 160 แห่ง", "查看全部 160 座城市")} →
+              {t(locale, "See all 154 cities", "ดูเมืองทั้ง 154 แห่ง", "查看全部 154 座城市")} →
             </a>
             <a
               className="hp-cta-secondary"

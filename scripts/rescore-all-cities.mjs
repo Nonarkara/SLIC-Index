@@ -350,36 +350,71 @@ async function main() {
     .filter((c) => c.rankingStatus === "Ranked" && c.slicScore != null)
     .sort((a, b) => b.slicScore - a.slicScore);
 
-  // V3.2 rule: one-per-CONTINENT per tier (Taiwan exempt — semi-territorial).
-  // Collapse the 10 region labels into ~7 continent buckets so that each tier
-  // reads as genuinely globally diverse, not "Europe x5 + N. America x3".
+  // V3.3 tier rule.
+  //
+  //  (1) One slot per REGION per tier. The ten original region labels
+  //      (East Asia, Southeast Asia, Western Europe, Eastern Europe, etc.)
+  //      are the bucket axis — NOT collapsed into continents. This lets
+  //      East Asia (e.g. Jeju) and Southeast Asia (e.g. Bangkok) each earn
+  //      an Alpha slot, which matches lived-experience reality: Tokyo,
+  //      Bangkok, and Kuala Lumpur are not "the same Asia."
+  //
+  //  (2) Taiwan exempt (semi-territorial) — Taipei + Kaohsiung both eligible
+  //      for Alpha.
+  //
+  //  (3) Alpha-tier: USA and Canada each get their own slot, keyed by country
+  //      instead of region. So Raleigh (USA) and Montreal (Canada) can both
+  //      be Alpha even though both sit in the North America region — they
+  //      are continental-scale polities with distinct state/provincial
+  //      systems. But only ONE American city and ONE Canadian city in
+  //      Alpha. Beta onwards reverts to strict one-per-region.
+  //
+  //  (4) Alpha pillar floors — liveability-honesty filter: a city must have
+  //      Community ≥ 40 AND Pressure ≥ 40 to occupy an Alpha slot. Cities
+  //      below those floors still rank, but not in Alpha. This is the single
+  //      rule that executes the SLIC philosophy: rich-on-paper, closed-in-
+  //      life cities (UAE, Saudi, Bahrain, PRC megacities) fail Community;
+  //      hyper-expensive cities fail Pressure. Below the floor they cascade
+  //      to the earliest tier where they qualify under the basic one-per-
+  //      region rule.
   const BUCKET_CAP = 10;
   const TAIWAN = "Taiwan";
-  const CONTINENT_BY_REGION = {
-    "North America":                          "North America",
-    "Latin America":                          "Latin America",
-    "Western, Northern, and Southern Europe": "Europe",
-    "Southern/Eastern Europe and Eurasia":    "Europe",
-    "East Asia":                              "Asia",
-    "Southeast Asia":                         "Asia",
-    "South Asia":                             "Asia",
-    "Middle East":                            "Middle East",
-    "Oceania":                                "Oceania",
-    "Africa":                                 "Africa",
+  const ALPHA_EXEMPT_COUNTRIES = new Set(["Taiwan", "United States", "Canada"]);
+  const ALPHA_COMMUNITY_FLOOR = 40;
+  const ALPHA_PRESSURE_FLOOR = 40;
+
+  const regionOf = (c) => c.region || "Other";
+  const passesAlphaFloors = (c) =>
+    (c.communityScore ?? 0) >= ALPHA_COMMUNITY_FLOOR &&
+    (c.pressureScore ?? 0) >= ALPHA_PRESSURE_FLOOR;
+
+  // Slot-key identifies which uniqueness bucket a city competes in inside a
+  // tier. Taiwan gets a unique per-city key (always exempt). Inside Alpha
+  // only, USA and Canada cities get country-keyed slots (so one American +
+  // one Canadian can coexist, but not two Americans). Everyone else is
+  // keyed by region.
+  const slotKeyFor = (city, bucketIndex) => {
+    if (city.country === TAIWAN) return `taiwan::${city.cityId}`;
+    if (bucketIndex === 0 && ALPHA_EXEMPT_COUNTRIES.has(city.country)) {
+      return `country::${city.country}`;
+    }
+    return `region::${regionOf(city)}`;
   };
-  const continentOf = (c) => CONTINENT_BY_REGION[c.region] || c.region || "Other";
 
   const buckets = [];
   for (const city of ranked) {
-    const cityContinent = continentOf(city);
     let placed = false;
-    for (const b of buckets) {
+    for (let bi = 0; bi < buckets.length; bi++) {
+      const b = buckets[bi];
       if (b.length >= BUCKET_CAP) continue;
-      if (city.country !== TAIWAN) {
-        const continentPresent = b.some(
-          (c) => c.country !== TAIWAN && continentOf(c) === cityContinent,
-        );
-        if (continentPresent) continue;
+
+      // Alpha-specific gate: Community and Pressure must both clear the floor.
+      if (bi === 0 && !passesAlphaFloors(city)) continue;
+
+      const cityKey = slotKeyFor(city, bi);
+      if (!cityKey.startsWith("taiwan::")) {
+        const keyPresent = b.some((c) => slotKeyFor(c, bi) === cityKey);
+        if (keyPresent) continue;
       }
       b.push(city);
       placed = true;

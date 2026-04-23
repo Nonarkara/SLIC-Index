@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-04-23T17:12:00.501Z",
+  "updatedAt": "2026-04-23T17:19:44.917Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -685,7 +685,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 2
+      "rank": 3
     },
     {
       "cityId": "tw-taipei",
@@ -953,7 +953,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 4
+      "rank": 5
     },
     {
       "cityId": "us-raleigh",
@@ -1489,7 +1489,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 12
+      "rank": 13
     },
     {
       "cityId": "pl-katowice",
@@ -1757,7 +1757,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 98
+      "rank": 26
     },
     {
       "cityId": "jp-fukuoka",
@@ -2025,7 +2025,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 54
+      "rank": 53
     },
     {
       "cityId": "th-bangkok",
@@ -2293,7 +2293,7 @@
         "strongest": "community_hospitality_belonging",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 47
+      "rank": 10
     },
     {
       "cityId": "fr-lyon",
@@ -2561,7 +2561,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 25
+      "rank": 22
     },
     {
       "cityId": "ca-montreal",
@@ -2829,7 +2829,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 10
+      "rank": 2
     },
     {
       "cityId": "cl-santiago",
@@ -3097,7 +3097,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 14
+      "rank": 16
     },
     {
       "cityId": "us-pittsburgh",
@@ -3365,7 +3365,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 24
+      "rank": 21
     },
     {
       "cityId": "jp-kobe",
@@ -3633,7 +3633,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 74
+      "rank": 82
     },
     {
       "cityId": "us-minneapolis",
@@ -3901,7 +3901,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 17
+      "rank": 11
     },
     {
       "cityId": "il-haifa",
@@ -4438,7 +4438,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 26
+      "rank": 33
     },
     {
       "cityId": "ca-ottawa",
@@ -4974,7 +4974,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 7
+      "rank": 9
     },
     {
       "cityId": "it-milan",
@@ -5242,7 +5242,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 38
+      "rank": 41
     },
     {
       "cityId": "nl-eindhoven",
@@ -5510,7 +5510,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 3
+      "rank": 4
     },
     {
       "cityId": "at-graz",
@@ -5778,7 +5778,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 11
+      "rank": 12
     },
     {
       "cityId": "pt-braga",
@@ -6583,7 +6583,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "viability_personal_safety"
       },
-      "rank": 46
+      "rank": 52
     },
     {
       "cityId": "pt-porto",
@@ -6851,7 +6851,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 52
+      "rank": 61
     },
     {
       "cityId": "ee-tallinn",
@@ -7119,7 +7119,7 @@
         "strongest": "creative_entrepreneurial_dynamism",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 66
+      "rank": 81
     },
     {
       "cityId": "pl-torun",
@@ -7387,7 +7387,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 95
+      "rank": 17
     },
     {
       "cityId": "kr-incheon",
@@ -7655,7 +7655,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 19
+      "rank": 23
     },
     {
       "cityId": "sg-singapore",
@@ -7923,7 +7923,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_working_time_pressure"
       },
-      "rank": 33
+      "rank": 14
     },
     {
       "cityId": "ch-zurich",
@@ -8191,7 +8191,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 59
+      "rank": 71
     },
     {
       "cityId": "dk-copenhagen",
@@ -8459,7 +8459,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 45
+      "rank": 51
     },
     {
       "cityId": "sa-khobar",
@@ -8727,7 +8727,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 28
+      "rank": 47
     },
     {
       "cityId": "au-sydney",
@@ -8995,7 +8995,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 55
+      "rank": 74
     },
     {
       "cityId": "sa-jeddah",
@@ -9263,7 +9263,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 35
+      "rank": 56
     },
     {
       "cityId": "au-brisbane",
@@ -9531,7 +9531,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 20
+      "rank": 24
     },
     {
       "cityId": "at-vienna",
@@ -9799,7 +9799,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 86
+      "rank": 111
     },
     {
       "cityId": "au-melbourne",
@@ -10067,7 +10067,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 27
+      "rank": 34
     },
     {
       "cityId": "au-perth",
@@ -10335,7 +10335,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 6
+      "rank": 8
     },
     {
       "cityId": "bh-manama",
@@ -10603,7 +10603,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 21
+      "rank": 35
     },
     {
       "cityId": "au-adelaide",
@@ -10871,7 +10871,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 13
+      "rank": 15
     },
     {
       "cityId": "ca-toronto",
@@ -11139,7 +11139,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 40
+      "rank": 43
     },
     {
       "cityId": "pr-san-juan",
@@ -11407,7 +11407,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 69
+      "rank": 84
     },
     {
       "cityId": "nl-amsterdam",
@@ -11675,7 +11675,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 104
+      "rank": 136
     },
     {
       "cityId": "cn-tianjin",
@@ -11943,7 +11943,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 109
+      "rank": 96
     },
     {
       "cityId": "jp-hiroshima",
@@ -12211,7 +12211,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 61
+      "rank": 64
     },
     {
       "cityId": "fr-paris",
@@ -12479,7 +12479,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 112
+      "rank": 142
     },
     {
       "cityId": "pl-gdansk",
@@ -12747,7 +12747,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 100
+      "rank": 36
     },
     {
       "cityId": "ca-vancouver",
@@ -13015,7 +13015,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 60
+      "rank": 72
     },
     {
       "cityId": "sk-bratislava",
@@ -13283,7 +13283,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 106
+      "rank": 45
     },
     {
       "cityId": "kr-jeju-city",
@@ -13551,7 +13551,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 5
+      "rank": 7
     },
     {
       "cityId": "pl-krakow",
@@ -13819,7 +13819,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 108
+      "rank": 55
     },
     {
       "cityId": "th-chiang-mai",
@@ -14087,7 +14087,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 107
+      "rank": 95
     },
     {
       "cityId": "mu-port-louis",
@@ -14355,7 +14355,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 9
+      "rank": 19
     },
     {
       "cityId": "it-bologna",
@@ -14623,7 +14623,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 102
+      "rank": 129
     },
     {
       "cityId": "my-kota-kinabalu",
@@ -14891,7 +14891,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 87
+      "rank": 37
     },
     {
       "cityId": "my-kuching",
@@ -15159,7 +15159,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 92
+      "rank": 46
     },
     {
       "cityId": "tw-taichung",
@@ -15695,7 +15695,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 81
+      "rank": 27
     },
     {
       "cityId": "my-george-town",
@@ -15963,7 +15963,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 96
+      "rank": 57
     },
     {
       "cityId": "jp-sapporo",
@@ -16231,7 +16231,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 67
+      "rank": 73
     },
     {
       "cityId": "om-salalah",
@@ -16499,7 +16499,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 49
+      "rank": 77
     },
     {
       "cityId": "ar-cordoba",
@@ -16767,7 +16767,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 29
+      "rank": 38
     },
     {
       "cityId": "ae-dubai",
@@ -17035,7 +17035,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "pressure_working_time_pressure"
       },
-      "rank": 15
+      "rank": 25
     },
     {
       "cityId": "cn-guangzhou",
@@ -17303,7 +17303,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 115
+      "rank": 121
     },
     {
       "cityId": "ae-abu-dhabi",
@@ -17571,7 +17571,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "pressure_working_time_pressure"
       },
-      "rank": 8
+      "rank": 18
     },
     {
       "cityId": "hu-budapest",
@@ -17839,7 +17839,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 114
+      "rank": 75
     },
     {
       "cityId": "uy-montevideo",
@@ -18107,7 +18107,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 22
+      "rank": 28
     },
     {
       "cityId": "cn-hangzhou",
@@ -18375,7 +18375,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 117
+      "rank": 130
     },
     {
       "cityId": "nz-auckland",
@@ -18643,7 +18643,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 62
+      "rank": 83
     },
     {
       "cityId": "cn-shenzhen",
@@ -18911,7 +18911,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 118
+      "rank": 137
     },
     {
       "cityId": "nz-christchurch",
@@ -19179,7 +19179,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 41
+      "rank": 54
     },
     {
       "cityId": "om-muscat",
@@ -19447,7 +19447,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 56
+      "rank": 86
     },
     {
       "cityId": "mv-male",
@@ -19715,7 +19715,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 103
+      "rank": 20
     },
     {
       "cityId": "cr-san-jose",
@@ -19983,7 +19983,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 75
+      "rank": 93
     },
     {
       "cityId": "ar-buenos-aires",
@@ -20251,7 +20251,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 50
+      "rank": 68
     },
     {
       "cityId": "cn-chongqing",
@@ -20519,7 +20519,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 111
+      "rank": 104
     },
     {
       "cityId": "au-hobart",
@@ -20787,7 +20787,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 68
+      "rank": 92
     },
     {
       "cityId": "cn-chengdu",
@@ -21055,7 +21055,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 113
+      "rank": 112
     },
     {
       "cityId": "ge-tbilisi",
@@ -21323,7 +21323,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 129
+      "rank": 132
     },
     {
       "cityId": "nz-dunedin",
@@ -21591,7 +21591,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 34
+      "rank": 44
     },
     {
       "cityId": "rw-kigali",
@@ -21859,7 +21859,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "capability_education_quality"
       },
-      "rank": 44
+      "rank": 69
     },
     {
       "cityId": "nz-wellington",
@@ -22127,7 +22127,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 48
+      "rank": 63
     },
     {
       "cityId": "ma-casablanca",
@@ -22395,7 +22395,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 37
+      "rank": 59
     },
     {
       "cityId": "cn-shanghai",
@@ -22663,7 +22663,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 122
+      "rank": 147
     },
     {
       "cityId": "ro-bucharest",
@@ -22931,7 +22931,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 110
+      "rank": 65
     },
     {
       "cityId": "my-kuala-lumpur",
@@ -23199,7 +23199,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 99
+      "rank": 67
     },
     {
       "cityId": "fi-helsinki",
@@ -23467,7 +23467,7 @@
         "strongest": "capability_education_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 73
+      "rank": 91
     },
     {
       "cityId": "ug-kampala",
@@ -23735,7 +23735,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 90
+      "rank": 135
     },
     {
       "cityId": "rs-belgrade",
@@ -24003,7 +24003,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 116
+      "rank": 87
     },
     {
       "cityId": "ec-cuenca",
@@ -24539,7 +24539,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 82
+      "rank": 102
     },
     {
       "cityId": "br-curitiba",
@@ -24807,7 +24807,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 36
+      "rank": 48
     },
     {
       "cityId": "sa-riyadh",
@@ -25075,7 +25075,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 42
+      "rank": 66
     },
     {
       "cityId": "co-medellin",
@@ -25343,7 +25343,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "viability_personal_safety"
       },
-      "rank": 77
+      "rank": 107
     },
     {
       "cityId": "py-asuncion",
@@ -25611,7 +25611,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 89
+      "rank": 127
     },
     {
       "cityId": "ma-rabat",
@@ -25879,7 +25879,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 30
+      "rank": 49
     },
     {
       "cityId": "es-valencia",
@@ -26147,7 +26147,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 131
+      "rank": 150
     },
     {
       "cityId": "th-hat-yai",
@@ -26415,7 +26415,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 101
+      "rank": 76
     },
     {
       "cityId": "vn-da-nang",
@@ -26683,7 +26683,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 146
+      "rank": 138
     },
     {
       "cityId": "ru-nizhny-novgorod",
@@ -26951,7 +26951,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 121
+      "rank": 105
     },
     {
       "cityId": "th-phuket",
@@ -27219,7 +27219,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 105
+      "rank": 85
     },
     {
       "cityId": "br-florianopolis",
@@ -27487,7 +27487,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 43
+      "rank": 58
     },
     {
       "cityId": "br-sao-paulo",
@@ -27755,7 +27755,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 57
+      "rank": 78
     },
     {
       "cityId": "jo-amman",
@@ -28023,7 +28023,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 84
+      "rank": 124
     },
     {
       "cityId": "jo-aqaba",
@@ -28291,7 +28291,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 78
+      "rank": 116
     },
     {
       "cityId": "hr-zagreb",
@@ -28559,7 +28559,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 133
+      "rank": 139
     },
     {
       "cityId": "kh-phnom-penh",
@@ -28827,7 +28827,7 @@
         "strongest": "creative_economic_vitality_productive_context",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 151
+      "rank": 144
     },
     {
       "cityId": "tz-dar-es-salaam",
@@ -29363,7 +29363,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 64
+      "rank": 88
     },
     {
       "cityId": "id-surabaya",
@@ -29631,7 +29631,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "viability_water_sanitation_utility"
       },
-      "rank": 128
+      "rank": 122
     },
     {
       "cityId": "co-bogota",
@@ -29899,7 +29899,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "viability_personal_safety"
       },
-      "rank": 83
+      "rank": 113
     },
     {
       "cityId": "ph-cebu-city",
@@ -30167,7 +30167,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 124
+      "rank": 108
     },
     {
       "cityId": "ke-nairobi",
@@ -30435,7 +30435,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "capability_education_quality"
       },
-      "rank": 79
+      "rank": 118
     },
     {
       "cityId": "in-pune",
@@ -30703,7 +30703,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 134
+      "rank": 40
     },
     {
       "cityId": "pe-lima",
@@ -30971,7 +30971,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 71
+      "rank": 98
     },
     {
       "cityId": "ph-makati",
@@ -31239,7 +31239,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 126
+      "rank": 114
     },
     {
       "cityId": "kw-kuwait-city",
@@ -31507,7 +31507,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 70
+      "rank": 103
     },
     {
       "cityId": "ru-moscow",
@@ -31775,7 +31775,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 127
+      "rank": 123
     },
     {
       "cityId": "in-hyderabad",
@@ -32043,7 +32043,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 132
+      "rank": 30
     },
     {
       "cityId": "mx-guadalajara",
@@ -32311,7 +32311,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "viability_personal_safety"
       },
-      "rank": 93
+      "rank": 125
     },
     {
       "cityId": "id-jakarta",
@@ -32579,7 +32579,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "viability_water_sanitation_utility"
       },
-      "rank": 130
+      "rank": 131
     },
     {
       "cityId": "bt-thimphu",
@@ -32847,7 +32847,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 144
+      "rank": 89
     },
     {
       "cityId": "cz-brno",
@@ -33115,7 +33115,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 141
+      "rank": 145
     },
     {
       "cityId": "gh-accra",
@@ -33383,7 +33383,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "capability_healthcare_quality"
       },
-      "rank": 65
+      "rank": 99
     },
     {
       "cityId": "lt-vilnius",
@@ -33651,7 +33651,7 @@
         "strongest": "creative_administrative_investment_friction",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 119
+      "rank": 97
     },
     {
       "cityId": "gh-kumasi",
@@ -33919,7 +33919,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "capability_healthcare_quality"
       },
-      "rank": 72
+      "rank": 109
     },
     {
       "cityId": "eg-alexandria",
@@ -34187,7 +34187,7 @@
         "strongest": "creative_economic_vitality_productive_context",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 94
+      "rank": 141
     },
     {
       "cityId": "in-bengaluru",
@@ -34455,7 +34455,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 136
+      "rank": 50
     },
     {
       "cityId": "si-ljubljana",
@@ -34723,7 +34723,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 145
+      "rank": 149
     },
     {
       "cityId": "mx-mexico-city",
@@ -34991,7 +34991,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "viability_personal_safety"
       },
-      "rank": 97
+      "rank": 133
     },
     {
       "cityId": "na-windhoek",
@@ -35259,7 +35259,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 23
+      "rank": 39
     },
     {
       "cityId": "in-chandigarh",
@@ -35527,7 +35527,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 138
+      "rank": 60
     },
     {
       "cityId": "qa-doha",
@@ -35795,7 +35795,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_working_time_pressure"
       },
-      "rank": 63
+      "rank": 94
     },
     {
       "cityId": "do-santo-domingo",
@@ -36331,7 +36331,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 140
+      "rank": 70
     },
     {
       "cityId": "za-cape-town",
@@ -36599,7 +36599,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 58
+      "rank": 90
     },
     {
       "cityId": "lv-riga",
@@ -36867,7 +36867,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 123
+      "rank": 115
     },
     {
       "cityId": "bd-chattogram",
@@ -37135,7 +37135,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 149
+      "rank": 119
     },
     {
       "cityId": "bw-gaborone",
@@ -37403,7 +37403,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "capability_education_quality"
       },
-      "rank": 16
+      "rank": 29
     },
     {
       "cityId": "lk-colombo",
@@ -37671,7 +37671,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 142
+      "rank": 79
     },
     {
       "cityId": "mx-merida",
@@ -37939,7 +37939,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "viability_personal_safety"
       },
-      "rank": 88
+      "rank": 117
     },
     {
       "cityId": "bd-dhaka",
@@ -38207,7 +38207,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 150
+      "rank": 126
     },
     {
       "cityId": "za-johannesburg",
@@ -38475,7 +38475,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 51
+      "rank": 80
     },
     {
       "cityId": "fj-suva",
@@ -38743,7 +38743,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "viability_water_sanitation_utility"
       },
-      "rank": 76
+      "rank": 106
     },
     {
       "cityId": "np-pokhara",
@@ -39011,7 +39011,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 147
+      "rank": 100
     },
     {
       "cityId": "se-gothenburg",
@@ -39279,7 +39279,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 125
+      "rank": 148
     },
     {
       "cityId": "np-kathmandu",
@@ -39547,7 +39547,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 148
+      "rank": 110
     },
     {
       "cityId": "ie-cork",
@@ -39815,7 +39815,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 135
+      "rank": 151
     },
     {
       "cityId": "be-antwerp",
@@ -40083,7 +40083,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "creative_economic_vitality_productive_context"
       },
-      "rank": 139
+      "rank": 153
     },
     {
       "cityId": "sn-dakar",
@@ -40351,7 +40351,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "capability_education_quality"
       },
-      "rank": 85
+      "rank": 128
     },
     {
       "cityId": "pk-karachi",
@@ -40619,7 +40619,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 153
+      "rank": 140
     },
     {
       "cityId": "pk-lahore",
@@ -40887,7 +40887,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 154
+      "rank": 146
     },
     {
       "cityId": "pk-islamabad",
@@ -41155,7 +41155,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 152
+      "rank": 134
     },
     {
       "cityId": "de-munich",
@@ -41423,7 +41423,7 @@
         "strongest": "creative_administrative_investment_friction",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 143
+      "rank": 154
     },
     {
       "cityId": "no-bergen",
@@ -41691,7 +41691,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 137
+      "rank": 152
     },
     {
       "cityId": "vu-port-vila",
@@ -42750,7 +42750,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 80
+      "rank": 101
     },
     {
       "cityId": "us-new-york",
@@ -43005,7 +43005,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 53
+      "rank": 62
     },
     {
       "cityId": "jp-tokyo",
@@ -43260,7 +43260,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 39
+      "rank": 42
     },
     {
       "cityId": "cz-prague",
@@ -43528,7 +43528,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 18
+      "rank": 6
     },
     {
       "cityId": "cn-nanjing",
@@ -43796,7 +43796,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 120
+      "rank": 143
     },
     {
       "cityId": "it-venice",
@@ -44064,7 +44064,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 91
+      "rank": 120
     }
   ]
 }
