@@ -274,17 +274,17 @@ export default function HomePage({
           <p className="hp-lede">
             {t(
               locale,
-              "Most city rankings are someone's opinion dressed as data. SLIC publishes the math.",
-              "ดัชนีเมืองส่วนใหญ่คือความเห็นที่แต่งตัวเป็นข้อมูล SLIC เผยแพร่ตัวเลขที่ตรวจสอบได้",
-              "大多数城市排名是裹着数据外衣的观点。SLIC 发布可验证的数字。",
+              "Most city rankings evaluate cities for people who already have the money to live there.",
+              "ดัชนีเมืองส่วนใหญ่ประเมินเมืองให้กับคนที่มีเงินพอจะอาศัยอยู่ที่นั่นอยู่แล้ว",
+              "大多数城市排名是为那些已经有钱住在那里的人评估城市。",
             )}
           </p>
           <h1 className="hp-headline">
             {t(
               locale,
-              "The others are brochures. This one is an audit.",
-              "ดัชนีอื่นเป็นโบรชัวร์ ดัชนีนี้คือการตรวจสอบ",
-              "其他的是宣传册。这一个是审计。",
+              "SLIC evaluates them for people still building a life.",
+              "SLIC ประเมินเมืองให้กับคนที่กำลังสร้างชีวิต",
+              "SLIC 则为正在建设生活的人评估这些城市。",
             )}
           </h1>
           <p className="hp-deck">
