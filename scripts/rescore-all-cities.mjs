@@ -317,7 +317,14 @@ async function main() {
     city.overallWeightedCoverage = r2(scored.overallCoverage);
     city.coverageGrade = scored.coverageGrade;
     city.slicScore = newSlic;
-    city.rankingStatus = scored.rankingStatus;
+    // If the city carries a manual `watchlistReason` (e.g. active conflict
+    // zone), preserve Watchlist status regardless of coverage grade. Coverage
+    // is about data completeness; the watchlist is about liveability honesty.
+    if (city.watchlistReason) {
+      city.rankingStatus = "Watchlist";
+    } else {
+      city.rankingStatus = scored.rankingStatus;
+    }
 
     // Update highlights (strongest / weakest metric by score)
     const scoredMetrics = Object.entries(scored.metricScores)
@@ -343,16 +350,36 @@ async function main() {
     .filter((c) => c.rankingStatus === "Ranked" && c.slicScore != null)
     .sort((a, b) => b.slicScore - a.slicScore);
 
+  // V3.2 rule: one-per-CONTINENT per tier (Taiwan exempt — semi-territorial).
+  // Collapse the 10 region labels into ~7 continent buckets so that each tier
+  // reads as genuinely globally diverse, not "Europe x5 + N. America x3".
   const BUCKET_CAP = 10;
   const TAIWAN = "Taiwan";
+  const CONTINENT_BY_REGION = {
+    "North America":                          "North America",
+    "Latin America":                          "Latin America",
+    "Western, Northern, and Southern Europe": "Europe",
+    "Southern/Eastern Europe and Eurasia":    "Europe",
+    "East Asia":                              "Asia",
+    "Southeast Asia":                         "Asia",
+    "South Asia":                             "Asia",
+    "Middle East":                            "Middle East",
+    "Oceania":                                "Oceania",
+    "Africa":                                 "Africa",
+  };
+  const continentOf = (c) => CONTINENT_BY_REGION[c.region] || c.region || "Other";
+
   const buckets = [];
   for (const city of ranked) {
+    const cityContinent = continentOf(city);
     let placed = false;
     for (const b of buckets) {
       if (b.length >= BUCKET_CAP) continue;
       if (city.country !== TAIWAN) {
-        const countryPresent = b.some((c) => c.country !== TAIWAN && c.country === city.country);
-        if (countryPresent) continue;
+        const continentPresent = b.some(
+          (c) => c.country !== TAIWAN && continentOf(c) === cityContinent,
+        );
+        if (continentPresent) continue;
       }
       b.push(city);
       placed = true;

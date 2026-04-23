@@ -944,8 +944,13 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         citations: [1],
       },
       {
-        title: "V3: Tier grouping with a one-per-country rule",
-        body: "Cities are grouped into tiers of 10 (Alpha, Beta, Gamma, Delta, Epsilon, …). Within the published board, no country may occupy more than one slot in the same tier — the only exception is Taiwan, whose cities are treated as semi-territorial rather than metros of the same national government. Sorting proceeds greedily: cities are walked in descending SLIC order and placed into the earliest tier where their country is not already present. The rule keeps the top tiers from being dominated by a single country's data availability (United States, Canada, Australia, Japan, South Korea in particular) and lets countries with one strong-data metro show up in Alpha where they otherwise would not. A 0.3-point SLIC difference between two cities is not meaningful — tiers are more honest than strict numerical ranking.",
+        title: "V3.2: Tier grouping with a one-per-continent rule",
+        body: "Cities are grouped into tiers (Alpha, Beta, Gamma, Delta, Epsilon, …). Within any single tier no continent may occupy more than one slot — the only exception is Taiwan, whose cities are treated as semi-territorial rather than metros of the same regional bloc. The ten region labels collapse into seven continent buckets: North America, Latin America, Europe, Asia (east + southeast + south), Middle East, Oceania, and Africa. Sorting proceeds greedily: cities are walked in descending SLIC order and placed into the earliest tier where their continent is not already present. The rule keeps the top tiers from being dominated by rich-world data availability and forces the board to read as globally diverse. A 0.3-point SLIC difference between two cities is not meaningful — tiers are more honest than strict numerical ranking.",
+        citations: [],
+      },
+      {
+        title: "V3.2: Conflict-zone watchlist",
+        body: "Cities inside an active conflict envelope — sustained rocket / missile exposure, civilian evacuation zones, routine shelter alerts, targeted strikes on civilian infrastructure — are placed on a conflict watchlist rather than ranked. All metric data remains visible on the city card, but the city does not occupy a tier slot. This is a liveability-honesty rule: ranking a city under shelter-alert protocol alongside a peacetime metro is not a like-for-like comparison. The watchlist reverses when sustained ceasefire and resident-return normalise the environment.",
         citations: [],
       },
       {
