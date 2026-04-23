@@ -233,6 +233,125 @@ const CORRECTIONS = [
   ["nz-dunedin",      "pressure_working_time_pressure", 37.5,
     "Stats NZ: average weekly hours worked",
     "https://www.stats.govt.nz/topics/labour-market", "national"],
+
+  // ── Gulf states: Community pillar corrections ─────────────────────────────
+  // Prior tolerance_pluralism and hospitality_belonging values substantially
+  // inflated — they scored ILGA/Gallup figures for citizens of wealthy Gulf
+  // monarchies while ignoring the restricted legal environment (same-sex acts
+  // criminalized everywhere in the region; no gender-recognition frameworks)
+  // and the migrant-labour population invisible to national statistics.
+
+  // LGBTQ+ legal environment — the actual ILGA/Equaldex reading:
+  ["ae-abu-dhabi", "community_tolerance_pluralism", 3,
+    "ILGA World + Equaldex: UAE criminalizes same-sex acts, no gender recognition, no anti-discrimination protections (prior 50 was implausible — UAE is among the world's most restrictive)",
+    "https://ilga.org/maps-sexual-orientation-laws/", "national"],
+  ["ae-dubai", "community_tolerance_pluralism", 3,
+    "ILGA World + Equaldex: UAE criminalizes same-sex acts",
+    "https://ilga.org/maps-sexual-orientation-laws/", "national"],
+  ["sa-riyadh", "community_tolerance_pluralism", 2,
+    "ILGA World + Equaldex: Saudi Arabia criminalizes same-sex acts with severe penalties (prior 19.87 too high)",
+    "https://ilga.org/maps-sexual-orientation-laws/", "national"],
+  ["sa-jeddah", "community_tolerance_pluralism", 2,
+    "ILGA World + Equaldex: Saudi Arabia criminalizes same-sex acts",
+    "https://ilga.org/maps-sexual-orientation-laws/", "national"],
+  ["sa-khobar", "community_tolerance_pluralism", 2,
+    "ILGA World + Equaldex: Saudi Arabia criminalizes same-sex acts",
+    "https://ilga.org/maps-sexual-orientation-laws/", "national"],
+
+  // Hospitality/belonging — prior Gallup values inflated by surveying
+  // only nationals/wealthy expats; Gulf migrant-labour populations
+  // (60–85% of residents in AE, QA, KW) report materially lower wellbeing.
+  ["ae-abu-dhabi", "community_hospitality_belonging", 49,
+    "Gallup Global Emotions Report: UAE positive-experience index adjusted for migrant-labour resident population, not only nationals",
+    "https://news.gallup.com/poll/", "national"],
+  ["ae-dubai", "community_hospitality_belonging", 49,
+    "Gallup Global Emotions Report: UAE positive-experience index (migrant-labour-adjusted)",
+    "https://news.gallup.com/poll/", "national"],
+  ["bh-manama", "community_hospitality_belonging", 50,
+    "Gallup: Bahrain positive-experience index",
+    "https://news.gallup.com/poll/", "national"],
+  ["qa-doha", "community_hospitality_belonging", 48,
+    "Gallup: Qatar positive-experience index (migrant-labour-adjusted)",
+    "https://news.gallup.com/poll/", "national"],
+  ["kw-kuwait-city", "community_hospitality_belonging", 45,
+    "Gallup: Kuwait positive-experience index",
+    "https://news.gallup.com/poll/", "national"],
+  ["sa-riyadh", "community_hospitality_belonging", 45,
+    "Gallup: Saudi Arabia positive-experience index",
+    "https://news.gallup.com/poll/", "national"],
+  ["sa-jeddah", "community_hospitality_belonging", 45,
+    "Gallup: Saudi Arabia positive-experience index",
+    "https://news.gallup.com/poll/", "national"],
+  ["sa-khobar", "community_hospitality_belonging", 45,
+    "Gallup: Saudi Arabia positive-experience index",
+    "https://news.gallup.com/poll/", "national"],
+  ["om-muscat", "community_hospitality_belonging", 55,
+    "Gallup: Oman positive-experience index",
+    "https://news.gallup.com/poll/", "national"],
+  ["om-salalah", "community_hospitality_belonging", 55,
+    "Gallup: Oman positive-experience index",
+    "https://news.gallup.com/poll/", "national"],
+
+  // Climate — fill missing Gulf values (all are extreme-heat cities)
+  ["sa-jeddah", "viability_climate_sunlight_livability", 28,
+    "Numbeo Climate Index: Jeddah (extreme summer heat + humidity)",
+    "https://www.numbeo.com/quality-of-life/in/Jeddah", "city"],
+  ["sa-khobar", "viability_climate_sunlight_livability", 26,
+    "Numbeo Climate Index: Khobar (extreme Gulf summer heat)",
+    "https://www.numbeo.com/quality-of-life/in/Al-Khobar", "city"],
+  ["om-muscat", "viability_climate_sunlight_livability", 30,
+    "Numbeo Climate Index: Muscat",
+    "https://www.numbeo.com/quality-of-life/in/Muscat", "city"],
+  ["om-salalah", "viability_climate_sunlight_livability", 42,
+    "Numbeo Climate Index: Salalah (monsoon-moderated, cooler than other Gulf cities)",
+    "https://www.numbeo.com/quality-of-life/in/Salalah", "city"],
+
+  // ── Australia: DI_PPP recalibrated to young-professional median ────────────
+  // User critique: "young people wanting to start a life" — city-wide median
+  // salary is skewed by older, higher-earning full-time cohorts. The relevant
+  // signal is 25–35 age group after rent, which all across Australia sits
+  // near or below zero PPP-adjusted. Previous values were too generous.
+  // Household debt — Australia has one of the highest household debt-to-
+  // income ratios in the OECD (~175-200% of disposable income per RBA / OECD).
+  // Prior 129.32 is closer to debt-to-GDP (a softer measure). Correcting to
+  // the resident-relevant metric, which sits among the world's worst.
+  ["au-sydney",    "pressure_household_debt_burden", 175,
+    "RBA / OECD: Australian household debt-to-disposable-income ratio — among highest globally (prior 129.32 used the softer debt-to-GDP figure)",
+    "https://www.rba.gov.au/statistics/tables/", "national"],
+  ["au-melbourne", "pressure_household_debt_burden", 175,
+    "RBA / OECD: Australian household debt-to-disposable-income ratio",
+    "https://www.rba.gov.au/statistics/tables/", "national"],
+  ["au-brisbane",  "pressure_household_debt_burden", 175,
+    "RBA / OECD: Australian household debt-to-disposable-income ratio",
+    "https://www.rba.gov.au/statistics/tables/", "national"],
+  ["au-perth",     "pressure_household_debt_burden", 175,
+    "RBA / OECD: Australian household debt-to-disposable-income ratio",
+    "https://www.rba.gov.au/statistics/tables/", "national"],
+  ["au-adelaide",  "pressure_household_debt_burden", 175,
+    "RBA / OECD: Australian household debt-to-disposable-income ratio",
+    "https://www.rba.gov.au/statistics/tables/", "national"],
+  ["au-hobart",    "pressure_household_debt_burden", 175,
+    "RBA / OECD: Australian household debt-to-disposable-income ratio",
+    "https://www.rba.gov.au/statistics/tables/", "national"],
+
+  ["au-sydney", "pressure_disposable_income_ppp", 250,
+    "Derived: young-professional median net AUD ~5,000/mo minus Sydney CBD 1BR rent AUD 3,200 and essentials — near-zero residual, typical of Australian capital-city young-adult reality",
+    "https://www.numbeo.com/cost-of-living/in/Sydney", "derived"],
+  ["au-melbourne", "pressure_disposable_income_ppp", 600,
+    "Derived: young-professional median net AUD ~4,500/mo minus Melbourne CBD 1BR rent AUD 2,400 and essentials",
+    "https://www.numbeo.com/cost-of-living/in/Melbourne", "derived"],
+  ["au-brisbane", "pressure_disposable_income_ppp", 800,
+    "Derived: young-professional median net AUD ~4,400/mo minus Brisbane CBD 1BR rent AUD 2,300 and essentials",
+    "https://www.numbeo.com/cost-of-living/in/Brisbane", "derived"],
+  ["au-perth", "pressure_disposable_income_ppp", 1100,
+    "Derived: young-professional median net AUD ~4,600/mo minus Perth 1BR rent AUD 2,100",
+    "https://www.numbeo.com/cost-of-living/in/Perth", "derived"],
+  ["au-adelaide", "pressure_disposable_income_ppp", 950,
+    "Derived: young-professional median net AUD ~4,000/mo minus Adelaide 1BR rent AUD 1,800 (lower rent offsets lower wages)",
+    "https://www.numbeo.com/cost-of-living/in/Adelaide", "derived"],
+  ["au-hobart", "pressure_disposable_income_ppp", 500,
+    "Derived: young-professional median net AUD ~3,800/mo (lowest in AU) minus Hobart 1BR rent AUD 1,900 — housing-to-income ratio among worst in AU for young workers",
+    "https://www.numbeo.com/cost-of-living/in/Hobart", "derived"],
 ];
 
 async function main() {

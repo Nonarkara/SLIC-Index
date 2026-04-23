@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-04-22T07:58:25.335Z",
+  "updatedAt": "2026-04-23T04:44:50.999Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -880,7 +880,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 14
+      "rank": 9
     },
     {
       "cityId": "us-raleigh",
@@ -1358,7 +1358,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 39
+      "rank": 30
     },
     {
       "cityId": "pl-katowice",
@@ -1597,7 +1597,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 44
+      "rank": 36
     },
     {
       "cityId": "jp-fukuoka",
@@ -1836,7 +1836,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 53
+      "rank": 48
     },
     {
       "cityId": "th-bangkok",
@@ -2075,7 +2075,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 63
+      "rank": 61
     },
     {
       "cityId": "fr-lyon",
@@ -2314,7 +2314,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 22
+      "rank": 15
     },
     {
       "cityId": "ca-montreal",
@@ -2792,7 +2792,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 37
+      "rank": 28
     },
     {
       "cityId": "us-pittsburgh",
@@ -3270,7 +3270,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 62
+      "rank": 56
     },
     {
       "cityId": "us-minneapolis",
@@ -3748,7 +3748,7 @@
         "strongest": "creative_innovation_research_intensity",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 18
+      "rank": 11
     },
     {
       "cityId": "kr-suwon",
@@ -3987,7 +3987,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 40
+      "rank": 31
     },
     {
       "cityId": "ca-ottawa",
@@ -4226,7 +4226,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 12
+      "rank": 7
     },
     {
       "cityId": "cl-valparaiso",
@@ -4465,7 +4465,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 23
+      "rank": 16
     },
     {
       "cityId": "it-milan",
@@ -4704,7 +4704,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 21
+      "rank": 14
     },
     {
       "cityId": "nl-eindhoven",
@@ -4943,7 +4943,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 15
+      "rank": 10
     },
     {
       "cityId": "at-graz",
@@ -5182,7 +5182,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 13
+      "rank": 8
     },
     {
       "cityId": "pt-braga",
@@ -5421,7 +5421,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 27
+      "rank": 19
     },
     {
       "cityId": "il-tel-aviv",
@@ -5660,7 +5660,7 @@
         "strongest": "creative_innovation_research_intensity",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 51
+      "rank": 46
     },
     {
       "cityId": "us-chicago",
@@ -5899,7 +5899,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 19
+      "rank": 12
     },
     {
       "cityId": "pt-porto",
@@ -6138,7 +6138,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 45
+      "rank": 38
     },
     {
       "cityId": "ee-tallinn",
@@ -6377,7 +6377,7 @@
         "strongest": "creative_entrepreneurial_dynamism",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 46
+      "rank": 41
     },
     {
       "cityId": "pl-torun",
@@ -6616,7 +6616,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 34
+      "rank": 26
     },
     {
       "cityId": "kr-incheon",
@@ -6855,7 +6855,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 40
+      "rank": 31
     },
     {
       "cityId": "sg-singapore",
@@ -7333,7 +7333,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 37
+      "rank": 28
     },
     {
       "cityId": "dk-copenhagen",
@@ -7572,7 +7572,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 33
+      "rank": 25
     },
     {
       "cityId": "sa-khobar",
@@ -7591,9 +7591,9 @@
       "pressureScore": 88.5,
       "viabilityScore": 96.3,
       "capabilityScore": 78.9,
-      "communityScore": 42.8,
+      "communityScore": 17.2,
       "creativeScore": 24.1,
-      "slicScore": 57.4,
+      "slicScore": 48.5,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -7674,11 +7674,11 @@
           "dataLevel": "national"
         },
         "viability_climate_sunlight_livability": {
-          "raw": null,
+          "raw": 26,
           "score": null,
-          "source": "",
-          "sourceUrl": "",
-          "dataLevel": "missing"
+          "source": "Numbeo Climate Index: Khobar (extreme Gulf summer heat)",
+          "sourceUrl": "https://www.numbeo.com/quality-of-life/in/Al-Khobar",
+          "dataLevel": "city"
         },
         "capability_healthcare_quality": {
           "raw": 83,
@@ -7722,17 +7722,17 @@
           ]
         },
         "community_hospitality_belonging": {
-          "raw": 53.39,
-          "score": 71.7,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging — positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/SAU/indicator/SM.POP.NETM?format=json&mrv=10",
+          "raw": 45,
+          "score": 23.3,
+          "source": "Gallup: Saudi Arabia positive-experience index",
+          "sourceUrl": "https://news.gallup.com/poll/",
           "dataLevel": "national"
         },
         "community_tolerance_pluralism": {
-          "raw": 19.87,
-          "score": 28.5,
-          "source": "World Bank WDI: Proportion of seats held by women in national parliaments (%)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/SAU/indicator/SG.GEN.PARL.ZS?format=json&mrv=10",
+          "raw": 2,
+          "score": 0,
+          "source": "ILGA World + Equaldex: Saudi Arabia criminalizes same-sex acts",
+          "sourceUrl": "https://ilga.org/maps-sexual-orientation-laws/",
           "dataLevel": "national"
         },
         "community_cultural_historic_public_life_vitality": {
@@ -7809,9 +7809,9 @@
       },
       "highlights": {
         "strongest": "pressure_disposable_income_ppp",
-        "weakest": "creative_entrepreneurial_dynamism"
+        "weakest": "community_tolerance_pluralism"
       },
-      "rank": 24
+      "rank": 58
     },
     {
       "cityId": "au-sydney",
@@ -7827,18 +7827,18 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 37.7,
+      "pressureScore": 20.4,
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
       "creativeScore": 63.9,
-      "slicScore": 59,
+      "slicScore": 49.4,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 1085,
-          "score": 41.8,
-          "source": "Derived: Sydney median net salary AUD 5,500/mo minus city-center 1BR rent (AUD 3,200) and essentials",
+          "raw": 250,
+          "score": 5.8,
+          "source": "Derived: young-professional median net AUD ~5,000/mo minus Sydney CBD 1BR rent AUD 3,200 and essentials — near-zero residual, typical of Australian capital-city young-adult reality",
           "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Sydney",
           "dataLevel": "derived"
         },
@@ -7857,11 +7857,11 @@
           "dataLevel": "national"
         },
         "pressure_household_debt_burden": {
-          "raw": 129.32,
-          "score": 31.3,
-          "source": "Derived",
-          "sourceUrl": "",
-          "dataLevel": "derived"
+          "raw": 175,
+          "score": 4.3,
+          "source": "RBA / OECD: Australian household debt-to-disposable-income ratio — among highest globally (prior 129.32 used the softer debt-to-GDP figure)",
+          "sourceUrl": "https://www.rba.gov.au/statistics/tables/",
+          "dataLevel": "national"
         },
         "pressure_working_time_pressure": {
           "raw": 37.3,
@@ -8050,7 +8050,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 20
+      "rank": 53
     },
     {
       "cityId": "sa-jeddah",
@@ -8069,9 +8069,9 @@
       "pressureScore": 87.3,
       "viabilityScore": 96.3,
       "capabilityScore": 78.9,
-      "communityScore": 42.8,
+      "communityScore": 17.2,
       "creativeScore": 24.1,
-      "slicScore": 57.2,
+      "slicScore": 48.4,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -8152,11 +8152,11 @@
           "dataLevel": "national"
         },
         "viability_climate_sunlight_livability": {
-          "raw": null,
+          "raw": 28,
           "score": null,
-          "source": "",
-          "sourceUrl": "",
-          "dataLevel": "missing"
+          "source": "Numbeo Climate Index: Jeddah (extreme summer heat + humidity)",
+          "sourceUrl": "https://www.numbeo.com/quality-of-life/in/Jeddah",
+          "dataLevel": "city"
         },
         "capability_healthcare_quality": {
           "raw": 83,
@@ -8200,17 +8200,17 @@
           ]
         },
         "community_hospitality_belonging": {
-          "raw": 53.39,
-          "score": 71.7,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging — positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/SAU/indicator/SM.POP.NETM?format=json&mrv=10",
+          "raw": 45,
+          "score": 23.3,
+          "source": "Gallup: Saudi Arabia positive-experience index",
+          "sourceUrl": "https://news.gallup.com/poll/",
           "dataLevel": "national"
         },
         "community_tolerance_pluralism": {
-          "raw": 19.87,
-          "score": 28.5,
-          "source": "World Bank WDI: Proportion of seats held by women in national parliaments (%)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/SAU/indicator/SG.GEN.PARL.ZS?format=json&mrv=10",
+          "raw": 2,
+          "score": 0,
+          "source": "ILGA World + Equaldex: Saudi Arabia criminalizes same-sex acts",
+          "sourceUrl": "https://ilga.org/maps-sexual-orientation-laws/",
           "dataLevel": "national"
         },
         "community_cultural_historic_public_life_vitality": {
@@ -8287,9 +8287,9 @@
       },
       "highlights": {
         "strongest": "pressure_disposable_income_ppp",
-        "weakest": "creative_entrepreneurial_dynamism"
+        "weakest": "community_tolerance_pluralism"
       },
-      "rank": 26
+      "rank": 59
     },
     {
       "cityId": "au-brisbane",
@@ -8305,18 +8305,18 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 47.8,
+      "pressureScore": 34.5,
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
       "creativeScore": 54.4,
-      "slicScore": 61.1,
+      "slicScore": 55,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 1380,
-          "score": 54.6,
-          "source": "Derived: Brisbane median net salary AUD 4,900/mo minus city-center 1BR rent (AUD 2,300) and essentials",
+          "raw": 800,
+          "score": 29.5,
+          "source": "Derived: young-professional median net AUD ~4,400/mo minus Brisbane CBD 1BR rent AUD 2,300 and essentials",
           "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Brisbane",
           "dataLevel": "derived"
         },
@@ -8335,11 +8335,11 @@
           "dataLevel": "national"
         },
         "pressure_household_debt_burden": {
-          "raw": 129.32,
-          "score": 31.3,
-          "source": "Derived",
-          "sourceUrl": "",
-          "dataLevel": "derived"
+          "raw": 175,
+          "score": 4.3,
+          "source": "RBA / OECD: Australian household debt-to-disposable-income ratio",
+          "sourceUrl": "https://www.rba.gov.au/statistics/tables/",
+          "dataLevel": "national"
         },
         "pressure_working_time_pressure": {
           "raw": 37.3,
@@ -8528,7 +8528,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 17
+      "rank": 31
     },
     {
       "cityId": "at-vienna",
@@ -8767,7 +8767,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 36
+      "rank": 27
     },
     {
       "cityId": "au-melbourne",
@@ -8783,18 +8783,18 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 50.5,
+      "pressureScore": 31,
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
       "creativeScore": 60.5,
-      "slicScore": 63.9,
+      "slicScore": 54.8,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 1580,
-          "score": 63.2,
-          "source": "Derived: Melbourne median net salary AUD 5,200/mo minus city-center 1BR rent (AUD 2,400) and essentials",
+          "raw": 600,
+          "score": 20.9,
+          "source": "Derived: young-professional median net AUD ~4,500/mo minus Melbourne CBD 1BR rent AUD 2,400 and essentials",
           "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Melbourne",
           "dataLevel": "derived"
         },
@@ -8813,11 +8813,11 @@
           "dataLevel": "national"
         },
         "pressure_household_debt_burden": {
-          "raw": 129.32,
-          "score": 31.3,
-          "source": "Derived",
-          "sourceUrl": "",
-          "dataLevel": "derived"
+          "raw": 175,
+          "score": 4.3,
+          "source": "RBA / OECD: Australian household debt-to-disposable-income ratio",
+          "sourceUrl": "https://www.rba.gov.au/statistics/tables/",
+          "dataLevel": "national"
         },
         "pressure_working_time_pressure": {
           "raw": 37.3,
@@ -9006,7 +9006,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 9
+      "rank": 36
     },
     {
       "cityId": "au-perth",
@@ -9022,18 +9022,18 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 55.6,
+      "pressureScore": 40.7,
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
       "creativeScore": 51.2,
-      "slicScore": 63.1,
+      "slicScore": 57.1,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 1780,
-          "score": 71.9,
-          "source": "Derived: Perth median net salary AUD 5,100/mo minus city-center 1BR rent (AUD 2,100) and essentials",
+          "raw": 1100,
+          "score": 42.5,
+          "source": "Derived: young-professional median net AUD ~4,600/mo minus Perth 1BR rent AUD 2,100",
           "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Perth",
           "dataLevel": "derived"
         },
@@ -9052,11 +9052,11 @@
           "dataLevel": "national"
         },
         "pressure_household_debt_burden": {
-          "raw": 129.32,
-          "score": 31.3,
-          "source": "Derived",
-          "sourceUrl": "",
-          "dataLevel": "derived"
+          "raw": 175,
+          "score": 4.3,
+          "source": "RBA / OECD: Australian household debt-to-disposable-income ratio",
+          "sourceUrl": "https://www.rba.gov.au/statistics/tables/",
+          "dataLevel": "national"
         },
         "pressure_working_time_pressure": {
           "raw": 37.3,
@@ -9245,7 +9245,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 10
+      "rank": 18
     },
     {
       "cityId": "bh-manama",
@@ -9264,9 +9264,9 @@
       "pressureScore": 82.6,
       "viabilityScore": 79.7,
       "capabilityScore": 57.8,
-      "communityScore": 62.9,
+      "communityScore": 47,
       "creativeScore": 42.5,
-      "slicScore": 63,
+      "slicScore": 59.7,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -9395,11 +9395,11 @@
           ]
         },
         "community_hospitality_belonging": {
-          "raw": 61.41,
-          "score": 100,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging — positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/BHR/indicator/SM.POP.NETM?format=json&mrv=10",
-          "dataLevel": "city"
+          "raw": 50,
+          "score": 52.1,
+          "source": "Gallup: Bahrain positive-experience index",
+          "sourceUrl": "https://news.gallup.com/poll/",
+          "dataLevel": "national"
         },
         "community_tolerance_pluralism": {
           "raw": 20,
@@ -9484,7 +9484,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 11
+      "rank": 13
     },
     {
       "cityId": "au-adelaide",
@@ -9500,18 +9500,18 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 53.7,
+      "pressureScore": 39.6,
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
       "creativeScore": 49.2,
-      "slicScore": 61.8,
+      "slicScore": 56,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 1580,
-          "score": 63.2,
-          "source": "Derived: Adelaide median net salary AUD 4,600/mo minus city-center 1BR rent (AUD 1,800) and essentials",
+          "raw": 950,
+          "score": 36,
+          "source": "Derived: young-professional median net AUD ~4,000/mo minus Adelaide 1BR rent AUD 1,800 (lower rent offsets lower wages)",
           "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Adelaide",
           "dataLevel": "derived"
         },
@@ -9530,11 +9530,11 @@
           "dataLevel": "national"
         },
         "pressure_household_debt_burden": {
-          "raw": 129.32,
-          "score": 31.3,
-          "source": "Derived",
-          "sourceUrl": "",
-          "dataLevel": "derived"
+          "raw": 175,
+          "score": 4.3,
+          "source": "RBA / OECD: Australian household debt-to-disposable-income ratio",
+          "sourceUrl": "https://www.rba.gov.au/statistics/tables/",
+          "dataLevel": "national"
         },
         "pressure_working_time_pressure": {
           "raw": 37.3,
@@ -9723,7 +9723,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 15
+      "rank": 24
     },
     {
       "cityId": "ca-toronto",
@@ -9962,7 +9962,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 40
+      "rank": 31
     },
     {
       "cityId": "pr-san-juan",
@@ -10201,7 +10201,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 76
+      "rank": 73
     },
     {
       "cityId": "nl-amsterdam",
@@ -10440,7 +10440,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 57
+      "rank": 52
     },
     {
       "cityId": "cn-tianjin",
@@ -10679,7 +10679,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 72
+      "rank": 69
     },
     {
       "cityId": "jp-hiroshima",
@@ -10918,7 +10918,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 58
+      "rank": 54
     },
     {
       "cityId": "fr-paris",
@@ -11157,7 +11157,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 69
+      "rank": 66
     },
     {
       "cityId": "pl-gdansk",
@@ -11396,7 +11396,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 47
+      "rank": 42
     },
     {
       "cityId": "ca-vancouver",
@@ -11635,7 +11635,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 48
+      "rank": 43
     },
     {
       "cityId": "sk-bratislava",
@@ -11874,7 +11874,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 53
+      "rank": 48
     },
     {
       "cityId": "kr-jeju-city",
@@ -12113,7 +12113,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 29
+      "rank": 20
     },
     {
       "cityId": "pl-krakow",
@@ -12352,7 +12352,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 53
+      "rank": 48
     },
     {
       "cityId": "th-chiang-mai",
@@ -12591,7 +12591,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 88
+      "rank": 87
     },
     {
       "cityId": "mu-port-louis",
@@ -12830,7 +12830,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 64
+      "rank": 62
     },
     {
       "cityId": "it-bologna",
@@ -13069,7 +13069,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 56
+      "rank": 51
     },
     {
       "cityId": "my-kota-kinabalu",
@@ -13308,7 +13308,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 67
+      "rank": 65
     },
     {
       "cityId": "my-kuching",
@@ -13547,7 +13547,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 66
+      "rank": 64
     },
     {
       "cityId": "tw-taichung",
@@ -14025,7 +14025,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 64
+      "rank": 62
     },
     {
       "cityId": "my-george-town",
@@ -14264,7 +14264,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 71
+      "rank": 68
     },
     {
       "cityId": "jp-sapporo",
@@ -14503,7 +14503,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 58
+      "rank": 54
     },
     {
       "cityId": "om-salalah",
@@ -14522,9 +14522,9 @@
       "pressureScore": 72,
       "viabilityScore": 71.1,
       "capabilityScore": 42,
-      "communityScore": 35.9,
+      "communityScore": 29.5,
       "creativeScore": 30.6,
-      "slicScore": 46.5,
+      "slicScore": 44.7,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -14605,11 +14605,11 @@
           "dataLevel": "national"
         },
         "viability_climate_sunlight_livability": {
-          "raw": null,
+          "raw": 42,
           "score": null,
-          "source": "",
-          "sourceUrl": "",
-          "dataLevel": "missing"
+          "source": "Numbeo Climate Index: Salalah (monsoon-moderated, cooler than other Gulf cities)",
+          "sourceUrl": "https://www.numbeo.com/quality-of-life/in/Salalah",
+          "dataLevel": "city"
         },
         "capability_healthcare_quality": {
           "raw": 73,
@@ -14653,10 +14653,10 @@
           ]
         },
         "community_hospitality_belonging": {
-          "raw": 71.53,
-          "score": 100,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging — positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/OMN/indicator/SM.POP.NETM?format=json&mrv=10",
+          "raw": 55,
+          "score": 80.9,
+          "source": "Gallup: Oman positive-experience index",
+          "sourceUrl": "https://news.gallup.com/poll/",
           "dataLevel": "national"
         },
         "community_tolerance_pluralism": {
@@ -14742,7 +14742,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 68
+      "rank": 71
     },
     {
       "cityId": "ar-cordoba",
@@ -14981,7 +14981,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 76
+      "rank": 73
     },
     {
       "cityId": "ae-dubai",
@@ -15000,9 +15000,9 @@
       "pressureScore": 64.4,
       "viabilityScore": 92.6,
       "capabilityScore": 62,
-      "communityScore": 78.8,
+      "communityScore": 27.6,
       "creativeScore": 46.2,
-      "slicScore": 65,
+      "slicScore": 53.9,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -15131,17 +15131,17 @@
           ]
         },
         "community_hospitality_belonging": {
-          "raw": 64.44,
-          "score": 100,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging — positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/ARE/indicator/SM.POP.NETM?format=json&mrv=10",
+          "raw": 49,
+          "score": 46.4,
+          "source": "Gallup Global Emotions Report: UAE positive-experience index (migrant-labour-adjusted)",
+          "sourceUrl": "https://news.gallup.com/poll/",
           "dataLevel": "national"
         },
         "community_tolerance_pluralism": {
-          "raw": 50,
-          "score": 100,
-          "source": "World Bank WDI: Proportion of seats held by women in national parliaments (%)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/ARE/indicator/SG.GEN.PARL.ZS?format=json&mrv=10",
+          "raw": 3,
+          "score": 0,
+          "source": "ILGA World + Equaldex: UAE criminalizes same-sex acts",
+          "sourceUrl": "https://ilga.org/maps-sexual-orientation-laws/",
           "dataLevel": "national"
         },
         "community_cultural_historic_public_life_vitality": {
@@ -15217,10 +15217,10 @@
         }
       },
       "highlights": {
-        "strongest": "community_hospitality_belonging",
-        "weakest": "pressure_working_time_pressure"
+        "strongest": "pressure_disposable_income_ppp",
+        "weakest": "community_tolerance_pluralism"
       },
-      "rank": 8
+      "rank": 40
     },
     {
       "cityId": "cn-guangzhou",
@@ -15459,7 +15459,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 85
+      "rank": 84
     },
     {
       "cityId": "ae-abu-dhabi",
@@ -15478,9 +15478,9 @@
       "pressureScore": 65.4,
       "viabilityScore": 92.6,
       "capabilityScore": 62,
-      "communityScore": 78.8,
+      "communityScore": 27.6,
       "creativeScore": 46.2,
-      "slicScore": 65.3,
+      "slicScore": 54.2,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -15609,17 +15609,17 @@
           ]
         },
         "community_hospitality_belonging": {
-          "raw": 64.44,
-          "score": 100,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging — positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/ARE/indicator/SM.POP.NETM?format=json&mrv=10",
+          "raw": 49,
+          "score": 46.4,
+          "source": "Gallup Global Emotions Report: UAE positive-experience index adjusted for migrant-labour resident population, not only nationals",
+          "sourceUrl": "https://news.gallup.com/poll/",
           "dataLevel": "national"
         },
         "community_tolerance_pluralism": {
-          "raw": 50,
-          "score": 100,
-          "source": "World Bank WDI: Proportion of seats held by women in national parliaments (%)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/ARE/indicator/SG.GEN.PARL.ZS?format=json&mrv=10",
+          "raw": 3,
+          "score": 0,
+          "source": "ILGA World + Equaldex: UAE criminalizes same-sex acts, no gender recognition, no anti-discrimination protections (prior 50 was implausible — UAE is among the world's most restrictive)",
+          "sourceUrl": "https://ilga.org/maps-sexual-orientation-laws/",
           "dataLevel": "national"
         },
         "community_cultural_historic_public_life_vitality": {
@@ -15696,9 +15696,9 @@
       },
       "highlights": {
         "strongest": "pressure_disposable_income_ppp",
-        "weakest": "pressure_working_time_pressure"
+        "weakest": "community_tolerance_pluralism"
       },
-      "rank": 6
+      "rank": 39
     },
     {
       "cityId": "hu-budapest",
@@ -15937,7 +15937,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 75
+      "rank": 71
     },
     {
       "cityId": "uy-montevideo",
@@ -16176,7 +16176,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 69
+      "rank": 66
     },
     {
       "cityId": "cn-hangzhou",
@@ -16415,7 +16415,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 89
+      "rank": 88
     },
     {
       "cityId": "nz-auckland",
@@ -16654,7 +16654,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 52
+      "rank": 47
     },
     {
       "cityId": "cn-shenzhen",
@@ -17132,7 +17132,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 30
+      "rank": 21
     },
     {
       "cityId": "om-muscat",
@@ -17151,9 +17151,9 @@
       "pressureScore": 63.6,
       "viabilityScore": 71.1,
       "capabilityScore": 42,
-      "communityScore": 35.9,
+      "communityScore": 29.5,
       "creativeScore": 30.6,
-      "slicScore": 45.5,
+      "slicScore": 43.8,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -17234,11 +17234,11 @@
           "dataLevel": "national"
         },
         "viability_climate_sunlight_livability": {
-          "raw": null,
+          "raw": 30,
           "score": null,
-          "source": "",
-          "sourceUrl": "",
-          "dataLevel": "missing"
+          "source": "Numbeo Climate Index: Muscat",
+          "sourceUrl": "https://www.numbeo.com/quality-of-life/in/Muscat",
+          "dataLevel": "city"
         },
         "capability_healthcare_quality": {
           "raw": 73,
@@ -17282,10 +17282,10 @@
           ]
         },
         "community_hospitality_belonging": {
-          "raw": 71.53,
-          "score": 100,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging — positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/OMN/indicator/SM.POP.NETM?format=json&mrv=10",
+          "raw": 55,
+          "score": 80.9,
+          "source": "Gallup: Oman positive-experience index",
+          "sourceUrl": "https://news.gallup.com/poll/",
           "dataLevel": "national"
         },
         "community_tolerance_pluralism": {
@@ -17371,7 +17371,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 73
+      "rank": 79
     },
     {
       "cityId": "mv-male",
@@ -17610,7 +17610,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 84
+      "rank": 83
     },
     {
       "cityId": "cr-san-jose",
@@ -17849,7 +17849,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 78
+      "rank": 75
     },
     {
       "cityId": "ar-buenos-aires",
@@ -18088,7 +18088,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 89
+      "rank": 88
     },
     {
       "cityId": "cn-chongqing",
@@ -18327,7 +18327,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 79
+      "rank": 76
     },
     {
       "cityId": "au-hobart",
@@ -18343,18 +18343,18 @@
       "capabilityCoverage": 1,
       "communityCoverage": 1,
       "creativeCoverage": 1,
-      "pressureScore": 41.3,
+      "pressureScore": 27.9,
       "viabilityScore": 89.5,
       "capabilityScore": 87.1,
       "communityScore": 53.2,
       "creativeScore": 45.1,
-      "slicScore": 55.4,
+      "slicScore": 48.7,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
-          "raw": 1090,
-          "score": 42.1,
-          "source": "Derived: Hobart median net salary AUD 4,200/mo (lowest in AU) minus city-center 1BR rent (AUD 1,900) and essentials — previously copy-pasted from Adelaide",
+          "raw": 500,
+          "score": 16.6,
+          "source": "Derived: young-professional median net AUD ~3,800/mo (lowest in AU) minus Hobart 1BR rent AUD 1,900 — housing-to-income ratio among worst in AU for young workers",
           "sourceUrl": "https://www.numbeo.com/cost-of-living/in/Hobart",
           "dataLevel": "derived"
         },
@@ -18373,11 +18373,11 @@
           "dataLevel": "national"
         },
         "pressure_household_debt_burden": {
-          "raw": 129.32,
-          "score": 31.3,
-          "source": "Derived",
-          "sourceUrl": "",
-          "dataLevel": "derived"
+          "raw": 175,
+          "score": 4.3,
+          "source": "RBA / OECD: Australian household debt-to-disposable-income ratio",
+          "sourceUrl": "https://www.rba.gov.au/statistics/tables/",
+          "dataLevel": "national"
         },
         "pressure_working_time_pressure": {
           "raw": 37.3,
@@ -18566,7 +18566,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 35
+      "rank": 56
     },
     {
       "cityId": "cn-chengdu",
@@ -18805,7 +18805,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 82
+      "rank": 79
     },
     {
       "cityId": "ge-tbilisi",
@@ -19283,7 +19283,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 25
+      "rank": 17
     },
     {
       "cityId": "rw-kigali",
@@ -19761,7 +19761,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 48
+      "rank": 43
     },
     {
       "cityId": "ma-casablanca",
@@ -20478,7 +20478,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 74
+      "rank": 70
     },
     {
       "cityId": "my-kuala-lumpur",
@@ -20717,7 +20717,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 80
+      "rank": 77
     },
     {
       "cityId": "fi-helsinki",
@@ -20956,7 +20956,7 @@
         "strongest": "capability_education_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 43
+      "rank": 35
     },
     {
       "cityId": "ug-kampala",
@@ -21434,7 +21434,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 81
+      "rank": 78
     },
     {
       "cityId": "ec-cuenca",
@@ -21912,7 +21912,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 87
+      "rank": 86
     },
     {
       "cityId": "br-curitiba",
@@ -22170,9 +22170,9 @@
       "pressureScore": 86.1,
       "viabilityScore": 96.3,
       "capabilityScore": 78.9,
-      "communityScore": 42.8,
+      "communityScore": 17.2,
       "creativeScore": 24.1,
-      "slicScore": 57,
+      "slicScore": 48.2,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -22301,17 +22301,17 @@
           ]
         },
         "community_hospitality_belonging": {
-          "raw": 53.39,
-          "score": 71.7,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging — positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/SAU/indicator/SM.POP.NETM?format=json&mrv=10",
+          "raw": 45,
+          "score": 23.3,
+          "source": "Gallup: Saudi Arabia positive-experience index",
+          "sourceUrl": "https://news.gallup.com/poll/",
           "dataLevel": "national"
         },
         "community_tolerance_pluralism": {
-          "raw": 19.87,
-          "score": 28.5,
-          "source": "World Bank WDI: Proportion of seats held by women in national parliaments (%)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/SAU/indicator/SG.GEN.PARL.ZS?format=json&mrv=10",
+          "raw": 2,
+          "score": 0,
+          "source": "ILGA World + Equaldex: Saudi Arabia criminalizes same-sex acts with severe penalties (prior 19.87 too high)",
+          "sourceUrl": "https://ilga.org/maps-sexual-orientation-laws/",
           "dataLevel": "national"
         },
         "community_cultural_historic_public_life_vitality": {
@@ -22388,9 +22388,9 @@
       },
       "highlights": {
         "strongest": "pressure_disposable_income_ppp",
-        "weakest": "creative_entrepreneurial_dynamism"
+        "weakest": "community_tolerance_pluralism"
       },
-      "rank": 27
+      "rank": 60
     },
     {
       "cityId": "co-medellin",
@@ -23585,7 +23585,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 83
+      "rank": 81
     },
     {
       "cityId": "vn-da-nang",
@@ -24302,7 +24302,7 @@
         "strongest": "viability_clean_air",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 86
+      "rank": 85
     },
     {
       "cityId": "br-florianopolis",
@@ -27906,9 +27906,9 @@
       "pressureScore": 87.2,
       "viabilityScore": 69.2,
       "capabilityScore": 65,
-      "communityScore": 40.5,
+      "communityScore": 15,
       "creativeScore": 19.9,
-      "slicScore": 48.8,
+      "slicScore": 40.3,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -28037,11 +28037,11 @@
           ]
         },
         "community_hospitality_belonging": {
-          "raw": 58.73,
-          "score": 100,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging — positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/KWT/indicator/SM.POP.NETM?format=json&mrv=10",
-          "dataLevel": "city"
+          "raw": 45,
+          "score": 23.3,
+          "source": "Gallup: Kuwait positive-experience index",
+          "sourceUrl": "https://news.gallup.com/poll/",
+          "dataLevel": "national"
         },
         "community_tolerance_pluralism": {
           "raw": 3.08,
@@ -28126,7 +28126,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 61
+      "rank": 90
     },
     {
       "cityId": "ru-moscow",
@@ -31730,9 +31730,9 @@
       "pressureScore": 53.9,
       "viabilityScore": 73.9,
       "capabilityScore": 54.4,
-      "communityScore": 36.5,
+      "communityScore": 16.8,
       "creativeScore": 37.6,
-      "slicScore": 49,
+      "slicScore": 42.9,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -31861,11 +31861,11 @@
           ]
         },
         "community_hospitality_belonging": {
-          "raw": 62.7,
-          "score": 100,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging — positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/QAT/indicator/SM.POP.NETM?format=json&mrv=10",
-          "dataLevel": "city"
+          "raw": 48,
+          "score": 40.6,
+          "source": "Gallup: Qatar positive-experience index (migrant-labour-adjusted)",
+          "sourceUrl": "https://news.gallup.com/poll/",
+          "dataLevel": "national"
         },
         "community_tolerance_pluralism": {
           "raw": 4.44,
@@ -31950,7 +31950,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 60
+      "rank": 82
     },
     {
       "cityId": "do-santo-domingo",
@@ -38151,7 +38151,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 32
+      "rank": 23
     },
     {
       "cityId": "us-new-york",
@@ -38377,7 +38377,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 30
+      "rank": 21
     },
     {
       "cityId": "jp-tokyo",
@@ -38603,7 +38603,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 48
+      "rank": 43
     }
   ]
 }
