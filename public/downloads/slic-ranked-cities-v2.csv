@@ -1,139 +1,157 @@
 rank,cityId,displayName,country,region,cityType,slicScore,pressureScore,viabilityScore,capabilityScore,communityScore,creativeScore,coverageGrade,overallWeightedCoverage,rankingStatus,populationM,countryPopM,nationalSharePct,industries,birthRate,workingHrsPerWk,waterAccessPct,broadbandPer100,climateScore,gdpGrowthPct,peer1,peer2,peer3
-1,tw-kaohsiung,Kaohsiung,Taiwan,East Asia,primary,66.1,63.2,86.5,90.6,48.1,56.9,A,0.77,Ranked,2.8,23.6,11.9,manufacturing; shipping; tech,0.87,41.5,98.0,28.0,68.0,,Raleigh,Valparaiso,Minneapolis
-6,tw-taipei,Taipei,Taiwan,East Asia,primary,62,43.7,89.5,89.7,48.1,69.4,A,0.86,Ranked,7,23.6,29.7,tech; finance; services,0.87,41.5,99.0,28.0,62.0,,Melbourne,Brisbane,Perth
-3,us-raleigh,Raleigh,United States,North America,secondary,65.4,70.1,76,79.1,43.5,62,A,0.85,Ranked,1.4,336,0.4,tech; education; services,1.62,37.5,97.6,38.1,62.0,2.79,Minneapolis,Pittsburgh,Kaohsiung
-31,kr-busan,Busan,South Korea,East Asia,primary,55.1,50.8,99.2,85.8,30,50.6,A,0.91,Ranked,3.6,51.7,7.0,shipping; manufacturing; tourism,0.72,38.5,99.3,46.6,64.0,2.00,Incheon,Jeju City,Suwon
-37,pl-katowice,Katowice,Poland,Southern/Eastern Europe and Eurasia,secondary,54.8,63.9,79.5,65.1,51.2,31.9,A,0.91,Ranked,2.6,37.7,6.9,mining; manufacturing; services,1.29,38.6,88.7,26.1,,3.03,Torun,Gdansk,Krakow
-49,jp-fukuoka,Fukuoka,Japan,East Asia,secondary,50.9,57,94.5,67.4,25.8,42.3,A,0.91,Ranked,2.7,125,2.2,tech; trade; services,1.20,36.6,98.7,38.6,67.0,0.10,Hiroshima,Sapporo,Kobe
-16,th-bangkok,Bangkok,Thailand,Southeast Asia,primary,57.8,43.4,84.9,62.5,93.8,46,A,0.95,Ranked,11.9,72,16.5,tourism; finance; services,1.08,42.5,93.0,43.9,72.0,2.54,Lyon,Vienna,Copenhagen
-14,fr-lyon,Lyon,France,"Western, Northern, and Southern Europe",primary,58.5,47.5,97.9,63.9,72,45.1,A,0.91,Ranked,2.3,68,3.4,biotech; manufacturing; services,1.68,35.5,99.7,48.7,56.0,1.19,Ottawa,Zurich,Vienna
-2,ca-montreal,Montreal,Canada,North America,secondary,65.7,57.3,93.3,75.3,64.4,54.1,A,0.91,Ranked,4.3,40,10.8,tech; finance; services,1.26,34.8,96.9,42.5,44.0,1.55,Ottawa,Eindhoven,Graz
-29,cl-santiago,Santiago,Chile,Latin America,primary,55.2,47.2,72.7,83.8,49.8,44.6,A,0.91,Ranked,7.1,19.5,36.4,finance; mining; services,1.44,38.9,97.8,23.0,68.0,2.64,Valparaiso,Adelaide,Perth
-6,us-pittsburgh,Pittsburgh,United States,North America,secondary,62,71.5,65.1,79.1,43.5,55.7,A,0.91,Ranked,2.4,336,0.7,tech; education; services,1.62,37.5,97.6,38.1,46.0,2.79,Minneapolis,Raleigh,Valparaiso
-57,jp-kobe,Kobe,Japan,East Asia,secondary,48.7,55.6,94.5,67.4,25.8,37.3,A,0.91,Ranked,1.5,125,1.2,shipping; manufacturing; tourism,1.20,36.6,98.7,38.6,,0.10,Hiroshima,Sapporo,Fukuoka
-4,us-minneapolis,Minneapolis,United States,North America,primary,63.2,66.1,69.1,79.1,43.5,62,A,0.85,Ranked,3.6,336,1.1,finance; healthcare; manufacturing,1.62,37.5,97.6,38.1,48.0,2.79,Raleigh,Pittsburgh,Chicago
-9,il-haifa,Haifa,Israel,Middle East,secondary,60.6,64.1,86.1,64.7,41.6,54.7,A,0.91,Ranked,1.1,9.7,11.3,tech; shipping; education,2.90,37.7,99.5,29.4,70.0,0.87,Dubai,Abu Dhabi,Braga
-32,kr-suwon,Suwon,South Korea,East Asia,primary,55,50.5,93.1,85.8,30.3,50.6,A,0.95,Ranked,1.2,51.7,2.3,manufacturing; tech; trade,0.72,38.5,99.0,46.6,60.0,2.00,Incheon,Busan,Jeju City
-11,ca-ottawa,Ottawa,Canada,North America,primary,59.6,49.3,93.3,75.3,64.4,44.2,A,0.91,Ranked,1.5,40,3.8,government; tech; services,1.26,34.8,96.9,42.5,42.0,1.55,Eindhoven,Graz,Montreal
-15,cl-valparaiso,Valparaiso,Chile,Latin America,secondary,58.3,56.3,72.7,83.8,49.8,44.6,A,0.91,Ranked,1,19.5,5.1,shipping; tourism; education,1.44,38.9,97.8,23.0,,2.64,Santiago,Kaohsiung,Minneapolis
-13,it-milan,Milan,Italy,"Western, Northern, and Southern Europe",primary,58.8,88.5,85.8,66.9,50.8,29.4,A,0.95,Ranked,3.2,59,5.4,fashion; finance; manufacturing,1.24,36.0,96.8,31.8,54.0,0.69,Manama,Torun,Katowice
-8,nl-eindhoven,Eindhoven,Netherlands,"Western, Northern, and Southern Europe",secondary,61.8,59.6,97.6,71.8,60.9,42.8,A,0.91,Ranked,0.8,17.9,4.5,tech; manufacturing; services,1.49,30.2,100.0,43.3,46.0,1.08,Ottawa,Montreal,Graz
-5,at-graz,Graz,Austria,"Western, Northern, and Southern Europe",secondary,62.1,57.9,87.1,74.4,70.7,41.4,A,0.91,Ranked,0.4,9.1,4.4,manufacturing; automotive; education,1.41,33.4,98.9,29.4,50.0,-0.66,Ottawa,Eindhoven,Montreal
-19,pt-braga,Braga,Portugal,"Western, Northern, and Southern Europe",secondary,57,54.5,95.7,68.8,47.3,43.8,A,0.91,Ranked,0.4,10.2,3.9,manufacturing; tech; services,1.43,37.3,95.2,44.1,58.0,2.14,Porto,Eindhoven,Bologna
-47,il-tel-aviv,Tel Aviv,Israel,Middle East,primary,53.1,41.4,86.1,64.7,41.6,54.7,A,0.91,Ranked,4.2,9.7,43.3,tech; finance; tourism,2.90,37.7,99.5,29.4,72.0,0.87,Tallinn,Porto,Tokyo
-27,us-chicago,Chicago,United States,North America,primary,55.3,48.4,56.6,79.1,43.5,62,A,0.85,Ranked,9.5,336,2.8,finance; manufacturing; trade,1.62,37.5,97.6,38.1,52.0,2.79,Minneapolis,Santiago,Pittsburgh
-39,pt-porto,Porto,Portugal,"Western, Northern, and Southern Europe",secondary,54.5,47.5,95.7,68.8,47.3,43.8,A,0.91,Ranked,2.6,10.2,25.5,manufacturing; tourism; services,1.43,37.3,95.2,44.1,62.0,2.14,Braga,Tokyo,Bologna
-42,ee-tallinn,Tallinn,Estonia,"Western, Northern, and Southern Europe",secondary,53.6,45.5,90.1,58.4,38.6,57.8,A,0.91,Ranked,0.45,1.37,32.8,tech; finance; government,,35.8,98.9,35.3,34.0,-0.09,Tel Aviv,Porto,Haifa
-26,pl-torun,Torun,Poland,Southern/Eastern Europe and Eurasia,secondary,55.5,66.7,79.5,65.1,51.2,31.9,A,0.91,Ranked,0.2,37.7,0.5,manufacturing; education; services,1.29,38.6,88.7,26.1,,3.03,Katowice,Gdansk,Krakow
-32,kr-incheon,Incheon,South Korea,East Asia,primary,55,50.5,99.2,85.8,30,50.6,A,0.91,Ranked,2.9,51.7,5.6,shipping; manufacturing; tourism,0.72,38.5,99.3,46.6,57.0,2.00,Busan,Jeju City,Suwon
-12,sg-singapore,Singapore,Singapore,Southeast Asia,primary,59.2,50.4,87.4,94.1,26.2,73.3,A,0.87,Ranked,5.9,5.9,100.0,finance; trade; tech,0.97,42.6,100.0,27.4,62.0,4.39,Taipei,Suwon,Incheon
-29,ch-zurich,Zurich,Switzerland,"Western, Northern, and Southern Europe",primary,55.2,33.7,97.6,72.7,72.8,49.4,A,0.91,Ranked,1.3,8.8,14.8,finance; tech; services,1.46,35.2,96.7,47.7,50.0,1.30,Toronto,Vancouver,Amsterdam
-25,dk-copenhagen,Copenhagen,Denmark,"Western, Northern, and Southern Europe",primary,55.9,26,97.9,71.3,89.3,61.5,A,0.91,Ranked,1.4,5.9,23.7,biotech; tourism; services,1.55,32.4,99.9,44.0,40.0,3.48,Zurich,London,Paris
-59,sa-khobar,Khobar,Saudi Arabia,Middle East,secondary,48.5,88.5,96.3,78.9,17.2,24.1,A,0.79,Ranked,1.2,36,3.3,energy; manufacturing; trade,2.37,,,43.6,26.0,2.00,Jeddah,Riyadh,Kuwait City
-54,au-sydney,Sydney,Australia,Oceania,primary,49.4,20.4,89.5,87.1,53.2,63.9,A,0.87,Ranked,5.3,26,20.4,finance; tourism; services,1.58,37.3,,36.6,72.0,1.37,Melbourne,Auckland,Brisbane
-60,sa-jeddah,Jeddah,Saudi Arabia,Middle East,secondary,48.4,87.3,96.3,78.9,17.2,24.1,A,0.79,Ranked,4.7,36,13.1,trade; tourism; finance,2.37,,,43.6,28.0,2.00,Khobar,Riyadh,Kuwait City
-32,au-brisbane,Brisbane,Australia,Oceania,primary,55,34.5,89.5,87.1,53.2,54.4,A,0.87,Ranked,2.6,26,10.0,tourism; mining; services,1.58,37.3,,36.6,72.0,1.37,Perth,Melbourne,Adelaide
-27,at-vienna,Vienna,Austria,"Western, Northern, and Southern Europe",primary,55.3,40.2,87.1,74.4,70.7,41.4,A,0.91,Ranked,2,9.1,22.0,government; finance; tourism,1.41,33.4,98.9,29.4,52.0,-0.66,Ottawa,Zurich,Amsterdam
-37,au-melbourne,Melbourne,Australia,Oceania,primary,54.8,31,89.5,87.1,53.2,60.5,A,0.87,Ranked,5.1,26,19.6,finance; education; tourism,1.58,37.3,,36.6,62.0,1.37,Brisbane,Auckland,Sydney
-18,au-perth,Perth,Australia,Oceania,secondary,57.1,40.7,89.5,87.1,53.2,51.2,A,0.87,Ranked,2.2,26,8.5,mining; finance; services,1.58,37.3,,36.6,74.0,1.37,Adelaide,Brisbane,Christchurch
-10,bh-manama,Manama,Bahrain,Middle East,secondary,59.7,82.6,79.7,57.8,47,42.5,A,0.83,Ranked,0.7,1.5,46.7,finance; tourism; trade,1.80,,98.9,17.2,34.0,2.60,Milan,Torun,Katowice
-24,au-adelaide,Adelaide,Australia,Oceania,secondary,56,39.6,89.5,87.1,53.2,49.2,A,0.87,Ranked,1.4,26,5.4,manufacturing; education; services,1.58,37.3,,36.6,70.0,1.37,Perth,Brisbane,Christchurch
-32,ca-toronto,Toronto,Canada,North America,primary,55,32.4,93.3,75.3,64.4,54.1,A,0.91,Ranked,6.4,40,16.0,finance; tech; services,1.26,34.8,96.9,42.5,46.0,1.55,Vancouver,Helsinki,Zurich
-73,pr-san-juan,San Juan,Puerto Rico,North America,secondary,44.6,35.3,59.2,68.3,61.3,45.8,B,0.63,Ranked,2.3,3.2,71.9,tourism; manufacturing; government,,35.8,98.9,23.2,,3.18,San Jose,Santiago,Montevideo
-53,nl-amsterdam,Amsterdam,Netherlands,"Western, Northern, and Southern Europe",primary,49.9,31.4,97.6,71.8,60.9,42.8,A,0.91,Ranked,1.1,17.9,6.1,finance; tourism; trade,1.49,30.2,100.0,43.3,46.0,1.08,Toronto,Vancouver,Zurich
-69,cn-tianjin,Tianjin,China,East Asia,secondary,45.6,40.6,98.6,71.9,32.4,37.1,A,0.83,Ranked,14,1409,1.0,manufacturing; shipping; trade,1.00,,,44.7,52.0,4.98,Guangzhou,Shenzhen,Shanghai
-55,jp-hiroshima,Hiroshima,Japan,East Asia,primary,49.1,57,94.5,67.4,25.8,37.3,A,0.91,Ranked,1.2,125,1.0,manufacturing; tourism; education,1.20,36.6,98.7,38.6,,0.10,Sapporo,Kobe,Fukuoka
-66,fr-paris,Paris,France,"Western, Northern, and Southern Europe",primary,46.3,23.1,97.9,63.9,72,45.1,A,0.91,Ranked,11.2,68,16.5,tourism; finance; services,1.68,35.5,99.7,48.7,50.0,1.19,Zurich,Amsterdam,Vancouver
-43,pl-gdansk,Gdansk,Poland,Southern/Eastern Europe and Eurasia,secondary,53.4,58.2,79.5,65.1,51.2,31.9,A,0.91,Ranked,0.77,37.7,2.0,shipping; manufacturing; tourism,1.29,38.6,88.7,26.1,44.0,3.03,Katowice,Torun,Krakow
-44,ca-vancouver,Vancouver,Canada,North America,primary,53.3,29.3,93.3,75.3,64.4,54.1,A,0.91,Ranked,2.6,40,6.5,tech; tourism; trade,1.26,34.8,96.9,42.5,48.0,1.55,Toronto,Helsinki,Zurich
-49,sk-bratislava,Bratislava,Slovakia,Southern/Eastern Europe and Eurasia,secondary,50.9,54.1,89.7,49.7,51.5,35.3,A,0.91,Ranked,0.48,5.4,8.9,finance; manufacturing; government,,37.9,99.6,33.2,52.0,1.94,Budapest,Bologna,Gdansk
-20,kr-jeju-city,Jeju City,South Korea,East Asia,secondary,56.3,53.8,99.2,85.8,30,50.6,A,0.91,Ranked,0.49,51.7,0.9,tourism; services; agriculture,0.72,38.5,99.3,46.6,60.0,2.00,Busan,Incheon,Suwon
-49,pl-krakow,Krakow,Poland,Southern/Eastern Europe and Eurasia,primary,50.9,49.6,79.5,65.1,51.2,31.9,A,0.91,Ranked,0.97,37.7,2.6,tourism; manufacturing; education,1.29,38.6,88.7,26.1,48.0,3.03,Gdansk,Bologna,Katowice
-87,th-chiang-mai,Chiang Mai,Thailand,Southeast Asia,secondary,41.1,54.3,49.7,56.4,36.4,22.8,A,0.9,Ranked,1.2,72,1.7,tourism; services; agriculture,1.08,42.5,95.0,15.8,64.0,2.54,Panama City,Hat Yai,Da Nang
-62,mu-port-louis,Port Louis,Mauritius,Africa,secondary,47.2,54.6,76.2,47,26.2,45.4,A,0.87,Ranked,0.15,1.3,11.5,finance; trade; tourism,,38.3,,26.9,,4.93,Bucharest,Male,Doha
-52,it-bologna,Bologna,Italy,"Western, Northern, and Southern Europe",secondary,50.8,50.9,88.2,66.9,50.8,29.4,A,0.91,Ranked,1.1,59,1.9,manufacturing; education; services,1.24,36.0,96.8,31.8,56.0,0.69,Krakow,Gdansk,Budapest
-65,my-kota-kinabalu,Kota Kinabalu,Malaysia,Southeast Asia,secondary,46.9,61.3,77.9,52.4,31.1,31.5,A,0.95,Ranked,0.56,33,1.7,tourism; agriculture; trade,1.60,44.7,90.0,13.0,60.0,5.11,Melaka,Kuching,George Town
-64,my-kuching,Kuching,Malaysia,Southeast Asia,secondary,47,61.3,73.7,52.4,32.2,31.5,A,0.91,Ranked,0.75,33,2.3,government; services; tourism,1.60,44.7,94.7,13.0,,5.11,Melaka,George Town,Kota Kinabalu
-62,my-melaka,Melaka,Malaysia,Southeast Asia,secondary,47.2,63,75.3,52.4,31.4,31.5,A,0.95,Ranked,0.47,33,1.4,tourism; manufacturing; trade,1.60,44.7,90.0,13.0,56.0,5.11,Kuching,Kota Kinabalu,George Town
-68,my-george-town,George Town,Malaysia,Southeast Asia,secondary,46.1,57.2,73.7,52.4,32.2,31.5,A,0.91,Ranked,1.6,33,4.8,tech; manufacturing; tourism,1.60,44.7,94.7,13.0,,5.11,Kuching,Kota Kinabalu,Melaka
-55,jp-sapporo,Sapporo,Japan,East Asia,secondary,49.1,57,94.5,67.4,25.8,37.3,A,0.91,Ranked,2,125,1.6,tourism; agriculture; tech,1.20,36.6,98.7,38.6,50.0,0.10,Hiroshima,Kobe,Fukuoka
-71,om-salalah,Salalah,Oman,Middle East,secondary,44.7,72,71.1,42,29.5,30.6,A,0.83,Ranked,0.25,4.7,5.3,tourism; trade; agriculture,,,91.1,10.9,42.0,1.63,Muscat,Melaka,Kuching
-73,ar-cordoba,Cordoba,Argentina,Latin America,secondary,44.6,65.5,69.2,78.6,49,10.2,A,0.87,Ranked,1.6,46,3.5,manufacturing; education; services,1.56,36.5,,25.4,,-1.34,Buenos Aires,Montevideo,Torun
-41,ae-dubai,Dubai,United Arab Emirates,Middle East,primary,53.9,64.4,92.6,62,27.6,46.2,A,0.91,Ranked,3.6,10.3,35.0,trade; tourism; finance,,50.8,98.6,37.1,35.0,3.99,Abu Dhabi,Fukuoka,Hiroshima
-84,cn-guangzhou,Guangzhou,China,East Asia,primary,41.9,33,98.6,71.9,32.4,37.1,A,0.83,Ranked,14,1409,1.0,manufacturing; trade; tech,1.00,,,44.7,62.0,4.98,Shenzhen,Tianjin,Shanghai
-40,ae-abu-dhabi,Abu Dhabi,United Arab Emirates,Middle East,primary,54.2,65.4,92.6,62,27.6,46.2,A,0.91,Ranked,1.5,10.3,14.6,energy; finance; government,,50.8,98.6,37.1,33.0,3.99,Dubai,Fukuoka,Hiroshima
-71,hu-budapest,Budapest,Hungary,Southern/Eastern Europe and Eurasia,primary,44.7,42.9,93.1,55.5,52.3,26.2,A,0.91,Ranked,2.5,9.6,26.0,tourism; finance; manufacturing,,37.2,100.0,36.8,54.0,0.56,Bologna,Bratislava,Krakow
-66,uy-montevideo,Montevideo,Uruguay,Latin America,secondary,46.3,49.6,59.5,74.6,50.5,24.4,A,0.87,Ranked,1.4,3.5,40.0,government; finance; agriculture,,36.8,,32.4,58.0,3.11,Buenos Aires,Krakow,Cordoba
-88,cn-hangzhou,Hangzhou,China,East Asia,primary,40.9,29.2,84,71.9,33.3,37.1,A,0.95,Ranked,8,1409,0.6,tech; trade; manufacturing,1.00,46.0,95.0,44.7,56.0,4.98,Chengdu,Chongqing,Shenzhen
-48,nz-auckland,Auckland,New Zealand,Oceania,primary,51.1,26,92.6,85.7,58.4,52.9,A,0.87,Ranked,1.7,5.1,33.3,finance; services; tourism,1.56,37.5,100.0,37.9,58.0,1.29,Wellington,Helsinki,Hobart
-91,cn-shenzhen,Shenzhen,China,East Asia,primary,39.9,29.2,98.6,71.9,32.4,37.1,A,0.83,Ranked,13,1409,0.9,tech; manufacturing; trade,1.00,,,44.7,66.0,4.98,Guangzhou,Shanghai,Tianjin
-21,nz-christchurch,Christchurch,New Zealand,Oceania,secondary,56.2,41.7,92.6,85.7,58.4,43.6,A,0.87,Ranked,0.4,5.1,7.8,tourism; agriculture; services,1.56,37.5,100.0,37.9,56.0,1.29,Dunedin,Adelaide,Perth
-79,om-muscat,Muscat,Oman,Middle East,secondary,43.8,63.6,71.1,42,29.5,30.6,A,0.83,Ranked,1.5,4.7,31.9,government; finance; tourism,,,91.1,10.9,30.0,1.63,Salalah,Male,Kuching
-83,mv-male,Male,Maldives,South Asia,secondary,42.4,54.1,72.1,39.8,26.5,35.4,A,0.82,Ranked,0.22,0.52,42.3,tourism; government; trade,,46.5,,18.7,,3.49,Muscat,Port Louis,Bucharest
-75,cr-san-jose,San Jose,Costa Rica,North America,primary,44.4,40.2,43.5,66,54.6,35.9,A,0.91,Ranked,1.4,5.2,26.9,tech; finance; services,,42.9,80.5,22.5,64.0,4.32,San Juan,Montevideo,Bogota
-88,ar-buenos-aires,Buenos Aires,Argentina,Latin America,primary,40.9,50.7,69.2,78.6,49,10.2,A,0.87,Ranked,15.3,46,33.3,finance; tourism; services,1.56,36.5,,25.4,62.0,-1.34,Cordoba,Montevideo,Krakow
-76,cn-chongqing,Chongqing,China,East Asia,primary,44.2,36.5,75.2,71.9,33,37.1,A,0.95,Ranked,8,1409,0.6,manufacturing; automotive; trade,1.00,46.0,95.0,44.7,44.0,4.98,Chengdu,Hangzhou,Belgrade
-57,au-hobart,Hobart,Australia,Oceania,secondary,48.7,27.9,89.5,87.1,53.2,45.1,A,0.87,Ranked,0.24,26,0.9,tourism; education; services,1.58,37.3,,36.6,52.0,1.37,Wellington,Auckland,Brisbane
-79,cn-chengdu,Chengdu,China,East Asia,primary,43.8,35.4,77,71.9,33.2,37.1,A,0.95,Ranked,9,1409,0.6,tech; manufacturing; tourism,1.00,46.0,95.0,44.7,42.0,4.98,Chongqing,Hangzhou,Guangzhou
-17,nz-dunedin,Dunedin,New Zealand,Oceania,secondary,57.3,48,92.6,85.7,58.4,39.1,A,0.87,Ranked,0.13,5.1,2.5,education; tourism; agriculture,1.56,37.5,100.0,37.9,48.0,1.29,Christchurch,Ottawa,Adelaide
-100,rw-kigali,Kigali,Rwanda,Africa,primary,33.7,54.3,47.2,15.8,53.3,24.8,A,0.87,Ranked,1.1,14.1,7.8,government; tech; services,3.90,29.9,,0.5,70.0,8.89,Phnom Penh,Windhoek,Nairobi
-44,nz-wellington,Wellington,New Zealand,Oceania,primary,53.3,32.3,92.6,85.7,58.4,48.8,A,0.87,Ranked,0.43,5.1,8.4,government; finance; services,1.56,37.5,100.0,37.9,52.0,1.29,Helsinki,Auckland,Hobart
-103,ma-casablanca,Casablanca,Morocco,Africa,primary,33.2,44.3,59.9,34.1,28.9,18.8,A,0.88,Ranked,4.4,37.7,11.7,finance; manufacturing; trade,,44.0,80.0,7.0,68.0,3.79,Rabat,Hyderabad,Pune
-96,cn-shanghai,Shanghai,China,East Asia,primary,37.2,24.4,98.6,71.9,32.4,37.1,A,0.83,Ranked,25,1409,1.8,finance; trade; manufacturing,1.00,,,44.7,58.0,4.98,Shenzhen,Guangzhou,Hangzhou
-70,ro-bucharest,Bucharest,Romania,Southern/Eastern Europe and Eurasia,primary,44.9,53.6,81.4,50.6,27.6,34.8,A,0.91,Ranked,2.2,19.2,11.5,tech; finance; manufacturing,,38.7,82.2,34.7,54.0,0.92,Kota Kinabalu,George Town,Kuala Lumpur
-77,my-kuala-lumpur,Kuala Lumpur,Malaysia,Southeast Asia,primary,44.1,48.9,73.7,52.4,32.2,31.5,A,0.91,Ranked,7.7,33,23.3,finance; trade; tourism,1.60,44.7,94.7,13.0,56.0,5.11,George Town,Belgrade,Bucharest
-36,fi-helsinki,Helsinki,Finland,"Western, Northern, and Southern Europe",secondary,54.9,33.8,91.5,81,58.2,52.9,A,0.91,Ranked,1.6,5.5,29.1,tech; finance; services,1.32,33.8,99.7,35.3,32.0,0.42,Wellington,Brisbane,Toronto
-78,rs-belgrade,Belgrade,Serbia,Southern/Eastern Europe and Eurasia,primary,44,43.4,74.8,53.2,39.7,30.3,A,0.91,Ranked,1.7,6.6,25.8,tech; manufacturing; services,,41.0,75.0,31.3,54.0,3.95,Kuala Lumpur,Phuket,George Town
-86,pa-panama-city,Panama City,Panama,North America,primary,41.4,55.5,44,64.2,33,26.9,A,0.87,Ranked,2.6,4.4,59.1,finance; trade; services,,36.0,,18.1,58.0,2.75,Chiang Mai,Curitiba,Florianopolis
-92,br-curitiba,Curitiba,Brazil,Latin America,secondary,38.2,49.4,45.1,69.5,23.2,27.6,A,0.91,Ranked,3.5,215,1.6,manufacturing; tech; services,1.64,38.9,88.6,22.4,56.0,3.42,Florianopolis,Sao Paulo,Panama City
-61,sa-riyadh,Riyadh,Saudi Arabia,Middle East,primary,48.2,86.1,96.3,78.9,17.2,24.1,A,0.79,Ranked,7.7,36,21.4,government; finance; energy,2.37,,,43.6,30.0,2.00,Jeddah,Khobar,Kuwait City
-99,co-medellin,Medellin,Colombia,Latin America,secondary,34.4,52.4,28,66.3,40,19.6,A,0.91,Ranked,4.1,52,7.9,manufacturing; tech; services,1.64,42.8,74.3,17.0,72.0,1.60,Bogota,Panama City,Chiang Mai
-101,ma-rabat,Rabat,Morocco,Africa,primary,33.4,45.5,59.9,34.1,28.9,18.8,A,0.88,Ranked,2.1,37.7,5.6,government; services; tourism,,44.0,80.0,7.0,,3.79,Casablanca,Hyderabad,Pune
-81,th-hat-yai,Hat Yai,Thailand,Southeast Asia,secondary,43.5,55.1,66.7,56.4,36.4,22.8,A,0.9,Ranked,0.4,72,0.6,trade; agriculture; services,1.08,42.5,92.0,15.8,55.0,2.54,Phuket,George Town,Kuching
-133,vn-da-nang,Da Nang,Vietnam,Southeast Asia,secondary,20.2,51,,44.3,,20.8,C,0.45,Ranked,1.2,98.3,1.2,tourism; manufacturing; services,1.94,,,,,,Lima,Arequipa,Chiang Mai
-95,ru-nizhny-novgorod,Nizhny Novgorod,Russia,Southern/Eastern Europe and Eurasia,secondary,37.6,70.2,62.4,59.2,21.1,15.5,A,0.91,Ranked,1.25,144,0.9,manufacturing; automotive; trade,,39.2,76.3,25.8,,4.34,Kuwait City,Hat Yai,Melaka
-85,th-phuket,Phuket,Thailand,Southeast Asia,secondary,41.5,46.6,68,56.4,36.4,22.8,A,0.9,Ranked,0.4,72,0.6,tourism; services; trade,1.08,42.5,90.0,15.8,60.0,2.54,Hat Yai,Belgrade,Kuala Lumpur
-93,br-florianopolis,Florianopolis,Brazil,Latin America,secondary,37.8,47.6,45.1,69.5,23.2,27.6,A,0.91,Ranked,1.2,215,0.6,tech; services; tourism,1.64,38.9,88.6,22.4,,3.42,Curitiba,Sao Paulo,Panama City
-98,br-sao-paulo,Sao Paulo,Brazil,Latin America,primary,35,37.6,45.1,69.5,23.2,27.6,A,0.91,Ranked,22,215,10.2,finance; manufacturing; services,1.64,38.9,88.6,22.4,60.0,3.42,Florianopolis,Curitiba,Panama City
-117,jo-amman,Amman,Jordan,Middle East,secondary,27,37.5,66,46.5,10.8,17,A,0.88,Ranked,4.2,10.3,40.8,finance; services; government,,48.8,89.0,7.0,65.0,2.49,Aqaba,Moscow,Bengaluru
-112,jo-aqaba,Aqaba,Jordan,Middle East,secondary,28.2,41.5,66,46.5,10.8,17,A,0.88,Ranked,0.14,10.3,1.4,tourism; trade; services,,48.8,89.0,7.0,,2.49,Amman,Moscow,Casablanca
-134,kh-phnom-penh,Phnom Penh,Cambodia,Southeast Asia,primary,15.4,41.9,,18.2,,36.3,C,0.38,Ranked,2.3,17.2,13.4,manufacturing; government; tourism,,,,,,,Kigali,Windhoek,Nairobi
-94,pe-arequipa,Arequipa,Peru,Latin America,secondary,37.7,55.9,34.1,42.3,44,24.7,A,0.85,Ranked,1.1,33,3.3,mining; manufacturing; tourism,,39.7,49.4,10.4,,3.30,Lima,Cebu City,Makati
-107,id-surabaya,Surabaya,Indonesia,Southeast Asia,secondary,32.1,63.2,40.8,35.1,27.6,17.8,A,0.91,Ranked,9.8,277,3.5,shipping; manufacturing; trade,,38.4,30.5,4.8,,5.03,Jakarta,Cebu City,Makati
-105,co-bogota,Bogota,Colombia,Latin America,primary,33,45.1,28,66.3,40,19.6,A,0.91,Ranked,11.5,52,22.1,finance; services; government,1.64,42.8,74.3,17.0,54.0,1.60,Medellin,Panama City,Guadalajara
-103,ph-cebu-city,Cebu City,Philippines,Southeast Asia,secondary,33.2,55,38.2,40.4,30.9,17.5,A,0.91,Ranked,3.1,115,2.7,manufacturing; tourism; services,,40.0,48.5,6.5,,5.69,Makati,Jakarta,Surabaya
-124,ke-nairobi,Nairobi,Kenya,Africa,primary,24,45.6,45.1,12.5,29.3,14.5,A,0.87,Ranked,4.7,55,8.5,tech; finance; services,3.30,39.6,,2.4,72.0,4.72,Dhaka,Chattogram,Pokhara
-114,in-pune,Pune,India,South Asia,primary,28,43.6,53.1,30.4,20.8,14.6,A,0.91,Ranked,7.4,1428,0.5,manufacturing; tech; education,2.00,45.7,76.4,2.8,70.0,6.49,Hyderabad,Bengaluru,Chandigarh
-97,pe-lima,Lima,Peru,Latin America,primary,36.8,47.8,34.1,42.3,44,24.7,A,0.85,Ranked,10.9,33,33.0,finance; manufacturing; services,,39.7,49.4,10.4,,3.30,Arequipa,Windhoek,Makati
-106,ph-makati,Makati,Philippines,Southeast Asia,primary,32.8,50.1,38.2,40.4,30.9,17.5,A,0.91,Ranked,0.58,115,0.5,finance; services; tech,,40.0,48.5,6.5,,5.69,Cebu City,Jakarta,Surabaya
-90,kw-kuwait-city,Kuwait City,Kuwait,Middle East,secondary,40.3,87.2,69.2,65,15,19.9,A,0.83,Ranked,3.1,4.3,72.1,energy; finance; government,2.08,,100.0,1.0,28.0,-2.56,Nizhny Novgorod,Jeddah,Riyadh
-110,ru-moscow,Moscow,Russia,Southern/Eastern Europe and Eurasia,primary,30.4,35.2,62.4,59.2,21.1,15.5,A,0.91,Ranked,12.5,144,8.7,finance; tech; government,,39.2,76.3,25.8,,4.34,Amman,Aqaba,Phuket
-113,in-hyderabad,Hyderabad,India,South Asia,primary,28.1,43.9,53.1,30.4,20.8,14.6,A,0.91,Ranked,10.5,1428,0.7,tech; manufacturing; services,2.00,45.7,76.4,2.8,64.0,6.49,Pune,Bengaluru,Chandigarh
-123,mx-guadalajara,Guadalajara,Mexico,North America,secondary,25.3,45,13.3,55.5,55.5,14.1,A,0.91,Ranked,5.3,130,4.1,tech; manufacturing; services,1.80,42.2,43.0,20.1,68.0,1.43,Merida,Mexico City,Bogota
-107,id-jakarta,Jakarta,Indonesia,Southeast Asia,primary,32.1,56.6,40.8,35.1,27.6,17.8,A,0.91,Ranked,34,277,12.3,finance; trade; government,,38.4,30.5,4.8,54.0,5.03,Surabaya,Cebu City,Makati
-124,bt-thimphu,Thimphu,Bhutan,South Asia,secondary,24,46.7,47,25.2,18.9,10.2,A,0.91,Ranked,0.11,0.78,14.1,government; tourism; agriculture,,54.4,65.6,1.3,,4.63,Chandigarh,Hyderabad,Pune
-126,gh-accra,Accra,Ghana,Africa,secondary,23.4,53.3,35.9,14.9,21.7,17.8,A,0.91,Ranked,4.5,33.5,13.4,finance; services; government,3.60,35.5,42.9,0.6,56.0,5.59,Kumasi,Pokhara,Kathmandu
-127,gh-kumasi,Kumasi,Ghana,Africa,secondary,23,58.7,35.9,14.9,21.7,17.8,A,0.91,Ranked,3.6,33.5,10.7,manufacturing; trade; agriculture,3.60,35.5,42.9,0.6,,5.59,Accra,Pokhara,Chattogram
-115,in-bengaluru,Bengaluru,India,South Asia,primary,27.9,42.7,53.1,30.4,20.8,14.6,A,0.91,Ranked,13.7,1428,1.0,tech; manufacturing; services,2.00,45.7,76.4,2.8,,6.49,Pune,Hyderabad,Chandigarh
-132,mx-mexico-city,Mexico City,Mexico,North America,primary,22,32.1,13.3,55.5,55.5,14.1,A,0.91,Ranked,22,130,16.9,finance; manufacturing; government,1.80,42.2,43.0,20.1,66.0,1.43,Guadalajara,Merida,Bogota
-101,na-windhoek,Windhoek,Namibia,Africa,secondary,33.4,41.6,30.5,32.1,46.9,25.4,A,0.87,Ranked,0.44,2.6,16.9,government; mining; services,,44.9,,3.5,,3.71,Lima,Arequipa,Johannesburg
-116,in-chandigarh,Chandigarh,India,South Asia,primary,27.8,43.4,44.1,30.4,21.5,14.6,A,0.95,Ranked,1.1,1428,0.1,government; services; education,2.00,45.7,85.0,2.8,55.0,6.49,Thimphu,Pune,Hyderabad
-82,qa-doha,Doha,Qatar,Middle East,primary,42.9,53.9,73.9,54.4,16.8,37.6,A,0.91,Ranked,2.4,3,80.0,energy; finance; government,1.80,48.0,95.3,11.6,32.0,2.36,Bucharest,Port Louis,George Town
-119,lk-kandy,Kandy,Sri Lanka,South Asia,secondary,25.4,51.5,40.7,33.7,15.8,11.7,A,0.91,Ranked,0.13,22,0.6,tourism; agriculture; services,1.99,41.7,46.9,8.8,,5.01,Colombo,Chandigarh,Thimphu
-119,za-cape-town,Cape Town,South Africa,Africa,primary,25.4,31.5,15.1,26.3,53.6,29.8,A,0.88,Ranked,4.6,60,7.7,tourism; finance; services,2.33,42.4,68.0,3.4,72.0,0.53,Johannesburg,Windhoek,Dakar
-128,bd-chattogram,Chattogram,Bangladesh,South Asia,secondary,22.7,51.3,48.3,10.8,23.3,15.7,A,0.91,Ranked,5.5,170,3.2,shipping; manufacturing; trade,1.95,46.7,59.1,7.9,,4.22,Dhaka,Nairobi,Pokhara
-107,bw-gaborone,Gaborone,Botswana,Africa,secondary,32.1,50.3,31.9,22.2,25.1,39,A,0.91,Ranked,0.27,2.6,10.4,government; mining; services,,42.9,63.3,3.4,,-2.99,Accra,Kumasi,Pokhara
-119,lk-colombo,Colombo,Sri Lanka,South Asia,primary,25.4,48.3,40.7,33.7,15.8,11.7,A,0.91,Ranked,3.6,22,16.4,finance; trade; services,1.99,41.7,46.9,8.8,,5.01,Kandy,Chandigarh,Thimphu
-118,mx-merida,Merida,Mexico,North America,secondary,26.1,49.8,13.3,55.5,55.5,14.1,A,0.91,Ranked,1.2,130,0.9,tourism; manufacturing; services,1.80,42.2,43.0,20.1,,1.43,Guadalajara,Mexico City,Medellin
-128,bd-dhaka,Dhaka,Bangladesh,South Asia,primary,22.7,48.8,48.3,10.8,23.3,15.7,A,0.91,Ranked,21,170,12.4,manufacturing; garments; services,1.95,46.7,59.1,7.9,,4.22,Chattogram,Nairobi,Pokhara
-119,za-johannesburg,Johannesburg,South Africa,Africa,primary,25.4,31.7,15.1,26.3,53.6,29.8,A,0.88,Ranked,10.6,60,17.7,finance; mining; services,2.33,42.4,68.0,3.4,68.0,0.53,Cape Town,Windhoek,Dakar
-111,fj-suva,Suva,Fiji,Oceania,secondary,30.2,41.6,36.1,47.7,13.6,25.1,A,0.86,Ranked,0.18,0.93,19.4,government; trade; services,,37.3,42.1,2.5,,3.53,Colombo,Makati,Kandy
-130,np-pokhara,Pokhara,Nepal,South Asia,secondary,22.1,44.3,37.6,12.2,20.9,16.6,A,0.87,Ranked,0.45,30,1.5,tourism; agriculture; services,,,16.5,4.8,,3.67,Kathmandu,Accra,Nairobi
-130,np-kathmandu,Kathmandu,Nepal,South Asia,secondary,22.1,41.7,37.6,12.2,20.9,16.6,A,0.87,Ranked,3.2,30,10.7,tourism; government; services,,,16.5,4.8,,3.67,Pokhara,Nairobi,Accra
-135,sn-dakar,Dakar,Senegal,Africa,secondary,12.4,38.8,0.7,10.6,45.1,26.7,A,0.81,Ranked,3.7,17.8,20.8,government; services; trade,4.20,48.3,27.2,2.0,,6.06,Johannesburg,Cape Town,Windhoek
-137,pk-karachi,Karachi,Pakistan,South Asia,primary,11.5,48,32.7,8.1,15.3,4.4,A,0.91,Ranked,16.1,231,7.0,manufacturing; shipping; finance,3.36,46.8,45.0,1.4,,3.05,Lahore,Islamabad,Pokhara
-138,pk-lahore,Lahore,Pakistan,South Asia,secondary,11.4,48.3,32.7,8.1,15.3,4.4,A,0.91,Ranked,13.1,231,5.7,manufacturing; services; government,3.36,46.8,45.0,1.4,,3.05,Karachi,Islamabad,Pokhara
-136,pk-islamabad,Islamabad,Pakistan,South Asia,primary,11.6,47.2,32.7,8.1,15.3,4.4,A,0.91,Ranked,1.2,231,0.5,government; services; education,3.36,46.8,45.0,1.4,,3.05,Karachi,Lahore,Pokhara
-23,uk-london,London,United Kingdom,"Western, Northern, and Southern Europe",primary,56.1,30.1,82.8,78.4,74.2,59.3,A,0.95,Ranked,,,,,,36.2,99.8,16.2,38.2,0.80,Vancouver,Toronto,New York
-21,us-new-york,New York,United States,North America,primary,56.2,23.9,85.4,82,71.5,75.3,A,0.95,Ranked,,,,,,38.7,99.7,28.4,49.5,2.40,London,Sydney,Vancouver
-44,jp-tokyo,Tokyo,Japan,East Asia,primary,53.3,39.7,94.2,76.8,51.6,44.2,A,0.95,Ranked,,,,,,39.1,99.9,34.8,43.8,0.70,Christchurch,Porto,Adelaide
+3,tw-kaohsiung,Kaohsiung,Taiwan,East Asia,primary,66.7,66.1,86.5,90.6,47.1,56.9,A,0.77,Ranked,2.8,23.6,11.9,manufacturing; shipping; tech,0.87,41.5,98.0,28.0,68.0,,Suwon,Jeju City,Incheon
+7,tw-taipei,Taipei,Taiwan,East Asia,primary,63.8,48.4,89.5,89.7,47.1,69.4,A,0.86,Ranked,7,23.6,29.7,tech; finance; services,0.87,41.5,99.0,28.0,62.0,,Singapore,Melbourne,Brisbane
+1,us-raleigh,Raleigh,United States,North America,secondary,69,75.1,76,79.1,53.8,62,A,0.85,Ranked,1.4,336,0.4,tech; education; services,1.62,37.5,97.6,38.1,62.0,2.79,Minneapolis,Pittsburgh,Kaohsiung
+15,kr-busan,Busan,South Korea,East Asia,primary,60.5,53.2,99.2,85.8,44.8,50.6,A,0.91,Ranked,3.6,51.7,7.0,shipping; manufacturing; tourism,0.72,38.5,99.3,46.6,64.0,2.00,Incheon,Jeju City,Suwon
+47,pl-katowice,Katowice,Poland,Southern/Eastern Europe and Eurasia,secondary,55.4,65.9,79.5,65.1,52,31.9,A,0.91,Ranked,2.6,37.7,6.9,mining; manufacturing; services,1.29,38.6,88.7,26.1,,3.03,Torun,Gdansk,Krakow
+36,jp-fukuoka,Fukuoka,Japan,East Asia,secondary,57.6,59,94.5,67.4,46.6,42.3,A,0.91,Ranked,2.7,125,2.2,tech; trade; services,1.20,36.6,98.7,38.6,67.0,0.10,Hiroshima,Sapporo,Kobe
+25,th-bangkok,Bangkok,Thailand,Southeast Asia,primary,58.5,45.4,84.9,62.5,90,46,A,0.95,Ranked,11.9,72,16.5,tourism; finance; services,1.08,42.5,93.0,43.9,72.0,2.54,Prague,Lyon,Zurich
+13,fr-lyon,Lyon,France,"Western, Northern, and Southern Europe",primary,60.6,52.4,97.9,63.9,73.1,45.1,A,0.91,Ranked,2.3,68,3.4,biotech; manufacturing; services,1.68,35.5,99.7,48.7,56.0,1.19,Ottawa,Tokyo,Porto
+2,ca-montreal,Montreal,Canada,North America,secondary,68.9,62.3,93.3,75.3,74.1,54.1,A,0.91,Ranked,4.3,40,10.8,tech; finance; services,1.26,34.8,96.9,42.5,44.0,1.55,Ottawa,Graz,Eindhoven
+35,cl-santiago,Santiago,Chile,Latin America,primary,57.9,50.7,72.7,83.8,56.9,44.6,A,0.91,Ranked,7.1,19.5,36.4,finance; mining; services,1.44,38.9,97.8,23.0,68.0,2.64,Valparaiso,Adelaide,Perth
+21,us-pittsburgh,Pittsburgh,United States,North America,secondary,64.5,76,65.1,79.1,50.2,55.7,A,0.91,Ranked,2.4,336,0.7,tech; education; services,1.62,37.5,97.6,38.1,46.0,2.79,Minneapolis,Raleigh,Haifa
+61,jp-kobe,Kobe,Japan,East Asia,secondary,55.4,58,94.5,67.4,46.6,37.3,A,0.91,Ranked,1.5,125,1.2,shipping; manufacturing; tourism,1.20,36.6,98.7,38.6,,0.10,Hiroshima,Sapporo,Fukuoka
+11,us-minneapolis,Minneapolis,United States,North America,primary,64.6,71.6,69.1,79.1,44.2,62,A,0.85,Ranked,3.6,336,1.1,finance; healthcare; manufacturing,1.62,37.5,97.6,38.1,48.0,2.79,Pittsburgh,Raleigh,Haifa
+10,il-haifa,Haifa,Israel,Middle East,secondary,60.7,66.9,71.8,64.7,45.8,54.7,A,0.91,Ranked,1.1,9.7,11.3,tech; shipping; education,2.90,37.7,99.5,29.4,70.0,0.87,Minneapolis,Manama,Pittsburgh
+31,kr-suwon,Suwon,South Korea,East Asia,primary,60.3,53.3,93.1,85.8,45.1,50.6,A,0.95,Ranked,1.2,51.7,2.3,manufacturing; tech; trade,0.72,38.5,99.0,46.6,60.0,2.00,Incheon,Busan,Jeju City
+12,ca-ottawa,Ottawa,Canada,North America,primary,63.5,55.3,93.3,75.3,75.6,44.2,A,0.91,Ranked,1.5,40,3.8,government; tech; services,1.26,34.8,96.9,42.5,42.0,1.55,Graz,Tokyo,Vienna
+20,cl-valparaiso,Valparaiso,Chile,Latin America,secondary,58.9,58.3,72.7,73.6,56.9,43,A,0.91,Ranked,1,19.5,5.1,shipping; tourism; education,1.44,38.9,97.8,23.0,,2.64,Santiago,Gdansk,Krakow
+16,it-milan,Milan,Italy,"Western, Northern, and Southern Europe",primary,60.5,88.5,85.8,66.9,58.4,29.4,A,0.95,Ranked,3.2,59,5.4,fashion; finance; manufacturing,1.24,36.0,96.8,31.8,54.0,0.69,Torun,Katowice,Gdansk
+5,nl-eindhoven,Eindhoven,Netherlands,"Western, Northern, and Southern Europe",secondary,64.3,64.6,97.6,71.8,65.7,42.8,A,0.91,Ranked,0.8,17.9,4.5,tech; manufacturing; services,1.49,30.2,100.0,43.3,46.0,1.08,Braga,Graz,Ottawa
+6,at-graz,Graz,Austria,"Western, Northern, and Southern Europe",secondary,63.9,62.4,87.1,74.4,73.4,41.4,A,0.91,Ranked,0.4,9.1,4.4,manufacturing; automotive; education,1.41,33.4,98.9,29.4,50.0,-0.66,Ottawa,Eindhoven,Venice
+14,pt-braga,Braga,Portugal,"Western, Northern, and Southern Europe",secondary,60.6,58.4,95.7,68.8,57.9,43.8,A,0.91,Ranked,0.4,10.2,3.9,manufacturing; tech; services,1.43,37.3,95.2,44.1,58.0,2.14,Porto,Eindhoven,Fukuoka
+45,il-tel-aviv,Tel Aviv,Israel,Middle East,primary,55.8,47.2,75.2,64.7,46.6,54.7,A,0.91,Ranked,4.2,9.7,43.3,tech; finance; tourism,2.90,37.7,99.5,29.4,72.0,0.87,Tallinn,Haifa,Valparaiso
+32,us-chicago,Chicago,United States,North America,primary,58.6,56,56.6,79.1,47.6,62,A,0.85,Ranked,9.5,336,2.8,finance; manufacturing; trade,1.62,37.5,97.6,38.1,52.0,2.79,Minneapolis,Pittsburgh,Haifa
+24,pt-porto,Porto,Portugal,"Western, Northern, and Southern Europe",secondary,58.6,52.5,95.7,68.8,57.9,43.8,A,0.91,Ranked,2.6,10.2,25.5,manufacturing; tourism; services,1.43,37.3,95.2,44.1,62.0,2.14,Braga,Fukuoka,Kobe
+28,ee-tallinn,Tallinn,Estonia,"Western, Northern, and Southern Europe",secondary,58.2,51,90.1,58.4,49,57.8,A,0.91,Ranked,0.45,1.37,32.8,tech; finance; government,,35.8,98.9,35.3,34.0,-0.09,Tel Aviv,Fukuoka,Porto
+40,pl-torun,Torun,Poland,Southern/Eastern Europe and Eurasia,secondary,56,68.4,79.5,65.1,52,31.9,A,0.91,Ranked,0.2,37.7,0.5,manufacturing; education; services,1.29,38.6,88.7,26.1,,3.03,Katowice,Gdansk,Krakow
+22,kr-incheon,Incheon,South Korea,East Asia,primary,60.5,53.3,99.2,85.8,44.8,50.6,A,0.91,Ranked,2.9,51.7,5.6,shipping; manufacturing; tourism,0.72,38.5,99.3,46.6,57.0,2.00,Busan,Jeju City,Suwon
+4,sg-singapore,Singapore,Singapore,Southeast Asia,primary,64.9,54.5,87.4,94.1,38.8,73.3,A,0.87,Ranked,5.9,5.9,100.0,finance; trade; tech,0.97,42.6,100.0,27.4,62.0,4.39,Taipei,Kaohsiung,Suwon
+27,ch-zurich,Zurich,Switzerland,"Western, Northern, and Southern Europe",primary,58.3,39.1,97.6,72.7,76,49.4,A,0.91,Ranked,1.3,8.8,14.8,finance; tech; services,1.46,35.2,96.7,47.7,50.0,1.30,Toronto,Vancouver,Tokyo
+17,dk-copenhagen,Copenhagen,Denmark,"Western, Northern, and Southern Europe",primary,59.9,33.1,97.9,71.3,89.6,61.5,A,0.91,Ranked,1.4,5.9,23.7,biotech; tourism; services,1.55,32.4,99.9,44.0,40.0,3.48,Zurich,Toronto,Vancouver
+66,sa-khobar,Khobar,Saudi Arabia,Middle East,secondary,48.9,91.3,96.3,78.9,17.2,24.1,A,0.79,Ranked,1.2,36,3.3,energy; manufacturing; trade,2.37,,,43.6,26.0,2.00,Jeddah,Riyadh,Kuwait City
+54,au-sydney,Sydney,Australia,Oceania,primary,54.5,27.8,89.5,87.1,56.3,63.9,A,0.87,Ranked,5.3,26,20.4,finance; tourism; services,1.58,37.3,,36.6,72.0,1.37,Melbourne,Auckland,Brisbane
+72,sa-jeddah,Jeddah,Saudi Arabia,Middle East,secondary,48.8,90.6,96.3,78.9,17.2,24.1,A,0.79,Ranked,4.7,36,13.1,trade; tourism; finance,2.37,,,43.6,28.0,2.00,Riyadh,Khobar,Kuwait City
+33,au-brisbane,Brisbane,Australia,Oceania,primary,58.2,39.7,89.5,87.1,56.3,54.4,A,0.87,Ranked,2.6,26,10.0,tourism; mining; services,1.58,37.3,,36.6,72.0,1.37,Perth,Adelaide,Helsinki
+34,at-vienna,Vienna,Austria,"Western, Northern, and Southern Europe",primary,58.1,46.8,87.1,74.4,71.1,41.4,A,0.91,Ranked,2,9.1,22.0,government; finance; tourism,1.41,33.4,98.9,29.4,52.0,-0.66,Tokyo,Ottawa,Venice
+41,au-melbourne,Melbourne,Australia,Oceania,primary,58.2,36.4,89.5,87.1,56.3,60.5,A,0.87,Ranked,5.1,26,19.6,finance; education; tourism,1.58,37.3,,36.6,62.0,1.37,Brisbane,Sydney,Auckland
+18,au-perth,Perth,Australia,Oceania,secondary,59.8,45.3,89.5,87.1,56.3,51.2,A,0.87,Ranked,2.2,26,8.5,mining; finance; services,1.58,37.3,,36.6,74.0,1.37,Adelaide,Brisbane,Helsinki
+48,bh-manama,Manama,Bahrain,Middle East,secondary,55.3,66.4,79.7,57.8,39.7,42.5,A,0.83,Ranked,0.7,1.5,46.7,finance; tourism; trade,1.80,,98.9,17.2,34.0,2.60,Kota Kinabalu,Melaka,Bucharest
+26,au-adelaide,Adelaide,Australia,Oceania,secondary,58.5,43.7,89.5,87.1,56.3,49.2,A,0.87,Ranked,1.4,26,5.4,manufacturing; education; services,1.58,37.3,,36.6,70.0,1.37,Perth,Brisbane,Wellington
+23,ca-toronto,Toronto,Canada,North America,primary,59.3,38.7,93.3,75.3,72.5,54.1,A,0.91,Ranked,6.4,40,16.0,finance; tech; services,1.26,34.8,96.9,42.5,46.0,1.55,Vancouver,Zurich,Tokyo
+68,pr-san-juan,San Juan,Puerto Rico,North America,secondary,48.2,43.8,59.2,68.3,63.3,45.8,B,0.68,Ranked,2.3,3.2,71.9,tourism; manufacturing; government,,35.8,98.9,23.2,,3.18,Valparaiso,Santiago,Montevideo
+50,nl-amsterdam,Amsterdam,Netherlands,"Western, Northern, and Southern Europe",primary,53.9,37.6,97.6,71.8,65.7,42.8,A,0.91,Ranked,1.1,17.9,6.1,finance; tourism; trade,1.49,30.2,100.0,43.3,46.0,1.08,Tokyo,Zurich,Paris
+85,cn-tianjin,Tianjin,China,East Asia,secondary,42.4,43.5,98.6,71.9,19.7,37.1,A,0.83,Ranked,14,1409,1.0,manufacturing; shipping; trade,1.00,,,44.7,52.0,4.98,Guangzhou,Shenzhen,Shanghai
+46,jp-hiroshima,Hiroshima,Japan,East Asia,primary,55.8,59,94.5,67.4,46.6,37.3,A,0.91,Ranked,1.2,125,1.0,manufacturing; tourism; education,1.20,36.6,98.7,38.6,,0.10,Sapporo,Kobe,Fukuoka
+67,fr-paris,Paris,France,"Western, Northern, and Southern Europe",primary,48.6,27.7,97.9,63.9,69.2,45.1,A,0.91,Ranked,11.2,68,16.5,tourism; finance; services,1.68,35.5,99.7,48.7,50.0,1.19,Amsterdam,Zurich,Vancouver
+55,pl-gdansk,Gdansk,Poland,Southern/Eastern Europe and Eurasia,secondary,54.3,60.9,79.5,65.1,52,31.9,A,0.91,Ranked,0.77,37.7,2.0,shipping; manufacturing; tourism,1.29,38.6,88.7,26.1,44.0,3.03,Katowice,Krakow,Torun
+38,ca-vancouver,Vancouver,Canada,North America,primary,57.1,34.7,93.3,75.3,70.2,54.1,A,0.91,Ranked,2.6,40,6.5,tech; tourism; trade,1.26,34.8,96.9,42.5,48.0,1.55,Toronto,Zurich,London
+56,sk-bratislava,Bratislava,Slovakia,Southern/Eastern Europe and Eurasia,secondary,53.9,57.3,89.7,49.7,63.2,35.3,A,0.91,Ranked,0.48,5.4,8.9,finance; manufacturing; government,,37.9,99.6,33.2,52.0,1.94,Budapest,Bologna,Venice
+9,kr-jeju-city,Jeju City,South Korea,East Asia,secondary,61.6,56.2,99.2,85.8,44.8,50.6,A,0.91,Ranked,0.49,51.7,0.9,tourism; services; agriculture,0.72,38.5,99.3,46.6,60.0,2.00,Incheon,Busan,Suwon
+64,pl-krakow,Krakow,Poland,Southern/Eastern Europe and Eurasia,primary,52.3,53.5,79.5,65.1,52,31.9,A,0.91,Ranked,0.97,37.7,2.6,tourism; manufacturing; education,1.29,38.6,88.7,26.1,48.0,3.03,Gdansk,Bologna,Katowice
+84,th-chiang-mai,Chiang Mai,Thailand,Southeast Asia,secondary,43.8,54.3,49.7,56.4,52.2,22.8,A,0.9,Ranked,1.2,72,1.7,tourism; services; agriculture,1.08,42.5,95.0,15.8,64.0,2.54,Panama City,Hat Yai,Phuket
+57,mu-port-louis,Port Louis,Mauritius,Africa,secondary,51.2,56,76.2,47,39.6,45.4,A,0.87,Ranked,0.15,1.3,11.5,finance; trade; tourism,,38.3,,26.9,,4.93,Bucharest,Male,George Town
+49,it-bologna,Bologna,Italy,"Western, Northern, and Southern Europe",secondary,54,56.4,88.2,66.9,58.4,29.4,A,0.91,Ranked,1.1,59,1.9,manufacturing; education; services,1.24,36.0,96.8,31.8,56.0,0.69,Krakow,Gdansk,Venice
+65,my-kota-kinabalu,Kota Kinabalu,Malaysia,Southeast Asia,secondary,49.3,61.5,77.9,52.4,40,31.5,A,0.95,Ranked,0.56,33,1.7,tourism; agriculture; trade,1.60,44.7,90.0,13.0,60.0,5.11,Melaka,Kuching,George Town
+71,my-kuching,Kuching,Malaysia,Southeast Asia,secondary,49.3,61.5,73.7,52.4,41.1,31.5,A,0.91,Ranked,0.75,33,2.3,government; services; tourism,1.60,44.7,94.7,13.0,,5.11,Melaka,George Town,Kota Kinabalu
+58,my-melaka,Melaka,Malaysia,Southeast Asia,secondary,49.5,63,75.3,52.4,40.3,31.5,A,0.95,Ranked,0.47,33,1.4,tourism; manufacturing; trade,1.60,44.7,90.0,13.0,56.0,5.11,Kuching,Kota Kinabalu,George Town
+82,my-george-town,George Town,Malaysia,Southeast Asia,secondary,48.6,58,73.7,52.4,41.1,31.5,A,0.91,Ranked,1.6,33,4.8,tech; manufacturing; tourism,1.60,44.7,94.7,13.0,,5.11,Kuching,Melaka,Kota Kinabalu
+52,jp-sapporo,Sapporo,Japan,East Asia,secondary,55.8,59,94.5,67.4,46.6,37.3,A,0.91,Ranked,2,125,1.6,tourism; agriculture; tech,1.20,36.6,98.7,38.6,50.0,0.10,Hiroshima,Kobe,Fukuoka
+73,om-salalah,Salalah,Oman,Middle East,secondary,45.4,73.9,71.1,42,31.2,30.6,A,0.83,Ranked,0.25,4.7,5.3,tourism; trade; agriculture,,,91.1,10.9,42.0,1.63,Muscat,Melaka,Kuching
+78,ar-cordoba,Cordoba,Argentina,Latin America,secondary,44.5,67.5,69.2,78.6,46.8,10.2,A,0.87,Ranked,1.6,46,3.5,manufacturing; education; services,1.56,36.5,,25.4,,-1.34,Buenos Aires,Torun,Katowice
+53,ae-dubai,Dubai,United Arab Emirates,Middle East,primary,55.8,69.8,92.6,62,29.5,46.2,A,0.91,Ranked,3.6,10.3,35.0,trade; tourism; finance,,50.8,98.6,37.1,35.0,3.99,Abu Dhabi,Manama,Fukuoka
+111,cn-guangzhou,Guangzhou,China,East Asia,primary,40,38.1,98.6,71.9,19.7,37.1,A,0.83,Ranked,14,1409,1.0,manufacturing; trade; tech,1.00,,,44.7,62.0,4.98,Shenzhen,Tianjin,Shanghai
+44,ae-abu-dhabi,Abu Dhabi,United Arab Emirates,Middle East,primary,55.9,70.5,92.6,62,29.5,46.2,A,0.91,Ranked,1.5,10.3,14.6,energy; finance; government,,50.8,98.6,37.1,33.0,3.99,Dubai,Manama,Fukuoka
+69,hu-budapest,Budapest,Hungary,Southern/Eastern Europe and Eurasia,primary,48.1,47.2,93.1,55.5,63.5,26.2,A,0.91,Ranked,2.5,9.6,26.0,tourism; finance; manufacturing,,37.2,100.0,36.8,54.0,0.56,Bratislava,Bologna,Venice
+60,uy-montevideo,Montevideo,Uruguay,Latin America,secondary,49.1,52.4,59.5,74.6,64.6,24.4,A,0.87,Ranked,1.4,3.5,40.0,government; finance; agriculture,,36.8,,32.4,58.0,3.11,Hat Yai,San Juan,Phuket
+121,cn-hangzhou,Hangzhou,China,East Asia,primary,39,33.5,84,71.9,20.6,37.1,A,0.95,Ranked,8,1409,0.6,tech; trade; manufacturing,1.00,46.0,95.0,44.7,56.0,4.98,Chengdu,Chongqing,Shenzhen
+62,nz-auckland,Auckland,New Zealand,Oceania,primary,54.4,32.4,92.6,85.7,57.2,52.9,A,0.87,Ranked,1.7,5.1,33.3,finance; services; tourism,1.56,37.5,100.0,37.9,58.0,1.29,Wellington,Brisbane,Hobart
+131,cn-shenzhen,Shenzhen,China,East Asia,primary,38.7,35.3,98.6,71.9,19.7,37.1,A,0.83,Ranked,13,1409,0.9,tech; manufacturing; trade,1.00,,,44.7,66.0,4.98,Guangzhou,Shanghai,Tianjin
+43,nz-christchurch,Christchurch,New Zealand,Oceania,secondary,57,45.8,92.6,85.7,57.2,41.4,A,0.87,Ranked,0.4,5.1,7.8,tourism; agriculture; services,1.56,37.5,100.0,37.9,56.0,1.29,Dunedin,Adelaide,Perth
+83,om-muscat,Muscat,Oman,Middle East,secondary,44.7,66.9,71.1,42,31.2,30.6,A,0.83,Ranked,1.5,4.7,31.9,government; finance; tourism,,,91.1,10.9,30.0,1.63,Salalah,Male,Melaka
+75,mv-male,Male,Maldives,South Asia,secondary,45,54.6,72.1,39.8,35.8,35.4,A,0.82,Ranked,0.22,0.52,42.3,tourism; government; trade,,46.5,,18.7,,3.49,Port Louis,Muscat,George Town
+74,cr-san-jose,San Jose,Costa Rica,North America,primary,45.3,45.7,43.5,66,47.9,35.9,A,0.91,Ranked,1.4,5.2,26.9,tech; finance; services,,42.9,80.5,22.5,64.0,4.32,Sao Paulo,Florianopolis,Curitiba
+88,ar-buenos-aires,Buenos Aires,Argentina,Latin America,primary,41.8,55.4,69.2,78.6,46.8,10.2,A,0.87,Ranked,15.3,46,33.3,finance; tourism; services,1.56,36.5,,25.4,62.0,-1.34,Cordoba,Asuncion,Montevideo
+93,cn-chongqing,Chongqing,China,East Asia,primary,41,38.5,75.2,71.9,20.3,37.1,A,0.95,Ranked,8,1409,0.6,manufacturing; automotive; trade,1.00,46.0,95.0,44.7,44.0,4.98,Chengdu,Hangzhou,Nanjing
+63,au-hobart,Hobart,Australia,Oceania,secondary,52.5,33.8,89.5,87.1,56.3,45.1,A,0.87,Ranked,0.24,26,0.9,tourism; education; services,1.58,37.3,,36.6,52.0,1.37,Wellington,Auckland,Adelaide
+101,cn-chengdu,Chengdu,China,East Asia,primary,40.9,37.8,77,71.9,20.5,37.1,A,0.95,Ranked,9,1409,0.6,tech; manufacturing; tourism,1.00,46.0,95.0,44.7,42.0,4.98,Chongqing,Hangzhou,Guangzhou
+120,ge-tbilisi,Tbilisi,Georgia,Southern/Eastern Europe and Eurasia,primary,26.7,50,,33.1,40.9,43.1,C,0.39,Ranked,1.2,3.7,32.4,tourism; finance; government,,,,,56.0,,Phnom Penh,Gaborone,Male
+37,nz-dunedin,Dunedin,New Zealand,Oceania,secondary,57.3,51.2,92.6,85.7,57.2,36.5,A,0.87,Ranked,0.13,5.1,2.5,education; tourism; agriculture,1.56,37.5,100.0,37.9,48.0,1.29,Christchurch,Adelaide,Perth
+110,rw-kigali,Kigali,Rwanda,Africa,primary,30.5,56,47.2,15.8,30.5,24.8,A,0.87,Ranked,1.1,14.1,7.8,government; tech; services,3.90,29.9,,0.5,70.0,8.89,Accra,Nairobi,Kumasi
+51,nz-wellington,Wellington,New Zealand,Oceania,primary,55.9,37.8,92.6,85.7,57.2,48.8,A,0.87,Ranked,0.43,5.1,8.4,government; finance; services,1.56,37.5,100.0,37.9,52.0,1.29,Hobart,Auckland,Brisbane
+113,ma-casablanca,Casablanca,Morocco,Africa,primary,32.3,46,59.9,34.1,24.2,18.8,A,0.88,Ranked,4.4,37.7,11.7,finance; manufacturing; trade,,44.0,80.0,7.0,68.0,3.79,Rabat,Hyderabad,Pune
+151,cn-shanghai,Shanghai,China,East Asia,primary,36.7,31.3,98.6,71.9,19.7,37.1,A,0.83,Ranked,25,1409,1.8,finance; trade; manufacturing,1.00,,,44.7,58.0,4.98,Shenzhen,Guangzhou,Tianjin
+59,ro-bucharest,Bucharest,Romania,Southern/Eastern Europe and Eurasia,primary,49.5,57.5,81.4,50.6,40.7,34.8,A,0.91,Ranked,2.2,19.2,11.5,tech; finance; manufacturing,,38.7,82.2,34.7,54.0,0.92,Kota Kinabalu,George Town,Melaka
+91,my-kuala-lumpur,Kuala Lumpur,Malaysia,Southeast Asia,primary,46.8,51,73.7,52.4,41.1,31.5,A,0.91,Ranked,7.7,33,23.3,finance; trade; tourism,1.60,44.7,94.7,13.0,56.0,5.11,George Town,Belgrade,Kuching
+29,fi-helsinki,Helsinki,Finland,"Western, Northern, and Southern Europe",secondary,58.2,40.9,91.5,81,57.5,52.9,A,0.91,Ranked,1.6,5.5,29.1,tech; finance; services,1.32,33.8,99.7,35.3,32.0,0.42,Brisbane,Wellington,Adelaide
+154,ug-kampala,Kampala,Uganda,Africa,primary,8.7,31.8,,68.7,15.1,22.5,C,0.39,Ranked,3.6,48,7.5,services; government; agriculture,,,,,,,Moscow,Sao Paulo,Florianopolis
+80,rs-belgrade,Belgrade,Serbia,Southern/Eastern Europe and Eurasia,primary,43.1,46.5,74.8,53.2,32.1,30.3,A,0.91,Ranked,1.7,6.6,25.8,tech; manufacturing; services,,41.0,75.0,31.3,54.0,3.95,Kuala Lumpur,George Town,Bucharest
+79,pa-panama-city,Panama City,Panama,North America,primary,44.2,61,44,64.2,41.8,26.9,A,0.87,Ranked,2.6,4.4,59.1,finance; trade; services,,36.0,,18.1,58.0,2.75,Curitiba,Florianopolis,Chiang Mai
+86,br-curitiba,Curitiba,Brazil,Latin America,secondary,42.2,51.8,45.1,69.5,36.3,27.6,A,0.91,Ranked,3.5,215,1.6,manufacturing; tech; services,1.64,38.9,88.6,22.4,56.0,3.42,Florianopolis,Sao Paulo,Panama City
+81,sa-riyadh,Riyadh,Saudi Arabia,Middle East,primary,48.7,89.9,96.3,78.9,17.2,24.1,A,0.79,Ranked,7.7,36,21.4,government; finance; energy,2.37,,,43.6,30.0,2.00,Jeddah,Khobar,Kuwait City
+98,co-medellin,Medellin,Colombia,Latin America,secondary,35,54.4,28,66.3,41.9,19.6,A,0.91,Ranked,4.1,52,7.9,manufacturing; tech; services,1.64,42.8,74.3,17.0,72.0,1.60,Bogota,Panama City,Merida
+140,py-asuncion,Asuncion,Paraguay,Latin America,primary,17.5,40.4,,74.7,45.4,14.9,C,0.39,Ranked,2.4,7.4,32.4,government; trade; agriculture,,,,,,,Sao Paulo,Florianopolis,Curitiba
+106,ma-rabat,Rabat,Morocco,Africa,primary,32.4,46.9,59.9,34.1,24.2,18.8,A,0.88,Ranked,2.1,37.7,5.6,government; services; tourism,,44.0,80.0,7.0,,3.79,Casablanca,Hyderabad,Pune
+125,es-valencia,Valencia,Spain,"Western, Northern, and Southern Europe",primary,26.6,59.8,,31.1,87.1,30.4,C,0.39,Ranked,1.8,47.4,3.8,manufacturing; tourism; trade,1.19,,,,74.0,,Riga,Zagreb,Vilnius
+70,th-hat-yai,Hat Yai,Thailand,Southeast Asia,secondary,46.6,55.1,66.7,56.4,52.2,22.8,A,0.9,Ranked,0.4,72,0.6,trade; agriculture; services,1.08,42.5,92.0,15.8,55.0,2.54,Phuket,George Town,Kuala Lumpur
+119,vn-da-nang,Da Nang,Vietnam,Southeast Asia,secondary,28.2,51.7,,44.3,28.1,20.8,B,0.5,Ranked,1.2,98.3,1.2,tourism; manufacturing; services,1.94,,,,,,Makati,Cebu City,Jakarta
+95,ru-nizhny-novgorod,Nizhny Novgorod,Russia,Southern/Eastern Europe and Eurasia,secondary,35.7,70.7,62.4,59.2,15.9,15.5,A,0.91,Ranked,1.25,144,0.9,manufacturing; automotive; trade,,39.2,76.3,25.8,,4.34,Kuwait City,Doha,Salalah
+76,th-phuket,Phuket,Thailand,Southeast Asia,secondary,44.9,48,68,56.4,52.2,22.8,A,0.9,Ranked,0.4,72,0.6,tourism; services; trade,1.08,42.5,90.0,15.8,60.0,2.54,Hat Yai,Kuala Lumpur,Krakow
+92,br-florianopolis,Florianopolis,Brazil,Latin America,secondary,41.9,50.4,45.1,69.5,36.3,27.6,A,0.91,Ranked,1.2,215,0.6,tech; services; tourism,1.64,38.9,88.6,22.4,,3.42,Curitiba,Sao Paulo,Panama City
+102,br-sao-paulo,Sao Paulo,Brazil,Latin America,primary,39.9,42.7,45.1,69.5,36.3,27.6,A,0.91,Ranked,22,215,10.2,finance; manufacturing; services,1.64,38.9,88.6,22.4,60.0,3.42,Florianopolis,Curitiba,San Jose
+124,jo-amman,Amman,Jordan,Middle East,secondary,28.1,40.3,66,46.5,11.5,17,A,0.88,Ranked,4.2,10.3,40.8,finance; services; government,,48.8,89.0,7.0,65.0,2.49,Aqaba,Moscow,Casablanca
+117,jo-aqaba,Aqaba,Jordan,Middle East,secondary,28.9,43.2,66,46.5,11.5,17,A,0.88,Ranked,0.14,10.3,1.4,tourism; trade; services,,48.8,89.0,7.0,,2.49,Amman,Moscow,Casablanca
+127,hr-zagreb,Zagreb,Croatia,Southern/Eastern Europe and Eurasia,primary,25.7,61.9,,17.8,77.4,42.3,C,0.39,Ranked,1.1,3.9,28.2,government; finance; manufacturing,,,,,52.0,,Riga,Antwerp,Valencia
+146,kh-phnom-penh,Phnom Penh,Cambodia,Southeast Asia,primary,16.6,43.9,,18.2,34.5,36.3,C,0.43,Ranked,2.3,17.2,13.4,manufacturing; government; tourism,,,,,,,Kigali,Tbilisi,Gaborone
+90,pe-arequipa,Arequipa,Peru,Latin America,secondary,36.3,57.5,34.1,42.3,34.9,24.7,A,0.85,Ranked,1.1,33,3.3,mining; manufacturing; tourism,,39.7,49.4,10.4,,3.30,Lima,Cebu City,Makati
+105,id-surabaya,Surabaya,Indonesia,Southeast Asia,secondary,32.7,63.7,40.8,35.1,29.9,17.8,A,0.91,Ranked,9.8,277,3.5,shipping; manufacturing; trade,,38.4,30.5,4.8,,5.03,Jakarta,Cebu City,Makati
+103,co-bogota,Bogota,Colombia,Latin America,primary,34.1,48.7,28,66.3,41.9,19.6,A,0.91,Ranked,11.5,52,22.1,finance; services; government,1.64,42.8,74.3,17.0,54.0,1.60,Medellin,Guadalajara,Merida
+99,ph-cebu-city,Cebu City,Philippines,Southeast Asia,secondary,33.2,55.8,38.2,40.4,30.8,17.5,A,0.91,Ranked,3.1,115,2.7,manufacturing; tourism; services,,40.0,48.5,6.5,,5.69,Makati,Jakarta,Arequipa
+136,ke-nairobi,Nairobi,Kenya,Africa,primary,23.9,48.5,45.1,12.5,28.1,14.5,A,0.87,Ranked,4.7,55,8.5,tech; finance; services,3.30,39.6,,2.4,72.0,4.72,Dhaka,Chattogram,Pokhara
+114,in-pune,Pune,India,South Asia,primary,31.2,44.4,53.1,30.4,33.5,14.6,A,0.91,Ranked,7.4,1428,0.5,manufacturing; tech; education,2.00,45.7,76.4,2.8,70.0,6.49,Hyderabad,Bengaluru,Chandigarh
+94,pe-lima,Lima,Peru,Latin America,primary,35.8,51.3,34.1,42.3,34.9,24.7,A,0.85,Ranked,10.9,33,33.0,finance; manufacturing; services,,39.7,49.4,10.4,,3.30,Arequipa,Suva,Makati
+104,ph-makati,Makati,Philippines,Southeast Asia,primary,33,52.1,38.2,40.4,30.8,17.5,A,0.91,Ranked,0.58,115,0.5,finance; services; tech,,40.0,48.5,6.5,,5.69,Cebu City,Jakarta,Lima
+87,kw-kuwait-city,Kuwait City,Kuwait,Middle East,secondary,42.2,91.4,69.2,65,19.7,19.9,A,0.83,Ranked,3.1,4.3,72.1,energy; finance; government,2.08,,100.0,1.0,28.0,-2.56,Nizhny Novgorod,Khobar,Jeddah
+115,ru-moscow,Moscow,Russia,Southern/Eastern Europe and Eurasia,primary,30.5,41,62.4,59.2,15.9,15.5,A,0.91,Ranked,12.5,144,8.7,finance; tech; government,,39.2,76.3,25.8,,4.34,Amman,Aqaba,Kampala
+109,in-hyderabad,Hyderabad,India,South Asia,primary,31.3,44.7,53.1,30.4,33.5,14.6,A,0.91,Ranked,10.5,1428,0.7,tech; manufacturing; services,2.00,45.7,76.4,2.8,64.0,6.49,Pune,Bengaluru,Chandigarh
+135,mx-guadalajara,Guadalajara,Mexico,North America,secondary,24.8,49.9,13.3,55.5,40.5,14.1,A,0.91,Ranked,5.3,130,4.1,tech; manufacturing; services,1.80,42.2,43.0,20.1,68.0,1.43,Merida,Mexico City,Bogota
+112,id-jakarta,Jakarta,Indonesia,Southeast Asia,primary,32.7,58.6,40.8,35.1,29.9,17.8,A,0.91,Ranked,34,277,12.3,finance; trade; government,,38.4,30.5,4.8,54.0,5.03,Surabaya,Cebu City,Makati
+118,bt-thimphu,Thimphu,Bhutan,South Asia,secondary,28.6,47.2,47,25.2,40.4,10.2,A,0.91,Ranked,0.11,0.78,14.1,government; tourism; agriculture,,54.4,65.6,1.3,,4.63,Chandigarh,Hyderabad,Pune
+147,cz-brno,Brno,Czechia,Southern/Eastern Europe and Eurasia,secondary,15.5,70.5,,0,84.3,42.4,C,0.39,Ranked,0.4,10.9,3.7,tech; manufacturing; education,,,,,48.0,,Antwerp,Ljubljana,Bergen
+128,gh-accra,Accra,Ghana,Africa,secondary,25.3,55.6,35.9,14.9,30.3,17.8,A,0.91,Ranked,4.5,33.5,13.4,finance; services; government,3.60,35.5,42.9,0.6,56.0,5.59,Kumasi,Nairobi,Kigali
+89,lt-vilnius,Vilnius,Lithuania,Southern/Eastern Europe and Eurasia,primary,36.9,65,,41.6,74,41.4,C,0.39,Ranked,0.58,2.8,20.7,tech; finance; government,,,,,36.0,,Riga,Valencia,Zagreb
+134,gh-kumasi,Kumasi,Ghana,Africa,secondary,25.1,59.4,35.9,14.9,30.3,17.8,A,0.91,Ranked,3.6,33.5,10.7,manufacturing; trade; agriculture,3.60,35.5,42.9,0.6,,5.59,Accra,Kigali,Nairobi
+155,eg-alexandria,Alexandria,Egypt,Africa,primary,2.4,45,,11.3,7.7,30.6,C,0.39,Ranked,5.4,106,5.1,manufacturing; shipping; tourism,,,,,,,Dhaka,Chattogram,Pokhara
+122,in-bengaluru,Bengaluru,India,South Asia,primary,31.1,43.9,53.1,30.4,33.5,14.6,A,0.91,Ranked,13.7,1428,1.0,tech; manufacturing; services,2.00,45.7,76.4,2.8,,6.49,Pune,Hyderabad,Chandigarh
+153,si-ljubljana,Ljubljana,Slovenia,Southern/Eastern Europe and Eurasia,primary,10.2,67,,0,90.6,33.2,C,0.39,Ranked,0.55,2.1,26.2,services; manufacturing; tourism,,,,,50.0,,Antwerp,Brno,Bergen
+142,mx-mexico-city,Mexico City,Mexico,North America,primary,23.3,39.2,13.3,55.5,40.5,14.1,A,0.91,Ranked,22,130,16.9,finance; manufacturing; government,1.80,42.2,43.0,20.1,66.0,1.43,Guadalajara,Merida,Bogota
+100,na-windhoek,Windhoek,Namibia,Africa,secondary,32.9,42.7,30.5,32.1,39.3,25.4,A,0.87,Ranked,0.44,2.6,16.9,government; mining; services,,44.9,,3.5,,3.71,Lima,Chandigarh,Makati
+132,in-chandigarh,Chandigarh,India,South Asia,primary,30.6,43.9,44.1,30.4,34.1,14.6,A,0.95,Ranked,1.1,1428,0.1,government; services; education,2.00,45.7,85.0,2.8,55.0,6.49,Bengaluru,Pune,Hyderabad
+77,qa-doha,Doha,Qatar,Middle East,primary,44.7,59,73.9,54.4,18.6,37.6,A,0.91,Ranked,2.4,3,80.0,energy; finance; government,1.80,48.0,95.3,11.6,32.0,2.36,Nanjing,Belgrade,Muscat
+116,lk-kandy,Kandy,Sri Lanka,South Asia,secondary,29,51.5,40.7,33.7,28.6,11.7,A,0.91,Ranked,0.13,22,0.6,tourism; agriculture; services,1.99,41.7,46.9,8.8,,5.01,Colombo,Makati,Jakarta
+133,za-cape-town,Cape Town,South Africa,Africa,primary,26.2,34.2,15.1,26.3,42.3,29.8,A,0.88,Ranked,4.6,60,7.7,tourism; finance; services,2.33,42.4,68.0,3.4,72.0,0.53,Johannesburg,Windhoek,Gaborone
+107,lv-riga,Riga,Latvia,Southern/Eastern Europe and Eurasia,primary,32.4,60.6,,33.5,76.2,40.3,C,0.39,Ranked,0.62,1.84,33.7,finance; trade; services,,,,,34.0,,Vilnius,Valencia,Zagreb
+138,bd-chattogram,Chattogram,Bangladesh,South Asia,secondary,21.7,51.3,48.3,10.8,19.6,15.7,A,0.91,Ranked,5.5,170,3.2,shipping; manufacturing; trade,1.95,46.7,59.1,7.9,,4.22,Dhaka,Nairobi,Pokhara
+96,bw-gaborone,Gaborone,Botswana,Africa,secondary,35.7,51.4,31.9,22.2,45.2,39,A,0.91,Ranked,0.27,2.6,10.4,government; mining; services,,42.9,63.3,3.4,,-2.99,Windhoek,Tbilisi,Phnom Penh
+123,lk-colombo,Colombo,Sri Lanka,South Asia,primary,28.9,48.8,40.7,33.7,28.6,11.7,A,0.91,Ranked,3.6,22,16.4,finance; trade; services,1.99,41.7,46.9,8.8,,5.01,Kandy,Chandigarh,Makati
+129,mx-merida,Merida,Mexico,North America,secondary,25.1,53.7,13.3,55.5,40.5,14.1,A,0.91,Ranked,1.2,130,0.9,tourism; manufacturing; services,1.80,42.2,43.0,20.1,,1.43,Guadalajara,Mexico City,Medellin
+144,bd-dhaka,Dhaka,Bangladesh,South Asia,primary,21.6,49.3,48.3,10.8,19.6,15.7,A,0.91,Ranked,21,170,12.4,manufacturing; garments; services,1.95,46.7,59.1,7.9,,4.22,Chattogram,Nairobi,Pokhara
+126,za-johannesburg,Johannesburg,South Africa,Africa,primary,26.3,34.3,15.1,26.3,42.3,29.8,A,0.88,Ranked,10.6,60,17.7,finance; mining; services,2.33,42.4,68.0,3.4,68.0,0.53,Cape Town,Windhoek,Gaborone
+97,fj-suva,Suva,Fiji,Oceania,secondary,35.7,45.8,36.1,47.7,30.8,25.1,A,0.86,Ranked,0.18,0.93,19.4,government; trade; services,,37.3,42.1,2.5,,3.53,Lima,Makati,Arequipa
+137,np-pokhara,Pokhara,Nepal,South Asia,secondary,22.3,44.3,37.6,12.2,21.7,16.6,A,0.87,Ranked,0.45,30,1.5,tourism; agriculture; services,,,16.5,4.8,,3.67,Kathmandu,Nairobi,Dhaka
+108,se-gothenburg,Gothenburg,Sweden,"Western, Northern, and Southern Europe",primary,31.5,65.3,,14.5,95.5,63.3,C,0.39,Ranked,1,10.5,9.5,manufacturing; shipping; tech,1.52,,,,36.0,,Bergen,Antwerp,Zagreb
+143,np-kathmandu,Kathmandu,Nepal,South Asia,secondary,22.3,42.3,37.6,12.2,21.7,16.6,A,0.87,Ranked,3.2,30,10.7,tourism; government; services,,,16.5,4.8,,3.67,Pokhara,Nairobi,Dhaka
+130,ie-cork,Cork,Ireland,"Western, Northern, and Southern Europe",secondary,24.5,82.1,,13.3,91.8,37.4,C,0.39,Ranked,0.33,5.1,6.5,pharma; tech; tourism,1.54,,,,40.0,,Bergen,Antwerp,Brno
+145,be-antwerp,Antwerp,Belgium,"Western, Northern, and Southern Europe",secondary,16.9,65.1,,4.4,87.9,40.4,C,0.39,Ranked,0.53,11.7,4.5,shipping; finance; manufacturing,1.56,,,,44.0,,Brno,Ljubljana,Bergen
+148,sn-dakar,Dakar,Senegal,Africa,secondary,11.4,40.5,0.7,10.6,26.3,26.7,A,0.81,Ranked,3.7,17.8,20.8,government; services; trade,4.20,48.3,27.2,2.0,,6.06,Johannesburg,Cape Town,Kathmandu
+152,pk-karachi,Karachi,Pakistan,South Asia,primary,10.6,48,32.7,8.1,13,4.4,A,0.91,Ranked,16.1,231,7.0,manufacturing; shipping; finance,3.36,46.8,45.0,1.4,,3.05,Lahore,Islamabad,Pokhara
+156,pk-lahore,Lahore,Pakistan,South Asia,secondary,10.6,48.3,32.7,8.1,13,4.4,A,0.91,Ranked,13.1,231,5.7,manufacturing; services; government,3.36,46.8,45.0,1.4,,3.05,Karachi,Islamabad,Pokhara
+150,pk-islamabad,Islamabad,Pakistan,South Asia,primary,10.7,47.5,32.7,8.1,13,4.4,A,0.91,Ranked,1.2,231,0.5,government; services; education,3.36,46.8,45.0,1.4,,3.05,Karachi,Lahore,Pokhara
+149,de-munich,Munich,Germany,"Western, Northern, and Southern Europe",primary,10.8,18.3,,27.1,65,36.2,C,0.39,Ranked,2.8,83.5,3.4,automotive; finance; tech,1.36,,,,52.0,,Phnom Penh,Tbilisi,Windhoek
+139,no-bergen,Bergen,Norway,"Western, Northern, and Southern Europe",secondary,21.7,76.4,,3.2,97.8,48.8,C,0.39,Ranked,0.44,5.4,8.1,energy; shipping; tourism,1.41,,,,28.0,,Brno,Antwerp,Cork
+30,uk-london,London,United Kingdom,"Western, Northern, and Southern Europe",primary,58.2,35.1,82.8,78.4,70.2,59.3,A,0.95,Ranked,,,,,,36.2,99.8,16.2,38.2,0.80,Vancouver,Toronto,Melbourne
+42,us-new-york,New York,United States,North America,primary,57.7,27.1,85.4,82,68.5,75.3,A,0.95,Ranked,,,,,,38.7,99.7,28.4,49.5,2.40,Sydney,London,Melbourne
+19,jp-tokyo,Tokyo,Japan,East Asia,primary,59.5,46.2,94.2,76.8,70.2,44.2,A,0.95,Ranked,,,,,,39.1,99.9,34.8,43.8,0.70,Vienna,Ottawa,Amsterdam
+8,cz-prague,Prague,Czechia,Southern/Eastern Europe and Eurasia,primary,63.5,62,90.6,61.9,87.7,42.4,A,0.95,Ranked,,,,,1.45,40.1,99.9,33.3,47.0,1.60,Bangkok,Lyon,Graz
+141,cn-nanjing,Nanjing,China,East Asia,primary,38.4,52.6,75.3,59,7.1,34.5,A,0.95,Ranked,,,,,1.18,46.1,94.2,37.3,50.0,5.00,Doha,Chongqing,Chengdu
+39,it-venice,Venice,Italy,"Western, Northern, and Southern Europe",primary,56.8,53.9,84.7,67.8,68.6,34.8,A,0.95,Ranked,,,,,1.25,36.9,99.3,31.2,62.0,0.70,Vienna,Bologna,Graz

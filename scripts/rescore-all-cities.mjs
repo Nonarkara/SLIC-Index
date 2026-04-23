@@ -65,7 +65,8 @@ const METRIC_DEFS = [
 
   // ── Community (sum = 15) ───────────────────────────────────────────────────
   ["community_hospitality_belonging",                     "community", 5, "hospitality_belonging_raw", "direct"],
-  ["community_tolerance_pluralism",                       "community", 5, "tolerance_pluralism_raw",   "direct"],
+  ["community_tolerance_pluralism",                       "community", 5, null, "composite",
+    [["inclusion_equaldex_country_raw", 0.4], ["inclusion_freedom_house_country_raw", 0.3], ["inclusion_hate_crime_raw", 0.3]]],
   ["community_cultural_historic_public_life_vitality",    "community", 5, "cultural_public_life_raw",  "direct"],
 
   // ── Creative (sum = 20) ────────────────────────────────────────────────────
@@ -333,22 +334,40 @@ async function main() {
     if (oldSlic !== newSlic) changes++;
   }
 
-  // ── Re-rank all Ranked cities by new SLIC score ────────────────────────────
+  // ── Re-rank all Ranked cities by new SLIC score, then enforce the ─────────
+  //    one-per-country-per-10-bucket rule (Taiwan exempt). A city's rank is
+  //    its position in the concatenated-buckets order, so tier labels stay
+  //    rank-driven downstream. Within each bucket cities appear in
+  //    slicScore-desc order (the greedy algorithm below preserves that).
   const ranked = data.cities
     .filter((c) => c.rankingStatus === "Ranked" && c.slicScore != null)
     .sort((a, b) => b.slicScore - a.slicScore);
 
-  let currentRank = 0;
-  let prevScore = null;
-  let count = 0;
-  for (const c of ranked) {
-    count++;
-    const rounded = Math.round(c.slicScore * 10) / 10;
-    if (prevScore === null || rounded !== prevScore) {
-      currentRank = count;
-      prevScore = rounded;
+  const BUCKET_CAP = 10;
+  const TAIWAN = "Taiwan";
+  const buckets = [];
+  for (const city of ranked) {
+    let placed = false;
+    for (const b of buckets) {
+      if (b.length >= BUCKET_CAP) continue;
+      if (city.country !== TAIWAN) {
+        const countryPresent = b.some((c) => c.country !== TAIWAN && c.country === city.country);
+        if (countryPresent) continue;
+      }
+      b.push(city);
+      placed = true;
+      break;
     }
-    c.rank = currentRank;
+    if (!placed) buckets.push([city]);
+  }
+
+  // Flatten buckets into a single ordered list; rank = 1-based position.
+  let pos = 0;
+  for (const b of buckets) {
+    for (const c of b) {
+      pos++;
+      c.rank = pos;
+    }
   }
 
   // Watchlist cities: no rank
@@ -362,9 +381,10 @@ async function main() {
   console.log(`Rescored ${data.cities.length} cities under AMPI aggregation.`);
   console.log(`Score changes: ${changes}/${data.cities.length} cities (cities whose slicScore changed).`);
   console.log(`Ranked: ${ranked.length}  |  Watchlist: ${data.cities.length - ranked.length}`);
-  console.log("\nTop 10 under AMPI:");
-  ranked.slice(0, 10).forEach((c) => console.log(
-    `  #${String(c.rank).padStart(3)}  ${c.displayName.padEnd(14)} ${c.country.padEnd(18)} ` +
+  const displayRanked = [...ranked].sort((a, b) => a.rank - b.rank);
+  console.log("\nTop 30 under AMPI + one-per-country tier rule:");
+  displayRanked.slice(0, 30).forEach((c) => console.log(
+    `  #${String(c.rank).padStart(3)}  ${c.displayName.padEnd(16)} ${c.country.padEnd(18)} ` +
     `SLIC ${c.slicScore.toFixed(1).padStart(5)}  ` +
     `G=${c.pressureScore?.toFixed(1).padStart(5)} ` +
     `V=${c.viabilityScore?.toFixed(1).padStart(5)} ` +

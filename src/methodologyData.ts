@@ -693,9 +693,9 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "community-tolerance",
               title: "Community pillar",
               formula:
-                "Community(c) = 0.263 HospitalityBelonging + 0.263 TolerancePluralism + 0.263 PublicLifeVitality + 0.211 BirthRateOptimism",
+                "Community(c) = 0.333 HospitalityBelonging + 0.333 TolerancePluralism + 0.333 PublicLifeVitality",
               explanation:
-                "Community is scored through low-friction coexistence, equal market access, everyday public life, and birth rate as a societal optimism signal.",
+                "Community is scored through low-friction coexistence (hospitality + the new Openness & Inclusion composite), equal market access, and the everyday vitality of public life. Birth rate was removed from the published formula in V3.1 — it was a noisy proxy for city-level livability and was doing more harm than good.",
               citations: [1, 14, 16, 35],
             },
             {
@@ -887,7 +887,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         metrics: [
           { name: "Cultural and public-life vitality", weight: 7, description: "Third places, historic continuity, visitor pull, and street life. Used as a public-life signal alongside safety, ecology, and resident-room checks.", inputs: ["tourism arrivals per 1000", "events", "public attention"] },
           { name: "Hospitality and belonging", weight: 6, description: "Do people feel welcome? Net migration, resident attachment, multilingual usability, and the culture of helping strangers.", inputs: ["net migration", "testimony audit", "multilingual services"] },
-          { name: "Tolerance and pluralism", weight: 4, description: "LGBTQ acceptance, religious pluralism, ethnic inclusion, lifestyle freedom. V3 replaces the women-in-parliament proxy with composite tolerance scores for cities where the proxy fails (Bangkok, Taipei).", inputs: ["composite tolerance score", "legal openness", "same-sex marriage status"] },
+          { name: "Tolerance and pluralism", weight: 5, description: "Openness & Inclusion composite: 40% Equaldex LGBTQI Equality Index (legal + public opinion, country), 30% Freedom House Freedom-in-the-World aggregate (country), 30% reported hate-crime incidents per 100 000 (city where FBI UCR, UK Home Office, Stats Canada, BKA or OSCE ODIHR data exists; country proxy via Freedom House civil-liberties inversion elsewhere). Replaces the V2 women-in-parliament proxy, which collapsed hyper-religious, authoritarian, and LGBTQ-hostile regimes into a single misleading number. Thailand sits at Equaldex 90 after the Jan-2025 marriage-equality entry into force and subsequent UN SOGI Independent Expert recognition of Thailand as the most progressive nation in Asia on LGBTQ+ rights.", inputs: ["Equaldex country index", "Freedom House aggregate", "city hate-crime per 100k"] },
           { name: "Birth rate optimism", weight: 2, description: "Total fertility rate as a weak societal signal. Reduced from 4 to 2 in V3 — too many confounders (education, culture, policy) make this a poor proxy for city-level livability.", inputs: ["World Bank TFR"] },
         ],
       },
@@ -944,8 +944,13 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         citations: [1],
       },
       {
-        title: "V3: Tier grouping replaces strict numerical ranking",
-        body: "Cities are grouped into tiers (Alpha, Beta, Gamma) of 10, listed alphabetically within each tier. A 0.3-point difference between two cities is not meaningful — tiers are more honest. Each tier aims for continental representation.",
+        title: "V3: Tier grouping with a one-per-country rule",
+        body: "Cities are grouped into tiers of 10 (Alpha, Beta, Gamma, Delta, Epsilon, …). Within the published board, no country may occupy more than one slot in the same tier — the only exception is Taiwan, whose cities are treated as semi-territorial rather than metros of the same national government. Sorting proceeds greedily: cities are walked in descending SLIC order and placed into the earliest tier where their country is not already present. The rule keeps the top tiers from being dominated by a single country's data availability (United States, Canada, Australia, Japan, South Korea in particular) and lets countries with one strong-data metro show up in Alpha where they otherwise would not. A 0.3-point SLIC difference between two cities is not meaningful — tiers are more honest than strict numerical ranking.",
+        citations: [],
+      },
+      {
+        title: "V3.1: Housing burden ceiling widened to 55%",
+        body: "The winsorization ceiling for pressure_housing_burden was raised from 38.85% to 55.0%, so that cities paying 40–50% of median income on housing (New York, London, Paris, Zurich, Vancouver, Munich, Toronto, Amsterdam, Copenhagen) are differentiated from each other instead of all being clamped to a score of zero. Housing pain now moves the pressure pillar.",
         citations: [],
       },
       {
