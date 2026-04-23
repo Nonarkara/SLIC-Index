@@ -107,7 +107,7 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
   "th-bangkok": {
     heroLine: "Plural, improvised, magnetic, and structurally alive.",
     intro:
-      "Bangkok is Thailand's dominant metropolis, a city where temples, towers, markets, migrant labor, nightlife, bureaucracy, and improvisation operate on the same crowded grid. SLIC reads it not as polished order but as urban capacity: a place whose hospitality, pluralism, price range, and entrepreneurial looseness keep absorbing very different ways of living.",
+      "Bangkok is Thailand's dominant metropolis, a city where temples, towers, markets, migrant labor, nightlife, bureaucracy, and improvisation operate on the same crowded grid. SLIC reads it not as polished order but as urban capacity: a place whose hospitality, pluralism, experience density, and now genuinely strong Bangkok-metro connectivity keep absorbing very different ways of living. That global pull is not abstract: Mastercard put Bangkok first in 2019, and Euromonitor's arrivals tables put it first again in 2024 and 2025.",
     photo: {
       fileName: "Bangkok Skyline from Wat Saket.jpg",
       credit: "Slyronit",

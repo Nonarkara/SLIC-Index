@@ -137,7 +137,7 @@ const defaultSpotlights: CitySpotlight[] = [
     country: "Thailand",
     kicker: "The world's most visited city",
     reason:
-      "Bangkok is #1 most visited city in the world for a reason. Hospitality, price flexibility, LGBTQ+ welcome, religious pluralism, and easy business setup create a city that rewards every kind of life.",
+      "Bangkok topped Mastercard's destination-city table in 2019 and led Euromonitor's arrivals tables again in 2024 and 2025. That repeat pull reflects something structural: hospitality, price flexibility, LGBTQ+ welcome, religious pluralism, and now city-scale 5G performance make Bangkok unusually easy to arrive in, work from, and keep discovering.",
     highlights: ["super tolerant", "multiple budget levels", "24/7 urban rhythm", "easy business setup"],
   },
   {

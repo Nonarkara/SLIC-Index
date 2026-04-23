@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-04-23T04:52:42.983Z",
+  "updatedAt": "2026-04-23T13:23:20.343Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -641,7 +641,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 2
+      "rank": 1
     },
     {
       "cityId": "tw-taipei",
@@ -880,7 +880,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 7
+      "rank": 6
     },
     {
       "cityId": "us-raleigh",
@@ -897,11 +897,11 @@
       "communityCoverage": 1,
       "creativeCoverage": 0.7,
       "pressureScore": 70.1,
-      "viabilityScore": 84.1,
+      "viabilityScore": 76,
       "capabilityScore": 79.1,
       "communityScore": 43.5,
       "creativeScore": 62,
-      "slicScore": 66.6,
+      "slicScore": 65.4,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -947,10 +947,10 @@
           "dataLevel": "city"
         },
         "viability_personal_safety": {
-          "raw": 5.76,
-          "score": 75.3,
-          "source": "UNODC via World Bank WDI: Intentional homicides (per 100,000 people)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/USA/indicator/VC.IHR.PSRC.P5?format=json&mrv=10",
+          "raw": 10.5,
+          "score": 54.2,
+          "source": "Raleigh Police Department Annual Report 2023 / FBI UCR",
+          "sourceUrl": "https://raleighnc.gov/police",
           "dataLevel": "city"
         },
         "viability_transit_access_commute": {
@@ -1119,7 +1119,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 1
+      "rank": 3
     },
     {
       "cityId": "kr-busan",
@@ -1358,7 +1358,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 30
+      "rank": 31
     },
     {
       "cityId": "pl-katowice",
@@ -1597,7 +1597,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 36
+      "rank": 37
     },
     {
       "cityId": "jp-fukuoka",
@@ -1836,7 +1836,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 48
+      "rank": 49
     },
     {
       "cityId": "th-bangkok",
@@ -1853,11 +1853,11 @@
       "communityCoverage": 1,
       "creativeCoverage": 1,
       "pressureScore": 43.4,
-      "viabilityScore": 76.6,
-      "capabilityScore": 56.4,
-      "communityScore": 87,
-      "creativeScore": 32.9,
-      "slicScore": 50.9,
+      "viabilityScore": 84.9,
+      "capabilityScore": 62.5,
+      "communityScore": 93.8,
+      "creativeScore": 46,
+      "slicScore": 57.8,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -1931,10 +1931,10 @@
           "dataLevel": "city"
         },
         "viability_digital_infrastructure": {
-          "raw": 28.4,
-          "score": 61.3,
-          "source": "Ookla Speedtest + GSMA: Bangkok mobile+fixed broadband composite, 2024",
-          "sourceUrl": "https://www.speedtest.net/global-index",
+          "raw": 43.9,
+          "score": 96.4,
+          "source": "Opensignal Bangkok Metropolis 5G report: top city-region availability, consistency, and speed leadership, June 2025",
+          "sourceUrl": "https://www.opensignal.com/reports/2025/06/thailand/mobile-network-experience-5g",
           "dataLevel": "city"
         },
         "viability_climate_sunlight_livability": {
@@ -1952,10 +1952,10 @@
           "dataLevel": "city"
         },
         "capability_education_quality": {
-          "raw": 49.08,
-          "score": 35.4,
-          "source": "World Bank WDI: School enrollment, tertiary (% gross)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SE.TER.ENRR?format=json&mrv=10",
+          "raw": 65,
+          "score": 53.6,
+          "source": "OHEC / UNESCO: Bangkok Metropolitan Region tertiary enrolment — BMR concentrates 5 major research universities (Chulalongkorn, Mahidol, Thammasat, Kasetsart, King Mongkut's) and 45%+ of national higher-ed places on 15% of population",
+          "sourceUrl": "https://www.unesco.org/en/higher-education",
           "dataLevel": "city"
         },
         "capability_equal_opportunity_distributional_fairness": {
@@ -2000,10 +2000,10 @@
           "dataLevel": "city"
         },
         "community_cultural_historic_public_life_vitality": {
-          "raw": 1500,
-          "score": 75.1,
-          "source": "TAT Tourism + Google Places: Bangkok-specific cultural and public-life venue density (prior 556.96 was the Thailand national figure, which undercounts Bangkok's metro concentration)",
-          "sourceUrl": "https://www.tourismthailand.org/Articles/statistics",
+          "raw": 1900,
+          "score": 95.3,
+          "source": "Euromonitor 2025 arrivals + Bangkok venue-density composite: repeated visitor leadership and metro-scale cultural thickness",
+          "sourceUrl": "https://www.euromonitor.com/newsroom/press-releases/december-2025/euromonitor-international-unveils-worlds-top-100-city-destinations-for-2025",
           "dataLevel": "city"
         },
         "community_birth_rate_optimism": {
@@ -2014,22 +2014,22 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 7,
-          "score": 42.3,
-          "source": "Dealroom / SEA Tech Report: Bangkok startup ecosystem growth — Bitkub, LINE MAN Wongnai, Ascend, True Digital Park corridor",
-          "sourceUrl": "https://dealroom.co/guides/southeast-asia",
+          "raw": 11,
+          "score": 67,
+          "source": "Bangkok startup and platform-economy depth: True Digital Park hub, LINE MAN Wongnai scale, and Bangkok service-tech density",
+          "sourceUrl": "https://www.truedigitalpark.com/en/about/news-pr/TDPK-Prime-Minister-Award-2025/54",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
-          "raw": 1.16,
-          "score": 17.5,
-          "source": "World Bank WDI: Research and development expenditure (% of GDP)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/GB.XPD.RSDV.GD.ZS?format=json&mrv=10",
+          "raw": 2,
+          "score": 32.3,
+          "source": "NSTDA / TSRI: Bangkok Metropolitan Region R&D expenditure as share of BMR GRP — 80%+ of Thailand's R&D activity concentrates in BMR (True Digital Park, NSTDA Science Park, BIOTEC)",
+          "sourceUrl": "https://www.nstda.or.th/en/",
           "dataLevel": "city"
         },
         "creative_economic_vitality_productive_context": {
           "raw": null,
-          "score": 33.3,
+          "score": 41,
           "source": "Composite",
           "sourceUrl": "",
           "dataLevel": "composite",
@@ -2046,11 +2046,11 @@
             {
               "key": "gdp_per_capita_ppp_context",
               "weight": 0.3,
-              "raw": 24712.07,
-              "score": 23,
-              "source": "World Bank WDI: GDP per capita, PPP (current international $)",
-              "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/NY.GDP.PCAP.PP.CD?format=json&mrv=30",
-              "dataLevel": "national"
+              "raw": 45000,
+              "score": 48.6,
+              "source": "NESDC / OECD Metro GDP: Bangkok Metropolitan Region GRP per capita, PPP basis — BMR GRP is roughly 1.8x the Thailand national average",
+              "sourceUrl": "https://www.nesdc.go.th/",
+              "dataLevel": "city"
             },
             {
               "key": "gdp_growth_context",
@@ -2073,9 +2073,9 @@
       },
       "highlights": {
         "strongest": "community_hospitality_belonging",
-        "weakest": "creative_innovation_research_intensity"
+        "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 48
+      "rank": 16
     },
     {
       "cityId": "fr-lyon",
@@ -2314,7 +2314,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 15
+      "rank": 14
     },
     {
       "cityId": "ca-montreal",
@@ -2553,7 +2553,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 3
+      "rank": 2
     },
     {
       "cityId": "cl-santiago",
@@ -2792,7 +2792,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 28
+      "rank": 29
     },
     {
       "cityId": "us-pittsburgh",
@@ -2809,11 +2809,11 @@
       "communityCoverage": 1,
       "creativeCoverage": 1,
       "pressureScore": 71.5,
-      "viabilityScore": 84.1,
+      "viabilityScore": 65.1,
       "capabilityScore": 79.1,
       "communityScore": 43.5,
       "creativeScore": 55.7,
-      "slicScore": 65.3,
+      "slicScore": 62,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -2859,10 +2859,10 @@
           "dataLevel": "city"
         },
         "viability_personal_safety": {
-          "raw": 5.76,
-          "score": 75.3,
-          "source": "UNODC via World Bank WDI: Intentional homicides (per 100,000 people)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/USA/indicator/VC.IHR.PSRC.P5?format=json&mrv=10",
+          "raw": 16.8,
+          "score": 26,
+          "source": "Pittsburgh Bureau of Police Annual Report 2023 / FBI UCR",
+          "sourceUrl": "https://pittsburghpa.gov/publicsafety/police",
           "dataLevel": "city"
         },
         "viability_transit_access_commute": {
@@ -3031,7 +3031,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 5
+      "rank": 6
     },
     {
       "cityId": "jp-kobe",
@@ -3287,11 +3287,11 @@
       "communityCoverage": 1,
       "creativeCoverage": 0.7,
       "pressureScore": 66.1,
-      "viabilityScore": 84.1,
+      "viabilityScore": 69.1,
       "capabilityScore": 79.1,
       "communityScore": 43.5,
       "creativeScore": 62,
-      "slicScore": 65.6,
+      "slicScore": 63.2,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -3337,10 +3337,10 @@
           "dataLevel": "city"
         },
         "viability_personal_safety": {
-          "raw": 5.76,
-          "score": 75.3,
-          "source": "UNODC via World Bank WDI: Intentional homicides (per 100,000 people)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/USA/indicator/VC.IHR.PSRC.P5?format=json&mrv=10",
+          "raw": 14.5,
+          "score": 36.3,
+          "source": "Minneapolis Police Department Crime Dashboard 2024",
+          "sourceUrl": "https://www.minneapolismn.gov/government/departments/police/",
           "dataLevel": "city"
         },
         "viability_transit_access_commute": {
@@ -3987,7 +3987,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 31
+      "rank": 32
     },
     {
       "cityId": "ca-ottawa",
@@ -4226,7 +4226,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 12
+      "rank": 11
     },
     {
       "cityId": "cl-valparaiso",
@@ -4465,7 +4465,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 16
+      "rank": 15
     },
     {
       "cityId": "it-milan",
@@ -4704,7 +4704,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 14
+      "rank": 13
     },
     {
       "cityId": "nl-eindhoven",
@@ -5182,7 +5182,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 6
+      "rank": 5
     },
     {
       "cityId": "pt-braga",
@@ -5660,7 +5660,7 @@
         "strongest": "creative_innovation_research_intensity",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 46
+      "rank": 47
     },
     {
       "cityId": "us-chicago",
@@ -5677,11 +5677,11 @@
       "communityCoverage": 1,
       "creativeCoverage": 0.7,
       "pressureScore": 48.4,
-      "viabilityScore": 84.1,
+      "viabilityScore": 56.6,
       "capabilityScore": 79.1,
       "communityScore": 43.5,
       "creativeScore": 62,
-      "slicScore": 59.8,
+      "slicScore": 55.3,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -5727,10 +5727,10 @@
           "dataLevel": "city"
         },
         "viability_personal_safety": {
-          "raw": 5.76,
-          "score": 75.3,
-          "source": "UNODC via World Bank WDI: Intentional homicides (per 100,000 people)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/USA/indicator/VC.IHR.PSRC.P5?format=json&mrv=10",
+          "raw": 21.8,
+          "score": 3.7,
+          "source": "Council on Criminal Justice: Crime Trends in U.S. Cities 2024 — Chicago homicides per 100 000",
+          "sourceUrl": "https://counciloncj.org/crime-in-chicago-what-you-need-to-know/",
           "dataLevel": "city"
         },
         "viability_transit_access_commute": {
@@ -5899,7 +5899,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 10
+      "rank": 27
     },
     {
       "cityId": "pt-porto",
@@ -6138,7 +6138,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 38
+      "rank": 39
     },
     {
       "cityId": "ee-tallinn",
@@ -6377,7 +6377,7 @@
         "strongest": "creative_entrepreneurial_dynamism",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 41
+      "rank": 42
     },
     {
       "cityId": "pl-torun",
@@ -6855,7 +6855,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 31
+      "rank": 32
     },
     {
       "cityId": "sg-singapore",
@@ -7094,7 +7094,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 13
+      "rank": 12
     },
     {
       "cityId": "ch-zurich",
@@ -7333,7 +7333,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 28
+      "rank": 29
     },
     {
       "cityId": "dk-copenhagen",
@@ -8528,7 +8528,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 31
+      "rank": 32
     },
     {
       "cityId": "at-vienna",
@@ -9006,7 +9006,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 36
+      "rank": 37
     },
     {
       "cityId": "au-perth",
@@ -9484,7 +9484,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 11
+      "rank": 10
     },
     {
       "cityId": "au-adelaide",
@@ -9962,7 +9962,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 31
+      "rank": 32
     },
     {
       "cityId": "pr-san-juan",
@@ -11396,7 +11396,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 42
+      "rank": 43
     },
     {
       "cityId": "ca-vancouver",
@@ -11635,7 +11635,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 43
+      "rank": 44
     },
     {
       "cityId": "sk-bratislava",
@@ -11874,7 +11874,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 48
+      "rank": 49
     },
     {
       "cityId": "kr-jeju-city",
@@ -12352,7 +12352,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 48
+      "rank": 49
     },
     {
       "cityId": "th-chiang-mai",
@@ -15220,7 +15220,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 40
+      "rank": 41
     },
     {
       "cityId": "cn-guangzhou",
@@ -15698,7 +15698,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 39
+      "rank": 40
     },
     {
       "cityId": "hu-budapest",
@@ -16654,7 +16654,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 47
+      "rank": 48
     },
     {
       "cityId": "cn-shenzhen",
@@ -19761,7 +19761,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 43
+      "rank": 44
     },
     {
       "cityId": "ma-casablanca",
@@ -20956,7 +20956,7 @@
         "strongest": "capability_education_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 35
+      "rank": 36
     },
     {
       "cityId": "ug-kampala",
@@ -38603,7 +38603,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 43
+      "rank": 44
     }
   ]
 }

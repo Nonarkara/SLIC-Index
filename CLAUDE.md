@@ -124,3 +124,8 @@ The `dist/` directory is committed to the repo. GitHub Pages serves from the `gh
 - No "SLIC logo" — always "SLIC Index" branding.
 - ReTL is the tech partner (not Axiom).
 - Multilingual: all UI text has en/th/zh variants in `siteCopy.ts`.
+
+## Cross-Agent Sync Note
+
+- Keep `data/verified_sources/city_inputs.csv`, `src/data/publishedRankingData.json`, and `public/downloads/slic-ranked-cities-v2.csv` aligned when city metrics change. Bangkok previously had stronger published JSON values than the source CSV, which is an easy handoff mistake when different models update different layers at different times.
+- `src/cityBenchmarks.ts` currently exists as draft/reference copy and is not imported by the app. Treat edits there as non-user-facing unless the component is wired back into the UI.
