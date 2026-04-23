@@ -72,6 +72,7 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 const HERO_PHOTO = `${BASE}/launch-photos/20260318145941_DSC09480.jpg`;
 const METHOD_PHOTO = `${BASE}/launch-photos/20260318145319_DSC09441.jpg`;
 const STAGE_PHOTO = `${BASE}/launch-photos/20260318145249_ABC01948.jpg`;
+const GITEX_PHOTO_1 = `${BASE}/launch-photos/gitex-singapore-2026-01.jpg`;
 
 const localeNumberFormat: Record<Locale, string> = {
   en: "en-US",
@@ -452,6 +453,67 @@ export default function HomePage({
             "在台北的舞台上，主张很简单：用可审计的城市指标，取代生活方式幻象。",
           )}
         </p>
+      </section>
+
+      <section className="hp-launch-trail section">
+        <p className="eyebrow">{t(locale, "GLOBAL LAUNCH TRAIL", "เส้นทางเปิดตัวทั่วโลก", "全球发布路线")}</p>
+        <h2 className="hp-launch-trail-title">
+          {t(
+            locale,
+            "Taking SLIC to the rooms where decisions get made.",
+            "นำ SLIC สู่ห้องที่การตัดสินใจเกิดขึ้น",
+            "将 SLIC 带入决策发生的场合。",
+          )}
+        </h2>
+        <div className="hp-launch-trail-grid">
+          <div className="hp-launch-event">
+            <div className="hp-launch-event-photo">
+              <img src={STAGE_PHOTO} alt="SLIC keynote, Smart City Summit Taipei 2026" loading="lazy" />
+            </div>
+            <div className="hp-launch-event-meta">
+              <span className="hp-launch-event-tag">Taipei</span>
+              <span className="hp-launch-event-date">March 2026</span>
+              <p>{t(
+                locale,
+                "Smart City Summit & Expo — keynote to 3,000+ professionals. The largest smart city event in Asia.",
+                "Smart City Summit & Expo — keynote ต่อหน้า 3,000+ คน งานเมืองอัจฉริยะที่ใหญ่ที่สุดในเอเชีย",
+                "智慧城市峰会——向 3,000 余名专业人士发表主题演讲。亚洲最大智慧城市活动。",
+              )}</p>
+            </div>
+          </div>
+
+          <div className="hp-launch-event">
+            <div className="hp-launch-event-photo">
+              <img src={GITEX_PHOTO_1} alt="SLIC main-stage keynote, GITEX AI Asia Singapore 2026" loading="lazy" />
+            </div>
+            <div className="hp-launch-event-meta">
+              <span className="hp-launch-event-tag">Singapore</span>
+              <span className="hp-launch-event-date">April 2026</span>
+              <p>{t(
+                locale,
+                "GITEX AI Asia, Marina Bay Sands — main-stage keynote and Government Innovation as a Service workshop. 23,000+ attendees from 110+ countries.",
+                "GITEX AI Asia, Marina Bay Sands — keynote บนเวทีหลักและเวิร์กช็อป Government Innovation as a Service ผู้เข้าร่วมกว่า 23,000 คนจาก 110+ ประเทศ",
+                "GITEX AI Asia，滨海湾金沙——主舞台主题演讲及「政府创新即服务」工作坊。23,000 余名观众，110 余个国家。",
+              )}</p>
+            </div>
+          </div>
+
+          <div className="hp-launch-event hp-launch-event--upcoming">
+            <div className="hp-launch-event-placeholder">
+              <span className="hp-launch-event-placeholder-text">{t(locale, "Next stop", "ต่อไป", "下一站")}</span>
+            </div>
+            <div className="hp-launch-event-meta">
+              <span className="hp-launch-event-tag hp-launch-event-tag--upcoming">Hong Kong</span>
+              <span className="hp-launch-event-date">July 2026</span>
+              <p>{t(
+                locale,
+                "LEAP Asia — Asia's leading conference for innovation leaders and investors.",
+                "LEAP Asia — งานประชุมชั้นนำในเอเชียสำหรับผู้นำด้านนวัตกรรมและนักลงทุน",
+                "LEAP Asia——亚洲领先的创新领袖与投资者峰会。",
+              )}</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section className="section v3-lower-tiers">
