@@ -368,17 +368,17 @@ export default function HomePage({
           <h2 className="hp-thesis-title">
             {t(
               locale,
-              "A public metric.\nDeclared terms.",
-              "เมตริกสาธารณะ\nพร้อมเงื่อนไขที่ประกาศชัดเจน",
-              "一个公开指标。\n前提明确。",
+              "Every ranking has hidden assumptions.\nWe published ours.",
+              "ทุกดัชนีมีสมมติฐานที่ซ่อนอยู่\nเราเผยแพร่ของเราให้สาธารณะ",
+              "每份排名都有隐藏的假设。\n我们把自己的公开了。",
             )}
           </h2>
           <p className="hp-thesis-body">
             {t(
               locale,
-              "SLIC publishes one city number built from five declared pillars. It is not a claim that one score can settle what a city means to every person; it is a transparent statement of what this model measures and how each number can be traced.",
-              "SLIC เผยแพร่ตัวเลขหนึ่งค่าต่อหนึ่งเมือง โดยสร้างจาก 5 เสาหลักที่ประกาศชัดเจน ไม่ได้อ้างว่าคะแนนเดียวสามารถตัดสินความหมายของเมืองต่อทุกคนได้ แต่ประกาศอย่างโปร่งใสว่าโมเดลนี้วัดอะไร และไล่ย้อนกลับตัวเลขแต่ละค่าได้อย่างไร",
-              "SLIC 为每座城市发布一个由五个公开支柱构成的分数。它并不声称一个数字就能定义一座城市对所有人的意义，而是透明说明这个模型测量什么，以及每个数字如何回溯。",
+              "Five declared pillars. Thirty-six linked sources. No imputation, no paid placement, no composite buried in a PDF you have to trust. Disagree with the weights? Good — drag them below and see what actually changes.",
+              "ห้าเสาหลักที่ประกาศชัด สามสิบหกแหล่งที่มาที่เชื่อมโยงได้ ไม่มีการเติมข้อมูล ไม่มีเมืองจ่ายเงินเพื่อเข้าร่วม ไม่มีสูตรซ่อนในไฟล์ PDF ที่ต้องเชื่อโดยดุษณี ไม่เห็นด้วยกับน้ำหนัก? ดีมาก — ลากด้านล่างแล้วดูว่าอะไรเปลี่ยน",
+              "五个公开支柱。三十六条附有链接的来源。没有数据填充，没有付费排名，没有藏在 PDF 里叫你盲目相信的公式。不同意这些权重？很好——拖动下方滑块，看看什么真的会变。",
             )}
           </p>
           <a
@@ -386,7 +386,7 @@ export default function HomePage({
             href={appHref("/compare")}
             onClick={(event) => navigateLink(event, onNavigate, "/compare")}
           >
-            {t(locale, "Read the full comparison", "อ่านการเปรียบเทียบเต็ม", "阅读完整对比")} &rarr;
+            {t(locale, "See how SLIC compares to EIU, Mercer, and Resonance", "เปรียบเทียบ SLIC กับ EIU, Mercer และ Resonance", "对比 SLIC 与 EIU、美世、Resonance")} &rarr;
           </a>
         </div>
       </section>
@@ -397,9 +397,9 @@ export default function HomePage({
           <h2 className="v3-alpha-title">
             {t(
               locale,
-              "Published board, verified order.",
-              "บอร์ดที่เผยแพร่แล้ว ตามลำดับที่ตรวจสอบแล้ว",
-              "已发布榜单，按已核验顺序呈现。",
+              "The top ten. Every number traced to a source.",
+              "สิบอันดับแรก ตัวเลขทุกค่าย้อนกลับสู่แหล่งที่มาได้",
+              "前十名。每个数字都可追溯至来源。",
             )}
           </h2>
         </div>
@@ -462,9 +462,9 @@ export default function HomePage({
         <h2 className="hp-launch-trail-title">
           {t(
             locale,
-            "Taking SLIC to the rooms where decisions get made.",
-            "นำ SLIC สู่ห้องที่การตัดสินใจเกิดขึ้น",
-            "将 SLIC 带入决策发生的场合。",
+            "A city ranking is only useful if it enters the rooms where city decisions get made. Here is where SLIC went.",
+            "ดัชนีเมืองมีประโยชน์ก็ต่อเมื่อได้เข้าสู่ห้องที่การตัดสินใจเรื่องเมืองเกิดขึ้นจริง นี่คือที่ที่ SLIC ไป",
+            "城市排名只有进入真正做城市决策的场合才有意义。这里是 SLIC 去过的地方。",
           )}
         </h2>
         <div className="hp-launch-trail-grid">
@@ -582,14 +582,14 @@ export default function HomePage({
       <section className="v3-spider-full">
         <div className="section">
           <h2 className="v3-section-title">
-            {t(locale, "Now test the weights yourself.", "ตอนนี้ลองทดสอบน้ำหนักด้วยตัวเอง", "现在自己测试这些权重。")}
+            {t(locale, "Most rankings pick your priorities for you. Drag to pick your own.", "ดัชนีส่วนใหญ่เลือกน้ำหนักแทนคุณ ลากเพื่อตั้งน้ำหนักของตัวเอง", "大多数排名替你决定优先级。拖动滑块，设定你自己的。")}
           </h2>
           <p className="v3-spider-hint">
             {t(
               locale,
-              "Drag the spider. This does not overwrite the published board; it creates a personal comparison view using the same five pillars.",
-              "ลากใยแมงมุมได้เลย การทำเช่นนี้ไม่ได้เขียนทับบอร์ดที่เผยแพร่ แต่สร้างมุมมองเปรียบเทียบส่วนบุคคลจาก 5 เสาหลักเดียวกัน",
-              "拖动蛛网图即可。这不会改写已发布榜单，而是用同样的五个支柱生成你的个人对比视图。",
+              "Drag any pillar to reweight the model. The published board stays intact — this builds a personal comparison view using the same 36 sources.",
+              "ลากเสาหลักใดก็ได้เพื่อปรับน้ำหนัก บอร์ดที่เผยแพร่ไม่เปลี่ยน — นี่คือมุมมองเปรียบเทียบส่วนตัวจากแหล่งข้อมูล 36 แหล่งเดียวกัน",
+              "拖动任意支柱以调整权重。已发布榜单保持不变——这里构建的是你的个人对比视图，使用同样的 36 条数据来源。",
             )}
           </p>
           <div className="v3-spider-layout">
