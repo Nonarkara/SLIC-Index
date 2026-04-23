@@ -72,7 +72,9 @@ const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 const HERO_PHOTO = `${BASE}/launch-photos/20260318145941_DSC09480.jpg`;
 const METHOD_PHOTO = `${BASE}/launch-photos/20260318145319_DSC09441.jpg`;
 const STAGE_PHOTO = `${BASE}/launch-photos/20260318145249_ABC01948.jpg`;
-const GITEX_PHOTO_1 = `${BASE}/launch-photos/gitex-singapore-2026-01.jpg`;
+const SHOWFLOOR_PHOTO = `${BASE}/launch-photos/20260318151147_DSC09510.jpg`;
+const GITEX_STAGE_PHOTO = `${BASE}/launch-photos/gitex-singapore-2026-02.jpg`;
+const LEAP_EAST_PHOTO = `${BASE}/launch-photos/leap-east-hong-kong-2026.png`;
 
 const localeNumberFormat: Record<Locale, string> = {
   en: "en-US",
@@ -267,22 +269,22 @@ export default function HomePage({
         </div>
         <div className="hp-opening-inner section">
           <p className="hp-kicker">
-            {t(locale, "SLIC Index V3 / 2026 edition", "ดัชนี SLIC V3 / ฉบับปี 2026", "SLIC 指数 V3 / 2026 版")}
+            {t(locale, "THE CITY RANKING THAT SHOWS ITS SOURCES", "ดัชนีเมืองที่เปิดเผยแหล่งที่มาทุกตัวเลข", "唯一公开每条数据来源的城市排名")}
           </p>
           <p className="hp-lede">
             {t(
               locale,
-              "Most city rankings measure prestige. SLIC measures what it actually costs to build a life here.",
-              "ดัชนีเมืองส่วนใหญ่วัดความมีชื่อเสียง SLIC วัดว่าการสร้างชีวิตที่นี่ใช้ต้นทุนจริงเท่าไร",
-              "大多数城市排名衡量声望。SLIC 衡量在这里生活的真实成本。",
+              "Most city rankings are someone's opinion dressed as data. SLIC publishes the math.",
+              "ดัชนีเมืองส่วนใหญ่คือความเห็นที่แต่งตัวเป็นข้อมูล SLIC เผยแพร่ตัวเลขที่ตรวจสอบได้",
+              "大多数城市排名是裹着数据外衣的观点。SLIC 发布可验证的数字。",
             )}
           </p>
           <h1 className="hp-headline">
             {t(
               locale,
-              "Which cities score highest under this metric?",
-              "เมืองใดได้คะแนนสูงสุดภายใต้เมตริกนี้?",
-              "哪些城市在这一指标下得分最高？",
+              "The others are brochures. This one is an audit.",
+              "ดัชนีอื่นเป็นโบรชัวร์ ดัชนีนี้คือการตรวจสอบ",
+              "其他的是宣传册。这一个是审计。",
             )}
           </h1>
           <p className="hp-deck">
@@ -438,8 +440,8 @@ export default function HomePage({
 
       <section className="hp-photo-break hp-photo-break--narrow">
         <img
-          src={STAGE_PHOTO}
-          alt="Dr Non presenting SLIC on stage"
+          src={SHOWFLOOR_PHOTO}
+          alt="Dr Non at Smart City Summit Taipei show floor"
           className="hp-photo-break-img"
           width={5997}
           height={4000}
@@ -448,9 +450,9 @@ export default function HomePage({
         <p className="hp-photo-caption">
           {t(
             locale,
-            "On stage in Taipei. The pitch was simple: replace lifestyle fantasy with an auditable city metric.",
-            "บนเวทีที่ไทเป ข้อเสนอเรียบง่ายมาก: เปลี่ยนภาพฝันแบบไลฟ์สไตล์ให้เป็นเมตริกเมืองที่ตรวจสอบได้",
-            "在台北的舞台上，主张很简单：用可审计的城市指标，取代生活方式幻象。",
+            "On the floor in Taipei. The pitch was simple: replace lifestyle fantasy with an auditable city metric.",
+            "บนโถงงานที่ไทเป ข้อเสนอเรียบง่ายมาก: เปลี่ยนภาพฝันแบบไลฟ์สไตล์ให้เป็นเมตริกเมืองที่ตรวจสอบได้",
+            "在台北的展会现场，主张很简单：用可审计的城市指标，取代生活方式幻象。",
           )}
         </p>
       </section>
@@ -484,7 +486,7 @@ export default function HomePage({
 
           <div className="hp-launch-event">
             <div className="hp-launch-event-photo">
-              <img src={GITEX_PHOTO_1} alt="SLIC main-stage keynote, GITEX AI Asia Singapore 2026" loading="lazy" />
+              <img src={GITEX_STAGE_PHOTO} alt="Dr Non, main-stage keynote at GITEX AI Asia Singapore 2026" loading="lazy" />
             </div>
             <div className="hp-launch-event-meta">
               <span className="hp-launch-event-tag">Singapore</span>
@@ -499,19 +501,39 @@ export default function HomePage({
           </div>
 
           <div className="hp-launch-event hp-launch-event--upcoming">
-            <div className="hp-launch-event-placeholder">
-              <span className="hp-launch-event-placeholder-text">{t(locale, "Next stop", "ต่อไป", "下一站")}</span>
+            <div className="hp-launch-event-photo hp-launch-event-photo--graphic">
+              <img src={LEAP_EAST_PHOTO} alt="Dr Non speaking at LEAP EAST, Hong Kong, 8–10 July 2026" loading="lazy" />
             </div>
             <div className="hp-launch-event-meta">
               <span className="hp-launch-event-tag hp-launch-event-tag--upcoming">Hong Kong</span>
               <span className="hp-launch-event-date">July 2026</span>
               <p>{t(
                 locale,
-                "LEAP Asia — Asia's leading conference for innovation leaders and investors.",
-                "LEAP Asia — งานประชุมชั้นนำในเอเชียสำหรับผู้นำด้านนวัตกรรมและนักลงทุน",
-                "LEAP Asia——亚洲领先的创新领袖与投资者峰会。",
+                "LEAP EAST, HKCEC — Asia's leading conference for innovation leaders and investors. 8–10 July 2026.",
+                "LEAP EAST, HKCEC — งานประชุมชั้นนำในเอเชียสำหรับผู้นำด้านนวัตกรรมและนักลงทุน 8–10 กรกฎาคม 2569",
+                "LEAP EAST，香港会展中心——亚洲领先的创新领袖与投资者峰会。2026 年 7 月 8–10 日。",
               )}</p>
             </div>
+          </div>
+        </div>
+
+        <div className="hp-launch-reach">
+          <div className="hp-launch-reach-stat">
+            <span className="hp-launch-reach-number">10,000+</span>
+            <span className="hp-launch-reach-label">
+              {t(locale, "people have accessed the SLIC Index", "ผู้เข้าถึง SLIC Index", "人次访问 SLIC 指数")}
+            </span>
+          </div>
+          <div className="hp-launch-reach-stat">
+            <span className="hp-launch-reach-number">5,000+</span>
+            <span className="hp-launch-reach-label">
+              {t(
+                locale,
+                "have seen SLIC presented live in Taipei and Singapore",
+                "ได้เห็นการนำเสนอ SLIC สดที่ไทเปและสิงคโปร์",
+                "现场观看了 SLIC 在台北与新加坡的演讲",
+              )}
+            </span>
           </div>
         </div>
       </section>

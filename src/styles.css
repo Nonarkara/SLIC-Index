@@ -2103,23 +2103,10 @@ section[id] {
   display: block;
 }
 
-.hp-launch-event-placeholder {
-  width: 100%;
-  height: 240px;
-  background: var(--surface-strong);
-  border: 1px dashed var(--border-strong);
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hp-launch-event-placeholder-text {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--text-soft);
+.hp-launch-event-photo--graphic img {
+  object-fit: cover;
+  object-position: center;
+  background: #c9ff3a;
 }
 
 .hp-launch-event-meta {
@@ -2159,20 +2146,46 @@ section[id] {
   opacity: 0.7;
 }
 
+.hp-launch-reach {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.hp-launch-reach-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.hp-launch-reach-number {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--accent-amber);
+}
+
+.hp-launch-reach-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  max-width: 28ch;
+  line-height: 1.5;
+}
+
 @media (max-width: 900px) {
   .hp-launch-trail-grid {
     grid-template-columns: 1fr 1fr;
   }
   .hp-launch-event--upcoming {
     grid-column: 1 / -1;
-    flex-direction: row;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  .hp-launch-event--upcoming .hp-launch-event-placeholder {
-    width: 120px;
-    height: 80px;
-    flex-shrink: 0;
   }
 }
 
@@ -2180,16 +2193,12 @@ section[id] {
   .hp-launch-trail-grid {
     grid-template-columns: 1fr;
   }
-  .hp-launch-event--upcoming {
-    flex-direction: column;
-  }
-  .hp-launch-event--upcoming .hp-launch-event-placeholder {
-    width: 100%;
-    height: 100px;
-  }
-  .hp-launch-event-photo img,
-  .hp-launch-event-placeholder {
+  .hp-launch-event-photo img {
     height: 180px;
+  }
+  .hp-launch-reach {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
