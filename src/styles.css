@@ -8520,6 +8520,146 @@ details[open].scorecard-derived-formula summary::before {
   opacity: 1;
 }
 
+/* 02b. Most visited vs most livable */
+.compare-visits {
+  padding: 3rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.compare-visits-header {
+  max-width: 720px;
+  margin-bottom: 2rem;
+}
+
+.compare-visits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .compare-visits-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.compare-visits-col {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid var(--border-strong);
+  padding-top: 1rem;
+}
+
+.compare-visits-col-header {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-amber);
+  margin: 0 0 0.15rem 0;
+}
+
+.compare-visits-col-source {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #8a8078;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin: 0 0 1rem 0;
+}
+
+.compare-visits-row {
+  display: grid;
+  grid-template-columns: 2.2rem 1fr auto auto;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.75rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.compare-visits-row-even {
+  background: rgba(40, 32, 20, 0.015);
+}
+
+.compare-visits-rank {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--accent-amber);
+  text-align: right;
+}
+
+.compare-visits-city-block {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.compare-visits-city {
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-size: 14px;
+  color: var(--ink, #1c1914);
+  line-height: 1.25;
+}
+
+.compare-visits-country {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: #8a8078;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+
+.compare-visits-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #7a7269;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.compare-visits-slic-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: 2px;
+  background: rgba(184, 92, 40, 0.1);
+  color: var(--accent-amber);
+  white-space: nowrap;
+}
+
+.compare-visits-slic-tag--missing {
+  background: rgba(40, 32, 20, 0.05);
+  color: #8a8078;
+  font-weight: 500;
+}
+
+.compare-visits-callout {
+  margin: 2.5rem 0 1rem 0;
+  padding: 1.5rem 1.75rem;
+  border-left: 3px solid var(--accent-amber);
+  background: rgba(184, 92, 40, 0.04);
+  font-family: "Libre Baskerville", Georgia, serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  line-height: 1.55;
+  color: var(--ink, #1c1914);
+}
+
+.compare-visits-source-footer {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #8a8078;
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
 /* 03. Overlap analysis */
 .compare-overlap {
   padding: 3rem 0;

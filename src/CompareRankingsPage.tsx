@@ -9,6 +9,7 @@ import {
   COMPARE_HERO,
   SLIC_DIFFERENCE,
   ECHO_CHAMBER_NOTES,
+  MASTERCARD_GDCI_2019,
 } from "./compareRankingsData";
 import type { Locale, SitePath } from "./types";
 
@@ -113,6 +114,26 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
     return indices.filter((i) => i !== "SLIC").length === 0;
   }), [slicTop10, overlaps]);
 
+  /* ── MasterCard GDCI 2019 → SLIC rank lookup (published data, not custom weights) ── */
+  const mastercardWithSlic = useMemo(() => {
+    return MASTERCARD_GDCI_2019.map((mc) => {
+      const match = rankedCities.find(
+        (c) => c.displayName.toLowerCase() === mc.city.toLowerCase(),
+      );
+      return {
+        ...mc,
+        slicRank: match?.rank ?? null,
+        slicScore: match?.slicScore ?? null,
+      };
+    });
+  }, []);
+
+  /* ── Published SLIC top 10 (fixed weights, never changes with spider) ── */
+  const publishedTop10 = useMemo(
+    () => [...rankedCities].sort((a, b) => a.rank - b.rank).slice(0, 10),
+    [],
+  );
+
   const handleReset = () => setPillars(PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: EQUAL_WEIGHT })));
 
   return (
@@ -183,6 +204,71 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
             ]}
           </div>
         </div>
+      </section>
+
+      {/* ═══════ 02b. MOST VISITED VS MOST LIVABLE ═══════ */}
+      <section className="compare-visits section">
+        <div className="compare-visits-header">
+          <p className="compare-overline">{t(locale, "THE VISIBLE GAP", "ช่องว่างที่มองเห็นได้", "可见的差距")}</p>
+          <h2 className="compare-section-title">{t(locale, "Most visited vs most livable", "เมืองที่คนเที่ยวมากสุด เทียบกับเมืองที่อยู่ได้จริง", "最受游客欢迎 vs 最宜居")}</h2>
+          <p className="compare-section-sub">{t(
+            locale,
+            "Every other index measures visitor pull or capital attraction. SLIC asks where a resident can actually build a life. The two questions produce completely different answers.",
+            "ดัชนีอื่นๆ วัดแรงดึงดูดนักท่องเที่ยวหรือทุน SLIC ถามว่าประชากรจะสร้างชีวิตได้ที่ไหน สองคำถามให้คำตอบที่ต่างกันสิ้นเชิง",
+            "其他指数衡量游客吸引力或资本聚集力。SLIC 问的是居民能在哪里真正立足。两个问题给出截然不同的答案。",
+          )}</p>
+        </div>
+
+        <div className="compare-visits-grid">
+          <div className="compare-visits-col">
+            <h3 className="compare-visits-col-header">{t(locale, "Most visited", "เที่ยวมากสุด", "最受游客欢迎")}</h3>
+            <p className="compare-visits-col-source">{t(locale, "MasterCard GDCI 2019", "MasterCard GDCI 2019", "MasterCard GDCI 2019")}</p>
+            {mastercardWithSlic.map((c, i) => (
+              <div key={c.city} className={`compare-visits-row${i % 2 === 0 ? " compare-visits-row-even" : ""}`}>
+                <span className="compare-visits-rank">{c.rank}</span>
+                <div className="compare-visits-city-block">
+                  <span className="compare-visits-city">{c.city}</span>
+                  <span className="compare-visits-country">{c.country}</span>
+                </div>
+                <span className="compare-visits-meta">{c.visitorsMillions}M {t(locale, "visits", "ครั้ง", "人次")}</span>
+                <span className={c.slicRank ? "compare-visits-slic-tag" : "compare-visits-slic-tag compare-visits-slic-tag--missing"}>
+                  {c.slicRank
+                    ? `SLIC #${c.slicRank}`
+                    : t(locale, "Not in SLIC", "ไม่อยู่ใน SLIC", "未在 SLIC")}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <div className="compare-visits-col">
+            <h3 className="compare-visits-col-header">{t(locale, "Most livable", "น่าอยู่จริง", "最宜居")}</h3>
+            <p className="compare-visits-col-source">{t(locale, "SLIC 2026", "SLIC 2026", "SLIC 2026")}</p>
+            {publishedTop10.map((c, i) => (
+              <div key={c.cityId} className={`compare-visits-row${i % 2 === 0 ? " compare-visits-row-even" : ""}`}>
+                <span className="compare-visits-rank">{c.rank}</span>
+                <div className="compare-visits-city-block">
+                  <span className="compare-visits-city">{c.displayName}</span>
+                  <span className="compare-visits-country">{c.country}</span>
+                </div>
+                <span className="compare-visits-meta">{c.slicScore.toFixed(1)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <blockquote className="compare-visits-callout">{t(
+          locale,
+          "Zero of MasterCard's top 10 most-visited cities clear SLIC's top 10. The closest is Singapore at #13. Paris — the world's second most-visited city — ranks #66. That is not the index missing something. That is the index measuring something different.",
+          "ไม่มีเมืองใดใน 10 อันดับของ MasterCard ที่ติด SLIC top 10 เลย ใกล้สุดคือสิงคโปร์ที่ #13 ส่วนปารีส — เมืองที่คนเที่ยวมากอันดับ 2 ของโลก — อยู่อันดับ #66 นี่ไม่ใช่ดัชนีที่พลาด แต่เป็นดัชนีที่วัดคนละเรื่อง",
+          "MasterCard 前 10 名中没有一座城市进入 SLIC 前 10。最接近的是新加坡（第 13）。巴黎——全球第二受游客欢迎的城市——在 SLIC 排第 66。这不是指数遗漏了什么，这是指数衡量的是另一件事。",
+        )}</blockquote>
+
+        <p className="compare-visits-source-footer">{t(
+          locale,
+          "Source: MasterCard Global Destination Cities Index 2019 (final published edition, international overnight visitors). SLIC: this study, 2026.",
+          "แหล่งข้อมูล: MasterCard Global Destination Cities Index 2019 (ฉบับเผยแพร่สุดท้าย นักท่องเที่ยวค้างคืนระหว่างประเทศ) SLIC: การศึกษานี้ 2026",
+          "来源：MasterCard 全球目的地城市指数 2019（最终公开版，国际过夜游客）。SLIC：本研究，2026。",
+        )}</p>
       </section>
 
       {/* ═══════ 03. OVERLAP ANALYSIS (dynamic) ═══════ */}

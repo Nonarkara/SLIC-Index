@@ -465,6 +465,31 @@ export const INDEX_PROFILES: IndexProfile[] = [
   },
 ];
 
+/* ── MasterCard Global Destination Cities Index 2019 (final published edition) ──
+   Static external reference data. Visitor counts are international overnight
+   arrivals in millions. Used to contrast "most visited" vs SLIC's "most livable"
+   on the Compare page. 2019 was the final public edition before MasterCard
+   discontinued the series post-pandemic. */
+export interface MastercardGdciCity {
+  rank: number;
+  city: string;
+  country: string;
+  visitorsMillions: number;
+}
+
+export const MASTERCARD_GDCI_2019: MastercardGdciCity[] = [
+  { rank: 1, city: "Bangkok", country: "Thailand", visitorsMillions: 22.8 },
+  { rank: 2, city: "Paris", country: "France", visitorsMillions: 19.1 },
+  { rank: 3, city: "London", country: "United Kingdom", visitorsMillions: 19.1 },
+  { rank: 4, city: "Dubai", country: "UAE", visitorsMillions: 15.9 },
+  { rank: 5, city: "Singapore", country: "Singapore", visitorsMillions: 14.7 },
+  { rank: 6, city: "Kuala Lumpur", country: "Malaysia", visitorsMillions: 13.8 },
+  { rank: 7, city: "New York", country: "United States", visitorsMillions: 13.6 },
+  { rank: 8, city: "Istanbul", country: "Turkey", visitorsMillions: 13.4 },
+  { rank: 9, city: "Tokyo", country: "Japan", visitorsMillions: 12.9 },
+  { rank: 10, city: "Antalya", country: "Turkey", visitorsMillions: 12.4 },
+];
+
 /* ── Editorial hero copy ── */
 export const COMPARE_HERO = {
   eyebrow: "COMPARE RANKINGS",
