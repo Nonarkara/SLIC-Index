@@ -220,7 +220,7 @@ section[id] {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
-  color: var(--text-soft);
+  color: var(--text);
   font-size: 0.9rem;
 }
 
