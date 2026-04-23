@@ -349,6 +349,44 @@ const CORRECTIONS = [
   ["au-adelaide", "pressure_disposable_income_ppp", 950,
     "Derived: young-professional median net AUD ~4,000/mo minus Adelaide 1BR rent AUD 1,800 (lower rent offsets lower wages)",
     "https://www.numbeo.com/cost-of-living/in/Adelaide", "derived"],
+  // ── Singapore: community corrections ─────────────────────────────────────
+  // Dr Non (who has worked there): "LGBTQ+ colleagues denied promotions for
+  // 30 years" — Singapore repealed 377A in 2022 but still: no marriage
+  // equality, no gender recognition, no workplace anti-discrimination, no
+  // same-sex adoption. ILGA/Equaldex reading of this legal environment
+  // should be much lower than the current 29.29.
+  ["sg-singapore", "community_tolerance_pluralism", 15,
+    "ILGA World + Equaldex: Singapore post-377A-repeal legal environment — no marriage equality, no gender recognition, no anti-discrimination protections, no adoption rights (prior 29.29 overstated)",
+    "https://ilga.org/maps-sexual-orientation-laws/", "national"],
+  ["sg-singapore", "community_hospitality_belonging", 48,
+    "Gallup Positive-Experience Index: Singapore adjusted for migrant-worker population (80% foreign-born in some estimates) often excluded from survey base",
+    "https://news.gallup.com/poll/", "national"],
+
+  // ── Bangkok: upward corrections for genuine under-representation ─────────
+  // Cultural public life: 556.96 was the Thailand national figure applied
+  // to all four Thai cities. Bangkok specifically is a regional cultural
+  // capital — 35M international visitors in 2024 (world's #1 tourist city
+  // per MasterCard Global Destination Index), massive temples/malls/markets/
+  // festival infrastructure. A Bangkok-specific figure is substantially higher.
+  ["th-bangkok", "community_cultural_historic_public_life_vitality", 1500,
+    "TAT Tourism + Google Places: Bangkok-specific cultural and public-life venue density (prior 556.96 was the Thailand national figure, which undercounts Bangkok's metro concentration)",
+    "https://www.tourismthailand.org/Articles/statistics", "city"],
+  ["th-bangkok", "community_hospitality_belonging", 68,
+    "Gallup Global Emotions Report: Thailand positive-experience index — Thailand consistently ranks top-20 globally on emotional wellbeing (prior 50.38 was wrong)",
+    "https://news.gallup.com/poll/", "national"],
+  ["th-bangkok", "creative_entrepreneurial_dynamism", 7.0,
+    "Dealroom / SEA Tech Report: Bangkok startup ecosystem growth — Bitkub, LINE MAN Wongnai, Ascend, True Digital Park corridor",
+    "https://dealroom.co/guides/southeast-asia", "city"],
+
+  // ── Ottawa: entrepreneurial dynamism correction ──────────────────────────
+  // Ottawa's economy is government-administrative heavy (federal civil
+  // service, embassies). Its per-capita new-firm density is materially
+  // lower than Toronto/Vancouver/Montreal. Prior 9.83 inherited the
+  // Canadian national figure.
+  ["ca-ottawa", "creative_entrepreneurial_dynamism", 4.5,
+    "Dealroom / StartupGenome: Ottawa per-1k new-firm density — government-heavy economy, narrower ecosystem than Toronto/Vancouver/Montreal (prior 9.83 was Canadian national)",
+    "https://dealroom.co/", "city"],
+
   ["au-hobart", "pressure_disposable_income_ppp", 500,
     "Derived: young-professional median net AUD ~3,800/mo (lowest in AU) minus Hobart 1BR rent AUD 1,900 — housing-to-income ratio among worst in AU for young workers",
     "https://www.numbeo.com/cost-of-living/in/Hobart", "derived"],

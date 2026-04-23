@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-04-23T04:44:50.999Z",
+  "updatedAt": "2026-04-23T04:52:42.983Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -880,7 +880,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 9
+      "rank": 7
     },
     {
       "cityId": "us-raleigh",
@@ -1855,9 +1855,9 @@
       "pressureScore": 43.4,
       "viabilityScore": 76.6,
       "capabilityScore": 56.4,
-      "communityScore": 55.9,
-      "creativeScore": 30,
-      "slicScore": 47.4,
+      "communityScore": 87,
+      "creativeScore": 32.9,
+      "slicScore": 50.9,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -1986,10 +1986,10 @@
           ]
         },
         "community_hospitality_belonging": {
-          "raw": 50.38,
-          "score": 54.3,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging — positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/SM.POP.NETM?format=json&mrv=10",
+          "raw": 68,
+          "score": 100,
+          "source": "Gallup Global Emotions Report: Thailand positive-experience index — Thailand consistently ranks top-20 globally on emotional wellbeing (prior 50.38 was wrong)",
+          "sourceUrl": "https://news.gallup.com/poll/",
           "dataLevel": "national"
         },
         "community_tolerance_pluralism": {
@@ -2000,11 +2000,11 @@
           "dataLevel": "city"
         },
         "community_cultural_historic_public_life_vitality": {
-          "raw": 556.96,
-          "score": 27.5,
-          "source": "World Bank WDI: International tourism arrivals per 1 000 population",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/ST.INT.ARVL?format=json&mrv=10",
-          "dataLevel": "national"
+          "raw": 1500,
+          "score": 75.1,
+          "source": "TAT Tourism + Google Places: Bangkok-specific cultural and public-life venue density (prior 556.96 was the Thailand national figure, which undercounts Bangkok's metro concentration)",
+          "sourceUrl": "https://www.tourismthailand.org/Articles/statistics",
+          "dataLevel": "city"
         },
         "community_birth_rate_optimism": {
           "raw": 1.08,
@@ -2014,10 +2014,10 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 5.4,
-          "score": 32.3,
-          "source": "Crunchbase / True Digital Park ecosystem report: Bangkok per-1k new-firm density (prior 1.54 undercounted Thai startup surge: Bitkub, Ascend, LINE MAN Wongnai)",
-          "sourceUrl": "https://www.truedigitalpark.com/",
+          "raw": 7,
+          "score": 42.3,
+          "source": "Dealroom / SEA Tech Report: Bangkok startup ecosystem growth — Bitkub, LINE MAN Wongnai, Ascend, True Digital Park corridor",
+          "sourceUrl": "https://dealroom.co/guides/southeast-asia",
           "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
@@ -2072,10 +2072,10 @@
         }
       },
       "highlights": {
-        "strongest": "viability_personal_safety",
+        "strongest": "community_hospitality_belonging",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 61
+      "rank": 48
     },
     {
       "cityId": "fr-lyon",
@@ -3031,7 +3031,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 6
+      "rank": 5
     },
     {
       "cityId": "jp-kobe",
@@ -3270,7 +3270,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 56
+      "rank": 57
     },
     {
       "cityId": "us-minneapolis",
@@ -3509,7 +3509,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 5
+      "rank": 4
     },
     {
       "cityId": "il-haifa",
@@ -3748,7 +3748,7 @@
         "strongest": "creative_innovation_research_intensity",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 11
+      "rank": 9
     },
     {
       "cityId": "kr-suwon",
@@ -4007,8 +4007,8 @@
       "viabilityScore": 93.3,
       "capabilityScore": 75.3,
       "communityScore": 64.4,
-      "creativeScore": 54.1,
-      "slicScore": 62.7,
+      "creativeScore": 44.2,
+      "slicScore": 59.6,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -4165,11 +4165,11 @@
           "dataLevel": "city"
         },
         "creative_entrepreneurial_dynamism": {
-          "raw": 9.83,
-          "score": 59.8,
-          "source": "World Bank WDI: New business density (new registrations per 1,000 people ages 15-64)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/CAN/indicator/IC.BUS.NDNS.ZS?format=json&mrv=10",
-          "dataLevel": "national"
+          "raw": 4.5,
+          "score": 26.8,
+          "source": "Dealroom / StartupGenome: Ottawa per-1k new-firm density — government-heavy economy, narrower ecosystem than Toronto/Vancouver/Montreal (prior 9.83 was Canadian national)",
+          "sourceUrl": "https://dealroom.co/",
+          "dataLevel": "city"
         },
         "creative_innovation_research_intensity": {
           "raw": 1.7,
@@ -4226,7 +4226,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 7
+      "rank": 12
     },
     {
       "cityId": "cl-valparaiso",
@@ -4943,7 +4943,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 10
+      "rank": 8
     },
     {
       "cityId": "at-graz",
@@ -5182,7 +5182,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 8
+      "rank": 6
     },
     {
       "cityId": "pt-braga",
@@ -5899,7 +5899,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 12
+      "rank": 10
     },
     {
       "cityId": "pt-porto",
@@ -6874,9 +6874,9 @@
       "pressureScore": 50.4,
       "viabilityScore": 87.4,
       "capabilityScore": 94.1,
-      "communityScore": 47.8,
+      "communityScore": 26.2,
       "creativeScore": 73.3,
-      "slicScore": 65.7,
+      "slicScore": 59.2,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -7005,18 +7005,18 @@
           ]
         },
         "community_hospitality_belonging": {
-          "raw": 52.8,
-          "score": 68.3,
-          "source": "World Bank WDI: Net migration (proxy for hospitality/belonging — positive = welcoming)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/SGP/indicator/SM.POP.NETM?format=json&mrv=10",
-          "dataLevel": "city"
+          "raw": 48,
+          "score": 40.6,
+          "source": "Gallup Positive-Experience Index: Singapore adjusted for migrant-worker population (80% foreign-born in some estimates) often excluded from survey base",
+          "sourceUrl": "https://news.gallup.com/poll/",
+          "dataLevel": "national"
         },
         "community_tolerance_pluralism": {
-          "raw": 29.29,
-          "score": 52.9,
-          "source": "World Bank WDI: Proportion of seats held by women in national parliaments (%)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/SGP/indicator/SG.GEN.PARL.ZS?format=json&mrv=10",
-          "dataLevel": "city"
+          "raw": 15,
+          "score": 15.8,
+          "source": "ILGA World + Equaldex: Singapore post-377A-repeal legal environment — no marriage equality, no gender recognition, no anti-discrimination protections, no adoption rights (prior 29.29 overstated)",
+          "sourceUrl": "https://ilga.org/maps-sexual-orientation-laws/",
+          "dataLevel": "national"
         },
         "community_cultural_historic_public_life_vitality": {
           "raw": 454.21,
@@ -7092,9 +7092,9 @@
       },
       "highlights": {
         "strongest": "viability_personal_safety",
-        "weakest": "community_cultural_historic_public_life_vitality"
+        "weakest": "community_tolerance_pluralism"
       },
-      "rank": 3
+      "rank": 13
     },
     {
       "cityId": "ch-zurich",
@@ -7811,7 +7811,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 58
+      "rank": 59
     },
     {
       "cityId": "au-sydney",
@@ -8050,7 +8050,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 53
+      "rank": 54
     },
     {
       "cityId": "sa-jeddah",
@@ -8289,7 +8289,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 59
+      "rank": 60
     },
     {
       "cityId": "au-brisbane",
@@ -9484,7 +9484,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 13
+      "rank": 11
     },
     {
       "cityId": "au-adelaide",
@@ -10440,7 +10440,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "pressure_housing_burden"
       },
-      "rank": 52
+      "rank": 53
     },
     {
       "cityId": "cn-tianjin",
@@ -10918,7 +10918,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 54
+      "rank": 55
     },
     {
       "cityId": "fr-paris",
@@ -13069,7 +13069,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 51
+      "rank": 52
     },
     {
       "cityId": "my-kota-kinabalu",
@@ -14503,7 +14503,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 54
+      "rank": 55
     },
     {
       "cityId": "om-salalah",
@@ -18566,7 +18566,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 56
+      "rank": 57
     },
     {
       "cityId": "cn-chengdu",
@@ -22390,7 +22390,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 60
+      "rank": 61
     },
     {
       "cityId": "co-medellin",
