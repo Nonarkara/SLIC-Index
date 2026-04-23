@@ -6231,6 +6231,10 @@ section[id] {
   margin: 0 0 16px;
 }
 
+.history-content {
+  min-width: 0;
+}
+
 .history-photos {
   display: flex;
   gap: 8px;

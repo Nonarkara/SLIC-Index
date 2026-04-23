@@ -55,9 +55,19 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     },
     {
       year: "2026 · V3",
-      title: "V3 — published board and live workbench",
-      body: "Version 3 is live. The public board now publishes 160 verified cities — including the global reference cities London, New York, and Tokyo added in April 2026 — each with one declared SLIC score, five public pillar values, and a traceable methodology. Alongside that board, the live workbench lets readers rerank the wider 350-city indexed field without overwriting the published baseline. The next step is expansion — more cities, tighter source coverage, and deeper scorecards — while keeping the public trace transparent and auditable.",
-      photos: [],
+      title: "V3 — published board, live workbench, and the Singapore stage",
+      body: "Version 3 is live. The public board publishes 160 verified cities — including the global reference cities London, New York, and Tokyo added in April 2026 — each with one declared SLIC score, five public pillar values, and a traceable methodology. Alongside that board, the live workbench lets readers rerank the wider 350-city indexed field without overwriting the published baseline.\n\nIn April 2026, Dr. Non brought V3 — Protocol Beta — to GITEX AI Asia in Singapore, the Asian chapter of the GITEX series, held at Marina Bay Sands on 9–10 April with 23,000+ attendees from 110+ countries. On the main stage he presented SLIC alongside the Axiom AI dashboards and operating system to a thousand-strong audience. The follow-on workshop on Government Innovation as a Service filled the room — standing room gone before the opening remarks. The signal from that room: measured, sovereign, Asia-first smart-city instrumentation has a public ready to engage with it.",
+      photos: [
+        "/launch-photos/gitex-singapore-2026-01.jpg",
+        "/launch-photos/gitex-singapore-2026-02.jpg",
+        "/launch-photos/gitex-singapore-2026-03.jpg",
+        "/launch-photos/gitex-singapore-2026-04.jpg",
+        "/launch-photos/gitex-singapore-2026-05.jpg",
+        "/launch-photos/gitex-singapore-2026-06.jpg",
+        "/launch-photos/gitex-singapore-2026-07.jpg",
+        "/launch-photos/gitex-singapore-2026-08.jpg",
+        "/launch-photos/gitex-singapore-2026-09.jpg",
+      ],
     },
   ],
   th: [
@@ -98,10 +108,20 @@ const timeline: Record<Locale, TimelineEntry[]> = {
       ],
     },
     {
-      year: "2026 · V3",
-      title: "V3 — บอร์ดที่เผยแพร่แล้วและเวิร์กเบนช์แบบสด",
-      body: "เวอร์ชัน 3 เปิดใช้งานแล้ว บอร์ดสาธารณะเผยแพร่ 160 เมืองที่ผ่านการตรวจสอบ — รวมเมืองอ้างอิงระดับโลก London, New York และ Tokyo ที่เพิ่มเข้ามาในเดือนเมษายน 2026 — แต่ละเมืองมีคะแนน SLIC ที่ประกาศชัด 1 ค่า มี 5 ค่าเสาหลักสาธารณะ และมีวิธีการที่ไล่ย้อนตรวจสอบได้ ขณะเดียวกัน เวิร์กเบนช์แบบสดเปิดให้ผู้อ่านจัดอันดับใหม่กับสนามข้อมูล 350 เมืองโดยไม่เขียนทับ baseline ที่เผยแพร่ ขั้นต่อไปคือขยายจำนวนเมือง เพิ่มความครอบคลุมของแหล่งข้อมูล และทำ scorecard ให้ลึกขึ้น โดยยังคงความโปร่งใสและการตรวจสอบย้อนกลับของคะแนนสาธารณะไว้",
-      photos: [],
+      year: "2569 · V3",
+      title: "V3 — บอร์ดเผยแพร่ เวิร์กเบนช์แบบสด และเวทีสิงคโปร์",
+      body: "เวอร์ชัน 3 เปิดใช้งานแล้ว บอร์ดสาธารณะเผยแพร่ 160 เมืองที่ผ่านการตรวจสอบ — รวมเมืองอ้างอิงระดับโลก London, New York และ Tokyo ที่เพิ่มเข้ามาในเดือนเมษายน 2569 — แต่ละเมืองมีคะแนน SLIC ที่ประกาศชัด 1 ค่า มี 5 ค่าเสาหลักสาธารณะ และวิธีการที่ไล่ย้อนตรวจสอบได้ ขณะเดียวกัน เวิร์กเบนช์แบบสดเปิดให้ผู้อ่านจัดอันดับใหม่กับสนามข้อมูล 350 เมืองโดยไม่เขียนทับ baseline ที่เผยแพร่\n\nในเดือนเมษายน 2569 ผมนำ V3 — Protocol Beta — ไปเปิดตัวที่ GITEX AI Asia สิงคโปร์ ซึ่งเป็นภาคเอเชียของซีรีส์ GITEX จัดที่ Marina Bay Sands วันที่ 9–10 เมษายน มีผู้เข้าร่วมกว่า 23,000 คนจากกว่า 110 ประเทศ บนเวทีหลัก ผมนำเสนอ SLIC ควบคู่กับแดชบอร์ดและระบบปฏิบัติการ Axiom AI ต่อหน้าผู้ชมกว่าพันคน เวิร์กช็อปต่อเนื่องเรื่อง Government Innovation as a Service แน่นห้อง — แม้แต่ที่นั่งยืนก็หมดก่อนเริ่มงาน สัญญาณจากห้องนั้นคือ เครื่องมือวัดเมืองอัจฉริยะที่วัดได้จริง เป็นอธิปไตยของตัวเอง และเริ่มจากเอเชียก่อน มีผู้ชมที่พร้อมจะมีส่วนร่วมแล้ว",
+      photos: [
+        "/launch-photos/gitex-singapore-2026-01.jpg",
+        "/launch-photos/gitex-singapore-2026-02.jpg",
+        "/launch-photos/gitex-singapore-2026-03.jpg",
+        "/launch-photos/gitex-singapore-2026-04.jpg",
+        "/launch-photos/gitex-singapore-2026-05.jpg",
+        "/launch-photos/gitex-singapore-2026-06.jpg",
+        "/launch-photos/gitex-singapore-2026-07.jpg",
+        "/launch-photos/gitex-singapore-2026-08.jpg",
+        "/launch-photos/gitex-singapore-2026-09.jpg",
+      ],
     },
   ],
   zh: [
@@ -143,9 +163,19 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     },
     {
       year: "2026 · V3",
-      title: "V3——已发布榜单与实时工作台",
-      body: "版本3已经上线。公开榜单目前发布了160座已核验城市——包括 2026 年 4 月新增的全球参考城市 London、New York 与 Tokyo——每座城市都有一个明确的 SLIC 分数、五个公开支柱值，以及可追溯的方法说明。与此同时，实时工作台允许读者在不改写已发布基线的前提下，对更大的350城索引字段进行重排。下一步是继续扩展城市范围、补强来源覆盖，并做出更深入的城市 scorecard，同时保持公开分数链路的透明与可审计性。",
-      photos: [],
+      title: "V3——已发布榜单、实时工作台与新加坡主舞台",
+      body: "版本3已经上线。公开榜单目前发布了160座已核验城市——包括 2026 年 4 月新增的全球参考城市 London、New York 与 Tokyo——每座城市都有一个明确的 SLIC 分数、五个公开支柱值，以及可追溯的方法说明。与此同时，实时工作台允许读者在不改写已发布基线的前提下，对更大的350城索引字段进行重排。\n\n2026 年 4 月，Non 博士将 V3——Protocol Beta——带到新加坡的 GITEX AI Asia，这是 GITEX 系列的亚洲篇章，于 4 月 9–10 日在滨海湾金沙举办，来自 110 多个国家、逾 23,000 名观众出席。在主舞台上，他向上千名观众同时展示了 SLIC 与 Axiom AI 的仪表板及操作系统。随后的「政府创新即服务」工作坊座无虚席——开场之前连站位都已售罄。那间房间发出的信号很明确：一个可衡量、自主可控、从亚洲出发的智慧城市测量体系，已经有愿意参与的公众。",
+      photos: [
+        "/launch-photos/gitex-singapore-2026-01.jpg",
+        "/launch-photos/gitex-singapore-2026-02.jpg",
+        "/launch-photos/gitex-singapore-2026-03.jpg",
+        "/launch-photos/gitex-singapore-2026-04.jpg",
+        "/launch-photos/gitex-singapore-2026-05.jpg",
+        "/launch-photos/gitex-singapore-2026-06.jpg",
+        "/launch-photos/gitex-singapore-2026-07.jpg",
+        "/launch-photos/gitex-singapore-2026-08.jpg",
+        "/launch-photos/gitex-singapore-2026-09.jpg",
+      ],
     },
   ],
 };
@@ -182,7 +212,9 @@ export default function HistoryPage({
                 </div>
                 <div className="history-content">
                   <h2>{entry.title}</h2>
-                  <p>{entry.body}</p>
+                  {entry.body.split("\n\n").map((para, j) => (
+                    <p key={j}>{para}</p>
+                  ))}
                   {entry.photos.length > 0 && (
                     <div className="history-photos">
                       {entry.photos.map((photo) => (
