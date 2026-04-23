@@ -9820,35 +9820,37 @@ body,
   text-shadow: none;
 }
 
-.mh:not(.mh--scrolled) .mh-link,
-.mh:not(.mh--scrolled) .mh-edition {
+/* Light/white nav text only on the homepage hero — scoped to mh--hero so
+   other pages don't get invisible cream-on-cream text when scrollY < 40. */
+.mh--hero:not(.mh--scrolled) .mh-link,
+.mh--hero:not(.mh--scrolled) .mh-edition {
   color: rgba(248, 245, 240, 0.76);
 }
 
-.mh:not(.mh--scrolled) .mh-link:hover,
-.mh:not(.mh--scrolled) .mh-link--active {
+.mh--hero:not(.mh--scrolled) .mh-link:hover,
+.mh--hero:not(.mh--scrolled) .mh-link--active {
   color: #fff;
   border-bottom-color: rgba(248, 245, 240, 0.72);
 }
 
-.mh:not(.mh--scrolled) .locale-button {
+.mh--hero:not(.mh--scrolled) .locale-button {
   border-color: rgba(248, 245, 240, 0.28);
   background: rgba(0, 0, 0, 0.16);
   color: rgba(248, 245, 240, 0.84);
 }
 
-.mh:not(.mh--scrolled) .locale-button.active {
+.mh--hero:not(.mh--scrolled) .locale-button.active {
   border-color: rgba(248, 245, 240, 0.95);
   background: rgba(248, 245, 240, 0.95);
   color: var(--text);
 }
 
-.mh:not(.mh--scrolled) .mh-burger {
+.mh--hero:not(.mh--scrolled) .mh-burger {
   border-color: rgba(248, 245, 240, 0.32);
   background: rgba(0, 0, 0, 0.16);
 }
 
-.mh:not(.mh--scrolled) .mh-burger span {
+.mh--hero:not(.mh--scrolled) .mh-burger span {
   background: var(--text-inverse);
 }
 

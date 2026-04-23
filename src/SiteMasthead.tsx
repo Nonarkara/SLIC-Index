@@ -123,6 +123,7 @@ export default function SiteMasthead({
 
   const classes = [
     "mh",
+    currentPath === "/" ? "mh--hero" : "",
     scrolled ? "mh--scrolled" : "",
     hidden && !menuOpen ? "mh--hidden" : "",
     menuOpen ? "mh--open" : "",
