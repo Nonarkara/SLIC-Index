@@ -1,12 +1,65 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SLIC Index</title>
+    <meta name="theme-color" content="#f8f5f0" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23f8f5f0'/%3E%3Cg transform='translate(50 52)' fill='none' stroke='%23b85c28' stroke-linejoin='round'%3E%3Cpolygon points='0,-32 30.4,-9.9 18.8,25.9 -18.8,25.9 -30.4,-9.9' stroke-width='3'/%3E%3Cpolygon points='0,-21 19.9,-6.5 12.3,16.9 -12.3,16.9 -19.9,-6.5' fill='%23b85c28' fill-opacity='0.2' stroke-width='1.5'/%3E%3Ccircle cx='0' cy='-32' r='3' fill='%23b85c28' stroke='none'/%3E%3Ccircle cx='30.4' cy='-9.9' r='3' fill='%23b85c28' stroke='none'/%3E%3Ccircle cx='18.8' cy='25.9' r='3' fill='%23b85c28' stroke='none'/%3E%3Ccircle cx='-18.8' cy='25.9' r='3' fill='%23b85c28' stroke='none'/%3E%3Ccircle cx='-30.4' cy='-9.9' r='3' fill='%23b85c28' stroke='none'/%3E%3C/g%3E%3C/svg%3E" />
+    <style>
+      :root { color-scheme: light; }
+      * { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; background: #f8f5f0; color: #1c1914; }
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        padding: 2rem;
+      }
+      .nf-card {
+        max-width: 34rem;
+        text-align: left;
+        border-top: 1px solid rgba(28, 25, 20, 0.18);
+        padding-top: 2rem;
+      }
+      .nf-eyebrow {
+        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(28, 25, 20, 0.55);
+        margin: 0 0 1.5rem;
+      }
+      .nf-title {
+        font-family: "Libre Baskerville", Georgia, serif;
+        font-weight: 400;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        line-height: 1.2;
+        margin: 0 0 1rem;
+      }
+      .nf-body {
+        font-size: 15px;
+        line-height: 1.6;
+        color: rgba(28, 25, 20, 0.72);
+        margin: 0 0 1.5rem;
+      }
+      .nf-dot {
+        display: inline-block;
+        width: 6px;
+        height: 6px;
+        background: #b85c28;
+        margin-right: 8px;
+        vertical-align: 2px;
+        animation: nf-pulse 1.4s ease-in-out infinite;
+      }
+      @keyframes nf-pulse {
+        0%, 100% { opacity: 0.35; }
+        50% { opacity: 1; }
+      }
+    </style>
     <script>
-      // GitHub Pages SPA redirect — preserve the full path + query + hash
-      // by encoding them into the URL's query string before redirecting to index.html.
-      // The receiving index.html will decode and restore the history entry.
       var l = window.location;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
@@ -15,5 +68,11 @@
       );
     </script>
   </head>
-  <body></body>
+  <body>
+    <main class="nf-card">
+      <p class="nf-eyebrow"><span class="nf-dot"></span>SLIC Index &middot; Route Restore</p>
+      <h1 class="nf-title">One moment &mdash; routing you through.</h1>
+      <p class="nf-body">The URL you opened needs the SLIC runtime to load first. You&rsquo;ll land on the right page in a second.</p>
+    </main>
+  </body>
 </html>
