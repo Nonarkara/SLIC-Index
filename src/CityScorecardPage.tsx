@@ -42,6 +42,9 @@ interface PublishedCity {
   creativeScore: number;
   slicScore: number;
   rank: number;
+  tierLabel?: "Alpha" | "Beta" | "Gamma" | null;
+  tierSlot?: number | null;
+  tierReason?: string | null;
   rankingStatus: string;
   metrics: Record<string, MetricDetail>;
   highlights: { strongest: string | null; weakest: string | null };
@@ -61,6 +64,27 @@ interface NormStat {
 interface PillarMetricEntry {
   key: string;
   weight: number;
+}
+
+interface PublishedRankingData {
+  publishable: boolean;
+  status: string;
+  updatedAt: string;
+  canonicalWeights: Record<PillarId, number>;
+  normStats: Record<string, NormStat>;
+  pillarMetrics: Record<string, PillarMetricEntry[]>;
+  metricCatalog: Record<string, unknown>;
+  cities: PublishedCity[];
+  diagnosticMetrics: Record<string, unknown>;
+  diagnostics: unknown[];
+  methodologyFacts: unknown[];
+  changeSummary: unknown[];
+  qualifiedCityCount: number;
+  integrityIssueCount: number;
+  validCityRowCount: number;
+  validCountryRowCount: number;
+  publicationManifest: unknown;
+  stabilityAnalysis: unknown;
 }
 
 type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
@@ -418,8 +442,7 @@ function navigateLink(
   onNavigate(path);
 }
 
-const _normStats = (publishedData as any).normStats as Record<string, NormStat>; void _normStats;
-const pillarMetrics = (publishedData as any).pillarMetrics as Record<string, PillarMetricEntry[]>;
+const pillarMetrics = (publishedData as PublishedRankingData).pillarMetrics;
 
 /* ── Peer comparison ── */
 
@@ -527,10 +550,14 @@ function formatManifestStatus(status: string | undefined, locale: Locale) {
   return status ?? "—";
 }
 
-function formatRankBand(rank: number, locale: Locale) {
-  if (rank <= 10) return locale === "th" ? "α อัลฟา" : locale === "zh" ? "α 阿尔法" : "α Alpha";
-  if (rank <= 20) return locale === "th" ? "β เบตา" : locale === "zh" ? "β 贝塔" : "β Beta";
-  if (rank <= 30) return locale === "th" ? "γ แกมมา" : locale === "zh" ? "γ 伽马" : "γ Gamma";
+function formatRankBand(
+  tierLabel: PublishedCity["tierLabel"] | undefined,
+  rank: number,
+  locale: Locale,
+) {
+  if (tierLabel === "Alpha") return locale === "th" ? "α อัลฟา" : locale === "zh" ? "α 阿尔法" : "α Alpha";
+  if (tierLabel === "Beta") return locale === "th" ? "β เบตา" : locale === "zh" ? "β 贝塔" : "β Beta";
+  if (tierLabel === "Gamma") return locale === "th" ? "γ แกมมา" : locale === "zh" ? "γ 伽马" : "γ Gamma";
   return `#${rank}`;
 }
 
@@ -565,6 +592,8 @@ function findCity(cityId: string): PublishedCity | undefined {
     communityCoverage: null,
     creativeCoverage: null,
     rank: exercise.globalRank,
+    tierLabel: null,
+    tierSlot: null,
     metrics: {},
     highlights: { strongest: null, weakest: null },
   } as PublishedCity;
@@ -818,7 +847,7 @@ export default function CityScorecardPage({
 
   return (
     <>
-      <section className={`scorecard-hero section${cityEditorial?.photo ? " scorecard-hero--visual" : ""}`}>
+      <section className={`scorecard-hero section${cityEditorial?.photo ? " scorecard-hero--visual" : " scorecard-hero--dark"}`}>
         {cityEditorial?.photo && (
           <div className="scorecard-hero-media" aria-hidden="true">
             <img
@@ -853,8 +882,8 @@ export default function CityScorecardPage({
             </div>
             <div className="scorecard-hero-scores">
               <div className="scorecard-slic-score">{city.slicScore?.toFixed(1) ?? "—"}</div>
-              <div className="scorecard-rank">
-                {formatRankBand(city.rank, locale)}
+              <div className="scorecard-rank" title={city.tierReason ?? undefined}>
+                {formatRankBand(city.tierLabel, city.rank, locale)}
                 <span>
                   {locale === "th"
                     ? ` จาก ${rankedCityCount} ${copy.citiesSuffix}`
