@@ -1,4 +1,166 @@
+import publishedRankingData from "./data/publishedRankingData.json";
+import { PUBLIC_TIER_RULES } from "./publicTierPolicy.js";
 import type { Locale, MethodologyData, MethodologyReference, SourceTier, WorksheetColumn } from "./types";
+
+interface MethodologyPublishedCity {
+  displayName: string;
+  country: string;
+  region: string;
+  rank: number;
+  tierLabel: "Alpha" | "Beta" | "Gamma" | null;
+  coverageGrade: string;
+  slicScore: number;
+  pressureScore: number;
+  viabilityScore: number;
+  capabilityScore: number;
+  communityScore: number;
+}
+
+interface MethodologyWorkedExampleFact {
+  displayName?: string;
+  country?: string;
+  disposableIncomeRaw?: number | null;
+  pillarScores?: {
+    pressure?: number | null;
+    viability?: number | null;
+    capability?: number | null;
+    community?: number | null;
+    creative?: number | null;
+  };
+  safety?: {
+    raw?: number | null;
+    p05?: number | null;
+    p95?: number | null;
+    scoreExact?: number | null;
+    scoreRounded?: number | null;
+  };
+  pressure?: {
+    terms?: Array<{
+      key: string;
+      label: string;
+      weight: number;
+      scoreExact?: number | null;
+      scoreRounded?: number | null;
+    }>;
+    denominator?: number | null;
+    scoreExact?: number | null;
+    scoreRounded?: number | null;
+  };
+  overall?: {
+    weightedMeanExact?: number | null;
+    weightedVarianceExact?: number | null;
+    ampiExact?: number | null;
+    slicScoreExact?: number | null;
+    slicScoreRounded?: number | null;
+    coverageExact?: number | null;
+    coverageRounded?: number | null;
+    coverageGrade?: string | null;
+    coveragePenalty?: number | null;
+  };
+  weightedMeanTerms?: Array<{
+    pillar: string;
+    weight: number;
+    scoreExact?: number | null;
+    scoreRounded?: number | null;
+  }>;
+}
+
+interface MethodologyFacts {
+  workedExample?: MethodologyWorkedExampleFact;
+}
+
+const publishedCities = (publishedRankingData.cities ?? []) as MethodologyPublishedCity[];
+const methodologyFacts = ((publishedRankingData as { methodologyFacts?: MethodologyFacts }).methodologyFacts ?? {}) as MethodologyFacts;
+const workedExample = methodologyFacts.workedExample;
+const singaporeCity = publishedCities.find((city) => city.displayName === "Singapore");
+const bangkokCity = publishedCities.find((city) => city.displayName === "Bangkok");
+
+function formatOneDecimal(value: number | undefined) {
+  return typeof value === "number" ? value.toFixed(1) : "—";
+}
+
+function formatTwoDecimals(value: number | undefined) {
+  return typeof value === "number" ? value.toFixed(2) : "—";
+}
+
+function formatThreeDecimals(value: number | undefined) {
+  return typeof value === "number" ? value.toFixed(3) : "—";
+}
+
+const officialSlicFormula = "SLIC(c) = max(0, AMPI_5pillar(c) - penalty(c))";
+const officialAmpiFormula =
+  "mu(c) = (25 Pressure + 22 Viability + 18 Capability + 15 Community + 20 Creative) / 100\n" +
+  "var(c) = (25(Pressure - mu)^2 + 22(Viability - mu)^2 + 18(Capability - mu)^2 + 15(Community - mu)^2 + 20(Creative - mu)^2) / 100\n" +
+  "AMPI_5pillar(c) = mu(c) - var(c)/mu(c)";
+const growthPillarFormula =
+  "Growth(c) = (9 DI_PPP + 5 HousingBurden + 4 DebtBurden + 4 WorkingTimePressure + 3 SuicideMentalStrain) / Sum observed weights";
+const toleranceCompositeFormula =
+  "TolerancePluralism(c) = 0.4 EqualdexCountry + 0.3 FreedomHouseCountry + 0.3 ReverseHateCrime";
+const economicVitalityFormula =
+  "EconomicVitality(c) = 0.5 InvestmentSignal + 0.3 GDPperCapitaPPP + 0.2 GDPGrowth";
+
+const workedExampleDisplayName = workedExample?.displayName ?? "Kaohsiung";
+const workedExampleSafetyFormula =
+  workedExample?.safety?.raw != null &&
+  workedExample?.safety?.p05 != null &&
+  workedExample?.safety?.p95 != null
+    ? `SafetyScore = 100 x (${formatTwoDecimals(workedExample.safety.p95)} - ${workedExample.safety.raw}) / (${formatTwoDecimals(workedExample.safety.p95)} - ${formatTwoDecimals(workedExample.safety.p05)})`
+    : "SafetyScore = 100 x (P95 - raw) / (P95 - P05)";
+const workedExamplePressureFormula =
+  workedExample?.pressure?.terms && workedExample.pressure.terms.length > 0 && workedExample?.pressure?.denominator
+    ? `Growth = (${workedExample.pressure.terms.map((term) => `${term.weight}x${formatOneDecimal(term.scoreRounded ?? undefined)}`).join(" + ")}) / ${workedExample.pressure.denominator}`
+    : "Growth = (weighted pressure numerator) / observed pressure weights";
+const workedExampleMeanFormula =
+  workedExample?.weightedMeanTerms && workedExample.weightedMeanTerms.length > 0
+    ? `mu = (${workedExample.weightedMeanTerms.map((term) => `${term.weight}x${formatOneDecimal(term.scoreRounded ?? undefined)}`).join(" + ")}) / 100 = ${formatThreeDecimals(workedExample?.overall?.weightedMeanExact ?? undefined)}\n` +
+      `var = (25(Pressure-mu)^2 + 22(Viability-mu)^2 + 18(Capability-mu)^2 + 15(Community-mu)^2 + 20(Creative-mu)^2) / 100 = ${formatTwoDecimals(workedExample?.overall?.weightedVarianceExact ?? undefined)}`
+    : "mu = weighted pillar mean\nvar = weighted pillar variance";
+const workedExampleAmpiFormula =
+  workedExample?.overall
+    ? `AMPI = mu - var/mu = ${formatThreeDecimals(workedExample.overall.weightedMeanExact ?? undefined)} - ${formatTwoDecimals(workedExample.overall.weightedVarianceExact ?? undefined)}/${formatThreeDecimals(workedExample.overall.weightedMeanExact ?? undefined)} = ${formatThreeDecimals(workedExample.overall.ampiExact ?? undefined)}\n` +
+      `Coverage = ${formatTwoDecimals(workedExample.overall.coverageRounded ?? undefined)} -> grade ${workedExample.overall.coverageGrade ?? "—"} -> penalty = ${workedExample.overall.coveragePenalty ?? 0}\n` +
+      `SLIC = ${formatOneDecimal(workedExample.overall.slicScoreRounded ?? undefined)}`
+    : "AMPI = mu - var/mu\nCoverage -> grade -> penalty\nSLIC = published score";
+const workedExampleDiRaw = workedExample?.disposableIncomeRaw != null ? workedExample.disposableIncomeRaw.toFixed(2) : "—";
+const alphaCountryExclusionList = (PUBLIC_TIER_RULES.alphaCountryExclusions ?? []).join(", ") || "none";
+const alphaCityExclusionList = (PUBLIC_TIER_RULES.alphaCityExclusions ?? []).join(", ") || "none";
+const maxJapanCrossTier = PUBLIC_TIER_RULES.maxJapanAcrossPublicTiers ?? 1;
+
+const englishTierProtocolRule =
+  `Published ordinal rank is pure SLIC score order computed from the exact unrounded score fields. Alpha, Beta, and Gamma are a separate public overlay applied after ranking, not hidden inside rank itself. ` +
+  `The overlay allows one city per country across all three public tiers, except Taiwan may hold ${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers} public-tier slots and Japan may hold ${maxJapanCrossTier} public-tier slots in the live protocol. Alpha requires Community >= ${PUBLIC_TIER_RULES.alphaMinCommunity} and Pressure >= ${PUBLIC_TIER_RULES.alphaMinPressure}, with Europe capped at ${PUBLIC_TIER_RULES.maxEuropeInAlpha} Alpha seats, Oceania capped at ${PUBLIC_TIER_RULES.maxOceaniaInAlpha}, South Korea capped at ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha}, Japan capped at ${PUBLIC_TIER_RULES.maxJapanInAlpha}; ${alphaCountryExclusionList} excluded from Alpha by country, and ${alphaCityExclusionList} barred from Alpha by editorial cost-of-living rule. ` +
+  `Beta keeps the country rule, retains the Taiwan and Japan exceptions, and raises the liveability floor to Community >= ${PUBLIC_TIER_RULES.betaMinCommunity} and Pressure >= ${PUBLIC_TIER_RULES.betaMinPressure}. Gamma then fills from the remaining ranked cities.`;
+
+const englishSingaporeRule =
+  singaporeCity && bangkokCity
+    ? `Singapore currently holds pure score rank #${singaporeCity.rank} with SLIC ${formatOneDecimal(singaporeCity.slicScore)} and Coverage ${singaporeCity.coverageGrade}, but the public tier overlay places it in ${singaporeCity.tierLabel ?? "no public tier"}. ` +
+      `Its Viability (${formatOneDecimal(singaporeCity.viabilityScore)}) and Capability (${formatOneDecimal(singaporeCity.capabilityScore)}) remain elite, yet Community (${formatOneDecimal(singaporeCity.communityScore)}) sits below both the Alpha floor of ${PUBLIC_TIER_RULES.alphaMinCommunity} and the Beta floor of ${PUBLIC_TIER_RULES.betaMinCommunity}; Pressure (${formatOneDecimal(singaporeCity.pressureScore)}) clears Alpha but not Beta. ` +
+      `Bangkok illustrates the opposite outcome: it sits at pure score rank #${bangkokCity.rank} with SLIC ${formatOneDecimal(bangkokCity.slicScore)}, yet enters ${bangkokCity.tierLabel ?? "the public tiers"} because Community (${formatOneDecimal(bangkokCity.communityScore)}) and Pressure (${formatOneDecimal(bangkokCity.pressureScore)}) both clear Alpha and no higher-ranked Thai city claims Thailand's public-tier place first.`
+    : "Singapore and Bangkok are cited on this page only when their current published rows are available in the live dataset.";
+
+const thaiTierProtocolRule =
+  `อันดับที่เผยแพร่เป็นลำดับคะแนน SLIC ล้วน ๆ จากค่าคะแนนแบบ exact ก่อน แล้วค่อยวางชั้น Alpha, Beta และ Gamma เป็นชั้นสาธารณะแยกต่างหาก ไม่ได้ซ่อนอยู่ในตัวเลขอันดับเอง ` +
+  `กติกาชั้นสาธารณะให้ได้หนึ่งเมืองต่อหนึ่งประเทศตลอดทั้งสามชั้น โดยยกเว้นไต้หวันที่ถือได้ ${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers} ที่นั่งและญี่ปุ่นที่ถือได้ ${maxJapanCrossTier} ที่นั่งในโปรโตคอลปัจจุบัน Alpha ต้องมี Community >= ${PUBLIC_TIER_RULES.alphaMinCommunity} และ Pressure >= ${PUBLIC_TIER_RULES.alphaMinPressure} โดยยุโรปมีได้ ${PUBLIC_TIER_RULES.maxEuropeInAlpha} ที่นั่งใน Alpha, โอเชียเนียได้ ${PUBLIC_TIER_RULES.maxOceaniaInAlpha}, เกาหลีใต้ได้ ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha}, ญี่ปุ่นได้ ${PUBLIC_TIER_RULES.maxJapanInAlpha}; ${alphaCountryExclusionList} ถูกกันออกจาก Alpha ตามประเทศ และ ${alphaCityExclusionList} ถูกกันตามกฎบรรณาธิการเรื่องค่าครองชีพของผู้อยู่อาศัยมัธยฐาน ` +
+  `ชั้น Beta ยังคงกติกาประเทศเดียวกันพร้อมข้อยกเว้นของไต้หวันและญี่ปุ่น แต่ยกเพดานความน่าอยู่เป็น Community >= ${PUBLIC_TIER_RULES.betaMinCommunity} และ Pressure >= ${PUBLIC_TIER_RULES.betaMinPressure} ส่วน Gamma จะเติมจากเมืองที่เหลือซึ่งยังติดอันดับอยู่`;
+
+const thaiSingaporeRule =
+  singaporeCity && bangkokCity
+    ? `สิงคโปร์มีอันดับคะแนนล้วน #${singaporeCity.rank} ด้วย SLIC ${formatOneDecimal(singaporeCity.slicScore)} และ Coverage ${singaporeCity.coverageGrade} แต่ชั้นสาธารณะจัดให้สิงคโปร์อยู่ใน ${singaporeCity.tierLabel ?? "ชั้นนอกกลุ่มสาธารณะ"}. ` +
+      `Viability (${formatOneDecimal(singaporeCity.viabilityScore)}) และ Capability (${formatOneDecimal(singaporeCity.capabilityScore)}) ยังสูงมาก แต่ Community (${formatOneDecimal(singaporeCity.communityScore)}) ต่ำกว่าเพดานทั้ง Alpha ${PUBLIC_TIER_RULES.alphaMinCommunity} และ Beta ${PUBLIC_TIER_RULES.betaMinCommunity}; ส่วน Pressure (${formatOneDecimal(singaporeCity.pressureScore)}) ผ่าน Alpha แต่ไม่ผ่าน Beta ` +
+      `กรุงเทพฯ แสดงผลลัพธ์อีกด้านหนึ่ง: แม้อยู่อันดับคะแนนล้วน #${bangkokCity.rank} และ SLIC ${formatOneDecimal(bangkokCity.slicScore)} แต่ได้เข้า ${bangkokCity.tierLabel ?? "ชั้นสาธารณะ"} เพราะ Community (${formatOneDecimal(bangkokCity.communityScore)}) และ Pressure (${formatOneDecimal(bangkokCity.pressureScore)}) ผ่านเกณฑ์ Alpha ทั้งคู่ และไม่มีเมืองไทยที่อันดับสูงกว่ามาแย่งสิทธิ์ของประเทศไทยก่อน`
+    : "หน้านี้จะอ้างถึงสิงคโปร์และกรุงเทพฯ ต่อเมื่อมีแถวข้อมูลปัจจุบันของทั้งสองเมืองอยู่ในชุดข้อมูลที่เผยแพร่";
+
+const chineseTierProtocolRule =
+  `公开排名先按精确未四舍五入的 SLIC 分数排序，然后再叠加 Alpha、Beta、Gamma 这套独立的公开分层规则，而不是把地理筛选藏进名次本身。` +
+  `公开分层在三层合计范围内原则上实行每国一城，但当前协议允许台湾占 ${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers} 个公开层级席位、日本占 ${maxJapanCrossTier} 个公开层级席位。Alpha 要求 Community >= ${PUBLIC_TIER_RULES.alphaMinCommunity} 且 Pressure >= ${PUBLIC_TIER_RULES.alphaMinPressure}；欧洲在 Alpha 最多 ${PUBLIC_TIER_RULES.maxEuropeInAlpha} 城，大洋洲最多 ${PUBLIC_TIER_RULES.maxOceaniaInAlpha} 城，韩国最多 ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha} 城，日本最多 ${PUBLIC_TIER_RULES.maxJapanInAlpha} 城；${alphaCountryExclusionList} 按国家排除 Alpha，${alphaCityExclusionList} 按编辑可负担规则排除 Alpha。` +
+  `Beta 继续执行同样的国家规则与台湾、日本例外，同时把宜居底线提高到 Community >= ${PUBLIC_TIER_RULES.betaMinCommunity} 且 Pressure >= ${PUBLIC_TIER_RULES.betaMinPressure}。Gamma 再从其余已排名城市中补足。`;
+
+const chineseSingaporeRule =
+  singaporeCity && bangkokCity
+    ? `新加坡当前的纯分数排名是第 ${singaporeCity.rank} 名，SLIC 为 ${formatOneDecimal(singaporeCity.slicScore)}，Coverage 为 ${singaporeCity.coverageGrade}，但公开分层把它放在 ${singaporeCity.tierLabel ?? "公开层级之外"}。` +
+      `它的 Viability（${formatOneDecimal(singaporeCity.viabilityScore)}）与 Capability（${formatOneDecimal(singaporeCity.capabilityScore)}）依然很强，但 Community（${formatOneDecimal(singaporeCity.communityScore)}）低于 Alpha 底线 ${PUBLIC_TIER_RULES.alphaMinCommunity}，也低于 Beta 底线 ${PUBLIC_TIER_RULES.betaMinCommunity}；Pressure（${formatOneDecimal(singaporeCity.pressureScore)}）虽过 Alpha 线，却未过 Beta 线。` +
+      `曼谷呈现出相反的结果：它的纯分数排名是第 ${bangkokCity.rank} 名，SLIC 为 ${formatOneDecimal(bangkokCity.slicScore)}，却进入了 ${bangkokCity.tierLabel ?? "公开层级"}，因为 Community（${formatOneDecimal(bangkokCity.communityScore)}）与 Pressure（${formatOneDecimal(bangkokCity.pressureScore)}）都跨过了 Alpha 门槛，而且没有排名更高的泰国城市先占掉泰国的公开层级位置。`
+    : "只有在实时公开数据中能够找到新加坡与曼谷的当前行时，本页才会引用这两个城市。";
 
 const methodologyReferences: MethodologyReference[] = [
   {
@@ -418,7 +580,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       strapline:
         "V3: A diagnostic model that shows how the numbers are built.",
       intro:
-        "V1 was a spreadsheet that put Busan at #1. V2 launched on stage in Taipei and got city leaders asking: can you do this for my city? V3 tightened the measurement logic. Small score gaps are handled more cautiously, every number is tied back to declared inputs, growth momentum and tolerance were added as explicit metrics, and the workbench lets readers test different weight profiles. The model is open. The formula is declared. Every city number can be audited.",
+        "V1 was a spreadsheet that put Busan at #1. V2 launched on stage in Taipei and got city leaders asking: can you do this for my city? V3 tightened the measurement logic. Every number is now tied back to declared inputs, scored terms are separated from visible diagnostics, cross-pillar imbalance is penalized explicitly through AMPI, and the workbench lets readers test different weight profiles without confusing those experiments for the published rank. The model is open. The formula is declared. Every city number can be audited.",
       doctrineTitle: "V3 Doctrine",
       doctrineBody:
         "SLIC treats a city as a lived system, not only as a brand or balance sheet. The model tracks affordability, safety, cultural/public life, tolerance, growth conditions, and the practical room people have to live.",
@@ -434,7 +596,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       explicitItems: [
         "Safety is scored by outcomes, not surveillance intensity.",
         "Tolerance is scored through low-friction coexistence and equal market access.",
-        "Business and growth are explicit public score terms, not hidden background assumptions.",
+        "Business dynamism is scored explicitly, while macro context stays visible and bounded rather than dominating silently.",
       ],
     },
     readerGuide: {
@@ -454,7 +616,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         "Define the city as a functional urban area or the closest defensible metro unit.",
         "Collect city data first, then subnational, then national fallback data, and record source tier for each metric.",
         "Compute tax-adjusted PPP disposable room before any scoring; salary alone is not enough.",
-        "Winsorize at the 5th and 95th percentiles, normalize to 0-100, reverse-score harmful metrics, and publish coverage grades with the ranking.",
+        "Winsorize at the 5th and 95th percentiles, normalize to 0-100, reverse-score harmful metrics, separate scored metrics from visible diagnostics, and publish coverage grades with the ranking.",
       ],
     },
     critiqueSection: {
@@ -559,7 +721,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           id: "pillars",
           title: "Pillar aggregation",
           body: "Combine metric scores into public pillars with declared internal weights.",
-          formula: "P_p(c) = Sum alpha_(p,m) x s_m(c)",
+          formula: "P_p(c) = Sum observed alpha_(p,m) x s_m(c) / Sum observed alpha_(p,m)",
         },
         {
           id: "final",
@@ -630,9 +792,18 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "official-score",
               title: "Official SLIC score",
               formula:
-                "SLIC(c) = 0.25 Pressure(c) + 0.22 Viability(c) + 0.18 Capability(c) + 0.15 Community(c) + 0.20 Creative(c)",
+                "SLIC(c) = max(0, AMPI_5pillar(c) - penalty(c))",
               explanation:
-                "The public leaderboard uses one fixed weighted model. Pressure carries the largest share, with viability, capability, community, and creative vitality kept explicit in the score.",
+                "The published score is a weighted AMPI across the five visible pillars, not a simple weighted average. The variance term makes cross-pillar imbalance expensive: a city with one broken pillar is pulled down even when other pillars are strong.",
+              citations: [1],
+            },
+            {
+              id: "official-ampi",
+              title: "Expanded AMPI form",
+              formula:
+                "mu(c) = (25 Pressure + 22 Viability + 18 Capability + 15 Community + 20 Creative) / 100\nvar(c) = (25(Pressure - mu)^2 + 22(Viability - mu)^2 + 18(Capability - mu)^2 + 15(Community - mu)^2 + 20(Creative - mu)^2) / 100\nAMPI_5pillar(c) = mu(c) - var(c)/mu(c)",
+              explanation:
+                "The published scorer first computes the weighted pillar mean, then subtracts a weighted cross-pillar variance penalty divided by that mean. This is the mathematical step that makes one-dimensional city profiles expensive.",
               citations: [1],
             },
             {
@@ -657,18 +828,18 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "metric-normalization",
               title: "Winsorized metric score",
               formula:
-                "s_m(c) = 100 x clamp((winsor(x_m(c)) - P5_m) / (P95_m - P5_m), 0, 1)",
+                "If dir(m) = positive:\n  s_m(c) = 100 x clamp((winsor(x_m(c)) - P5_m) / (P95_m - P5_m), 0, 1)\nIf dir(m) = negative:\n  s_m(c) = 100 x clamp((P95_m - winsor(x_m(c))) / (P95_m - P5_m), 0, 1)",
               explanation:
-                "Positive metrics scale directly; harmful metrics reverse the numerator so higher scores always mean better outcomes.",
+                "The live published model uses frozen P5/P95 winsorization, then rescales to 0-100. Harmful metrics reverse the numerator so higher normalized scores always mean better observed urban outcomes.",
               citations: [1],
             },
             {
               id: "coverage-score",
               title: "Weighted coverage",
               formula:
-                "Coverage(c) = Sum over observed metrics m of gamma_m / Sum over required metrics m of gamma_m",
+                "Cov_p(c) = Sum over metrics m of alpha_(p,m) x cov_m(c) / Sum over metrics m of alpha_(p,m)\nCov(c) = (25 Cov_pressure + 22 Cov_viability + 18 Cov_capability + 15 Cov_community + 20 Cov_creative) / 100",
               explanation:
-                "Coverage is weighted by metric importance rather than raw field count. A city with thin critical data cannot hide behind many minor fields.",
+                "Coverage is weighted by published metric importance, not by raw field count. Direct metrics contribute either 1 or 0; composite metrics contribute the observed share of their component weight.",
               citations: [1, 14, 15],
             },
           ],
@@ -681,30 +852,30 @@ const methodologyContent: Record<Locale, MethodologyData> = {
             "The visible pillar equations below match the workbook structure used by the public score.",
           equations: [
             {
-              id: "safety-viability",
-              title: "Viability pillar",
+              id: "growth-pillar",
+              title: "Growth pillar",
               formula:
-                "Viability(c) = 0.185 PersonalSafety + 0.185 TransitAccess + 0.148 CleanAir + 0.148 WaterUtility + 0.148 DigitalInfra + 0.185 ClimateSunlight",
+                growthPillarFormula,
               explanation:
-                "Viability rewards observed safety, ecological competence, climate comfort, and the reliability of everyday city systems. Climate and sunlight penalize both Nordic darkness and Gulf desert heat.",
-              citations: [3, 5, 11, 13, 17, 34],
+                "The public aggregate scores the lived pressure bundle directly. Economic growth momentum remains visible on scorecards, but it is a diagnostic line in the current published model rather than a scored term inside the final aggregate.",
+              citations: [1, 2, 3, 7],
             },
             {
               id: "community-tolerance",
-              title: "Community pillar",
+              title: "Tolerance composite",
               formula:
-                "Community(c) = 0.333 HospitalityBelonging + 0.333 TolerancePluralism + 0.333 PublicLifeVitality",
+                toleranceCompositeFormula,
               explanation:
-                "Community is scored through low-friction coexistence (hospitality + the new Openness & Inclusion composite), equal market access, and the everyday vitality of public life. Birth rate was removed from the published formula in V3.1 — it was a noisy proxy for city-level livability and was doing more harm than good.",
+                "Community uses a scored openness composite rather than a single proxy. Where city hate-crime data is thin, the third term falls back to a published country-level civil-liberties proxy instead of pretending city evidence exists when it does not.",
               citations: [1, 14, 16, 35],
             },
             {
               id: "business-growth",
-              title: "Creative pillar",
+              title: "Economic vitality composite",
               formula:
-                "Creative(c) = 0.30 EntrepreneurialDynamism + 0.25 InnovationResearchIntensity + 0.25 EconomicVitality + 0.20 AdministrativeFriction",
+                economicVitalityFormula,
               explanation:
-                "Creative vitality rises when cities support entrepreneurial dynamism, research depth, productive momentum, and lower-friction administration.",
+                "Macro context matters, but it is capped inside a declared composite instead of silently overpowering city-level evidence. Birth rate and climate remain visible diagnostics for readers; they do not directly enter the current aggregate.",
               citations: [2, 10, 16],
             },
           ],
@@ -718,95 +889,103 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         "The notation is intentionally compact. Each symbol is defined once so outside readers can reproduce the score or audit the worksheet.",
       symbols: [
         { symbol: "c", definition: "City or functional urban area", explanation: "The scored urban unit." },
-        { symbol: "m", definition: "Metric index", explanation: "A raw indicator such as rent burden, PM2.5, or business opening ease." },
+        { symbol: "m", definition: "Metric index", explanation: "A scored metric line inside one public pillar." },
+        { symbol: "k", definition: "Input channel", explanation: "A raw input used either directly or inside a composite metric." },
         { symbol: "p", definition: "Pillar index", explanation: "One of the five public pillar bundles." },
-        { symbol: "x_m(c)", definition: "Raw metric value", explanation: "Observed value for metric m in city c before normalization." },
+        { symbol: "x_k(c)", definition: "Raw input value", explanation: "Observed value for input channel k in city c before winsorization." },
         { symbol: "winsor(.)", definition: "Winsorization operator", explanation: "Clamps extreme values to the P5/P95 band before scoring." },
-        { symbol: "P5_m, P95_m", definition: "Percentile anchors", explanation: "The lower and upper percentile bounds for metric m." },
-        { symbol: "s_m(c)", definition: "Normalized metric score", explanation: "0-100 score after winsorization and direction adjustment." },
-        { symbol: "alpha_(p,m)", definition: "Metric weight inside a pillar", explanation: "How strongly metric m contributes to pillar p." },
-        { symbol: "gamma_m", definition: "Coverage weight", explanation: "Importance weight used for missing-data coverage tests." },
-        { symbol: "w_p", definition: "Public pillar weight", explanation: "Fixed public weight applied to each pillar in the final score." },
+        { symbol: "P5_k, P95_k", definition: "Frozen percentile bounds", explanation: "The public lower and upper normalization bounds for input k." },
+        { symbol: "s_k(c)", definition: "Normalized input score", explanation: "0-100 score after winsorization and direction adjustment." },
+        { symbol: "M_m(c)", definition: "Composite metric score", explanation: "Weighted mean of normalized component scores for composite metric m." },
+        { symbol: "alpha_(p,m)", definition: "Metric weight inside a pillar", explanation: "Published metric weight for m inside pillar p." },
+        { symbol: "cov_m(c)", definition: "Metric coverage", explanation: "Observed share of a metric's required evidence, from 0 to 1." },
+        { symbol: "Cov_p(c)", definition: "Pillar coverage", explanation: "Coverage score for pillar p after metric-weight weighting." },
+        { symbol: "Cov(c)", definition: "Overall weighted coverage", explanation: "Weighted mean of the five pillar coverage scores." },
+        { symbol: "w_p", definition: "Public pillar weight", explanation: "Fixed public weight applied to pillar p in the overall AMPI step." },
+        { symbol: "mu(c)", definition: "Weighted pillar mean", explanation: "Weighted mean of the five pillar scores before the AMPI penalty." },
+        { symbol: "var(c)", definition: "Weighted pillar variance", explanation: "Weighted cross-pillar variance used to penalize imbalance." },
+        { symbol: "AMPI(c)", definition: "Adjusted Mazziotta-Pareto Index", explanation: "The variance-penalized overall composite before coverage penalty." },
+        { symbol: "penalty(c)", definition: "Coverage penalty", explanation: "0, 5, or 15 points depending on the published coverage grade." },
         { symbol: "DI_ppp(c)", definition: "PPP-adjusted disposable income", explanation: "Post-tax income minus essential costs, converted once through the PPP private-consumption factor so purchasing room is comparable across cities." },
       ],
     },
     workedExampleSection: {
       eyebrow: "Worked example",
-      title: "Illustrative preview computation",
+      title: "Published row walkthrough",
       summary:
-        "This example is illustrative rather than an audited publication row. Its purpose is to show how raw inputs become a final score.",
+        "This example uses a real published city row so the arithmetic is audit-friendly rather than decorative.",
       example: {
-        city: "Illustrative city computation",
-        note: "Illustrative example showing the math path from raw inputs to a final score, not a final audited workbook row.",
+        city: `${workedExampleDisplayName} published row`,
+        note: "Numbers below are taken from the live published snapshot in `publishedRankingData.json`, rounded exactly as displayed on the public scorecard.",
         inputs: [
-          { label: "Gross income", value: "TWD 55,000/month", note: "City-level earnings in local currency" },
-          { label: "Effective tax rate", value: "12%", note: "Country context from national data" },
-          { label: "Essential costs", value: "TWD 28,000/month", note: "Rent, utilities, internet, transit, and food" },
-          { label: "PPP factor", value: "15.3", note: "World Bank PPP private consumption conversion" },
-          { label: "Climate sunlight", value: "82", note: "Subtropical warmth, good sunshine hours" },
-          { label: "Birth rate (TFR)", value: "1.09", note: "National fertility rate" },
-          { label: "Illustrative pillar bundle", value: "Pressure 78.1 / Viability 80 / Capability 74 / Community 72 / Creative 73", note: "Values after internal metric aggregation" },
+          { label: "DI_ppp raw", value: workedExampleDiRaw, note: `Published raw disposable-income input for ${workedExampleDisplayName}` },
+          { label: "Personal safety raw", value: workedExample?.safety?.raw != null ? String(workedExample.safety.raw) : "—", note: "Published homicide / harm input used in the negative-direction normalization example" },
+          { label: "Pressure pillar", value: formatOneDecimal(workedExample?.pillarScores?.pressure ?? undefined), note: "Published pillar score after weighted mean over observed scored metrics" },
+          { label: "Viability pillar", value: formatOneDecimal(workedExample?.pillarScores?.viability ?? undefined), note: "Published pillar score" },
+          { label: "Capability pillar", value: formatOneDecimal(workedExample?.pillarScores?.capability ?? undefined), note: "Published pillar score" },
+          { label: "Community pillar", value: formatOneDecimal(workedExample?.pillarScores?.community ?? undefined), note: "Published pillar score" },
+          { label: "Creative pillar", value: formatOneDecimal(workedExample?.pillarScores?.creative ?? undefined), note: "Published pillar score" },
         ],
         steps: [
           {
-            title: "PPP-adjusted room after tax and essentials",
+            title: "Negative-direction normalization example",
             formula:
-              "DI_ppp = ((55,000 x (1 - 0.12)) - 28,000) / 15.3",
-            result: "DI_ppp = 1,333 PPP-adjusted USD/month",
+              workedExampleSafetyFormula,
+            result: `SafetyScore = ${formatOneDecimal(workedExample?.safety?.scoreRounded ?? undefined)}`,
             explanation:
-              "Residual income is converted through the PPP private-consumption factor once so comparable purchasing room can be scored across cities.",
+              `${workedExampleDisplayName}'s personal-safety input is negative-direction, so the numerator is reversed. The P5/P95 bounds here come from the frozen \`normStats\` snapshot used by the public scorer.`,
           },
           {
-            title: "Negative-metric normalization example",
+            title: "Growth pillar weighted mean",
             formula:
-              "SafetyScore = 100 x ((12.0 - 0.8) / (12.0 - 0.3))",
-            result: "SafetyScore = 95.7",
+              workedExamplePressureFormula,
+            result: `Growth = ${formatOneDecimal(workedExample?.pressure?.scoreRounded ?? undefined)}`,
             explanation:
-              "Because violent harm is negative, the percentile band is reversed so lower harm yields a higher score.",
+              "Only observed scored metrics enter the denominator. Economic growth momentum is visible elsewhere on the scorecard, but it does not enter the current aggregate formula.",
           },
           {
-            title: "Pressure pillar aggregation",
+            title: "Cross-pillar weighted mean and variance",
             formula:
-              "Pressure = (4x85 + 8x75 + 6x78 + 4x78 + 7x76 + 7x80) / 36",
-            result: "Pressure = 78.1",
+              workedExampleMeanFormula,
+            result: `mu = ${formatThreeDecimals(workedExample?.overall?.weightedMeanExact ?? undefined)}, var = ${formatTwoDecimals(workedExample?.overall?.weightedVarianceExact ?? undefined)}`,
             explanation:
-              "Internal metric weights sum to 36, then collapse to a single public pillar score.",
+              `This is the exact cross-pillar imbalance step. If ${workedExampleDisplayName} had the same weighted mean but more even pillars, its final score would be higher.`,
           },
           {
-            title: "Final public score",
+            title: "AMPI and final published score",
             formula:
-              "SLIC = 0.25x78.1 + 0.22x80 + 0.18x74 + 0.15x72 + 0.20x73",
-            result: "SLIC = 75.85",
+              workedExampleAmpiFormula,
+            result: `SLIC = ${formatOneDecimal(workedExample?.overall?.slicScoreRounded ?? undefined)}`,
             explanation:
-              "The five public pillars are combined once, with fixed public weights and no hidden override layer.",
+              `The final score lands below the weighted pillar mean because AMPI penalizes imbalance, and no extra coverage deduction applies because ${workedExampleDisplayName} carries grade ${workedExample?.overall?.coverageGrade ?? "—"} coverage.`,
           },
         ],
-        finalScore: "75.82",
+        finalScore: formatOneDecimal(workedExample?.overall?.slicScoreRounded ?? undefined),
         conclusion:
-          "The example shows the intended balance: visible deductions for birth rate or community can coexist with visible strengths in pressure and viability, rather than being buried inside prestige averages.",
+          "The point of the example is methodological honesty: strong viability and capability do not erase a weaker community pillar. The variance penalty is what stops SLIC from rewarding one-dimensional cities as if all strengths were interchangeable.",
       },
     },
     modelSection: {
       eyebrow: "Method boundaries",
       title: "One public model, with diagnostics kept separate",
       summary:
-        "The public score comes from one fixed weighted model. Internal diagnostics may challenge data quality or structure, but they do not alter the published rank.",
+        "The public score comes from one declared AMPI model. Diagnostics can be visible, but they do not silently mutate the published aggregate.",
       families: [
         {
           id: "weighted",
           title: "Official public model",
-          formula: "SLIC(c) = Sum over pillars p of w_p x P_p(c)",
+          formula: officialSlicFormula,
           role: "Published score",
           explanation:
-            "This is the only public scoring engine: fixed weights, transparent normalization, and declared pillar logic that readers can replicate.",
+            "This is the only public scoring engine: fixed weights, winsorized normalization, weighted pillar means, weighted AMPI across pillars, and an explicit coverage penalty.",
         },
         {
           id: "diagnostics",
           title: "Internal diagnostics",
-          formula: "Diagnostics(c) do not modify SLIC(c)",
+          formula: "Visible diagnostics != scored diagnostics",
           role: "Non-scoring checks",
           explanation:
-            "Consistency checks, clustering tests, and analyst review can flag weak inputs or unsupported patterns, but they do not add hidden bonuses or penalties to the public score.",
+            "Economic growth momentum, climate/sunlight livability, and birth-rate optimism can remain visible on scorecards without directly entering the current aggregate. Visibility is not the same thing as scoring weight.",
         },
         {
           id: "profile-match",
@@ -836,16 +1015,15 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         id: "pressure",
         name: "Growth",
         weight: 25,
-        thesis: "This pillar tracks whether housing cost, overwork, mental-strain indicators, and economic momentum leave residents with usable room to live.",
-        justification: "V3 increased the weight on housing burden, working hours, and suicide-related strain indicators. GDP growth remains visible as a forward-looking signal, while disposable income and debt stay in the model as context for residual room after essentials.",
+        thesis: "The public label is Growth, but the underlying math is a pressure-and-runway bundle: how much usable life remains once housing, debt, overwork, and severe strain are counted honestly.",
+        justification: "This is the pillar that stops SLIC from confusing prestige with room to live. GDP growth momentum remains visible on scorecards, but the current aggregate scores only the five declared lived-pressure terms below.",
         citations: [2, 3, 7],
         metrics: [
-          { name: "Housing burden", weight: 8, description: "Rent as share of income. One of the clearest signals of affordability pressure; 40%+ rent-to-income ratios indicate a heavily constrained housing situation.", inputs: ["median rent", "gross income"] },
-          { name: "Working time pressure", weight: 7, description: "Average weekly hours worked. Sustained 45+ hour norms usually indicate high time pressure and less residual time outside work.", inputs: ["weekly hours", "overwork share"] },
-          { name: "Suicide and severe mental strain", weight: 7, description: "Suicide rate per 100k. A severe pressure indicator used here as a public-health signal of urban strain.", inputs: ["age-standardized suicide rate"] },
-          { name: "Economic growth momentum", weight: 6, description: "GDP growth rate. Included as a forward-looking signal of economic momentum; lower-growth contexts tend to offer fewer expansion opportunities.", inputs: ["GDP growth %", "country context"] },
-          { name: "Tax-adjusted disposable income", weight: 4, description: "Residual money after tax and essential costs, converted once through the PPP private-consumption factor so purchasing room is comparable across cities.", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
+          { name: "Tax-adjusted disposable income", weight: 9, description: "Residual money after tax and essential costs, converted once through the PPP private-consumption factor so purchasing room is comparable across cities.", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
+          { name: "Housing burden", weight: 5, description: "Housing cost as share of income. Higher housing burden scores worse and directly compresses practical room to live.", inputs: ["median rent", "gross income"] },
           { name: "Household debt burden", weight: 4, description: "Debt relative to income. High leverage suggests more fragile household resilience.", inputs: ["household debt proxy"] },
+          { name: "Working time pressure", weight: 4, description: "Average weekly hours and related overwork burden. Higher sustained work pressure scores worse.", inputs: ["weekly hours", "overwork share"] },
+          { name: "Suicide and severe mental strain", weight: 3, description: "A severe-strain public-health signal. Higher suicide or equivalent strain proxy scores worse.", inputs: ["age-standardized suicide rate"] },
         ],
       },
       {
@@ -853,7 +1031,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         name: "Viability",
         weight: 22,
         thesis: "Daily life should be safer, cleaner, easier to move through, and technically competent without turning coercive.",
-        justification: "This is where competent cities score, but only on the lived outcomes their systems produce.",
+        justification: "This pillar scores lived outcomes produced by city systems, not smart-city theatre. Climate and sunlight remain visible as a diagnostic line, but the current aggregate uses only the five scored terms below.",
         citations: [3, 5, 11, 13, 17],
         metrics: [
           { name: "Personal safety", weight: 5, description: "Harm, violent crime, visitor victimization, and night-safety signals.", inputs: ["homicide", "serious violent crime", "victimization", "night-safety proxy"] },
@@ -861,7 +1039,6 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "Clean air", weight: 4, description: "PM2.5 and severe pollution exposure with CAMS and OpenAQ context.", inputs: ["PM2.5", "exceedance", "aerosol context"] },
           { name: "Water, sanitation, and utility reliability", weight: 4, description: "Safe water, sanitation, and basic service reliability.", inputs: ["WASH access", "interruptions", "compliance"] },
           { name: "Digital infrastructure", weight: 4, description: "Broadband quality, affordability, and fibre readiness.", inputs: ["fixed broadband", "affordability", "internet performance"] },
-          { name: "Climate and sunlight livability", weight: 7, description: "Composite of sunshine hours, temperature comfort, and extreme weather exposure. V3 increased this weight because sunlight and thermal comfort affect daily conditions across cities.", inputs: ["sunshine hours", "temperature comfort", "extreme weather"] },
         ],
       },
       {
@@ -874,7 +1051,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         metrics: [
           { name: "Healthcare quality", weight: 8, description: "Amenable mortality, capacity, and effective care access.", inputs: ["avoidable mortality", "quality outcomes", "provider capacity"] },
           { name: "Education quality", weight: 6, description: "Learning outcomes, completion, and skills formation.", inputs: ["PISA", "UIS outcomes", "completion", "skills pipeline"] },
-          { name: "Equal opportunity and distributional fairness", weight: 4, description: "Gender gaps, youth NEET, and distributional fairness signals.", inputs: ["gender data", "NEET", "Gini", "labour gaps"] },
+          { name: "Equal opportunity and distributional fairness", weight: 4, description: "Composite scored metric: 70% equal-opportunity evidence and 30% reversed Gini context, reweighted over observed components when one side is missing.", inputs: ["gender data", "NEET", "Gini", "labour gaps"] },
         ],
       },
       {
@@ -882,13 +1059,12 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         name: "Community",
         weight: 15,
         thesis: "A city is not a spreadsheet. Hospitality, tolerance, cultural richness, and the feeling of belonging are what make people stay — or leave.",
-        justification: "V3 elevated cultural and public life within the community pillar and reduced birth rate to a lighter contextual role. Tolerance includes observable legal and civic openness signals because structural inclusion affects daily participation.",
+        justification: "Community is where SLIC refuses to treat openness as branding. Birth-rate optimism remains visible as a diagnostic line, but the current aggregate uses the three scored terms below and keeps the tolerance composite explicit.",
         citations: [1, 14, 16],
         metrics: [
-          { name: "Cultural and public-life vitality", weight: 7, description: "Third places, historic continuity, visitor pull, and street life. Used as a public-life signal alongside safety, ecology, and resident-room checks.", inputs: ["tourism arrivals per 1000", "events", "public attention"] },
-          { name: "Hospitality and belonging", weight: 6, description: "Do people feel welcome? Net migration, resident attachment, multilingual usability, and the culture of helping strangers.", inputs: ["net migration", "testimony audit", "multilingual services"] },
-          { name: "Tolerance and pluralism", weight: 5, description: "Openness & Inclusion composite: 40% Equaldex LGBTQI Equality Index (legal + public opinion, country), 30% Freedom House Freedom-in-the-World aggregate (country), 30% reported hate-crime incidents per 100 000 (city where FBI UCR, UK Home Office, Stats Canada, BKA or OSCE ODIHR data exists; country proxy via Freedom House civil-liberties inversion elsewhere). Replaces the V2 women-in-parliament proxy, which collapsed hyper-religious, authoritarian, and LGBTQ-hostile regimes into a single misleading number. Thailand sits at Equaldex 90 after the Jan-2025 marriage-equality entry into force and subsequent UN SOGI Independent Expert recognition of Thailand as the most progressive nation in Asia on LGBTQ+ rights.", inputs: ["Equaldex country index", "Freedom House aggregate", "city hate-crime per 100k"] },
-          { name: "Birth rate optimism", weight: 2, description: "Total fertility rate as a weak societal signal. Reduced from 4 to 2 in V3 — too many confounders (education, culture, policy) make this a poor proxy for city-level livability.", inputs: ["World Bank TFR"] },
+          { name: "Hospitality and belonging", weight: 5, description: "Do people feel welcome in practice? Net migration, resident attachment, multilingual usability, and the culture of helping strangers.", inputs: ["net migration", "testimony audit", "multilingual services"] },
+          { name: "Tolerance and pluralism", weight: 5, description: "Openness & Inclusion composite: 40% Equaldex LGBTQI Equality Index, 30% Freedom House aggregate, and 30% reversed hate-crime or civil-liberties proxy where city evidence is thin.", inputs: ["Equaldex country index", "Freedom House aggregate", "city hate-crime per 100k"] },
+          { name: "Cultural and public-life vitality", weight: 5, description: "Everyday third places, historic continuity, events, and public-life texture. Visitor demand is contextual, not an automatic bonus.", inputs: ["tourism arrivals per 1000", "events", "public attention"] },
         ],
       },
       {
@@ -901,7 +1077,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         metrics: [
           { name: "Entrepreneurial dynamism", weight: 6, description: "Startup formation, business activity, and the local velocity of productive entry.", inputs: ["new business density", "firm formation", "entrepreneurial activity"] },
           { name: "Innovation and research intensity", weight: 5, description: "Patents, research depth, and the city's capacity to generate new ideas.", inputs: ["patents", "R&D", "research institutions"] },
-          { name: "Economic vitality and productive context", weight: 5, description: "Investment signal, macro productive context, and the city's economic runway.", inputs: ["investment signal", "GDP per capita PPP", "GDP growth"] },
+          { name: "Economic vitality and productive context", weight: 5, description: "Composite scored metric: 50% investment signal, 30% GDP per capita PPP context, and 20% GDP growth context.", inputs: ["investment signal", "GDP per capita PPP", "GDP growth"] },
           { name: "Administrative and investment friction", weight: 4, description: "How much bureaucracy, instability, or permitting drag gets in the way of productive action.", inputs: ["administrative friction", "permitting burden", "rule consistency"] },
         ],
       },
@@ -920,12 +1096,12 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       },
       {
         title: "Fixed official weights",
-        body: "The public leaderboard uses one official formula. User weighting can exist later as an exploratory tool, not as the published rank.",
+        body: "The public leaderboard uses one declared weighting scheme plus a cross-pillar AMPI penalty. User weighting can exist later as an exploratory tool, not as the published rank.",
         citations: [1],
       },
       {
         title: "Coverage gates before ranking",
-        body: "A city is ranked only if its weighted coverage clears the public threshold and no pillar is critically empty. Otherwise it remains watchlist-only.",
+        body: "A city is ranked only if its weighted coverage clears the public threshold. Below that threshold it remains watchlist-only, and manual watchlist flags such as active conflict can still override ranking eligibility.",
         citations: [1, 14, 15],
       },
       {
@@ -944,8 +1120,13 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         citations: [1],
       },
       {
-        title: "V3.3: Tier grouping with a one-per-region rule and Alpha floors",
-        body: "Cities are grouped into tiers (Alpha, Beta, Gamma, Delta, Epsilon, …). Within any single tier no region may occupy more than one slot. Ten region labels are used directly — East Asia, Southeast Asia, South Asia, Western Europe, Eastern Europe, Middle East, North America, Latin America, Oceania, Africa — so East-Asia cities (Jeju) and Southeast-Asia cities (Bangkok) can each earn a slot in the same tier. Alpha has two extra rules. First, Taiwan (Kaohsiung, Taipei) is exempt from the region-uniqueness check because its cities are semi-territorial rather than metros of the same national government, and USA and Canada each receive one Alpha slot keyed by country instead of region — continental-scale polities with distinct state/provincial systems get the same treatment. Second, Alpha has liveability floors: a city must have Community ≥ 40 AND Pressure ≥ 40 to occupy an Alpha slot. Below the floors, a city still ranks — it just cascades to the first lower tier where its region slot is open. The Community floor drops rich-on-paper, closed-in-life cities (Abu Dhabi, Dubai, Manama, Shanghai, Shenzhen) out of Alpha. The Pressure floor drops hyper-expensive cities where median residents cannot afford their own city. Together the rules execute the SLIC philosophy: Alpha is reserved for cities where thriving and affordability co-exist.",
+        title: "V3.3: Pure score rank, separate public tiers",
+        body: englishTierProtocolRule,
+        citations: [],
+      },
+      {
+        title: "V3.3: Singapore and Bangkok under the live tier protocol",
+        body: englishSingaporeRule,
         citations: [],
       },
       {
@@ -959,13 +1140,13 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         citations: [],
       },
       {
-        title: "V3: Religious and structural intolerance screening",
-        body: "Cities in countries with legally discriminatory or structurally exclusionary systems receive community penalties where those conditions are observable in the data. The aim is to measure openness in daily life, not to rank beliefs or identities.",
+        title: "Visible diagnostics are not hidden weights",
+        body: "Economic growth momentum, climate/sunlight livability, and birth-rate optimism can stay visible on scorecards without directly entering the current aggregate. The method distinguishes between published context and scored evidence.",
         citations: [],
       },
       {
-        title: "V3: Sterility and one-dimensional experience penalty",
-        body: "Cities with narrow lived-experience profiles can receive community and viability penalties when the data indicate low cultural/public-life diversity and limited everyday variation.",
+        title: "Composite metrics stay explicit",
+        body: "Equal opportunity, tolerance, and economic vitality are not black-box terms. Their component weights are declared publicly and are reweighted only over observed evidence when one component is missing.",
         citations: [],
       },
       {
@@ -1120,7 +1301,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       stages: [
         { id: "raw-th", title: "ข้อมูลดิบ", body: "เก็บสัญญาณจากระดับเมือง มหานคร ภูมิภาค และประเทศ พร้อม source tier", formula: "x_m(c)" },
         { id: "normalized-th", title: "การ normalize", body: "winsorize ที่ P5/P95 แปลงเป็น 0-100 และกลับทิศตัวแปรเชิงลบ", formula: "s_m(c)" },
-        { id: "pillars-th", title: "รวมเป็นเสาหลัก", body: "รวมตัวชี้วัดตามน้ำหนักภายในเสาหลักที่ประกาศไว้", formula: "P_p(c) = Sum alpha_(p,m) x s_m(c)" },
+        { id: "pillars-th", title: "รวมเป็นเสาหลัก", body: "รวมตัวชี้วัดตามน้ำหนักภายในเสาหลักที่ประกาศไว้", formula: "P_p(c) = Sum observed alpha_(p,m) x s_m(c) / Sum observed alpha_(p,m)" },
         { id: "final-th", title: "คะแนนสุดท้าย", body: "ใช้สูตรสาธารณะเพียงสูตรเดียว พร้อม coverage grade", formula: "SLIC(c)" },
       ],
     },
@@ -1184,9 +1365,18 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "official-score-th",
               title: "คะแนน SLIC อย่างเป็นทางการ",
               formula:
-                "SLIC(c) = 0.25 Pressure(c) + 0.22 Viability(c) + 0.18 Capability(c) + 0.15 Community(c) + 0.20 Creative(c)",
+                officialSlicFormula,
               explanation:
-                "บอร์ดสาธารณะใช้สูตรถ่วงน้ำหนักทางการเพียงสูตรเดียว โดยให้ Pressure เป็นสัดส่วนใหญ่สุด และคง Viability, Capability, Community และ Creative ไว้อย่างเปิดเผย",
+                "บอร์ดสาธารณะไม่ได้ใช้ค่าเฉลี่ยถ่วงน้ำหนักธรรมดา แต่ใช้ AMPI แบบถ่วงน้ำหนักข้ามห้าเสาหลัก แล้วจึงหัก coverage penalty ตามเกณฑ์ที่ประกาศ",
+              citations: [1],
+            },
+            {
+              id: "official-ampi-th",
+              title: "รูปขยายของ AMPI",
+              formula:
+                officialAmpiFormula,
+              explanation:
+                "ตัว scorer จะคำนวณค่าเฉลี่ยถ่วงน้ำหนักของห้าเสาหลักก่อน แล้วหักโทษจากความแปรปรวนข้ามเสาหลักหารด้วยค่าเฉลี่ย เมืองที่เด่นด้านเดียวจึงถูกกดลงอย่างเป็นระบบ",
               citations: [1],
             },
             {
@@ -1210,7 +1400,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "metric-normalization-th",
               title: "คะแนนตัวชี้วัดหลัง winsorize",
               formula:
-                "s_m(c) = 100 x clamp((winsor(x_m(c)) - P5_m) / (P95_m - P5_m), 0, 1)",
+                "If dir(m) = positive:\n  s_m(c) = 100 x clamp((winsor(x_m(c)) - P5_m) / (P95_m - P5_m), 0, 1)\nIf dir(m) = negative:\n  s_m(c) = 100 x clamp((P95_m - winsor(x_m(c))) / (P95_m - P5_m), 0, 1)",
               explanation:
                 "ตัวแปรเชิงบวกคำนวณตรง ตัวแปรเชิงลบจะกลับทิศตัวเศษเพื่อให้คะแนนที่สูงหมายถึงผลลัพธ์ที่ดีกว่าเสมอ",
               citations: [1],
@@ -1219,7 +1409,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "coverage-score-th",
               title: "คะแนนความครอบคลุมแบบถ่วงน้ำหนัก",
               formula:
-                "Coverage(c) = Sum over observed metrics m of gamma_m / Sum over required metrics m of gamma_m",
+                "Cov_p(c) = Sum over metrics m of alpha_(p,m) x cov_m(c) / Sum over metrics m of alpha_(p,m)\nCov(c) = (25 Cov_pressure + 22 Cov_viability + 18 Cov_capability + 15 Cov_community + 20 Cov_creative) / 100",
               explanation:
                 "coverage ถูกถ่วงน้ำหนักตามความสำคัญของตัวแปร เมืองที่ข้อมูลสำคัญบางไม่สามารถซ่อนอยู่หลังตัวแปรย่อยจำนวนมากได้",
               citations: [1, 14, 15],
@@ -1234,29 +1424,29 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           equations: [
             {
               id: "safety-viability-th",
-              title: "เสาหลัก Viability",
+              title: "เสาหลัก Growth",
               formula:
-                "Viability(c) = 0.23 PersonalSafety + 0.23 TransitAccess + 0.18 CleanAir + 0.18 WaterUtility + 0.18 DigitalInfrastructure",
+                growthPillarFormula,
               explanation:
-                "Viability ให้รางวัลกับความปลอดภัยจริง นิเวศวิทยา และความเสถียรของระบบชีวิตประจำวัน โดยไม่ให้คะแนนกับ surveillance intensity",
-              citations: [3, 5, 11, 13, 17],
+                "เสาหลักนี้รวมแรงกดดันด้านพื้นที่ชีวิตจริงโดยตรง ส่วน economic growth momentum ยังมองเห็นได้บน scorecard แต่เป็น diagnostic ที่ไม่ถูกนับใน aggregate ปัจจุบัน",
+              citations: [1, 2, 3, 7],
             },
             {
               id: "community-tolerance-th",
-              title: "เสาหลัก Community",
+              title: "Tolerance composite",
               formula:
-                "Community(c) = 0.33 HospitalityBelonging + 0.33 TolerancePluralism + 0.33 PublicLifeVitality",
+                toleranceCompositeFormula,
               explanation:
-                "Community ถูกวัดจากการอยู่ร่วมกันได้จริง การเข้าถึงตลาดอย่างเท่าเทียม และชีวิตสาธารณะ ไม่ใช่จากภาพลักษณ์เชิงสัญลักษณ์",
-              citations: [1, 14, 16],
+                "Community ใช้ composite ด้าน openness ที่ประกาศส่วนประกอบชัดเจน แทนการใช้ proxy ตัวเดียวแบบกล่องดำ",
+              citations: [1, 14, 16, 35],
             },
             {
               id: "business-growth-th",
-              title: "เสาหลัก Creative",
+              title: "Economic vitality composite",
               formula:
-                "Creative(c) = 0.30 EntrepreneurialDynamism + 0.25 InnovationResearchIntensity + 0.25 EconomicVitality + 0.20 AdministrativeFriction",
+                economicVitalityFormula,
               explanation:
-                "Creative จะสูงขึ้นเมื่อเมืองสนับสนุนผู้ประกอบการ ความเข้มข้นของการวิจัย โมเมนตัมทางเศรษฐกิจ และลดแรงเสียดทานด้านการบริหาร",
+                "บริบทมหภาคยังสำคัญ แต่ถูกบรรจุไว้ใน composite ที่ประกาศชัด แทนที่จะปล่อยให้ครอบงำหลักฐานระดับเมืองแบบเงียบ ๆ",
               citations: [2, 10, 16],
             },
           ],
@@ -1277,69 +1467,71 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         { symbol: "P5_m, P95_m", definition: "จุดยึดเปอร์เซ็นไทล์", explanation: "ขอบล่างและขอบบนของตัวแปร m" },
         { symbol: "s_m(c)", definition: "คะแนน normalized", explanation: "คะแนน 0-100 หลังจัดการ outlier และทิศทางของตัวแปร" },
         { symbol: "alpha_(p,m)", definition: "น้ำหนักของตัวชี้วัดภายในเสาหลัก", explanation: "บอกว่าตัวแปร m ส่งผลต่อเสาหลัก p มากแค่ไหน" },
-        { symbol: "gamma_m", definition: "น้ำหนักความครอบคลุม", explanation: "ใช้คำนวณ coverage เมื่อมีข้อมูลขาดหาย" },
+        { symbol: "cov_m(c)", definition: "คะแนนความครอบคลุมของตัวแปร", explanation: "บอกสัดส่วนของหลักฐานที่สังเกตได้สำหรับตัวแปรนั้น ตั้งแต่ 0 ถึง 1" },
         { symbol: "w_p", definition: "น้ำหนักเสาหลักสาธารณะ", explanation: "น้ำหนักที่ใช้รวมคะแนนสุดท้าย" },
         { symbol: "DI_ppp(c)", definition: "พื้นที่รายได้ใช้สอยจริงแบบ PPP", explanation: "เงินที่เหลือหลังภาษีและค่าใช้จ่ายจำเป็นในหน่วย PPP" },
       ],
     },
     workedExampleSection: {
       eyebrow: "ตัวอย่างคำนวณ",
-      title: "ตัวอย่างการคำนวณแบบ illustrative",
+      title: "ไล่เส้นทางแถวข้อมูลที่เผยแพร่จริง",
       summary:
-        "ตัวอย่างนี้มีไว้เพื่ออธิบายเส้นทางของคณิตศาสตร์ ไม่ใช่แถวข้อมูลที่ผ่านการ audit แล้วในเวิร์กบุ๊ก",
+        "ตัวอย่างนี้ใช้แถวข้อมูลจริงจากชุดข้อมูลที่เผยแพร่ เพื่อให้คณิตศาสตร์ตรวจย้อนกลับได้ ไม่ใช่สูตรตกแต่ง",
       example: {
-        city: "Bangkok preview computation",
-        note: "ตัวอย่างเชิงอธิบายโดยใช้ค่าพรีวิว เพื่อแสดงเส้นทางของสมการ ไม่ใช่ค่าทางการสุดท้าย",
+        city: `แถวข้อมูลเผยแพร่ของ ${workedExampleDisplayName}`,
+        note: "ตัวเลขด้านล่างมาจาก snapshot ปัจจุบันใน `publishedRankingData.json` และปัดตามที่แสดงบน scorecard สาธารณะทุกประการ",
         inputs: [
-          { label: "Gross income", value: "$33,500", note: "รายได้ตัวอย่างในระดับเมือง" },
-          { label: "Effective tax rate", value: "18%", note: "ตัวแปรบริบทประเทศที่ผู้ใช้ป้อน" },
-          { label: "Essential costs", value: "$15,900", note: "ค่าเช่า ค่าน้ำไฟ อินเทอร์เน็ต เดินทาง และอาหาร" },
-          { label: "PPP private consumption factor", value: "0.72", note: "ชั้น conversion ของ World Bank" },
-          { label: "Illustrative pillar bundle", value: "Pressure 71 / Viability 84 / Capability 80 / Community 86 / Creative 76", note: "ค่าหลังรวมตัวแปรภายในเสาหลัก" },
+          { label: "DI_ppp raw", value: workedExampleDiRaw, note: `ค่าดิบ disposable-income ของ ${workedExampleDisplayName} ในชุดข้อมูลที่เผยแพร่` },
+          { label: "Personal safety raw", value: workedExample?.safety?.raw != null ? String(workedExample.safety.raw) : "—", note: "ค่าดิบ homicide / harm ที่ใช้ในตัวอย่าง normalize แบบตัวแปรเชิงลบ" },
+          { label: "Pressure pillar", value: formatOneDecimal(workedExample?.pillarScores?.pressure ?? undefined), note: "คะแนนเสาหลังรวมตัวแปรที่มีข้อมูลจริง" },
+          { label: "Viability pillar", value: formatOneDecimal(workedExample?.pillarScores?.viability ?? undefined), note: "คะแนนเสาที่เผยแพร่" },
+          { label: "Capability pillar", value: formatOneDecimal(workedExample?.pillarScores?.capability ?? undefined), note: "คะแนนเสาที่เผยแพร่" },
+          { label: "Community pillar", value: formatOneDecimal(workedExample?.pillarScores?.community ?? undefined), note: "คะแนนเสาที่เผยแพร่" },
+          { label: "Creative pillar", value: formatOneDecimal(workedExample?.pillarScores?.creative ?? undefined), note: "คะแนนเสาที่เผยแพร่" },
         ],
         steps: [
           {
-            title: "พื้นที่รายได้หลังภาษีและค่าใช้จ่ายจำเป็น",
-            formula: "DI_ppp = ((33,500 x (1 - 0.18)) - 15,900) / 0.72",
-            result: "DI_ppp = 16,069",
-            explanation: "เปลี่ยนเงินที่เหลือจริงให้เป็นหน่วย PPP เพื่อให้เทียบข้ามเมืองได้",
+            title: "ตัวอย่าง normalize แบบตัวแปรเชิงลบ",
+            formula: workedExampleSafetyFormula,
+            result: `SafetyScore = ${formatOneDecimal(workedExample?.safety?.scoreRounded ?? undefined)}`,
+            explanation: `ตัวแปร personal safety ของ ${workedExampleDisplayName} เป็นตัวแปรเชิงลบ จึงกลับทิศตัวเศษ ขอบ P5/P95 มาจาก \`normStats\` ชุดเดียวกับที่ scorer ใช้จริง`,
           },
           {
-            title: "ตัวอย่าง normalize ตัวแปรเชิงลบ",
-            formula: "SafetyScore = 100 x ((12.0 - 3.2) / (12.0 - 1.4))",
-            result: "SafetyScore = 83.0",
-            explanation: "เพราะความรุนแรงเป็นตัวแปรเชิงลบ จึงกลับทิศเพื่อให้ความรุนแรงต่ำได้คะแนนสูง",
+            title: "ค่าเฉลี่ยถ่วงน้ำหนักของเสา Growth",
+            formula: workedExamplePressureFormula,
+            result: `Growth = ${formatOneDecimal(workedExample?.pressure?.scoreRounded ?? undefined)}`,
+            explanation: "ตัวหารนับเฉพาะ metric ที่มีข้อมูลจริง Economic growth momentum ยังแสดงบน scorecard ได้ แต่ไม่เข้าสูตร aggregate ปัจจุบัน",
           },
           {
-            title: "การรวมคะแนนภายในเสาแรงกดดัน",
-            formula: "Pressure = (4x82 + 8x68 + 6x76 + 4x61 + 7x74 + 7x67) / 36",
-            result: "Pressure = 71.1",
-            explanation: "น้ำหนักตัวแปรภายในเสารวมกันเป็น 36 ก่อนยุบเป็นคะแนนเสาหลักเดียว",
+            title: "ค่าเฉลี่ยถ่วงน้ำหนักและความแปรปรวนข้ามเสา",
+            formula: workedExampleMeanFormula,
+            result: `mu = ${formatThreeDecimals(workedExample?.overall?.weightedMeanExact ?? undefined)}, var = ${formatTwoDecimals(workedExample?.overall?.weightedVarianceExact ?? undefined)}`,
+            explanation: `นี่คือขั้นตอนลงโทษความไม่สมดุลข้ามเสาที่แท้จริง ถ้า ${workedExampleDisplayName} มีค่าเฉลี่ยเท่าเดิมแต่เสาใกล้กันมากขึ้น คะแนนสุดท้ายจะสูงขึ้น`,
           },
           {
-            title: "คะแนนสาธารณะสุดท้าย",
-            formula: "SLIC = 0.25x71 + 0.22x84 + 0.18x80 + 0.15x86 + 0.20x76",
-            result: "SLIC = 78.73",
-            explanation: "ห้าเสาหลักสาธารณะถูกรวมเพียงครั้งเดียว ด้วยน้ำหนักทางการที่ประกาศชัด",
+            title: "AMPI และคะแนนสาธารณะสุดท้าย",
+            formula: workedExampleAmpiFormula,
+            result: `SLIC = ${formatOneDecimal(workedExample?.overall?.slicScoreRounded ?? undefined)}`,
+            explanation: `คะแนนสุดท้ายต่ำกว่าค่าเฉลี่ยถ่วงน้ำหนัก เพราะ AMPI ลงโทษความไม่สมดุล และ ${workedExampleDisplayName} ไม่ถูกหักเพิ่มจาก coverage เพราะได้ grade ${workedExample?.overall?.coverageGrade ?? "—"}`,
           },
         ],
-        finalScore: "78.73",
+        finalScore: formatOneDecimal(workedExample?.overall?.slicScoreRounded ?? undefined),
         conclusion:
-          "ตัวอย่างนี้แสดงให้เห็นว่าเมืองอย่างกรุงเทพฯ สามารถมีจุดแข็งด้านชุมชนและพลังเมืองได้จริง ขณะเดียวกันก็ยังถูกหักคะแนนจากแรงกดดันหรือสิ่งแวดล้อมอย่างโปร่งใส",
+          "ประเด็นสำคัญของตัวอย่างนี้คือความซื่อสัตย์ทางระเบียบวิธี: เสา Viability และ Capability ที่แข็งมาก ไม่ได้ลบข้ออ่อนของเสา Community ทิ้งไป AMPI ทำหน้าที่หยุดไม่ให้ SLIC ให้รางวัลเมืองมิติเดียวราวกับจุดแข็งทุกอย่างทดแทนกันได้",
       },
     },
     modelSection: {
       eyebrow: "ขอบเขตของวิธี",
       title: "มีสูตรสาธารณะเพียงชุดเดียว ส่วน diagnostics แยกออกต่างหาก",
       summary:
-        "คะแนนสาธารณะมาจาก fixed weighted model เพียงชุดเดียว ส่วน diagnostics ภายในอาจใช้ตรวจคุณภาพข้อมูลหรือโครงสร้างตัวแปร แต่ไม่แก้อันดับที่เผยแพร่",
+        "คะแนนสาธารณะมาจาก AMPI เพียงชุดเดียวที่ประกาศชัด ส่วน diagnostics อาจมองเห็นได้ แต่ไม่แก้อันดับที่เผยแพร่แบบเงียบ ๆ",
       families: [
         {
           id: "weighted-th",
-          title: "Public weighted model",
-          formula: "SLIC(c) = Sum over pillars p of w_p x P_p(c)",
+          title: "โมเดลสาธารณะทางการ",
+          formula: officialSlicFormula,
           role: "คะแนนที่เผยแพร่",
-          explanation: "นี่คือเครื่องยนต์สาธารณะอย่างเป็นทางการ อธิบายง่าย ทำซ้ำได้ และตรงกับสิ่งที่ผู้อ่านเห็นบนหน้าอันดับ",
+          explanation: "นี่คือเครื่องยนต์สาธารณะอย่างเป็นทางการเพียงชุดเดียว: น้ำหนักคงที่ winsorize แบบประกาศล่วงหน้า ค่าเฉลี่ยถ่วงน้ำหนักภายในเสา AMPI ข้ามเสา และบทลงโทษ coverage ที่ชัดเจน",
         },
         {
           id: "diagnostics-th",
@@ -1481,6 +1673,16 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         title: "แรงดึงดูดของผู้มาเยือนเป็นเพียงบริบท",
         body: "visitor flow จะถูกนับเป็นสัญญาณทางวัฒนธรรมก็ต่อเมื่อผ่านการตรวจด้านความแออัด ความปลอดภัย นิเวศวิทยา และพื้นที่ของผู้อยู่อาศัย",
         citations: [1],
+      },
+      {
+        title: "V3.3: อันดับคะแนนล้วน แยกจากชั้นสาธารณะ",
+        body: thaiTierProtocolRule,
+        citations: [],
+      },
+      {
+        title: "V3.3: สิงคโปร์และกรุงเทพฯ ภายใต้กติกาชั้นสาธารณะล่าสุด",
+        body: thaiSingaporeRule,
+        citations: [],
       },
     ],
     sourceSection: {
@@ -1629,7 +1831,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       stages: [
         { id: "raw-zh", title: "原始指标", body: "采集城市、都会区、次国家与国家层级信号，并标注 source tier。", formula: "x_m(c)" },
         { id: "normalized-zh", title: "标准化", body: "在 P5/P95 做 winsorization，缩放到 0-100，并对负向变量反向计分。", formula: "s_m(c)" },
-        { id: "pillars-zh", title: "支柱聚合", body: "用公开的内部权重把各指标折叠成支柱分数。", formula: "P_p(c) = Sum alpha_(p,m) x s_m(c)" },
+        { id: "pillars-zh", title: "支柱聚合", body: "用公开的内部权重把各指标折叠成支柱分数。", formula: "P_p(c) = Sum observed alpha_(p,m) x s_m(c) / Sum observed alpha_(p,m)" },
         { id: "final-zh", title: "最终分数", body: "应用唯一的公开公式，并附上 coverage grade。", formula: "SLIC(c)" },
       ],
     },
@@ -1693,9 +1895,18 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "official-score-zh",
               title: "官方 SLIC 分数",
               formula:
-                "SLIC(c) = 0.25 Pressure(c) + 0.22 Viability(c) + 0.18 Capability(c) + 0.15 Community(c) + 0.20 Creative(c)",
+                officialSlicFormula,
               explanation:
-                "公开榜单只有一套固定加权模型。Pressure 权重最大，同时把 Viability、Capability、Community 与 Creative 明确保留在公式中。",
+                "公开分数不是简单加权平均，而是先做五支柱加权 AMPI，再减去覆盖度惩罚。",
+              citations: [1],
+            },
+            {
+              id: "official-ampi-zh",
+              title: "AMPI 的展开形式",
+              formula:
+                officialAmpiFormula,
+              explanation:
+                "公开 scorer 先求五个支柱的加权均值，再减去以该均值标准化后的跨支柱方差惩罚，所以单维度特别强的城市不会被当成全面宜居。",
               citations: [1],
             },
             {
@@ -1719,7 +1930,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "metric-normalization-zh",
               title: "winsorized 指标分数",
               formula:
-                "s_m(c) = 100 x clamp((winsor(x_m(c)) - P5_m) / (P95_m - P5_m), 0, 1)",
+                "If dir(m) = positive:\n  s_m(c) = 100 x clamp((winsor(x_m(c)) - P5_m) / (P95_m - P5_m), 0, 1)\nIf dir(m) = negative:\n  s_m(c) = 100 x clamp((P95_m - winsor(x_m(c))) / (P95_m - P5_m), 0, 1)",
               explanation:
                 "正向指标直接缩放，负向指标则反转分子，以保证高分永远意味着更好的城市结果。",
               citations: [1],
@@ -1728,7 +1939,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
               id: "coverage-score-zh",
               title: "加权覆盖度",
               formula:
-                "Coverage(c) = Sum over observed metrics m of gamma_m / Sum over required metrics m of gamma_m",
+                "Cov_p(c) = Sum over metrics m of alpha_(p,m) x cov_m(c) / Sum over metrics m of alpha_(p,m)\nCov(c) = (25 Cov_pressure + 22 Cov_viability + 18 Cov_capability + 15 Cov_community + 20 Cov_creative) / 100",
               explanation:
                 "覆盖度按指标重要性加权，而不是按字段个数计算。关键数据缺失不能被一堆次要字段掩盖。",
               citations: [1, 14, 15],
@@ -1743,29 +1954,29 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           equations: [
             {
               id: "safety-viability-zh",
-              title: "Viability 支柱",
+              title: "Growth 支柱",
               formula:
-                "Viability(c) = 0.23 PersonalSafety + 0.23 TransitAccess + 0.18 CleanAir + 0.18 WaterUtility + 0.18 DigitalInfrastructure",
+                growthPillarFormula,
               explanation:
-                "Viability 奖赏真实安全、生态能力与日常系统可靠性；监控密度不在计分项内。",
-              citations: [3, 5, 11, 13, 17],
+                "这一支柱直接聚合现实生活压力项。Economic growth momentum 仍然可见，但在当前公开模型里只是 diagnostic，不进入 aggregate。",
+              citations: [1, 2, 3, 7],
             },
             {
               id: "community-tolerance-zh",
-              title: "Community 支柱",
+              title: "Tolerance composite",
               formula:
-                "Community(c) = 0.33 HospitalityBelonging + 0.33 TolerancePluralism + 0.33 PublicLifeVitality",
+                toleranceCompositeFormula,
               explanation:
-                "Community 按低摩擦共处、平等市场准入与真实公共生活计分，而不是按象征性标签计分。",
-              citations: [1, 14, 16],
+                "Community 使用公开声明的 openness composite，而不是拿单一 proxy 直接代替城市层证据。",
+              citations: [1, 14, 16, 35],
             },
             {
               id: "business-growth-zh",
-              title: "Creative 支柱",
+              title: "Economic vitality composite",
               formula:
-                "Creative(c) = 0.30 EntrepreneurialDynamism + 0.25 InnovationResearchIntensity + 0.25 EconomicVitality + 0.20 AdministrativeFriction",
+                economicVitalityFormula,
               explanation:
-                "Creative 反映的是创业活力、研究强度、生产性动能，以及更低的行政摩擦。",
+                "宏观背景仍然重要，但它被约束在一个公开 composite 里面，而不是悄悄压过城市层证据。",
               citations: [2, 10, 16],
             },
           ],
@@ -1786,69 +1997,71 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         { symbol: "P5_m, P95_m", definition: "百分位锚点", explanation: "指标 m 的低位与高位基准。" },
         { symbol: "s_m(c)", definition: "标准化指标分数", explanation: "方向统一后的 0-100 分数。" },
         { symbol: "alpha_(p,m)", definition: "支柱内指标权重", explanation: "指标 m 在支柱 p 中的贡献强度。" },
-        { symbol: "gamma_m", definition: "覆盖度权重", explanation: "缺失数据时用于 coverage 计算的重要性权重。" },
+        { symbol: "cov_m(c)", definition: "指标覆盖度", explanation: "表示某一指标所需证据中已被观察到的份额，取值 0 到 1。" },
         { symbol: "w_p", definition: "公开支柱权重", explanation: "最终总分中各支柱的固定权重。" },
         { symbol: "DI_ppp(c)", definition: "PPP 可支配生活空间", explanation: "扣税与必需支出后的 PPP 剩余空间。" },
       ],
     },
     workedExampleSection: {
       eyebrow: "计算示例",
-      title: "一个说明性的预览计算",
+      title: "公开数据行的完整演算",
       summary:
-        "这个例子用于展示数学路径，而不是替代经过审计的正式工作簿数据行。",
+        "这个例子直接使用已经发布的真实城市行，因此这里展示的是可审计的算术，而不是装饰性的示意数学。",
       example: {
-        city: "Bangkok preview computation",
-        note: "说明性例子，使用预览数值展示计算路径，并非最终发布行。",
+        city: `${workedExampleDisplayName}公开数据行`,
+        note: "下列数字全部取自 `publishedRankingData.json` 的当前公开快照，并按公开评分卡上的显示方式取整。",
         inputs: [
-          { label: "Gross income", value: "$33,500", note: "城市层面的示意收入输入" },
-          { label: "Effective tax rate", value: "18%", note: "用户输入的国家背景项" },
-          { label: "Essential costs", value: "$15,900", note: "房租、水电、网络、交通与食物" },
-          { label: "PPP private consumption factor", value: "0.72", note: "World Bank 的 PPP 转换层" },
-          { label: "Illustrative pillar bundle", value: "Pressure 71 / Viability 84 / Capability 80 / Community 86 / Creative 76", note: "各支柱内部聚合后的示意值" },
+          { label: "DI_ppp raw", value: workedExampleDiRaw, note: `${workedExampleDisplayName}已发布的可支配收入原始输入` },
+          { label: "Personal safety raw", value: workedExample?.safety?.raw != null ? String(workedExample.safety.raw) : "—", note: "用于负向标准化示例的凶杀 / 伤害原始输入" },
+          { label: "Pressure pillar", value: formatOneDecimal(workedExample?.pillarScores?.pressure ?? undefined), note: "按已观察到的计分指标加权平均后的支柱分数" },
+          { label: "Viability pillar", value: formatOneDecimal(workedExample?.pillarScores?.viability ?? undefined), note: "已发布支柱分数" },
+          { label: "Capability pillar", value: formatOneDecimal(workedExample?.pillarScores?.capability ?? undefined), note: "已发布支柱分数" },
+          { label: "Community pillar", value: formatOneDecimal(workedExample?.pillarScores?.community ?? undefined), note: "已发布支柱分数" },
+          { label: "Creative pillar", value: formatOneDecimal(workedExample?.pillarScores?.creative ?? undefined), note: "已发布支柱分数" },
         ],
         steps: [
           {
-            title: "税后与必需支出后的生活空间",
-            formula: "DI_ppp = ((33,500 x (1 - 0.18)) - 15,900) / 0.72",
-            result: "DI_ppp = 16,069",
-            explanation: "把真实剩余收入转换成 PPP 单位，才能跨城市比较。",
+            title: "负向指标标准化示例",
+            formula: workedExampleSafetyFormula,
+            result: `SafetyScore = ${formatOneDecimal(workedExample?.safety?.scoreRounded ?? undefined)}`,
+            explanation: `${workedExampleDisplayName}的 personal safety 输入属于负向变量，因此分子需要反向；这里的 P5/P95 边界来自公开 scorer 使用的冻结 \`normStats\`。`,
           },
           {
-            title: "负向指标的标准化示例",
-            formula: "SafetyScore = 100 x ((12.0 - 3.2) / (12.0 - 1.4))",
-            result: "SafetyScore = 83.0",
-            explanation: "因为暴力伤害是负向变量，所以要反向计分，伤害越低分数越高。",
+            title: "Growth 支柱的加权平均",
+            formula: workedExamplePressureFormula,
+            result: `Growth = ${formatOneDecimal(workedExample?.pressure?.scoreRounded ?? undefined)}`,
+            explanation: "分母只包含已观察到的计分指标。Economic growth momentum 仍可作为可见诊断项出现，但它不进入当前公开聚合公式。",
           },
           {
-            title: "压力支柱聚合",
-            formula: "Pressure = (4x82 + 8x68 + 6x76 + 4x61 + 7x74 + 7x67) / 36",
-            result: "Pressure = 71.1",
-            explanation: "内部指标权重先合并成 36，再折叠成一个公开支柱分数。",
+            title: "跨支柱加权均值与方差",
+            formula: workedExampleMeanFormula,
+            result: `mu = ${formatThreeDecimals(workedExample?.overall?.weightedMeanExact ?? undefined)}, var = ${formatTwoDecimals(workedExample?.overall?.weightedVarianceExact ?? undefined)}`,
+            explanation: `这就是跨支柱失衡惩罚的真实步骤。如果${workedExampleDisplayName}保持同样的加权均值，但各支柱更均衡，它的最终分数会更高。`,
           },
           {
-            title: "最终公开分数",
-            formula: "SLIC = 0.25x71 + 0.22x84 + 0.18x80 + 0.15x86 + 0.20x76",
-            result: "SLIC = 78.73",
-            explanation: "五个公开支柱只聚合一次，没有隐藏覆盖层。",
+            title: "AMPI 与最终公开分数",
+            formula: workedExampleAmpiFormula,
+            result: `SLIC = ${formatOneDecimal(workedExample?.overall?.slicScoreRounded ?? undefined)}`,
+            explanation: `最终分数低于加权均值，因为 AMPI 会惩罚支柱失衡；同时${workedExampleDisplayName}拥有 ${workedExample?.overall?.coverageGrade ?? "—"} 级覆盖度，因此没有额外覆盖扣分。`,
           },
         ],
-        finalScore: "78.73",
+        finalScore: formatOneDecimal(workedExample?.overall?.slicScoreRounded ?? undefined),
         conclusion:
-          "这个例子说明：像曼谷这样的城市可以凭共同体与城市能量获得优势，同时也会因为压力或生态问题被公开扣分，而不是被声望平均值掩盖。",
+          "这个例子的重点是方法诚实：再强的 Viability 与 Capability，也不会自动抹去较弱的 Community。正是方差惩罚，让 SLIC 不会把单维度强项误当成可彼此替代的全面宜居。",
       },
     },
     modelSection: {
       eyebrow: "方法边界",
       title: "公开分数只有一个模型，诊断层与之分开",
       summary:
-        "公开分数来自唯一的固定加权模型。内部诊断可以检查数据质量或结构是否站得住，但不会改写公开排名。",
+        "公开分数来自唯一一套已声明的 AMPI 模型。诊断项可以存在，也可以可见，但它们不会暗中改写公开总分。",
       families: [
         {
           id: "weighted-zh",
-          title: "Official public model",
-          formula: "SLIC(c) = Sum over pillars p of w_p x P_p(c)",
+          title: "官方公开模型",
+          formula: officialSlicFormula,
           role: "公开分数",
-          explanation: "这是唯一的官方公开引擎：固定权重、透明标准化、清晰支柱逻辑，也是最容易解释和复现的一层。",
+          explanation: "这是唯一的官方公开引擎：固定权重、冻结的 winsorized 标准化、支柱内加权均值、支柱间加权 AMPI，以及明确的 coverage 惩罚。",
         },
         {
           id: "diagnostics-zh",
@@ -1990,6 +2203,16 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         title: "游客需求只是背景信号",
         body: "游客流量只有在通过拥挤、安全、生态与居民空间检查后，才会被当作文化需求信号保留。",
         citations: [1],
+      },
+      {
+        title: "V3.3: 纯分数排名与公开分层分离",
+        body: chineseTierProtocolRule,
+        citations: [],
+      },
+      {
+        title: "V3.3: 新加坡与曼谷在当前分层规则下的结果",
+        body: chineseSingaporeRule,
+        citations: [],
       },
     ],
     sourceSection: {

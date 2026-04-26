@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-04-26T18:57:25.241Z",
+  "updatedAt": "2026-04-26T19:12:57.796Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -76686,8 +76686,8 @@
     }
   },
   "changeSummary": {
-    "previousUpdatedAt": "2026-04-26T18:56:26.703Z",
-    "updatedAt": "2026-04-26T18:57:25.241Z",
+    "previousUpdatedAt": "2026-04-26T18:57:25.241Z",
+    "updatedAt": "2026-04-26T19:12:57.796Z",
     "scoreChangedCount": 0,
     "rankChangedCount": 0,
     "tierChangedCount": 0,
@@ -76700,7 +76700,7 @@
   "validCityRowCount": 163,
   "validCountryRowCount": 87,
   "publicationManifest": {
-    "generatedAt": "2026-04-26T18:57:25.241Z",
+    "generatedAt": "2026-04-26T19:12:57.796Z",
     "scorerVersion": "slic-v3.4.0",
     "tierPolicyVersion": "public-tier-v1.2.0",
     "normStatsHash": "2930f7b2f7fb2b9fd7262605669478a0420877d4795ca528283723ba03d75516",

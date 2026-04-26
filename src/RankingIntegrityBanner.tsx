@@ -25,7 +25,10 @@ const bannerCopy: Record<
 export default function RankingIntegrityBanner({ locale }: { locale: Locale }) {
   const copy = bannerCopy[locale];
   const cityCount = rankingPublication.cities.length;
-  const metricCount = Object.keys((rankingPublication as unknown as { metricCatalog?: Record<string, unknown> }).metricCatalog ?? {}).length;
+  const catalog = (rankingPublication as unknown as { metricCatalog?: Record<string, { scored?: boolean; diagnostic?: boolean }> }).metricCatalog ?? {};
+  const catalogEntries = Object.values(catalog);
+  const scoredCount = catalogEntries.filter((entry) => entry?.scored === true).length;
+  const diagnosticCount = catalogEntries.filter((entry) => entry?.diagnostic === true).length;
   const issueCount = rankingIntegrity.issues.length;
   const auditDate = new Date(rankingIntegrity.updatedAt);
   const auditLabel = Number.isNaN(auditDate.valueOf())
@@ -48,10 +51,10 @@ export default function RankingIntegrityBanner({ locale }: { locale: Locale }) {
         : `Published ranking — ${cityCount} cities`;
   const body =
     locale === "th"
-      ? `อันดับนี้เผยแพร่จากเวิร์กบุ๊ก SLIC ที่ผ่านการตรวจสอบแล้ว ครอบคลุม ${cityCount} เมือง พร้อม ${metricCount} เมตริกสาธารณะที่จัดอยู่ใน 5 เสาหลัก และหน้าคะแนนสามารถไล่ย้อนกลับไปยังตัวเลขที่เผยแพร่ของแต่ละเมืองได้`
+      ? `อันดับนี้เผยแพร่จากเวิร์กบุ๊ก SLIC ที่ผ่านการตรวจสอบแล้ว ครอบคลุม ${cityCount} เมือง พร้อม ${scoredCount} เมตริกที่ให้คะแนนใน 5 เสาหลัก และอีก ${diagnosticCount} diagnostic ที่มองเห็นได้ หน้าคะแนนแต่ละใบไล่ย้อนกลับไปยังตัวเลขที่เผยแพร่ได้`
       : locale === "zh"
-        ? `本榜单由已核验的 SLIC 工作簿导出发布，覆盖 ${cityCount} 座城市，并以 ${metricCount} 个公开指标归入五个公开支柱；每张城市卡片都保留了回溯该城市发布分数的路径。`
-        : `This board is published from the verified SLIC workbook export. ${cityCount} cities are shown with ${metricCount} public metrics grouped into five pillars, and each city card keeps the trace back to the published score.`;
+        ? `本榜单由已核验的 SLIC 工作簿导出发布，覆盖 ${cityCount} 座城市；五大支柱内含 ${scoredCount} 条计分指标，另设 ${diagnosticCount} 条可见诊断指标。每张城市卡片都保留回溯该城市发布分数的路径。`
+        : `This board is published from the verified SLIC workbook export. ${cityCount} cities are shown across five pillars composed of ${scoredCount} scored metric lines plus ${diagnosticCount} visible diagnostics, and each city card keeps the trace back to the published score.`;
 
   return (
     <article className="ranking-integrity-banner" role="note" aria-live="polite">

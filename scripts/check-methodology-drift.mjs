@@ -99,7 +99,8 @@ const requiredLiteralCounts = [
   ["PUBLIC_TIER_RULES.maxOceaniaInAlpha", 3],
   ["PUBLIC_TIER_RULES.maxSouthKoreaInAlpha", 3],
   ["PUBLIC_TIER_RULES.maxJapanInAlpha", 3],
-  ["alphaExclusionList", 3],
+  ["alphaCountryExclusionList", 3],
+  ["alphaCityExclusionList", 3],
 ];
 
 for (const [needle, minimum] of requiredLiteralCounts) {

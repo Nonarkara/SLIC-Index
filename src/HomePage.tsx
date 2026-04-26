@@ -409,9 +409,9 @@ export default function HomePage({
           <p className="hp-thesis-body">
             {t(
               locale,
-              "Five declared pillars. Thirty-six linked sources. No imputation, no paid placement, no composite buried in a PDF you have to trust. Disagree with the weights? Good — drag them below and see what actually changes.",
-              "ห้าเสาหลักที่ประกาศชัด สามสิบหกแหล่งที่มาที่เชื่อมโยงได้ ไม่มีการเติมข้อมูล ไม่มีเมืองจ่ายเงินเพื่อเข้าร่วม ไม่มีสูตรซ่อนในไฟล์ PDF ที่ต้องเชื่อโดยดุษณี ไม่เห็นด้วยกับน้ำหนัก? ดีมาก — ลากด้านล่างแล้วดูว่าอะไรเปลี่ยน",
-              "五个公开支柱。三十六条附有链接的来源。没有数据填充，没有付费排名，没有藏在 PDF 里叫你盲目相信的公式。不同意这些权重？很好——拖动下方滑块，看看什么真的会变。",
+              "Five declared pillars. Twenty scored metric lines plus three visible diagnostics, each value traced back to its source. No imputation, no paid placement, no composite buried in a PDF you have to trust. Disagree with the weights? Good — drag them below and see what actually changes.",
+              "ห้าเสาหลักที่ประกาศชัด ยี่สิบ metric line ที่ให้คะแนนพร้อมสาม diagnostic ที่มองเห็นได้ ทุกค่าตรวจสอบกลับไปยังแหล่งที่มาได้ ไม่มีการเติมข้อมูล ไม่มีเมืองจ่ายเงินเพื่อเข้าร่วม ไม่มีสูตรซ่อนในไฟล์ PDF ที่ต้องเชื่อโดยดุษณี ไม่เห็นด้วยกับน้ำหนัก? ดีมาก — ลากด้านล่างแล้วดูว่าอะไรเปลี่ยน",
+              "五个公开支柱。二十条计分指标加三条可见的诊断指标，每个数值都可追溯到来源。没有数据填充，没有付费排名，没有藏在 PDF 里叫你盲目相信的公式。不同意这些权重？很好——拖动下方滑块，看看什么真的会变。",
             )}
           </p>
           <a
@@ -639,9 +639,9 @@ export default function HomePage({
           <p className="v3-spider-hint">
             {t(
               locale,
-              "Drag any pillar to reweight the model. The published board stays intact — this builds a personal comparison view using the same 36 sources.",
-              "ลากเสาหลักใดก็ได้เพื่อปรับน้ำหนัก บอร์ดที่เผยแพร่ไม่เปลี่ยน — นี่คือมุมมองเปรียบเทียบส่วนตัวจากแหล่งข้อมูล 36 แหล่งเดียวกัน",
-              "拖动任意支柱以调整权重。已发布榜单保持不变——这里构建的是你的个人对比视图，使用同样的 36 条数据来源。",
+              "Drag any pillar to reweight the model. The published board stays intact — this builds a personal comparison view using the same 20 scored metric lines.",
+              "ลากเสาหลักใดก็ได้เพื่อปรับน้ำหนัก บอร์ดที่เผยแพร่ไม่เปลี่ยน — นี่คือมุมมองเปรียบเทียบส่วนตัวจาก 20 metric line ที่ให้คะแนนชุดเดียวกัน",
+              "拖动任意支柱以调整权重。已发布榜单保持不变——这里构建的是你的个人对比视图，使用同样的 20 条计分指标。",
             )}
           </p>
           <div className="v3-spider-layout">
