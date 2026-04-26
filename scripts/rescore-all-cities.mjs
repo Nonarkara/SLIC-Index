@@ -1,471 +1,880 @@
 /**
- * rescore-all-cities.mjs
+ * Recompute the published SLIC dataset from the live raw metric rows.
  *
- * Implements the SLIC methodology as documented in the methodology paper:
+ * Canonical flow:
+ *   1. winsorized P5/P95 normalization
+ *   2. composite metric aggregation where needed
+ *   3. weighted means inside pillars
+ *   4. weighted AMPI across the five pillars
+ *   5. coverage penalty
+ *   6. pure score rank from exact values
+ *   7. Alpha / Beta / Gamma public overlay
+ *   8. publication manifest, provenance, diagnostics, and diff report
  *
- *   1. Piecewise/winsorized normalization using frozen normStats (p05/p95)
- *   2. Composite metric aggregation for multi-input metrics
- *   3. Weighted-mean aggregation within each pillar, with metric weights
- *      from the engine's PILLAR_METRICS (each pillar sums to its public
- *      weight: 25/22/18/15/20).
- *   4. AMPI aggregation across the five pillars to produce the overall SLIC
- *      score:
- *        μ      = weighted mean of pillar scores (with weights 25/22/18/15/20)
- *        σ²     = weighted variance
- *        AMPI   = μ − σ²/μ
- *      Penalizes cross-pillar imbalance so a city cannot compensate for a
- *      catastrophic pillar with excellence in another — which is the single
- *      distinctive claim SLIC makes vs. other indices. Applied at the pillar
- *      combination level (where n=5 always) rather than within pillars
- *      (where missing metrics would make variance unstable).
- *   5. Coverage penalty: Grade A (≥75%) none, Grade B (50–75%) −5, Grade C
- *      (35–50%) −15, below 35% → Watchlist (not ranked).
- *
- * Reads and writes src/data/publishedRankingData.json in place. Idempotent.
- *
- * Run:  node scripts/rescore-all-cities.mjs
+ * Run:
+ *   node scripts/rescore-all-cities.mjs
  */
 
+import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import {
+  buildDiagnosticMetrics,
+  buildMetricCatalog,
+  buildPillarMetrics,
+  DIAGNOSTIC_METRICS,
+  DIAGNOSTIC_METRIC_COUNT,
+  extractRawInputs,
+  PILLAR_ORDER,
+  PILLAR_WEIGHTS,
+  PUBLIC_METRICS,
+  r1,
+  r2,
+  r4,
+  scoreCity,
+  SCORE_MODEL_VERSION,
+  SCORED_METRICS,
+  SCORED_METRIC_COUNT,
+} from "../src/publicationMath.js";
+import {
+  allocatePublicTiers,
+  assignPureScoreRanks,
+  compareCitiesByPublishedScore,
+  mergePublicTierRules,
+  PUBLIC_TIER_ORDER,
+  PUBLIC_TIER_POLICY_VERSION,
+  PUBLIC_TIER_RULES,
+} from "../src/publicTierPolicy.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT, "src/data/publishedRankingData.json");
 
-// ── Metric structure (mirrors slicScoringEngine.ts) ──────────────────────────
-// [metricKey, pillar, weight, inputKey | null, kind, components?]
+const PUBLIC_METRIC_KEYS = PUBLIC_METRICS.map((metric) => metric.key);
+const DATA_LEVEL_KEYS = ["city", "national", "derived", "composite", "missing"];
+const WORKED_EXAMPLE_PREFERRED_IDS = ["tw-kaohsiung", "us-raleigh", "tw-taipei", "ca-montreal"];
 
-// Weights within each pillar sum exactly to that pillar's public weight.
-// This mirrors src/slicScoringEngine.ts PILLAR_METRICS exactly (where only
-// the metrics listed below are included in the published score; others
-// present in the JSON data — birth rate, climate, economic-growth momentum —
-// are carried for reference but not part of the aggregate).
-const METRIC_DEFS = [
-  // ── Pressure (sum = 25) ────────────────────────────────────────────────────
-  ["pressure_disposable_income_ppp",      "pressure",  9, "di_ppp_raw",                     "direct"],
-  ["pressure_housing_burden",             "pressure",  5, "housing_burden_raw",             "direct"],
-  ["pressure_household_debt_burden",      "pressure",  4, "household_debt_effective_raw",   "direct"],
-  ["pressure_working_time_pressure",      "pressure",  4, "working_time_pressure_raw",      "direct"],
-  ["pressure_suicide_mental_strain",      "pressure",  3, "suicide_mental_strain_raw",      "direct"],
-
-  // ── Viability (sum = 22) ───────────────────────────────────────────────────
-  ["viability_personal_safety",           "viability", 5, "personal_safety_raw",            "direct"],
-  ["viability_transit_access_commute",    "viability", 5, "transit_access_commute_raw",     "direct"],
-  ["viability_clean_air",                 "viability", 4, "clean_air_raw",                  "direct"],
-  ["viability_water_sanitation_utility",  "viability", 4, "water_sanitation_utility_raw",   "direct"],
-  ["viability_digital_infrastructure",    "viability", 4, "digital_infrastructure_raw",     "direct"],
-
-  // ── Capability (sum = 18) ──────────────────────────────────────────────────
-  ["capability_healthcare_quality",       "capability",8, "healthcare_quality_raw",         "direct"],
-  ["capability_education_quality",        "capability",6, "education_quality_raw",          "direct"],
-  ["capability_equal_opportunity_distributional_fairness", "capability", 4, null, "composite",
-    [["equal_opportunity_raw", 0.7], ["gini_coefficient_context", 0.3]]],
-
-  // ── Community (sum = 15) ───────────────────────────────────────────────────
-  ["community_hospitality_belonging",                     "community", 5, "hospitality_belonging_raw", "direct"],
-  ["community_tolerance_pluralism",                       "community", 5, null, "composite",
-    [["inclusion_equaldex_country_raw", 0.4], ["inclusion_freedom_house_country_raw", 0.3], ["inclusion_hate_crime_raw", 0.3]]],
-  ["community_cultural_historic_public_life_vitality",    "community", 5, "cultural_public_life_raw",  "direct"],
-
-  // ── Creative (sum = 20) ────────────────────────────────────────────────────
-  ["creative_entrepreneurial_dynamism",       "creative", 6, "entrepreneurial_dynamism_raw",       "direct"],
-  ["creative_innovation_research_intensity",  "creative", 5, "innovation_research_intensity_raw",  "direct"],
-  ["creative_economic_vitality_productive_context", "creative", 5, null, "composite",
-    [["investment_signal_raw", 0.5], ["gdp_per_capita_ppp_context", 0.3], ["gdp_growth_context", 0.2]]],
-  ["creative_administrative_investment_friction", "creative", 4, "administrative_investment_friction_raw", "direct"],
-];
-
-const PILLAR_WEIGHTS = {
-  pressure:   25,
-  viability:  22,
-  capability: 18,
-  community:  15,
-  creative:   20,
-};
-
-const PILLAR_ORDER = ["pressure", "viability", "capability", "community", "creative"];
-
-// ── Core math ────────────────────────────────────────────────────────────────
-
-/** Percentile-winsorized normalization to 0–100. */
-function normalize(value, p05, p95, dir) {
-  if (value == null || p05 == null || p95 == null || p95 === p05) return null;
-  const clamped = Math.min(Math.max(value, p05), p95);
-  const raw = dir === "positive"
-    ? (100 * (clamped - p05)) / (p95 - p05)
-    : (100 * (p95 - clamped)) / (p95 - p05);
-  return Math.max(0, Math.min(100, raw));
+function stableValue(value) {
+  if (Array.isArray(value)) {
+    return value.map((entry) => stableValue(entry));
+  }
+  if (value && typeof value === "object") {
+    return Object.keys(value)
+      .sort()
+      .reduce((accumulator, key) => {
+        accumulator[key] = stableValue(value[key]);
+        return accumulator;
+      }, {});
+  }
+  return value;
 }
 
-/**
- * AMPI — Adjusted Mazziotta–Pareto Index.
- * entries: array of { score: number, weight: number } (non-null scores only).
- * Returns AMPI value or null if insufficient data.
- *
- *   μ    = Σ(w·s) / Σw            weighted mean
- *   σ²   = Σ(w·(s−μ)²) / Σw       weighted variance (population form)
- *   AMPI = μ − σ²/μ
- *
- * Special cases:
- *   - μ = 0 → returns 0 (nothing to penalize; nothing to reward)
- *   - n < 2 → return μ (need ≥2 metrics to have variance)
- *   - AMPI clamped to [0, 100]
- */
-function ampi(entries) {
-  const valid = entries.filter((e) => e.score != null && e.weight > 0);
-  if (valid.length === 0) return null;
-
-  const totalW = valid.reduce((s, e) => s + e.weight, 0);
-  if (totalW === 0) return null;
-
-  const mu = valid.reduce((s, e) => s + e.score * e.weight, 0) / totalW;
-  if (valid.length < 2 || mu === 0) return Math.max(0, Math.min(100, mu));
-
-  const variance = valid.reduce((s, e) => s + e.weight * (e.score - mu) ** 2, 0) / totalW;
-  const penalty = variance / mu;
-  const val = mu - penalty;
-  return Math.max(0, Math.min(100, val));
+function digest(value) {
+  return createHash("sha256")
+    .update(JSON.stringify(stableValue(value)))
+    .digest("hex");
 }
 
-/** Round to one decimal. */
-const r1 = (v) => (v == null ? null : Math.round(v * 10) / 10);
-/** Round to two decimals. */
-const r2 = (v) => (v == null ? null : Math.round(v * 100) / 100);
-
-// ── Scoring a single city ────────────────────────────────────────────────────
-
-function scoreCity(rawInputs, normStats) {
-  const metricScores = {}; // metricKey -> { score, coverage, componentScores? }
-
-  for (const def of METRIC_DEFS) {
-    const [metricKey, , weight, inputKey, kind, components] = def;
-
-    if (kind === "direct") {
-      const raw = rawInputs[inputKey];
-      const stat = normStats[inputKey];
-      const score = normalize(raw, stat?.p05, stat?.p95, stat?.dir);
-      metricScores[metricKey] = {
-        score,
-        coverage: score != null ? 1.0 : 0,
-        weight,
-      };
-    } else if (kind === "composite") {
-      // Weighted mean of normalized component scores
-      let num = 0, den = 0;
-      const compScores = {};
-      for (const [subKey, cw] of components) {
-        const raw = rawInputs[subKey];
-        const stat = normStats[subKey];
-        const s = normalize(raw, stat?.p05, stat?.p95, stat?.dir);
-        compScores[subKey] = s;
-        if (s != null) {
-          num += s * cw;
-          den += cw;
-        }
-      }
-      const totalCw = components.reduce((s, [, cw]) => s + cw, 0);
-      metricScores[metricKey] = {
-        score: den > 0 ? num / den : null,
-        coverage: totalCw > 0 ? den / totalCw : 0,
-        weight,
-        componentScores: compScores,
-      };
-    }
-  }
-
-  // ── Pillar-level aggregation: weighted mean of metric scores ───────────────
-  const pillarScores = {};
-  const pillarCoverage = {};
-
-  for (const pillar of PILLAR_ORDER) {
-    const metrics = METRIC_DEFS.filter(([, p]) => p === pillar);
-    let num = 0, den = 0;
-    for (const [key, , weight] of metrics) {
-      const score = metricScores[key]?.score;
-      if (score != null) {
-        num += score * weight;
-        den += weight;
-      }
-    }
-
-    const totalW = metrics.reduce((s, [, , w]) => s + w, 0);
-    const covW = metrics.reduce((s, [key, , w]) => s + (metricScores[key]?.coverage ?? 0) * w, 0);
-
-    pillarScores[pillar] = den > 0 ? num / den : null;
-    pillarCoverage[pillar] = totalW > 0 ? covW / totalW : 0;
-  }
-
-  // ── Overall SLIC: AMPI across pillars ──────────────────────────────────────
-  const slicEntries = PILLAR_ORDER
-    .map((p) => ({ score: pillarScores[p], weight: PILLAR_WEIGHTS[p] }))
-    .filter((e) => e.score != null);
-
-  const slicBase = ampi(slicEntries);
-
-  // ── Overall coverage: weighted average of pillar coverage ──────────────────
-  const totalPillarW = Object.values(PILLAR_WEIGHTS).reduce((s, w) => s + w, 0);
-  const weightedCov = PILLAR_ORDER.reduce(
-    (s, p) => s + pillarCoverage[p] * PILLAR_WEIGHTS[p],
-    0,
-  ) / totalPillarW;
-
-  // ── Coverage grade + penalty ───────────────────────────────────────────────
-  let coverageGrade, penalty, rankingStatus;
-  if (weightedCov >= 0.75) {
-    coverageGrade = "A"; penalty = 0;    rankingStatus = "Ranked";
-  } else if (weightedCov >= 0.5) {
-    coverageGrade = "B"; penalty = 5;    rankingStatus = "Ranked";
-  } else if (weightedCov >= 0.35) {
-    coverageGrade = "C"; penalty = 15;   rankingStatus = "Ranked";
-  } else {
-    coverageGrade = "Watchlist"; penalty = 0; rankingStatus = "Watchlist";
-  }
-
-  const slicScore = slicBase != null ? Math.max(0, slicBase - penalty) : null;
-
-  // ── Per-pillar penalised score (used for display) ─────────────────────────
-  // Coverage grade is overall; individual pillars show raw AMPI without
-  // re-penalising (that would double-count). This matches the paper's
-  // description: "penalty applied after AMPI at the overall level".
-  //
-  // However the existing JSON exposes pillarScore as the pillar-level number.
-  // Keep pillar scores at their un-penalised AMPI value; the coverage grade
-  // at the city level tells the reader how much confidence to assign.
-
+function blankLevelCounts() {
   return {
-    metricScores,
-    pillarScores,
-    pillarCoverage,
-    slicScore,
-    overallCoverage: weightedCov,
-    coverageGrade,
-    rankingStatus,
-    penalty,
+    city: 0,
+    national: 0,
+    derived: 0,
+    composite: 0,
+    missing: 0,
   };
 }
 
-// ── Extract raw inputs from a city record ────────────────────────────────────
-
-function extractRawInputs(city) {
-  const raw = {};
-  for (const [, metric] of Object.entries(city.metrics ?? {})) {
-    // For composite metrics, components carry the raw values
-    if (metric.components) {
-      for (const comp of metric.components) {
-        if (comp.raw != null) raw[comp.key] = comp.raw;
-      }
-    }
+function hasObservedMetric(detail) {
+  if (!detail) return false;
+  if (detail.raw != null || detail.scoreExact != null || detail.score != null) return true;
+  if (Array.isArray(detail.components)) {
+    return detail.components.some((component) => component.raw != null || component.scoreExact != null || component.score != null);
   }
-  // Direct metrics: raw value sits on the metric entry keyed by its input
-  for (const def of METRIC_DEFS) {
-    const [metricKey, , , inputKey, kind] = def;
-    if (kind !== "direct") continue;
-    const m = city.metrics?.[metricKey];
-    if (m && m.raw != null) raw[inputKey] = m.raw;
-  }
-  return raw;
+  return false;
 }
 
-// ── Rescore all cities ───────────────────────────────────────────────────────
+function dataLevelOf(detail) {
+  const level = detail?.dataLevel;
+  return DATA_LEVEL_KEYS.includes(level) ? level : "missing";
+}
+
+function share(value, denominator) {
+  return denominator > 0 ? r4(value / denominator) : null;
+}
+
+function buildLevelShares(counts, denominator) {
+  return Object.fromEntries(
+    DATA_LEVEL_KEYS.map((key) => [key, share(counts[key] ?? 0, denominator)]),
+  );
+}
+
+function buildObservedLevelShares(counts, denominator) {
+  return Object.fromEntries(
+    DATA_LEVEL_KEYS
+      .filter((key) => key !== "missing")
+      .map((key) => [key, share(counts[key] ?? 0, denominator)]),
+  );
+}
+
+function citySnapshot(city) {
+  return {
+    cityId: city.cityId,
+    displayName: city.displayName,
+    country: city.country,
+    rankingStatus: city.rankingStatus,
+    rank: city.rank ?? 0,
+    tierLabel: city.tierLabel ?? null,
+    tierSlot: city.tierSlot ?? null,
+    slicScore: city.slicScore ?? null,
+    slicScoreExact: city.slicScoreExact ?? city.slicScore ?? null,
+  };
+}
+
+function buildChangeSummary(previousCities, nextCities, updatedAt, previousUpdatedAt) {
+  const previousById = new Map((previousCities ?? []).map((city) => [city.cityId, city]));
+  let scoreChangedCount = 0;
+  let rankChangedCount = 0;
+  let tierChangedCount = 0;
+  let rankingStatusChangedCount = 0;
+
+  const rankChanges = [];
+  const tierTransitions = [];
+
+  for (const city of nextCities) {
+    const previous = previousById.get(city.cityId);
+    if (!previous) continue;
+
+    const previousExact = previous.slicScoreExact ?? previous.slicScore ?? null;
+    const nextExact = city.slicScoreExact ?? city.slicScore ?? null;
+    if (previousExact !== nextExact) scoreChangedCount += 1;
+    if ((previous.rank ?? 0) !== (city.rank ?? 0)) {
+      rankChangedCount += 1;
+      rankChanges.push({
+        cityId: city.cityId,
+        displayName: city.displayName,
+        country: city.country,
+        previousRank: previous.rank ?? 0,
+        currentRank: city.rank ?? 0,
+        delta: (previous.rank ?? 0) - (city.rank ?? 0),
+      });
+    }
+    if ((previous.tierLabel ?? null) !== (city.tierLabel ?? null) || (previous.tierSlot ?? null) !== (city.tierSlot ?? null)) {
+      tierChangedCount += 1;
+      tierTransitions.push({
+        cityId: city.cityId,
+        displayName: city.displayName,
+        country: city.country,
+        previousTierLabel: previous.tierLabel ?? null,
+        previousTierSlot: previous.tierSlot ?? null,
+        currentTierLabel: city.tierLabel ?? null,
+        currentTierSlot: city.tierSlot ?? null,
+      });
+    }
+    if ((previous.rankingStatus ?? null) !== (city.rankingStatus ?? null)) {
+      rankingStatusChangedCount += 1;
+    }
+  }
+
+  rankChanges.sort((left, right) => {
+    const deltaGap = Math.abs(right.delta) - Math.abs(left.delta);
+    if (deltaGap !== 0) return deltaGap;
+    return left.displayName.localeCompare(right.displayName);
+  });
+
+  return {
+    previousUpdatedAt: previousUpdatedAt ?? null,
+    updatedAt,
+    scoreChangedCount,
+    rankChangedCount,
+    tierChangedCount,
+    rankingStatusChangedCount,
+    biggestRankMovers: rankChanges.slice(0, 10),
+    tierTransitions: tierTransitions.slice(0, 10),
+  };
+}
+
+function computeCityProvenance(city) {
+  const counts = blankLevelCounts();
+  const scoredCounts = blankLevelCounts();
+  const diagnosticCounts = blankLevelCounts();
+  let observedMetricCount = 0;
+  let observedScoredMetricCount = 0;
+  let observedDiagnosticMetricCount = 0;
+
+  for (const metric of PUBLIC_METRICS) {
+    const detail = city.metrics?.[metric.key];
+    const observed = hasObservedMetric(detail);
+    const level = observed ? dataLevelOf(detail) : "missing";
+
+    counts[level] += 1;
+    if (metric.scored) {
+      scoredCounts[level] += 1;
+    } else {
+      diagnosticCounts[level] += 1;
+    }
+
+    if (observed) {
+      observedMetricCount += 1;
+      if (metric.scored) observedScoredMetricCount += 1;
+      if (!metric.scored) observedDiagnosticMetricCount += 1;
+    }
+  }
+
+  return {
+    publicMetricCount: PUBLIC_METRICS.length,
+    observedMetricCount,
+    missingMetricCount: PUBLIC_METRICS.length - observedMetricCount,
+    observedScoredMetricCount,
+    observedDiagnosticMetricCount,
+    dataLevelCounts: counts,
+    dataLevelShares: buildLevelShares(counts, PUBLIC_METRICS.length),
+    observedDataLevelShares: buildObservedLevelShares(counts, observedMetricCount),
+    scoredDataLevelCounts: scoredCounts,
+    scoredDataLevelShares: buildLevelShares(scoredCounts, SCORED_METRIC_COUNT),
+    observedScoredDataLevelShares: buildObservedLevelShares(scoredCounts, observedScoredMetricCount),
+    diagnosticDataLevelCounts: diagnosticCounts,
+    diagnosticDataLevelShares: buildLevelShares(diagnosticCounts, DIAGNOSTIC_METRIC_COUNT),
+    observedDiagnosticDataLevelShares: buildObservedLevelShares(diagnosticCounts, observedDiagnosticMetricCount),
+  };
+}
+
+function computeGlobalProvenance(cities) {
+  const counts = blankLevelCounts();
+  const gradeCounts = {};
+  let observedMetricLines = 0;
+
+  for (const city of cities) {
+    gradeCounts[city.coverageGrade] = (gradeCounts[city.coverageGrade] ?? 0) + 1;
+    for (const metricKey of PUBLIC_METRIC_KEYS) {
+      const detail = city.metrics?.[metricKey];
+      const observed = hasObservedMetric(detail);
+      const level = observed ? dataLevelOf(detail) : "missing";
+      counts[level] += 1;
+      if (observed) observedMetricLines += 1;
+    }
+  }
+
+  const publicMetricLineCount = cities.length * PUBLIC_METRICS.length;
+  return {
+    publicMetricLineCount,
+    observedMetricLines,
+    dataLevelCounts: counts,
+    dataLevelShares: buildLevelShares(counts, publicMetricLineCount),
+    observedDataLevelShares: buildObservedLevelShares(counts, observedMetricLines),
+    gradeCounts,
+  };
+}
+
+function summarizeTierMembers(cities) {
+  return Object.fromEntries(
+    PUBLIC_TIER_ORDER.map((tierLabel) => [
+      tierLabel,
+      cities
+        .filter((city) => city.tierLabel === tierLabel)
+        .map((city) => ({
+          cityId: city.cityId,
+          displayName: city.displayName,
+          country: city.country,
+          rank: city.rank,
+          tierSlot: city.tierSlot,
+        })),
+    ]),
+  );
+}
+
+function buildStabilityAnalysis(rankedCities) {
+  const baselineById = new Map(
+    rankedCities.map((city) => [
+      city.cityId,
+      {
+        tierLabel: city.tierLabel ?? null,
+        tierSlot: city.tierSlot ?? null,
+        rank: city.rank,
+        displayName: city.displayName,
+        country: city.country,
+      },
+    ]),
+  );
+
+  const scenarios = [
+    {
+      scenarioId: "alpha_floor_minus_5",
+      label: "Alpha floors reduced by 5",
+      ruleOverrides: {
+        alphaMinCommunity: PUBLIC_TIER_RULES.alphaMinCommunity - 5,
+        alphaMinPressure: PUBLIC_TIER_RULES.alphaMinPressure - 5,
+      },
+    },
+    {
+      scenarioId: "alpha_floor_plus_5",
+      label: "Alpha floors increased by 5",
+      ruleOverrides: {
+        alphaMinCommunity: PUBLIC_TIER_RULES.alphaMinCommunity + 5,
+        alphaMinPressure: PUBLIC_TIER_RULES.alphaMinPressure + 5,
+      },
+    },
+    {
+      scenarioId: "beta_floor_minus_5",
+      label: "Beta floors reduced by 5",
+      ruleOverrides: {
+        betaMinCommunity: PUBLIC_TIER_RULES.betaMinCommunity - 5,
+        betaMinPressure: PUBLIC_TIER_RULES.betaMinPressure - 5,
+      },
+    },
+    {
+      scenarioId: "beta_floor_plus_5",
+      label: "Beta floors increased by 5",
+      ruleOverrides: {
+        betaMinCommunity: PUBLIC_TIER_RULES.betaMinCommunity + 5,
+        betaMinPressure: PUBLIC_TIER_RULES.betaMinPressure + 5,
+      },
+    },
+  ];
+
+  const reports = scenarios.map((scenario) => {
+    const candidateRules = mergePublicTierRules(scenario.ruleOverrides);
+    const tieredScenario = allocatePublicTiers(rankedCities, {
+      scoreKey: "slicScoreExact",
+      rankKey: "rank",
+      tierLabelKey: "tierLabel",
+      tierSlotKey: "tierSlot",
+      tierReasonKey: "tierReason",
+      tierDiagnosticsKey: "tierDiagnostics",
+      rules: candidateRules,
+    });
+
+    const changedCities = tieredScenario
+      .filter((city) => {
+        const baseline = baselineById.get(city.cityId);
+        return (
+          (baseline?.tierLabel ?? null) !== (city.tierLabel ?? null) ||
+          (baseline?.tierSlot ?? null) !== (city.tierSlot ?? null)
+        );
+      })
+      .map((city) => {
+        const baseline = baselineById.get(city.cityId);
+        return {
+          cityId: city.cityId,
+          displayName: city.displayName,
+          country: city.country,
+          rank: city.rank,
+          baselineTierLabel: baseline?.tierLabel ?? null,
+          baselineTierSlot: baseline?.tierSlot ?? null,
+          scenarioTierLabel: city.tierLabel ?? null,
+          scenarioTierSlot: city.tierSlot ?? null,
+        };
+      })
+      .sort((left, right) => left.rank - right.rank);
+
+    const baselineAlpha = new Set(
+      rankedCities
+        .filter((city) => city.tierLabel === "Alpha")
+        .map((city) => city.cityId),
+    );
+    const scenarioAlpha = new Set(
+      tieredScenario
+        .filter((city) => city.tierLabel === "Alpha")
+        .map((city) => city.cityId),
+    );
+
+    return {
+      scenarioId: scenario.scenarioId,
+      label: scenario.label,
+      ruleOverrides: scenario.ruleOverrides,
+      changedCount: changedCities.length,
+      alphaChangedCount: changedCities.filter((city) => city.baselineTierLabel === "Alpha" || city.scenarioTierLabel === "Alpha").length,
+      betaChangedCount: changedCities.filter((city) => city.baselineTierLabel === "Beta" || city.scenarioTierLabel === "Beta").length,
+      gammaChangedCount: changedCities.filter((city) => city.baselineTierLabel === "Gamma" || city.scenarioTierLabel === "Gamma").length,
+      alphaRetentionCount: [...baselineAlpha].filter((cityId) => scenarioAlpha.has(cityId)).length,
+      changedCities: changedCities.slice(0, 20),
+    };
+  });
+
+  const maxTierChangeCount = reports.reduce(
+    (max, report) => Math.max(max, report.changedCount),
+    0,
+  );
+  const averageTierChangeCount = reports.length > 0
+    ? r2(reports.reduce((sum, report) => sum + report.changedCount, 0) / reports.length)
+    : 0;
+
+  return {
+    scope: "Public-tier floor sensitivity around the live Alpha and Beta thresholds.",
+    baselineRuleSnapshot: {
+      alphaMinCommunity: PUBLIC_TIER_RULES.alphaMinCommunity,
+      alphaMinPressure: PUBLIC_TIER_RULES.alphaMinPressure,
+      betaMinCommunity: PUBLIC_TIER_RULES.betaMinCommunity,
+      betaMinPressure: PUBLIC_TIER_RULES.betaMinPressure,
+      maxEuropeInAlpha: PUBLIC_TIER_RULES.maxEuropeInAlpha,
+      maxOceaniaInAlpha: PUBLIC_TIER_RULES.maxOceaniaInAlpha,
+      maxTaiwanAcrossPublicTiers: PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers,
+      maxSouthKoreaInAlpha: PUBLIC_TIER_RULES.maxSouthKoreaInAlpha,
+      maxJapanInAlpha: PUBLIC_TIER_RULES.maxJapanInAlpha,
+      maxJapanAcrossPublicTiers: PUBLIC_TIER_RULES.maxJapanAcrossPublicTiers ?? 1,
+      alphaCountryExclusions: PUBLIC_TIER_RULES.alphaCountryExclusions ?? [],
+      alphaCityExclusions: PUBLIC_TIER_RULES.alphaCityExclusions ?? [],
+    },
+    baselineMembers: summarizeTierMembers(rankedCities),
+    maxTierChangeCount,
+    averageTierChangeCount,
+    scenarios: reports,
+  };
+}
+
+function buildReferenceCity(city) {
+  if (!city) return null;
+  return {
+    cityId: city.cityId,
+    displayName: city.displayName,
+    country: city.country,
+    rank: city.rank,
+    tierLabel: city.tierLabel,
+    tierSlot: city.tierSlot,
+    rankingStatus: city.rankingStatus,
+    coverageGrade: city.coverageGrade,
+    slicScore: city.slicScore,
+    slicScoreExact: city.slicScoreExact,
+    pressureScore: city.pressureScore,
+    pressureScoreExact: city.pressureScoreExact,
+    viabilityScore: city.viabilityScore,
+    viabilityScoreExact: city.viabilityScoreExact,
+    capabilityScore: city.capabilityScore,
+    capabilityScoreExact: city.capabilityScoreExact,
+    communityScore: city.communityScore,
+    communityScoreExact: city.communityScoreExact,
+    creativeScore: city.creativeScore,
+    creativeScoreExact: city.creativeScoreExact,
+    tierReason: city.tierReason ?? null,
+  };
+}
+
+function chooseWorkedExampleCity(cities) {
+  for (const cityId of WORKED_EXAMPLE_PREFERRED_IDS) {
+    const found = cities.find((city) => city.cityId === cityId);
+    if (found) return found;
+  }
+  return cities.find((city) =>
+    city.rankingStatus === "Ranked" &&
+    city.coverageGrade === "A" &&
+    city.metrics?.viability_personal_safety?.raw != null,
+  ) ?? cities.find((city) => city.rankingStatus === "Ranked");
+}
+
+function buildWorkedExample(city, normStats) {
+  if (!city) return null;
+
+  const safetyMetric = city.metrics?.viability_personal_safety;
+  const safetyStats = normStats?.personal_safety_raw ?? {};
+  const pressureTerms = SCORED_METRICS
+    .filter((metric) => metric.pillar === "pressure")
+    .map((metric) => ({
+      key: metric.key,
+      label: metric.label,
+      weight: metric.weight,
+      scoreExact: city.metrics?.[metric.key]?.scoreExact ?? null,
+      scoreRounded: city.metrics?.[metric.key]?.score ?? null,
+    }))
+    .filter((term) => term.scoreExact != null);
+
+  const pressureNumeratorExact = pressureTerms.reduce(
+    (sum, term) => sum + term.weight * term.scoreExact,
+    0,
+  );
+  const pressureDenominator = pressureTerms.reduce((sum, term) => sum + term.weight, 0);
+  const weightedMeanTerms = PILLAR_ORDER.map((pillar) => ({
+    pillar,
+    weight: PILLAR_WEIGHTS[pillar],
+    scoreExact: city[`${pillar}ScoreExact`],
+    scoreRounded: city[`${pillar}Score`],
+  }));
+
+  return {
+    cityId: city.cityId,
+    displayName: city.displayName,
+    country: city.country,
+    disposableIncomeRaw: city.metrics?.pressure_disposable_income_ppp?.raw ?? null,
+    pillarScores: {
+      pressure: city.pressureScore ?? null,
+      viability: city.viabilityScore ?? null,
+      capability: city.capabilityScore ?? null,
+      community: city.communityScore ?? null,
+      creative: city.creativeScore ?? null,
+    },
+    safety: {
+      raw: safetyMetric?.raw ?? null,
+      p05: safetyStats?.p05 ?? null,
+      p95: safetyStats?.p95 ?? null,
+      scoreExact: safetyMetric?.scoreExact ?? null,
+      scoreRounded: safetyMetric?.score ?? null,
+    },
+    pressure: {
+      terms: pressureTerms,
+      numeratorExact: r4(pressureNumeratorExact),
+      denominator: pressureDenominator,
+      scoreExact: city.pressureScoreExact ?? null,
+      scoreRounded: city.pressureScore ?? null,
+    },
+    overall: {
+      weightedMeanExact: city.weightedMeanExact ?? null,
+      weightedVarianceExact: city.weightedVarianceExact ?? null,
+      ampiExact: city.ampiExact ?? null,
+      slicScoreExact: city.slicScoreExact ?? null,
+      slicScoreRounded: city.slicScore ?? null,
+      coverageExact: city.overallWeightedCoverageExact ?? null,
+      coverageRounded: city.overallWeightedCoverage ?? null,
+      coverageGrade: city.coverageGrade,
+      coveragePenalty: city.coveragePenalty ?? 0,
+    },
+    weightedMeanTerms,
+  };
+}
+
+function buildMethodologyFacts(data, diagnostics) {
+  const cities = data.cities ?? [];
+  const ranked = cities
+    .filter((city) => city.rankingStatus === "Ranked" && city.rank > 0)
+    .sort((left, right) => left.rank - right.rank);
+
+  return {
+    scoreModelVersion: SCORE_MODEL_VERSION,
+    tierPolicyVersion: PUBLIC_TIER_POLICY_VERSION,
+    scoredMetricCount: SCORED_METRIC_COUNT,
+    diagnosticMetricCount: DIAGNOSTIC_METRIC_COUNT,
+    cityCount: cities.length,
+    rankedCityCount: ranked.length,
+    watchlistCityCount: cities.length - ranked.length,
+    ruleSnapshot: {
+      pureRankUsesExactScore: true,
+      exactScoreField: "slicScoreExact",
+      alphaMinCommunity: PUBLIC_TIER_RULES.alphaMinCommunity,
+      alphaMinPressure: PUBLIC_TIER_RULES.alphaMinPressure,
+      betaMinCommunity: PUBLIC_TIER_RULES.betaMinCommunity,
+      betaMinPressure: PUBLIC_TIER_RULES.betaMinPressure,
+      maxEuropeInAlpha: PUBLIC_TIER_RULES.maxEuropeInAlpha,
+      maxOceaniaInAlpha: PUBLIC_TIER_RULES.maxOceaniaInAlpha,
+      maxTaiwanAcrossPublicTiers: PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers,
+      maxSouthKoreaInAlpha: PUBLIC_TIER_RULES.maxSouthKoreaInAlpha,
+      maxJapanInAlpha: PUBLIC_TIER_RULES.maxJapanInAlpha,
+      maxJapanAcrossPublicTiers: PUBLIC_TIER_RULES.maxJapanAcrossPublicTiers ?? 1,
+      alphaCountryExclusions: PUBLIC_TIER_RULES.alphaCountryExclusions ?? [],
+      alphaCityExclusions: PUBLIC_TIER_RULES.alphaCityExclusions ?? [],
+    },
+    referenceCities: {
+      singapore: buildReferenceCity(cities.find((city) => city.displayName === "Singapore")),
+      bangkok: buildReferenceCity(cities.find((city) => city.displayName === "Bangkok")),
+      tokyo: buildReferenceCity(cities.find((city) => city.displayName === "Tokyo")),
+    },
+    workedExample: buildWorkedExample(chooseWorkedExampleCity(ranked), data.normStats),
+    publicTierMembers: Object.fromEntries(
+      PUBLIC_TIER_ORDER.map((tierLabel) => [
+        tierLabel,
+        summarizeTierMembers(ranked)[tierLabel],
+      ]),
+    ),
+    provenance: diagnostics.provenance,
+    coverage: diagnostics.coverage,
+  };
+}
+
+function buildDiagnostics(data) {
+  const ranked = data.cities
+    .filter((city) => city.rankingStatus === "Ranked" && city.rank > 0)
+    .sort((left, right) => left.rank - right.rank);
+  const watchlist = data.cities.filter((city) => city.rankingStatus !== "Ranked");
+
+  const integrityIssues = [];
+  const exactRankInversions = [];
+
+  for (let index = 1; index < ranked.length; index += 1) {
+    const previous = ranked[index - 1];
+    const current = ranked[index];
+    const compare = compareCitiesByPublishedScore(previous, current, "slicScoreExact");
+    if (compare <= 0) continue;
+    exactRankInversions.push({
+      previousCityId: previous.cityId,
+      previousDisplayName: previous.displayName,
+      previousRank: previous.rank,
+      previousScoreExact: previous.slicScoreExact,
+      currentCityId: current.cityId,
+      currentDisplayName: current.displayName,
+      currentRank: current.rank,
+      currentScoreExact: current.slicScoreExact,
+    });
+  }
+
+  if (exactRankInversions.length > 0) {
+    integrityIssues.push(`Found ${exactRankInversions.length} exact score-rank inversions.`);
+  }
+
+  const tiered = ranked.filter((city) => city.tierLabel);
+  const countryCaps = new Map([
+    ["Taiwan", PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers ?? 1],
+    ["Japan", PUBLIC_TIER_RULES.maxJapanAcrossPublicTiers ?? 1],
+  ]);
+  const countryCounts = new Map();
+  for (const city of tiered) {
+    countryCounts.set(city.country, (countryCounts.get(city.country) ?? 0) + 1);
+  }
+
+  const duplicateCountryBreaches = [...countryCounts.entries()]
+    .filter(([country, count]) => count > (countryCaps.get(country) ?? 1))
+    .map(([country, count]) => ({ country, count }));
+  if (duplicateCountryBreaches.length > 0) {
+    integrityIssues.push("Public tier country-cap breaches detected.");
+  }
+
+  const alpha = tiered.filter((city) => city.tierLabel === "Alpha");
+  const alphaEuropeCount = alpha.filter((city) => String(city.region).includes("Europe")).length;
+  const alphaOceaniaCount = alpha.filter((city) => String(city.region).includes("Oceania")).length;
+  const alphaTaiwanCount = alpha.filter((city) => city.country === "Taiwan").length;
+  const alphaSouthKoreaCount = alpha.filter((city) => city.country === "South Korea").length;
+  const alphaJapanCount = alpha.filter((city) => city.country === "Japan").length;
+  const alphaIsraelCount = alpha.filter((city) => city.country === "Israel").length;
+
+  if (alphaEuropeCount > PUBLIC_TIER_RULES.maxEuropeInAlpha) integrityIssues.push("Alpha Europe cap breached.");
+  if (alphaOceaniaCount > PUBLIC_TIER_RULES.maxOceaniaInAlpha) integrityIssues.push("Alpha Oceania cap breached.");
+  if (alphaTaiwanCount > PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers) integrityIssues.push("Taiwan public-tier cap breached.");
+  if (alphaSouthKoreaCount > PUBLIC_TIER_RULES.maxSouthKoreaInAlpha) integrityIssues.push("Alpha South Korea cap breached.");
+  if (alphaJapanCount > PUBLIC_TIER_RULES.maxJapanInAlpha) integrityIssues.push("Alpha Japan cap breached.");
+  if (alphaIsraelCount > 0) integrityIssues.push("Alpha includes an excluded country.");
+
+  const watchlistWithTiers = watchlist.filter((city) => city.tierLabel != null);
+  if (watchlistWithTiers.length > 0) {
+    integrityIssues.push("Watchlist cities should not have public tiers.");
+  }
+
+  const provenance = computeGlobalProvenance(data.cities);
+
+  return {
+    scoreModel: {
+      version: SCORE_MODEL_VERSION,
+      pillarWeights: PILLAR_WEIGHTS,
+      scoredMetricCount: SCORED_METRIC_COUNT,
+      diagnosticMetricCount: DIAGNOSTIC_METRIC_COUNT,
+      totalCityCount: data.cities.length,
+      rankedCityCount: ranked.length,
+      watchlistCityCount: watchlist.length,
+    },
+    coverage: {
+      gradeCounts: provenance.gradeCounts,
+    },
+    provenance,
+    integrity: {
+      issueCount: integrityIssues.length,
+      issues: integrityIssues,
+      exactRankInversions,
+      duplicateCountryBreaches,
+      alphaEuropeCount,
+      alphaOceaniaCount,
+      alphaTaiwanCount,
+      alphaSouthKoreaCount,
+      alphaJapanCount,
+      alphaIsraelCount,
+      watchlistWithTiers: watchlistWithTiers.map((city) => city.cityId),
+      tierCounts: Object.fromEntries(PUBLIC_TIER_ORDER.map((tierLabel) => [tierLabel, tiered.filter((city) => city.tierLabel === tierLabel).length])),
+    },
+  };
+}
 
 async function main() {
-  const data = JSON.parse(await readFile(DATA_PATH, "utf8"));
-  const normStats = data.normStats;
+  const previousData = JSON.parse(await readFile(DATA_PATH, "utf8"));
+  const data = JSON.parse(JSON.stringify(previousData));
 
-  let changes = 0;
+  data.metricCatalog = buildMetricCatalog();
+  data.pillarMetrics = buildPillarMetrics();
+  data.diagnosticMetrics = buildDiagnosticMetrics();
+  data.canonicalWeights = PILLAR_WEIGHTS;
+
+  const normStats = data.normStats ?? {};
+  const inputDataHash = digest({
+    normStats,
+    cities: data.cities.map((city) => ({
+      cityId: city.cityId,
+      metrics: Object.fromEntries(
+        PUBLIC_METRICS.map((metric) => [
+          metric.key,
+          {
+            raw: city.metrics?.[metric.key]?.raw ?? null,
+            dataLevel: city.metrics?.[metric.key]?.dataLevel ?? null,
+            components: (city.metrics?.[metric.key]?.components ?? []).map((component) => ({
+              key: component.key,
+              raw: component.raw ?? null,
+              dataLevel: component.dataLevel ?? null,
+            })),
+          },
+        ]),
+      ),
+      watchlistReason: city.watchlistReason ?? null,
+    })),
+  });
+
+  let scoreChanges = 0;
+
   for (const city of data.cities) {
     const rawInputs = extractRawInputs(city);
     const scored = scoreCity(rawInputs, normStats);
 
-    // Update metric-level scores (and component scores)
-    for (const def of METRIC_DEFS) {
-      const [metricKey, , , , kind] = def;
-      const ms = scored.metricScores[metricKey];
-      if (!city.metrics[metricKey]) continue;
+    for (const metric of PUBLIC_METRICS) {
+      const detail = city.metrics?.[metric.key];
+      const metricScore = scored.metricScores[metric.key];
+      if (!detail || !metricScore) continue;
 
-      const m = city.metrics[metricKey];
-      if (kind === "direct") {
-        m.score = r1(ms.score);
-      } else if (kind === "composite") {
-        m.score = r1(ms.score);
-        if (m.components && ms.componentScores) {
-          for (const comp of m.components) {
-            const newScore = ms.componentScores[comp.key];
-            comp.score = r1(newScore);
-          }
+      detail.scoreExact = r4(metricScore.score);
+      detail.score = r1(metricScore.score);
+      detail.coverageExact = r4(metricScore.coverage);
+      detail.scored = metric.scored;
+      detail.diagnostic = !metric.scored;
+
+      if (metric.kind === "composite" && Array.isArray(detail.components) && metricScore.componentScores) {
+        for (const component of detail.components) {
+          const componentScore = metricScore.componentScores[component.key];
+          component.scoreExact = r4(componentScore);
+          component.score = r1(componentScore);
         }
       }
     }
 
-    const oldSlic = city.slicScore;
-    const newSlic = r1(scored.slicScore);
+    const previousSlic = city.slicScoreExact ?? city.slicScore ?? null;
 
-    city.pressureScore   = r1(scored.pillarScores.pressure);
-    city.viabilityScore  = r1(scored.pillarScores.viability);
-    city.capabilityScore = r1(scored.pillarScores.capability);
-    city.communityScore  = r1(scored.pillarScores.community);
-    city.creativeScore   = r1(scored.pillarScores.creative);
+    for (const pillar of PILLAR_ORDER) {
+      const scoreExact = scored.pillarScores[pillar];
+      const coverageExact = scored.pillarCoverage[pillar];
+      city[`${pillar}ScoreExact`] = r4(scoreExact);
+      city[`${pillar}Score`] = r1(scoreExact);
+      city[`${pillar}CoverageExact`] = r4(coverageExact);
+      city[`${pillar}Coverage`] = r2(coverageExact);
+    }
 
-    city.pressureCoverage   = r2(scored.pillarCoverage.pressure);
-    city.viabilityCoverage  = r2(scored.pillarCoverage.viability);
-    city.capabilityCoverage = r2(scored.pillarCoverage.capability);
-    city.communityCoverage  = r2(scored.pillarCoverage.community);
-    city.creativeCoverage   = r2(scored.pillarCoverage.creative);
-
+    city.weightedMeanExact = r4(scored.weightedMean);
+    city.weightedVarianceExact = r4(scored.weightedVariance);
+    city.ampiExact = r4(scored.ampiScore);
+    city.coveragePenalty = scored.coveragePenalty;
+    city.overallWeightedCoverageExact = r4(scored.overallCoverage);
     city.overallWeightedCoverage = r2(scored.overallCoverage);
     city.coverageGrade = scored.coverageGrade;
-    city.slicScore = newSlic;
-    // If the city carries a manual `watchlistReason` (e.g. active conflict
-    // zone), preserve Watchlist status regardless of coverage grade. Coverage
-    // is about data completeness; the watchlist is about liveability honesty.
+    city.slicScoreExact = r4(scored.slicScore);
+    city.slicScore = r1(scored.slicScore);
+
     if (city.watchlistReason) {
       city.rankingStatus = "Watchlist";
+      city.rank = 0;
     } else {
       city.rankingStatus = scored.rankingStatus;
     }
 
-    // Update highlights (strongest / weakest metric by score)
-    const scoredMetrics = Object.entries(scored.metricScores)
-      .filter(([, v]) => v.score != null)
-      .map(([k, v]) => [k, v.score]);
-    if (scoredMetrics.length > 0) {
-      scoredMetrics.sort((a, b) => b[1] - a[1]);
-      city.highlights = {
-        strongest: scoredMetrics[0][0],
-        weakest: scoredMetrics[scoredMetrics.length - 1][0],
-      };
-    }
+    const scoredMetrics = SCORED_METRICS
+      .map((metric) => ({
+        key: metric.key,
+        scoreExact: city.metrics?.[metric.key]?.scoreExact ?? null,
+      }))
+      .filter((metric) => metric.scoreExact != null)
+      .sort((left, right) => right.scoreExact - left.scoreExact);
 
-    if (oldSlic !== newSlic) changes++;
+    city.highlights = scoredMetrics.length > 0
+      ? {
+          strongest: scoredMetrics[0].key,
+          weakest: scoredMetrics[scoredMetrics.length - 1].key,
+        }
+      : { strongest: null, weakest: null };
+
+    city.provenanceSummary = computeCityProvenance(city);
+
+    if (previousSlic !== city.slicScoreExact) scoreChanges += 1;
   }
 
-  // ── Re-rank all Ranked cities by new SLIC score, then enforce the ─────────
-  //    one-per-country-per-10-bucket rule (Taiwan exempt). A city's rank is
-  //    its position in the concatenated-buckets order, so tier labels stay
-  //    rank-driven downstream. Within each bucket cities appear in
-  //    slicScore-desc order (the greedy algorithm below preserves that).
   const ranked = data.cities
-    .filter((c) => c.rankingStatus === "Ranked" && c.slicScore != null)
-    .sort((a, b) => b.slicScore - a.slicScore);
+    .filter((city) => city.rankingStatus === "Ranked" && city.slicScoreExact != null)
+    .sort((left, right) => compareCitiesByPublishedScore(left, right, "slicScoreExact"));
 
-  // V3.3 tier rule.
-  //
-  //  (1) One slot per REGION per tier. The ten original region labels
-  //      (East Asia, Southeast Asia, Western Europe, Eastern Europe, etc.)
-  //      are the bucket axis — NOT collapsed into continents. This lets
-  //      East Asia (e.g. Jeju) and Southeast Asia (e.g. Bangkok) each earn
-  //      an Alpha slot, which matches lived-experience reality: Tokyo,
-  //      Bangkok, and Kuala Lumpur are not "the same Asia."
-  //
-  //  (2) Taiwan exempt (semi-territorial) — Taipei + Kaohsiung both eligible
-  //      for Alpha.
-  //
-  //  (3) Alpha-tier: USA and Canada each get their own slot, keyed by country
-  //      instead of region. So Raleigh (USA) and Montreal (Canada) can both
-  //      be Alpha even though both sit in the North America region — they
-  //      are continental-scale polities with distinct state/provincial
-  //      systems. But only ONE American city and ONE Canadian city in
-  //      Alpha. Beta onwards reverts to strict one-per-region.
-  //
-  //  (4) Alpha pillar floors — liveability-honesty filter: a city must have
-  //      Community ≥ 40 AND Pressure ≥ 40 to occupy an Alpha slot. Cities
-  //      below those floors still rank, but not in Alpha. This is the single
-  //      rule that executes the SLIC philosophy: rich-on-paper, closed-in-
-  //      life cities (UAE, Saudi, Bahrain, PRC megacities) fail Community;
-  //      hyper-expensive cities fail Pressure. Below the floor they cascade
-  //      to the earliest tier where they qualify under the basic one-per-
-  //      region rule.
-  const BUCKET_CAP = 10;
-  const TAIWAN = "Taiwan";
-  const ALPHA_EXEMPT_COUNTRIES = new Set(["Taiwan", "United States", "Canada"]);
-  const ALPHA_COMMUNITY_FLOOR = 40;
-  const ALPHA_PRESSURE_FLOOR = 40;
+  const rankedWithRanks = assignPureScoreRanks(ranked, {
+    scoreKey: "slicScoreExact",
+    rankKey: "rank",
+  });
+  const rankedWithTiers = allocatePublicTiers(rankedWithRanks, {
+    scoreKey: "slicScoreExact",
+    rankKey: "rank",
+    tierLabelKey: "tierLabel",
+    tierSlotKey: "tierSlot",
+    tierReasonKey: "tierReason",
+    tierDiagnosticsKey: "tierDiagnostics",
+  });
 
-  const regionOf = (c) => c.region || "Other";
-  const passesAlphaFloors = (c) =>
-    (c.communityScore ?? 0) >= ALPHA_COMMUNITY_FLOOR &&
-    (c.pressureScore ?? 0) >= ALPHA_PRESSURE_FLOOR;
+  const rankingByCityId = new Map(rankedWithTiers.map((city) => [city.cityId, city]));
 
-  // Slot-key identifies which uniqueness bucket a city competes in inside a
-  // tier. Taiwan gets a unique per-city key (always exempt). Inside Alpha
-  // only, USA and Canada cities get country-keyed slots (so one American +
-  // one Canadian can coexist, but not two Americans). Everyone else is
-  // keyed by region.
-  const slotKeyFor = (city, bucketIndex) => {
-    if (city.country === TAIWAN) return `taiwan::${city.cityId}`;
-    if (bucketIndex === 0 && ALPHA_EXEMPT_COUNTRIES.has(city.country)) {
-      return `country::${city.country}`;
+  for (const city of data.cities) {
+    const rankedCity = rankingByCityId.get(city.cityId);
+    if (rankedCity) {
+      city.rank = rankedCity.rank;
+      city.tierLabel = rankedCity.tierLabel;
+      city.tierSlot = rankedCity.tierSlot;
+      city.tierReason = rankedCity.tierReason ?? null;
+      city.tierDiagnostics = rankedCity.tierDiagnostics ?? null;
+    } else {
+      city.rank = 0;
+      city.tierLabel = null;
+      city.tierSlot = null;
+      city.tierReason = null;
+      city.tierDiagnostics = null;
     }
-    return `region::${regionOf(city)}`;
+  }
+
+  const updatedAt = new Date().toISOString();
+  data.updatedAt = updatedAt;
+
+  const diagnostics = buildDiagnostics(data);
+  data.diagnostics = diagnostics;
+  data.methodologyFacts = buildMethodologyFacts(data, diagnostics);
+  data.changeSummary = buildChangeSummary(previousData.cities, data.cities, updatedAt, previousData.updatedAt);
+  data.stabilityAnalysis = buildStabilityAnalysis(rankedWithTiers);
+  data.issues = diagnostics.integrity.issues;
+  data.publishable = diagnostics.integrity.issueCount === 0;
+  data.status = data.publishable ? "published" : "reranking";
+  data.qualifiedCityCount = data.cities.filter((city) => city.rankingStatus === "Ranked").length;
+  data.integrityIssueCount = diagnostics.integrity.issueCount;
+  data.validCityRowCount = data.cities.length;
+  data.validCountryRowCount = new Set(data.cities.map((city) => city.country)).size;
+  data.publicationManifest = {
+    generatedAt: updatedAt,
+    scorerVersion: SCORE_MODEL_VERSION,
+    tierPolicyVersion: PUBLIC_TIER_POLICY_VERSION,
+    normStatsHash: digest(normStats),
+    inputDataHash,
+    metricCatalogHash: digest(data.metricCatalog),
+    publicationHash: digest(data.cities.map((city) => citySnapshot(city))),
   };
-
-  const buckets = [];
-  for (const city of ranked) {
-    let placed = false;
-    for (let bi = 0; bi < buckets.length; bi++) {
-      const b = buckets[bi];
-      if (b.length >= BUCKET_CAP) continue;
-
-      // Alpha-specific gate: Community and Pressure must both clear the floor.
-      if (bi === 0 && !passesAlphaFloors(city)) continue;
-
-      const cityKey = slotKeyFor(city, bi);
-      if (!cityKey.startsWith("taiwan::")) {
-        const keyPresent = b.some((c) => slotKeyFor(c, bi) === cityKey);
-        if (keyPresent) continue;
-      }
-      b.push(city);
-      placed = true;
-      break;
-    }
-    if (!placed) buckets.push([city]);
-  }
-
-  // Flatten buckets into a single ordered list; rank = 1-based position.
-  let pos = 0;
-  for (const b of buckets) {
-    for (const c of b) {
-      pos++;
-      c.rank = pos;
-    }
-  }
-
-  // Watchlist cities: no rank
-  data.cities.filter((c) => c.rankingStatus !== "Ranked").forEach((c) => { c.rank = 0; });
-
-  data.updatedAt = new Date().toISOString();
 
   await writeFile(DATA_PATH, JSON.stringify(data, null, 2) + "\n");
 
-  // ── Summary ────────────────────────────────────────────────────────────────
-  console.log(`Rescored ${data.cities.length} cities under AMPI aggregation.`);
-  console.log(`Score changes: ${changes}/${data.cities.length} cities (cities whose slicScore changed).`);
-  console.log(`Ranked: ${ranked.length}  |  Watchlist: ${data.cities.length - ranked.length}`);
-  const displayRanked = [...ranked].sort((a, b) => a.rank - b.rank);
-  console.log("\nTop 30 under AMPI + one-per-country tier rule:");
-  displayRanked.slice(0, 30).forEach((c) => console.log(
-    `  #${String(c.rank).padStart(3)}  ${c.displayName.padEnd(16)} ${c.country.padEnd(18)} ` +
-    `SLIC ${c.slicScore.toFixed(1).padStart(5)}  ` +
-    `G=${c.pressureScore?.toFixed(1).padStart(5)} ` +
-    `V=${c.viabilityScore?.toFixed(1).padStart(5)} ` +
-    `Cap=${c.capabilityScore?.toFixed(1).padStart(5)} ` +
-    `Com=${c.communityScore?.toFixed(1).padStart(5)} ` +
-    `Cr=${c.creativeScore?.toFixed(1).padStart(5)}  grade ${c.coverageGrade}`
-  ));
-  console.log("\nKey reference cities:");
-  for (const name of ["New York", "London", "Tokyo", "Singapore", "Paris", "Zurich", "Auckland", "Sydney"]) {
-    const c = data.cities.find((x) => x.displayName === name);
-    if (c) console.log(
-      `  #${String(c.rank).padStart(3)}  ${name.padEnd(14)}  SLIC ${c.slicScore?.toFixed(1).padStart(5)}  ` +
-      `G=${c.pressureScore?.toFixed(1)} V=${c.viabilityScore?.toFixed(1)} ` +
-      `Cap=${c.capabilityScore?.toFixed(1)} Com=${c.communityScore?.toFixed(1)} Cr=${c.creativeScore?.toFixed(1)}`
+  const displayRanked = rankedWithTiers.slice().sort((left, right) => left.rank - right.rank);
+  console.log(`Rescored ${data.cities.length} cities.`);
+  console.log(`Exact score changes: ${scoreChanges}/${data.cities.length}`);
+  console.log(`Ranked: ${displayRanked.length} | Watchlist: ${data.cities.length - displayRanked.length}`);
+  console.log(`Integrity issues: ${diagnostics.integrity.issueCount}`);
+  console.log(`Publication hash: ${data.publicationManifest.publicationHash.slice(0, 12)}`);
+  console.log(`Stability scenarios: ${data.stabilityAnalysis.scenarios.length} | max tier changes: ${data.stabilityAnalysis.maxTierChangeCount}`);
+
+  console.log("\nTop 30 by pure exact-score rank with public tier overlay:");
+  displayRanked.slice(0, 30).forEach((city) => {
+    console.log(
+      `  #${String(city.rank).padStart(3)} ${city.displayName.padEnd(16)} ${city.country.padEnd(18)} ` +
+      `SLIC ${city.slicScore.toFixed(1).padStart(5)} (exact ${city.slicScoreExact.toFixed(4)}) ` +
+      `tier ${city.tierLabel ?? "-"}${city.tierSlot ? `:${city.tierSlot}` : ""}`,
     );
+  });
+
+  for (const tierLabel of PUBLIC_TIER_ORDER) {
+    console.log(`\n${tierLabel}:`);
+    displayRanked
+      .filter((city) => city.tierLabel === tierLabel)
+      .forEach((city) => console.log(
+        `  ${String(city.tierSlot).padStart(2)}. #${String(city.rank).padStart(3)} ${city.displayName} (${city.country})`,
+      ));
   }
 }
 
-main().catch((err) => {
-  console.error(err);
+main().catch((error) => {
+  console.error(error);
   process.exit(1);
 });

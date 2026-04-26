@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-04-24T15:17:04.298Z",
+  "updatedAt": "2026-04-26T18:57:25.241Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -918,7 +918,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 4,
+      "rank": 3,
       "tierLabel": "Alpha",
       "tierSlot": 3,
       "pressureScoreExact": 66.0613,
@@ -1381,7 +1381,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 9,
+      "rank": 8,
       "tierLabel": "Alpha",
       "tierSlot": 6,
       "pressureScoreExact": 48.4035,
@@ -1844,7 +1844,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 2,
+      "rank": 1,
       "tierLabel": "Alpha",
       "tierSlot": 1,
       "pressureScoreExact": 75.1254,
@@ -2307,7 +2307,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 17,
+      "rank": 16,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 53.1761,
@@ -2776,7 +2776,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 51,
+      "rank": 48,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 65.8904,
@@ -2862,7 +2862,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Poland is already represented by Torun in Beta slot 8 (pure rank #42).",
+      "tierReason": "Poland is already represented by Torun in Beta slot 9 (pure rank #42).",
       "tierDiagnostics": {
         "communityExact": 51.9875,
         "pressureExact": 65.8904,
@@ -2873,7 +2873,7 @@
           "country": "Poland",
           "claimedBy": "Torun",
           "tierLabel": "Beta",
-          "tierSlot": 8,
+          "tierSlot": 9,
           "rank": 42
         },
         "assignedTier": null
@@ -3245,9 +3245,9 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 39,
-      "tierLabel": null,
-      "tierSlot": null,
+      "rank": 37,
+      "tierLabel": "Alpha",
+      "tierSlot": 10,
       "pressureScoreExact": 59.0172,
       "pressureCoverageExact": 1,
       "viabilityScoreExact": 94.5489,
@@ -3331,21 +3331,15 @@
           "composite": 0
         }
       },
-      "tierReason": "Japan is already represented by Tokyo in Beta slot 5 (pure rank #21).",
+      "tierReason": "Assigned to Alpha because Community 46.6 and Pressure 59.0 clear the Alpha floor and Japan had not yet claimed a public tier.",
       "tierDiagnostics": {
         "communityExact": 46.6435,
         "pressureExact": 59.0172,
         "alphaEligible": true,
         "betaEligible": true,
         "alphaCapBlock": null,
-        "countryBlock": {
-          "country": "Japan",
-          "claimedBy": "Tokyo",
-          "tierLabel": "Beta",
-          "tierSlot": 5,
-          "rank": 21
-        },
-        "assignedTier": null
+        "countryBlock": null,
+        "assignedTier": "Alpha"
       }
     },
     {
@@ -3714,9 +3708,9 @@
         "strongest": "community_hospitality_belonging",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 27,
+      "rank": 26,
       "tierLabel": "Alpha",
-      "tierSlot": 10,
+      "tierSlot": 9,
       "pressureScoreExact": 45.413,
       "pressureCoverageExact": 1,
       "viabilityScoreExact": 84.9144,
@@ -4177,7 +4171,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 14,
+      "rank": 13,
       "tierLabel": "Beta",
       "tierSlot": 3,
       "pressureScoreExact": 52.4454,
@@ -4640,7 +4634,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 3,
+      "rank": 2,
       "tierLabel": "Alpha",
       "tierSlot": 2,
       "pressureScoreExact": 62.2787,
@@ -5103,7 +5097,7 @@
         "strongest": "capability_education_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 37,
+      "rank": 35,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 50.7384,
@@ -5189,7 +5183,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Chile is already represented by Valparaiso in Alpha slot 9 (pure rank #23).",
+      "tierReason": "Chile is already represented by Valparaiso in Alpha slot 8 (pure rank #23).",
       "tierDiagnostics": {
         "communityExact": 56.9061,
         "pressureExact": 50.7384,
@@ -5200,7 +5194,7 @@
           "country": "Chile",
           "claimedBy": "Valparaiso",
           "tierLabel": "Alpha",
-          "tierSlot": 9,
+          "tierSlot": 8,
           "rank": 23
         },
         "assignedTier": null
@@ -5572,7 +5566,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 6,
+      "rank": 5,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 75.9668,
@@ -6041,7 +6035,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 52,
+      "rank": 49,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 58.0194,
@@ -6127,7 +6121,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Japan is already represented by Tokyo in Beta slot 5 (pure rank #21).",
+      "tierReason": "Japan is already represented by Tokyo in Beta slot 6 (pure rank #21).",
       "tierDiagnostics": {
         "communityExact": 46.6435,
         "pressureExact": 58.0194,
@@ -6138,7 +6132,7 @@
           "country": "Japan",
           "claimedBy": "Tokyo",
           "tierLabel": "Beta",
-          "tierSlot": 5,
+          "tierSlot": 6,
           "rank": 21
         },
         "assignedTier": null
@@ -6510,7 +6504,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 5,
+      "rank": 4,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 71.5767,
@@ -6979,7 +6973,7 @@
         "strongest": "creative_innovation_research_intensity",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 36,
+      "rank": 0,
       "watchlistReason": "Active Middle East conflict envelope, 2023–2024: sustained Hezbollah rocket + anti-tank fire on Haifa/Northern District; routine shelter alerts and targeted civilian-infrastructure strikes. Removed from ranked board on liveability-honesty grounds. Reverses when sustained ceasefire + resident-return normalises.",
       "tierLabel": null,
       "tierSlot": null,
@@ -7435,7 +7429,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 18,
+      "rank": 17,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 53.3074,
@@ -7904,7 +7898,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 11,
+      "rank": 10,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 55.3204,
@@ -8373,9 +8367,9 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 24,
+      "rank": 23,
       "tierLabel": "Alpha",
-      "tierSlot": 9,
+      "tierSlot": 8,
       "pressureScoreExact": 58.3439,
       "pressureCoverageExact": 1,
       "viabilityScoreExact": 72.6507,
@@ -8836,7 +8830,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 16,
+      "rank": 15,
       "tierLabel": "Beta",
       "tierSlot": 4,
       "pressureScoreExact": 88.464,
@@ -9299,7 +9293,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 7,
+      "rank": 6,
       "tierLabel": "Alpha",
       "tierSlot": 4,
       "pressureScoreExact": 64.5833,
@@ -9762,7 +9756,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 8,
+      "rank": 7,
       "tierLabel": "Alpha",
       "tierSlot": 5,
       "pressureScoreExact": 62.3747,
@@ -10225,7 +10219,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 13,
+      "rank": 12,
       "tierLabel": "Beta",
       "tierSlot": 2,
       "pressureScoreExact": 58.3717,
@@ -10688,7 +10682,7 @@
         "strongest": "creative_innovation_research_intensity",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 48,
+      "rank": 0,
       "watchlistReason": "Active Middle East conflict envelope, 2023–2024: Hamas / PIJ rocket barrages reaching Tel Aviv metro; frequent civilian shelter alerts and terror-attack exposure. Removed from ranked board on liveability-honesty grounds. Reverses when sustained ceasefire normalises.",
       "tierLabel": null,
       "tierSlot": null,
@@ -11144,7 +11138,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "viability_personal_safety"
       },
-      "rank": 26,
+      "rank": 25,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 56.0384,
@@ -11613,7 +11607,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 25,
+      "rank": 24,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 52.5157,
@@ -12082,9 +12076,9 @@
         "strongest": "creative_entrepreneurial_dynamism",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 33,
+      "rank": 32,
       "tierLabel": "Beta",
-      "tierSlot": 6,
+      "tierSlot": 7,
       "pressureScoreExact": 50.9868,
       "pressureCoverageExact": 1,
       "viabilityScoreExact": 90.0542,
@@ -12174,7 +12168,7 @@
         "pressureExact": 50.9868,
         "alphaEligible": true,
         "betaEligible": true,
-        "alphaCapBlock": null,
+        "alphaCapBlock": "Europe Alpha seat already filled",
         "countryBlock": null,
         "assignedTier": "Beta"
       }
@@ -12545,9 +12539,9 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 44,
+      "rank": 42,
       "tierLabel": "Beta",
-      "tierSlot": 8,
+      "tierSlot": 9,
       "pressureScoreExact": 68.3686,
       "pressureCoverageExact": 1,
       "viabilityScoreExact": 79.457,
@@ -13008,7 +13002,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 15,
+      "rank": 14,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 53.3074,
@@ -13477,7 +13471,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_working_time_pressure"
       },
-      "rank": 19,
+      "rank": 18,
       "tierLabel": "Gamma",
       "tierSlot": 1,
       "pressureScoreExact": 43.3481,
@@ -13940,7 +13934,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 29,
+      "rank": 28,
       "tierLabel": "Gamma",
       "tierSlot": 3,
       "pressureScoreExact": 39.0966,
@@ -14403,7 +14397,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 20,
+      "rank": 19,
       "tierLabel": "Gamma",
       "tierSlot": 2,
       "pressureScoreExact": 33.1409,
@@ -14866,7 +14860,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 68,
+      "rank": 65,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 91.3348,
@@ -15329,7 +15323,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 54,
+      "rank": 51,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 27.7872,
@@ -15415,7 +15409,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Australia is already represented by Perth in Alpha slot 8 (pure rank #20).",
+      "tierReason": "Australia is already represented by Perth in Beta slot 5 (pure rank #20).",
       "tierDiagnostics": {
         "communityExact": 56.2835,
         "pressureExact": 27.7872,
@@ -15425,8 +15419,8 @@
         "countryBlock": {
           "country": "Australia",
           "claimedBy": "Perth",
-          "tierLabel": "Alpha",
-          "tierSlot": 8,
+          "tierLabel": "Beta",
+          "tierSlot": 5,
           "rank": 20
         },
         "assignedTier": null
@@ -15798,7 +15792,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 69,
+      "rank": 66,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 90.6194,
@@ -16261,7 +16255,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 32,
+      "rank": 31,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 39.7024,
@@ -16347,7 +16341,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Australia is already represented by Perth in Alpha slot 8 (pure rank #20).",
+      "tierReason": "Australia is already represented by Perth in Beta slot 5 (pure rank #20).",
       "tierDiagnostics": {
         "communityExact": 56.2835,
         "pressureExact": 39.7024,
@@ -16357,8 +16351,8 @@
         "countryBlock": {
           "country": "Australia",
           "claimedBy": "Perth",
-          "tierLabel": "Alpha",
-          "tierSlot": 8,
+          "tierLabel": "Beta",
+          "tierSlot": 5,
           "rank": 20
         },
         "assignedTier": null
@@ -16730,7 +16724,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 35,
+      "rank": 34,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 46.8085,
@@ -17199,7 +17193,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 31,
+      "rank": 30,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 36.353,
@@ -17285,7 +17279,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Australia is already represented by Perth in Alpha slot 8 (pure rank #20).",
+      "tierReason": "Australia is already represented by Perth in Beta slot 5 (pure rank #20).",
       "tierDiagnostics": {
         "communityExact": 56.2835,
         "pressureExact": 36.353,
@@ -17295,8 +17289,8 @@
         "countryBlock": {
           "country": "Australia",
           "claimedBy": "Perth",
-          "tierLabel": "Alpha",
-          "tierSlot": 8,
+          "tierLabel": "Beta",
+          "tierSlot": 5,
           "rank": 20
         },
         "assignedTier": null
@@ -17668,9 +17662,9 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 21,
-      "tierLabel": "Alpha",
-      "tierSlot": 8,
+      "rank": 20,
+      "tierLabel": "Beta",
+      "tierSlot": 5,
       "pressureScoreExact": 45.3275,
       "pressureCoverageExact": 1,
       "viabilityScoreExact": 89.525,
@@ -17754,15 +17748,15 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Alpha because Community 56.3 and Pressure 45.3 clear the Alpha floor and Australia had not yet claimed a public tier.",
+      "tierReason": "Assigned to Beta because Community 56.3 and Pressure 45.3 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.",
       "tierDiagnostics": {
         "communityExact": 56.2835,
         "pressureExact": 45.3275,
         "alphaEligible": true,
         "betaEligible": true,
-        "alphaCapBlock": null,
+        "alphaCapBlock": "Oceania is excluded from Alpha under the live editorial rule (cost-of-living for the median resident)",
         "countryBlock": null,
-        "assignedTier": "Alpha"
+        "assignedTier": "Beta"
       }
     },
     {
@@ -18131,7 +18125,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 53,
+      "rank": 50,
       "tierLabel": "Gamma",
       "tierSlot": 7,
       "pressureScoreExact": 66.3932,
@@ -18594,7 +18588,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 28,
+      "rank": 27,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 43.7169,
@@ -18680,7 +18674,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Australia is already represented by Perth in Alpha slot 8 (pure rank #20).",
+      "tierReason": "Australia is already represented by Perth in Beta slot 5 (pure rank #20).",
       "tierDiagnostics": {
         "communityExact": 56.2835,
         "pressureExact": 43.7169,
@@ -18690,8 +18684,8 @@
         "countryBlock": {
           "country": "Australia",
           "claimedBy": "Perth",
-          "tierLabel": "Alpha",
-          "tierSlot": 8,
+          "tierLabel": "Beta",
+          "tierSlot": 5,
           "rank": 20
         },
         "assignedTier": null
@@ -19063,7 +19057,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 23,
+      "rank": 22,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 38.665,
@@ -19532,7 +19526,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 73,
+      "rank": 70,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 43.7515,
@@ -19995,7 +19989,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 58,
+      "rank": 55,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 37.6339,
@@ -20464,7 +20458,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 87,
+      "rank": 84,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 43.4938,
@@ -20927,7 +20921,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 49,
+      "rank": 46,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 59.0172,
@@ -21013,7 +21007,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Japan is already represented by Tokyo in Beta slot 5 (pure rank #21).",
+      "tierReason": "Japan is already represented by Tokyo in Beta slot 6 (pure rank #21).",
       "tierDiagnostics": {
         "communityExact": 46.6435,
         "pressureExact": 59.0172,
@@ -21024,7 +21018,7 @@
           "country": "Japan",
           "claimedBy": "Tokyo",
           "tierLabel": "Beta",
-          "tierSlot": 5,
+          "tierSlot": 6,
           "rank": 21
         },
         "assignedTier": null
@@ -21396,7 +21390,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 71,
+      "rank": 68,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 27.6862,
@@ -21865,7 +21859,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 56,
+      "rank": 53,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 60.9343,
@@ -21951,7 +21945,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Poland is already represented by Torun in Beta slot 8 (pure rank #42).",
+      "tierReason": "Poland is already represented by Torun in Beta slot 9 (pure rank #42).",
       "tierDiagnostics": {
         "communityExact": 51.9875,
         "pressureExact": 60.9343,
@@ -21962,7 +21956,7 @@
           "country": "Poland",
           "claimedBy": "Torun",
           "tierLabel": "Beta",
-          "tierSlot": 8,
+          "tierSlot": 9,
           "rank": 42
         },
         "assignedTier": null
@@ -22334,7 +22328,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 42,
+      "rank": 40,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 34.6841,
@@ -22803,9 +22797,9 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 59,
+      "rank": 56,
       "tierLabel": "Beta",
-      "tierSlot": 9,
+      "tierSlot": 10,
       "pressureScoreExact": 57.2692,
       "pressureCoverageExact": 1,
       "viabilityScoreExact": 89.6617,
@@ -23266,7 +23260,7 @@
         "strongest": "viability_digital_infrastructure",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 12,
+      "rank": 11,
       "tierLabel": "Alpha",
       "tierSlot": 7,
       "pressureScoreExact": 56.1746,
@@ -23729,7 +23723,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 61,
+      "rank": 58,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 53.4999,
@@ -23815,7 +23809,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Poland is already represented by Torun in Beta slot 8 (pure rank #42).",
+      "tierReason": "Poland is already represented by Torun in Beta slot 9 (pure rank #42).",
       "tierDiagnostics": {
         "communityExact": 51.9875,
         "pressureExact": 53.4999,
@@ -23826,7 +23820,7 @@
           "country": "Poland",
           "claimedBy": "Torun",
           "tierLabel": "Beta",
-          "tierSlot": 8,
+          "tierSlot": 9,
           "rank": 42
         },
         "assignedTier": null
@@ -24198,7 +24192,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 85,
+      "rank": 82,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 54.2894,
@@ -24284,7 +24278,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 10 (pure rank #26).",
+      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 9 (pure rank #26).",
       "tierDiagnostics": {
         "communityExact": 52.1692,
         "pressureExact": 54.2894,
@@ -24295,7 +24289,7 @@
           "country": "Thailand",
           "claimedBy": "Bangkok",
           "tierLabel": "Alpha",
-          "tierSlot": 10,
+          "tierSlot": 9,
           "rank": 26
         },
         "assignedTier": null
@@ -24667,7 +24661,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 62,
+      "rank": 59,
       "tierLabel": "Gamma",
       "tierSlot": 8,
       "pressureScoreExact": 55.9837,
@@ -25130,7 +25124,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 57,
+      "rank": 54,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 56.4406,
@@ -25599,7 +25593,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 66,
+      "rank": 63,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 61.4863,
@@ -26068,7 +26062,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 65,
+      "rank": 62,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 61.4863,
@@ -26537,7 +26531,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 1,
+      "rank": 0,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 76.0308,
@@ -26992,7 +26986,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 63,
+      "rank": 60,
       "tierLabel": "Gamma",
       "tierSlot": 9,
       "pressureScoreExact": 63.0482,
@@ -27455,7 +27449,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 72,
+      "rank": 69,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 57.9778,
@@ -27924,7 +27918,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 50,
+      "rank": 47,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 59.0172,
@@ -28010,7 +28004,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Japan is already represented by Tokyo in Beta slot 5 (pure rank #21).",
+      "tierReason": "Japan is already represented by Tokyo in Beta slot 6 (pure rank #21).",
       "tierDiagnostics": {
         "communityExact": 46.6435,
         "pressureExact": 59.0172,
@@ -28021,7 +28015,7 @@
           "country": "Japan",
           "claimedBy": "Tokyo",
           "tierLabel": "Beta",
-          "tierSlot": 5,
+          "tierSlot": 6,
           "rank": 21
         },
         "assignedTier": null
@@ -28393,7 +28387,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 77,
+      "rank": 74,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 73.91,
@@ -28856,7 +28850,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 83,
+      "rank": 80,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 67.5101,
@@ -29319,7 +29313,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "pressure_working_time_pressure"
       },
-      "rank": 47,
+      "rank": 45,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 69.8112,
@@ -29788,7 +29782,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 94,
+      "rank": 91,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 38.1082,
@@ -30251,7 +30245,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "pressure_working_time_pressure"
       },
-      "rank": 45,
+      "rank": 43,
       "tierLabel": "Gamma",
       "tierSlot": 6,
       "pressureScoreExact": 70.4835,
@@ -30714,7 +30708,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 74,
+      "rank": 71,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 47.17,
@@ -31177,9 +31171,9 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 67,
-      "tierLabel": "Beta",
-      "tierSlot": 10,
+      "rank": 64,
+      "tierLabel": null,
+      "tierSlot": null,
       "pressureScoreExact": 52.4134,
       "pressureCoverageExact": 1,
       "viabilityScoreExact": 59.4996,
@@ -31263,7 +31257,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Beta because Community 64.6 and Pressure 52.4 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.",
+      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
       "tierDiagnostics": {
         "communityExact": 64.6364,
         "pressureExact": 52.4134,
@@ -31271,7 +31265,7 @@
         "betaEligible": true,
         "alphaCapBlock": null,
         "countryBlock": null,
-        "assignedTier": "Beta"
+        "assignedTier": null
       }
     },
     {
@@ -31640,7 +31634,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 96,
+      "rank": 93,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 33.5389,
@@ -32103,7 +32097,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 55,
+      "rank": 52,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 32.4279,
@@ -32189,7 +32183,7 @@
           "composite": 0
         }
       },
-      "tierReason": "New Zealand is already represented by Dunedin in Beta slot 7 (pure rank #38).",
+      "tierReason": "New Zealand is already represented by Dunedin in Beta slot 8 (pure rank #38).",
       "tierDiagnostics": {
         "communityExact": 57.1646,
         "pressureExact": 32.4279,
@@ -32200,7 +32194,7 @@
           "country": "New Zealand",
           "claimedBy": "Dunedin",
           "tierLabel": "Beta",
-          "tierSlot": 7,
+          "tierSlot": 8,
           "rank": 38
         },
         "assignedTier": null
@@ -32572,7 +32566,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 97,
+      "rank": 94,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 35.2752,
@@ -33035,7 +33029,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 41,
+      "rank": 39,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 45.8415,
@@ -33121,7 +33115,7 @@
           "composite": 0
         }
       },
-      "tierReason": "New Zealand is already represented by Dunedin in Beta slot 7 (pure rank #38).",
+      "tierReason": "New Zealand is already represented by Dunedin in Beta slot 8 (pure rank #38).",
       "tierDiagnostics": {
         "communityExact": 57.1646,
         "pressureExact": 45.8415,
@@ -33132,7 +33126,7 @@
           "country": "New Zealand",
           "claimedBy": "Dunedin",
           "tierLabel": "Beta",
-          "tierSlot": 7,
+          "tierSlot": 8,
           "rank": 38
         },
         "assignedTier": null
@@ -33504,7 +33498,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 82,
+      "rank": 79,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 66.8951,
@@ -33967,7 +33961,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 79,
+      "rank": 76,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 54.6066,
@@ -34430,7 +34424,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 78,
+      "rank": 75,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 45.7268,
@@ -34893,7 +34887,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 91,
+      "rank": 88,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 55.3995,
@@ -35356,7 +35350,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 92,
+      "rank": 89,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 38.4814,
@@ -35819,7 +35813,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 60,
+      "rank": 57,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 33.8369,
@@ -35905,7 +35899,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Australia is already represented by Perth in Alpha slot 8 (pure rank #20).",
+      "tierReason": "Australia is already represented by Perth in Beta slot 5 (pure rank #20).",
       "tierDiagnostics": {
         "communityExact": 56.2835,
         "pressureExact": 33.8369,
@@ -35915,8 +35909,8 @@
         "countryBlock": {
           "country": "Australia",
           "claimedBy": "Perth",
-          "tierLabel": "Alpha",
-          "tierSlot": 8,
+          "tierLabel": "Beta",
+          "tierSlot": 5,
           "rank": 20
         },
         "assignedTier": null
@@ -36288,7 +36282,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 93,
+      "rank": 90,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 37.8161,
@@ -36751,7 +36745,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 131,
+      "rank": 126,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 49.9803,
@@ -37214,9 +37208,9 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 40,
+      "rank": 38,
       "tierLabel": "Beta",
-      "tierSlot": 7,
+      "tierSlot": 8,
       "pressureScoreExact": 51.2069,
       "pressureCoverageExact": 1,
       "viabilityScoreExact": 92.5727,
@@ -37677,7 +37671,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "capability_education_quality"
       },
-      "rank": 124,
+      "rank": 119,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 55.9951,
@@ -38140,7 +38134,7 @@
         "strongest": "viability_water_sanitation_utility",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 46,
+      "rank": 44,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 37.7934,
@@ -38226,7 +38220,7 @@
           "composite": 0
         }
       },
-      "tierReason": "New Zealand is already represented by Dunedin in Beta slot 7 (pure rank #38).",
+      "tierReason": "New Zealand is already represented by Dunedin in Beta slot 8 (pure rank #38).",
       "tierDiagnostics": {
         "communityExact": 57.1646,
         "pressureExact": 37.7934,
@@ -38237,7 +38231,7 @@
           "country": "New Zealand",
           "claimedBy": "Dunedin",
           "tierLabel": "Beta",
-          "tierSlot": 7,
+          "tierSlot": 8,
           "rank": 38
         },
         "assignedTier": null
@@ -38609,7 +38603,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 116,
+      "rank": 112,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 46.005,
@@ -39072,7 +39066,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_household_debt_burden"
       },
-      "rank": 101,
+      "rank": 97,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 31.3454,
@@ -39535,7 +39529,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 64,
+      "rank": 61,
       "tierLabel": "Gamma",
       "tierSlot": 10,
       "pressureScoreExact": 57.4787,
@@ -39998,7 +39992,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 75,
+      "rank": 72,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 50.9609,
@@ -40467,7 +40461,7 @@
         "strongest": "capability_education_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 34,
+      "rank": 33,
       "tierLabel": "Gamma",
       "tierSlot": 5,
       "pressureScoreExact": 40.9467,
@@ -40559,7 +40553,7 @@
         "pressureExact": 40.9467,
         "alphaEligible": true,
         "betaEligible": false,
-        "alphaCapBlock": null,
+        "alphaCapBlock": "Europe Alpha seat already filled",
         "countryBlock": null,
         "assignedTier": "Gamma"
       }
@@ -40930,7 +40924,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 162,
+      "rank": 153,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 31.7651,
@@ -41393,7 +41387,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 86,
+      "rank": 83,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 46.5454,
@@ -41856,7 +41850,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 121,
+      "rank": 0,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 42.5611,
@@ -42311,7 +42305,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 84,
+      "rank": 81,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 61.0099,
@@ -42774,7 +42768,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 88,
+      "rank": 85,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 51.7952,
@@ -43237,7 +43231,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "community_tolerance_pluralism"
       },
-      "rank": 70,
+      "rank": 67,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 89.904,
@@ -43700,7 +43694,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "viability_personal_safety"
       },
-      "rank": 107,
+      "rank": 103,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 54.3728,
@@ -44163,7 +44157,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 151,
+      "rank": 143,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 40.3862,
@@ -44626,7 +44620,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 114,
+      "rank": 110,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 46.861,
@@ -45089,7 +45083,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 132,
+      "rank": 127,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 59.8473,
@@ -45552,7 +45546,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 76,
+      "rank": 73,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 55.1041,
@@ -45638,7 +45632,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 10 (pure rank #26).",
+      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 9 (pure rank #26).",
       "tierDiagnostics": {
         "communityExact": 52.1692,
         "pressureExact": 55.1041,
@@ -45649,7 +45643,7 @@
           "country": "Thailand",
           "claimedBy": "Bangkok",
           "tierLabel": "Alpha",
-          "tierSlot": 10,
+          "tierSlot": 9,
           "rank": 26
         },
         "assignedTier": null
@@ -46021,7 +46015,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 129,
+      "rank": 124,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 51.7405,
@@ -46484,7 +46478,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 105,
+      "rank": 101,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 70.6764,
@@ -46947,7 +46941,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 80,
+      "rank": 77,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 48.004,
@@ -47033,7 +47027,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 10 (pure rank #26).",
+      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 9 (pure rank #26).",
       "tierDiagnostics": {
         "communityExact": 52.1692,
         "pressureExact": 48.004,
@@ -47044,7 +47038,7 @@
           "country": "Thailand",
           "claimedBy": "Bangkok",
           "tierLabel": "Alpha",
-          "tierSlot": 10,
+          "tierSlot": 9,
           "rank": 26
         },
         "assignedTier": null
@@ -47416,7 +47410,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 90,
+      "rank": 87,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 50.3759,
@@ -47879,7 +47873,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 95,
+      "rank": 92,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 42.6667,
@@ -48342,7 +48336,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 130,
+      "rank": 125,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 40.252,
@@ -48805,7 +48799,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 126,
+      "rank": 121,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 43.1538,
@@ -49268,7 +49262,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 135,
+      "rank": 130,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 61.9047,
@@ -49731,7 +49725,7 @@
         "strongest": "creative_economic_vitality_productive_context",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 153,
+      "rank": 145,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 43.938,
@@ -50194,7 +50188,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 144,
+      "rank": 0,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 31.8076,
@@ -50649,7 +50643,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 102,
+      "rank": 98,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 57.5294,
@@ -51112,7 +51106,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "viability_water_sanitation_utility"
       },
-      "rank": 113,
+      "rank": 109,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 63.7174,
@@ -51575,7 +51569,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "viability_personal_safety"
       },
-      "rank": 108,
+      "rank": 104,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 48.6509,
@@ -52038,7 +52032,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 109,
+      "rank": 105,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 55.8358,
@@ -52501,7 +52495,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "capability_education_quality"
       },
-      "rank": 142,
+      "rank": 136,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 48.5281,
@@ -52964,7 +52958,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 119,
+      "rank": 115,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 44.3654,
@@ -53427,7 +53421,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 103,
+      "rank": 99,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 51.3456,
@@ -53890,7 +53884,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 110,
+      "rank": 106,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 52.0997,
@@ -54353,7 +54347,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 89,
+      "rank": 86,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 91.4448,
@@ -54816,7 +54810,7 @@
         "strongest": "capability_healthcare_quality",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 123,
+      "rank": 118,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 41.0458,
@@ -55279,7 +55273,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 118,
+      "rank": 114,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 44.6634,
@@ -55742,7 +55736,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "viability_personal_safety"
       },
-      "rank": 139,
+      "rank": 134,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 49.9423,
@@ -56205,7 +56199,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "viability_water_sanitation_utility"
       },
-      "rank": 112,
+      "rank": 108,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 58.5916,
@@ -56668,7 +56662,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 128,
+      "rank": 123,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 47.2316,
@@ -57131,7 +57125,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 154,
+      "rank": 146,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 70.4722,
@@ -57600,7 +57594,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "capability_healthcare_quality"
       },
-      "rank": 136,
+      "rank": 131,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 55.6306,
@@ -58063,7 +58057,7 @@
         "strongest": "creative_administrative_investment_friction",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 100,
+      "rank": 96,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 65.0326,
@@ -58526,7 +58520,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "capability_healthcare_quality"
       },
-      "rank": 137,
+      "rank": 132,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 59.4469,
@@ -58989,7 +58983,7 @@
         "strongest": "creative_economic_vitality_productive_context",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 163,
+      "rank": 154,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 44.9965,
@@ -59452,7 +59446,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 120,
+      "rank": 116,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 43.8586,
@@ -59915,7 +59909,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 161,
+      "rank": 152,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 66.9785,
@@ -60378,7 +60372,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "viability_personal_safety"
       },
-      "rank": 143,
+      "rank": 137,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 39.1655,
@@ -60841,7 +60835,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 111,
+      "rank": 107,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 42.7241,
@@ -61304,7 +61298,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 122,
+      "rank": 117,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 43.8834,
@@ -61767,7 +61761,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "pressure_working_time_pressure"
       },
-      "rank": 81,
+      "rank": 78,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 58.9854,
@@ -62230,7 +62224,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 99,
+      "rank": 0,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 36.8979,
@@ -62685,7 +62679,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 125,
+      "rank": 120,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 51.4931,
@@ -63148,7 +63142,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 134,
+      "rank": 129,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 34.1565,
@@ -63611,7 +63605,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 115,
+      "rank": 111,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 60.5658,
@@ -64074,7 +64068,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 147,
+      "rank": 140,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 51.3086,
@@ -64537,7 +64531,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "capability_education_quality"
       },
-      "rank": 104,
+      "rank": 100,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 51.4154,
@@ -65000,7 +64994,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 127,
+      "rank": 122,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 48.7891,
@@ -65463,7 +65457,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "viability_personal_safety"
       },
-      "rank": 138,
+      "rank": 133,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 53.7357,
@@ -65926,7 +65920,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 149,
+      "rank": 142,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 49.2623,
@@ -66389,7 +66383,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 133,
+      "rank": 128,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 34.2785,
@@ -66852,7 +66846,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "viability_water_sanitation_utility"
       },
-      "rank": 106,
+      "rank": 102,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 45.7732,
@@ -67315,7 +67309,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 145,
+      "rank": 138,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 44.2746,
@@ -67778,7 +67772,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 117,
+      "rank": 113,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 65.2737,
@@ -68241,7 +68235,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 146,
+      "rank": 139,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 42.2576,
@@ -68704,7 +68698,7 @@
         "strongest": "pressure_disposable_income_ppp",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 140,
+      "rank": 135,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 82.1396,
@@ -69167,7 +69161,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "creative_economic_vitality_productive_context"
       },
-      "rank": 152,
+      "rank": 144,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 65.1257,
@@ -69630,7 +69624,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "capability_education_quality"
       },
-      "rank": 155,
+      "rank": 147,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 40.4866,
@@ -70093,7 +70087,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 158,
+      "rank": 150,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 48.0106,
@@ -70556,7 +70550,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 159,
+      "rank": 151,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 48.2521,
@@ -71019,7 +71013,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 157,
+      "rank": 149,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 47.4559,
@@ -71482,7 +71476,7 @@
         "strongest": "creative_administrative_investment_friction",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 156,
+      "rank": 148,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 18.3334,
@@ -71945,7 +71939,7 @@
         "strongest": "community_tolerance_pluralism",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 148,
+      "rank": 141,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 76.4314,
@@ -72408,7 +72402,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 141,
+      "rank": 0,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 22.7507,
@@ -72863,7 +72857,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 150,
+      "rank": 0,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 27.6283,
@@ -73318,7 +73312,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_economic_vitality_productive_context"
       },
-      "rank": 160,
+      "rank": 0,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 18.8874,
@@ -73752,7 +73746,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 30,
+      "rank": 29,
       "tierLabel": "Gamma",
       "tierSlot": 4,
       "pressureScoreExact": 35.1087,
@@ -74194,7 +74188,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 38,
+      "rank": 36,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 27.1098,
@@ -74642,9 +74636,9 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_suicide_mental_strain"
       },
-      "rank": 22,
+      "rank": 21,
       "tierLabel": "Beta",
-      "tierSlot": 5,
+      "tierSlot": 6,
       "pressureScoreExact": 46.2279,
       "pressureCoverageExact": 1,
       "viabilityScoreExact": 94.2412,
@@ -74734,7 +74728,7 @@
         "pressureExact": 46.2279,
         "alphaEligible": true,
         "betaEligible": true,
-        "alphaCapBlock": "Japan is excluded from Alpha under the live editorial rule",
+        "alphaCapBlock": "Tokyo is excluded from Alpha under the live editorial rule (cost-of-living for the median resident)",
         "countryBlock": null,
         "assignedTier": "Beta"
       }
@@ -75105,7 +75099,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 10,
+      "rank": 9,
       "tierLabel": "Beta",
       "tierSlot": 1,
       "pressureScoreExact": 61.9688,
@@ -75568,7 +75562,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_hospitality_belonging"
       },
-      "rank": 98,
+      "rank": 95,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 52.6279,
@@ -76031,7 +76025,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 43,
+      "rank": 41,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 53.905,
@@ -76223,10 +76217,10 @@
       "exactRankInversions": [],
       "duplicateCountryBreaches": [],
       "alphaEuropeCount": 2,
-      "alphaOceaniaCount": 1,
+      "alphaOceaniaCount": 0,
       "alphaTaiwanCount": 2,
       "alphaSouthKoreaCount": 1,
-      "alphaJapanCount": 0,
+      "alphaJapanCount": 1,
       "alphaIsraelCount": 0,
       "watchlistWithTiers": [],
       "tierCounts": {
@@ -76238,7 +76232,7 @@
   },
   "methodologyFacts": {
     "scoreModelVersion": "slic-v3.4.0",
-    "tierPolicyVersion": "public-tier-v1.1.0",
+    "tierPolicyVersion": "public-tier-v1.2.0",
     "scoredMetricCount": 20,
     "diagnosticMetricCount": 3,
     "cityCount": 163,
@@ -76252,12 +76246,16 @@
       "betaMinCommunity": 45,
       "betaMinPressure": 45,
       "maxEuropeInAlpha": 2,
-      "maxOceaniaInAlpha": 1,
+      "maxOceaniaInAlpha": 0,
       "maxTaiwanAcrossPublicTiers": 2,
       "maxSouthKoreaInAlpha": 1,
-      "maxJapanInAlpha": 0,
+      "maxJapanInAlpha": 1,
+      "maxJapanAcrossPublicTiers": 2,
       "alphaCountryExclusions": [
         "Israel"
+      ],
+      "alphaCityExclusions": [
+        "Tokyo"
       ]
     },
     "referenceCities": {
@@ -76265,7 +76263,7 @@
         "cityId": "sg-singapore",
         "displayName": "Singapore",
         "country": "Singapore",
-        "rank": 19,
+        "rank": 18,
         "tierLabel": "Gamma",
         "tierSlot": 1,
         "rankingStatus": "Ranked",
@@ -76288,9 +76286,9 @@
         "cityId": "th-bangkok",
         "displayName": "Bangkok",
         "country": "Thailand",
-        "rank": 27,
+        "rank": 26,
         "tierLabel": "Alpha",
-        "tierSlot": 10,
+        "tierSlot": 9,
         "rankingStatus": "Ranked",
         "coverageGrade": "A",
         "slicScore": 58.5,
@@ -76311,9 +76309,9 @@
         "cityId": "jp-tokyo",
         "displayName": "Tokyo",
         "country": "Japan",
-        "rank": 22,
+        "rank": 21,
         "tierLabel": "Beta",
-        "tierSlot": 5,
+        "tierSlot": 6,
         "rankingStatus": "Ranked",
         "coverageGrade": "A",
         "slicScore": 59.5,
@@ -76428,334 +76426,9 @@
           "scoreExact": 56.9479,
           "scoreRounded": 56.9
         }
-      ],
-      "rank": 4
+      ]
     },
     "publicTierMembers": {
-      "Alpha": [
-        {
-          "cityId": "us-raleigh",
-          "displayName": "Raleigh",
-          "country": "United States",
-          "rank": 2,
-          "tierSlot": 1,
-          "slicScore": 69
-        },
-        {
-          "cityId": "ca-montreal",
-          "displayName": "Montreal",
-          "country": "Canada",
-          "rank": 3,
-          "tierSlot": 2,
-          "slicScore": 68.9
-        },
-        {
-          "cityId": "tw-kaohsiung",
-          "displayName": "Kaohsiung",
-          "country": "Taiwan",
-          "rank": 4,
-          "tierSlot": 3,
-          "slicScore": 66.7
-        },
-        {
-          "cityId": "nl-eindhoven",
-          "displayName": "Eindhoven",
-          "country": "Netherlands",
-          "rank": 7,
-          "tierSlot": 4,
-          "slicScore": 64.3
-        },
-        {
-          "cityId": "at-graz",
-          "displayName": "Graz",
-          "country": "Austria",
-          "rank": 8,
-          "tierSlot": 5,
-          "slicScore": 63.9
-        },
-        {
-          "cityId": "tw-taipei",
-          "displayName": "Taipei",
-          "country": "Taiwan",
-          "rank": 9,
-          "tierSlot": 6,
-          "slicScore": 63.8
-        },
-        {
-          "cityId": "kr-jeju-city",
-          "displayName": "Jeju City",
-          "country": "South Korea",
-          "rank": 12,
-          "tierSlot": 7,
-          "slicScore": 61.6
-        },
-        {
-          "cityId": "au-perth",
-          "displayName": "Perth",
-          "country": "Australia",
-          "rank": 21,
-          "tierSlot": 8,
-          "slicScore": 59.8
-        },
-        {
-          "cityId": "cl-valparaiso",
-          "displayName": "Valparaiso",
-          "country": "Chile",
-          "rank": 24,
-          "tierSlot": 9,
-          "slicScore": 58.9
-        },
-        {
-          "cityId": "th-bangkok",
-          "displayName": "Bangkok",
-          "country": "Thailand",
-          "rank": 27,
-          "tierSlot": 10,
-          "slicScore": 58.5
-        }
-      ],
-      "Beta": [
-        {
-          "cityId": "cz-prague",
-          "displayName": "Prague",
-          "country": "Czechia",
-          "rank": 10,
-          "tierSlot": 1,
-          "slicScore": 63.5
-        },
-        {
-          "cityId": "pt-braga",
-          "displayName": "Braga",
-          "country": "Portugal",
-          "rank": 13,
-          "tierSlot": 2,
-          "slicScore": 60.6
-        },
-        {
-          "cityId": "fr-lyon",
-          "displayName": "Lyon",
-          "country": "France",
-          "rank": 14,
-          "tierSlot": 3
-        },
-        {
-          "cityId": "it-milan",
-          "displayName": "Milan",
-          "country": "Italy",
-          "rank": 16,
-          "tierSlot": 4,
-          "slicScore": 60.5
-        },
-        {
-          "cityId": "jp-tokyo",
-          "displayName": "Tokyo",
-          "country": "Japan",
-          "rank": 22,
-          "tierSlot": 5,
-          "slicScore": 59.5
-        },
-        {
-          "cityId": "ee-tallinn",
-          "displayName": "Tallinn",
-          "country": "Estonia",
-          "rank": 33,
-          "tierSlot": 6,
-          "slicScore": 58.2
-        },
-        {
-          "cityId": "nz-dunedin",
-          "displayName": "Dunedin",
-          "country": "New Zealand",
-          "rank": 40,
-          "tierSlot": 7,
-          "slicScore": 57.5
-        },
-        {
-          "cityId": "pl-torun",
-          "displayName": "Torun",
-          "country": "Poland",
-          "rank": 44,
-          "tierSlot": 8,
-          "slicScore": 56
-        },
-        {
-          "cityId": "sk-bratislava",
-          "displayName": "Bratislava",
-          "country": "Slovakia",
-          "rank": 59,
-          "tierSlot": 9,
-          "slicScore": 53.9
-        },
-        {
-          "cityId": "uy-montevideo",
-          "displayName": "Montevideo",
-          "country": "Uruguay",
-          "rank": 67,
-          "tierSlot": 10,
-          "slicScore": 49.1
-        }
-      ],
-      "Gamma": [
-        {
-          "cityId": "sg-singapore",
-          "displayName": "Singapore",
-          "country": "Singapore",
-          "rank": 19,
-          "tierSlot": 1,
-          "slicScore": 60.2
-        },
-        {
-          "cityId": "dk-copenhagen",
-          "displayName": "Copenhagen",
-          "country": "Denmark",
-          "rank": 20,
-          "tierSlot": 2,
-          "slicScore": 59.9
-        },
-        {
-          "cityId": "ch-zurich",
-          "displayName": "Zurich",
-          "country": "Switzerland",
-          "rank": 29,
-          "tierSlot": 3,
-          "slicScore": 58.3
-        },
-        {
-          "cityId": "uk-london",
-          "displayName": "London",
-          "country": "United Kingdom",
-          "rank": 30,
-          "tierSlot": 4,
-          "slicScore": 58.2
-        },
-        {
-          "cityId": "fi-helsinki",
-          "displayName": "Helsinki",
-          "country": "Finland",
-          "rank": 34,
-          "tierSlot": 5
-        },
-        {
-          "cityId": "ae-abu-dhabi",
-          "displayName": "Abu Dhabi",
-          "country": "United Arab Emirates",
-          "rank": 45,
-          "tierSlot": 6,
-          "slicScore": 55.9
-        },
-        {
-          "cityId": "bh-manama",
-          "displayName": "Manama",
-          "country": "Bahrain",
-          "rank": 53,
-          "tierSlot": 7,
-          "slicScore": 55.3
-        },
-        {
-          "cityId": "mu-port-louis",
-          "displayName": "Port Louis",
-          "country": "Mauritius",
-          "rank": 62,
-          "tierSlot": 8,
-          "slicScore": 51.2
-        },
-        {
-          "cityId": "my-melaka",
-          "displayName": "Melaka",
-          "country": "Malaysia",
-          "rank": 63,
-          "tierSlot": 9,
-          "slicScore": 49.5
-        },
-        {
-          "cityId": "ro-bucharest",
-          "displayName": "Bucharest",
-          "country": "Romania",
-          "rank": 64,
-          "tierSlot": 10,
-          "slicScore": 49.5
-        }
-      ]
-    },
-    "provenance": {
-      "publicMetricLineCount": 3749,
-      "observedMetricLines": 3000,
-      "dataLevelCounts": {
-        "city": 1465,
-        "national": 779,
-        "derived": 287,
-        "composite": 469,
-        "missing": 749
-      },
-      "dataLevelShares": {
-        "city": 0.3908,
-        "national": 0.2078,
-        "derived": 0.0766,
-        "composite": 0.1251,
-        "missing": 0.1998
-      },
-      "observedDataLevelShares": {
-        "city": 0.4883,
-        "national": 0.2597,
-        "derived": 0.0957,
-        "composite": 0.1563
-      },
-      "gradeCounts": {
-        "A": 138,
-        "B": 2,
-        "Watchlist": 7,
-        "C": 16
-      }
-    },
-    "coverage": {
-      "gradeCounts": {
-        "A": 138,
-        "B": 2,
-        "Watchlist": 7,
-        "C": 16
-      }
-    }
-  },
-  "changeSummary": {
-    "previousUpdatedAt": "2026-04-24T14:50:14.000Z",
-    "updatedAt": "2026-04-24T15:17:04.298Z",
-    "scoreChangedCount": 0,
-    "rankChangedCount": 0,
-    "tierChangedCount": 0,
-    "rankingStatusChangedCount": 0,
-    "biggestRankMovers": [],
-    "tierTransitions": []
-  },
-  "qualifiedCityCount": 154,
-  "integrityIssueCount": 0,
-  "validCityRowCount": 163,
-  "validCountryRowCount": 87,
-  "publicationManifest": {
-    "generatedAt": "2026-04-24T15:17:04.298Z",
-    "scorerVersion": "slic-v3.4.0",
-    "tierPolicyVersion": "public-tier-v1.1.0",
-    "normStatsHash": "2930f7b2f7fb2b9fd7262605669478a0420877d4795ca528283723ba03d75516",
-    "inputDataHash": "47ec437070a7d39ccb1603bc32208e7d2d89332fe120a2acccbb2a8634624db7",
-    "metricCatalogHash": "ff938706a6e5ccc7562e7d8034bd17b9b5652876708142833c563e42b26abc1e",
-    "publicationHash": "ac330e1fbafcf39e6a07547887706698cc78b4021c8e3d90b629d40238d6e1c9"
-  },
-  "stabilityAnalysis": {
-    "scope": "Public-tier floor sensitivity around the live Alpha and Beta thresholds.",
-    "baselineRuleSnapshot": {
-      "alphaMinCommunity": 40,
-      "alphaMinPressure": 40,
-      "betaMinCommunity": 45,
-      "betaMinPressure": 45,
-      "maxEuropeInAlpha": 2,
-      "maxOceaniaInAlpha": 1,
-      "maxTaiwanAcrossPublicTiers": 2,
-      "maxSouthKoreaInAlpha": 1,
-      "maxJapanInAlpha": 0,
-      "alphaCountryExclusions": [
-        "Israel"
-      ]
-    },
-    "baselineMembers": {
       "Alpha": [
         {
           "cityId": "us-raleigh",
@@ -76807,24 +76480,24 @@
           "tierSlot": 7
         },
         {
-          "cityId": "au-perth",
-          "displayName": "Perth",
-          "country": "Australia",
-          "rank": 20,
-          "tierSlot": 8
-        },
-        {
           "cityId": "cl-valparaiso",
           "displayName": "Valparaiso",
           "country": "Chile",
           "rank": 23,
-          "tierSlot": 9
+          "tierSlot": 8
         },
         {
           "cityId": "th-bangkok",
           "displayName": "Bangkok",
           "country": "Thailand",
           "rank": 26,
+          "tierSlot": 9
+        },
+        {
+          "cityId": "jp-fukuoka",
+          "displayName": "Fukuoka",
+          "country": "Japan",
+          "rank": 37,
           "tierSlot": 10
         }
       ],
@@ -76858,45 +76531,45 @@
           "tierSlot": 4
         },
         {
+          "cityId": "au-perth",
+          "displayName": "Perth",
+          "country": "Australia",
+          "rank": 20,
+          "tierSlot": 5
+        },
+        {
           "cityId": "jp-tokyo",
           "displayName": "Tokyo",
           "country": "Japan",
           "rank": 21,
-          "tierSlot": 5
+          "tierSlot": 6
         },
         {
           "cityId": "ee-tallinn",
           "displayName": "Tallinn",
           "country": "Estonia",
           "rank": 32,
-          "tierSlot": 6
+          "tierSlot": 7
         },
         {
           "cityId": "nz-dunedin",
           "displayName": "Dunedin",
           "country": "New Zealand",
           "rank": 38,
-          "tierSlot": 7
+          "tierSlot": 8
         },
         {
           "cityId": "pl-torun",
           "displayName": "Torun",
           "country": "Poland",
           "rank": 42,
-          "tierSlot": 8
+          "tierSlot": 9
         },
         {
           "cityId": "sk-bratislava",
           "displayName": "Bratislava",
           "country": "Slovakia",
           "rank": 56,
-          "tierSlot": 9
-        },
-        {
-          "cityId": "uy-montevideo",
-          "displayName": "Montevideo",
-          "country": "Uruguay",
-          "rank": 64,
           "tierSlot": 10
         }
       ],
@@ -76973,8 +76646,308 @@
         }
       ]
     },
-    "maxTierChangeCount": 18,
-    "averageTierChangeCount": 15,
+    "provenance": {
+      "publicMetricLineCount": 3749,
+      "observedMetricLines": 3000,
+      "dataLevelCounts": {
+        "city": 1465,
+        "national": 779,
+        "derived": 287,
+        "composite": 469,
+        "missing": 749
+      },
+      "dataLevelShares": {
+        "city": 0.3908,
+        "national": 0.2078,
+        "derived": 0.0766,
+        "composite": 0.1251,
+        "missing": 0.1998
+      },
+      "observedDataLevelShares": {
+        "city": 0.4883,
+        "national": 0.2597,
+        "derived": 0.0957,
+        "composite": 0.1563
+      },
+      "gradeCounts": {
+        "A": 138,
+        "B": 2,
+        "Watchlist": 7,
+        "C": 16
+      }
+    },
+    "coverage": {
+      "gradeCounts": {
+        "A": 138,
+        "B": 2,
+        "Watchlist": 7,
+        "C": 16
+      }
+    }
+  },
+  "changeSummary": {
+    "previousUpdatedAt": "2026-04-26T18:56:26.703Z",
+    "updatedAt": "2026-04-26T18:57:25.241Z",
+    "scoreChangedCount": 0,
+    "rankChangedCount": 0,
+    "tierChangedCount": 0,
+    "rankingStatusChangedCount": 0,
+    "biggestRankMovers": [],
+    "tierTransitions": []
+  },
+  "qualifiedCityCount": 154,
+  "integrityIssueCount": 0,
+  "validCityRowCount": 163,
+  "validCountryRowCount": 87,
+  "publicationManifest": {
+    "generatedAt": "2026-04-26T18:57:25.241Z",
+    "scorerVersion": "slic-v3.4.0",
+    "tierPolicyVersion": "public-tier-v1.2.0",
+    "normStatsHash": "2930f7b2f7fb2b9fd7262605669478a0420877d4795ca528283723ba03d75516",
+    "inputDataHash": "47ec437070a7d39ccb1603bc32208e7d2d89332fe120a2acccbb2a8634624db7",
+    "metricCatalogHash": "ff938706a6e5ccc7562e7d8034bd17b9b5652876708142833c563e42b26abc1e",
+    "publicationHash": "bcbc65c372b382d054aa2e812932688e5ffd5e846035fe4c03ea0cf784cbe3db"
+  },
+  "stabilityAnalysis": {
+    "scope": "Public-tier floor sensitivity around the live Alpha and Beta thresholds.",
+    "baselineRuleSnapshot": {
+      "alphaMinCommunity": 40,
+      "alphaMinPressure": 40,
+      "betaMinCommunity": 45,
+      "betaMinPressure": 45,
+      "maxEuropeInAlpha": 2,
+      "maxOceaniaInAlpha": 0,
+      "maxTaiwanAcrossPublicTiers": 2,
+      "maxSouthKoreaInAlpha": 1,
+      "maxJapanInAlpha": 1,
+      "maxJapanAcrossPublicTiers": 2,
+      "alphaCountryExclusions": [
+        "Israel"
+      ],
+      "alphaCityExclusions": [
+        "Tokyo"
+      ]
+    },
+    "baselineMembers": {
+      "Alpha": [
+        {
+          "cityId": "us-raleigh",
+          "displayName": "Raleigh",
+          "country": "United States",
+          "rank": 1,
+          "tierSlot": 1
+        },
+        {
+          "cityId": "ca-montreal",
+          "displayName": "Montreal",
+          "country": "Canada",
+          "rank": 2,
+          "tierSlot": 2
+        },
+        {
+          "cityId": "tw-kaohsiung",
+          "displayName": "Kaohsiung",
+          "country": "Taiwan",
+          "rank": 3,
+          "tierSlot": 3
+        },
+        {
+          "cityId": "nl-eindhoven",
+          "displayName": "Eindhoven",
+          "country": "Netherlands",
+          "rank": 6,
+          "tierSlot": 4
+        },
+        {
+          "cityId": "at-graz",
+          "displayName": "Graz",
+          "country": "Austria",
+          "rank": 7,
+          "tierSlot": 5
+        },
+        {
+          "cityId": "tw-taipei",
+          "displayName": "Taipei",
+          "country": "Taiwan",
+          "rank": 8,
+          "tierSlot": 6
+        },
+        {
+          "cityId": "kr-jeju-city",
+          "displayName": "Jeju City",
+          "country": "South Korea",
+          "rank": 11,
+          "tierSlot": 7
+        },
+        {
+          "cityId": "cl-valparaiso",
+          "displayName": "Valparaiso",
+          "country": "Chile",
+          "rank": 23,
+          "tierSlot": 8
+        },
+        {
+          "cityId": "th-bangkok",
+          "displayName": "Bangkok",
+          "country": "Thailand",
+          "rank": 26,
+          "tierSlot": 9
+        },
+        {
+          "cityId": "jp-fukuoka",
+          "displayName": "Fukuoka",
+          "country": "Japan",
+          "rank": 37,
+          "tierSlot": 10
+        }
+      ],
+      "Beta": [
+        {
+          "cityId": "cz-prague",
+          "displayName": "Prague",
+          "country": "Czechia",
+          "rank": 9,
+          "tierSlot": 1
+        },
+        {
+          "cityId": "pt-braga",
+          "displayName": "Braga",
+          "country": "Portugal",
+          "rank": 12,
+          "tierSlot": 2
+        },
+        {
+          "cityId": "fr-lyon",
+          "displayName": "Lyon",
+          "country": "France",
+          "rank": 13,
+          "tierSlot": 3
+        },
+        {
+          "cityId": "it-milan",
+          "displayName": "Milan",
+          "country": "Italy",
+          "rank": 15,
+          "tierSlot": 4
+        },
+        {
+          "cityId": "au-perth",
+          "displayName": "Perth",
+          "country": "Australia",
+          "rank": 20,
+          "tierSlot": 5
+        },
+        {
+          "cityId": "jp-tokyo",
+          "displayName": "Tokyo",
+          "country": "Japan",
+          "rank": 21,
+          "tierSlot": 6
+        },
+        {
+          "cityId": "ee-tallinn",
+          "displayName": "Tallinn",
+          "country": "Estonia",
+          "rank": 32,
+          "tierSlot": 7
+        },
+        {
+          "cityId": "nz-dunedin",
+          "displayName": "Dunedin",
+          "country": "New Zealand",
+          "rank": 38,
+          "tierSlot": 8
+        },
+        {
+          "cityId": "pl-torun",
+          "displayName": "Torun",
+          "country": "Poland",
+          "rank": 42,
+          "tierSlot": 9
+        },
+        {
+          "cityId": "sk-bratislava",
+          "displayName": "Bratislava",
+          "country": "Slovakia",
+          "rank": 56,
+          "tierSlot": 10
+        }
+      ],
+      "Gamma": [
+        {
+          "cityId": "sg-singapore",
+          "displayName": "Singapore",
+          "country": "Singapore",
+          "rank": 18,
+          "tierSlot": 1
+        },
+        {
+          "cityId": "dk-copenhagen",
+          "displayName": "Copenhagen",
+          "country": "Denmark",
+          "rank": 19,
+          "tierSlot": 2
+        },
+        {
+          "cityId": "ch-zurich",
+          "displayName": "Zurich",
+          "country": "Switzerland",
+          "rank": 28,
+          "tierSlot": 3
+        },
+        {
+          "cityId": "uk-london",
+          "displayName": "London",
+          "country": "United Kingdom",
+          "rank": 29,
+          "tierSlot": 4
+        },
+        {
+          "cityId": "fi-helsinki",
+          "displayName": "Helsinki",
+          "country": "Finland",
+          "rank": 33,
+          "tierSlot": 5
+        },
+        {
+          "cityId": "ae-abu-dhabi",
+          "displayName": "Abu Dhabi",
+          "country": "United Arab Emirates",
+          "rank": 43,
+          "tierSlot": 6
+        },
+        {
+          "cityId": "bh-manama",
+          "displayName": "Manama",
+          "country": "Bahrain",
+          "rank": 50,
+          "tierSlot": 7
+        },
+        {
+          "cityId": "mu-port-louis",
+          "displayName": "Port Louis",
+          "country": "Mauritius",
+          "rank": 59,
+          "tierSlot": 8
+        },
+        {
+          "cityId": "my-melaka",
+          "displayName": "Melaka",
+          "country": "Malaysia",
+          "rank": 60,
+          "tierSlot": 9
+        },
+        {
+          "cityId": "ro-bucharest",
+          "displayName": "Bucharest",
+          "country": "Romania",
+          "rank": 61,
+          "tierSlot": 10
+        }
+      ]
+    },
+    "maxTierChangeCount": 17,
+    "averageTierChangeCount": 12.75,
     "scenarios": [
       {
         "scenarioId": "alpha_floor_minus_5",
@@ -76983,10 +76956,10 @@
           "alphaMinCommunity": 35,
           "alphaMinPressure": 35
         },
-        "changedCount": 18,
+        "changedCount": 13,
         "alphaChangedCount": 4,
-        "betaChangedCount": 6,
-        "gammaChangedCount": 11,
+        "betaChangedCount": 4,
+        "gammaChangedCount": 8,
         "alphaRetentionCount": 9,
         "changedCities": [
           {
@@ -77010,24 +76983,14 @@
             "scenarioTierSlot": 1
           },
           {
-            "cityId": "au-perth",
-            "displayName": "Perth",
-            "country": "Australia",
-            "rank": 20,
-            "baselineTierLabel": "Alpha",
-            "baselineTierSlot": 8,
-            "scenarioTierLabel": "Alpha",
-            "scenarioTierSlot": 9
-          },
-          {
             "cityId": "cl-valparaiso",
             "displayName": "Valparaiso",
             "country": "Chile",
             "rank": 23,
             "baselineTierLabel": "Alpha",
-            "baselineTierSlot": 9,
+            "baselineTierSlot": 8,
             "scenarioTierLabel": "Alpha",
-            "scenarioTierSlot": 10
+            "scenarioTierSlot": 9
           },
           {
             "cityId": "th-bangkok",
@@ -77035,9 +76998,9 @@
             "country": "Thailand",
             "rank": 26,
             "baselineTierLabel": "Alpha",
-            "baselineTierSlot": 10,
-            "scenarioTierLabel": "Beta",
-            "scenarioTierSlot": 6
+            "baselineTierSlot": 9,
+            "scenarioTierLabel": "Alpha",
+            "scenarioTierSlot": 10
           },
           {
             "cityId": "ch-zurich",
@@ -77060,16 +77023,6 @@
             "scenarioTierSlot": 3
           },
           {
-            "cityId": "ee-tallinn",
-            "displayName": "Tallinn",
-            "country": "Estonia",
-            "rank": 32,
-            "baselineTierLabel": "Beta",
-            "baselineTierSlot": 6,
-            "scenarioTierLabel": "Beta",
-            "scenarioTierSlot": 7
-          },
-          {
             "cityId": "fi-helsinki",
             "displayName": "Helsinki",
             "country": "Finland",
@@ -77080,14 +77033,24 @@
             "scenarioTierSlot": 4
           },
           {
+            "cityId": "jp-fukuoka",
+            "displayName": "Fukuoka",
+            "country": "Japan",
+            "rank": 37,
+            "baselineTierLabel": "Alpha",
+            "baselineTierSlot": 10,
+            "scenarioTierLabel": "Beta",
+            "scenarioTierSlot": 8
+          },
+          {
             "cityId": "nz-dunedin",
             "displayName": "Dunedin",
             "country": "New Zealand",
             "rank": 38,
             "baselineTierLabel": "Beta",
-            "baselineTierSlot": 7,
+            "baselineTierSlot": 8,
             "scenarioTierLabel": "Beta",
-            "scenarioTierSlot": 8
+            "scenarioTierSlot": 9
           },
           {
             "cityId": "pl-torun",
@@ -77095,9 +77058,9 @@
             "country": "Poland",
             "rank": 42,
             "baselineTierLabel": "Beta",
-            "baselineTierSlot": 8,
+            "baselineTierSlot": 9,
             "scenarioTierLabel": "Beta",
-            "scenarioTierSlot": 9
+            "scenarioTierSlot": 10
           },
           {
             "cityId": "ae-abu-dhabi",
@@ -77125,49 +77088,9 @@
             "country": "Slovakia",
             "rank": 56,
             "baselineTierLabel": "Beta",
-            "baselineTierSlot": 9,
-            "scenarioTierLabel": "Beta",
-            "scenarioTierSlot": 10
-          },
-          {
-            "cityId": "mu-port-louis",
-            "displayName": "Port Louis",
-            "country": "Mauritius",
-            "rank": 59,
-            "baselineTierLabel": "Gamma",
-            "baselineTierSlot": 8,
+            "baselineTierSlot": 10,
             "scenarioTierLabel": "Gamma",
             "scenarioTierSlot": 7
-          },
-          {
-            "cityId": "my-melaka",
-            "displayName": "Melaka",
-            "country": "Malaysia",
-            "rank": 60,
-            "baselineTierLabel": "Gamma",
-            "baselineTierSlot": 9,
-            "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 8
-          },
-          {
-            "cityId": "ro-bucharest",
-            "displayName": "Bucharest",
-            "country": "Romania",
-            "rank": 61,
-            "baselineTierLabel": "Gamma",
-            "baselineTierSlot": 10,
-            "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 9
-          },
-          {
-            "cityId": "uy-montevideo",
-            "displayName": "Montevideo",
-            "country": "Uruguay",
-            "rank": 64,
-            "baselineTierLabel": "Beta",
-            "baselineTierSlot": 10,
-            "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 10
           }
         ]
       },
@@ -77178,9 +77101,9 @@
           "alphaMinCommunity": 45,
           "alphaMinPressure": 45
         },
-        "changedCount": 16,
+        "changedCount": 15,
         "alphaChangedCount": 5,
-        "betaChangedCount": 2,
+        "betaChangedCount": 0,
         "gammaChangedCount": 11,
         "alphaRetentionCount": 9,
         "changedCities": [
@@ -77215,24 +77138,14 @@
             "scenarioTierSlot": 3
           },
           {
-            "cityId": "au-perth",
-            "displayName": "Perth",
-            "country": "Australia",
-            "rank": 20,
-            "baselineTierLabel": "Alpha",
-            "baselineTierSlot": 8,
-            "scenarioTierLabel": "Alpha",
-            "scenarioTierSlot": 7
-          },
-          {
             "cityId": "cl-valparaiso",
             "displayName": "Valparaiso",
             "country": "Chile",
             "rank": 23,
             "baselineTierLabel": "Alpha",
-            "baselineTierSlot": 9,
+            "baselineTierSlot": 8,
             "scenarioTierLabel": "Alpha",
-            "scenarioTierSlot": 8
+            "scenarioTierSlot": 7
           },
           {
             "cityId": "th-bangkok",
@@ -77240,9 +77153,9 @@
             "country": "Thailand",
             "rank": 26,
             "baselineTierLabel": "Alpha",
-            "baselineTierSlot": 10,
+            "baselineTierSlot": 9,
             "scenarioTierLabel": "Alpha",
-            "scenarioTierSlot": 9
+            "scenarioTierSlot": 8
           },
           {
             "cityId": "ch-zurich",
@@ -77273,6 +77186,16 @@
             "baselineTierSlot": 5,
             "scenarioTierLabel": "Gamma",
             "scenarioTierSlot": 6
+          },
+          {
+            "cityId": "jp-fukuoka",
+            "displayName": "Fukuoka",
+            "country": "Japan",
+            "rank": 37,
+            "baselineTierLabel": "Alpha",
+            "baselineTierSlot": 10,
+            "scenarioTierLabel": "Alpha",
+            "scenarioTierSlot": 9
           },
           {
             "cityId": "ae-abu-dhabi",
@@ -77329,19 +77252,9 @@
             "displayName": "Montevideo",
             "country": "Uruguay",
             "rank": 64,
-            "baselineTierLabel": "Beta",
-            "baselineTierSlot": 10,
-            "scenarioTierLabel": "Alpha",
-            "scenarioTierSlot": 10
-          },
-          {
-            "cityId": "hu-budapest",
-            "displayName": "Budapest",
-            "country": "Hungary",
-            "rank": 71,
             "baselineTierLabel": null,
             "baselineTierSlot": null,
-            "scenarioTierLabel": "Beta",
+            "scenarioTierLabel": "Alpha",
             "scenarioTierSlot": 10
           }
         ]
@@ -77353,10 +77266,10 @@
           "betaMinCommunity": 40,
           "betaMinPressure": 40
         },
-        "changedCount": 10,
+        "changedCount": 6,
         "alphaChangedCount": 0,
-        "betaChangedCount": 5,
-        "gammaChangedCount": 7,
+        "betaChangedCount": 4,
+        "gammaChangedCount": 4,
         "alphaRetentionCount": 10,
         "changedCities": [
           {
@@ -77367,7 +77280,7 @@
             "baselineTierLabel": "Gamma",
             "baselineTierSlot": 5,
             "scenarioTierLabel": "Beta",
-            "scenarioTierSlot": 7
+            "scenarioTierSlot": 8
           },
           {
             "cityId": "nz-dunedin",
@@ -77375,9 +77288,9 @@
             "country": "New Zealand",
             "rank": 38,
             "baselineTierLabel": "Beta",
-            "baselineTierSlot": 7,
+            "baselineTierSlot": 8,
             "scenarioTierLabel": "Beta",
-            "scenarioTierSlot": 8
+            "scenarioTierSlot": 9
           },
           {
             "cityId": "pl-torun",
@@ -77385,9 +77298,9 @@
             "country": "Poland",
             "rank": 42,
             "baselineTierLabel": "Beta",
-            "baselineTierSlot": 8,
+            "baselineTierSlot": 9,
             "scenarioTierLabel": "Beta",
-            "scenarioTierSlot": 9
+            "scenarioTierSlot": 10
           },
           {
             "cityId": "ae-abu-dhabi",
@@ -77415,49 +77328,9 @@
             "country": "Slovakia",
             "rank": 56,
             "baselineTierLabel": "Beta",
-            "baselineTierSlot": 9,
-            "scenarioTierLabel": "Beta",
-            "scenarioTierSlot": 10
-          },
-          {
-            "cityId": "mu-port-louis",
-            "displayName": "Port Louis",
-            "country": "Mauritius",
-            "rank": 59,
-            "baselineTierLabel": "Gamma",
-            "baselineTierSlot": 8,
+            "baselineTierSlot": 10,
             "scenarioTierLabel": "Gamma",
             "scenarioTierSlot": 7
-          },
-          {
-            "cityId": "my-melaka",
-            "displayName": "Melaka",
-            "country": "Malaysia",
-            "rank": 60,
-            "baselineTierLabel": "Gamma",
-            "baselineTierSlot": 9,
-            "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 8
-          },
-          {
-            "cityId": "ro-bucharest",
-            "displayName": "Bucharest",
-            "country": "Romania",
-            "rank": 61,
-            "baselineTierLabel": "Gamma",
-            "baselineTierSlot": 10,
-            "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 9
-          },
-          {
-            "cityId": "uy-montevideo",
-            "displayName": "Montevideo",
-            "country": "Uruguay",
-            "rank": 64,
-            "baselineTierLabel": "Beta",
-            "baselineTierSlot": 10,
-            "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 10
           }
         ]
       },
@@ -77468,21 +77341,31 @@
           "betaMinCommunity": 50,
           "betaMinPressure": 50
         },
-        "changedCount": 16,
+        "changedCount": 17,
         "alphaChangedCount": 0,
-        "betaChangedCount": 8,
-        "gammaChangedCount": 10,
+        "betaChangedCount": 9,
+        "gammaChangedCount": 11,
         "alphaRetentionCount": 10,
         "changedCities": [
+          {
+            "cityId": "au-perth",
+            "displayName": "Perth",
+            "country": "Australia",
+            "rank": 20,
+            "baselineTierLabel": "Beta",
+            "baselineTierSlot": 5,
+            "scenarioTierLabel": "Gamma",
+            "scenarioTierSlot": 3
+          },
           {
             "cityId": "jp-tokyo",
             "displayName": "Tokyo",
             "country": "Japan",
             "rank": 21,
             "baselineTierLabel": "Beta",
-            "baselineTierSlot": 5,
+            "baselineTierSlot": 6,
             "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 3
+            "scenarioTierSlot": 4
           },
           {
             "cityId": "ch-zurich",
@@ -77492,7 +77375,7 @@
             "baselineTierLabel": "Gamma",
             "baselineTierSlot": 3,
             "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 4
+            "scenarioTierSlot": 5
           },
           {
             "cityId": "uk-london",
@@ -77502,7 +77385,7 @@
             "baselineTierLabel": "Gamma",
             "baselineTierSlot": 4,
             "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 5
+            "scenarioTierSlot": 6
           },
           {
             "cityId": "ee-tallinn",
@@ -77510,9 +77393,9 @@
             "country": "Estonia",
             "rank": 32,
             "baselineTierLabel": "Beta",
-            "baselineTierSlot": 6,
+            "baselineTierSlot": 7,
             "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 6
+            "scenarioTierSlot": 7
           },
           {
             "cityId": "fi-helsinki",
@@ -77522,7 +77405,7 @@
             "baselineTierLabel": "Gamma",
             "baselineTierSlot": 5,
             "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 7
+            "scenarioTierSlot": 8
           },
           {
             "cityId": "nz-dunedin",
@@ -77530,7 +77413,7 @@
             "country": "New Zealand",
             "rank": 38,
             "baselineTierLabel": "Beta",
-            "baselineTierSlot": 7,
+            "baselineTierSlot": 8,
             "scenarioTierLabel": "Beta",
             "scenarioTierSlot": 5
           },
@@ -77540,7 +77423,7 @@
             "country": "Poland",
             "rank": 42,
             "baselineTierLabel": "Beta",
-            "baselineTierSlot": 8,
+            "baselineTierSlot": 9,
             "scenarioTierLabel": "Beta",
             "scenarioTierSlot": 6
           },
@@ -77552,7 +77435,7 @@
             "baselineTierLabel": "Gamma",
             "baselineTierSlot": 6,
             "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 8
+            "scenarioTierSlot": 9
           },
           {
             "cityId": "bh-manama",
@@ -77562,7 +77445,7 @@
             "baselineTierLabel": "Gamma",
             "baselineTierSlot": 7,
             "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 9
+            "scenarioTierSlot": 10
           },
           {
             "cityId": "sk-bratislava",
@@ -77570,7 +77453,7 @@
             "country": "Slovakia",
             "rank": 56,
             "baselineTierLabel": "Beta",
-            "baselineTierSlot": 9,
+            "baselineTierSlot": 10,
             "scenarioTierLabel": "Beta",
             "scenarioTierSlot": 7
           },
@@ -77581,8 +77464,8 @@
             "rank": 59,
             "baselineTierLabel": "Gamma",
             "baselineTierSlot": 8,
-            "scenarioTierLabel": "Gamma",
-            "scenarioTierSlot": 10
+            "scenarioTierLabel": null,
+            "scenarioTierSlot": null
           },
           {
             "cityId": "my-melaka",
@@ -77609,8 +77492,8 @@
             "displayName": "Montevideo",
             "country": "Uruguay",
             "rank": 64,
-            "baselineTierLabel": "Beta",
-            "baselineTierSlot": 10,
+            "baselineTierLabel": null,
+            "baselineTierSlot": null,
             "scenarioTierLabel": "Beta",
             "scenarioTierSlot": 8
           },

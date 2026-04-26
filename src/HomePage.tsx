@@ -1,6 +1,7 @@
 import { type CSSProperties, type MouseEvent, useEffect, useMemo, useState } from "react";
 import { evaluateConsequences } from "./consequenceRules";
 import type { FiredConsequence } from "./consequenceRules";
+import { allocatePublicTiers, assignPureScoreRanks, PUBLIC_TIER_RULES } from "./publicTierPolicy.js";
 import { rankingPublication } from "./rankingPublication";
 import { getExerciseCities } from "./rankingsData";
 import SiteFooter from "./SiteFooter";
@@ -18,6 +19,9 @@ interface HomeCity {
   country: string;
   region: string;
   rankingStatus: string;
+  tierLabel: "Alpha" | "Beta" | "Gamma" | null;
+  tierSlot: number | null;
+  tierReason?: string | null;
   pressureScore: number;
   viabilityScore: number;
   capabilityScore: number;
@@ -94,7 +98,10 @@ const publishedBoard: HomeCity[] = rankingPublication.cities
     displayName: city.displayName,
     country: city.country,
     region: city.region,
-    rankingStatus: city.manifestStatus,
+    rankingStatus: city.rankingStatus,
+    tierLabel: city.tierLabel ?? null,
+    tierSlot: city.tierSlot ?? null,
+    tierReason: city.tierReason ?? null,
     pressureScore: city.pressureScore ?? 0,
     viabilityScore: city.viabilityScore ?? 0,
     capabilityScore: city.capabilityScore ?? 0,
@@ -104,6 +111,8 @@ const publishedBoard: HomeCity[] = rankingPublication.cities
     rank: city.rank,
   }))
   .sort((left, right) => left.rank - right.rank);
+const publishedRankedCount = publishedBoard.filter((city) => city.rankingStatus === "Ranked").length;
+const publishedWatchlistCount = rankingPublication.cities.length - publishedRankedCount;
 
 const exerciseCities: HomeCity[] = getExerciseCities().map((city) => ({
   cityId: city.id,
@@ -111,6 +120,9 @@ const exerciseCities: HomeCity[] = getExerciseCities().map((city) => ({
   country: city.country,
   region: city.region,
   rankingStatus: city.coreBoardEligible ? "Ranked" : "Candidate",
+  tierLabel: city.tierLabel ?? null,
+  tierSlot: city.tierSlot ?? null,
+  tierReason: city.tierReason ?? null,
   pressureScore: city.scores.pressure,
   viabilityScore: city.scores.viability,
   capabilityScore: city.scores.capability,
@@ -227,13 +239,14 @@ export default function HomePage({
   );
 
   // Both the top tier cards and the spider results read from this. One source
-  // of truth: the published 160-city board, live-scored under the current
+  // of truth: the published board, live-scored under the current
   // weight profile. At the canonical default, this exactly matches each city's
   // stored slicScore. When the user drags the spider, every tier card updates
   // in lockstep.
   const results = useMemo(
     () =>
       publishedBoard
+        .filter((city) => city.rankingStatus === "Ranked")
         .map((city) => ({
           ...city,
           customScore: Math.round(scoreCityWithWeights(city, weights) * 10) / 10,
@@ -241,6 +254,25 @@ export default function HomePage({
         .sort((a, b) => b.customScore - a.customScore),
     [weights],
   );
+
+  const tieredResults = useMemo(() => {
+    const rankedResults = assignPureScoreRanks(results, {
+      scoreKey: "customScore",
+      rankKey: "customRank",
+    });
+    const tiered = allocatePublicTiers(rankedResults, {
+      scoreKey: "customScore",
+      rankKey: "customRank",
+      tierLabelKey: "computedTierLabel",
+      tierSlotKey: "computedTierSlot",
+      tierReasonKey: "computedTierReason",
+    });
+    return {
+      alpha: tiered.filter((city) => city.computedTierLabel === "Alpha"),
+      beta: tiered.filter((city) => city.computedTierLabel === "Beta"),
+      gamma: tiered.filter((city) => city.computedTierLabel === "Gamma"),
+    };
+  }, [results]);
 
   const handleReset = () =>
     setPillars(
@@ -280,19 +312,20 @@ export default function HomePage({
             )}
           </p>
           <h1 className="hp-headline">
-            {t(
-              locale,
-              "Thriving, and still affordable. Everything else is marketing.",
-              "เมืองที่เติบโต และยังพอใช้ชีวิตได้ นอกนั้นคือการตลาด",
-              "既在增长，也还住得起。其余都是营销。",
+            {locale === "th" ? (
+              <>เมืองที่เติบโต และยังพอใช้ชีวิตได้{" "}<span className="hp-headline--accent">นอกนั้นคือการตลาด</span></>
+            ) : locale === "zh" ? (
+              <>既在增长，也还住得起。<span className="hp-headline--accent">其余都是营销。</span></>
+            ) : (
+              <>Thriving, and still affordable.{" "}<span className="hp-headline--accent">Everything else is marketing.</span></>
             )}
           </h1>
           <p className="hp-deck">
             {t(
               locale,
-              "154 ranked cities plus a conflict-zone and low-coverage watchlist. One declared score per city, traced through five public pillars: pressure, viability, capability, community, and creative momentum. Alpha requires a liveability floor — no city trades its residents for its skyline.",
-              "154 เมืองในการจัดอันดับ พร้อมรายชื่อเฝ้าระวังสำหรับเขตขัดแย้งและข้อมูลไม่สมบูรณ์ แต่ละเมืองมีคะแนนที่ประกาศชัดเจนหนึ่งค่า และสามารถไล่ย้อนกลับได้ผ่าน 5 เสาหลักสาธารณะ ได้แก่ แรงกดดัน ความน่าอยู่ ศักยภาพ ชุมชน และพลังสร้างสรรค์ ระดับ Alpha ต้องผ่านเกณฑ์ขั้นต่ำของความน่าอยู่ — ไม่มีเมืองใดที่ยอมแลกผู้คนกับภาพลักษณ์",
-              "154 座已排名城市，另设冲突区与数据覆盖观察名单。每座城市对应一个公开分数，可追溯到五个公开支柱：压力、宜居性、能力、社区与创造动能。Alpha 级须跨过宜居门槛——没有哪座城市能用居民换天际线。",
+              `${publishedRankedCount} ranked cities plus a ${publishedWatchlistCount}-city conflict-zone and low-coverage watchlist. One declared score per city, traced through five public pillars: pressure, viability, capability, community, and creative momentum. Alpha requires a liveability floor — no city trades its residents for its skyline.`,
+              `${publishedRankedCount} เมืองในการจัดอันดับ พร้อมรายชื่อเฝ้าระวัง ${publishedWatchlistCount} เมืองสำหรับเขตขัดแย้งและข้อมูลไม่สมบูรณ์ แต่ละเมืองมีคะแนนที่ประกาศชัดเจนหนึ่งค่า และสามารถไล่ย้อนกลับได้ผ่าน 5 เสาหลักสาธารณะ ได้แก่ แรงกดดัน ความน่าอยู่ ศักยภาพ ชุมชน และพลังสร้างสรรค์ ระดับ Alpha ต้องผ่านเกณฑ์ขั้นต่ำของความน่าอยู่ — ไม่มีเมืองใดที่ยอมแลกผู้คนกับภาพลักษณ์`,
+              `${publishedRankedCount} 座已排名城市，另设 ${publishedWatchlistCount} 座冲突区与数据覆盖观察名单城市。每座城市对应一个公开分数，可追溯到五个公开支柱：压力、宜居性、能力、社区与创造动能。Alpha 级须跨过宜居门槛——没有哪座城市能用居民换天际线。`,
             )}
           </p>
           <div className="hp-opening-actions">
@@ -301,7 +334,7 @@ export default function HomePage({
               href={appHref("/rankings")}
               onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
             >
-              {t(locale, "See all 154 cities", "ดูเมืองทั้ง 154 แห่ง", "查看全部 154 座城市")} →
+              {t(locale, `See all ${publishedRankedCount} cities`, `ดูเมืองทั้ง ${publishedRankedCount} แห่ง`, `查看全部 ${publishedRankedCount} 座城市`)} →
             </a>
             <a
               className="hp-cta-secondary"
@@ -402,18 +435,27 @@ export default function HomePage({
               "前十名。每个数字都可追溯至来源。",
             )}
           </h2>
+          <p className="v3-alpha-subtitle">
+            {t(
+              locale,
+              `One city per country across Alpha, Beta, and Gamma, with Taiwan and Japan each allowed two public-tier seats. Alpha requires Community and Pressure both above ${PUBLIC_TIER_RULES.alphaMinCommunity}. Europe holds ${PUBLIC_TIER_RULES.maxEuropeInAlpha} Alpha seats, Oceania ${PUBLIC_TIER_RULES.maxOceaniaInAlpha}, South Korea ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha}, Japan ${PUBLIC_TIER_RULES.maxJapanInAlpha}; ${(PUBLIC_TIER_RULES.alphaCountryExclusions ?? []).join(", ")} excluded from Alpha by country, ${(PUBLIC_TIER_RULES.alphaCityExclusions ?? []).join(", ") || "no city exclusions"} excluded from Alpha by editorial cost-of-living rule.`,
+              `หนึ่งเมืองต่อประเทศตลอด Alpha, Beta และ Gamma โดยไต้หวันและญี่ปุ่นถือได้คนละสองที่นั่งสาธารณะ Alpha ต้องมีทั้งชุมชนและแรงกดดันเกิน ${PUBLIC_TIER_RULES.alphaMinCommunity} ยุโรปได้ ${PUBLIC_TIER_RULES.maxEuropeInAlpha} ที่นั่งใน Alpha โอเชียเนีย ${PUBLIC_TIER_RULES.maxOceaniaInAlpha} เกาหลีใต้ ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha} ญี่ปุ่น ${PUBLIC_TIER_RULES.maxJapanInAlpha} ${(PUBLIC_TIER_RULES.alphaCountryExclusions ?? []).join(", ")} ถูกกันออกจาก Alpha ตามประเทศ และ ${(PUBLIC_TIER_RULES.alphaCityExclusions ?? []).join(", ") || "ไม่มีเมืองยกเว้น"} ถูกกันตามกฎบรรณาธิการเรื่องค่าครองชีพของผู้อยู่อาศัยมัธยฐาน`,
+              `Alpha、Beta、Gamma 三层原则上每国一城，台湾与日本各可占两个公开席位。Alpha 要求 Community 与 Pressure 都高于 ${PUBLIC_TIER_RULES.alphaMinCommunity}；欧洲在 Alpha 有 ${PUBLIC_TIER_RULES.maxEuropeInAlpha} 席，大洋洲 ${PUBLIC_TIER_RULES.maxOceaniaInAlpha} 席，韩国 ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha} 席，日本 ${PUBLIC_TIER_RULES.maxJapanInAlpha} 席；${(PUBLIC_TIER_RULES.alphaCountryExclusions ?? []).join(", ")} 按国家排除 Alpha，${(PUBLIC_TIER_RULES.alphaCityExclusions ?? []).join(", ") || "无城市排除"} 按编辑可负担规则排除 Alpha。`,
+            )}
+          </p>
         </div>
         <div className="v3-alpha-grid section">
-          {results.slice(0, 10).map((city, idx) => (
+          {tieredResults.alpha.map((city) => (
               <a
                 key={city.cityId}
                 className="v3-city-card"
                 href={appHref(`/city/${city.cityId}`)}
                 onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
+                title={city.computedTierReason ?? city.tierReason ?? undefined}
                 style={{ "--city-accent": PILLAR_COLORS[leadPillarForCity(city)] } as CSSProperties}
               >
               <span className="v3-city-card-meta">
-                <span className="v3-city-card-rank">#{String(idx + 1).padStart(2, "0")}</span>
+                <span className="v3-city-card-rank">#{String(city.rank).padStart(2, "0")}</span>
                 <span>{t(locale, "Published board", "บอร์ดที่เผยแพร่", "已发布榜单")}</span>
               </span>
               <div className="v3-city-card-topline">
@@ -539,17 +581,26 @@ export default function HomePage({
       </section>
 
       <section className="section v3-lower-tiers">
+        <p className="v3-lower-tier-lede">
+          {t(
+            locale,
+            "Beta and Gamma are a separate public tier overlay, not simple rank bands. Cities can cascade here when Alpha caps bind, when a compatriot already took a public slot, or when Beta's stricter liveability floor rejects them.",
+            "Beta และ Gamma เป็นชั้นเผยแพร่แยกต่างหาก ไม่ใช่เพียงช่วงอันดับ เมืองอาจไหลลงมาเมื่อเพดาน Alpha ทำงาน เมื่อเมืองร่วมชาติยึดสล็อตสาธารณะไปแล้ว หรือเมื่อเกณฑ์ความน่าอยู่ที่เข้มขึ้นของ Beta ไม่ผ่าน",
+            "Beta 与 Gamma 是独立的公开分层，不是简单的名次区间。城市会因 Alpha 上限、同国城市已占公开席位，或 Beta 更严格的宜居底线而级联至此。",
+          )}
+        </p>
         <div className="v3-lower-tier-row">
           <span className="v3-tier-badge v3-tier-badge--beta">&beta; BETA</span>
           <div className="v3-lower-tier-cities">
-            {results.slice(10, 20).map((city, idx) => (
+            {tieredResults.beta.map((city) => (
               <a
                 key={city.cityId}
                 className="v3-tier-chip"
                 href={appHref(`/city/${city.cityId}`)}
                 onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
+                title={city.computedTierReason ?? city.tierReason ?? undefined}
               >
-                <span className="v3-tier-chip-rank">#{idx + 11}</span>
+                <span className="v3-tier-chip-rank">#{city.rank}</span>
                 <span className="v3-tier-chip-body">
                   <strong>{city.displayName}</strong>
                   <span>{city.country}</span>
@@ -561,14 +612,15 @@ export default function HomePage({
         <div className="v3-lower-tier-row">
           <span className="v3-tier-badge v3-tier-badge--gamma">&gamma; GAMMA</span>
           <div className="v3-lower-tier-cities">
-            {results.slice(20, 30).map((city, idx) => (
+            {tieredResults.gamma.map((city) => (
               <a
                 key={city.cityId}
                 className="v3-tier-chip"
                 href={appHref(`/city/${city.cityId}`)}
                 onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
+                title={city.computedTierReason ?? city.tierReason ?? undefined}
               >
-                <span className="v3-tier-chip-rank">#{idx + 21}</span>
+                <span className="v3-tier-chip-rank">#{city.rank}</span>
                 <span className="v3-tier-chip-body">
                   <strong>{city.displayName}</strong>
                   <span>{city.country}</span>
