@@ -1,4 +1,4 @@
-import{p as P}from"./publishedRankingData-DraMoqJb.js";const f=P,Ge={issues:f.issues,updatedAt:f.updatedAt},I=`city_id,cohort,manifest_status,city_type,country,inclusion_rationale\r
+import{p as P}from"./publishedRankingData-cCJntznR.js";const f=P,Ge={issues:f.issues,updatedAt:f.updatedAt},I=`city_id,cohort,manifest_status,city_type,country,inclusion_rationale\r
 th-bangkok,Southeast Asia,locked,primary,Thailand,"User anchor and regional benchmark for hospitality, economic dynamism, and affordability-pressure tradeoffs."\r
 sg-singapore,Southeast Asia,locked,primary,Singapore,"Global convenience benchmark included to test how systems quality interacts with pressure, cost, and meaning."\r
 my-kuala-lumpur,Southeast Asia,locked,primary,Malaysia,"User anchor and regional economic core with strong competitiveness, connectivity, and mixed affordability."\r
@@ -191,7 +191,7 @@ in-kolkata,South Asia,provisional,primary,India,Eastern cultural capital with li
 in-ahmedabad,South Asia,provisional,primary,India,Gujarat commercial center with textile and pharma industries\r
 in-jaipur,South Asia,provisional,secondary,India,Pink City with tourism heritage and emerging IT sector\r
 in-kochi,South Asia,provisional,secondary,India,Kerala port city with spice trade heritage and backwaters\r
-gb-london,"Western, Northern, and Southern Europe",provisional,primary,United Kingdom,Global financial center with world-leading cultural institutions\r
+uk-london,"Western, Northern, and Southern Europe",provisional,primary,United Kingdom,Global financial center with world-leading cultural institutions\r
 gb-manchester,"Western, Northern, and Southern Europe",provisional,primary,United Kingdom,Northern powerhouse with media city and music heritage\r
 gb-birmingham,"Western, Northern, and Southern Europe",provisional,primary,United Kingdom,Second city with diverse economy and HS2 investment\r
 gb-edinburgh,"Western, Northern, and Southern Europe",provisional,primary,United Kingdom,Scottish capital with festival culture and financial services\r
