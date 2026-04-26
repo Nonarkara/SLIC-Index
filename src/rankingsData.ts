@@ -71,7 +71,7 @@ interface CityAccent {
   accentLabel: string;
 }
 
-type CityOverride = Omit<FullRankedCity, "globalRank" | "coreBoardEligible" | "scores"> & {
+type CityOverride = Omit<FullRankedCity, "globalRank" | "coreBoardEligible" | "scores" | "tierLabel" | "tierSlot"> & {
   scores: Pick<FullRankedCity["scores"], "pressure" | "viability" | "capability" | "community"> &
     Partial<Pick<FullRankedCity["scores"], "creative">>;
 };
@@ -2895,6 +2895,8 @@ function recalibrateCity(
 
   return {
     ...city,
+    tierLabel: null,
+    tierSlot: null,
     accentHex: accent.accentHex,
     accentSoftHex: accent.accentSoftHex,
     accentLabel: accent.accentLabel,
@@ -2995,6 +2997,15 @@ function buildPublishedGlobalRankings(): FullRankedCity[] {
     cities.push({
       ...scaffold,
       globalRank: publishedRow.rank,
+      tierLabel: publishedRow.tierLabel ?? null,
+      tierSlot: publishedRow.tierSlot ?? null,
+      tierReason: publishedRow.tierReason ?? null,
+      slicScoreExact: publishedRow.slicScoreExact ?? null,
+      pressureScoreExact: publishedRow.pressureScoreExact ?? null,
+      viabilityScoreExact: publishedRow.viabilityScoreExact ?? null,
+      capabilityScoreExact: publishedRow.capabilityScoreExact ?? null,
+      communityScoreExact: publishedRow.communityScoreExact ?? null,
+      creativeScoreExact: publishedRow.creativeScoreExact ?? null,
       coreBoardEligible: row.manifest_status === "locked",
       accentHex: accent.accentHex,
       accentSoftHex: accent.accentSoftHex,
@@ -3050,6 +3061,8 @@ function buildGlobalRankings(): FullRankedCity[] {
     .map((city, index) => ({
       ...city,
       globalRank: index + 1,
+      tierLabel: null,
+      tierSlot: null,
     }));
 }
 
@@ -3059,9 +3072,13 @@ void syntheticPreviewFactory;
 export const globalRankings: FullRankedCity[] =
   rankingPublication.cities.length > 0 ? buildPublishedGlobalRankings() : [];
 
-// Exercise should always search across the full indexed city universe,
-// not only the currently publishable public board.
-const exerciseCities: FullRankedCity[] = buildGlobalRankings();
+// Exercise must use the same data as the published rankings to ensure
+// every page (HomePage, RankingsPage, CompareRankingsPage, CityScorecardPage,
+// SideBySidePage) displays the SAME rank and score for every city.
+// Previously this used buildGlobalRankings() — a synthetic 353-city ranking
+// that produced different scores from publishedRankingData.json, causing
+// visible rank inconsistencies (e.g. Tallinn ranking differently per page).
+const exerciseCities: FullRankedCity[] = [...globalRankings];
 
 export type RankingScope = "core" | "field";
 
