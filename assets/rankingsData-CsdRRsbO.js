@@ -1,4 +1,4 @@
-import{p as P}from"./publishedRankingData-BB4sCOGH.js";const f=P,Ge={issues:f.issues,updatedAt:f.updatedAt},I=`city_id,cohort,manifest_status,city_type,country,inclusion_rationale\r
+import{p as P}from"./publishedRankingData-DraMoqJb.js";const f=P,Ge={issues:f.issues,updatedAt:f.updatedAt},I=`city_id,cohort,manifest_status,city_type,country,inclusion_rationale\r
 th-bangkok,Southeast Asia,locked,primary,Thailand,"User anchor and regional benchmark for hospitality, economic dynamism, and affordability-pressure tradeoffs."\r
 sg-singapore,Southeast Asia,locked,primary,Singapore,"Global convenience benchmark included to test how systems quality interacts with pressure, cost, and meaning."\r
 my-kuala-lumpur,Southeast Asia,locked,primary,Malaysia,"User anchor and regional economic core with strong competitiveness, connectivity, and mixed affordability."\r
