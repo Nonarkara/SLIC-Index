@@ -29,7 +29,9 @@ const CITY_CONTEXT = new Function("return " + ctxBody)();
 /* ── Load ranking data ── */
 const publishedData = JSON.parse(readFileSync(join(root, "src/data/publishedRankingData.json"), "utf8"));
 const allCities = publishedData.cities ?? [];
-const ranked = allCities.filter((c) => c.rankingStatus === "Ranked");
+const ranked = allCities
+  .filter((c) => c.rankingStatus === "Ranked")
+  .sort((a, b) => (a.rank ?? Infinity) - (b.rank ?? Infinity));
 
 /* ── Pillar distance for peer matching ── */
 const PILLARS = ["pressure", "viability", "capability", "community", "creative"];

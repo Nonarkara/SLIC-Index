@@ -532,92 +532,92 @@ export const SLIC_DIFFERENCE = [
 /* ── Editorial notes for echo-chamber cities ──
    Keyed by lowercase city name.
    Each note calls out 1–2 specific SLIC dimensions where the city underperforms,
-   grounded in actual pillar scores where the city is in SLIC's 160-city dataset.
+   grounded in actual pillar scores where the city is in SLIC's 163-city dataset.
 */
 export interface EchoChamberNote {
   en: string;
   th: string;
   zh: string;
-  slicRank?: number; // omit if city is outside SLIC's current 160-city coverage
+  slicRank?: number; // omit if city is outside SLIC's current 163-city coverage
 }
 
 export const ECHO_CHAMBER_NOTES: Record<string, EchoChamberNote> = {
   singapore: {
-    slicRank: 3,
-    en: "SLIC tied #3 (with Montreal) under AMPI. Capability 94.1 is the highest in the dataset (healthcare, education, digital governance); Creative 73.3 and Viability 87.4 also top-tier. The limit is Community 47.8 — restricted civic freedoms and tolerance scores well below wealth peers. Even with that drag, structural strength across four of five pillars puts Singapore in the top five.",
-    th: "SLIC อันดับ #3 (เสมอกับ Montreal) ภายใต้ AMPI ศักยภาพ 94.1 สูงสุดในชุดข้อมูล (ระบบสุขภาพ การศึกษา ธรรมาภิบาลดิจิทัล) ความสร้างสรรค์ 73.3 และความน่าอยู่ 87.4 ก็ระดับสูง สิ่งที่จำกัดคือชุมชน 47.8 — เสรีภาพพลเมืองและความอดกลั้นต่ำกว่าคู่เทียบ แม้มีตัวถ่วงนี้ ความแข็งแกร่งเชิงโครงสร้างก็ส่งสิงคโปร์เข้า top 5",
-    zh: "AMPI 下 SLIC 并列第 3（与蒙特利尔）。能力支柱 94.1 是全数据集最高；创意 73.3 与宜居 87.4 亦属顶级。拖累是社区支柱 47.8 ——公民自由与包容性远低于同等财富水平的城市。即便如此，四柱强势让新加坡稳居前五。",
+    slicRank: 19,
+    en: "SLIC #19 under AMPI. Capability 94.1 is the highest in the dataset (healthcare, education, digital governance); Creative 73.3 and Viability 87.4 also top-tier. The limit is Community 38.8 — restricted civic freedoms and tolerance scores well below wealth peers. Structural strength across four of five pillars keeps Singapore in the top 20, but the community penalty is what separates it from the Taiwanese and Canadian cities at the very top.",
+    th: "SLIC อันดับ #19 ภายใต้ AMPI ศักยภาพ 94.1 สูงสุดในชุดข้อมูล (ระบบสุขภาพ การศึกษา ธรรมาภิบาลดิจิทัล) ความสร้างสรรค์ 73.3 และความน่าอยู่ 87.4 ก็ระดับสูง สิ่งที่จำกัดคือชุมชน 38.8 — เสรีภาพพลเมืองและความอดกลั้นต่ำกว่าคู่เทียบ ความแข็งแกร่งเชิงโครงสร้างของสี่เสาทำให้สิงคโปร์อยู่ใน top 20 แต่บทลงโทษด้านชุมชนคือสิ่งที่แยกสิงคโปร์ออกจากเมืองไต้หวันและแคนาดาที่อยู่ยอดสุด",
+    zh: "AMPI 下 SLIC 第 19 名。能力支柱 94.1 是全数据集最高；创意 73.3 与宜居 87.4 亦属顶级。拖累是社区支柱 38.8 ——公民自由与包容性远低于同等财富水平的城市。四柱强势让新加坡稳居前 20，但社区扣分正是将其与台湾、加拿大城市拉开差距的原因。",
   },
   zurich: {
-    slicRank: 37,
-    en: "SLIC #37 under AMPI. Viability 97.6 is near-perfect (safety, air, water, digital), Community 72.8 solid. But Growth 33.7 — disposable income after Swiss rents, graduate housing burden — and Creative 49.4 create enough variance that AMPI pulls the overall down. Zurich scores the way Zurich actually is: immaculate, moderately dynamic, crushingly expensive.",
-    th: "SLIC อันดับ #37 ภายใต้ AMPI ความน่าอยู่ 97.6 ใกล้สมบูรณ์แบบ ชุมชน 72.8 ดี แต่ Growth 33.7 — รายได้คงเหลือหลังค่าเช่าสวิส ภาระที่อยู่อาศัย — และ Creative 49.4 สร้างความแปรปรวนจน AMPI ฉุดคะแนนรวมลง",
-    zh: "AMPI 下 SLIC 第 37 名。宜居 97.6 接近完美，社区 72.8 稳健。但增长 33.7（瑞士房租后的可支配收入、毕业生住房负担）与创意 49.4 制造的方差足以令 AMPI 拉低总分。苏黎世得分如实：无可挑剔、中等活力、贵得令人窒息。",
+    slicRank: 29,
+    en: "SLIC #29 under AMPI. Viability 97.6 is near-perfect (safety, air, water, digital), Community 76.0 solid. But Growth 39.1 — disposable income after Swiss rents, graduate housing burden — and Creative 49.4 create enough variance that AMPI pulls the overall down. Zurich scores the way Zurich actually is: immaculate, moderately dynamic, crushingly expensive.",
+    th: "SLIC อันดับ #29 ภายใต้ AMPI ความน่าอยู่ 97.6 ใกล้สมบูรณ์แบบ ชุมชน 76.0 ดี แต่ Growth 39.1 — รายได้คงเหลือหลังค่าเช่าสวิส ภาระที่อยู่อาศัย — และ Creative 49.4 สร้างความแปรปรวนจน AMPI ฉุดคะแนนรวมลง",
+    zh: "AMPI 下 SLIC 第 29 名。宜居 97.6 接近完美，社区 76.0 稳健。但增长 39.1（瑞士房租后的可支配收入、毕业生住房负担）与创意 49.4 制造的方差足以令 AMPI 拉低总分。苏黎世得分如实：无可挑剔、中等活力、贵得令人窒息。",
   },
   copenhagen: {
-    slicRank: 33,
-    en: "SLIC #33 under AMPI. Community 89.3 is the dataset's strongest social-cohesion signal (tolerance, gender equality, social trust). Viability 97.9 matches Paris and Amsterdam at the top of the scale. But Growth 26.0 — Copenhagen's housing costs have risen sharply over the past decade — pulls AMPI down meaningfully.",
-    th: "SLIC อันดับ #33 ภายใต้ AMPI ชุมชน 89.3 เป็นสัญญาณความสามัคคีทางสังคมที่แรงที่สุดในชุดข้อมูล ความน่าอยู่ 97.9 อยู่ระดับยอดเท่ากับ Paris และ Amsterdam แต่ Growth 26.0 — ค่าเช่าโคเปนเฮเกนเพิ่มขึ้นมากในทศวรรษที่ผ่านมา — ฉุด AMPI ลงอย่างมีนัย",
-    zh: "AMPI 下 SLIC 第 33 名。社区 89.3 是整个数据集最强的社会凝聚信号。宜居 97.9 与巴黎、阿姆斯特丹并列榜首。但增长 26.0 ——哥本哈根过去十年房价大涨——明显拉低了 AMPI。",
+    slicRank: 20,
+    en: "SLIC #20 under AMPI. Community 89.6 is the dataset's strongest social-cohesion signal (tolerance, gender equality, social trust). Viability 97.9 matches Paris and Amsterdam at the top of the scale. But Growth 33.1 — Copenhagen's housing costs have risen sharply over the past decade — keeps the AMPI penalty live. Even with that drag, the strongest community signal in the index pulls Copenhagen into the top 20.",
+    th: "SLIC อันดับ #20 ภายใต้ AMPI ชุมชน 89.6 เป็นสัญญาณความสามัคคีทางสังคมที่แรงที่สุดในชุดข้อมูล ความน่าอยู่ 97.9 อยู่ระดับยอดเท่ากับ Paris และ Amsterdam แต่ Growth 33.1 — ค่าเช่าโคเปนเฮเกนเพิ่มขึ้นมากในทศวรรษที่ผ่านมา — ทำให้ AMPI ลงโทษ แม้มีตัวถ่วงนี้ สัญญาณชุมชนที่แรงที่สุดในดัชนีก็ดึงโคเปนเฮเกนเข้า top 20",
+    zh: "AMPI 下 SLIC 第 20 名。社区 89.6 是整个数据集最强的社会凝聚信号。宜居 97.9 与巴黎、阿姆斯特丹并列榜首。但增长 33.1 ——哥本哈根过去十年房价大涨——令 AMPI 持续扣分。即便如此，全数据集最强的社区信号将哥本哈根拉入前 20。",
   },
   sydney: {
-    slicRank: 20,
-    en: "SLIC #20 under AMPI, after a data-quality correction that updated Sydney's median-resident disposable income to city-specific figures (previously under-penalised a wholly national salary figure). Viability 89.5 and Capability 87.1 are genuinely strong; Creative 63.9 solid. Growth 37.7 remains Sydney's drag — world-class rent-to-income crisis still visible — but less punishing than the earlier data suggested.",
-    th: "SLIC อันดับ #20 ภายใต้ AMPI หลังปรับข้อมูลรายได้คงเหลือผู้อยู่อาศัยมัธยฐานให้เป็นตัวเลขเฉพาะเมือง (เดิมใช้ตัวเลขเงินเดือนแห่งชาติ) ความน่าอยู่ 89.5 และศักยภาพ 87.1 แข็งจริง ความสร้างสรรค์ 63.9 ดี Growth 37.7 ยังเป็นตัวถ่วง — วิกฤตค่าเช่ายังเห็นชัด",
-    zh: "AMPI 下 SLIC 第 20 名（此前因中位居民可支配收入数据修正）。宜居 89.5 与能力 87.1 强劲，创意 63.9 稳健。增长 37.7 仍是拖累——全球最严峻的租金收入比危机依然可见——但不如此前数据暗示的那般严酷。",
+    slicRank: 54,
+    en: "SLIC #54 under AMPI. Viability 89.5 and Capability 87.1 are genuinely strong; Creative 63.9 solid. But Growth 27.8 — Sydney's world-class rent-to-income crisis — pulls AMPI hard. The pillar variance from Growth (27.8) to Capability (87.1) is exactly what AMPI penalises, and is what separates Sydney from Australian peer Perth despite very similar liveability and capability.",
+    th: "SLIC อันดับ #54 ภายใต้ AMPI ความน่าอยู่ 89.5 และศักยภาพ 87.1 แข็งจริง ความสร้างสรรค์ 63.9 ดี แต่ Growth 27.8 — วิกฤตค่าเช่าระดับโลกของซิดนีย์ — ดึง AMPI ลงแรง ความแปรปรวนระหว่าง Growth (27.8) ถึง Capability (87.1) คือสิ่งที่ AMPI ลงโทษ และคือเหตุผลที่ซิดนีย์ห่างจากเพิร์ธคู่เทียบออสเตรเลียทั้งที่ค่า liveability และ capability ใกล้เคียงกัน",
+    zh: "AMPI 下 SLIC 第 54 名。宜居 89.5 与能力 87.1 强劲，创意 63.9 稳健。但增长 27.8 ——悉尼世界级的租金收入比危机——重压 AMPI。从增长 (27.8) 到能力 (87.1) 的支柱方差正是 AMPI 所惩罚的，也是悉尼与澳洲同伴珀斯尽管宜居与能力相近、却被拉开差距的原因。",
   },
   vienna: {
-    slicRank: 36,
-    en: "SLIC #36 under AMPI. Viability 87.1, Capability 74.4, Community 70.7 — Vienna is consistently solid on the classic liveability frame. Creative 41.4 is the drag: Vienna's cultural reputation rests on historical capital more than current output, and the startup ecosystem is modest. AMPI tolerates this moderate imbalance.",
-    th: "SLIC อันดับ #36 ภายใต้ AMPI เวียนนาแข็งสม่ำเสมอในกรอบความน่าอยู่คลาสสิก Creative 41.4 เป็นตัวถ่วง: ชื่อเสียงทางวัฒนธรรมพึ่งทุนประวัติศาสตร์มากกว่าผลผลิตปัจจุบัน",
-    zh: "AMPI 下 SLIC 第 36 名。维也纳在经典宜居框架中各项稳健。创意 41.4 是拖累：文化声誉依赖历史积淀而非当下产出，创业生态规模有限。",
+    slicRank: 35,
+    en: "SLIC #35 under AMPI. Viability 87.1, Capability 74.4, Community 71.1 — Vienna is consistently solid on the classic liveability frame. Creative 41.4 is the drag: Vienna's cultural reputation rests on historical capital more than current output, and the startup ecosystem is modest. AMPI tolerates this moderate imbalance.",
+    th: "SLIC อันดับ #35 ภายใต้ AMPI ความน่าอยู่ 87.1 ศักยภาพ 74.4 ชุมชน 71.1 — เวียนนาแข็งสม่ำเสมอในกรอบความน่าอยู่คลาสสิก Creative 41.4 เป็นตัวถ่วง: ชื่อเสียงทางวัฒนธรรมพึ่งทุนประวัติศาสตร์มากกว่าผลผลิตปัจจุบัน",
+    zh: "AMPI 下 SLIC 第 35 名。宜居 87.1、能力 74.4、社区 71.1 ——维也纳在经典宜居框架中各项稳健。创意 41.4 是拖累：文化声誉依赖历史积淀而非当下产出，创业生态规模有限。",
   },
   amsterdam: {
-    slicRank: 57,
-    en: "SLIC #57 under AMPI. Viability 97.6 is near-perfect, but Growth 31.4 and Creative 42.8 create pillar variance that AMPI penalises meaningfully. Tolerance indicators remain good but declining as housing pressure and migration tensions bite. Amsterdam under AMPI is no longer a top-40 city.",
-    th: "SLIC อันดับ #57 ภายใต้ AMPI ความน่าอยู่ 97.6 ใกล้สมบูรณ์แบบ แต่ Growth 31.4 และ Creative 42.8 สร้างความแปรปรวนที่ AMPI ลงโทษ",
-    zh: "AMPI 下 SLIC 第 57 名。宜居 97.6 接近完美，但增长 31.4 与创意 42.8 制造的方差被 AMPI 明显惩罚。包容性尚好但在住房与移民压力下下滑。在 AMPI 下阿姆斯特丹已不再是前 40 的城市。",
+    slicRank: 58,
+    en: "SLIC #58 under AMPI. Viability 97.6 is near-perfect, but Growth 37.6 and Creative 42.8 create pillar variance that AMPI penalises meaningfully. Tolerance indicators remain good but declining as housing pressure and migration tensions bite. Amsterdam under AMPI is no longer a top-40 city.",
+    th: "SLIC อันดับ #58 ภายใต้ AMPI ความน่าอยู่ 97.6 ใกล้สมบูรณ์แบบ แต่ Growth 37.6 และ Creative 42.8 สร้างความแปรปรวนที่ AMPI ลงโทษ",
+    zh: "AMPI 下 SLIC 第 58 名。宜居 97.6 接近完美，但增长 37.6 与创意 42.8 制造的方差被 AMPI 明显惩罚。包容性尚好但在住房与移民压力下下滑。在 AMPI 下阿姆斯特丹已不再是前 40 的城市。",
   },
   paris: {
-    slicRank: 69,
-    en: "SLIC #69 under AMPI. Viability 97.9 and Community 72.0 are excellent. Growth 23.1 is among the lowest of any G7 capital — housing burden, median-resident income negative after central rent, working-time pressure at the professional tier. AMPI punishes the extreme outlier: Paris cannot compensate for its affordability catastrophe with Viability and culture.",
-    th: "SLIC อันดับ #69 ภายใต้ AMPI ความน่าอยู่ 97.9 และชุมชน 72.0 ยอดเยี่ยม Growth 23.1 ต่ำสุดในบรรดาเมืองหลวง G7 — ภาระค่าเช่า รายได้มัธยฐานติดลบ ชั่วโมงทำงานระดับวิชาชีพ AMPI ลงโทษค่าผิดปกติสุดขั้ว",
-    zh: "AMPI 下 SLIC 第 69 名。宜居 97.9 与社区 72.0 出色。增长 23.1 是 G7 首都中最低之列——住房负担、中位居民可支配收入为负、职场工时压力。AMPI 惩罚极端离群值：巴黎无法用宜居与文化补偿其可负担性灾难。",
+    slicRank: 71,
+    en: "SLIC #71 under AMPI. Viability 97.9 and Community 69.2 are excellent. Growth 27.7 is among the lowest of any G7 capital — housing burden, median-resident income negative after central rent, working-time pressure at the professional tier. AMPI punishes the extreme outlier: Paris cannot compensate for its affordability catastrophe with Viability and culture.",
+    th: "SLIC อันดับ #71 ภายใต้ AMPI ความน่าอยู่ 97.9 และชุมชน 69.2 ยอดเยี่ยม Growth 27.7 ต่ำสุดในบรรดาเมืองหลวง G7 — ภาระค่าเช่า รายได้มัธยฐานติดลบ ชั่วโมงทำงานระดับวิชาชีพ AMPI ลงโทษค่าผิดปกติสุดขั้ว",
+    zh: "AMPI 下 SLIC 第 71 名。宜居 97.9 与社区 69.2 出色。增长 27.7 是 G7 首都中最低之列——住房负担、中位居民可支配收入为负、职场工时压力。AMPI 惩罚极端离群值：巴黎无法用宜居与文化补偿其可负担性灾难。",
   },
   auckland: {
-    slicRank: 52,
-    en: "SLIC #52 under AMPI — dropped meaningfully once the NZ data-quality pass corrected working-hours figures that were sitting at the global minimum (33h/wk → 37.5h/wk, Stats NZ actual). Viability 92.6 remains strong, but Growth 26.0 and Community 58.4 create variance that AMPI penalises. Auckland's housing-cost crisis compounds with a now-honest weekly-hours signal.",
-    th: "SLIC อันดับ #52 ภายใต้ AMPI — ตกลงมามากหลังแก้ข้อมูลชั่วโมงทำงาน NZ ที่ติด p05 (33→37.5 ตาม Stats NZ) ความน่าอยู่ 92.6 ยังแข็ง แต่ Growth 26.0 และ Community 58.4 สร้างความแปรปรวนที่ AMPI ลงโทษ",
-    zh: "AMPI 下 SLIC 第 52 名——在 NZ 数据质量修正后大幅下滑（工时数据从触底的 33 更正为 Stats NZ 实际的 37.5）。宜居 92.6 仍强，但增长 26.0 与社区 58.4 造成的方差受到 AMPI 惩罚。奥克兰的房价危机叠加诚实的工时信号。",
+    slicRank: 55,
+    en: "SLIC #55 under AMPI. Viability 92.6 remains strong and Capability 85.7 is genuinely high, but Growth 32.4 and Community 57.2 create the variance that AMPI penalises. Auckland's housing-cost crisis combines with working-hours pressure to drag the overall composite below cities with more even pillar profiles.",
+    th: "SLIC อันดับ #55 ภายใต้ AMPI ความน่าอยู่ 92.6 ยังแข็งและศักยภาพ 85.7 สูงจริง แต่ Growth 32.4 และ Community 57.2 สร้างความแปรปรวนที่ AMPI ลงโทษ ค่าเช่าและชั่วโมงทำงานในโอ๊กแลนด์ฉุดคะแนนรวมให้ต่ำกว่าเมืองที่มีโปรไฟล์เสาสมดุลกว่า",
+    zh: "AMPI 下 SLIC 第 55 名。宜居 92.6 仍强、能力 85.7 确实高，但增长 32.4 与社区 57.2 造成的方差受到 AMPI 惩罚。奥克兰房价危机叠加工时压力，将合成分拉低于支柱剖面更均衡的城市。",
   },
   // ── Global reference cities now in SLIC (added April 2026) ────────────────
   london: {
-    slicRank: 32,
-    en: "SLIC #32 under AMPI. The weighted mean of London's pillars is 65 — which would have placed it top-20 in a conventional index. AMPI's imbalance penalty drops it to 56.1 because Growth at 30.1 is so far below the other four pillars (60–78 range). For the median Londoner, central rent wipes out net salary before other essentials. London trades like a museum that's expensive to live inside.",
-    th: "SLIC อันดับ #32 ภายใต้ AMPI ค่าเฉลี่ยถ่วงน้ำหนักของเสาลอนดอนอยู่ที่ 65 ซึ่งจะจัดอยู่ใน top-20 ของดัชนีทั่วไป แต่การลงโทษความไม่สมดุลของ AMPI ฉุดลงเป็น 56.1 เพราะ Growth ที่ 30.1 ต่ำกว่าเสาอื่น (60–78) มาก สำหรับคนลอนดอนทั่วไป ค่าเช่าใจกลางกินเงินเดือนสุทธิก่อนค่าใช้จ่ายอื่น ลอนดอนคือพิพิธภัณฑ์ที่แพงเหลือเกินถ้าอยากอยู่ข้างใน",
-    zh: "AMPI 下 SLIC 第 32 名。伦敦五支柱的加权均值是 65 ——常规指数中这将置其于前 20。但 AMPI 的失衡惩罚将其拉至 56.1，因为增长支柱 30.1 远低于其他四柱（60–78）。对典型伦敦人而言，市中心房租在扣除其他必需开销前便吞没净薪。伦敦像一座住进去极为昂贵的博物馆。",
+    slicRank: 30,
+    en: "SLIC #30 under AMPI with score 58.2. The weighted mean of London's other four pillars sits in the 59–83 range — a profile that would place it well inside the top-20 of any conventional index. AMPI's imbalance penalty is what drops it, because Growth at 35.1 is so far below those other pillars. For the median Londoner, central rent wipes out net salary before other essentials. London trades like a museum that's expensive to live inside.",
+    th: "SLIC อันดับ #30 ภายใต้ AMPI คะแนน 58.2 ค่าเฉลี่ยของอีกสี่เสาลอนดอนอยู่ในช่วง 59–83 — โปรไฟล์ที่จะจัดอยู่ใน top-20 ของดัชนีทั่วไป แต่การลงโทษความไม่สมดุลของ AMPI ฉุดลง เพราะ Growth ที่ 35.1 ต่ำกว่าเสาอื่นมาก สำหรับคนลอนดอนทั่วไป ค่าเช่าใจกลางกินเงินเดือนสุทธิก่อนค่าใช้จ่ายอื่น ลอนดอนคือพิพิธภัณฑ์ที่แพงเหลือเกินถ้าอยากอยู่ข้างใน",
+    zh: "AMPI 下 SLIC 第 30 名，得分 58.2。伦敦另外四根支柱位于 59–83 区间——常规指数中这种剖面会稳居前 20。但 AMPI 的失衡惩罚将其压低，因为增长支柱 35.1 远低于其他支柱。对典型伦敦人而言，市中心房租在扣除其他必需开销前便吞没净薪。伦敦像一座住进去极为昂贵的博物馆。",
   },
   "new york": {
-    slicRank: 30,
-    en: "SLIC #30 under AMPI. Weighted-mean tells you NYC sits at 69 across five pillars — an apex city. AMPI tells you the weighted mean lies: Growth at 23.9 is such a catastrophic outlier against Capability 82 and Creative 75 that the overall score drops to 56.2. NYC still clears top-40, because its extraordinary pillars are genuine — but the city most mainstream indices rank top-5 is, under honest pillar-imbalance scoring, a middle-of-the-pack city for the median resident.",
-    th: "AMPI ทำให้ SLIC ของ NYC อยู่อันดับ #30 ค่าเฉลี่ยถ่วงน้ำหนัก 69 จากห้าเสา — เมืองระดับยอด แต่ AMPI บอกว่าค่าเฉลี่ยโกหก: Growth 23.9 เป็นค่าผิดปกติรุนแรงเทียบกับ Capability 82 และ Creative 75 จนคะแนนรวมตกที่ 56.2 NYC ยังติด top-40 เพราะเสาที่แข็งของมันจริง แต่เมืองที่ดัชนีกระแสหลักจัดไว้ top-5 — เมื่อให้คะแนนความไม่สมดุลอย่างตรงไปตรงมา — คือเมืองระดับกลางสำหรับผู้อยู่อาศัยมัธยฐาน",
-    zh: "AMPI 下 SLIC 第 30 名。加权均值告诉你纽约五支柱为 69 ——顶级城市。但 AMPI 揭穿了这个均值：增长 23.9 相对于能力 82 与创意 75 是灾难性的离群值，令总分降至 56.2。纽约仍居前 40 之列，因为它卓越的支柱是真实的——但主流指数排进前 5 的这座城市，在诚实衡量支柱失衡时，对中位数居民而言只是中游城市。",
+    slicRank: 38,
+    en: "SLIC #38 under AMPI with score 57.7. Weighted-mean tells you NYC's four strong pillars sit between 68 and 85 — an apex profile. AMPI tells you the weighted mean lies: Growth at 27.1 is such a catastrophic outlier against Capability 82 and Creative 75.3 that the overall score drops materially. NYC still clears top-40, because its extraordinary pillars are genuine — but the city most mainstream indices rank top-5 is, under honest pillar-imbalance scoring, a middle-of-the-top-quartile city for the median resident.",
+    th: "AMPI ทำให้ SLIC ของ NYC อยู่อันดับ #38 คะแนน 57.7 ค่าเฉลี่ยถ่วงน้ำหนักของสี่เสาที่แข็งอยู่ระหว่าง 68–85 — โปรไฟล์ระดับยอด แต่ AMPI บอกว่าค่าเฉลี่ยโกหก: Growth 27.1 เป็นค่าผิดปกติรุนแรงเทียบกับ Capability 82 และ Creative 75.3 จนคะแนนรวมตกลงมาก NYC ยังติด top-40 เพราะเสาที่แข็งของมันจริง แต่เมืองที่ดัชนีกระแสหลักจัดไว้ top-5 — เมื่อให้คะแนนความไม่สมดุลอย่างตรงไปตรงมา — คือเมืองระดับกลางของ top-quartile สำหรับผู้อยู่อาศัยมัธยฐาน",
+    zh: "AMPI 下 SLIC 第 38 名，得分 57.7。加权均值告诉你纽约的四根强支柱位于 68–85 ——顶级剖面。但 AMPI 揭穿了这个均值：增长 27.1 相对于能力 82 与创意 75.3 是灾难性的离群值，令总分明显下降。纽约仍居前 40 之列，因为它卓越的支柱是真实的——但主流指数排进前 5 的这座城市，在诚实衡量支柱失衡时，对中位数居民而言只是顶四分之一中游的城市。",
   },
   tokyo: {
-    slicRank: 48,
-    en: "SLIC #48 under AMPI. Tokyo's Viability 94.2 is the highest of any top-60 city (homicide 0.25/100k, clean air, safe streets), but four pillars ranging 40–94 create high variance. The AMPI penalty lands Tokyo at 53.3. Growth 39.7 (long hours, severe suicide rate, moderate household debt) and Community 51.6 (restrictive LGBTQ+ legal environment) are the drag. Safer than New York; poorer for the median resident than Seoul or Fukuoka.",
-    th: "SLIC อันดับ #48 ภายใต้ AMPI ความน่าอยู่ของโตเกียว 94.2 สูงสุดในกลุ่ม top-60 (ฆาตกรรม 0.25/100k อากาศสะอาด ถนนปลอดภัย) แต่เสาสี่ตัวอื่นอยู่ในช่วง 40–94 สร้างความแปรปรวนสูง AMPI ทำให้ได้ 53.3 Growth 39.7 (ชั่วโมงยาว ฆ่าตัวตายสูง หนี้ครัวเรือนปานกลาง) และ Community 51.6 (กรอบกฎหมาย LGBTQ+ จำกัด) เป็นตัวถ่วง ปลอดภัยกว่านิวยอร์ก จนกว่าผู้อยู่อาศัยมัธยฐานของโซลหรือฟุกุโอกะ",
-    zh: "AMPI 下 SLIC 第 48 名。东京宜居支柱 94.2 是前 60 名最高（凶杀 0.25/10万、空气清洁、街道安全），但四根其他支柱跨度 40–94 产生高方差。AMPI 惩罚后得分为 53.3。增长 39.7（长工时、自杀率高、家庭债务中等）与社区 51.6（LGBTQ+ 法律环境受限）是拖累项。比纽约更安全；对中位居民而言不如首尔或福冈。",
+    slicRank: 22,
+    en: "SLIC #22 under AMPI with score 59.5. Tokyo's Viability 94.2 is among the highest of any top-30 city (homicide 0.25/100k, clean air, safe streets), Capability 76.8 is strong, and Community 70.2 is solid. Variance still bites — Growth 46.2 (long hours, household debt) and Creative 44.2 (modest startup density) are below the others — but the four supporting pillars are even enough that AMPI keeps Tokyo well inside the top quartile. Safer and more balanced than New York or Paris; behind only the Taiwanese cities and Seoul among Asian peers.",
+    th: "SLIC อันดับ #22 ภายใต้ AMPI คะแนน 59.5 ความน่าอยู่ของโตเกียว 94.2 อยู่ในกลุ่มสูงสุดของ top-30 (ฆาตกรรม 0.25/100k อากาศสะอาด ถนนปลอดภัย) ศักยภาพ 76.8 แข็ง และชุมชน 70.2 มั่นคง ยังมีความแปรปรวน — Growth 46.2 (ชั่วโมงยาว หนี้ครัวเรือน) และ Creative 44.2 (ความหนาแน่นสตาร์ทอัพปานกลาง) ต่ำกว่าเสาอื่น — แต่สี่เสาสนับสนุนสมดุลพอที่ AMPI ทำให้โตเกียวอยู่ใน top-quartile อย่างมั่นคง ปลอดภัยและสมดุลกว่านิวยอร์กหรือปารีส รองจากเฉพาะเมืองไต้หวันและโซลในกลุ่มเอเชีย",
+    zh: "AMPI 下 SLIC 第 22 名，得分 59.5。东京宜居支柱 94.2 是前 30 名最高之列（凶杀 0.25/10万、空气清洁、街道安全），能力 76.8 强，社区 70.2 稳健。方差仍存——增长 46.2（长工时、家庭债务）与创意 44.2（创业密度中等）低于其他——但四根支柱足够均衡，AMPI 让东京稳居前四分之一。比纽约或巴黎更安全、更平衡；在亚洲同行中仅次于台湾各城与首尔。",
   },
-  // Cities still outside SLIC's 160-city dataset
+  // Cities still outside SLIC's 163-city dataset
   barcelona: {
-    en: "Outside SLIC's current 160-city coverage. Tourism-driven rent inflation and working-time pressure above Northern European norms would be SLIC's primary concerns, alongside documented deterioration in housing affordability.",
-    th: "บาร์เซโลนาอยู่นอกชุดข้อมูล 160 เมืองของ SLIC ปัจจุบัน ค่าเช่าที่พุ่งจากการท่องเที่ยวและชั่วโมงทำงานที่สูงกว่าค่าเฉลี่ยยุโรปเหนือจะเป็นปัญหาหลัก",
-    zh: "巴塞罗那目前不在SLIC的160座城市数据集中。旅游驱动的租金上涨、高于北欧规范的工时压力，以及有据可查的住房可负担性恶化，将是SLIC关注的首要问题。",
+    en: "Outside SLIC's current 163-city coverage. Tourism-driven rent inflation and working-time pressure above Northern European norms would be SLIC's primary concerns, alongside documented deterioration in housing affordability.",
+    th: "บาร์เซโลนาอยู่นอกชุดข้อมูล 163 เมืองของ SLIC ปัจจุบัน ค่าเช่าที่พุ่งจากการท่องเที่ยวและชั่วโมงทำงานที่สูงกว่าค่าเฉลี่ยยุโรปเหนือจะเป็นปัญหาหลัก",
+    zh: "巴塞罗那目前不在SLIC的163座城市数据集中。旅游驱动的租金上涨、高于北欧规范的工时压力，以及有据可查的住房可负担性恶化，将是SLIC关注的首要问题。",
   },
   madrid: {
-    en: "Outside SLIC's current 160-city coverage. Worsening housing affordability in recent years and documented working-time culture exceeding Northern European norms are the two likeliest SLIC pressure points.",
-    th: "มาดริดอยู่นอกชุดข้อมูล 160 เมืองของ SLIC ปัจจุบัน การที่อยู่อาศัยแย่ลงในช่วงหลัง และวัฒนธรรมการทำงานยาวนานกว่ายุโรปเหนือจะเป็นปัจจัยกดคะแนน",
-    zh: "马德里目前不在SLIC的160座城市数据集中。近年来住房可负担性持续恶化，以及高于北欧规范的工时文化，是SLIC最可能重点扣分的两项因素。",
+    en: "Outside SLIC's current 163-city coverage. Worsening housing affordability in recent years and documented working-time culture exceeding Northern European norms are the two likeliest SLIC pressure points.",
+    th: "มาดริดอยู่นอกชุดข้อมูล 163 เมืองของ SLIC ปัจจุบัน การที่อยู่อาศัยแย่ลงในช่วงหลัง และวัฒนธรรมการทำงานยาวนานกว่ายุโรปเหนือจะเป็นปัจจัยกดคะแนน",
+    zh: "马德里目前不在SLIC的163座城市数据集中。近年来住房可负担性持续恶化，以及高于北欧规范的工时文化，是SLIC最可能重点扣分的两项因素。",
   },
 };

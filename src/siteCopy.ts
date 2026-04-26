@@ -30,7 +30,7 @@ export const siteCopy = {
       coreBoard: "Screened board",
       extendedField: "candidate field",
       liveStatus: "Published ranking live",
-      liveScope: "160 published cities / five public pillars / verified workbook export",
+      liveScope: "163 published cities / five public pillars / verified workbook export",
       localTime: "Local time",
     },
     rankings: {
@@ -145,7 +145,7 @@ export const siteCopy = {
       coreBoard: "บอร์ดที่ผ่านเกณฑ์",
       extendedField: "ชุดเมืองทั้งหมด",
       liveStatus: "กำลังจัดอันดับใหม่ด้วยข้อมูลที่ตรวจสอบได้",
-      liveScope: "160 เมืองที่เผยแพร่แล้ว / 5 เสาหลักสาธารณะ / การส่งออกเวิร์กบุ๊กที่ได้รับการยืนยัน",
+      liveScope: "163 เมืองที่เผยแพร่แล้ว / 5 เสาหลักสาธารณะ / การส่งออกเวิร์กบุ๊กที่ได้รับการยืนยัน",
       localTime: "เวลาท้องถิ่น",
     },
     rankings: {
@@ -260,7 +260,7 @@ export const siteCopy = {
       coreBoard: "筛选榜单",
       extendedField: "候选城市池",
       liveStatus: "已验证数据重排进行中",
-      liveScope: "160 座已发布城市 / 五个公开支柱 / 已验证的工作簿导出",
+      liveScope: "163 座已发布城市 / 五个公开支柱 / 已验证的工作簿导出",
       localTime: "当地时间",
     },
     rankings: {

@@ -3039,35 +3039,10 @@ function buildPublishedGlobalRankings(): FullRankedCity[] {
   });
 }
 
-function buildGlobalRankings(): FullRankedCity[] {
-  const cities = parsedCityUniverse.map((row) => recalibrateCity(cityScaffoldForRow(row), row));
-
-  return cities
-    .sort((left, right) => {
-      const scoreDelta = right.scores.slic - left.scores.slic;
-      if (scoreDelta !== 0) {
-        return scoreDelta;
-      }
-      const momentumDelta = right.delta - left.delta;
-      if (momentumDelta !== 0) {
-        return momentumDelta;
-      }
-      const communityDelta = right.scores.community - left.scores.community;
-      if (communityDelta !== 0) {
-        return communityDelta;
-      }
-      return left.id.localeCompare(right.id);
-    })
-    .map((city, index) => ({
-      ...city,
-      globalRank: index + 1,
-      tierLabel: null,
-      tierSlot: null,
-    }));
-}
-
-const syntheticPreviewFactory = buildGlobalRankings;
-void syntheticPreviewFactory;
+// NOTE: A previous synthetic-ranking factory (`buildGlobalRankings`) was deleted
+// because it produced ranks that diverged from publishedRankingData.json — that
+// is what caused city ranks to differ between pages (Tallinn, Perth, Bangkok all
+// jumped). The published JSON is now the single source of truth.
 
 export const globalRankings: FullRankedCity[] =
   rankingPublication.cities.length > 0 ? buildPublishedGlobalRankings() : [];
