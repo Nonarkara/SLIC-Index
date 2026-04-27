@@ -20,7 +20,7 @@
     <text x="-12" y="380" font-family="Libre Baskerville, Georgia, serif" font-style="italic" font-size="284" fill="#1c1914" font-weight="400" letter-spacing="-4">SLIC V3</text>
 
     <!-- Sub-headline -->
-    <text x="0" y="500" font-family="Libre Baskerville, Georgia, serif" font-size="52" fill="#1c1914" fill-opacity="0.85" font-weight="400">157 cities. 5 pillars. 36 indicators.</text>
+    <text x="0" y="500" font-family="Libre Baskerville, Georgia, serif" font-size="52" fill="#1c1914" fill-opacity="0.85" font-weight="400">163 cities. 5 pillars. 20 scored metrics.</text>
     <text x="0" y="568" font-family="Libre Baskerville, Georgia, serif" font-style="italic" font-size="52" fill="#1c1914" fill-opacity="0.85" font-weight="400">No tier inflation.</text>
 
     <!-- Bottom hairline + wordmark -->
@@ -63,13 +63,13 @@
         <tspan fill="#1c1914" fill-opacity="0.45">07</tspan><tspan dx="32" font-weight="500">Jeju City</tspan><tspan fill="#1c1914" fill-opacity="0.55"> &#183; South Korea</tspan>
       </text>
       <text x="0" y="728" font-family="JetBrains Mono, ui-monospace, monospace" font-size="36" fill="#1c1914" letter-spacing="0">
-        <tspan fill="#1c1914" fill-opacity="0.45">08</tspan><tspan dx="32" font-weight="500">Perth</tspan><tspan fill="#1c1914" fill-opacity="0.55"> &#183; Australia</tspan>
+        <tspan fill="#1c1914" fill-opacity="0.45">08</tspan><tspan dx="32" font-weight="500">Valparaiso</tspan><tspan fill="#1c1914" fill-opacity="0.55"> &#183; Chile</tspan>
       </text>
       <text x="0" y="792" font-family="JetBrains Mono, ui-monospace, monospace" font-size="36" fill="#1c1914" letter-spacing="0">
-        <tspan fill="#1c1914" fill-opacity="0.45">09</tspan><tspan dx="32" font-weight="500">Valparaiso</tspan><tspan fill="#1c1914" fill-opacity="0.55"> &#183; Chile</tspan>
+        <tspan fill="#1c1914" fill-opacity="0.45">09</tspan><tspan dx="32" font-weight="500">Bangkok</tspan><tspan fill="#1c1914" fill-opacity="0.55"> &#183; Thailand</tspan>
       </text>
       <text x="0" y="856" font-family="JetBrains Mono, ui-monospace, monospace" font-size="36" fill="#1c1914" letter-spacing="0">
-        <tspan fill="#1c1914" fill-opacity="0.45">10</tspan><tspan dx="32" font-weight="500">Bangkok</tspan><tspan fill="#1c1914" fill-opacity="0.55"> &#183; Thailand</tspan>
+        <tspan fill="#1c1914" fill-opacity="0.45">10</tspan><tspan dx="32" font-weight="500">Fukuoka</tspan><tspan fill="#1c1914" fill-opacity="0.55"> &#183; Japan</tspan>
       </text>
     </g>
 
