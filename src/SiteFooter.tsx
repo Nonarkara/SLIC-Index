@@ -18,6 +18,8 @@ const footerEndnoteCopy: Record<
     aiBody: string;
     liveLabel: string;
     liveBody: string;
+    fundingLabel: string;
+    fundingBody: string;
   }
 > = {
   en: {
@@ -33,7 +35,10 @@ const footerEndnoteCopy: Record<
       "The published board is issued from the verified SLIC workbook export. Each city is shown with one public score, five pillar values, and metric-level provenance where available.",
     liveLabel: "Continuous model",
     liveBody:
-      "Published pages reflect the current verified workbook export. When new verified data is adopted, the workbook export and the public board are updated together.",
+      "Published pages reflect the current verified workbook export. When new verified data is adopted, the workbook export and the public board are updated together. City photography on the Ideas page is sourced from Unsplash under the Unsplash License; individual photographer credits appear on each photo.",
+    fundingLabel: "Funding and editorial independence",
+    fundingBody:
+      "Computing infrastructure and platform costs were supported in kind by DEPA (Digital Economy Promotion Agency) and PMU-A (Ministry of Higher Education, Research, Science and Innovation), Thailand. No private-sector funding. No sponsor has any influence over city scores, tier placement, or methodology. All rankings are produced solely by the declared model. This is a two-person research effort: Dr Non Arkara (lead author, smart city practitioner) and Assoc. Prof. Poon Thiengburanathum (research advisor). The index has no commercial relationship with any city, government, or private entity beyond the infrastructure support noted above.",
   },
   th: {
     eyebrow: "ข้อกำหนดการเผยแพร่",
@@ -48,7 +53,10 @@ const footerEndnoteCopy: Record<
       "บอร์ดที่เผยแพร่ถูกออกจากเวิร์กบุ๊ก SLIC ที่ผ่านการตรวจสอบแล้ว แต่ละเมืองจะแสดงด้วยคะแนนสาธารณะหนึ่งค่า ค่าเสาหลักทั้งห้า และข้อมูลแหล่งที่มาระดับเมตริกเมื่อมีพร้อม",
     liveLabel: "โมเดลต่อเนื่อง",
     liveBody:
-      "หน้าที่เผยแพร่สะท้อนเวิร์กบุ๊กที่ผ่านการตรวจสอบล่าสุด เมื่อมีการรับข้อมูลใหม่ที่ผ่านการตรวจสอบ เวิร์กบุ๊กและบอร์ดสาธารณะจะอัปเดตร่วมกัน",
+      "หน้าที่เผยแพร่สะท้อนเวิร์กบุ๊กที่ผ่านการตรวจสอบล่าสุด เมื่อมีการรับข้อมูลใหม่ที่ผ่านการตรวจสอบ เวิร์กบุ๊กและบอร์ดสาธารณะจะอัปเดตร่วมกัน ภาพถ่ายเมืองในหน้า Steal This Idea ใช้จาก Unsplash ภายใต้สัญญาอนุญาต Unsplash โดยมีเครดิตช่างภาพแสดงบนแต่ละภาพ",
+    fundingLabel: "การสนับสนุนทุนและความเป็นอิสระด้านบรรณาธิการ",
+    fundingBody:
+      "ค่าใช้จ่ายด้านโครงสร้างพื้นฐานการคอมพิวเตอร์และแพลตฟอร์มได้รับการสนับสนุนเป็นสิ่งของโดย DEPA (สำนักงานส่งเสริมเศรษฐกิจดิจิทัล) และ PMU-A (กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม) ประเทศไทย ไม่มีผู้สนับสนุนจากภาคเอกชน ไม่มีผู้สนับสนุนรายใดมีอิทธิพลต่อคะแนนเมือง การจัดลำดับชั้น หรือระเบียบวิธีใดๆ อันดับทั้งหมดผลิตขึ้นจากแบบจำลองที่ประกาศไว้เท่านั้น นี่คืองานวิจัยของสองคน: ดร.นนท์ อรกร (ผู้เขียนหลัก ผู้เชี่ยวชาญด้านเมืองอัจฉริยะ) และ รศ.ภูวงษ์ เทียงบุรานัม (ที่ปรึกษาการวิจัย) ดัชนีนี้ไม่มีความสัมพันธ์เชิงพาณิชย์กับเมือง รัฐบาล หรือหน่วยงานเอกชนใด นอกเหนือจากการสนับสนุนโครงสร้างพื้นฐานที่ระบุไว้ข้างต้น",
   },
   zh: {
     eyebrow: "发布协议",
@@ -63,7 +71,10 @@ const footerEndnoteCopy: Record<
       "已发布榜单来自经过核验的 SLIC 工作簿导出。每座城市都显示一个公开分数、五个支柱数值，以及可用时的指标级来源信息。",
     liveLabel: "持续模型",
     liveBody:
-      "已发布页面反映当前经过核验的工作簿导出。一旦采用新的已核验数据，工作簿导出与公开榜单会同步更新。",
+      "已发布页面反映当前经过核验的工作簿导出。一旦采用新的已核验数据，工作簿导出与公开榜单会同步更新。创意页面的城市摄影来自 Unsplash，遵循 Unsplash 许可协议，每张照片均标注摄影师署名。",
+    fundingLabel: "资助与编辑独立性",
+    fundingBody:
+      "计算基础设施与平台费用由泰国 DEPA（数字经济促进局）及 PMU-A（高等教育、科学、研究与创新部）以实物形式提供支持。无私营部门资助。任何赞助商均不对城市评分、等级分配或方法论产生任何影响。所有排名完全由已声明的模型生成。本指数为两人研究成果：Dr Non Arkara（主笔，智慧城市从业者）与副教授 Poon Thiengburanathum（研究顾问）。除上述基础设施支持外，本指数与任何城市、政府或私营实体均无商业关系。",
   },
 };
 
@@ -109,6 +120,10 @@ export default function SiteFooter({
     {
       label: endnotes.aiLabel,
       body: `${endnotes.aiBody} ${endnotes.liveBody}`,
+    },
+    {
+      label: endnotes.fundingLabel,
+      body: endnotes.fundingBody,
     },
   ];
   const footerNote =
@@ -199,6 +214,9 @@ export default function SiteFooter({
           <a href={appHref("/methodology")} onClick={(event) => navigateLink(event, onNavigate, "/methodology")}>
             {copy.nav.methodology}
           </a>
+          <a href={appHref("/data")} onClick={(event) => navigateLink(event, onNavigate, "/data")}>
+            {locale === "th" ? "ข้อมูล" : locale === "zh" ? "数据" : "Data"}
+          </a>
           <a href={appHref("/thailand")} onClick={(event) => navigateLink(event, onNavigate, "/thailand")}>
             {copy.nav.thailand}
           </a>
@@ -208,10 +226,10 @@ export default function SiteFooter({
           <a href={appHref("/history")} onClick={(event) => navigateLink(event, onNavigate, "/history")}>
             {copy.nav.history}
           </a>
-          <a href="https://slic-index.onrender.com" target="_blank" rel="noopener noreferrer">
+          <a href="https://nonarkara.github.io/slic-landing-page/" target="_blank" rel="noopener noreferrer">
             {archiveLabels.v1}
           </a>
-          <a href="https://nonarkara.github.io/slic-index-V2/" target="_blank" rel="noopener noreferrer">
+          <a href="https://nonarkara.github.io/SLIC-Index-V2/" target="_blank" rel="noopener noreferrer">
             {archiveLabels.v2}
           </a>
         </nav>
