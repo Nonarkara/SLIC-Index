@@ -135,10 +135,10 @@ export default function SiteFooter({
 
   const archiveLabels =
     locale === "th"
-      ? { v1: "คลัง V1", v2: "คลัง V2" }
+      ? { v1: "คลัง V1 ↗", v2: "คลัง V2 ↗" }
       : locale === "zh"
-        ? { v1: "V1 归档", v2: "V2 归档" }
-        : { v1: "V1 Archive", v2: "V2 Archive" };
+        ? { v1: "V1 归档 ↗", v2: "V2 归档 ↗" }
+        : { v1: "V1 Archive ↗", v2: "V2 Archive ↗" };
 
   const navAriaLabel =
     locale === "th" ? "เมนูหลัก" : locale === "zh" ? "网站导航" : "Site navigation";
