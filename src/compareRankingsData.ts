@@ -575,7 +575,7 @@ export const ECHO_CHAMBER_NOTES: Record<string, EchoChamberNote> = {
   amsterdam: {
     slicRank: 55,
     en: "SLIC #55 under AMPI, no public-tier seat. Viability 97.6 is near-perfect, but Growth 37.6 and Creative 42.8 create pillar variance that AMPI penalises meaningfully. Tolerance indicators remain good but declining as housing pressure and migration tensions bite. Amsterdam under AMPI is no longer a top-40 city.",
-    th: "SLIC อันดับ #55 ภายใต้ AMPI ไม่มีที่นั่งในชั้นสาธารณะ ความน่าอยู่ 97.6 ใกล้สมบูรณ์แบบ แต่ Growth 37.6 และ Creative 42.8 สร้างความแปรปรวนที่ AMPI ลงโทษ",
+    th: "SLIC อันดับ #55 ภายใต้ AMPI ไม่มีที่นั่งในชั้นสาธารณะ ความน่าอยู่ 97.6 ใกล้สมบูรณ์แบบ แต่ Growth 37.6 และ Creative 42.8 สร้างความแปรปรวนที่ AMPI ลงโทษอย่างมีนัยสำคัญ ตัวชี้วัดความอดกลั้นยังดีแต่ลดลงเพราะแรงกดดันด้านที่อยู่อาศัยและความตึงเครียดด้านการอพยพ อัมสเตอร์ดัมภายใต้ AMPI ไม่ใช่เมือง top-40 อีกต่อไป",
     zh: "AMPI 下 SLIC 第 55 名，未获公开层席位。宜居 97.6 接近完美，但增长 37.6 与创意 42.8 制造的方差被 AMPI 明显惩罚。包容性尚好但在住房与移民压力下下滑。在 AMPI 下阿姆斯特丹已不再是前 40 的城市。",
   },
   paris: {

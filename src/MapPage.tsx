@@ -81,7 +81,7 @@ export default function MapPage({
     const land = feature(topology, topology.objects.land as GeometryCollection) as FeatureCollection;
     const landPath = path(land) ?? "";
 
-    // All 160 cities — ranked ones get scored colour, Watchlist gets a
+    // Every published city — ranked ones get scored colour, Watchlist gets a
     // neutral grey dot so the map shows the full dataset honestly.
     const cities = (publishedData.cities as PublishedCity[])
       .map((c) => {
@@ -99,7 +99,8 @@ export default function MapPage({
     return { landPath, cityPoints: cities, hovered };
   }, [hoveredId]);
 
-  const rankedCount = cityPoints.length;
+  const cityCount = cityPoints.length;
+  const rankedCount = cityPoints.filter((city) => city.rankingStatus === "Ranked").length;
 
   return (
     <>
@@ -108,9 +109,9 @@ export default function MapPage({
         <h1 className="map-title">
           {t(
             locale,
-            "160 cities. One fixed instrument.",
-            "160 เมือง. เครื่องมือวัดเดียว.",
-            "160 座城市。一套固定的量尺。",
+            `${cityCount} cities. One fixed instrument.`,
+            `${cityCount} เมือง. เครื่องมือวัดเดียว.`,
+            `${cityCount} 座城市。一套固定的量尺。`,
           )}
         </h1>
         <p className="map-subtitle">
@@ -149,7 +150,7 @@ export default function MapPage({
                 const fill = isRanked ? scoreColor(c.slicScore) : "#b8ada0";
                 const tooltip = isRanked
                   ? `${c.displayName}, ${c.country} — Rank #${c.rank} (SLIC ${c.slicScore?.toFixed(1)})`
-                  : `${c.displayName}, ${c.country} — Watchlist (coverage below publish threshold)`;
+                  : `${c.displayName}, ${c.country} — ${t(locale, "Watchlist (coverage below publish threshold)", "รายการเฝ้าระวัง (ข้อมูลต่ำกว่าเกณฑ์เผยแพร่)", "观察名单（覆盖率低于发布门槛）")}`;
                 return (
                   <a
                     key={c.cityId}
@@ -223,7 +224,7 @@ export default function MapPage({
               <span><i style={{ background: "#b85c28" }} /> 45–55</span>
               <span><i style={{ background: "#3a7a6a" }} /> 55–65</span>
               <span><i style={{ background: "#1a6b5a" }} /> ≥65</span>
-              <span><i style={{ background: "#b8ada0" }} /> Watchlist</span>
+              <span><i style={{ background: "#b8ada0" }} /> {t(locale, "Watchlist", "เฝ้าระวัง", "观察名单")}</span>
             </div>
           </div>
         </div>

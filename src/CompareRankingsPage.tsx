@@ -27,6 +27,7 @@ const EQUAL_WEIGHT = 20;
 interface PublishedCity {
   cityId: string; displayName: string; country: string; region: string; rankingStatus: string;
   pressureScore: number; viabilityScore: number; capabilityScore: number; communityScore: number; creativeScore: number; slicScore: number; rank: number;
+  tierLabel?: "Alpha" | "Beta" | "Gamma" | null;
 }
 const rankedCities = ((publishedData.cities ?? []) as PublishedCity[]).filter((c) => c.rankingStatus === "Ranked");
 
@@ -75,6 +76,34 @@ function computeOverlaps(slicTop10Names: string[]) {
     cityMap.get(key)!.push("SLIC");
   }
   return cityMap;
+}
+
+function currentPublishedCity(name: string): PublishedCity | undefined {
+  return rankedCities.find((city) => city.displayName.toLowerCase() === name.toLowerCase());
+}
+
+function buildLiveEchoNote(city: PublishedCity, locale: Locale): string {
+  const pillars = (["pressure", "viability", "capability", "community", "creative"] as PillarId[])
+    .map((id) => ({
+      en: PILLAR_LABELS.en[id],
+      th: PILLAR_LABELS.th[id],
+      zh: PILLAR_LABELS.zh[id],
+      score: city[`${id}Score` as keyof PublishedCity] as number,
+    }))
+    .sort((left, right) => left.score - right.score);
+  const weakest = pillars[0];
+  const secondWeakest = pillars[1];
+  const strongest = [...pillars].sort((left, right) => right.score - left.score)[0];
+  const tierContext = city.tierLabel
+    ? t(locale, `public ${city.tierLabel} tier`, `ชั้น ${city.tierLabel} สาธารณะ`, `公开 ${city.tierLabel} 层`)
+    : t(locale, "public top tiers", "ชั้นสาธารณะบนสุด", "公开高层级");
+
+  return t(
+    locale,
+    `SLIC #${city.rank}. ${strongest.en} remains strong at ${strongest.score.toFixed(1)}, but ${weakest.en} (${weakest.score.toFixed(1)}) and ${secondWeakest.en} (${secondWeakest.score.toFixed(1)}) are the main drag on ${city.displayName}'s standing in the ${tierContext}.`,
+    `SLIC อันดับ #${city.rank} จุดแข็งสุดคือ ${strongest.th} ที่ ${strongest.score.toFixed(1)} แต่ ${weakest.th} (${weakest.score.toFixed(1)}) และ ${secondWeakest.th} (${secondWeakest.score.toFixed(1)}) เป็นตัวถ่วงหลักต่อสถานะของ ${city.displayName} ใน ${tierContext}`,
+    `SLIC 第 ${city.rank} 名。${strongest.zh} 仍然很强（${strongest.score.toFixed(1)}），但 ${weakest.zh}（${weakest.score.toFixed(1)}）与 ${secondWeakest.zh}（${secondWeakest.score.toFixed(1)}）是拖累 ${city.displayName} 在 ${tierContext} 中位置的主要因素。`,
+  );
 }
 
 export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate: (path: SitePath) => void; locale: Locale }) {
@@ -133,6 +162,8 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
     () => [...rankedCities].sort((a, b) => a.rank - b.rank).slice(0, 10),
     [],
   );
+  const singapore = currentPublishedCity("Singapore");
+  const paris = currentPublishedCity("Paris");
 
   const handleReset = () => setPillars(PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: EQUAL_WEIGHT })));
 
@@ -256,12 +287,12 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           </div>
         </div>
 
-        <blockquote className="compare-visits-callout">{t(
-          locale,
-          "Zero of MasterCard's top 10 most-visited cities clear SLIC's top 10. The closest is Singapore at #13. Paris — the world's second most-visited city — ranks #66. That is not the index missing something. That is the index measuring something different.",
-          "ไม่มีเมืองใดใน 10 อันดับของ MasterCard ที่ติด SLIC top 10 เลย ใกล้สุดคือสิงคโปร์ที่ #13 ส่วนปารีส — เมืองที่คนเที่ยวมากอันดับ 2 ของโลก — อยู่อันดับ #66 นี่ไม่ใช่ดัชนีที่พลาด แต่เป็นดัชนีที่วัดคนละเรื่อง",
-          "MasterCard 前 10 名中没有一座城市进入 SLIC 前 10。最接近的是新加坡（第 13）。巴黎——全球第二受游客欢迎的城市——在 SLIC 排第 66。这不是指数遗漏了什么，这是指数衡量的是另一件事。",
-        )}</blockquote>
+          <blockquote className="compare-visits-callout">{t(
+            locale,
+            `Zero of MasterCard's top 10 most-visited cities clear SLIC's top 10. The closest is Singapore at #${singapore?.rank ?? "—"}. Paris — the world's second most-visited city — ranks #${paris?.rank ?? "—"}. That is not the index missing something. That is the index measuring something different.`,
+            `ไม่มีเมืองใดใน 10 อันดับของ MasterCard ที่ติด SLIC top 10 เลย ใกล้สุดคือสิงคโปร์ที่ #${singapore?.rank ?? "—"} ส่วนปารีส — เมืองที่คนเที่ยวมากอันดับ 2 ของโลก — อยู่อันดับ #${paris?.rank ?? "—"} นี่ไม่ใช่ดัชนีที่พลาด แต่เป็นดัชนีที่วัดคนละเรื่อง`,
+            `MasterCard 前 10 名中没有一座城市进入 SLIC 前 10。最接近的是新加坡（第 ${singapore?.rank ?? "—"}）。巴黎——全球第二受游客欢迎的城市——在 SLIC 排第 ${paris?.rank ?? "—"}。这不是指数遗漏了什么，这是指数衡量的是另一件事。`,
+          )}</blockquote>
 
         <p className="compare-visits-source-footer">{t(
           locale,
@@ -278,13 +309,16 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
         <div className="compare-overlap-grid">
           {establishmentFavorites.map((item) => {
             const note = ECHO_CHAMBER_NOTES[item.city.toLowerCase()];
+            const liveCity = currentPublishedCity(item.city);
+            const liveSlicRank = liveCity?.rank ?? note?.slicRank;
+            const liveNote = liveCity ? buildLiveEchoNote(liveCity, locale) : (note ? (locale === "th" ? note.th : locale === "zh" ? note.zh : note.en) : null);
             return (
               <div key={item.city} className="compare-overlap-card">
                 <div className="compare-overlap-card-header">
                   <strong>{item.city}</strong>
-                  {note?.slicRank && (
+                  {liveSlicRank && (
                     <span className="compare-overlap-slic-rank">
-                      {t(locale, `SLIC #${note.slicRank}`, `SLIC อันดับ ${note.slicRank}`, `SLIC 第${note.slicRank}名`)}
+                      {t(locale, `SLIC #${liveSlicRank}`, `SLIC อันดับ ${liveSlicRank}`, `SLIC 第${liveSlicRank}名`)}
                     </span>
                   )}
                 </div>
@@ -292,9 +326,9 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
                 <span className={item.inSlic ? "compare-overlap-slic yes" : "compare-overlap-slic no"}>
                   {item.inSlic ? t(locale, "Also in SLIC top 10", "อยู่ใน SLIC top 10 ด้วย", "也在SLIC前10") : t(locale, "Not in SLIC top 10", "ไม่อยู่ใน SLIC top 10", "不在SLIC前10")}
                 </span>
-                {note && (
+                {liveNote && (
                   <p className="compare-overlap-note">
-                    {locale === "th" ? note.th : locale === "zh" ? note.zh : note.en}
+                    {liveNote}
                   </p>
                 )}
               </div>
