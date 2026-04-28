@@ -307,13 +307,13 @@ export default function HomePage({
             {t(
               locale,
               "Most city rankings evaluate cities for people who already have the money to live there.",
-              "ดัชนีเมืองส่วนใหญ่ประเมินเมืองให้กับคนที่มีเงินพอจะอาศัยอยู่ที่นั่นอยู่แล้ว",
+              "ดัชนีเมืองส่วนใหญ่เลือกตัวชี้วัดแบบผิวเผินเพื่อประเมินเมืองให้กับ \"คนที่มีเงินพอจะอาศัยอยู่ที่นั่นอยู่แล้ว\" (คนรวย) แต่ดัชนีนี้เปิดเผยแหล่งที่มาทุกตัวเลข เลือกและวิเคราะห์ตัวชี้วัดเพื่อทำให้เราสามารถมองเห็น",
               "大多数城市排名是为那些已经有钱住在那里的人评估城市。",
             )}
           </p>
           <h1 className="hp-headline">
             {locale === "th" ? (
-              <>เมืองที่เติบโต และยังพอใช้ชีวิตได้{" "}<span className="hp-headline--accent">นอกนั้นคือการตลาด</span></>
+              <>เมืองที่มีการเติบโตและใช้ชีวิตได้ดีล้วน ๆ{" "}<span className="hp-headline--accent">ไม่มีโฆษณาชวนเชื่อมาผสม</span></>
             ) : locale === "zh" ? (
               <>既在增长，也还住得起。<span className="hp-headline--accent">其余都是营销。</span></>
             ) : (
