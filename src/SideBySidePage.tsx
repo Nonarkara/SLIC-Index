@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { getExerciseCities } from "./rankingsData";
+import { t } from "./i18n";
+import { rankingPublication } from "./rankingPublication";
 import SiteFooter from "./SiteFooter";
-import type { Locale, SitePath } from "./types";
+import type { FullRankedCity, Locale, SitePath } from "./types";
 
 type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
@@ -22,15 +24,20 @@ const PILLAR_COLORS: Record<PillarId, string> = {
 };
 
 const allCities = getExerciseCities();
+const publishedTierById = new Map(
+  rankingPublication.cities.map((city) => [city.cityId.replace(/^[a-z]{2}-/, ""), city.tierLabel ?? null]),
+);
 
-function t(locale: Locale, en: string, th: string, zh: string) {
-  return locale === "en" ? en : locale === "th" ? th : zh;
+
+function getPublishedTier(city: FullRankedCity): "Alpha" | "Beta" | "Gamma" | null {
+  return city.tierLabel ?? publishedTierById.get(city.id) ?? null;
 }
 
-function getTier(rank: number): "alpha" | "beta" | "gamma" | "none" {
-  if (rank <= 10) return "alpha";
-  if (rank <= 20) return "beta";
-  if (rank <= 30) return "gamma";
+function getTier(city: FullRankedCity): "alpha" | "beta" | "gamma" | "none" {
+  const publishedTier = getPublishedTier(city);
+  if (publishedTier === "Alpha") return "alpha";
+  if (publishedTier === "Beta") return "beta";
+  if (publishedTier === "Gamma") return "gamma";
   return "none";
 }
 
@@ -43,14 +50,22 @@ function getTierIndex(rank: number): number {
   return Math.ceil(rank / 10) - 1; // 0-indexed
 }
 
-function getTierLabel(rank: number): string {
-  const i = getTierIndex(rank);
+function getTierLabel(city: FullRankedCity, locale: Locale): string {
+  const publishedTier = getPublishedTier(city);
+  if (publishedTier === "Alpha") return t(locale, "α Alpha", "α อัลฟา", "α 阿尔法");
+  if (publishedTier === "Beta") return t(locale, "β Beta", "β เบตา", "β 贝塔");
+  if (publishedTier === "Gamma") return t(locale, "γ Gamma", "γ แกมมา", "γ 伽马");
+  const i = getTierIndex(city.globalRank);
   if (i >= 0 && i < TIER_GLYPHS.length) return `${TIER_GLYPHS[i]} ${TIER_NAMES[i]}`;
-  return `#${rank}`;
+  return `#${city.globalRank}`;
 }
 
-function getTierGlyph(rank: number): string {
-  const i = getTierIndex(rank);
+function getTierGlyph(city: FullRankedCity): string {
+  const publishedTier = getPublishedTier(city);
+  if (publishedTier === "Alpha") return "α";
+  if (publishedTier === "Beta") return "β";
+  if (publishedTier === "Gamma") return "γ";
+  const i = getTierIndex(city.globalRank);
   return TIER_GLYPHS[i] ?? "·";
 }
 
@@ -104,9 +119,9 @@ export default function SideBySidePage({
           <p className="sbs-subtitle">
             {t(
               locale,
-              "Build a custom basket to compare cities. Greek letters mark tiers of ten: α Alpha (1-10), β Beta (11-20), γ Gamma (21-30), δ Delta (31-40) and so on. Colour highlights the elite top three tiers.",
-              "สร้างตะกร้าเมืองที่คุณต้องการเปรียบเทียบ อักษรกรีกระบุระดับทุก 10 อันดับ: α Alpha (1-10), β Beta (11-20), γ Gamma (21-30), δ Delta (31-40) และต่อไป สีเน้น 3 ระดับสูงสุด",
-              "创建自定义篮子来比较城市。希腊字母按每十名分层：α Alpha（1-10）、β Beta（11-20）、γ Gamma（21-30）、δ Delta（31-40）等。颜色突出前三级精英层。",
+              "Build a custom basket to compare cities. Published Alpha, Beta, and Gamma follow the live public tier protocol; beyond that, Greek letters continue as ten-rank comparison markers.",
+              "สร้างตะกร้าเมืองที่คุณต้องการเปรียบเทียบ Alpha, Beta และ Gamma ใช้ชั้นเผยแพร่จริงของระบบ ส่วนหลังจากนั้นใช้อักษรกรีกเป็นเครื่องหมายเปรียบเทียบทุก 10 อันดับ",
+              "创建自定义篮子来比较城市。Alpha、Beta、Gamma 采用实时公开分层规则；其后继续用希腊字母作为每十名的比较标记。",
             )}
           </p>
 
@@ -114,8 +129,8 @@ export default function SideBySidePage({
             <h3 className="sbs-basket-title">{t(locale, "Your compare basket", "ตะกร้าเปรียบเทียบของคุณ", "你的比较篮子")}</h3>
             <div className="sbs-basket-chips">
               {selectedCities.map((city, idx) => (
-                <div key={city.id} className={`sbs-chip tier-${getTier(city.globalRank)}`}>
-                  <span className="sbs-chip-tier-glyph" aria-label={getTierLabel(city.globalRank)}>{getTierGlyph(city.globalRank)}</span>
+                <div key={city.id} className={`sbs-chip tier-${getTier(city)}`}>
+                  <span className="sbs-chip-tier-glyph" aria-label={getTierLabel(city, locale)}>{getTierGlyph(city)}</span>
                   <span>{city.name}</span>
                   <button type="button" onClick={() => handleRemove(idx)} aria-label={t(locale, `Remove ${city.name}`, `ลบ ${city.name}`, `移除${city.name}`)}>&times;</button>
                 </div>
@@ -157,13 +172,36 @@ export default function SideBySidePage({
             )}
           </div>
 
+          {selectedCities.length === 0 && (
+            <div className="sbs-empty">
+              <p className="sbs-empty-eyebrow">
+                {t(locale, "EMPTY BASKET", "ตะกร้าว่าง", "篮子为空")}
+              </p>
+              <p className="sbs-empty-title">
+                {t(
+                  locale,
+                  "Pick a city to start the comparison.",
+                  "เลือกเมืองเพื่อเริ่มเปรียบเทียบ",
+                  "选择一座城市开始比较。",
+                )}
+              </p>
+              <p className="sbs-empty-body">
+                {t(
+                  locale,
+                  "Add up to five cities. Each column carries the five SLIC pillars, tier band, and resident-facing context side by side.",
+                  "เพิ่มได้สูงสุดห้าเมือง แต่ละคอลัมน์จะแสดงทั้งห้าเสา คะแนนชั้น และบริบทสำหรับผู้อยู่อาศัยเคียงข้างกัน",
+                  "最多可添加五座城市。每列并排呈现五大支柱、层级与本地生活背景。",
+                )}
+              </p>
+            </div>
+          )}
           <div className="sbs-grid" style={{ gridTemplateColumns: `repeat(${selectedCities.length}, 1fr)` }}>
             {selectedCities.map((city) => (
-              <div className={`sbs-column tier-border-${getTier(city.globalRank)}`} key={city.id}>
+              <div className={`sbs-column tier-border-${getTier(city)}`} key={city.id}>
                 <div className="sbs-city-header">
                   <span className="sbs-city-name-btn" style={{cursor: "default"}}>{city.name}</span>
                   <span className="sbs-city-country">{city.country}</span>
-                  <span className={`sbs-city-tier tier-text-${getTier(city.globalRank)}`}>{getTierLabel(city.globalRank)}</span>
+                  <span className={`sbs-city-tier tier-text-${getTier(city)}`}>{getTierLabel(city, locale)}</span>
                 </div>
 
                 <div className="sbs-slic-score">

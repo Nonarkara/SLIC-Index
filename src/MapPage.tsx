@@ -7,6 +7,7 @@ import type { FeatureCollection } from "geojson";
 import land110m from "world-atlas/land-110m.json";
 import publishedData from "./data/publishedRankingData.json";
 import { CITY_COORDINATES } from "./data/cityCoordinates";
+import { t } from "./i18n";
 import { appHref } from "./routing";
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
@@ -25,9 +26,6 @@ interface PublishedCity {
 const VIEW_W = 1200;
 const VIEW_H = 600;
 
-function t(locale: Locale, en: string, th: string, zh: string): string {
-  return locale === "en" ? en : locale === "th" ? th : zh;
-}
 
 function navigateLink(
   event: React.MouseEvent<HTMLAnchorElement | SVGCircleElement>,

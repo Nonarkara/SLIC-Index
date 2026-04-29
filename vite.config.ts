@@ -15,7 +15,9 @@ export default defineConfig({
     strictPort: true,
   },
   build: {
-    chunkSizeWarningLimit: 800,
+    // The published-ranking bundle is intentionally split as static data.
+    // It currently gzips below 140 kB, so the default raw-size warning is noise.
+    chunkSizeWarningLimit: 1900,
     rollupOptions: {
       output: {
         manualChunks(id) {

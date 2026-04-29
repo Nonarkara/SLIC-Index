@@ -1,0 +1,50 @@
+name: Math Integrity
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install Node dependencies
+        run: npm ci
+
+      - name: Install PDF dependency
+        run: python -m pip install reportlab
+
+      - name: Rescore publication snapshot
+        run: npm run rescore
+
+      - name: Check publication integrity
+        run: npm run check:publication
+
+      - name: Check methodology drift
+        run: npm run check:methodology
+
+      - name: Run regression tests
+        run: npm test
+
+      - name: Build site
+        run: npm run build
+
+      - name: Regenerate methodology PDF
+        run: npm run methodology:pdf

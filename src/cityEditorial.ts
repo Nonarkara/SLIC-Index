@@ -154,7 +154,7 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
       "Pittsburgh is a post-steel American city that never fully abandoned the disciplines of heavy industry; it redirected them into universities, medicine, robotics, and a more compact civic economy. In SLIC terms it matters because capability here is not abstract prestige but a lived structure of institutions, reinvention, and workable urban scale.",
     photo: {
       fileName: "Pittsburgh skyline.jpg",
-      credit: "Commons contributor",
+      credit: "IanManka",
       alt: "Pittsburgh skyline seen from Mount Washington.",
       position: "center 56%",
     },
@@ -366,6 +366,39 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
       credit: "Karen Mardahl",
       alt: "Copenhagen skyline seen across the water.",
       position: "center 52%",
+    },
+  },
+  "kr-jeju-city": {
+    heroLine: "Volcanic Korea at a slower, more elemental pace.",
+    intro:
+      "Jeju is South Korea's main island province, shaped by volcanic geography, a distinct local culture, and a longstanding role as the country's natural and spiritual counterweight to the mainland's relentless pace. SLIC reads it as a city that earns its Alpha place not through density or output but through a combination of governance at island scale, cultural distinctiveness — the haenyeo diving tradition, the Jeju language, the UNESCO-listed craters — and a daily rhythm that never fully submitted to the Seoul compression model.",
+    photo: {
+      fileName: "Seongsan Ilchulbong 03.jpg",
+      credit: "PANONIAN",
+      alt: "Seongsan Ilchulbong sunrise peak rising from the sea, Jeju Island.",
+      position: "center 52%",
+    },
+  },
+  "au-perth": {
+    heroLine: "Australia's isolated west, built on space and coastal ease.",
+    intro:
+      "Perth is the most isolated large city on earth by the standard measure — a fact that has shaped both its psychology and its offer. Built on mining-boom capital, Indian Ocean coastline, and an almost impractical abundance of space, Perth has spent the past decade building out university research, technology, and livability infrastructure that no longer needs to apologize for the distance. SLIC reads it as a city where the pressure curve stays genuinely low: warm, spacious, coastal, and now competent enough to matter beyond resource extraction.",
+    photo: {
+      fileName: "Perth from Kings Park.jpg",
+      credit: "eGuide Travel",
+      alt: "Perth city centre skyline viewed from Kings Park.",
+      position: "center 50%",
+    },
+  },
+  "jp-tokyo": {
+    heroLine: "Incomprehensible scale, kept almost entirely coherent.",
+    intro:
+      "Tokyo is the world's largest metropolitan area by any measure, a city of 37-million-plus that still manages to run on time, stay safe, feed itself extraordinarily well, and distribute a quality of urban experience that smaller cities cannot replicate. SLIC reads it as the definitive case of system competence at extreme scale — where transit, density, safety, and accumulated cultural production compound into something that has no real equivalent. The trade-offs are real: working hours, conformity pressure, and housing cost. But the system that delivers in return is equally without parallel.",
+    photo: {
+      fileName: "Tokyo skyline seen from Tokyo Skytree.jpg",
+      credit: "Ruthsic",
+      alt: "Tokyo skyline panorama seen from the Tokyo Skytree observation deck.",
+      position: "center 50%",
     },
   },
 };

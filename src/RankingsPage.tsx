@@ -1,9 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import { type MouseEvent, useEffect, useMemo, useState } from "react";
 import ZeroSumAllocator from "./ZeroSumAllocator";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import { evaluateConsequences } from "./consequenceRules";
 import type { FiredConsequence } from "./consequenceRules";
 import publishedData from "./data/publishedRankingData.json";
+import { allocatePublicTiers, assignPureScoreRanks } from "./publicTierPolicy.js";
 import RankingIntegrityBanner from "./RankingIntegrityBanner";
 import { exerciseRegions, getExerciseCities } from "./rankingsData";
 import { appHref } from "./routing";
@@ -17,6 +18,8 @@ type PillarId = "pressure" | "viability" | "capability" | "community" | "creativ
 type MatchedCity = FullRankedCity & {
   customScore: number;
   customRank: number;
+  computedTierLabel: "Alpha" | "Beta" | "Gamma" | null;
+  computedTierSlot: number | null;
   rankShift: number;
 };
 
@@ -77,10 +80,21 @@ const PILLAR_HINTS: Record<Locale, Record<PillarId, string>> = {
 };
 
 function navigateLink(
-  event: React.MouseEvent<HTMLAnchorElement>,
+  event: MouseEvent<HTMLAnchorElement>,
   onNavigate: (path: SitePath | string) => void,
   path: SitePath | string,
 ) {
+  if (
+    event.defaultPrevented ||
+    event.button !== 0 ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey
+  ) {
+    return;
+  }
+
   event.preventDefault();
   onNavigate(path);
 }
@@ -101,6 +115,7 @@ const PRESETS: Array<{
   id: string;
   values: Record<PillarId, number>;
   label: Record<Locale, string>;
+  tagline: Record<Locale, string>;
 }> = [
   {
     id: "canonical",
@@ -110,41 +125,80 @@ const PRESETS: Array<{
       th: "สมดุลแบบ SLIC",
       zh: "SLIC 平衡",
     },
-  },
-  {
-    id: "growth",
-    values: { pressure: 44, viability: 10, capability: 10, community: 6, creative: 30 },
-    label: {
-      en: "Capital Edge",
-      th: "ขอบทุนนิยม",
-      zh: "资本锋线",
+    tagline: {
+      en: "Declared baseline — five pillars, no tilt.",
+      th: "ฐานที่ประกาศ — ห้าเสาหลัก ไม่มีการเอียง",
+      zh: "声明基线——五个支柱，毫无偏向。",
     },
   },
   {
-    id: "safe",
-    values: { pressure: 15, viability: 34, capability: 20, community: 16, creative: 15 },
+    id: "thriving",
+    values: { pressure: 48, viability: 8, capability: 10, community: 6, creative: 28 },
     label: {
-      en: "Safe Base",
-      th: "ฐานมั่นคง",
-      zh: "安全底盘",
+      en: "Economic engine",
+      th: "เครื่องยนต์เศรษฐกิจ",
+      zh: "经济引擎",
+    },
+    tagline: {
+      en: "Growth, growth, growth — we don't care about the rest.",
+      th: "โต โต โต — อย่างอื่นไม่สน",
+      zh: "增长、增长、增长——其他都不在乎。",
     },
   },
   {
-    id: "human",
-    values: { pressure: 12, viability: 18, capability: 28, community: 26, creative: 16 },
+    id: "affordable",
+    values: { pressure: 18, viability: 30, capability: 15, community: 24, creative: 13 },
     label: {
-      en: "Human Core",
-      th: "แกนมนุษย์",
-      zh: "人本核心",
+      en: "Affordable metropolis",
+      th: "มหานครที่ยังพอใช้ชีวิตได้",
+      zh: "可负担的大都市",
+    },
+    tagline: {
+      en: "Big-city life where rent doesn't eat the paycheque.",
+      th: "ชีวิตเมืองใหญ่ที่ค่าเช่าไม่กินเงินเดือน",
+      zh: "大城市生活，但租金不会吞掉薪水。",
     },
   },
   {
-    id: "creative",
-    values: { pressure: 18, viability: 15, capability: 14, community: 15, creative: 38 },
+    id: "startup",
+    values: { pressure: 26, viability: 14, capability: 22, community: 10, creative: 28 },
     label: {
-      en: "Creative Pulse",
-      th: "พลังสร้างสรรค์",
-      zh: "创意脉冲",
+      en: "Startup town",
+      th: "เมืองสตาร์ทอัพ",
+      zh: "创业之城",
+    },
+    tagline: {
+      en: "Creative edge and capability; growth follows.",
+      th: "ความสร้างสรรค์และศักยภาพมาก่อน การเติบโตตามมา",
+      zh: "创造力与能力在前，增长随之而来。",
+    },
+  },
+  {
+    id: "nomad",
+    values: { pressure: 12, viability: 30, capability: 18, community: 22, creative: 18 },
+    label: {
+      en: "Digital nomad dream",
+      th: "เมืองในฝันของดิจิทัลโนแมด",
+      zh: "数字游民梦想地",
+    },
+    tagline: {
+      en: "Reliable, tolerant, affordable, wired.",
+      th: "เสถียร เปิดกว้าง ค่าครองชีพโอเค เน็ตแรง",
+      zh: "稳定、包容、可负担、网络发达。",
+    },
+  },
+  {
+    id: "retirement",
+    values: { pressure: 6, viability: 38, capability: 24, community: 26, creative: 6 },
+    label: {
+      en: "Retirement paradise",
+      th: "สวรรค์ของวัยเกษียณ",
+      zh: "退休天堂",
+    },
+    tagline: {
+      en: "Safety, healthcare, belonging — nothing else matters.",
+      th: "ปลอดภัย สาธารณสุขดี มีสังคม — เรื่องอื่นไม่สำคัญ",
+      zh: "安全、医疗、归属感——其他都不重要。",
     },
   },
 ];
@@ -191,6 +245,11 @@ const interactiveCopy: Record<
     scoreNow: string;
     reviewMethodology: string;
     downloadSheet: string;
+    tierAlpha: string;
+    tierBeta: string;
+    tierGamma: string;
+    tierContenders: string;
+    tierBand: string;
   }
 > = {
   en: {
@@ -236,6 +295,11 @@ const interactiveCopy: Record<
     scoreNow: "Now",
     reviewMethodology: "Review methodology",
     downloadSheet: "Download sheet template",
+    tierAlpha: "ALPHA",
+    tierBeta: "BETA",
+    tierGamma: "GAMMA",
+    tierContenders: "CONTENDERS",
+    tierBand: "ranks {from}–{to}",
   },
   th: {
     heroEyebrow: "เครื่องมือปรับความชอบ",
@@ -280,6 +344,11 @@ const interactiveCopy: Record<
     scoreNow: "ตอนนี้",
     reviewMethodology: "ดูระเบียบวิธี",
     downloadSheet: "ดาวน์โหลดเทมเพลตชีต",
+    tierAlpha: "อัลฟา",
+    tierBeta: "เบตา",
+    tierGamma: "แกมมา",
+    tierContenders: "ผู้ท้าชิง",
+    tierBand: "อันดับ {from}–{to}",
   },
   zh: {
     heroEyebrow: "偏好引擎",
@@ -324,6 +393,11 @@ const interactiveCopy: Record<
     scoreNow: "当前",
     reviewMethodology: "查看方法论",
     downloadSheet: "下载表格模板",
+    tierAlpha: "阿尔法",
+    tierBeta: "贝塔",
+    tierGamma: "伽马",
+    tierContenders: "挑战者",
+    tierBand: "第 {from}–{to} 名",
   },
 };
 
@@ -496,41 +570,82 @@ export default function RankingsPage({
 
   const results = useMemo<MatchedCity[]>(() => {
     const filteredCities = region === "All" ? indexedCities : indexedCities.filter((city) => city.region === region);
-    if (!isCustom) {
-      return [...filteredCities]
-        .sort((left, right) => left.globalRank - right.globalRank)
-        .map((city, index) => ({
+    const scoredCities = (isCustom
+      ? filteredCities.map((city) => ({
+          ...city,
+          customScore: profileMatchScore(city, weights).score,
+        }))
+      : filteredCities.map((city) => ({
           ...city,
           customScore: Math.round(scoreCityWithWeights(city, CANONICAL) * 10) / 10,
-          customRank: index + 1,
-          rankShift: 0,
-        }));
-    }
+        }))) as Array<FullRankedCity & { customScore: number }>;
 
-    return filteredCities
-      .map((city) => {
-        const { score } = profileMatchScore(city, weights);
-        return {
-          ...city,
-          customScore: score,
-        };
-      })
-      .sort((left, right) => {
-        const scoreDelta = right.customScore - left.customScore;
-        if (scoreDelta !== 0) return scoreDelta;
-        const liveDelta = right.delta - left.delta;
-        if (liveDelta !== 0) return liveDelta;
-        return left.globalRank - right.globalRank;
-      })
-      .map((city, index) => ({
-        ...city,
-        customRank: index + 1,
-        rankShift: city.globalRank - (index + 1),
-      }));
+    const rankedCities = assignPureScoreRanks(scoredCities, {
+      scoreKey: "customScore",
+      rankKey: "customRank",
+    });
+    const tieredCities = allocatePublicTiers(rankedCities, {
+      scoreKey: "customScore",
+      rankKey: "customRank",
+      tierLabelKey: "computedTierLabel",
+      tierSlotKey: "computedTierSlot",
+    });
+
+    return tieredCities.map((city) => ({
+      ...city,
+      rankShift: isCustom ? city.globalRank - city.customRank : 0,
+    }));
   }, [isCustom, region, weights]);
 
   const displayResults = showCountValue >= results.length ? results : results.slice(0, showCountValue);
   const featuredCity = displayResults[0] ?? null;
+
+  const activePreset = useMemo(
+    () => PRESETS.find((preset) => preset.id === activePresetId) ?? null,
+    [activePresetId],
+  );
+
+  const tierGroups = useMemo(() => {
+    const tiers: Array<{
+      id: "alpha" | "beta" | "gamma" | "contenders";
+      label: string;
+      from: number;
+      to: number;
+      cities: MatchedCity[];
+    }> = [];
+    const tierSpecs: Array<{
+      id: "alpha" | "beta" | "gamma";
+      label: string;
+      tierLabel: MatchedCity["computedTierLabel"];
+    }> = [
+      { id: "alpha", label: ui.tierAlpha, tierLabel: "Alpha" },
+      { id: "beta", label: ui.tierBeta, tierLabel: "Beta" },
+      { id: "gamma", label: ui.tierGamma, tierLabel: "Gamma" },
+    ];
+    tierSpecs.forEach((spec) => {
+      const cities = displayResults.filter((city) => city.computedTierLabel === spec.tierLabel);
+      if (cities.length > 0) {
+        tiers.push({
+          id: spec.id,
+          label: spec.label,
+          from: Math.min(...cities.map((city) => city.customRank)),
+          to: Math.max(...cities.map((city) => city.customRank)),
+          cities,
+        });
+      }
+    });
+    const contenders = displayResults.filter((city) => city.computedTierLabel === null);
+    if (contenders.length > 0) {
+      tiers.push({
+        id: "contenders",
+        label: ui.tierContenders,
+        from: Math.min(...contenders.map((city) => city.customRank)),
+        to: Math.max(...contenders.map((city) => city.customRank)),
+        cities: contenders,
+      });
+    }
+    return tiers;
+  }, [displayResults, ui.tierAlpha, ui.tierBeta, ui.tierGamma, ui.tierContenders]);
 
 
   const handleReset = () => {
@@ -589,12 +704,15 @@ export default function RankingsPage({
                   {ui.resetLabel}
                 </button>
               </div>
+              {activePreset && (
+                <p className="rankings-preset-tagline">{activePreset.tagline[locale]}</p>
+              )}
             </div>
 
             <ZeroSumAllocator
               pillars={pillars}
               onChange={setPillars}
-              size={520}
+              size={430}
               descriptions={hints}
               locale={locale}
             />
@@ -699,42 +817,55 @@ export default function RankingsPage({
                   <span style={{ color: GRADE_COLORS.C }}>C</span> 35–49%
                 </div>
 
-                {/* City list */}
+                {/* City list grouped by tier */}
                 <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
-                  {displayResults.map((city, index) => {
-                    const pillarScores = {
-                      pressure: city.scores.pressure,
-                      viability: city.scores.viability,
-                      capability: city.scores.capability,
-                      community: city.scores.community,
-                      creative: city.scores.creative,
-                    };
-                    const isTop = index < 3;
-                    return (
-                      <a
-                        key={city.id}
-                        className={`rankings-city-row${isTop ? " is-top" : ""}`}
-                        href={appHref(`/city/${city.id}`)}
-                        onClick={(event) => navigateLink(event, onNavigate, `/city/${city.id}`)}
-                        style={{ cursor: "pointer" }}
-                      >
-                        <div style={{ minWidth: 0 }}>
-                          <div className="city-name-row">
-                            <span className="city-display-name">{city.name}</span>
-                            <span className="city-country">{city.country}</span>
-                          </div>
-                          <div className="rankings-pillar-bars">
-                            {PILLAR_ORDER.map((pid) => (
-                              <div key={pid}>
-                                <div style={{ width: `${pillarScores[pid]}%`, background: PILLAR_COLORS[pid] }} />
+                  {tierGroups.map((tier) => (
+                    <div key={tier.id}>
+                      <div className="rankings-tier-heading">
+                        <span className={`v3-tier-badge v3-tier-badge--${tier.id === "contenders" ? "gamma" : tier.id}`}>
+                          {tier.id === "alpha" ? "\u03B1 " : tier.id === "beta" ? "\u03B2 " : tier.id === "gamma" ? "\u03B3 " : ""}
+                          {tier.label}
+                        </span>
+                        <small>
+                          {ui.tierBand.replace("{from}", String(tier.from)).replace("{to}", String(tier.to))}
+                        </small>
+                      </div>
+                      {tier.cities.map((city) => {
+                        const pillarScores = {
+                          pressure: city.scores.pressure,
+                          viability: city.scores.viability,
+                          capability: city.scores.capability,
+                          community: city.scores.community,
+                          creative: city.scores.creative,
+                        };
+                        const isTop = city.customRank <= 3;
+                        return (
+                          <a
+                            key={city.id}
+                            className={`rankings-city-row${isTop ? " is-top" : ""}`}
+                            href={appHref(`/city/${city.id}`)}
+                            onClick={(event) => navigateLink(event, onNavigate, `/city/${city.id}`)}
+                            style={{ cursor: "pointer" }}
+                          >
+                            <div style={{ minWidth: 0 }}>
+                              <div className="city-name-row">
+                                <span className="city-display-name">{city.name}</span>
+                                <span className="city-country">{city.country}</span>
                               </div>
-                            ))}
-                          </div>
-                        </div>
-                        <span className="city-tier-arrow">&#8250;</span>
-                      </a>
-                    );
-                  })}
+                              <div className="rankings-pillar-bars">
+                                {PILLAR_ORDER.map((pid) => (
+                                  <div key={pid}>
+                                    <div style={{ width: `${pillarScores[pid]}%`, background: PILLAR_COLORS[pid] }} />
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                            <span className="city-tier-arrow">&#8250;</span>
+                          </a>
+                        );
+                      })}
+                    </div>
+                  ))}
                 </div>
 
                 <div className="rankings-actions">

@@ -7,7 +7,14 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "start": "node server.js"
+    "start": "node server.js",
+    "rescore": "node scripts/rescore-all-cities.mjs",
+    "check:publication": "node scripts/check-publication-integrity.mjs",
+    "check:methodology": "node scripts/check-methodology-drift.mjs",
+    "fixture:benchmarks": "node scripts/update-publication-benchmark-fixture.mjs",
+    "methodology:pdf": "python3 scripts/generate_methodology_pdf.py",
+    "test": "node --test test/*.test.mjs",
+    "verify:math": "npm run rescore && npm run check:publication && npm run check:methodology && npm test"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.100.0",

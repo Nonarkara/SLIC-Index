@@ -1,4 +1,4 @@
-import { Suspense, lazy, useEffect, useState } from "react";
+import { Component, type ErrorInfo, type ReactNode, Suspense, lazy, useEffect, useState } from "react";
 import SiteMasthead from "./SiteMasthead";
 import { localeLabels } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
@@ -10,6 +10,7 @@ const HomePage = lazy(() => import("./HomePage"));
 const IdeasPage = lazy(() => import("./IdeasPage"));
 const ExercisePage = lazy(() => import("./ExercisePage"));
 const MethodologyPage = lazy(() => import("./MethodologyPage"));
+const DataSourcesPage = lazy(() => import("./DataSourcesPage"));
 const RankingsPage = lazy(() => import("./RankingsPage"));
 const SlicProfilePage = lazy(() => import("./SlicProfilePage"));
 const ThailandPage = lazy(() => import("./ThailandPage"));
@@ -70,6 +71,10 @@ function resolvePath(pathname: string): SitePath {
 
   if (bare === "/methodology") {
     return "/methodology";
+  }
+
+  if (bare === "/data") {
+    return "/data";
   }
 
   if (bare === "/rankings") {
@@ -166,13 +171,79 @@ function RouteLoading({ locale }: { locale: Locale }) {
   );
 }
 
+const errorCopy: Record<Locale, { eyebrow: string; title: string; body: string; retry: string }> = {
+  en: {
+    eyebrow: "Route error",
+    title: "This view couldn't load.",
+    body: "The page module failed to render. Try reloading or returning to the homepage.",
+    retry: "Reload",
+  },
+  th: {
+    eyebrow: "โหลดหน้าไม่สำเร็จ",
+    title: "ไม่สามารถโหลดหน้านี้ได้",
+    body: "โมดูลของหน้านี้แสดงผลไม่สำเร็จ ลองโหลดใหม่หรือกลับไปหน้าหลัก",
+    retry: "โหลดใหม่",
+  },
+  zh: {
+    eyebrow: "页面加载失败",
+    title: "此页面无法加载。",
+    body: "页面模块未能渲染。请尝试重新加载或返回首页。",
+    retry: "重新加载",
+  },
+};
+
+class RouteErrorBoundary extends Component<
+  { locale: Locale; children: ReactNode; resetKey?: string },
+  { error: Error | null }
+> {
+  state: { error: Error | null } = { error: null };
+
+  static getDerivedStateFromError(error: Error) {
+    return { error };
+  }
+
+  componentDidUpdate(prevProps: { resetKey?: string }) {
+    if (this.state.error && prevProps.resetKey !== this.props.resetKey) {
+      this.setState({ error: null });
+    }
+  }
+
+  componentDidCatch(_error: Error, _info: ErrorInfo) {
+    // Swallow — designed fallback renders below.
+  }
+
+  render() {
+    if (this.state.error) {
+      const copy = errorCopy[this.props.locale];
+      return (
+        <section className="route-loading section" role="alert">
+          <div className="route-loading-card">
+            <p className="eyebrow">{copy.eyebrow}</p>
+            <h1>{copy.title}</h1>
+            <p>{copy.body}</p>
+            <button
+              type="button"
+              className="route-error-retry"
+              onClick={() => window.location.reload()}
+            >
+              {copy.retry}
+            </button>
+          </div>
+        </section>
+      );
+    }
+    return this.props.children;
+  }
+}
+
 export default function App() {
-  const [route, setCurrentRoute] = useState<SitePath>(() => resolvePath(window.location.pathname));
+  const [pathname, setPathname] = useState<string>(() => window.location.pathname);
+  const route = resolvePath(pathname);
   const [locale, setLocale] = useState<Locale>(detectLocale);
 
   useEffect(() => {
     const syncRoute = () => {
-      setCurrentRoute(resolvePath(window.location.pathname));
+      setPathname(window.location.pathname);
     };
 
     window.addEventListener("popstate", syncRoute);
@@ -203,6 +274,12 @@ export default function App() {
             : locale === "zh"
               ? "SLIC 方法论"
               : "SLIC Methodology"
+          : route === "/data"
+            ? locale === "th"
+              ? "ข้อมูลและแหล่งอ้างอิง SLIC"
+              : locale === "zh"
+                ? "SLIC 数据与来源"
+                : "SLIC Data and Sources"
           : route === "/rankings"
             ? locale === "th"
               ? "การจัดอันดับเมือง SLIC"
@@ -261,19 +338,19 @@ export default function App() {
   }, [locale, route]);
 
   const navigate = (path: SitePath | string) => {
-    const nextRoute = resolvePath(path);
+    const fullPath = withBase(path);
     const doc = document as DocumentWithViewTransition;
 
     if (doc.startViewTransition) {
       doc.startViewTransition(() => {
         commitRoute(path);
-        setCurrentRoute(nextRoute);
+        setPathname(fullPath);
       });
       return;
     }
 
     commitRoute(path);
-    setCurrentRoute(nextRoute);
+    setPathname(fullPath);
   };
 
   return (
@@ -286,10 +363,13 @@ export default function App() {
         onLocaleChange={setLocale}
         onNavigate={navigate}
       />
-      <div className="page-frame" id="main-content" key={route}>
+      <div className="page-frame" id="main-content" key={pathname}>
+        <RouteErrorBoundary locale={locale} resetKey={pathname}>
         <Suspense fallback={<RouteLoading locale={locale} />}>
           {route === "/methodology" ? (
             <MethodologyPage onNavigate={navigate} locale={locale} />
+          ) : route === "/data" ? (
+            <DataSourcesPage onNavigate={navigate} locale={locale} />
           ) : route === "/about-slic" ? (
             <SlicProfilePage onNavigate={navigate} locale={locale} />
           ) : route === "/rankings" ? (
@@ -314,6 +394,7 @@ export default function App() {
             <HomePage onNavigate={navigate} locale={locale} />
           )}
         </Suspense>
+        </RouteErrorBoundary>
       </div>
     </div>
   );

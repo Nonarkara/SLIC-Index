@@ -1,9 +1,9 @@
 export type ScoreMode = "slic" | "pressure" | "viability" | "capability" | "community" | "creative";
-export type TrendDirection = "up" | "down" | "steady";
 export type Locale = "en" | "th" | "zh";
 export type SitePath =
   | "/"
   | "/about-slic"
+  | "/data"
   | "/methodology"
   | "/rankings"
   | "/compare"
@@ -14,16 +14,6 @@ export type SitePath =
   | "/side-by-side"
   | "/map"
   | "/city";
-
-export interface LandingMeta {
-  title: string;
-  strapline: string;
-  intro: string;
-  lastUpdated: string;
-  citiesTracked: number;
-  signalsTracked: number;
-  sourcesConnected: number;
-}
 
 export interface RankedCity {
   id: string;
@@ -69,49 +59,24 @@ export interface CityLifeMetrics {
 
 export interface FullRankedCity extends RankedCity {
   globalRank: number;
+  tierLabel: "Alpha" | "Beta" | "Gamma" | null;
+  tierSlot: number | null;
+  tierReason?: string | null;
   manifestStatus: "locked" | "provisional";
   cityType: "primary" | "secondary";
   inclusionRationale: string;
   metrics: CityLifeMetrics;
   coreBoardEligible: boolean;
+  slicScoreExact?: number | null;
+  pressureScoreExact?: number | null;
+  viabilityScoreExact?: number | null;
+  capabilityScoreExact?: number | null;
+  communityScoreExact?: number | null;
+  creativeScoreExact?: number | null;
   accentHex?: string;
   accentSoftHex?: string;
   accentLabel?: string;
   sentimentEmojis?: string[];
-}
-
-export interface SignalCard {
-  id: string;
-  label: string;
-  value: string;
-  trend: TrendDirection;
-  context: string;
-  updatedAt: string;
-}
-
-export interface MethodologyPillar {
-  id: Exclude<ScoreMode, "slic">;
-  name: string;
-  description: string;
-  metrics: string[];
-  note: string;
-}
-
-export interface CitySpotlight {
-  id: string;
-  city: string;
-  country: string;
-  kicker: string;
-  reason: string;
-  highlights: string[];
-}
-
-export interface LandingData {
-  meta: LandingMeta;
-  rankings: RankedCity[];
-  signals: SignalCard[];
-  pillars: MethodologyPillar[];
-  spotlights: CitySpotlight[];
 }
 
 export interface MethodologyReference {

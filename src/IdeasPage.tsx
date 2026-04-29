@@ -4,6 +4,8 @@ import type { CityIdea } from "./ideasData";
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const difficultyColors: Record<CityIdea["difficulty"], string> = {
   starter: "var(--accent-green)",
   intermediate: "var(--accent-amber)",
@@ -14,7 +16,11 @@ const ideasUiCopy: Record<
   Locale,
   {
     title: string;
+    eyebrow: string;
     intro: string;
+    statTools: string;
+    statCountries: string;
+    statPeople: string;
     category: string;
     difficulty: string;
     all: string;
@@ -40,8 +46,12 @@ const ideasUiCopy: Record<
 > = {
   en: {
     title: "Steal This Idea",
+    eyebrow: "Open-source civic tech",
     intro:
-      "Real city innovations with working code you can copy, adapt, and deploy. Each idea comes from a real programme in a real city. The code snippets are starter templates you can drop into a no-code platform or build on directly.",
+      "Forty years of urban innovation, one afternoon to ship. Every tool here is open source, globally deployed, and proven in a real city. Clone the repo. Change the city name. Go.",
+    statTools: "12 open-source tools",
+    statCountries: "40+ countries deployed",
+    statPeople: "1 billion+ people served",
     category: "Category",
     difficulty: "Difficulty",
     all: "All",
@@ -49,9 +59,9 @@ const ideasUiCopy: Record<
     intermediate: "Intermediate",
     advanced: "Advanced",
     countSuffix: "ideas",
-    sectionHeading: "Copy, adapt, deploy",
+    sectionHeading: "12 tools. Real cities. Free to clone.",
     sectionSummary:
-      "Click any card to reveal the working code snippet. Copy it directly or use it as a starting point.",
+      "Click any card to see the working code. Every snippet connects to a live GitHub repo.",
     problem: "Problem",
     solution: "Solution",
     impact: "Impact",
@@ -67,8 +77,12 @@ const ideasUiCopy: Record<
   },
   th: {
     title: "ขโมยไอเดียนี้ไปใช้",
+    eyebrow: "เทคโนโลยีเมืองแบบโอเพนซอร์ส",
     intro:
-      "นวัตกรรมเมืองจริงพร้อมโค้ดที่ใช้ได้จริง คัดลอก ปรับแก้ และนำไปใช้งานได้ทันที ทุกไอเดียมาจากโครงการจริงในเมืองจริง โค้ดที่ให้เป็นเทมเพลตเริ่มต้นที่นำไปใส่ในแพลตฟอร์ม no-code หรือพัฒนาต่อยอดได้โดยตรง",
+      "นวัตกรรมเมือง 40 ปี บ่ายเดียวก็ deploy ได้ ทุกเครื่องมือที่นี่เป็นโอเพนซอร์ส ใช้งานจริงทั่วโลก และพิสูจน์แล้วในเมืองจริง โคลน repo เปลี่ยนชื่อเมือง แค่นั้น",
+    statTools: "12 เครื่องมือโอเพนซอร์ส",
+    statCountries: "deploy แล้วใน 40+ ประเทศ",
+    statPeople: "คนกว่า 1 พันล้านได้ใช้",
     category: "หมวดหมู่",
     difficulty: "ระดับความยาก",
     all: "ทั้งหมด",
@@ -76,9 +90,9 @@ const ideasUiCopy: Record<
     intermediate: "ปานกลาง",
     advanced: "ขั้นสูง",
     countSuffix: "ไอเดีย",
-    sectionHeading: "คัดลอก ปรับแก้ นำไปใช้",
+    sectionHeading: "12 เครื่องมือ เมืองจริง โคลนได้ฟรี",
     sectionSummary:
-      "คลิกที่การ์ดใดก็ได้เพื่อดูโค้ดที่ใช้งานได้จริง คัดลอกไปใช้ทันทีหรือใช้เป็นจุดเริ่มต้น",
+      "คลิกที่การ์ดใดก็ได้เพื่อดูโค้ดที่ใช้งานได้จริง ทุก snippet เชื่อมต่อกับ GitHub repo สด",
     problem: "ปัญหา",
     solution: "ทางออก",
     impact: "ผลลัพธ์",
@@ -94,8 +108,12 @@ const ideasUiCopy: Record<
   },
   zh: {
     title: "拿去用吧",
+    eyebrow: "开源城市科技",
     intro:
-      "真实城市的创新案例，附带可复制、修改、部署的代码。每个想法都来自真实城市的真实项目。代码片段是起始模板，可直接放入 no-code 平台或在此基础上继续开发。",
+      "四十年的城市创新，一个下午就能上线。这里的每个工具都是开源的，已在真实城市全球部署并验证。克隆仓库，改个城市名，出发。",
+    statTools: "12 个开源工具",
+    statCountries: "部署至 40+ 个国家",
+    statPeople: "服务超 10 亿人",
     category: "类别",
     difficulty: "难度",
     all: "全部",
@@ -103,8 +121,8 @@ const ideasUiCopy: Record<
     intermediate: "中级",
     advanced: "高级",
     countSuffix: "个想法",
-    sectionHeading: "复制、修改、部署",
-    sectionSummary: "点击任意卡片查看可用代码片段。直接复制或作为起点进行开发。",
+    sectionHeading: "12 个工具。真实城市。免费克隆。",
+    sectionSummary: "点击任意卡片查看可用代码片段。每个片段都连接到一个实时 GitHub 仓库。",
     problem: "问题",
     solution: "方案",
     impact: "影响",
@@ -170,21 +188,38 @@ export default function IdeasPage({
   return (
     <>
       <header className="rankings-hero section">
-
-
         <div className="rankings-hero-grid">
           <div>
+            <p className="eyebrow">{ui.eyebrow}</p>
             <h1 className="rankings-title">{ui.title}</h1>
             <p className="hero-intro">{ui.intro}</p>
+            <div className="ideas-hero-stats">
+              <span>{ui.statTools}</span>
+              <span>{ui.statCountries}</span>
+              <span>{ui.statPeople}</span>
+            </div>
           </div>
 
           <div className="rankings-controls">
             <div className="rankings-filter-group">
               <p className="panel-label">{ui.category}</p>
               <div className="region-switch" role="group" aria-label={ui.categoryAria}>
-                <button type="button" className={category === "all" ? "region-button active" : "region-button"} onClick={() => setCategory("all")}>{ui.all}</button>
+                <button
+                  type="button"
+                  className={category === "all" ? "region-button active" : "region-button"}
+                  onClick={() => setCategory("all")}
+                >
+                  {ui.all}
+                </button>
                 {ideaCategories.map((cat) => (
-                  <button key={cat.value} type="button" className={category === cat.value ? "region-button active" : "region-button"} onClick={() => setCategory(cat.value)}>{cat.labels[locale]}</button>
+                  <button
+                    key={cat.value}
+                    type="button"
+                    className={category === cat.value ? "region-button active" : "region-button"}
+                    onClick={() => setCategory(cat.value)}
+                  >
+                    {cat.labels[locale]}
+                  </button>
                 ))}
               </div>
             </div>
@@ -192,10 +227,34 @@ export default function IdeasPage({
             <div>
               <p className="panel-label">{ui.difficulty}</p>
               <div className="mode-switch" role="group" aria-label={ui.difficultyAria}>
-                <button type="button" className={difficulty === "all" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("all")}>{ui.all}</button>
-                <button type="button" className={difficulty === "starter" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("starter")}>{ui.starter}</button>
-                <button type="button" className={difficulty === "intermediate" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("intermediate")}>{ui.intermediate}</button>
-                <button type="button" className={difficulty === "advanced" ? "mode-button active" : "mode-button"} onClick={() => setDifficulty("advanced")}>{ui.advanced}</button>
+                <button
+                  type="button"
+                  className={difficulty === "all" ? "mode-button active" : "mode-button"}
+                  onClick={() => setDifficulty("all")}
+                >
+                  {ui.all}
+                </button>
+                <button
+                  type="button"
+                  className={difficulty === "starter" ? "mode-button active" : "mode-button"}
+                  onClick={() => setDifficulty("starter")}
+                >
+                  {ui.starter}
+                </button>
+                <button
+                  type="button"
+                  className={difficulty === "intermediate" ? "mode-button active" : "mode-button"}
+                  onClick={() => setDifficulty("intermediate")}
+                >
+                  {ui.intermediate}
+                </button>
+                <button
+                  type="button"
+                  className={difficulty === "advanced" ? "mode-button active" : "mode-button"}
+                  onClick={() => setDifficulty("advanced")}
+                >
+                  {ui.advanced}
+                </button>
               </div>
             </div>
           </div>
@@ -206,7 +265,9 @@ export default function IdeasPage({
         <section className="rankings-top section">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">{filtered.length} {ui.countSuffix}</p>
+              <p className="eyebrow">
+                {filtered.length} {ui.countSuffix}
+              </p>
               <h2>{ui.sectionHeading}</h2>
             </div>
             <p className="section-summary">{ui.sectionSummary}</p>
@@ -215,20 +276,48 @@ export default function IdeasPage({
           <div className="idea-grid">
             {filtered.map((idea) => (
               <article className="idea-card" key={idea.id}>
+                {idea.image && (
+                  <div className="idea-card-photo">
+                    <img
+                      src={`${BASE}/${idea.image}`}
+                      alt={`${idea.city} — ${idea.title}`}
+                      loading="lazy"
+                    />
+                    {idea.imageCredit && (
+                      <span className="idea-card-photo-credit">{idea.imageCredit}</span>
+                    )}
+                  </div>
+                )}
+
                 <div className="idea-card-head">
                   <div>
                     <div className="idea-card-meta">
-                      <span className="idea-difficulty" style={{ color: difficultyColors[idea.difficulty] }}>{difficultyLabels[locale][idea.difficulty]}</span>
-                      <span className="idea-category">{ideaCategories.find((c) => c.value === idea.category)?.labels[locale]}</span>
+                      <span
+                        className="idea-difficulty"
+                        style={{ color: difficultyColors[idea.difficulty] }}
+                      >
+                        {difficultyLabels[locale][idea.difficulty]}
+                      </span>
+                      <span className="idea-category">
+                        {ideaCategories.find((c) => c.value === idea.category)?.labels[locale]}
+                      </span>
                     </div>
                     <h3>{idea.title}</h3>
-                    <p className="city-location">{idea.city}, {idea.country}</p>
+                    <p className="city-location">
+                      {idea.city}, {idea.country}
+                    </p>
                   </div>
                 </div>
 
-                <p className="idea-problem"><strong>{ui.problem}:</strong> {idea.problem}</p>
-                <p className="idea-solution"><strong>{ui.solution}:</strong> {idea.solution}</p>
-                <p className="idea-impact"><strong>{ui.impact}:</strong> {idea.impact}</p>
+                <p className="idea-problem">
+                  <strong>{ui.problem}:</strong> {idea.problem}
+                </p>
+                <p className="idea-solution">
+                  <strong>{ui.solution}:</strong> {idea.solution}
+                </p>
+                <p className="idea-impact">
+                  <strong>{ui.impact}:</strong> {idea.impact}
+                </p>
 
                 <div className="metric-taglist-group">
                   <span className="metric-taglist-label">{ui.stackLabel}</span>
@@ -254,7 +343,9 @@ export default function IdeasPage({
                       <span>{ui.starterCode}</span>
                       <CopyButton text={idea.codeSnippet} locale={locale} />
                     </div>
-                    <pre className="idea-code"><code>{idea.codeSnippet}</code></pre>
+                    <pre className="idea-code">
+                      <code>{idea.codeSnippet}</code>
+                    </pre>
                     <p className="idea-repo-hint">{idea.repoHint[locale]}</p>
                   </div>
                 )}

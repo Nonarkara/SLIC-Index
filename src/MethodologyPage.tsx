@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { getMethodologyData } from "./methodologyData";
+import publishedData from "./data/publishedRankingData.json";
 import KnowledgeRackPanel from "./KnowledgeRackPanel";
 import MethodologySpiderChart from "./MethodologySpiderChart";
 import PillarWeightChart from "./PillarWeightChart";
@@ -14,6 +15,12 @@ import type {
   MethodologyWorkedExample,
   SitePath,
 } from "./types";
+
+interface PublishedDiagnostics {
+  provenance?: {
+    observedDataLevelShares?: Record<string, number | null>;
+  };
+}
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -80,12 +87,12 @@ const methodUiCopy: Record<
     protocolLabel: "Protocol",
     roleLabel: "Role",
     finalScore: "Final SLIC score",
-    illustrative: "Illustrative preview computation",
+    illustrative: "Worked example",
     citations: "Citations",
     contextLabel: "Context term",
-    dataMixTitle: "Data reliance mix",
+    dataMixTitle: "Published data-level mix",
     dataMixSummary:
-      "The public model leans hardest on official urban and official macro data, while satellite and testimony layers remain disciplined supporting evidence.",
+      "Share of non-null published metric lines by data level in the current public dataset.",
   },
   th: {
     openEquation: "ดูสมการคะแนน",
@@ -117,9 +124,9 @@ const methodUiCopy: Record<
     illustrative: "ตัวอย่างคำนวณเชิงอธิบาย",
     citations: "อ้างอิง",
     contextLabel: "ตัวแปรบริบท",
-    dataMixTitle: "สัดส่วนการพึ่งพาข้อมูล",
+    dataMixTitle: "สัดส่วนชั้นข้อมูลที่เผยแพร่",
     dataMixSummary:
-      "โมเดลสาธารณะพึ่งข้อมูลทางการระดับเมืองและมหภาคเป็นหลัก ส่วนข้อมูลดาวเทียมและ testimony ทำหน้าที่เป็น supporting evidence ที่ถูกควบคุม",
+      "สัดส่วนของ metric line ที่ไม่เป็นค่าว่าง แยกตาม data level ในชุดข้อมูลสาธารณะปัจจุบัน",
   },
   zh: {
     openEquation: "查看评分公式",
@@ -151,13 +158,47 @@ const methodUiCopy: Record<
     illustrative: "说明性预览计算",
     citations: "引用",
     contextLabel: "背景项",
-    dataMixTitle: "数据依赖结构",
+    dataMixTitle: "已发布数据层级结构",
     dataMixSummary:
-      "公开模型最依赖城市与宏观官方数据，卫星层与证词层则作为受控的辅助证据使用。",
+      "当前公开数据集中，非空指标条目按 data level 划分后的占比。",
   },
 };
 
-const relianceMix: Record<
+const publishedDiagnostics = (publishedData.diagnostics ?? {}) as PublishedDiagnostics;
+const generatedObservedShares = publishedDiagnostics.provenance?.observedDataLevelShares ?? {};
+
+const fallbackDataLevelShare = (level: string) => {
+  const nonNullMetricCount = (publishedData.cities ?? []).reduce((sum, city) => (
+    sum +
+    Object.values(city.metrics ?? {}).filter(
+      (metric) => metric && typeof metric === "object" && metric.score != null,
+    ).length
+  ), 0);
+
+  if (nonNullMetricCount === 0) {
+    return 0;
+  }
+
+  const count = (publishedData.cities ?? []).reduce((sum, city) => (
+    sum +
+    Object.values(city.metrics ?? {}).filter(
+      (metric) => metric && typeof metric === "object" && metric.score != null && metric.dataLevel === level,
+    ).length
+  ), 0);
+
+  return Math.round((count / nonNullMetricCount) * 1000) / 10;
+};
+
+const dataLevelShare = (level: string) => {
+  const generatedShare = generatedObservedShares[level];
+  if (typeof generatedShare === "number") {
+    return Math.round(generatedShare * 1000) / 10;
+  }
+
+  return fallbackDataLevelShare(level);
+};
+
+const publishedDataMix: Record<
   Locale,
   Array<{
     label: string;
@@ -165,25 +206,22 @@ const relianceMix: Record<
   }>
 > = {
   en: [
-    { label: "City official", value: 94 },
-    { label: "Macro official", value: 82 },
-    { label: "Satellite", value: 58 },
-    { label: "Open proxy", value: 52 },
-    { label: "Listening", value: 41 },
+    { label: "City / metro", value: dataLevelShare("city") },
+    { label: "National", value: dataLevelShare("national") },
+    { label: "Composite", value: dataLevelShare("composite") },
+    { label: "Derived", value: dataLevelShare("derived") },
   ],
   th: [
-    { label: "ข้อมูลเมือง", value: 94 },
-    { label: "ข้อมูลมหภาค", value: 82 },
-    { label: "ข้อมูลดาวเทียม", value: 58 },
-    { label: "proxy เปิด", value: 52 },
-    { label: "social listening", value: 41 },
+    { label: "เมือง / มหานคร", value: dataLevelShare("city") },
+    { label: "ระดับชาติ", value: dataLevelShare("national") },
+    { label: "คอมโพสิต", value: dataLevelShare("composite") },
+    { label: "อนุพันธ์", value: dataLevelShare("derived") },
   ],
   zh: [
-    { label: "城市官方", value: 94 },
-    { label: "宏观官方", value: 82 },
-    { label: "卫星层", value: 58 },
-    { label: "开放代理", value: 52 },
-    { label: "社交聆听", value: 41 },
+    { label: "城市 / 都会", value: dataLevelShare("city") },
+    { label: "国家层", value: dataLevelShare("national") },
+    { label: "复合项", value: dataLevelShare("composite") },
+    { label: "派生项", value: dataLevelShare("derived") },
   ],
 };
 
@@ -233,7 +271,7 @@ export default function MethodologyPage({
   const ui = methodUiCopy[locale];
   const methodology = getMethodologyData(locale);
   const [pdfOpen, setPdfOpen] = useState(false);
-  const pdfPath = `${BASE}/downloads/slic-methodology-technical-paper-${locale}.pdf`;
+  const pdfPath = `${BASE}/downloads/slic-methodology-technical-paper-en.pdf`;
   const officialEquation = methodology.equationSection.groups[0]?.equations[0];
   const paperAnchors = [
     { href: "#reader-guide", label: ui.guide },
@@ -303,7 +341,7 @@ export default function MethodologyPage({
             <MethodologySpiderChart
               title={ui.dataMixTitle}
               subtitle={ui.dataMixSummary}
-              data={relianceMix[locale]}
+              data={publishedDataMix[locale]}
               locale={locale}
             />
 

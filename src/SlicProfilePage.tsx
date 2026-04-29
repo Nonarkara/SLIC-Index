@@ -46,7 +46,7 @@ export default function SlicProfilePage({
 
   return (
     <>
-      <header className="rankings-hero section profile-hero">
+      <header className="rankings-hero section">
         <div className="rankings-hero-grid">
           <div>
             <p className="eyebrow">{profile.eyebrow}</p>

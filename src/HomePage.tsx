@@ -7,6 +7,7 @@ import { getExerciseCities } from "./rankingsData";
 import SiteFooter from "./SiteFooter";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import ZeroSumAllocator from "./ZeroSumAllocator";
+import { t } from "./i18n";
 import { appHref } from "./routing";
 import type { Locale, SitePath } from "./types";
 import { getVisitorStats } from "./visitorTracking";
@@ -132,9 +133,6 @@ const exerciseCities: HomeCity[] = getExerciseCities().map((city) => ({
   rank: city.globalRank,
 }));
 
-function t(locale: Locale, en: string, th: string, zh: string): string {
-  return locale === "en" ? en : locale === "th" ? th : zh;
-}
 
 function navigateLink(
   event: MouseEvent<HTMLAnchorElement>,
@@ -301,7 +299,7 @@ export default function HomePage({
         </div>
         <div className="hp-opening-inner section">
           <p className="hp-kicker">
-            {t(locale, "THE CITY RANKING THAT SHOWS ITS SOURCES", "ดัชนีเมืองที่เปิดเผยแหล่งที่มาทุกตัวเลข", "唯一公开每条数据来源的城市排名")}
+            {t(locale, "THE CITY RANKING THAT SHOWS ITS SOURCES", "ดัชนีนี้เปิดเผยแหล่งที่มาทุกตัวเลข", "唯一公开每条数据来源的城市排名")}
           </p>
           <p className="hp-lede">
             {t(

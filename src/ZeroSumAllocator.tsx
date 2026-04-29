@@ -401,7 +401,12 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
         />
       </div>
 
-      <div style={{ width: "100%", maxWidth: 420, display: "flex", flexDirection: "column", gap: 6 }}>
+      <div
+        role="status"
+        aria-live="polite"
+        aria-atomic="false"
+        style={{ width: "100%", maxWidth: 420, display: "flex", flexDirection: "column", gap: 6 }}
+      >
         {pillars.map((pillar, index) => (
           <div key={pillar.id} className="spider-slider-row">
             <span className="spider-slider-dot" style={{ background: pillar.color }} />

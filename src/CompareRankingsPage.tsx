@@ -3,6 +3,7 @@ import ZeroSumAllocator from "./ZeroSumAllocator";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import SiteFooter from "./SiteFooter";
 import publishedData from "./data/publishedRankingData.json";
+import { t } from "./i18n";
 import { appHref } from "./routing";
 import {
   INDEX_PROFILES,
@@ -47,9 +48,6 @@ function scoreCityWithWeights(city: PublishedCity, weights: Record<PillarId, num
   return Math.max(0, Math.min(100, mu - variance / mu));
 }
 
-function t(locale: Locale, en: string, th: string, zh: string): string {
-  return locale === "en" ? en : locale === "th" ? th : zh;
-}
 
 function navigateLink(
   event: React.MouseEvent<HTMLAnchorElement>,

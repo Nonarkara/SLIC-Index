@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SLIC Index favicon source.
+  Editorial signature: cream #f8f5f0 background, dark #1c1914 italic 'S' (Libre Baskerville),
+  single amber #b85c28 dot, lower-right. Zero rounded corners, hairline frame.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512">
+  <!-- Cream background, square (no rounding) -->
+  <rect width="512" height="512" fill="#f8f5f0"/>
+  <!-- Hairline inner frame -->
+  <rect x="24" y="24" width="464" height="464" fill="none" stroke="#1c1914" stroke-opacity="0.18" stroke-width="6"/>
+  <!-- Italic S, Libre Baskerville. Centered baseline. -->
+  <text x="256" y="372"
+        text-anchor="middle"
+        font-family="Libre Baskerville, Georgia, 'Times New Roman', serif"
+        font-style="italic"
+        font-weight="400"
+        font-size="420"
+        fill="#1c1914">S</text>
+  <!-- Amber dot, lower right -->
+  <rect x="430" y="430" width="46" height="46" fill="#b85c28"/>
+</svg>
