@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-04-29T08:23:20.632Z",
+  "updatedAt": "2026-04-30T18:25:36.718Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -40900,7 +40900,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "viability_clean_air"
       },
-      "rank": 158,
+      "rank": 156,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 31.7651,
@@ -58967,7 +58967,7 @@
         "strongest": "creative_economic_vitality_productive_context",
         "weakest": "viability_clean_air"
       },
-      "rank": 159,
+      "rank": 157,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 44.9965,
@@ -72511,7 +72511,7 @@
       "communityScore": 55.5,
       "creativeScore": 10.2,
       "slicScore": 7.6,
-      "rankingStatus": "Ranked",
+      "rankingStatus": "Watchlist",
       "metrics": {
         "pressure_disposable_income_ppp": {
           "raw": 245.31,
@@ -72857,7 +72857,7 @@
         "strongest": "viability_clean_air",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 156,
+      "rank": 0,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 27.6283,
@@ -72943,16 +72943,9 @@
           "composite": null
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
-      "tierDiagnostics": {
-        "communityExact": 55.4514,
-        "pressureExact": 27.6283,
-        "alphaEligible": false,
-        "betaEligible": false,
-        "alphaCapBlock": null,
-        "countryBlock": null,
-        "assignedTier": null
-      }
+      "tierReason": null,
+      "tierDiagnostics": null,
+      "watchlistReason": "Capability pillar incomplete — Samoa publishes no city-level healthcare-access or education-access data; insufficient evidence for a Ranked seat."
     },
     {
       "cityId": "pg-port-moresby",
@@ -72974,7 +72967,7 @@
       "communityScore": 28.6,
       "creativeScore": 3.7,
       "slicScore": 0,
-      "rankingStatus": "Ranked",
+      "rankingStatus": "Watchlist",
       "metrics": {
         "pressure_disposable_income_ppp": {
           "raw": 87.21,
@@ -73320,7 +73313,7 @@
         "strongest": "viability_clean_air",
         "weakest": "creative_economic_vitality_productive_context"
       },
-      "rank": 157,
+      "rank": 0,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 18.8874,
@@ -73406,16 +73399,9 @@
           "composite": null
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
-      "tierDiagnostics": {
-        "communityExact": 28.5521,
-        "pressureExact": 18.8874,
-        "alphaEligible": false,
-        "betaEligible": false,
-        "alphaCapBlock": null,
-        "countryBlock": null,
-        "assignedTier": null
-      }
+      "tierReason": null,
+      "tierDiagnostics": null,
+      "watchlistReason": "Capability pillar incomplete — Papua New Guinea publishes no city-level healthcare-access or education-access data; insufficient evidence for a Ranked seat."
     },
     {
       "cityId": "uk-london",
@@ -73756,6 +73742,28 @@
           "coverageExact": 1,
           "scored": true,
           "diagnostic": false
+        },
+        "community_birth_rate_optimism": {
+          "raw": 1.49,
+          "score": 24.9,
+          "scoreExact": 24.8996,
+          "source": "ONS 2023: Total fertility rate, England and Wales",
+          "sourceUrl": "https://www.ons.gov.uk/peoplepopulationandcommunity/birthsdeathsandmarriages/livebirths",
+          "dataLevel": "city",
+          "coverageExact": 1,
+          "scored": false,
+          "diagnostic": true
+        },
+        "viability_transit_access_commute": {
+          "raw": 41,
+          "score": null,
+          "scoreExact": null,
+          "source": "Transport for London 2023: Average daily commute (minutes one way)",
+          "sourceUrl": "https://tfl.gov.uk/corporate/publications-and-reports/travel-in-london-reports",
+          "dataLevel": "city",
+          "coverageExact": 0,
+          "scored": true,
+          "diagnostic": false
         }
       },
       "highlights": {
@@ -73783,67 +73791,67 @@
       "slicScoreExact": 58.2362,
       "provenanceSummary": {
         "publicMetricCount": 23,
-        "observedMetricCount": 21,
-        "missingMetricCount": 2,
-        "observedScoredMetricCount": 19,
-        "observedDiagnosticMetricCount": 2,
+        "observedMetricCount": 23,
+        "missingMetricCount": 0,
+        "observedScoredMetricCount": 20,
+        "observedDiagnosticMetricCount": 3,
         "dataLevelCounts": {
-          "city": 7,
+          "city": 9,
           "national": 10,
           "derived": 1,
           "composite": 3,
-          "missing": 2
+          "missing": 0
         },
         "dataLevelShares": {
-          "city": 0.3043,
+          "city": 0.3913,
           "national": 0.4348,
           "derived": 0.0435,
           "composite": 0.1304,
-          "missing": 0.087
+          "missing": 0
         },
         "observedDataLevelShares": {
-          "city": 0.3333,
-          "national": 0.4762,
-          "derived": 0.0476,
-          "composite": 0.1429
+          "city": 0.3913,
+          "national": 0.4348,
+          "derived": 0.0435,
+          "composite": 0.1304
         },
         "scoredDataLevelCounts": {
-          "city": 6,
+          "city": 7,
           "national": 9,
           "derived": 1,
           "composite": 3,
-          "missing": 1
+          "missing": 0
         },
         "scoredDataLevelShares": {
-          "city": 0.3,
+          "city": 0.35,
           "national": 0.45,
           "derived": 0.05,
           "composite": 0.15,
-          "missing": 0.05
+          "missing": 0
         },
         "observedScoredDataLevelShares": {
-          "city": 0.3158,
-          "national": 0.4737,
-          "derived": 0.0526,
-          "composite": 0.1579
+          "city": 0.35,
+          "national": 0.45,
+          "derived": 0.05,
+          "composite": 0.15
         },
         "diagnosticDataLevelCounts": {
-          "city": 1,
+          "city": 2,
           "national": 1,
           "derived": 0,
           "composite": 0,
-          "missing": 1
+          "missing": 0
         },
         "diagnosticDataLevelShares": {
-          "city": 0.3333,
+          "city": 0.6667,
           "national": 0.3333,
           "derived": 0,
           "composite": 0,
-          "missing": 0.3333
+          "missing": 0
         },
         "observedDiagnosticDataLevelShares": {
-          "city": 0.5,
-          "national": 0.5,
+          "city": 0.6667,
+          "national": 0.3333,
           "derived": 0,
           "composite": 0
         }
@@ -74198,6 +74206,28 @@
           "coverageExact": 1,
           "scored": true,
           "diagnostic": false
+        },
+        "community_birth_rate_optimism": {
+          "raw": 1.4,
+          "score": 21.3,
+          "scoreExact": 21.2851,
+          "source": "CDC NCHS 2023: NY State TFR (NYC metro lower than US national 1.62)",
+          "sourceUrl": "https://www.cdc.gov/nchs/data/nvsr/nvsr72/nvsr72-09.pdf",
+          "dataLevel": "city",
+          "coverageExact": 1,
+          "scored": false,
+          "diagnostic": true
+        },
+        "viability_transit_access_commute": {
+          "raw": 43,
+          "score": null,
+          "scoreExact": null,
+          "source": "US Census ACS 2022: NYC mean travel time to work (minutes)",
+          "sourceUrl": "https://data.census.gov/table/ACSST5Y2022.S0801",
+          "dataLevel": "city",
+          "coverageExact": 0,
+          "scored": true,
+          "diagnostic": false
         }
       },
       "highlights": {
@@ -74225,67 +74255,67 @@
       "slicScoreExact": 57.654,
       "provenanceSummary": {
         "publicMetricCount": 23,
-        "observedMetricCount": 21,
-        "missingMetricCount": 2,
-        "observedScoredMetricCount": 19,
-        "observedDiagnosticMetricCount": 2,
+        "observedMetricCount": 23,
+        "missingMetricCount": 0,
+        "observedScoredMetricCount": 20,
+        "observedDiagnosticMetricCount": 3,
         "dataLevelCounts": {
-          "city": 7,
+          "city": 9,
           "national": 10,
           "derived": 1,
           "composite": 3,
-          "missing": 2
+          "missing": 0
         },
         "dataLevelShares": {
-          "city": 0.3043,
+          "city": 0.3913,
           "national": 0.4348,
           "derived": 0.0435,
           "composite": 0.1304,
-          "missing": 0.087
+          "missing": 0
         },
         "observedDataLevelShares": {
-          "city": 0.3333,
-          "national": 0.4762,
-          "derived": 0.0476,
-          "composite": 0.1429
+          "city": 0.3913,
+          "national": 0.4348,
+          "derived": 0.0435,
+          "composite": 0.1304
         },
         "scoredDataLevelCounts": {
-          "city": 6,
+          "city": 7,
           "national": 9,
           "derived": 1,
           "composite": 3,
-          "missing": 1
+          "missing": 0
         },
         "scoredDataLevelShares": {
-          "city": 0.3,
+          "city": 0.35,
           "national": 0.45,
           "derived": 0.05,
           "composite": 0.15,
-          "missing": 0.05
+          "missing": 0
         },
         "observedScoredDataLevelShares": {
-          "city": 0.3158,
-          "national": 0.4737,
-          "derived": 0.0526,
-          "composite": 0.1579
+          "city": 0.35,
+          "national": 0.45,
+          "derived": 0.05,
+          "composite": 0.15
         },
         "diagnosticDataLevelCounts": {
-          "city": 1,
+          "city": 2,
           "national": 1,
           "derived": 0,
           "composite": 0,
-          "missing": 1
+          "missing": 0
         },
         "diagnosticDataLevelShares": {
-          "city": 0.3333,
+          "city": 0.6667,
           "national": 0.3333,
           "derived": 0,
           "composite": 0,
-          "missing": 0.3333
+          "missing": 0
         },
         "observedDiagnosticDataLevelShares": {
-          "city": 0.5,
-          "national": 0.5,
+          "city": 0.6667,
+          "national": 0.3333,
           "derived": 0,
           "composite": 0
         }
@@ -74646,6 +74676,28 @@
           "coverageExact": 1,
           "scored": true,
           "diagnostic": false
+        },
+        "community_birth_rate_optimism": {
+          "raw": 0.99,
+          "score": 4.8,
+          "scoreExact": 4.8193,
+          "source": "Japan MHLW 2023: Tokyo Metropolis TFR (lowest in dataset)",
+          "sourceUrl": "https://www.mhlw.go.jp/english/database/db-hw/vs02.html",
+          "dataLevel": "city",
+          "coverageExact": 1,
+          "scored": false,
+          "diagnostic": true
+        },
+        "viability_transit_access_commute": {
+          "raw": 51,
+          "score": null,
+          "scoreExact": null,
+          "source": "MLIT Japan 2020 Census: Tokyo Metro mean commute (minutes one way)",
+          "sourceUrl": "https://www.mlit.go.jp/en/index.html",
+          "dataLevel": "city",
+          "coverageExact": 0,
+          "scored": true,
+          "diagnostic": false
         }
       },
       "highlights": {
@@ -74673,67 +74725,67 @@
       "slicScoreExact": 59.4918,
       "provenanceSummary": {
         "publicMetricCount": 23,
-        "observedMetricCount": 21,
-        "missingMetricCount": 2,
-        "observedScoredMetricCount": 19,
-        "observedDiagnosticMetricCount": 2,
+        "observedMetricCount": 23,
+        "missingMetricCount": 0,
+        "observedScoredMetricCount": 20,
+        "observedDiagnosticMetricCount": 3,
         "dataLevelCounts": {
-          "city": 7,
+          "city": 9,
           "national": 10,
           "derived": 1,
           "composite": 3,
-          "missing": 2
+          "missing": 0
         },
         "dataLevelShares": {
-          "city": 0.3043,
+          "city": 0.3913,
           "national": 0.4348,
           "derived": 0.0435,
           "composite": 0.1304,
-          "missing": 0.087
+          "missing": 0
         },
         "observedDataLevelShares": {
-          "city": 0.3333,
-          "national": 0.4762,
-          "derived": 0.0476,
-          "composite": 0.1429
+          "city": 0.3913,
+          "national": 0.4348,
+          "derived": 0.0435,
+          "composite": 0.1304
         },
         "scoredDataLevelCounts": {
-          "city": 6,
+          "city": 7,
           "national": 9,
           "derived": 1,
           "composite": 3,
-          "missing": 1
+          "missing": 0
         },
         "scoredDataLevelShares": {
-          "city": 0.3,
+          "city": 0.35,
           "national": 0.45,
           "derived": 0.05,
           "composite": 0.15,
-          "missing": 0.05
+          "missing": 0
         },
         "observedScoredDataLevelShares": {
-          "city": 0.3158,
-          "national": 0.4737,
-          "derived": 0.0526,
-          "composite": 0.1579
+          "city": 0.35,
+          "national": 0.45,
+          "derived": 0.05,
+          "composite": 0.15
         },
         "diagnosticDataLevelCounts": {
-          "city": 1,
+          "city": 2,
           "national": 1,
           "derived": 0,
           "composite": 0,
-          "missing": 1
+          "missing": 0
         },
         "diagnosticDataLevelShares": {
-          "city": 0.3333,
+          "city": 0.6667,
           "national": 0.3333,
           "derived": 0,
           "composite": 0,
-          "missing": 0.3333
+          "missing": 0
         },
         "observedDiagnosticDataLevelShares": {
-          "city": 0.5,
-          "national": 0.5,
+          "city": 0.6667,
+          "national": 0.3333,
           "derived": 0,
           "composite": 0
         }
@@ -76186,8 +76238,8 @@
       "scoredMetricCount": 20,
       "diagnosticMetricCount": 3,
       "totalCityCount": 163,
-      "rankedCityCount": 159,
-      "watchlistCityCount": 4
+      "rankedCityCount": 157,
+      "watchlistCityCount": 6
     },
     "coverage": {
       "gradeCounts": {
@@ -76199,26 +76251,26 @@
     },
     "provenance": {
       "publicMetricLineCount": 3749,
-      "observedMetricLines": 3143,
+      "observedMetricLines": 3149,
       "dataLevelCounts": {
-        "city": 1608,
+        "city": 1614,
         "national": 779,
         "derived": 287,
         "composite": 469,
-        "missing": 606
+        "missing": 600
       },
       "dataLevelShares": {
-        "city": 0.4289,
+        "city": 0.4305,
         "national": 0.2078,
         "derived": 0.0766,
         "composite": 0.1251,
-        "missing": 0.1616
+        "missing": 0.16
       },
       "observedDataLevelShares": {
-        "city": 0.5116,
-        "national": 0.2479,
-        "derived": 0.0913,
-        "composite": 0.1492
+        "city": 0.5125,
+        "national": 0.2474,
+        "derived": 0.0911,
+        "composite": 0.1489
       },
       "gradeCounts": {
         "A": 138,
@@ -76252,8 +76304,8 @@
     "scoredMetricCount": 20,
     "diagnosticMetricCount": 3,
     "cityCount": 163,
-    "rankedCityCount": 159,
-    "watchlistCityCount": 4,
+    "rankedCityCount": 157,
+    "watchlistCityCount": 6,
     "ruleSnapshot": {
       "pureRankUsesExactScore": true,
       "exactScoreField": "slicScoreExact",
@@ -76664,26 +76716,26 @@
     },
     "provenance": {
       "publicMetricLineCount": 3749,
-      "observedMetricLines": 3143,
+      "observedMetricLines": 3149,
       "dataLevelCounts": {
-        "city": 1608,
+        "city": 1614,
         "national": 779,
         "derived": 287,
         "composite": 469,
-        "missing": 606
+        "missing": 600
       },
       "dataLevelShares": {
-        "city": 0.4289,
+        "city": 0.4305,
         "national": 0.2078,
         "derived": 0.0766,
         "composite": 0.1251,
-        "missing": 0.1616
+        "missing": 0.16
       },
       "observedDataLevelShares": {
-        "city": 0.5116,
-        "national": 0.2479,
-        "derived": 0.0913,
-        "composite": 0.1492
+        "city": 0.5125,
+        "national": 0.2474,
+        "derived": 0.0911,
+        "composite": 0.1489
       },
       "gradeCounts": {
         "A": 138,
@@ -76702,181 +76754,60 @@
     }
   },
   "changeSummary": {
-    "previousUpdatedAt": "2026-04-26T19:12:57.796Z",
-    "updatedAt": "2026-04-29T08:23:20.632Z",
-    "scoreChangedCount": 143,
-    "rankChangedCount": 136,
-    "tierChangedCount": 8,
-    "rankingStatusChangedCount": 5,
+    "previousUpdatedAt": "2026-04-30T18:11:27.473Z",
+    "updatedAt": "2026-04-30T18:25:36.718Z",
+    "scoreChangedCount": 0,
+    "rankChangedCount": 4,
+    "tierChangedCount": 0,
+    "rankingStatusChangedCount": 2,
     "biggestRankMovers": [
       {
         "cityId": "pg-port-moresby",
         "displayName": "Port Moresby",
         "country": "Papua New Guinea",
-        "previousRank": 0,
-        "currentRank": 157,
-        "delta": -157
+        "previousRank": 157,
+        "currentRank": 0,
+        "delta": 157
       },
       {
         "cityId": "ws-apia",
         "displayName": "Apia",
         "country": "Samoa",
-        "previousRank": 0,
+        "previousRank": 156,
+        "currentRank": 0,
+        "delta": 156
+      },
+      {
+        "cityId": "eg-alexandria",
+        "displayName": "Alexandria",
+        "country": "Egypt",
+        "previousRank": 159,
+        "currentRank": 157,
+        "delta": 2
+      },
+      {
+        "cityId": "ug-kampala",
+        "displayName": "Kampala",
+        "country": "Uganda",
+        "previousRank": 158,
         "currentRank": 156,
-        "delta": -156
-      },
-      {
-        "cityId": "vu-port-vila",
-        "displayName": "Port Vila",
-        "country": "Vanuatu",
-        "previousRank": 0,
-        "currentRank": 155,
-        "delta": -155
-      },
-      {
-        "cityId": "tz-dar-es-salaam",
-        "displayName": "Dar es Salaam",
-        "country": "Tanzania",
-        "previousRank": 0,
-        "currentRank": 151,
-        "delta": -151
-      },
-      {
-        "cityId": "do-santo-domingo",
-        "displayName": "Santo Domingo",
-        "country": "Dominican Republic",
-        "previousRank": 0,
-        "currentRank": 137,
-        "delta": -137
-      },
-      {
-        "cityId": "no-bergen",
-        "displayName": "Bergen",
-        "country": "Norway",
-        "previousRank": 141,
-        "currentRank": 112,
-        "delta": 29
-      },
-      {
-        "cityId": "ie-cork",
-        "displayName": "Cork",
-        "country": "Ireland",
-        "previousRank": 135,
-        "currentRank": 108,
-        "delta": 27
-      },
-      {
-        "cityId": "se-gothenburg",
-        "displayName": "Gothenburg",
-        "country": "Sweden",
-        "previousRank": 113,
-        "currentRank": 93,
-        "delta": 20
-      },
-      {
-        "cityId": "mx-merida",
-        "displayName": "Merida",
-        "country": "Mexico",
-        "previousRank": 133,
-        "currentRank": 116,
-        "delta": 17
-      },
-      {
-        "cityId": "hr-zagreb",
-        "displayName": "Zagreb",
-        "country": "Croatia",
-        "previousRank": 130,
-        "currentRank": 113,
-        "delta": 17
+        "delta": 2
       }
     ],
-    "tierTransitions": [
-      {
-        "cityId": "pr-san-juan",
-        "displayName": "San Juan",
-        "country": "Puerto Rico",
-        "previousTierLabel": null,
-        "previousTierSlot": null,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 10
-      },
-      {
-        "cityId": "my-melaka",
-        "displayName": "Melaka",
-        "country": "Malaysia",
-        "previousTierLabel": "Gamma",
-        "previousTierSlot": 9,
-        "currentTierLabel": null,
-        "currentTierSlot": null
-      },
-      {
-        "cityId": "ae-dubai",
-        "displayName": "Dubai",
-        "country": "United Arab Emirates",
-        "previousTierLabel": null,
-        "previousTierSlot": null,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 6
-      },
-      {
-        "cityId": "ae-abu-dhabi",
-        "displayName": "Abu Dhabi",
-        "country": "United Arab Emirates",
-        "previousTierLabel": "Gamma",
-        "previousTierSlot": 6,
-        "currentTierLabel": null,
-        "currentTierSlot": null
-      },
-      {
-        "cityId": "uy-montevideo",
-        "displayName": "Montevideo",
-        "country": "Uruguay",
-        "previousTierLabel": null,
-        "previousTierSlot": null,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 9
-      },
-      {
-        "cityId": "ro-bucharest",
-        "displayName": "Bucharest",
-        "country": "Romania",
-        "previousTierLabel": "Gamma",
-        "previousTierSlot": 10,
-        "currentTierLabel": null,
-        "currentTierSlot": null
-      },
-      {
-        "cityId": "fi-helsinki",
-        "displayName": "Helsinki",
-        "country": "Finland",
-        "previousTierLabel": "Gamma",
-        "previousTierSlot": 5,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 4
-      },
-      {
-        "cityId": "uk-london",
-        "displayName": "London",
-        "country": "United Kingdom",
-        "previousTierLabel": "Gamma",
-        "previousTierSlot": 4,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 5
-      }
-    ]
+    "tierTransitions": []
   },
-  "qualifiedCityCount": 159,
+  "qualifiedCityCount": 157,
   "integrityIssueCount": 0,
   "validCityRowCount": 163,
   "validCountryRowCount": 87,
   "publicationManifest": {
-    "generatedAt": "2026-04-29T08:23:20.632Z",
+    "generatedAt": "2026-04-30T18:25:36.718Z",
     "scorerVersion": "slic-v3.4.0",
     "tierPolicyVersion": "public-tier-v1.2.0",
     "normStatsHash": "2930f7b2f7fb2b9fd7262605669478a0420877d4795ca528283723ba03d75516",
-    "inputDataHash": "95b3be30a942416a477d42bcee29912dcd1f87b17fb8dd8b8b33fcfb4ada4ae3",
+    "inputDataHash": "225100837b344437116badc486781bf831716fddb7d21cada63a726b6434aeeb",
     "metricCatalogHash": "ff938706a6e5ccc7562e7d8034bd17b9b5652876708142833c563e42b26abc1e",
-    "publicationHash": "0011d67b87368ab649b8b3ac49fd4e0de0ff35c264bcfafc09c8eda62b1ee8ef"
+    "publicationHash": "3917122fa8d9c8245b1757edb0bad5adb2c1cb07a3e491c279293b05625f3522"
   },
   "stabilityAnalysis": {
     "scope": "Public-tier floor sensitivity around the live Alpha and Beta thresholds.",

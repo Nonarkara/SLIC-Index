@@ -20,7 +20,7 @@ rank,cityId,displayName,country,region,cityType,slicScore,pressureScore,viabilit
 19,kr-incheon,Incheon,South Korea,East Asia,primary,60.3,53.3,93.2,85.8,44.8,50.6,A,0.95,Ranked,2.9,51.7,5.6,shipping; manufacturing; tourism,0.72,38.5,99.3,46.6,57.0,2.00,Suwon,Busan,Jeju City
 20,au-perth,Perth,Australia,Oceania,secondary,60,45.3,92.7,87.1,56.3,51.2,A,0.91,Ranked,2.2,26,8.5,mining; finance; services,1.58,37.3,,36.6,74.0,1.37,Adelaide,Brisbane,Helsinki
 21,dk-copenhagen,Copenhagen,Denmark,"Western, Northern, and Southern Europe",primary,59.9,33.1,98.4,71.3,89.6,61.5,A,0.95,Ranked,1.4,5.9,23.7,biotech; tourism; services,1.55,32.4,99.9,44.0,40.0,3.48,Zurich,Toronto,Vancouver
-22,jp-tokyo,Tokyo,Japan,East Asia,primary,59.5,46.2,94.2,76.8,70.2,44.2,A,0.95,Ranked,,,,,,39.1,99.9,34.8,43.8,0.70,Vienna,Ottawa,Amsterdam
+22,jp-tokyo,Tokyo,Japan,East Asia,primary,59.5,46.2,94.2,76.8,70.2,44.2,A,0.95,Ranked,,,,,0.99,39.1,99.9,34.8,43.8,0.70,Vienna,Ottawa,Amsterdam
 23,ca-toronto,Toronto,Canada,North America,primary,59.4,38.7,94.9,75.3,72.5,54.1,A,0.95,Ranked,6.4,40,16.0,finance; tech; services,1.26,34.8,96.9,42.5,46.0,1.55,Vancouver,Zurich,Tokyo
 24,cl-valparaiso,Valparaiso,Chile,Latin America,secondary,59.4,58.3,76.4,73.6,56.9,43,A,0.95,Ranked,1,19.5,5.1,shipping; tourism; education,1.44,38.9,97.8,23.0,,2.64,Santiago,Krakow,Gdansk
 25,au-adelaide,Adelaide,Australia,Oceania,secondary,58.7,43.7,92.7,87.1,56.3,49.2,A,0.91,Ranked,1.4,26,5.4,manufacturing; education; services,1.58,37.3,,36.6,70.0,1.37,Perth,Wellington,Brisbane
@@ -32,9 +32,9 @@ rank,cityId,displayName,country,region,cityType,slicScore,pressureScore,viabilit
 31,at-vienna,Vienna,Austria,"Western, Northern, and Southern Europe",primary,58.3,46.8,90.1,74.4,71.1,41.4,A,0.95,Ranked,2,9.1,22.0,government; finance; tourism,1.41,33.4,98.9,29.4,52.0,-0.66,Tokyo,Ottawa,Venice
 32,fi-helsinki,Helsinki,Finland,"Western, Northern, and Southern Europe",secondary,58.3,40.9,93.5,81,57.5,52.9,A,0.95,Ranked,1.6,5.5,29.1,tech; finance; services,1.32,33.8,99.7,35.3,32.0,0.42,Brisbane,Wellington,Adelaide
 33,ee-tallinn,Tallinn,Estonia,"Western, Northern, and Southern Europe",secondary,58.3,51,92.4,58.4,49,57.8,A,0.95,Ranked,0.45,1.37,32.8,tech; finance; government,,35.8,98.9,35.3,34.0,-0.09,Fukuoka,Porto,Braga
-34,uk-london,London,United Kingdom,"Western, Northern, and Southern Europe",primary,58.2,35.1,82.8,78.4,70.2,59.3,A,0.95,Ranked,,,,,,36.2,99.8,16.2,38.2,0.80,Vancouver,Toronto,New York
+34,uk-london,London,United Kingdom,"Western, Northern, and Southern Europe",primary,58.2,35.1,82.8,78.4,70.2,59.3,A,0.95,Ranked,,,,,1.49,36.2,99.8,16.2,38.2,0.80,Vancouver,Toronto,New York
 35,cl-santiago,Santiago,Chile,Latin America,primary,57.9,50.7,72.9,83.8,56.9,44.6,A,0.95,Ranked,7.1,19.5,36.4,finance; mining; services,1.44,38.9,97.8,23.0,68.0,2.64,Valparaiso,San Juan,Adelaide
-36,us-new-york,New York,United States,North America,primary,57.7,27.1,85.4,82,68.5,75.3,A,0.95,Ranked,,,,,,38.7,99.7,28.4,49.5,2.40,London,Sydney,Melbourne
+36,us-new-york,New York,United States,North America,primary,57.7,27.1,85.4,82,68.5,75.3,A,0.95,Ranked,,,,,1.40,38.7,99.7,28.4,49.5,2.40,London,Sydney,Melbourne
 37,jp-fukuoka,Fukuoka,Japan,East Asia,secondary,57.6,59,95.8,67.4,46.6,42.3,A,0.95,Ranked,2.7,125,2.2,tech; trade; services,1.20,36.6,98.7,38.6,67.0,0.10,Hiroshima,Sapporo,Kobe
 38,nz-dunedin,Dunedin,New Zealand,Oceania,secondary,57.6,51.2,94.3,85.7,57.2,37.1,A,0.91,Ranked,0.13,5.1,2.5,education; tourism; agriculture,1.56,37.5,100.0,37.9,48.0,1.29,Christchurch,Adelaide,Perth
 39,nz-christchurch,Christchurch,New Zealand,Oceania,secondary,57.3,45.8,94.3,85.7,57.2,41.9,A,0.91,Ranked,0.4,5.1,7.8,tourism; agriculture; services,1.56,37.5,100.0,37.9,56.0,1.29,Dunedin,Adelaide,Perth
@@ -148,13 +148,11 @@ rank,cityId,displayName,country,region,cityType,slicScore,pressureScore,viabilit
 147,bd-chattogram,Chattogram,Bangladesh,South Asia,secondary,20.5,51.3,36.9,10.8,19.6,15.7,A,0.95,Ranked,5.5,170,3.2,shipping; manufacturing; trade,1.95,46.7,59.1,7.9,,4.22,Dhaka,Pokhara,Kathmandu
 148,kh-phnom-penh,Phnom Penh,Cambodia,Southeast Asia,primary,20.1,43.9,55.1,18.2,34.5,36.3,C,0.47,Ranked,2.3,17.2,13.4,manufacturing; government; tourism,,,,,,,Gaborone,Windhoek,Kigali
 149,sn-dakar,Dakar,Senegal,Africa,secondary,18.6,40.5,12.6,10.6,26.3,26.7,A,0.85,Ranked,3.7,17.8,20.8,government; services; trade,4.20,48.3,27.2,2.0,,6.06,Kathmandu,Alexandria,Accra
-150,de-munich,Munich,Germany,"Western, Northern, and Southern Europe",primary,13.5,18.3,100,27.1,65,36.2,C,0.43,Ranked,2.8,83.5,3.4,automotive; finance; tech,1.36,,,,52.0,,Port Vila,Apia,Paris
+150,de-munich,Munich,Germany,"Western, Northern, and Southern Europe",primary,13.5,18.3,100,27.1,65,36.2,C,0.43,Ranked,2.8,83.5,3.4,automotive; finance; tech,1.36,,,,52.0,,Port Vila,Paris,Santo Domingo
 151,tz-dar-es-salaam,Dar es Salaam,Tanzania,Africa,primary,13.5,31.8,70.1,59.8,24.1,12.7,C,0.38,Ranked,7.3,65,11.2,trade; manufacturing; services,,,,,,,Moscow,Aqaba,Amman
 152,pk-islamabad,Islamabad,Pakistan,South Asia,primary,9,47.5,25,8.1,13,4.4,A,0.95,Ranked,1.2,231,0.5,government; services; education,3.36,46.8,45.0,1.4,,3.05,Karachi,Lahore,Kathmandu
 153,pk-karachi,Karachi,Pakistan,South Asia,primary,8.9,48,25,8.1,13,4.4,A,0.95,Ranked,16.1,231,7.0,manufacturing; shipping; finance,3.36,46.8,45.0,1.4,,3.05,Lahore,Islamabad,Kathmandu
 154,pk-lahore,Lahore,Pakistan,South Asia,secondary,8.9,48.3,25,8.1,13,4.4,A,0.95,Ranked,13.1,231,5.7,manufacturing; services; government,3.36,46.8,45.0,1.4,,3.05,Karachi,Islamabad,Kathmandu
-155,vu-port-vila,Port Vila,Vanuatu,Oceania,primary,8.7,22.8,100,26.7,55.4,21.9,C,0.38,Ranked,0.065,0.33,19.7,tourism; agriculture; government,,,,,,,Munich,Apia,Santo Domingo
-156,ws-apia,Apia,Samoa,Oceania,primary,7.6,27.6,100,,55.5,10.2,C,0.36,Ranked,0.045,0.22,20.5,government; agriculture; tourism,,,,,,,Santo Domingo,Port Vila,Budapest
-157,pg-port-moresby,Port Moresby,Papua New Guinea,Oceania,primary,0,18.9,100,,28.6,3.7,C,0.36,Ranked,0.42,10.3,4.1,mining; government; services,,,,,,,Apia,Dar es Salaam,Santo Domingo
-158,ug-kampala,Kampala,Uganda,Africa,primary,0,31.8,0,68.7,15.1,22.5,C,0.43,Ranked,3.6,48,7.5,services; government; agriculture,,,,,,,Mexico City,Guadalajara,Merida
-159,eg-alexandria,Alexandria,Egypt,Africa,primary,0,45,0,11.3,7.7,30.6,C,0.43,Ranked,5.4,106,5.1,manufacturing; shipping; tourism,,,,,,,Dakar,Kathmandu,Islamabad
+155,vu-port-vila,Port Vila,Vanuatu,Oceania,primary,8.7,22.8,100,26.7,55.4,21.9,C,0.38,Ranked,0.065,0.33,19.7,tourism; agriculture; government,,,,,,,Munich,Santo Domingo,Budapest
+156,ug-kampala,Kampala,Uganda,Africa,primary,0,31.8,0,68.7,15.1,22.5,C,0.43,Ranked,3.6,48,7.5,services; government; agriculture,,,,,,,Mexico City,Guadalajara,Merida
+157,eg-alexandria,Alexandria,Egypt,Africa,primary,0,45,0,11.3,7.7,30.6,C,0.43,Ranked,5.4,106,5.1,manufacturing; shipping; tourism,,,,,,,Dakar,Kathmandu,Islamabad
