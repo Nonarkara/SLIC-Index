@@ -9,6 +9,7 @@ import type { PillarAllocation } from "./ZeroSumAllocator";
 import ZeroSumAllocator from "./ZeroSumAllocator";
 import { t } from "./i18n";
 import { appHref } from "./routing";
+import { scoreCityWithWeights } from "./scoring";
 import type { Locale, SitePath } from "./types";
 import { getVisitorStats } from "./visitorTracking";
 
@@ -28,6 +29,7 @@ interface HomeCity {
   capabilityScore: number;
   communityScore: number;
   creativeScore: number;
+  coveragePenalty: number;
   slicScore: number;
   rank: number;
 }
@@ -103,11 +105,12 @@ const publishedBoard: HomeCity[] = rankingPublication.cities
     tierLabel: city.tierLabel ?? null,
     tierSlot: city.tierSlot ?? null,
     tierReason: city.tierReason ?? null,
-    pressureScore: city.pressureScore ?? 0,
-    viabilityScore: city.viabilityScore ?? 0,
-    capabilityScore: city.capabilityScore ?? 0,
-    communityScore: city.communityScore ?? 0,
-    creativeScore: city.creativeScore ?? 0,
+    pressureScore: city.pressureScoreExact ?? city.pressureScore ?? 0,
+    viabilityScore: city.viabilityScoreExact ?? city.viabilityScore ?? 0,
+    capabilityScore: city.capabilityScoreExact ?? city.capabilityScore ?? 0,
+    communityScore: city.communityScoreExact ?? city.communityScore ?? 0,
+    creativeScore: city.creativeScoreExact ?? city.creativeScore ?? 0,
+    coveragePenalty: city.coveragePenalty ?? 0,
     slicScore: city.slicScore,
     rank: city.rank,
   }))
@@ -154,33 +157,6 @@ function navigateLink(
   onNavigate(path);
 }
 
-/**
- * AMPI across pillars — matches the published SLIC aggregation.
- *
- *   μ    = weighted mean of pillar scores (with user-chosen weights)
- *   σ²   = weighted variance
- *   AMPI = μ − σ²/μ   (penalises pillar imbalance)
- */
-function scoreCityWithWeights(city: HomeCity, weights: Record<PillarId, number>): number {
-  const total = PILLAR_ORDER.reduce((sum, pillar) => sum + weights[pillar], 0);
-  if (total === 0) return 0;
-
-  const pillarValues: Array<[number, number]> = PILLAR_ORDER
-    .map((p) => [city[`${p}Score` as keyof HomeCity] as number, weights[p]] as [number, number])
-    .filter(([s]) => s != null);
-
-  if (pillarValues.length === 0) return 0;
-
-  const sumW = pillarValues.reduce((s, [, w]) => s + w, 0);
-  if (sumW === 0) return 0;
-
-  const mu = pillarValues.reduce((s, [v, w]) => s + v * w, 0) / sumW;
-  if (pillarValues.length < 2 || mu === 0) return Math.max(0, Math.min(100, mu));
-
-  const variance = pillarValues.reduce((s, [v, w]) => s + w * (v - mu) ** 2, 0) / sumW;
-  const ampi = mu - variance / mu;
-  return Math.max(0, Math.min(100, ampi));
-}
 
 function leadPillarForCity(city: HomeCity): PillarId {
   return PILLAR_ORDER.reduce((best, pillar) =>
@@ -245,21 +221,36 @@ export default function HomePage({
     () =>
       publishedBoard
         .filter((city) => city.rankingStatus === "Ranked")
-        .map((city) => ({
-          ...city,
-          customScore: Math.round(scoreCityWithWeights(city, weights) * 10) / 10,
-        }))
-        .sort((a, b) => b.customScore - a.customScore),
+        .map((city) => {
+          const ampi = scoreCityWithWeights({
+            pressure: city.pressureScore,
+            viability: city.viabilityScore,
+            capability: city.capabilityScore,
+            community: city.communityScore,
+            creative: city.creativeScore,
+          }, weights);
+          // Apply the publication-time coverage penalty (0 for grade A, 5 for B, 15 for C)
+          // so the live customScore matches the published slicScore at canonical weights.
+          const exact = Math.max(0, ampi - city.coveragePenalty);
+          return {
+            ...city,
+            // exact: used for ranking & tier allocation so ties resolve identically to the published board
+            customScoreExact: exact,
+            // rounded: shown in the UI
+            customScore: Math.round(exact * 10) / 10,
+          };
+        })
+        .sort((a, b) => b.customScoreExact - a.customScoreExact),
     [weights],
   );
 
   const tieredResults = useMemo(() => {
     const rankedResults = assignPureScoreRanks(results, {
-      scoreKey: "customScore",
+      scoreKey: "customScoreExact",
       rankKey: "customRank",
     });
     const tiered = allocatePublicTiers(rankedResults, {
-      scoreKey: "customScore",
+      scoreKey: "customScoreExact",
       rankKey: "customRank",
       tierLabelKey: "computedTierLabel",
       tierSlotKey: "computedTierSlot",
@@ -660,18 +651,40 @@ export default function HomePage({
                 </div>
               )}
               <div className="v3-spider-list">
-                {results.slice(0, 15).map((city, index) => (
-                  <a
-                    key={city.cityId}
-                    className="v3-spider-row"
-                    href={appHref(`/city/${city.cityId}`)}
-                    onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
-                  >
-                    <span className="v3-spider-rank">{String(index + 1).padStart(2, "0")}</span>
-                    <span className="v3-spider-name">{city.displayName}</span>
-                    <span className="v3-spider-score">{city.customScore.toFixed(1)}</span>
-                    <span className="v3-spider-country">{city.country}</span>
-                  </a>
+                {([
+                  { id: "alpha", glyph: "α", label: t(locale, "ALPHA", "ALPHA", "ALPHA"), cities: tieredResults.alpha },
+                  { id: "beta", glyph: "β", label: t(locale, "BETA", "BETA", "BETA"), cities: tieredResults.beta },
+                  { id: "gamma", glyph: "γ", label: t(locale, "GAMMA", "GAMMA", "GAMMA"), cities: tieredResults.gamma },
+                ] as const).map((tier) => (
+                  <div key={tier.id} className={`v3-spider-tier v3-spider-tier--${tier.id}`}>
+                    <div className="v3-spider-tier-heading">
+                      <span className={`v3-tier-badge v3-tier-badge--${tier.id}`}>
+                        {tier.glyph} {tier.label}
+                      </span>
+                      <small>
+                        {t(
+                          locale,
+                          `${tier.cities.length} cities · live`,
+                          `${tier.cities.length} เมือง · สด`,
+                          `${tier.cities.length} 城 · 实时`,
+                        )}
+                      </small>
+                    </div>
+                    {tier.cities.map((city) => (
+                      <a
+                        key={city.cityId}
+                        className="v3-spider-row"
+                        href={appHref(`/city/${city.cityId}`)}
+                        onClick={(event) => navigateLink(event, onNavigate, `/city/${city.cityId}`)}
+                        title={city.computedTierReason ?? city.tierReason ?? undefined}
+                      >
+                        <span className="v3-spider-rank">#{String(city.customRank).padStart(2, "0")}</span>
+                        <span className="v3-spider-name">{city.displayName}</span>
+                        <span className="v3-spider-score">{city.customScore.toFixed(1)}</span>
+                        <span className="v3-spider-country">{city.country}</span>
+                      </a>
+                    ))}
+                  </div>
                 ))}
               </div>
             </div>

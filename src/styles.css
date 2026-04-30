@@ -7864,9 +7864,35 @@ details[open].scorecard-derived-formula summary::before {
   flex-direction: column;
 }
 
+.v3-spider-tier {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid rgba(248, 245, 240, 0.10);
+}
+
+.v3-spider-tier:first-child {
+  border-top: none;
+}
+
+.v3-spider-tier-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 14px 14px 8px;
+  gap: 12px;
+}
+
+.v3-spider-tier-heading small {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.55;
+}
+
 .v3-spider-row {
   display: grid;
-  grid-template-columns: 32px 1fr auto auto;
+  grid-template-columns: 44px 1fr auto auto;
   gap: 8px;
   align-items: center;
   padding: 10px 14px;
@@ -7880,6 +7906,10 @@ details[open].scorecard-derived-formula summary::before {
   border-left: none;
   border-right: none;
   border-top: none;
+}
+
+.v3-spider-tier > .v3-spider-row:last-child {
+  border-bottom: none;
 }
 
 .v3-spider-row:hover {

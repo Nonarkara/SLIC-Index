@@ -5,6 +5,7 @@ import SiteFooter from "./SiteFooter";
 import publishedData from "./data/publishedRankingData.json";
 import { t } from "./i18n";
 import { appHref } from "./routing";
+import { scoreCityWithWeights } from "./scoring";
 import {
   INDEX_PROFILES,
   COMPARE_HERO,
@@ -33,19 +34,14 @@ interface PublishedCity {
 const rankedCities = ((publishedData.cities ?? []) as PublishedCity[]).filter((c) => c.rankingStatus === "Ranked");
 
 /** AMPI across pillars — matches the published SLIC aggregation. */
-function scoreCityWithWeights(city: PublishedCity, weights: Record<PillarId, number>): number {
-  const total = PILLAR_ORDER.reduce((s, p) => s + weights[p], 0);
-  if (total === 0) return 0;
-  const entries: Array<[number, number]> = PILLAR_ORDER
-    .map((p) => [city[`${p}Score` as keyof PublishedCity] as number, weights[p]] as [number, number])
-    .filter(([v]) => v != null);
-  if (entries.length === 0) return 0;
-  const sumW = entries.reduce((s, [, w]) => s + w, 0);
-  if (sumW === 0) return 0;
-  const mu = entries.reduce((s, [v, w]) => s + v * w, 0) / sumW;
-  if (entries.length < 2 || mu === 0) return Math.max(0, Math.min(100, mu));
-  const variance = entries.reduce((s, [v, w]) => s + w * (v - mu) ** 2, 0) / sumW;
-  return Math.max(0, Math.min(100, mu - variance / mu));
+function scoreCity(city: PublishedCity, weights: Record<PillarId, number>): number {
+  return scoreCityWithWeights({
+    pressure: city.pressureScore,
+    viability: city.viabilityScore,
+    capability: city.capabilityScore,
+    community: city.communityScore,
+    creative: city.creativeScore,
+  }, weights);
 }
 
 
@@ -120,7 +116,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
 
   /* ── Live SLIC results ── */
   const slicResults = useMemo(() =>
-    rankedCities.map((c) => ({ ...c, customScore: Math.round(scoreCityWithWeights(c, weights) * 10) / 10 })).sort((a, b) => b.customScore - a.customScore),
+    rankedCities.map((c) => ({ ...c, customScore: Math.round(scoreCity(c, weights) * 10) / 10 })).sort((a, b) => b.customScore - a.customScore),
   [weights]);
   const slicTop10 = slicResults.slice(0, 10);
 
