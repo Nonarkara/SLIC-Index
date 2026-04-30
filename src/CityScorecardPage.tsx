@@ -567,30 +567,50 @@ function tierBridgeNote(
   tierSlot: number | null | undefined,
   rankedCityCount: number,
   locale: Locale,
-): string {
+): { headline: string; body: string } {
   // The pedagogy: pure rank is global score order; public tier is a separate
   // editorial overlay (10 seats max per tier, country caps, floor scores,
   // editorial exclusions). A high pure rank does NOT guarantee Alpha;
   // a "lower" pure rank can earn Alpha if it clears the editorial gates.
   if (tierLabel === "Alpha") {
-    return locale === "th"
-      ? `อันดับคะแนนล้วน #${rank} จากเมืองที่จัดอันดับ ${rankedCityCount} เมือง · ได้ที่นั่งสาธารณะ Alpha สล็อตที่ ${tierSlot} จาก 10 — Alpha คือชั้นบรรณาธิการที่สงวนไว้สำหรับเมืองที่ผู้อยู่อาศัยมัธยฐานเจริญงอกงามจริง ไม่ใช่แค่ top-10 ตามคะแนนล้วน`
-      : locale === "zh"
-        ? `纯分排名第 ${rank} 位（共 ${rankedCityCount} 座已排名城市）· 公开层 Alpha 第 ${tierSlot} 席（共 10 席）—— Alpha 是为中位居民真正安居的城市保留的编辑层，不是按纯分简单取前 10。`
-        : `Pure score rank #${rank} of ${rankedCityCount} ranked cities · Public-tier Alpha slot ${tierSlot} of 10 — Alpha is the editorial overlay reserved for cities where the median resident actually thrives, not the top-10 by pure score.`;
+    const headline = locale === "th" ? "อยู่ในชั้น Alpha" : locale === "zh" ? "位于 Alpha 层" : "On the Alpha shelf";
+    return {
+      headline,
+      body: locale === "th"
+        ? `อันดับล้วน #${rank} ใน ${rankedCityCount} เมืองที่จัดอันดับ · Alpha สล็อตที่ ${tierSlot} จาก 10. Alpha คือชั้นบรรณาธิการที่สงวนไว้ให้กับเมืองที่ผู้อยู่อาศัยมัธยฐานเจริญงอกงามจริง — ไม่ใช่ top-10 ตามคะแนนล้วน เมืองนี้ผ่านทุกประตู: คะแนนขั้นต่ำ เพดานประเทศ การกีดกันบรรณาธิการ`
+        : locale === "zh"
+          ? `纯分第 ${rank}（共 ${rankedCityCount} 座已排名城市）· Alpha 第 ${tierSlot} 席（共 10 席）。Alpha 是为中位居民真正安居的城市保留的编辑层 —— 而非按纯分排出的前 10。本城通过所有门槛：底线分数、国家上限、编辑排除。`
+          : `Pure rank #${rank} of ${rankedCityCount} ranked cities · Alpha slot ${tierSlot} of 10. Alpha is the editorial overlay for cities where the median resident actually thrives — not the top-ten by pure score. This city clears every gate: floor scores, country cap, editorial exclusion.`,
+    };
   }
   if (tierLabel === "Beta" || tierLabel === "Gamma") {
-    return locale === "th"
-      ? `อันดับคะแนนล้วน #${rank} จากเมืองที่จัดอันดับ ${rankedCityCount} เมือง · ได้ที่นั่งสาธารณะ ${tierLabel} สล็อตที่ ${tierSlot} จาก 10 — ${tierLabel} คือชั้นที่เมืองได้รับเมื่อคะแนนพื้นที่นั่ง Alpha ไม่ผ่าน หรือเมื่อตัวกรองบรรณาธิการ (เช่น เพดานประเทศ การกีดกันเฉพาะเมือง) บล็อก Alpha ไว้`
+    const headline = locale === "th"
+      ? `อยู่ในชั้น ${tierLabel}`
       : locale === "zh"
-        ? `纯分排名第 ${rank} 位（共 ${rankedCityCount} 座已排名城市）· 公开层 ${tierLabel} 第 ${tierSlot} 席（共 10 席）—— ${tierLabel} 是当 Alpha 门槛或编辑过滤（国家上限、城市排除）阻挡 Alpha 时，城市落入的层级。`
-        : `Pure score rank #${rank} of ${rankedCityCount} ranked cities · Public-tier ${tierLabel} slot ${tierSlot} of 10 — ${tierLabel} is where a city lands when it cannot clear an Alpha gate (floor scores, country cap, editorial exclusion).`;
+        ? `位于 ${tierLabel} 层`
+        : `On the ${tierLabel} shelf`;
+    return {
+      headline,
+      body: locale === "th"
+        ? `อันดับล้วน #${rank} ใน ${rankedCityCount} เมืองที่จัดอันดับ · ${tierLabel} สล็อตที่ ${tierSlot} จาก 10. ${tierLabel} คือชั้นที่เมืองได้รับเมื่อ Alpha ปิดอยู่ — อาจเพราะคะแนนขั้นต่ำไม่ผ่าน เพดานประเทศเต็ม หรือถูกกฎบรรณาธิการกีดกัน`
+        : locale === "zh"
+          ? `纯分第 ${rank}（共 ${rankedCityCount} 座已排名城市）· ${tierLabel} 第 ${tierSlot} 席（共 10 席）。${tierLabel} 是当 Alpha 关闭时城市的归处 —— 可能因为底线未达、国家上限已满，或被编辑规则排除。`
+          : `Pure rank #${rank} of ${rankedCityCount} ranked cities · ${tierLabel} slot ${tierSlot} of 10. ${tierLabel} is where a city lands when Alpha is closed to it — floor missed, country cap full, or editorial exclusion in force.`,
+    };
   }
-  return locale === "th"
-    ? `อันดับคะแนนล้วน #${rank} จากเมืองที่จัดอันดับ ${rankedCityCount} เมือง · ไม่มีที่นั่งในชั้นสาธารณะ — เมืองนี้อยู่ในรายชื่อจัดอันดับ แต่ Alpha/Beta/Gamma แต่ละชั้นมีเพียง 10 ที่นั่ง พร้อมเพดานประเทศและเกณฑ์ขั้นต่ำของบรรณาธิการ`
+  const headline = locale === "th"
+    ? "ไม่มีที่นั่งในชั้นสาธารณะ"
     : locale === "zh"
-      ? `纯分排名第 ${rank} 位（共 ${rankedCityCount} 座已排名城市）· 未获公开层席位 —— 该城市在排名清单中，但 Alpha/Beta/Gamma 每层仅有 10 席，配合国家上限与编辑底线。`
-      : `Pure score rank #${rank} of ${rankedCityCount} ranked cities · No public-tier seat — this city is in the ranked list, but Alpha/Beta/Gamma each have only 10 seats with country caps and editorial floors.`;
+      ? "未获公开层席位"
+      : "No public-tier seat";
+  return {
+    headline,
+    body: locale === "th"
+      ? `อันดับล้วน #${rank} ใน ${rankedCityCount} เมืองที่จัดอันดับ. เมืองนี้อยู่ในรายชื่อจัดอันดับ แต่แต่ละชั้นสาธารณะ (Alpha, Beta, Gamma) มีเพียง 10 ที่นั่ง พร้อมเพดานประเทศและเกณฑ์ขั้นต่ำของบรรณาธิการ — ที่นั่งของชั้นใดชั้นหนึ่งจึงเต็มก่อนที่เมืองนี้จะเข้าได้`
+      : locale === "zh"
+        ? `纯分第 ${rank}（共 ${rankedCityCount} 座已排名城市）。本城在排名清单中，但每个公开层（Alpha、Beta、Gamma）仅 10 席，配合国家上限与编辑底线 —— 在轮到本城之前已被填满。`
+        : `Pure rank #${rank} of ${rankedCityCount} ranked cities. This city is in the ranked list, but each public shelf (Alpha, Beta, Gamma) has only 10 seats with country caps and editorial floors — those seats were claimed before this city's turn.`,
+  };
 }
 
 function findCity(cityId: string): PublishedCity | undefined {
@@ -935,11 +955,15 @@ export default function CityScorecardPage({
               )}
             </div>
           </div>
-          {isPublished && (
-            <p className="scorecard-tier-bridge">
-              {tierBridgeNote(city.tierLabel, city.rank, city.tierSlot, rankedCityCount, locale)}
-            </p>
-          )}
+          {isPublished && (() => {
+            const bridge = tierBridgeNote(city.tierLabel, city.rank, city.tierSlot, rankedCityCount, locale);
+            return (
+              <div className="scorecard-tier-bridge">
+                <p className="scorecard-tier-bridge-headline">{bridge.headline}</p>
+                <p className="scorecard-tier-bridge-body">{bridge.body}</p>
+              </div>
+            );
+          })()}
         </div>
       </section>
 

@@ -118,6 +118,14 @@ const publishedBoard: HomeCity[] = rankingPublication.cities
 const publishedRankedCount = publishedBoard.filter((city) => city.rankingStatus === "Ranked").length;
 const publishedWatchlistCount = rankingPublication.cities.length - publishedRankedCount;
 
+// Bangkok is the canonical worked example for the rank-vs-Alpha distinction.
+// Pull its live numbers so the bridge copy never goes stale.
+const bangkokWorked = rankingPublication.cities.find((c) => c.cityId === "th-bangkok");
+const bangkokRank = bangkokWorked?.rank ?? 27;
+const bangkokAlphaSlot = bangkokWorked?.tierSlot ?? 9;
+const bangkokCommunity = bangkokWorked?.communityScore?.toFixed(1) ?? "90.0";
+const bangkokPressure = bangkokWorked?.pressureScore?.toFixed(1) ?? "45.4";
+
 const exerciseCities: HomeCity[] = getExerciseCities().map((city) => ({
   cityId: city.id,
   displayName: city.name,
@@ -424,14 +432,24 @@ export default function HomePage({
               "可发布的十座城市。每个数字都可追溯至来源。",
             )}
           </h2>
-          <p className="v3-alpha-bridge">
-            {t(
-              locale,
-              "Alpha is not the top-ten by pure score. It is the editorial overlay reserved for cities where the median resident actually thrives. Cities with higher pure-score rank can fail an Alpha gate (floor scores, country caps, editorial exclusion); cities with lower pure-score rank can earn an Alpha seat. That is why Bangkok at pure rank #27 holds Alpha slot 9 — its Community 90.0 and Pressure 45.4 clear the floor, no higher-ranked Thai city contests Thailand's seat, and no exclusion blocks it.",
-              "Alpha ไม่ใช่ top-10 ตามคะแนนล้วน แต่คือชั้นบรรณาธิการที่สงวนไว้สำหรับเมืองที่ผู้อยู่อาศัยมัธยฐานเจริญงอกงามจริง เมืองที่อันดับคะแนนสูงกว่าอาจไม่ผ่านประตู Alpha (เกณฑ์คะแนนขั้นต่ำ เพดานประเทศ การกีดกันบรรณาธิการ) เมืองที่อันดับคะแนนต่ำกว่าอาจได้ที่นั่ง Alpha นี่คือเหตุผลที่กรุงเทพฯ อันดับคะแนนล้วน #27 ได้ที่นั่ง Alpha สล็อตที่ 9 — Community 90.0 และ Pressure 45.4 ผ่านพื้น ไม่มีเมืองไทยอันดับสูงกว่าแย่งที่นั่งของไทย และไม่มีการกีดกันใด ๆ ขวางอยู่",
-              "Alpha 并非按纯分排出的前 10。它是为中位居民真正安居的城市保留的编辑层。纯分排名更高的城市可能未通过 Alpha 门槛（底线分数、国家上限、编辑排除）；纯分排名更低的城市可能赢得 Alpha 席位。这就是为何曼谷纯分第 27 却持有 Alpha 第 9 席——其社区 90.0 与压力 45.4 越过底线，无更高排名的泰国城市与之争夺泰国席位，且不在任何排除清单上。",
-            )}
-          </p>
+          <div className="v3-alpha-bridge">
+            <p className="v3-alpha-bridge-headline">
+              {t(
+                locale,
+                "Alpha is curated, not counted.",
+                "Alpha คือชั้นที่คัดเลือก ไม่ใช่ชั้นที่นับคะแนน",
+                "Alpha 是经编辑挑选，而非按分计票。",
+              )}
+            </p>
+            <p className="v3-alpha-bridge-body">
+              {t(
+                locale,
+                `It is the editorial overlay reserved for cities where the median resident actually thrives — not the top ten by pure score. Cities with higher pure rank can fail a gate (floor scores, country cap, editorial exclusion); cities with lower pure rank can earn a seat. Bangkok is the worked example: pure rank #${bangkokRank}, Alpha slot ${bangkokAlphaSlot}. Community ${bangkokCommunity} and Pressure ${bangkokPressure} clear the floor, Thailand's seat is uncontested, no exclusion blocks it.`,
+                `คือชั้นบรรณาธิการที่สงวนไว้ให้กับเมืองที่ผู้อยู่อาศัยมัธยฐานเจริญงอกงามจริง — ไม่ใช่ top-10 ตามคะแนนล้วน เมืองที่อันดับคะแนนสูงกว่าอาจไม่ผ่านประตู (เกณฑ์ขั้นต่ำ เพดานประเทศ การกีดกันบรรณาธิการ) เมืองที่อันดับคะแนนต่ำกว่าอาจได้ที่นั่ง กรุงเทพฯ คือตัวอย่าง: อันดับล้วน #${bangkokRank} · Alpha สล็อตที่ ${bangkokAlphaSlot} · Community ${bangkokCommunity} และ Pressure ${bangkokPressure} ผ่านพื้น · ที่นั่งของไทยไม่มีคู่แข่ง · ไม่มีการกีดกัน`,
+                `它是为中位居民真正安居的城市保留的编辑层 —— 而非按纯分排出的前 10。纯分更高的城市可能未通过门槛（底线、国家上限、编辑排除）；纯分更低的城市可能赢得席位。曼谷是范例：纯分第 ${bangkokRank} · Alpha 第 ${bangkokAlphaSlot} 席 · 社区 ${bangkokCommunity}、压力 ${bangkokPressure} 越过底线 · 泰国席位无人争夺 · 不在任何排除清单上。`,
+              )}
+            </p>
+          </div>
           <p className="v3-alpha-subtitle">
             {t(
               locale,
