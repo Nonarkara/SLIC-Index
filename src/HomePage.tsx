@@ -419,11 +419,19 @@ export default function HomePage({
           <h2 className="v3-alpha-title">
             {t(
               locale,
-              "The top ten. Every number traced to a source.",
-              "สิบอันดับแรก ตัวเลขทุกค่าย้อนกลับสู่แหล่งที่มาได้",
-              "前十名。每个数字都可追溯至来源。",
+              "The publishable ten. Every number traced to a source.",
+              "สิบเมืองที่เผยแพร่ได้จริง ตัวเลขทุกค่าย้อนกลับสู่แหล่งที่มาได้",
+              "可发布的十座城市。每个数字都可追溯至来源。",
             )}
           </h2>
+          <p className="v3-alpha-bridge">
+            {t(
+              locale,
+              "Alpha is not the top-ten by pure score. It is the editorial overlay reserved for cities where the median resident actually thrives. Cities with higher pure-score rank can fail an Alpha gate (floor scores, country caps, editorial exclusion); cities with lower pure-score rank can earn an Alpha seat. That is why Bangkok at pure rank #27 holds Alpha slot 9 — its Community 90.0 and Pressure 45.4 clear the floor, no higher-ranked Thai city contests Thailand's seat, and no exclusion blocks it.",
+              "Alpha ไม่ใช่ top-10 ตามคะแนนล้วน แต่คือชั้นบรรณาธิการที่สงวนไว้สำหรับเมืองที่ผู้อยู่อาศัยมัธยฐานเจริญงอกงามจริง เมืองที่อันดับคะแนนสูงกว่าอาจไม่ผ่านประตู Alpha (เกณฑ์คะแนนขั้นต่ำ เพดานประเทศ การกีดกันบรรณาธิการ) เมืองที่อันดับคะแนนต่ำกว่าอาจได้ที่นั่ง Alpha นี่คือเหตุผลที่กรุงเทพฯ อันดับคะแนนล้วน #27 ได้ที่นั่ง Alpha สล็อตที่ 9 — Community 90.0 และ Pressure 45.4 ผ่านพื้น ไม่มีเมืองไทยอันดับสูงกว่าแย่งที่นั่งของไทย และไม่มีการกีดกันใด ๆ ขวางอยู่",
+              "Alpha 并非按纯分排出的前 10。它是为中位居民真正安居的城市保留的编辑层。纯分排名更高的城市可能未通过 Alpha 门槛（底线分数、国家上限、编辑排除）；纯分排名更低的城市可能赢得 Alpha 席位。这就是为何曼谷纯分第 27 却持有 Alpha 第 9 席——其社区 90.0 与压力 45.4 越过底线，无更高排名的泰国城市与之争夺泰国席位，且不在任何排除清单上。",
+            )}
+          </p>
           <p className="v3-alpha-subtitle">
             {t(
               locale,

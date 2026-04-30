@@ -6,14 +6,14 @@ interface CityPhotoSpec {
 }
 
 interface CityEditorialSeed {
-  heroLine: string;
-  intro: string;
+  heroLine?: string;
+  intro?: string;
   photo: CityPhotoSpec;
 }
 
 export interface CityEditorialEntry {
-  heroLine: string;
-  intro: string;
+  heroLine?: string;
+  intro?: string;
   photo: {
     credit: string;
     alt: string;
@@ -401,6 +401,919 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
       position: "center 50%",
     },
   },
+
+  // — Photo-only entries (Wikimedia Commons attribution) —
+  "sa-khobar": {
+    photo: {
+      fileName: "Khobar water tower.jpg",
+      credit: "Francisco Anzola",
+      alt: "Khobar, Saudi Arabia — Wikimedia Commons photograph.",
+    },
+  },
+  "au-sydney": {
+    photo: {
+      fileName: "Sydney Opera House and Harbour Bridge Dusk (2) 2019-06-21.jpg",
+      credit: "Benh LIEU SONG (Flickr)",
+      alt: "Sydney, Australia — Wikimedia Commons photograph.",
+    },
+  },
+  "sa-jeddah": {
+    photo: {
+      fileName: "Jeddah Waterfront 2025 (cropped).jpg",
+      credit: "Ali Lajami",
+      alt: "Jeddah, Saudi Arabia — Wikimedia Commons photograph.",
+    },
+  },
+  "au-brisbane": {
+    photo: {
+      fileName: "Brisbane CBD seen from Kangaroo Point, 2024, 01 (2).jpg",
+      credit: "Chris Olszewski",
+      alt: "Brisbane, Australia — Wikimedia Commons photograph.",
+    },
+  },
+  "at-vienna": {
+    photo: {
+      fileName: "Schoenbrunn philharmoniker 2012.jpg",
+      credit: "Superbass",
+      alt: "Vienna, Austria — Wikimedia Commons photograph.",
+    },
+  },
+  "au-melbourne": {
+    photo: {
+      fileName: "Melbourne skyline sor.jpg",
+      credit: "Melbpal",
+      alt: "Melbourne, Australia — Wikimedia Commons photograph.",
+    },
+  },
+  "bh-manama": {
+    photo: {
+      fileName: "Manama, Bahrain Decembre 2014.jpg",
+      credit: "Wadiia",
+      alt: "Manama, Bahrain — Wikimedia Commons photograph.",
+    },
+  },
+  "au-adelaide": {
+    photo: {
+      fileName: "Adelaide skyline, December 2022 b.jpg",
+      credit: "File:Adelaide skyline, December 2022.jpg: Ardash Muradian from Australia derivative work: Georgfotoart",
+      alt: "Adelaide, Australia — Wikimedia Commons photograph.",
+    },
+  },
+  "ca-toronto": {
+    photo: {
+      fileName: "Toronto Skyline from Snake Island, February 28 2026 (08).jpg",
+      credit: "Dillan Payne",
+      alt: "Toronto, Canada — Wikimedia Commons photograph.",
+    },
+  },
+  "pr-san-juan": {
+    photo: {
+      fileName: "2013 Old San Juan 01.JPG",
+      credit: "Farragutful",
+      alt: "San Juan, Puerto Rico — Wikimedia Commons photograph.",
+    },
+  },
+  "nl-amsterdam": {
+    photo: {
+      fileName: "Imagen de los canales concéntricos en Ámsterdam.png",
+      credit: "Andrés Barrios",
+      alt: "Amsterdam, Netherlands — Wikimedia Commons photograph.",
+    },
+  },
+  "cn-tianjin": {
+    photo: {
+      fileName: "天津天际线202511.jpg",
+      credit: "Tyngrwey",
+      alt: "Tianjin, China — Wikimedia Commons photograph.",
+    },
+  },
+  "jp-hiroshima": {
+    photo: {
+      fileName: "Atomic Bomb Dome and Motoyaso River, Hiroshima, Northwest view 20190417 1.jpg",
+      credit: "DXR",
+      alt: "Hiroshima, Japan — Wikimedia Commons photograph.",
+    },
+  },
+  "fr-paris": {
+    photo: {
+      fileName: "La Tour Eiffel vue de la Tour Saint-Jacques, Paris août 2014 (2).jpg",
+      credit: "Yann Caradec from Paris, France",
+      alt: "Paris, France — Wikimedia Commons photograph.",
+    },
+  },
+  "pl-gdansk": {
+    photo: {
+      fileName: "Calle Dlugie Pobrzeze, Gdansk, Polonia, 2013-05-20, DD 06.jpg",
+      credit: "Diego Delso",
+      alt: "Gdansk, Poland — Wikimedia Commons photograph.",
+    },
+  },
+  "ca-vancouver": {
+    photo: {
+      fileName: "Vancouver harbour skyline (44723845851).jpg",
+      credit: "dronepicr",
+      alt: "Vancouver, Canada — Wikimedia Commons photograph.",
+    },
+  },
+  "sk-bratislava": {
+    photo: {
+      fileName: "Slovakia bratislava.jpg",
+      credit: "Arne Müseler",
+      alt: "Bratislava, Slovakia — Wikimedia Commons photograph.",
+    },
+  },
+  "pl-krakow": {
+    photo: {
+      fileName: "Krakow Rynek Glowny panorama 2.jpg",
+      credit: "Andrzej Otrębski",
+      alt: "Krakow, Poland — Wikimedia Commons photograph.",
+    },
+  },
+  "th-chiang-mai": {
+    photo: {
+      fileName: "0020-วัดพระสิงห์วรมหาวิหาร.jpg",
+      credit: "Nawit science",
+      alt: "Chiang Mai, Thailand — Wikimedia Commons photograph.",
+    },
+  },
+  "mu-port-louis": {
+    photo: {
+      fileName: "Port Louis Skyline.JPG",
+      credit: "Thierry",
+      alt: "Port Louis, Mauritius — Wikimedia Commons photograph.",
+    },
+  },
+  "it-bologna": {
+    photo: {
+      fileName: "Torri di Bologna, Bologna.jpg",
+      credit: "Fabio Ciminelli",
+      alt: "Bologna, Italy — Wikimedia Commons photograph.",
+    },
+  },
+  "my-kota-kinabalu": {
+    photo: {
+      fileName: "Panoramic view of Kota Kinabalu City.jpg",
+      credit: "FILMR Production",
+      alt: "Kota Kinabalu, Malaysia — Wikimedia Commons photograph.",
+    },
+  },
+  "my-kuching": {
+    photo: {
+      fileName: "Kuching Skyline.jpg",
+      credit: "Mike86 at English Wikipedia",
+      alt: "Kuching, Malaysia — Wikimedia Commons photograph.",
+    },
+  },
+  "tw-taichung": {
+    photo: {
+      fileName: "Taichung skyline.png",
+      credit: "毛貓大少爺 from Taipei, Taiwan",
+      alt: "Taichung, Taiwan — Wikimedia Commons photograph.",
+    },
+  },
+  "my-melaka": {
+    photo: {
+      fileName: "Melaka View.jpg",
+      credit: "Atlasmotor",
+      alt: "Melaka, Malaysia — Wikimedia Commons photograph.",
+    },
+  },
+  "my-george-town": {
+    photo: {
+      fileName: "Skyline of George Town, Penang at night Nov2024-29-17.jpg",
+      credit: "HundenvonPenang",
+      alt: "George Town, Malaysia — Wikimedia Commons photograph.",
+    },
+  },
+  "jp-sapporo": {
+    photo: {
+      fileName: "SapporoCity Skylines2020.jpg",
+      credit: "Nryate",
+      alt: "Sapporo, Japan — Wikimedia Commons photograph.",
+    },
+  },
+  "om-salalah": {
+    photo: {
+      fileName: "Dunst Oman scan0322 - Burj al Nahda.jpg",
+      credit: "Bernhard Dunst",
+      alt: "Salalah, Oman — Wikimedia Commons photograph.",
+    },
+  },
+  "ar-cordoba": {
+    photo: {
+      fileName: "Panorama Nueva Córdoba 2012-02-03.jpg",
+      credit: "Cholka Pablo Gautero",
+      alt: "Cordoba, Argentina — Wikimedia Commons photograph.",
+    },
+  },
+  "cn-guangzhou": {
+    photo: {
+      fileName: "Canton Tower 20241027.jpg",
+      credit: "Tim Wu",
+      alt: "Guangzhou, China — Wikimedia Commons photograph.",
+    },
+  },
+  "ae-abu-dhabi": {
+    photo: {
+      fileName: "Abu dhabi skylines 2014.jpg",
+      credit: "Wadiia",
+      alt: "Abu Dhabi, United Arab Emirates — Wikimedia Commons photograph.",
+    },
+  },
+  "hu-budapest": {
+    photo: {
+      fileName: "View from Gellért Hill to the Danube, Hungary - Budapest (28493220635).jpg",
+      credit: "Visions of Domino",
+      alt: "Budapest, Hungary — Wikimedia Commons photograph.",
+    },
+  },
+  "uy-montevideo": {
+    photo: {
+      fileName: "PALACIO LEGISLATIVO 01.JPG",
+      credit: "Eduardo Ruggieri",
+      alt: "Montevideo, Uruguay — Wikimedia Commons photograph.",
+    },
+  },
+  "cn-hangzhou": {
+    photo: {
+      fileName: "杭州钱江新城 4 (cropped).jpg",
+      credit: "EditQ",
+      alt: "Hangzhou, China — Wikimedia Commons photograph.",
+    },
+  },
+  "nz-auckland": {
+    photo: {
+      fileName: "Auckland skyline - May 2024 (2).jpg",
+      credit: "elpinto007",
+      alt: "Auckland, New Zealand — Wikimedia Commons photograph.",
+    },
+  },
+  "cn-shenzhen": {
+    photo: {
+      fileName: "Commercial area of futian to east2020.jpg",
+      credit: "Charlie fong",
+      alt: "Shenzhen, China — Wikimedia Commons photograph.",
+    },
+  },
+  "nz-christchurch": {
+    photo: {
+      fileName: "The \"Brill\" Tram 178.New Regent St Christchurch. (11510530335).jpg",
+      credit: "Bernard Spragg. NZ from Christchurch, New Zealand",
+      alt: "Christchurch, New Zealand — Wikimedia Commons photograph.",
+    },
+  },
+  "om-muscat": {
+    photo: {
+      fileName: "Al Alam Palace.jpg",
+      credit: "Tristan",
+      alt: "Muscat, Oman — Wikimedia Commons photograph.",
+    },
+  },
+  "mv-male": {
+    photo: {
+      fileName: "Malé.jpg",
+      credit: "Shahee Ilyas",
+      alt: "Male, Maldives — Wikimedia Commons photograph.",
+    },
+  },
+  "cr-san-jose": {
+    photo: {
+      fileName: "Ciudad de San José.png",
+      credit: "Alejandro Álvarez Taborda (Aleat88)",
+      alt: "San Jose, Costa Rica — Wikimedia Commons photograph.",
+    },
+  },
+  "ar-buenos-aires": {
+    photo: {
+      fileName: "Puerto Madero, Buenos Aires (40689219792) (cropped).jpg",
+      credit: "Deensel",
+      alt: "Buenos Aires, Argentina — Wikimedia Commons photograph.",
+    },
+  },
+  "cn-chongqing": {
+    photo: {
+      fileName: "Chongqing Nightscape.jpg",
+      credit: "Jay Huang",
+      alt: "Chongqing, China — Wikimedia Commons photograph.",
+    },
+  },
+  "au-hobart": {
+    photo: {
+      fileName: "Franklin Wharf 2015 b (cropped).jpg",
+      credit: "File:Franklin Wharf 2015.jpg: Michael fromholtz derivative work: Georgfotoart",
+      alt: "Hobart, Australia — Wikimedia Commons photograph.",
+    },
+  },
+  "cn-chengdu": {
+    photo: {
+      fileName: "雪山下的成都市天际线 Chengdu skyline with snow capped mountains.jpg",
+      credit: "FISU",
+      alt: "Chengdu, China — Wikimedia Commons photograph.",
+    },
+  },
+  "ge-tbilisi": {
+    photo: {
+      fileName: "View of Tbilisi from Tabori Church 2023-10-08-2.jpg",
+      credit: "Alexey Komarov",
+      alt: "Tbilisi, Georgia — Wikimedia Commons photograph.",
+    },
+  },
+  "nz-dunedin": {
+    photo: {
+      fileName: "Dunedin-Nueva Zelanda01.JPG",
+      credit: "Diego Delso",
+      alt: "Dunedin, New Zealand — Wikimedia Commons photograph.",
+    },
+  },
+  "rw-kigali": {
+    photo: {
+      fileName: "High Angle View Of Kigali City Street on November 29, 2018. Emmanuel Kwizera.jpg",
+      credit: "Emmanuelkwizera",
+      alt: "Kigali, Rwanda — Wikimedia Commons photograph.",
+    },
+  },
+  "nz-wellington": {
+    photo: {
+      fileName: "Seddon Statue in Parliament Grounds.jpg",
+      credit: "russellstreet",
+      alt: "Wellington, New Zealand — Wikimedia Commons photograph.",
+    },
+  },
+  "ma-casablanca": {
+    photo: {
+      fileName: "Casa finance city 6 (cropped).jpg",
+      credit: "Chah.salah",
+      alt: "Casablanca, Morocco — Wikimedia Commons photograph.",
+    },
+  },
+  "cn-shanghai": {
+    photo: {
+      fileName: "Huangpu Park 20124-Shanghai (32208802494).jpg",
+      credit: "xiquinhosilva",
+      alt: "Shanghai, China — Wikimedia Commons photograph.",
+    },
+  },
+  "ro-bucharest": {
+    photo: {
+      fileName: "Bucharest University Square (cropped).jpg",
+      credit: "Madalin Pentelie",
+      alt: "Bucharest, Romania — Wikimedia Commons photograph.",
+    },
+  },
+  "my-kuala-lumpur": {
+    photo: {
+      fileName: "Bukit Bintang junction in 2024 2.jpg",
+      credit: "Renek78",
+      alt: "Kuala Lumpur, Malaysia — Wikimedia Commons photograph.",
+    },
+  },
+  "fi-helsinki": {
+    photo: {
+      fileName: "Suomenlinna (cropped).jpg",
+      credit: "Michal Pise, Michal.Pise",
+      alt: "Helsinki, Finland — Wikimedia Commons photograph.",
+    },
+  },
+  "ug-kampala": {
+    photo: {
+      fileName: "Urban Rising, KAMPALA, Uganda.jpg",
+      credit: "Chapelle musa",
+      alt: "Kampala, Uganda — Wikimedia Commons photograph.",
+    },
+  },
+  "rs-belgrade": {
+    photo: {
+      fileName: "Panorama Belgrad.jpg",
+      credit: "ZlatanJovanovic",
+      alt: "Belgrade, Serbia — Wikimedia Commons photograph.",
+    },
+  },
+  "ec-cuenca": {
+    photo: {
+      fileName: "Collage Cuenca.png",
+      credit: "David C. S.",
+      alt: "Cuenca, Ecuador — Wikimedia Commons photograph.",
+    },
+  },
+  "pa-panama-city": {
+    photo: {
+      fileName: "Panama Papers (148830809).jpeg",
+      credit: "Dronepicr",
+      alt: "Panama City, Panama — Wikimedia Commons photograph.",
+    },
+  },
+  "br-curitiba": {
+    photo: {
+      fileName: "Vista aérea de Curitiba.jpg",
+      credit: "Rodrigo Fonseca/Câmara Municipal de Curitiba",
+      alt: "Curitiba, Brazil — Wikimedia Commons photograph.",
+    },
+  },
+  "sa-riyadh": {
+    photo: {
+      fileName: "Riyadh Skyline.jpg",
+      credit: "B.alotaby",
+      alt: "Riyadh, Saudi Arabia — Wikimedia Commons photograph.",
+    },
+  },
+  "co-medellin": {
+    photo: {
+      fileName: "El Poblado Medellín.jpg",
+      credit: "Daniel-1-1",
+      alt: "Medellin, Colombia — Wikimedia Commons photograph.",
+    },
+  },
+  "py-asuncion": {
+    photo: {
+      fileName: "Palacio de Gobierno2.jpg",
+      credit: "Robert Servin",
+      alt: "Asuncion, Paraguay — Wikimedia Commons photograph.",
+    },
+  },
+  "ma-rabat": {
+    photo: {
+      fileName: "Morocco - Rabat (31387775324).jpg",
+      credit: "Visions of Domino",
+      alt: "Rabat, Morocco — Wikimedia Commons photograph.",
+    },
+  },
+  "es-valencia": {
+    photo: {
+      fileName: "Malvarrosa Beach, Valencia, Spain (29812271043).jpg",
+      credit: "Boris Dzhingarov",
+      alt: "Valencia, Spain — Wikimedia Commons photograph.",
+    },
+  },
+  "th-hat-yai": {
+    photo: {
+      fileName: "May 2025 - Hat Yai City Skyline view from Khao Kho Hong viewpoint.jpg",
+      credit: "TomMumuPangPangEmma",
+      alt: "Hat Yai, Thailand — Wikimedia Commons photograph.",
+    },
+  },
+  "vn-da-nang": {
+    photo: {
+      fileName: "Dragon Bridge, Da Nang during day - 20230819 (cropped).jpg",
+      credit: "Somerset999",
+      alt: "Da Nang, Vietnam — Wikimedia Commons photograph.",
+    },
+  },
+  "ru-nizhny-novgorod": {
+    photo: {
+      fileName: "Nizhny Novgorod 2025-04-29 Minin and Pozharsky square 01.jpg",
+      credit: "AlexTref871",
+      alt: "Nizhny Novgorod, Russia — Wikimedia Commons photograph.",
+    },
+  },
+  "th-phuket": {
+    photo: {
+      fileName: "Phuket Aerial.jpg",
+      credit: "Bennypc",
+      alt: "Phuket, Thailand — Wikimedia Commons photograph.",
+    },
+  },
+  "br-florianopolis": {
+    photo: {
+      fileName: "Morro da Cruz, Florianópolis - SC, Brazil - panoramio (cropped).jpg",
+      credit: "oscar fava",
+      alt: "Florianopolis, Brazil — Wikimedia Commons photograph.",
+    },
+  },
+  "br-sao-paulo": {
+    photo: {
+      fileName: "Marginal Pinheiros e Jockey Club.jpg",
+      credit: "Agent010",
+      alt: "Sao Paulo, Brazil — Wikimedia Commons photograph.",
+    },
+  },
+  "jo-amman": {
+    photo: {
+      fileName: "New Abdali 2024.png",
+      credit: "Ramzik1999",
+      alt: "Amman, Jordan — Wikimedia Commons photograph.",
+    },
+  },
+  "jo-aqaba": {
+    photo: {
+      fileName: "AQABA 2.png",
+      credit: "Freedom's Falcon",
+      alt: "Aqaba, Jordan — Wikimedia Commons photograph.",
+    },
+  },
+  "hr-zagreb": {
+    photo: {
+      fileName: "Zagreb (29255640143).jpg",
+      credit: "Nick Savchenko from Kiev, Ukraine",
+      alt: "Zagreb, Croatia — Wikimedia Commons photograph.",
+    },
+  },
+  "kh-phnom-penh": {
+    photo: {
+      fileName: "Phnom Penh skyline from TK district Dec 2024.jpg",
+      credit: "Looppty",
+      alt: "Phnom Penh, Cambodia — Wikimedia Commons photograph.",
+    },
+  },
+  "tz-dar-es-salaam": {
+    photo: {
+      fileName: "St Joseph's Catholic Cathedral (34895613805).jpg",
+      credit: "David Stanley from Nanaimo, Canada",
+      alt: "Dar es Salaam, Tanzania — Wikimedia Commons photograph.",
+    },
+  },
+  "pe-arequipa": {
+    photo: {
+      fileName: "In Aerquipa Peru,…Plaza de Armas (8443293545).jpg",
+      credit: "Murray Foubister",
+      alt: "Arequipa, Peru — Wikimedia Commons photograph.",
+    },
+  },
+  "id-surabaya": {
+    photo: {
+      fileName: "Central Surabaya view taken from JW Marriott Surabaya.jpg",
+      credit: "consigliere ivan",
+      alt: "Surabaya, Indonesia — Wikimedia Commons photograph.",
+    },
+  },
+  "co-bogota": {
+    photo: {
+      fileName: "Bogota, Colombia (36668708290).jpg",
+      credit: "Pedro Szekely from Los Angeles, USA",
+      alt: "Bogota, Colombia — Wikimedia Commons photograph.",
+    },
+  },
+  "ph-cebu-city": {
+    photo: {
+      fileName: "Cebu city skyline 2025.jpg",
+      credit: "DisRaptor18",
+      alt: "Cebu City, Philippines — Wikimedia Commons photograph.",
+    },
+  },
+  "ke-nairobi": {
+    photo: {
+      fileName: "Nairobi skyline from Gem Hotel.jpg",
+      credit: "Daniel Case",
+      alt: "Nairobi, Kenya — Wikimedia Commons photograph.",
+    },
+  },
+  "in-pune": {
+    photo: {
+      fileName: "Pune West skyline - March 2017.jpg",
+      credit: "Ujjawal.Gayakwad",
+      alt: "Pune, India — Wikimedia Commons photograph.",
+    },
+  },
+  "pe-lima": {
+    photo: {
+      fileName: "Lima City Hall.jpg",
+      credit: "WMrapids",
+      alt: "Lima, Peru — Wikimedia Commons photograph.",
+    },
+  },
+  "ph-makati": {
+    photo: {
+      fileName: "Makati City Lights (Jopet Sy) - Flickr.jpg",
+      credit: "jopetsy",
+      alt: "Makati, Philippines — Wikimedia Commons photograph.",
+    },
+  },
+  "kw-kuwait-city": {
+    photo: {
+      fileName: "Kuwait City Skyline 1.jpg",
+      credit: "Zairon",
+      alt: "Kuwait City, Kuwait — Wikimedia Commons photograph.",
+    },
+  },
+  "ru-moscow": {
+    photo: {
+      fileName: "Saint Basil's Cathedral and the Red Square.jpg",
+      credit: "U.S. Department of State",
+      alt: "Moscow, Russia — Wikimedia Commons photograph.",
+    },
+  },
+  "in-hyderabad": {
+    photo: {
+      fileName: "Downtown hyderabad drone.png",
+      credit: "Shredpave",
+      alt: "Hyderabad, India — Wikimedia Commons photograph.",
+    },
+  },
+  "mx-guadalajara": {
+    photo: {
+      fileName: "Panorámica Guadalajara desde edificio Bansi hacia norte (cropped).jpg",
+      credit: "Isacdaavid",
+      alt: "Guadalajara, Mexico — Wikimedia Commons photograph.",
+    },
+  },
+  "id-jakarta": {
+    photo: {
+      fileName: "Bundaran Hotel Indonesia (2025).jpg",
+      credit: "Medelam",
+      alt: "Jakarta, Indonesia — Wikimedia Commons photograph.",
+    },
+  },
+  "bt-thimphu": {
+    photo: {
+      fileName: "Tashichödzong Thimphu-2008-01-23.jpg",
+      credit: "Christopher J. Fynn",
+      alt: "Thimphu, Bhutan — Wikimedia Commons photograph.",
+    },
+  },
+  "cz-brno": {
+    photo: {
+      fileName: "Brno Montage IV.png",
+      credit: "Brno-Freiheitsplatz2.jpg: SchiDD Brno_Katedrála_sv._Petra_a_Pavla_(St.Peter_and_St.Paul_Cathedral).jpg: JRodSilva Brno-Lužánky_XIV.jpg: Millenium187 Brno,_Vila_Tugendhat.jpg: Petr1987 Ignis_Brunensis_Grandfinale_2007.jpg: Jiří Nedorost Brno,_BVV,_výhled_z_výškové_budovy_(11.29.22).jpg: Martin Strachoň Hrad_Špilberk,_Brno_04.jpg: Doronenko",
+      alt: "Brno, Czechia — Wikimedia Commons photograph.",
+    },
+  },
+  "gh-accra": {
+    photo: {
+      fileName: "Acca.jpg",
+      credit: "Amoat7",
+      alt: "Accra, Ghana — Wikimedia Commons photograph.",
+    },
+  },
+  "gh-kumasi": {
+    photo: {
+      fileName: "Kronum Kumasi 2018-11-08 (130246).jpg",
+      credit: "Maven Egote",
+      alt: "Kumasi, Ghana — Wikimedia Commons photograph.",
+    },
+  },
+  "eg-alexandria": {
+    photo: {
+      fileName: "San Stefano Grand Plaza.JPG",
+      credit: "TheEgyptian",
+      alt: "Alexandria, Egypt — Wikimedia Commons photograph.",
+    },
+  },
+  "in-bengaluru": {
+    photo: {
+      fileName: "View from Visvesvaraya Industrial and Technological Museum (2025) 02.jpg",
+      credit: "Gpkp",
+      alt: "Bengaluru, India — Wikimedia Commons photograph.",
+    },
+  },
+  "si-ljubljana": {
+    photo: {
+      fileName: "Ljubljana Old Town, Slovenia (Old Camera) (33286165680).jpg",
+      credit: "Andrew Milligan Sumo",
+      alt: "Ljubljana, Slovenia — Wikimedia Commons photograph.",
+    },
+  },
+  "mx-mexico-city": {
+    photo: {
+      fileName: "Sobrevuelos CDMX HJ2A4913 (25514321687) (cropped).jpg",
+      credit: "Gobierno CDMX",
+      alt: "Mexico City, Mexico — Wikimedia Commons photograph.",
+    },
+  },
+  "na-windhoek": {
+    photo: {
+      fileName: "Christ Church in Windhoek, Namibia.jpg",
+      credit: "Christoph Strässler",
+      alt: "Windhoek, Namibia — Wikimedia Commons photograph.",
+    },
+  },
+  "in-chandigarh": {
+    photo: {
+      fileName: "Open Hand monument, Chandigarh.jpg",
+      credit: "Raakesh Blokhra",
+      alt: "Chandigarh, India — Wikimedia Commons photograph.",
+    },
+  },
+  "qa-doha": {
+    photo: {
+      fileName: "The Pearl Marina in Nov 2013.jpg",
+      credit: "Alex Sergeev (www.asergeev.com)",
+      alt: "Doha, Qatar — Wikimedia Commons photograph.",
+    },
+  },
+  "do-santo-domingo": {
+    photo: {
+      fileName: "SantoDomingoedit.JPG",
+      credit: "Jose Juan C",
+      alt: "Santo Domingo, Dominican Republic — Wikimedia Commons photograph.",
+    },
+  },
+  "lk-kandy": {
+    photo: {
+      fileName: "SL Kandy asv2020-01 img04 Queens Hotel.jpg",
+      credit: "A.Savin",
+      alt: "Kandy, Sri Lanka — Wikimedia Commons photograph.",
+    },
+  },
+  "za-cape-town": {
+    photo: {
+      fileName: "Cape Town (ZA), Table Mountain, Blick auf City Bowl -- 2024 -- 2855.jpg",
+      credit: "Dietmar Rabich",
+      alt: "Cape Town, South Africa — Wikimedia Commons photograph.",
+    },
+  },
+  "lv-riga": {
+    photo: {
+      fileName: "Riga (33844464828).jpg",
+      credit: "Jorge Franganillo from Barcelona, Spain",
+      alt: "Riga, Latvia — Wikimedia Commons photograph.",
+    },
+  },
+  "bd-chattogram": {
+    photo: {
+      fileName: "Agrabad Commercial Area.jpg",
+      credit: "Raihan Rana",
+      alt: "Chattogram, Bangladesh — Wikimedia Commons photograph.",
+    },
+  },
+  "bw-gaborone": {
+    photo: {
+      fileName: "View from I-Tower SE 20200712.jpg",
+      credit: "CNJerem",
+      alt: "Gaborone, Botswana — Wikimedia Commons photograph.",
+    },
+  },
+  "lk-colombo": {
+    photo: {
+      fileName: "Colombo city skyline at night.png",
+      credit: "Gihanud2001",
+      alt: "Colombo, Sri Lanka — Wikimedia Commons photograph.",
+    },
+  },
+  "bd-dhaka": {
+    photo: {
+      fileName: "Drone view from Kamal Atatürk Avenue.jpg",
+      credit: "Sifat777",
+      alt: "Dhaka, Bangladesh — Wikimedia Commons photograph.",
+    },
+  },
+  "za-johannesburg": {
+    photo: {
+      fileName: "Johannesburg skyline 2017.jpg",
+      credit: "Mark Hillary",
+      alt: "Johannesburg, South Africa — Wikimedia Commons photograph.",
+    },
+  },
+  "fj-suva": {
+    photo: {
+      fileName: "Suva, Fiji 77.jpg",
+      credit: "Maksym Kozlenko",
+      alt: "Suva, Fiji — Wikimedia Commons photograph.",
+    },
+  },
+  "np-pokhara": {
+    photo: {
+      fileName: "Pokhara Valley.jpg",
+      credit: "Utsab Raj Giri",
+      alt: "Pokhara, Nepal — Wikimedia Commons photograph.",
+    },
+  },
+  "se-gothenburg": {
+    photo: {
+      fileName: "Göteborg 2503 stitch (28573994096).jpg",
+      credit: "Bengt Nyman from Vaxholm, Sweden",
+      alt: "Gothenburg, Sweden — Wikimedia Commons photograph.",
+    },
+  },
+  "np-kathmandu": {
+    photo: {
+      fileName: "Kathmandu-Durbar Square-06-Mahavishnu-Kuh-Vishnu-Pratapamalla-Jagannath-2007-gje.jpg",
+      credit: "Gerd Eichmann",
+      alt: "Kathmandu, Nepal — Wikimedia Commons photograph.",
+    },
+  },
+  "ie-cork": {
+    photo: {
+      fileName: "University College Cork - geograph.org.uk - 41771.jpg",
+      credit: "raps",
+      alt: "Cork, Ireland — Wikimedia Commons photograph.",
+    },
+  },
+  "be-antwerp": {
+    photo: {
+      fileName: "Amberes; vistas MAS 2.jpg",
+      credit: "LBM1948",
+      alt: "Antwerp, Belgium — Wikimedia Commons photograph.",
+    },
+  },
+  "sn-dakar": {
+    photo: {
+      fileName: "Dakar-place-de-l'Indépendance.jpg",
+      credit: "Jeemala",
+      alt: "Dakar, Senegal — Wikimedia Commons photograph.",
+    },
+  },
+  "pk-karachi": {
+    photo: {
+      fileName: "Dolmen Towers Karachi.jpg",
+      credit: "King Eliot",
+      alt: "Karachi, Pakistan — Wikimedia Commons photograph.",
+    },
+  },
+  "pk-lahore": {
+    photo: {
+      fileName: "Lahore Fort view from Baradari.jpg",
+      credit: "Rohaan Bhatti",
+      alt: "Lahore, Pakistan — Wikimedia Commons photograph.",
+    },
+  },
+  "pk-islamabad": {
+    photo: {
+      fileName: "Faisal Mosque, Islamabad III.jpg",
+      credit: "Fassifarooq",
+      alt: "Islamabad, Pakistan — Wikimedia Commons photograph.",
+    },
+  },
+  "de-munich": {
+    photo: {
+      fileName: "Stadtbild München.jpg",
+      credit: "Thomas Wolf, www.foto-tw.de",
+      alt: "Munich, Germany — Wikimedia Commons photograph.",
+    },
+  },
+  "no-bergen": {
+    photo: {
+      fileName: "Bergen panorama at night - panoramio (1).jpg",
+      credit: "TomasEE",
+      alt: "Bergen, Norway — Wikimedia Commons photograph.",
+    },
+  },
+  "vu-port-vila": {
+    photo: {
+      fileName: "Port Vila aerial.jpg",
+      credit: "Phillip Capper from Wellington, New Zealand",
+      alt: "Port Vila, Vanuatu — Wikimedia Commons photograph.",
+    },
+  },
+  "pg-port-moresby": {
+    photo: {
+      fileName: "Port Moresby Town2 Mschlauch.jpg",
+      credit: "MSchlauch",
+      alt: "Port Moresby, Papua New Guinea — Wikimedia Commons photograph.",
+    },
+  },
+  "uk-london": {
+    photo: {
+      fileName: "London Skyline (125508655).jpeg",
+      credit: "Ilya Grigorik",
+      alt: "London, United Kingdom — Wikimedia Commons photograph.",
+    },
+  },
+  "us-new-york": {
+    photo: {
+      fileName: "View of Empire State Building from Rockefeller Center New York City dllu (cropped).jpg",
+      credit: "Dllu",
+      alt: "New York, United States — Wikimedia Commons photograph.",
+    },
+  },
+  "cz-prague": {
+    photo: {
+      fileName: "Prague (6365119737).jpg",
+      credit: "Moyan Brenn from Italy",
+      alt: "Prague, Czechia — Wikimedia Commons photograph.",
+    },
+  },
+  "cn-nanjing": {
+    photo: {
+      fileName: "Nanjing CBD from City Wall.jpg",
+      credit: "xiquinhosilva",
+      alt: "Nanjing, China — Wikimedia Commons photograph.",
+    },
+  },
+  "it-venice": {
+    photo: {
+      fileName: "Venezia aerial view.jpg",
+      credit: "kallerna",
+      alt: "Venice, Italy — Wikimedia Commons photograph.",
+    },
+  },
+  "ae-dubai": {
+    photo: {
+      fileName: "Burj Khalifa floor view from west.jpg",
+      credit: "Donaldytong",
+      alt: "Dubai skyline with Burj Khalifa.",
+    },
+  },
+  "lt-vilnius": {
+    photo: {
+      fileName: "Vilnius from Gediminas Tower.jpg",
+      credit: "Pofka",
+      alt: "Vilnius Old Town panorama from Gediminas Tower.",
+    },
+  },
+  "mx-merida": {
+    photo: {
+      fileName: "Catedral Merida 02.jpg",
+      credit: "Diego Delso",
+      alt: "Mérida Cathedral on the central plaza.",
+    },
+  },
+  "ws-apia": {
+    photo: {
+      fileName: "Apia Harbour, Samoa - panoramio.jpg",
+      credit: "kismihok",
+      alt: "Apia harbour in Samoa.",
+    },
+  },
+
 };
 
 function hydrateCityEditorial(seed: CityEditorialSeed): CityEditorialEntry {

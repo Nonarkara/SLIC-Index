@@ -561,6 +561,38 @@ function formatRankBand(
   return `#${rank}`;
 }
 
+function tierBridgeNote(
+  tierLabel: PublishedCity["tierLabel"] | undefined,
+  rank: number,
+  tierSlot: number | null | undefined,
+  rankedCityCount: number,
+  locale: Locale,
+): string {
+  // The pedagogy: pure rank is global score order; public tier is a separate
+  // editorial overlay (10 seats max per tier, country caps, floor scores,
+  // editorial exclusions). A high pure rank does NOT guarantee Alpha;
+  // a "lower" pure rank can earn Alpha if it clears the editorial gates.
+  if (tierLabel === "Alpha") {
+    return locale === "th"
+      ? `อันดับคะแนนล้วน #${rank} จากเมืองที่จัดอันดับ ${rankedCityCount} เมือง · ได้ที่นั่งสาธารณะ Alpha สล็อตที่ ${tierSlot} จาก 10 — Alpha คือชั้นบรรณาธิการที่สงวนไว้สำหรับเมืองที่ผู้อยู่อาศัยมัธยฐานเจริญงอกงามจริง ไม่ใช่แค่ top-10 ตามคะแนนล้วน`
+      : locale === "zh"
+        ? `纯分排名第 ${rank} 位（共 ${rankedCityCount} 座已排名城市）· 公开层 Alpha 第 ${tierSlot} 席（共 10 席）—— Alpha 是为中位居民真正安居的城市保留的编辑层，不是按纯分简单取前 10。`
+        : `Pure score rank #${rank} of ${rankedCityCount} ranked cities · Public-tier Alpha slot ${tierSlot} of 10 — Alpha is the editorial overlay reserved for cities where the median resident actually thrives, not the top-10 by pure score.`;
+  }
+  if (tierLabel === "Beta" || tierLabel === "Gamma") {
+    return locale === "th"
+      ? `อันดับคะแนนล้วน #${rank} จากเมืองที่จัดอันดับ ${rankedCityCount} เมือง · ได้ที่นั่งสาธารณะ ${tierLabel} สล็อตที่ ${tierSlot} จาก 10 — ${tierLabel} คือชั้นที่เมืองได้รับเมื่อคะแนนพื้นที่นั่ง Alpha ไม่ผ่าน หรือเมื่อตัวกรองบรรณาธิการ (เช่น เพดานประเทศ การกีดกันเฉพาะเมือง) บล็อก Alpha ไว้`
+      : locale === "zh"
+        ? `纯分排名第 ${rank} 位（共 ${rankedCityCount} 座已排名城市）· 公开层 ${tierLabel} 第 ${tierSlot} 席（共 10 席）—— ${tierLabel} 是当 Alpha 门槛或编辑过滤（国家上限、城市排除）阻挡 Alpha 时，城市落入的层级。`
+        : `Pure score rank #${rank} of ${rankedCityCount} ranked cities · Public-tier ${tierLabel} slot ${tierSlot} of 10 — ${tierLabel} is where a city lands when it cannot clear an Alpha gate (floor scores, country cap, editorial exclusion).`;
+  }
+  return locale === "th"
+    ? `อันดับคะแนนล้วน #${rank} จากเมืองที่จัดอันดับ ${rankedCityCount} เมือง · ไม่มีที่นั่งในชั้นสาธารณะ — เมืองนี้อยู่ในรายชื่อจัดอันดับ แต่ Alpha/Beta/Gamma แต่ละชั้นมีเพียง 10 ที่นั่ง พร้อมเพดานประเทศและเกณฑ์ขั้นต่ำของบรรณาธิการ`
+    : locale === "zh"
+      ? `纯分排名第 ${rank} 位（共 ${rankedCityCount} 座已排名城市）· 未获公开层席位 —— 该城市在排名清单中，但 Alpha/Beta/Gamma 每层仅有 10 席，配合国家上限与编辑底线。`
+      : `Pure score rank #${rank} of ${rankedCityCount} ranked cities · No public-tier seat — this city is in the ranked list, but Alpha/Beta/Gamma each have only 10 seats with country caps and editorial floors.`;
+}
+
 function findCity(cityId: string): PublishedCity | undefined {
   // Try exact match first (e.g. tw-taipei), then try bare name (e.g. taipei)
   const published = allCities.find((c) =>
@@ -903,16 +935,23 @@ export default function CityScorecardPage({
               )}
             </div>
           </div>
+          {isPublished && (
+            <p className="scorecard-tier-bridge">
+              {tierBridgeNote(city.tierLabel, city.rank, city.tierSlot, rankedCityCount, locale)}
+            </p>
+          )}
         </div>
       </section>
 
       {isPublished && cityEditorial && (
         <section className="section scorecard-editorial">
-          <div className="scorecard-editorial-grid">
-            <div>
-              <p className="eyebrow">{copy.slicReading}</p>
-              <p className="scorecard-editorial-copy">{cityEditorial.intro}</p>
-            </div>
+          <div className={`scorecard-editorial-grid${cityEditorial.intro ? "" : " scorecard-editorial-grid--credit-only"}`}>
+            {cityEditorial.intro && (
+              <div>
+                <p className="eyebrow">{copy.slicReading}</p>
+                <p className="scorecard-editorial-copy">{cityEditorial.intro}</p>
+              </div>
+            )}
             <aside className="scorecard-editorial-credit">
               <span className="scorecard-editorial-credit-label">{copy.heroImage}</span>
               <p className="scorecard-editorial-credit-meta">
