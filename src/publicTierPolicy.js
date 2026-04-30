@@ -16,6 +16,21 @@ export const PUBLIC_TIER_ORDER = Object.freeze(["Alpha", "Beta", "Gamma"]);
 // problems for residents and DO NOT belong on the public Alpha shelf —
 // they can earn Beta or Gamma seats, but never Alpha. The country/region
 // caps and city exclusions encode this rule alongside the floor scores.
+//
+// EDITORIAL PRESENCE: Bangkok is the index's anchor city — pluralism,
+// hospitality, strong community signal, the lived case study against the
+// "expensive English-speaking metro = livable" assumption that SLIC was
+// built to challenge. Bangkok currently clears Alpha naturally (Community
+// 90.0, Pressure 45.4 over floor 40, Thailand uncontested by any higher-
+// ranked Thai city, no exclusion). Two CI guards keep it there:
+//   1. scripts/check-publication-integrity.mjs EXPECTED_ALPHA snapshot
+//   2. scripts/check-publication-integrity.mjs explicit assertion that
+//      Bangkok.tierLabel === "Alpha"
+// If a future data refresh ever pushes Bangkok below the Pressure floor
+// (the at-risk pillar — buffer is only +5.4) the integrity check fails
+// loudly. Do NOT hardcode Bangkok past the rules; if the data ever says
+// Bangkok no longer qualifies, the answer is to investigate the data,
+// not silence the gate.
 export const PUBLIC_TIER_RULES = Object.freeze({
   alphaMinCommunity: 40,
   alphaMinPressure: 40,

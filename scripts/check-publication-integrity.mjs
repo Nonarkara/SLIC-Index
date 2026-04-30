@@ -106,7 +106,16 @@ const singapore = publication.cities.find((city) => city.displayName === "Singap
 const bangkok = publication.cities.find((city) => city.displayName === "Bangkok");
 
 assert(singapore?.tierLabel === "Gamma", "Singapore should be Gamma in the current snapshot.", errors);
-assert(bangkok?.tierLabel === "Alpha", "Bangkok should be Alpha in the current snapshot.", errors);
+// Bangkok is the index's anchor city for the editorial mission; if it ever
+// drops out of Alpha, do not silence this — investigate the underlying data
+// (the at-risk pillar is Pressure, currently 45.4 over a floor of 40).
+assert(
+  bangkok?.tierLabel === "Alpha",
+  `Bangkok must hold an Alpha seat. Current tier: ${bangkok?.tierLabel ?? "none"}. ` +
+    `Pressure ${bangkok?.pressureScore ?? "n/a"} (floor 40), Community ${bangkok?.communityScore ?? "n/a"} (floor 40). ` +
+    `Investigate the pressure-pillar metric updates rather than relaxing the gate.`,
+  errors,
+);
 
 const watchlistWithTiers = publication.cities.filter(
   (city) => city.rankingStatus !== "Ranked" && city.tierLabel != null,
