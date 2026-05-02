@@ -64,6 +64,7 @@ export const CITY_COORDINATES: Record<string, [number, number]> = {
   "cn-chongqing":        [29.563, 106.551],
   "cn-guangzhou":        [23.129, 113.264],
   "cn-hangzhou":         [30.275, 120.155],
+  "cn-nanjing":          [32.060, 118.797],
   "cn-shanghai":         [31.230, 121.474],
   "cn-shenzhen":         [22.543, 114.058],
   "cn-tianjin":          [39.084, 117.201],
@@ -110,6 +111,7 @@ export const CITY_COORDINATES: Record<string, [number, number]> = {
   "ie-cork":             [51.898, -8.475],
   "it-bologna":          [44.494, 11.343],
   "it-milan":            [45.464, 9.190],
+  "it-venice":           [45.4408, 12.3155],
   "nl-amsterdam":        [52.370, 4.895],
   "nl-eindhoven":        [51.441, 5.470],
   "no-bergen":           [60.392, 5.324],
@@ -120,6 +122,7 @@ export const CITY_COORDINATES: Record<string, [number, number]> = {
 
   // ── Central & Eastern Europe ───────────────────────────────────────────────
   "cz-brno":             [49.195, 16.608],
+  "cz-prague":           [50.0755, 14.4378],
   "ee-tallinn":          [59.437, 24.754],
   "hr-zagreb":           [45.815, 15.982],
   "hu-budapest":         [47.497, 19.040],

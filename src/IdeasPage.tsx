@@ -7,7 +7,7 @@ import type { Locale, SitePath } from "./types";
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const difficultyColors: Record<CityIdea["difficulty"], string> = {
-  starter: "var(--accent-green)",
+  starter: "var(--accent-cyan)",
   intermediate: "var(--accent-amber)",
   advanced: "var(--accent-red)",
 };

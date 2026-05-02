@@ -2857,6 +2857,10 @@ function recalibrateCity(
   };
 }
 
+// Keep the dormant recalibration helper type-checked while the published JSON
+// remains the single source of truth for live rankings.
+void recalibrateCity;
+
 const parsedCityUniverse = parseCsv(cityUniverseCsv);
 
 function cityScaffoldForRow(row: CityUniverseRow): CityOverride {

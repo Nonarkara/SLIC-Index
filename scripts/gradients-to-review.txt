@@ -1,0 +1,77 @@
+# Gradient review — 24 occurrences
+# Decide: KEEP (photo overlay) or REMOVE (decoration).
+# Workspace CLAUDE.md §11.6.2: only legitimate gradient is dark vertical
+# overlay on a hero photograph for text legibility.
+
+L639  selector: .leader-card {
+  → background: linear-gradient(150deg, rgba(19, 19, 19, 0.95), rgba(45, 41, 34, 0.85));
+
+L1174  selector: .metric-fill {
+  → background: linear-gradient(90deg, var(--accent-cyan), var(--accent-amber));
+
+L2116  selector: .hp-photo-caption {
+  → background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+
+L2575  selector: .metric-fill {
+  → background: linear-gradient(90deg, #1a3a6b, #5b8cc9);
+
+L4794  selector: .exercise-match-card.is-leading {
+  → radial-gradient(circle at top right, rgba(23, 201, 203, 0.16), transparent 35%),
+
+L4795  selector: .exercise-match-card.is-leading {
+  → linear-gradient(180deg, rgba(250, 250, 248, 0.96), rgba(250, 250, 248, 0.82));
+
+L4844  selector: .exercise-comparison-fill {
+  → background: linear-gradient(90deg, rgba(30, 40, 60, 0.08), rgba(14, 124, 126, 0.2));
+
+L5548  selector: .v3-hero::before {
+  → background: radial-gradient(circle, rgba(0, 255, 136, 0.08) 0%, transparent 70%);
+
+L5559  selector: .v3-hero::after {
+  → background: radial-gradient(circle, rgba(255, 107, 53, 0.06) 0%, transparent 70%);
+
+L6140  selector: .history-entry:last-child .history-line {
+  → background: linear-gradient(to bottom, var(--border-strong), transparent);
+
+L6405  selector: .scorecard-hero--dark.section {
+  → background: linear-gradient(135deg, #17120d 0%, #211a12 100%);
+
+L6537  selector: .scorecard-bottom-nav {
+  → background: linear-gradient(to top, var(--bg) 60%, transparent);
+
+L6698  selector: .scorecard-hero-scrim {
+  → linear-gradient(115deg, rgba(15, 12, 9, 0.85) 10%, rgba(15, 12, 9, 0.54) 42%, rgba(15, 12, 9, 0.16) 100%),
+
+L6699  selector: .scorecard-hero-scrim {
+  → linear-gradient(180deg, rgba(15, 12, 9, 0.12) 0%, rgba(15, 12, 9, 0.12) 38%, rgba(15, 12, 9, 0.82) 100%);
+
+L7767  selector: .v3-city-card-overlay {
+  → background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.2) 50%, transparent 100%);
+
+L8629  selector: .compare-matrix-scroll {
+  → background-image: linear-gradient(
+
+L9502  selector: .v3-city-card {
+  → background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.56) 100%);
+
+L9922  selector: .hp-opening::before {
+  → linear-gradient(90deg, rgba(18, 16, 13, 0.9) 0%, rgba(18, 16, 13, 0.7) 38%, rgba(18, 16, 13, 0.2) 72%, rgba(18, 16, 13, 0.58) 100%),
+
+L9923  selector: .hp-opening::before {
+  → linear-gradient(180deg, rgba(18, 16, 13, 0.62) 0%, rgba(18, 16, 13, 0.12) 36%, rgba(18, 16, 13, 0.76) 100%);
+
+L9928  selector: .hp-opening::after {
+  → linear-gradient(180deg, transparent 0%, transparent 74%, rgba(0, 0, 0, 0.24) 100%),
+
+L9929  selector: .hp-opening::after {
+  → repeating-linear-gradient(90deg, rgba(248, 245, 240, 0.055) 0 1px, transparent 1px 8.333%);
+
+L10128  selector: .v3-city-card:first-child {
+  → linear-gradient(180deg, rgba(28, 25, 20, 0.96) 0%, rgba(28, 25, 20, 0.9) 100%);
+
+L10207  selector: .hp-opening::before {
+  → linear-gradient(90deg, rgba(18, 16, 13, 0.9) 0%, rgba(18, 16, 13, 0.72) 58%, rgba(18, 16, 13, 0.4) 100%),
+
+L10208  selector: .hp-opening::before {
+  → linear-gradient(180deg, rgba(18, 16, 13, 0.64) 0%, rgba(18, 16, 13, 0.2) 34%, rgba(18, 16, 13, 0.82) 100%);
+

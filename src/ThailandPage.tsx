@@ -228,7 +228,7 @@ function formatBaht(value: number): string {
 }
 
 function scoreColor(score: number): string {
-  if (score >= 80) return "var(--accent-green)";
+  if (score >= 80) return "var(--accent-cyan)";
   if (score >= 65) return "var(--accent-cyan)";
   if (score >= 50) return "var(--accent-amber)";
   return "var(--accent-red)";
@@ -371,7 +371,7 @@ export default function ThailandPage({
                   </div>
                   <div>
                     <span>{ui.pm25}</span>
-                    <strong style={{ color: province.metrics.pm25Annual > 35 ? "var(--accent-red)" : province.metrics.pm25Annual > 25 ? "var(--accent-amber)" : "var(--accent-green)" }}>
+                    <strong style={{ color: province.metrics.pm25Annual > 35 ? "var(--accent-red)" : province.metrics.pm25Annual > 25 ? "var(--accent-amber)" : "var(--accent-cyan)" }}>
                       {province.metrics.pm25Annual} µg/m³
                     </strong>
                   </div>

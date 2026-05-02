@@ -24,7 +24,12 @@ const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   zh: { pressure: "增长", viability: "宜居", capability: "能力", community: "社区", creative: "创新" },
 };
 const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
-const EQUAL_WEIGHT = 20;
+// Default state: SLIC's canonical weights (25/22/18/15/20). When users land
+// here they should see SLIC's published top 10 in the leftmost column —
+// matching what they see on the homepage and rankings page. The reset
+// button returns to the canonical baseline; users can move sliders toward
+// equal weights or any other profile from there.
+const CANONICAL_WEIGHTS = publishedData.canonicalWeights as Record<PillarId, number>;
 
 interface PublishedCity {
   cityId: string; displayName: string; country: string; region: string; rankingStatus: string;
@@ -105,14 +110,14 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
 
   /* ── Spider state ── */
   const [pillars, setPillars] = useState<PillarAllocation[]>(
-    PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: EQUAL_WEIGHT })),
+    PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: CANONICAL_WEIGHTS[id] })),
   );
   const weights = useMemo(() => {
     const w: Record<string, number> = {};
     pillars.forEach((p) => { w[p.id] = p.value; });
     return w as Record<PillarId, number>;
   }, [pillars]);
-  const isCustom = useMemo(() => PILLAR_ORDER.some((id) => weights[id] !== EQUAL_WEIGHT), [weights]);
+  const isCustom = useMemo(() => PILLAR_ORDER.some((id) => weights[id] !== CANONICAL_WEIGHTS[id]), [weights]);
 
   /* ── Live SLIC results ── */
   const slicResults = useMemo(() =>
@@ -159,7 +164,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
   const singapore = currentPublishedCity("Singapore");
   const paris = currentPublishedCity("Paris");
 
-  const handleReset = () => setPillars(PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: EQUAL_WEIGHT })));
+  const handleReset = () => setPillars(PILLAR_ORDER.map((id) => ({ id, label: labels[id], color: PILLAR_COLORS[id], value: CANONICAL_WEIGHTS[id] })));
 
   return (
     <>
@@ -180,7 +185,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           <div className="compare-spider-widget">
             <ZeroSumAllocator pillars={pillars} onChange={setPillars} size={360} locale={locale} />
             <div className="compare-spider-controls">
-              <button type="button" className="compare-reset-btn" onClick={handleReset}>{t(locale, "Reset to equal", "รีเซ็ต", "重置")}</button>
+              <button type="button" className="compare-reset-btn" onClick={handleReset}>{t(locale, "Reset to SLIC baseline", "รีเซ็ตเป็นน้ำหนัก SLIC", "重置至 SLIC 基准")}</button>
               {isCustom && <span className="compare-custom-badge">{t(locale, "Custom weights", "น้ำหนักที่ปรับ", "自定义权重")}</span>}
             </div>
           </div>

@@ -34,6 +34,7 @@ interface PublishedCity {
   cityType?: string;
   manifestStatus?: string;
   coverageGrade: string;
+  coveragePenalty?: number | null;
   overallWeightedCoverage: number | null;
   pressureScore: number;
   viabilityScore: number;
@@ -435,14 +436,15 @@ const SCORECARD_TEXT = {
 
 function navigateLink(
   event: React.MouseEvent<HTMLAnchorElement>,
-  onNavigate: (path: SitePath) => void,
-  path: SitePath,
+  onNavigate: (path: SitePath | string) => void,
+  path: SitePath | string,
 ) {
   event.preventDefault();
   onNavigate(path);
 }
 
-const pillarMetrics = (publishedData as PublishedRankingData).pillarMetrics;
+const publication = publishedData as unknown as PublishedRankingData;
+const pillarMetrics = publication.pillarMetrics;
 
 /* ── Peer comparison ── */
 
@@ -553,12 +555,35 @@ function formatManifestStatus(status: string | undefined, locale: Locale) {
 function formatRankBand(
   tierLabel: PublishedCity["tierLabel"] | undefined,
   rank: number,
+  rankingStatus: string | undefined,
   locale: Locale,
 ) {
+  if (rankingStatus && rankingStatus !== "Ranked") {
+    return locale === "th" ? "เฝ้าระวัง" : locale === "zh" ? "观察名单" : "Watchlist";
+  }
   if (tierLabel === "Alpha") return locale === "th" ? "α อัลฟา" : locale === "zh" ? "α 阿尔法" : "α Alpha";
   if (tierLabel === "Beta") return locale === "th" ? "β เบตา" : locale === "zh" ? "β 贝塔" : "β Beta";
   if (tierLabel === "Gamma") return locale === "th" ? "γ แกมมา" : locale === "zh" ? "γ 伽马" : "γ Gamma";
   return `#${rank}`;
+}
+
+function coverageCaveat(
+  coverageGrade: string | undefined,
+  coveragePenalty: number | null | undefined,
+  locale: Locale,
+): string {
+  // Grade-C cities (or any city carrying a non-zero coverage penalty) deserve
+  // an inline note: their headline SLIC score is the AMPI minus the penalty,
+  // not the raw composite. Without this, a reader sees Munich at 13.5 and
+  // assumes the index is broken — when actually the data is.
+  if (!coverageGrade || coverageGrade === "A" || !coveragePenalty || coveragePenalty <= 0) return "";
+  if (locale === "th") {
+    return ` คะแนนนี้รวมบทลงโทษด้านข้อมูล −${coveragePenalty} (เกรด ${coverageGrade}) เนื่องจากข้อมูลระดับเมืองยังไม่ครบทุกเสา`;
+  }
+  if (locale === "zh") {
+    return ` 该分数包含 −${coveragePenalty} 数据覆盖扣分（${coverageGrade} 级），因部分支柱缺少城市级数据。`;
+  }
+  return ` This score carries a −${coveragePenalty} coverage penalty (grade ${coverageGrade}) because city-level data is incomplete on one or more pillars.`;
 }
 
 function tierBridgeNote(
@@ -566,21 +591,45 @@ function tierBridgeNote(
   rank: number,
   tierSlot: number | null | undefined,
   rankedCityCount: number,
+  rankingStatus: string | undefined,
+  coverageGrade: string | undefined,
+  coveragePenalty: number | null | undefined,
   locale: Locale,
 ): { headline: string; body: string } {
+  const cov = coverageCaveat(coverageGrade, coveragePenalty, locale);
   // The pedagogy: pure rank is global score order; public tier is a separate
   // editorial overlay (10 seats max per tier, country caps, floor scores,
   // editorial exclusions). A high pure rank does NOT guarantee Alpha;
   // a "lower" pure rank can earn Alpha if it clears the editorial gates.
+
+  // Watchlist cities are explicitly NOT in the ranked list — they fail the
+  // coverage threshold or hold a special status (conflict zone, missing
+  // pillar). Treat them honestly rather than reusing the "ranked but no
+  // tier" framing.
+  if (rankingStatus && rankingStatus !== "Ranked") {
+    const headline = locale === "th"
+      ? "อยู่ในรายชื่อเฝ้าระวัง"
+      : locale === "zh"
+        ? "位于观察名单"
+        : "On the Watchlist";
+    return {
+      headline,
+      body: locale === "th"
+        ? `เมืองนี้ไม่ได้อยู่ในรายชื่อจัดอันดับสาธารณะ ${rankedCityCount} เมือง และไม่ได้ถือที่นั่งในชั้น Alpha/Beta/Gamma. SLIC วางไว้ในรายชื่อเฝ้าระวังเมื่อข้อมูลที่ตรวจสอบได้สำหรับเสาหนึ่งเสาขึ้นไปยังไม่ครอบคลุม หรือเมื่อบริบทอยู่นอกเส้นแบ่งของระเบียบวิธี (เขตขัดแย้ง สถานะอธิปไตยพิเศษ) ตัวเลขด้านล่างเป็นบันทึกที่เผยแพร่ ไม่ใช่อันดับ`
+        : locale === "zh"
+          ? `本城未列入 ${rankedCityCount} 座已排名城市的公开榜单，也未占 Alpha/Beta/Gamma 任何席位。当一个或多个支柱的城市级证据尚未达到覆盖阈值，或当背景跨出方法论边界（冲突区、特殊主权状态）时，SLIC 将城市归入观察名单。下方数字是已发布的记录，并非排名。`
+          : `This city is not in the public ranked list of ${rankedCityCount} cities, nor does it hold a seat in any public tier. SLIC places a city on the Watchlist when verified pillar data is below the coverage threshold, or when the context sits outside the methodology's boundary (conflict zone, special sovereignty status). The numbers below are the published record — not a ranking.`,
+    };
+  }
   if (tierLabel === "Alpha") {
     const headline = locale === "th" ? "อยู่ในชั้น Alpha" : locale === "zh" ? "位于 Alpha 层" : "On the Alpha shelf";
     return {
       headline,
-      body: locale === "th"
+      body: (locale === "th"
         ? `อันดับล้วน #${rank} ใน ${rankedCityCount} เมืองที่จัดอันดับ · Alpha สล็อตที่ ${tierSlot} จาก 10. Alpha คือชั้นบรรณาธิการที่สงวนไว้ให้กับเมืองที่ผู้อยู่อาศัยมัธยฐานเจริญงอกงามจริง — ไม่ใช่ top-10 ตามคะแนนล้วน เมืองนี้ผ่านทุกประตู: คะแนนขั้นต่ำ เพดานประเทศ การกีดกันบรรณาธิการ`
         : locale === "zh"
           ? `纯分第 ${rank}（共 ${rankedCityCount} 座已排名城市）· Alpha 第 ${tierSlot} 席（共 10 席）。Alpha 是为中位居民真正安居的城市保留的编辑层 —— 而非按纯分排出的前 10。本城通过所有门槛：底线分数、国家上限、编辑排除。`
-          : `Pure rank #${rank} of ${rankedCityCount} ranked cities · Alpha slot ${tierSlot} of 10. Alpha is the editorial overlay for cities where the median resident actually thrives — not the top-ten by pure score. This city clears every gate: floor scores, country cap, editorial exclusion.`,
+          : `Pure rank #${rank} of ${rankedCityCount} ranked cities · Alpha slot ${tierSlot} of 10. Alpha is the editorial overlay for cities where the median resident actually thrives — not the top-ten by pure score. This city clears every gate: floor scores, country cap, editorial exclusion.`) + cov,
     };
   }
   if (tierLabel === "Beta" || tierLabel === "Gamma") {
@@ -591,11 +640,11 @@ function tierBridgeNote(
         : `On the ${tierLabel} shelf`;
     return {
       headline,
-      body: locale === "th"
+      body: (locale === "th"
         ? `อันดับล้วน #${rank} ใน ${rankedCityCount} เมืองที่จัดอันดับ · ${tierLabel} สล็อตที่ ${tierSlot} จาก 10. ${tierLabel} คือชั้นที่เมืองได้รับเมื่อ Alpha ปิดอยู่ — อาจเพราะคะแนนขั้นต่ำไม่ผ่าน เพดานประเทศเต็ม หรือถูกกฎบรรณาธิการกีดกัน`
         : locale === "zh"
           ? `纯分第 ${rank}（共 ${rankedCityCount} 座已排名城市）· ${tierLabel} 第 ${tierSlot} 席（共 10 席）。${tierLabel} 是当 Alpha 关闭时城市的归处 —— 可能因为底线未达、国家上限已满，或被编辑规则排除。`
-          : `Pure rank #${rank} of ${rankedCityCount} ranked cities · ${tierLabel} slot ${tierSlot} of 10. ${tierLabel} is where a city lands when Alpha is closed to it — floor missed, country cap full, or editorial exclusion in force.`,
+          : `Pure rank #${rank} of ${rankedCityCount} ranked cities · ${tierLabel} slot ${tierSlot} of 10. ${tierLabel} is where a city lands when Alpha is closed to it — floor missed, country cap full, or editorial exclusion in force.`) + cov,
     };
   }
   const headline = locale === "th"
@@ -605,11 +654,11 @@ function tierBridgeNote(
       : "No public-tier seat";
   return {
     headline,
-    body: locale === "th"
+    body: (locale === "th"
       ? `อันดับล้วน #${rank} ใน ${rankedCityCount} เมืองที่จัดอันดับ. เมืองนี้อยู่ในรายชื่อจัดอันดับ แต่แต่ละชั้นสาธารณะ (Alpha, Beta, Gamma) มีเพียง 10 ที่นั่ง พร้อมเพดานประเทศและเกณฑ์ขั้นต่ำของบรรณาธิการ — ที่นั่งของชั้นใดชั้นหนึ่งจึงเต็มก่อนที่เมืองนี้จะเข้าได้`
       : locale === "zh"
         ? `纯分第 ${rank}（共 ${rankedCityCount} 座已排名城市）。本城在排名清单中，但每个公开层（Alpha、Beta、Gamma）仅 10 席，配合国家上限与编辑底线 —— 在轮到本城之前已被填满。`
-        : `Pure rank #${rank} of ${rankedCityCount} ranked cities. This city is in the ranked list, but each public shelf (Alpha, Beta, Gamma) has only 10 seats with country caps and editorial floors — those seats were claimed before this city's turn.`,
+        : `Pure rank #${rank} of ${rankedCityCount} ranked cities. This city is in the ranked list, but each public shelf (Alpha, Beta, Gamma) has only 10 seats with country caps and editorial floors — those seats were claimed before this city's turn.`) + cov,
   };
 }
 
@@ -859,7 +908,7 @@ export default function CityScorecardPage({
   onNavigate,
   locale,
 }: {
-  onNavigate: (path: SitePath) => void;
+  onNavigate: (path: SitePath | string) => void;
   locale: Locale;
 }) {
   const pathSegments = stripBase(window.location.pathname).split("/city/");
@@ -935,14 +984,16 @@ export default function CityScorecardPage({
             <div className="scorecard-hero-scores">
               <div className="scorecard-slic-score">{city.slicScore?.toFixed(1) ?? "—"}</div>
               <div className="scorecard-rank" title={city.tierReason ?? undefined}>
-                {formatRankBand(city.tierLabel, city.rank, locale)}
-                <span>
-                  {locale === "th"
-                    ? ` จาก ${rankedCityCount} ${copy.citiesSuffix}`
-                    : locale === "zh"
-                      ? ` / ${rankedCityCount}${copy.citiesSuffix}`
-                      : ` of ${rankedCityCount} ${copy.citiesSuffix}`}
-                </span>
+                {formatRankBand(city.tierLabel, city.rank, city.rankingStatus, locale)}
+                {(!city.rankingStatus || city.rankingStatus === "Ranked") && (
+                  <span>
+                    {locale === "th"
+                      ? ` จาก ${rankedCityCount} ${copy.citiesSuffix}`
+                      : locale === "zh"
+                        ? ` / ${rankedCityCount}${copy.citiesSuffix}`
+                        : ` of ${rankedCityCount} ${copy.citiesSuffix}`}
+                  </span>
+                )}
               </div>
               {isPublished ? (
                 <span className={`scorecard-grade scorecard-grade--${city.coverageGrade?.toLowerCase()}`}>
@@ -956,7 +1007,16 @@ export default function CityScorecardPage({
             </div>
           </div>
           {isPublished && (() => {
-            const bridge = tierBridgeNote(city.tierLabel, city.rank, city.tierSlot, rankedCityCount, locale);
+            const bridge = tierBridgeNote(
+              city.tierLabel,
+              city.rank,
+              city.tierSlot,
+              rankedCityCount,
+              city.rankingStatus,
+              city.coverageGrade,
+              city.coveragePenalty,
+              locale,
+            );
             return (
               <div className="scorecard-tier-bridge">
                 <p className="scorecard-tier-bridge-headline">{bridge.headline}</p>

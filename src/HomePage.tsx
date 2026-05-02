@@ -3,7 +3,6 @@ import { evaluateConsequences } from "./consequenceRules";
 import type { FiredConsequence } from "./consequenceRules";
 import { allocatePublicTiers, assignPureScoreRanks, PUBLIC_TIER_RULES } from "./publicTierPolicy.js";
 import { rankingPublication } from "./rankingPublication";
-import { getExerciseCities } from "./rankingsData";
 import SiteFooter from "./SiteFooter";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import ZeroSumAllocator from "./ZeroSumAllocator";
@@ -125,25 +124,6 @@ const bangkokRank = bangkokWorked?.rank ?? 27;
 const bangkokAlphaSlot = bangkokWorked?.tierSlot ?? 9;
 const bangkokCommunity = bangkokWorked?.communityScore?.toFixed(1) ?? "90.0";
 const bangkokPressure = bangkokWorked?.pressureScore?.toFixed(1) ?? "45.4";
-
-const exerciseCities: HomeCity[] = getExerciseCities().map((city) => ({
-  cityId: city.id,
-  displayName: city.name,
-  country: city.country,
-  region: city.region,
-  rankingStatus: city.coreBoardEligible ? "Ranked" : "Candidate",
-  tierLabel: city.tierLabel ?? null,
-  tierSlot: city.tierSlot ?? null,
-  tierReason: city.tierReason ?? null,
-  pressureScore: city.scores.pressure,
-  viabilityScore: city.scores.viability,
-  capabilityScore: city.scores.capability,
-  communityScore: city.scores.community,
-  creativeScore: city.scores.creative,
-  slicScore: city.scores.slic,
-  rank: city.globalRank,
-}));
-
 
 function navigateLink(
   event: MouseEvent<HTMLAnchorElement>,
@@ -298,7 +278,7 @@ export default function HomePage({
         </div>
         <div className="hp-opening-inner section">
           <p className="hp-kicker">
-            {t(locale, "THE CITY RANKING THAT SHOWS ITS SOURCES", "ดัชนีนี้เปิดเผยแหล่งที่มาทุกตัวเลข", "唯一公开每条数据来源的城市排名")}
+            {t(locale, "MEASURED FOR RESIDENTS, NOT FOR BUYERS.", "วัดเพื่อผู้อยู่อาศัย ไม่ใช่เพื่อผู้ซื้อ", "为居民而量，不为买家而排。")}
           </p>
           <p className="hp-lede">
             {t(

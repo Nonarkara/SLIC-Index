@@ -3,7 +3,6 @@ import { geoNaturalEarth1, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import type { Topology, GeometryCollection } from "topojson-specification";
 import type { FeatureCollection } from "geojson";
-// @ts-expect-error — JSON import
 import land110m from "world-atlas/land-110m.json";
 import publishedData from "./data/publishedRankingData.json";
 import { CITY_COORDINATES } from "./data/cityCoordinates";
@@ -72,7 +71,7 @@ export default function MapPage({
     const projection = geoNaturalEarth1()
       .fitExtent([[10, 10], [VIEW_W - 10, VIEW_H - 10]], {
         type: "Sphere",
-      } as unknown as GeoJSON.GeoJsonObject);
+      });
     const path = geoPath(projection);
 
     const topology = land110m as unknown as Topology;

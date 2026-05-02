@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "build": "vite build",
     "preview": "vite preview",
     "start": "node server.js",
@@ -14,6 +15,7 @@
     "fixture:benchmarks": "node scripts/update-publication-benchmark-fixture.mjs",
     "methodology:pdf": "python3 scripts/generate_methodology_pdf.py",
     "test": "node --test test/*.test.mjs",
+    "verify": "npm run typecheck && npm run build && npm test",
     "verify:math": "npm run rescore && npm run check:publication && npm run check:methodology && npm test"
   },
   "dependencies": {

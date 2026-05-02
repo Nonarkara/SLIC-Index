@@ -110,7 +110,12 @@ const GRADE_COLORS: Record<string, string> = {
 };
 
 const CANONICAL = publishedData.canonicalWeights as Record<PillarId, number>;
-const indexedCities = getExerciseCities();
+// The live workbench operates on the public Ranked board only — watchlist
+// cities are excluded so the spider doesn't surface incomplete-data cities
+// (Taichung, Apia, etc.) as top results when sliders shift. globalRank > 0
+// is the watchlist signal: rank=0 means the city was held off the public
+// board for missing pillars or special status.
+const indexedCities = getExerciseCities().filter((city) => city.globalRank > 0);
 
 const PRESETS: Array<{
   id: string;

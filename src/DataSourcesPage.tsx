@@ -334,7 +334,7 @@ const domainRows = tally(sourceRecords.map((record) => record.domain).filter(Boo
 const sourceLabelRows = tally(sourceRecords.map((record) => record.label).filter(Boolean)).slice(0, 12);
 
 function metricLabel(key: string) {
-  return metricCatalog[key]?.label ?? key.replaceAll("_", " ");
+  return metricCatalog[key]?.label ?? key.replace(/_/g, " ");
 }
 
 function metricCountForPillar(pillar: PillarId) {

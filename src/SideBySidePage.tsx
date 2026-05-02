@@ -76,8 +76,24 @@ export default function SideBySidePage({
   onNavigate: (path: SitePath | string) => void;
   locale: Locale;
 }) {
-  const defaultIds = allCities.slice(0, 5).map((c) => c.id);
-  const [selectedIds, setSelectedIds] = useState<string[]>(defaultIds);
+  // Curated starter basket: the index's argument-in-five-cities.
+  // Bangkok = the Alpha worked example (rank 27, Alpha slot 9).
+  // Raleigh = Alpha slot 1, the structural top.
+  // Singapore = the famous-but-Gamma counter-example (Community 38.8 fails Alpha floor).
+  // Tokyo = the editorial-exclusion case (Beta, not Alpha despite passing floor).
+  // Copenhagen = the Gamma case where housing pressure outweighs civic strength.
+  // If any of these aren't in the published exercise field for some reason,
+  // fall back to whichever Alpha cities are available so the page is never blank.
+  const PREFERRED_DEFAULTS = ["bangkok", "raleigh", "singapore", "tokyo", "copenhagen"];
+  const defaultIds = PREFERRED_DEFAULTS
+    .map((id) => allCities.find((c) => c.id === id)?.id)
+    .filter((id): id is string => Boolean(id));
+  const fallbackIds = allCities
+    .filter((c) => c.coreBoardEligible)
+    .slice(0, 5 - defaultIds.length)
+    .map((c) => c.id);
+  const initialIds = [...defaultIds, ...fallbackIds].slice(0, 5);
+  const [selectedIds, setSelectedIds] = useState<string[]>(initialIds);
   const [isAdding, setIsAdding] = useState<boolean>(false);
   const [search, setSearch] = useState("");
 
