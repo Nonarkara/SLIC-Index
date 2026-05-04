@@ -37,9 +37,9 @@ export const collaborationLogos: BrandAsset[] = [
     height: 1182,
   },
   {
-    name: "Axiom × ReTL",
-    src: "/Logos/axiom_retl_logo.png",
-    alt: "Axiom × ReTL",
+    name: "Axiom",
+    src: "/Logos/axiom_logo.png",
+    alt: "Axiom",
     width: 528,
     height: 266,
   },

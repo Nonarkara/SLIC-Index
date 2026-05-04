@@ -1,10 +1,9 @@
 import type { Locale } from "./types";
 
-export const OFFICIAL_SLIC_URL = "https://nonarkara.github.io/slic-landing-page/";
+export const OFFICIAL_SLIC_URL = "https://nonarkara.github.io/slic-landing-page/slic/";
 export const DEPA_URL = "https://www.depa.or.th/";
 export const PMUA_URL = "https://www.nxpo.or.th/A/";
 export const AXIOM_URL = "https://nonarkara.github.io/Axiom/";
-export const RETL_URL = "https://retl.co/";
 
 export interface PartnerCard {
   name: string;
@@ -87,7 +86,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
       url: OFFICIAL_SLIC_URL,
     },
     techLabel: "Technology partners",
-    techTitle: "Axiom × ReTL — AI with humans in the loop",
+    techTitle: "Axiom — AI with humans in the loop",
     techSummary:
       "The index is built on AI comprehension of how AI can help us gather and analyse city data at scale. Humans stay in the loop so the result remains neutral, unbiased, comprehensive, understandable, reviewable, observable, and presentable from a human perspective.",
     techPartners: [
@@ -97,13 +96,6 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         body: "Axiom designs the AI-assisted research pipeline — how models read public sources, how provenance is tracked, how prompts and data flows stay auditable. The goal is not to automate judgement but to scale the reading work so humans can focus on the judgement.",
         logoSrc: "/Logos/axiom_logo.png",
         url: AXIOM_URL,
-      },
-      {
-        name: "ReTL",
-        role: "The Reason to Live Company — product and presentation",
-        body: "ReTL builds the public surface of the index: the interactions, the typography, the data presentation, the mobile experience. Their remit is to make transparent methodology also readable — so citizens, mayors, and journalists can all use the same board without needing to be specialists.",
-        logoSrc: "/Logos/retl_logo.png",
-        url: RETL_URL,
       },
     ],
     publicationLabel: "Publication context",
@@ -161,7 +153,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
       url: OFFICIAL_SLIC_URL,
     },
     techLabel: "พันธมิตรด้านเทคโนโลยี",
-    techTitle: "Axiom × ReTL — AI ที่มีมนุษย์อยู่ในวงจร",
+    techTitle: "Axiom — AI ที่มีมนุษย์อยู่ในวงจร",
     techSummary:
       "ดัชนีนี้สร้างบนความเข้าใจของ AI ว่า AI จะช่วยเรารวบรวมและวิเคราะห์ข้อมูลเมืองในขนาดใหญ่ได้อย่างไร โดยมนุษย์ยังอยู่ในวงจรเพื่อรักษาความเป็นกลาง ไร้อคติ ครอบคลุม เข้าใจง่าย ตรวจทานได้ สังเกตได้ และดูดีจากสายตามนุษย์",
     techPartners: [
@@ -171,13 +163,6 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         body: "Axiom ออกแบบกระบวนการวิจัยที่มี AI ช่วย วิธีที่โมเดลอ่านแหล่งข้อมูลสาธารณะ วิธีติดตามที่มาของข้อมูล และวิธีรักษา prompt และข้อมูลให้ตรวจสอบย้อนได้ เป้าหมายไม่ใช่การแทนที่ดุลยพินิจ แต่ขยายงานอ่านเพื่อให้มนุษย์โฟกัสที่การตัดสินใจ",
         logoSrc: "/Logos/axiom_logo.png",
         url: AXIOM_URL,
-      },
-      {
-        name: "ReTL",
-        role: "The Reason to Live Company — ผลิตภัณฑ์และการนำเสนอ",
-        body: "ReTL สร้างหน้าสาธารณะของดัชนี ทั้งการปฏิสัมพันธ์ การจัดตัวอักษร การแสดงข้อมูล และประสบการณ์บนมือถือ ภารกิจคือทำให้ระเบียบวิธีโปร่งใสนั้นอ่านเข้าใจได้ เพื่อให้ประชาชน นายกเทศมนตรี และนักข่าวใช้บอร์ดเดียวกันได้โดยไม่ต้องเป็นผู้เชี่ยวชาญ",
-        logoSrc: "/Logos/retl_logo.png",
-        url: RETL_URL,
       },
     ],
     publicationLabel: "บริบทของสิ่งพิมพ์",
@@ -235,7 +220,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
       url: OFFICIAL_SLIC_URL,
     },
     techLabel: "技术合作伙伴",
-    techTitle: "Axiom × ReTL — 带人在回路的 AI",
+    techTitle: "Axiom — 带人在回路的 AI",
     techSummary:
       "本指数建立在对 AI 如何帮助我们在大规模上收集与分析城市数据的理解之上。人类始终在回路中，以保持结果中立、无偏见、全面、可理解、可复核、可观察，并且在人的视角下值得一看。",
     techPartners: [
@@ -245,13 +230,6 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         body: "Axiom 设计 AI 辅助的研究流水线——模型如何阅读公共来源、如何追踪数据出处、prompt 与数据流如何保持可审计。目标不是把判断自动化，而是扩大阅读工作的规模，让人类专注于判断。",
         logoSrc: "/Logos/axiom_logo.png",
         url: AXIOM_URL,
-      },
-      {
-        name: "ReTL",
-        role: "The Reason to Live Company — 产品与呈现",
-        body: "ReTL 负责指数的公共界面——交互、字体、数据呈现和移动端体验。他们的任务是让透明的方法论也能被读懂，让市民、市长与记者都能共用同一块榜单，而不必是专业人士。",
-        logoSrc: "/Logos/retl_logo.png",
-        url: RETL_URL,
       },
     ],
     publicationLabel: "发布语境",
