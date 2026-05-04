@@ -518,6 +518,63 @@ export const INDEX_PROFILES: IndexProfile[] = [
       body: "HAMI was honestly designed to measure macroeconomic stability and nothing else, and within that scope it works. The trouble is when it gets read as a happiness ranking and authoritarian states with low inflation and tight labor markets \u2014 Singapore, Qatar, Macau \u2014 appear in the top 10. Hanke himself never claimed otherwise; the index is a temperature reading. SLIC measures whether the patient wants to keep living there. The gap between Hanke's Singapore #2 and SLIC's Singapore #21 is exactly the dignity dimension Hanke's formula deliberately excludes \u2014 mental-health distress, civic freedom, LGBTQ+ legal restrictions, world's lowest fertility rate as the lived consequence.",
     },
   },
+
+  /* \u2500\u2500 10. SLIC Soft Power 2026 \u2500\u2500 */
+  {
+    id: "slic-soft-power",
+    name: "SLIC Soft Power 2026",
+    shortName: "SLIC Soft Power",
+    publisher: "SLIC Index \u2014 companion ranking to the main SLIC livability index",
+    year: 2026,
+    citiesEvaluated: 30,
+    accentHex: "#c8741a",
+    focus: "Cities ranked by attraction power \u2014 visitor magnetism, religious and ethnic pluralism, cuisine diversity, cultural exports, and visa openness in both directions. Built explicitly to challenge the Eurocentric bias of Michelin, Resonance, Brand Finance, Monocle Soft Power, and other Western-anchored cultural rankings.",
+    topCities: [
+      { rank: 1,  city: "Bangkok",     country: "Thailand",   score: "94.8", note: "32.4M international arrivals (#1 globally, MasterCard 2024); Pew GRI ~2.6 (low restrictions); 5 officially-recognized faiths living in one metro; 93 countries visa-exempt + DTV; BL drama and Muay Thai global cultural exports" },
+      { rank: 2,  city: "Tokyo",       country: "Japan",      score: "88.3", note: "Anime, manga, J-pop, washoku UNESCO heritage; Henley passport rank 1; Japan tourism 36.8M arrivals 2024" },
+      { rank: 3,  city: "Istanbul",    country: "Turkey",     score: "85.1", note: "13.4M visitors; bridge of civilisations; mosque-church-synagogue coexistence; Hagia Sophia + Grand Bazaar; Turkish dizi global" },
+      { rank: 4,  city: "Seoul",       country: "South Korea", score: "82.4", note: "K-pop (BTS, Blackpink), K-drama (Squid Game, Parasite), K-beauty global; Hallyu wave; 12M visitors" },
+      { rank: 5,  city: "Mexico City", country: "Mexico",     score: "78.6", note: "UNESCO-listed traditional cuisine; mariachi; muralism; lucha libre; pre-Columbian + colonial + modern layered identity" },
+      { rank: 6,  city: "Marrakesh",   country: "Morocco",    score: "76.2", note: "Berber + Arab + French colonial fusion; medina UNESCO site; gnawa music; tagine + couscous global; 14M Morocco arrivals 2024" },
+      { rank: 7,  city: "Kuala Lumpur",country: "Malaysia",   score: "73.5", note: "Malay-Chinese-Indian trilingual coexistence; halal-tropical fusion cuisine; mosque-temple-church streetscape; 14M visitors; passport rank 12 globally" },
+      { rank: 8,  city: "Mumbai",      country: "India",      score: "71.8", note: "Bollywood \u2014 world's largest film industry by volume; pan-Indian cuisine concentration; Hindu + Muslim + Parsi + Christian + Jain layered city" },
+      { rank: 9,  city: "Lima",        country: "Peru",       score: "70.3", note: "Peruvian cuisine globally ranked top-3 culinary tradition (World's 50 Best Restaurants); Inca + Spanish + Asian-Peruvian (chifa, nikkei) fusion; Pacific port crossroads" },
+      { rank: 10, city: "Lisbon",      country: "Portugal",   score: "68.4", note: "Fado, Portuguese cuisine global, friendly nomad capital, Brazilian + African Lusophone cultural ties" },
+    ],
+    methodology: {
+      claimedPurpose: "Measure attraction power \u2014 the soft cultural pull a city exerts on visitors, residents, and the global imagination. Built specifically because Brand Finance, Monocle Soft Power Survey, and similar indices structurally favour Western capitals (London, Paris, New York) and miss the actual gravitational centres of global cultural traffic.",
+      actualMeasure: "Five-component composite: Magnetism (visitor count weighted by visitor-to-resident ratio, 30%), Pluralism (Pew Government Restrictions on Religion inverted + legal recognition of multiple faiths + ethnic-minority public participation, 25%), Cuisine Density (Shannon entropy of cuisine categories per square km of central metro, 20%), Cultural Exports (global presence of city-originated media \u2014 film, music, drama, sport \u2014 and culinary diaspora, 15%), Mobility Openness (inbound visa-free destinations available + outbound passport mobility, 10%).",
+      categories: [
+        "Magnetism (30%): MasterCard / Euromonitor international arrivals, Visitor-to-resident ratio (city + metro both)",
+        "Pluralism (25%): Pew Research Government Restrictions on Religion (inverted), legal recognition of plural faiths, ethnic-minority public participation",
+        "Cuisine Density (20%): Shannon entropy of cuisine categories within 1km of a 500m grid in central metro (Google Places + OSM tags)",
+        "Cultural Exports (15%): Global presence of city's drama/music/film/sport (Thai BL, K-drama, anime, Bollywood, Muay Thai, etc.)",
+        "Mobility Openness (10%): Henley Passport Index (outbound) + inbound visa-exemption count + nomad-visa availability (DTV-style)",
+      ],
+      dataInputs: [
+        "MasterCard Global Destination Cities Index 2024 (international arrivals)",
+        "UN World Tourism Organisation arrival statistics",
+        "Pew Research Center Government Restrictions on Religion 2022",
+        "U.S. State Department International Religious Freedom Reports",
+        "Henley Passport Index (Q1 2026)",
+        "Government immigration / nomad-visa publications (Thai DTV, Indonesia KITAS, Mexico FMM, etc.)",
+        "Google Places + OpenStreetMap cuisine-tag taxonomy",
+        "Brand Finance Global Soft Power Index (country-level baseline)",
+      ],
+      blindSpots: [
+        "Resident burden \u2014 soft power tells you nothing about whether locals can afford rent",
+        "Working conditions \u2014 visitors don't see overwork",
+        "Political freedom \u2014 countries with restricted civic life can still project soft power (Saudi Arabia hosting Vision 2030 events, China's Belt-and-Road cultural diplomacy)",
+        "Equality of cultural participation \u2014 index measures *what's exported*, not who benefits inside the city",
+        "Quality vs. quantity tension \u2014 McDonald's is 'cultural export' by any measure; this index leans toward authentic local culture",
+      ],
+      audienceNote: "Tourism boards, cultural diplomacy ministries, MICE planners, expat-life publications, soft-power scholars. Not a livability index \u2014 pair with SLIC's main ranking for the resident view.",
+    },
+    critique: {
+      headline: "Bangkok #1 isn't an opinion \u2014 it's the data when Eurocentric weighting is removed",
+      body: "Brand Finance ranks France, UK, Germany, Japan in their soft power top 5. Monocle's annual list reads identically. The reason is methodology: those indices weight institutional reputation (universities, embassies, multilateral organisations) and English/French language ubiquity, both of which structurally favour Western capitals. SLIC Soft Power inverts this by weighting *who actually shows up* \u2014 visitor count, cuisine diversity, religious pluralism, visa openness in both directions. On those measures Bangkok leads, Tokyo and Istanbul follow, and global-south cultural capitals (Mexico City, Marrakesh, Mumbai, Lima) clear top 10 ahead of Paris and London. The most-visited city on Earth being recognised as the world's #1 soft-power city isn't controversial \u2014 it's what the data has been saying all along, ignored only because it reaches conclusions Western indices were not built to surface.",
+    },
+  },
 ];
 
 /* ── MasterCard Global Destination Cities Index 2019 (final published edition) ──
@@ -548,10 +605,10 @@ export const MASTERCARD_GDCI_2019: MastercardGdciCity[] = [
 /* ── Editorial hero copy ── */
 export const COMPARE_HERO = {
   eyebrow: "COMPARE RANKINGS",
-  title: "Nine indices. Same planet.\nCompletely different answers.",
+  title: "Ten indices. Same planet.\nCompletely different answers.",
   subtitle: "Drag the spider to rebuild SLIC\u2019s top 10 in real time.",
   thesis:
-    "Each major city ranking serves a different use case and weighting frame. EIU and Mercer lean toward relocation and hardship logic; Resonance toward brand and visitor signals; Monocle toward editorial lifestyle framing; Yonsei toward smart-city platforms; IMD toward resident perception of tech; Mori GPCI toward global financial magnetism; Oxford Economics toward investment return; Hanke HAMI toward pure macroeconomic stress (inflation + unemployment + lending rate \u2212 growth). Small score gaps are often over-read as hard fact. SLIC differs by placing affordability, overwork, tolerance, civic-freedom dignity, and community conditions directly inside the published formula \u2014 the dimensions that purely-economic indices like Hanke's deliberately exclude.",
+    "Each major city ranking serves a different use case and weighting frame. EIU and Mercer lean toward relocation and hardship logic; Resonance toward brand and visitor signals; Monocle toward editorial lifestyle framing; Yonsei toward smart-city platforms; IMD toward resident perception of tech; Mori GPCI toward global financial magnetism; Oxford Economics toward investment return; Hanke HAMI toward pure macroeconomic stress (inflation + unemployment + lending rate \u2212 growth); SLIC Soft Power 2026 toward visitor magnetism, religious pluralism, cuisine density, cultural exports and mobility openness, where Bangkok ranks #1 once Eurocentric weighting is removed. Small score gaps are often over-read as hard fact. SLIC differs by placing affordability, overwork, tolerance, civic-freedom dignity, and community conditions directly inside the published formula \u2014 the dimensions that purely-economic indices like Hanke's deliberately exclude.",
   overarchingCritique:
     "These rankings often converge on wealthy, globally legible cities because their inputs and audiences reward those conditions. Cities also learn the annual cycle and can optimize for the visible variables. Studies comparing ranking outputs with resident surveys often show only partial overlap. The point of this comparison is not to declare one list fraudulent; it is to show that every board reflects its chosen frame.",
 };
