@@ -463,6 +463,61 @@ export const INDEX_PROFILES: IndexProfile[] = [
       body: "Oxford Economics GCI is the most candid of the eight about its purpose: it is a product for investors and corporations deciding where to place capital and talent. Economics accounts for the largest share of the score, and \u2018quality of life\u2019 is included primarily because it affects the ability to attract high-skill workers \u2014 not because residents\u2019 wellbeing matters in its own right. The publisher also sells bespoke city analysis to governments and developers, creating a structural incentive to include influential clients as \u2018top performers.\u2019 Housing affordability, working hours, and inequality are absent. The resulting top 10 is entirely predictable: the cities where the most capital already sits.",
     },
   },
+
+  /* \u2500\u2500 9. Hanke Annual Misery Index \u2500\u2500 */
+  {
+    id: "hanke",
+    name: "Hanke Annual Misery Index",
+    shortName: "Hanke HAMI",
+    publisher: "Steve H. Hanke (Johns Hopkins) / Independent Institute",
+    year: 2025,
+    citiesEvaluated: 178,
+    accentHex: "#5c3a8c",
+    focus: "Pure macroeconomic stress: 2\u00d7unemployment + inflation + bank-lending-rate \u2212 real GDP/capita growth. Lower scores = 'happier' economy.",
+    topCities: [
+      { rank: 1, city: "Taipei", country: "Taiwan", score: "2.12", note: "Country: Taiwan" },
+      { rank: 2, city: "Singapore", country: "Singapore", score: "2.59" },
+      { rank: 3, city: "Bangkok", country: "Thailand", score: "3.14", note: "Country: Thailand" },
+      { rank: 4, city: "Dublin", country: "Ireland", score: "5.35" },
+      { rank: 5, city: "Abidjan", country: "C\u00f4te d'Ivoire", score: "6.29" },
+      { rank: 6, city: "Macau", country: "Macau", score: "6.66" },
+      { rank: 7, city: "Tokyo", country: "Japan", score: "7.20", note: "Country: Japan" },
+      { rank: 8, city: "Doha", country: "Qatar", score: "7.24" },
+      { rank: 9, city: "Ouagadougou", country: "Burkina Faso", score: "7.38" },
+      { rank: 10, city: "Bissau", country: "Guinea-Bissau", score: "7.40" },
+    ],
+    methodology: {
+      claimedPurpose: "Measure 'the temperature of the patient' \u2014 how miserable or healthy the macroeconomic environment is for an average resident.",
+      actualMeasure: "Pure macroeconomic vital signs. Captures inflation, unemployment, lending rates, and growth per capita. By construction it ignores everything that isn't a Bloomberg-feedable number \u2014 mental health, civic freedom, LGBTQ+ legal environment, working hours, housing affordability for non-citizens, environmental misery, gender equality, social trust. Hanke himself frames the index as economic vital signs, not wellbeing. Authoritarian states with low inflation and tight labour markets (Singapore, Qatar, Macau) consistently appear near the top.",
+      categories: [
+        "End-period consumer price inflation rate",
+        "Bank lending rate (cost of credit)",
+        "Unemployment rate (weighted \u00d72)",
+        "Real GDP per capita growth (subtracted)",
+      ],
+      dataInputs: [
+        "IMF + World Bank + national central banks for inflation",
+        "ILO + national labor statistics for unemployment",
+        "Central bank data for lending rates",
+        "IMF / World Bank for GDP per capita growth",
+      ],
+      blindSpots: [
+        "Mental-health distress (depression, suicide, work-related burnout)",
+        "Civic freedom and political rights (Hanke's top-10 includes Qatar, Singapore, Macau)",
+        "LGBTQ+ legal environment",
+        "Working-time pressure and overwork culture",
+        "Housing affordability for non-citizen residents (Singapore's HDB regime favours citizens)",
+        "Environmental misery \u2014 air quality, climate extremes",
+        "Income inequality within a country (national averages hide extreme distributions)",
+        "Gender equality and women's autonomy",
+      ],
+      audienceNote: "Macroeconomists, central banks, sovereign-debt analysts. Useful as one input for assessing whether a country is heading into a debt crisis. Not designed to tell you whether residents are flourishing.",
+    },
+    critique: {
+      headline: "A thermostat, not a wellbeing index",
+      body: "HAMI was honestly designed to measure macroeconomic stability and nothing else, and within that scope it works. The trouble is when it gets read as a happiness ranking and authoritarian states with low inflation and tight labor markets \u2014 Singapore, Qatar, Macau \u2014 appear in the top 10. Hanke himself never claimed otherwise; the index is a temperature reading. SLIC measures whether the patient wants to keep living there. The gap between Hanke's Singapore #2 and SLIC's Singapore #21 is exactly the dignity dimension Hanke's formula deliberately excludes \u2014 mental-health distress, civic freedom, LGBTQ+ legal restrictions, world's lowest fertility rate as the lived consequence.",
+    },
+  },
 ];
 
 /* ── MasterCard Global Destination Cities Index 2019 (final published edition) ──
@@ -493,10 +548,10 @@ export const MASTERCARD_GDCI_2019: MastercardGdciCity[] = [
 /* ── Editorial hero copy ── */
 export const COMPARE_HERO = {
   eyebrow: "COMPARE RANKINGS",
-  title: "Eight indices. Same planet.\nCompletely different answers.",
+  title: "Nine indices. Same planet.\nCompletely different answers.",
   subtitle: "Drag the spider to rebuild SLIC\u2019s top 10 in real time.",
   thesis:
-    "Each major city ranking serves a different use case and weighting frame. EIU and Mercer lean toward relocation and hardship logic; Resonance toward brand and visitor signals; Monocle toward editorial lifestyle framing; Yonsei toward smart-city platforms; IMD toward resident perception of tech; Mori GPCI toward global financial magnetism; Oxford Economics toward investment return. Small score gaps are often over-read as hard fact. SLIC differs by placing affordability, overwork, tolerance, and community conditions directly inside the published formula.",
+    "Each major city ranking serves a different use case and weighting frame. EIU and Mercer lean toward relocation and hardship logic; Resonance toward brand and visitor signals; Monocle toward editorial lifestyle framing; Yonsei toward smart-city platforms; IMD toward resident perception of tech; Mori GPCI toward global financial magnetism; Oxford Economics toward investment return; Hanke HAMI toward pure macroeconomic stress (inflation + unemployment + lending rate \u2212 growth). Small score gaps are often over-read as hard fact. SLIC differs by placing affordability, overwork, tolerance, civic-freedom dignity, and community conditions directly inside the published formula \u2014 the dimensions that purely-economic indices like Hanke's deliberately exclude.",
   overarchingCritique:
     "These rankings often converge on wealthy, globally legible cities because their inputs and audiences reward those conditions. Cities also learn the annual cycle and can optimize for the visible variables. Studies comparing ranking outputs with resident surveys often show only partial overlap. The point of this comparison is not to declare one list fraudulent; it is to show that every board reflects its chosen frame.",
 };
@@ -543,8 +598,8 @@ export interface EchoChamberNote {
 
 export const ECHO_CHAMBER_NOTES: Record<string, EchoChamberNote> = {
   singapore: {
-    slicRank: 18,
-    en: "SLIC #18 under AMPI, public-tier Gamma. Capability 94.1 is the highest in the dataset (healthcare, education, digital governance); Creative 73.3 and Viability 87.4 also top-tier. The limit is Community 38.8 — restricted civic freedoms and tolerance scores well below wealth peers. Singapore is strong on the pillars wealth peers expect; the public-tier overlay places it in Gamma because Community is below the Alpha and Beta floors.",
+    slicRank: 21,
+    en: "Hanke ranks Singapore #2 'happiest economy' in 2025 — but on macroeconomic stability alone (low inflation, tight labour market, low lending rate). SLIC sees the same Singapore at #21: world-class Capability 94 and Creative 73 still hold up, but Community 38 and Pressure 43 reflect what Hanke chose not to measure — civic freedom under closed-autocracy rule (HRMI Empowerment 3.7/10), criminalised gender recognition, 30-year career penalties for LGBTQ+ public servants, world's lowest fertility rate (TFR 0.87) as the existential consequence, 45-hour weeks (PMC research), and HDB ownership now requiring 8.9 years of median income vs 4.8 a generation ago.",
     th: "SLIC อันดับ #18 ภายใต้ AMPI ชั้นสาธารณะ Gamma ศักยภาพ 94.1 สูงสุดในชุดข้อมูล (ระบบสุขภาพ การศึกษา ธรรมาภิบาลดิจิทัล) ความสร้างสรรค์ 73.3 และความน่าอยู่ 87.4 ก็ระดับสูง สิ่งที่จำกัดคือชุมชน 38.8 — เสรีภาพพลเมืองและความอดกลั้นต่ำกว่าคู่เทียบ สิงคโปร์แข็งในเสาที่เมืองมั่งคั่งคาดหวัง แต่ overlay สาธารณะจัดให้อยู่ Gamma เพราะ Community ต่ำกว่าพื้น Alpha และ Beta",
     zh: "AMPI 下 SLIC 第 18 名，公开层为 Gamma。能力支柱 94.1 是全数据集最高；创意 73.3 与宜居 87.4 亦属顶级。拖累是社区支柱 38.8 ——公民自由与包容性远低于同等财富水平的城市。新加坡在富裕同侪期待的支柱上很强，但公开层覆盖将其归入 Gamma，因为社区低于 Alpha 与 Beta 的门槛。",
   },

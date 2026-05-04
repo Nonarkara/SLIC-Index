@@ -61,11 +61,16 @@ function diagnosticMetric(key, pillar, inputKey, label) {
 }
 
 export const SCORED_METRICS = Object.freeze([
-  directMetric("pressure_disposable_income_ppp", "pressure", 9, "di_ppp_raw", "Tax-adjusted PPP disposable income"),
+  // Pressure pillar (sum = 25). v3.5: Hanke Annual Misery Index added (weight 2).
+  // Suicide weight 3 → 4 to amplify mental-health misery (Hanke explicitly omits it).
+  // Household debt 4 → 2 (overlaps with Hanke's lending-rate component).
+  // DI_PPP 9 → 8 (still primary, modest reweight to make room).
+  directMetric("pressure_disposable_income_ppp", "pressure", 8, "di_ppp_raw", "Tax-adjusted PPP disposable income"),
   directMetric("pressure_housing_burden", "pressure", 5, "housing_burden_raw", "Housing burden"),
-  directMetric("pressure_household_debt_burden", "pressure", 4, "household_debt_effective_raw", "Household debt burden"),
+  directMetric("pressure_household_debt_burden", "pressure", 2, "household_debt_effective_raw", "Household debt burden"),
   directMetric("pressure_working_time_pressure", "pressure", 4, "working_time_pressure_raw", "Working time pressure"),
-  directMetric("pressure_suicide_mental_strain", "pressure", 3, "suicide_mental_strain_raw", "Suicide and severe mental strain"),
+  directMetric("pressure_suicide_mental_strain", "pressure", 4, "suicide_mental_strain_raw", "Suicide and severe mental strain"),
+  directMetric("pressure_economic_stress_hanke", "pressure", 2, "hanke_misery_raw", "Macroeconomic stress (Hanke Misery Index)"),
 
   directMetric("viability_personal_safety", "viability", 5, "personal_safety_raw", "Personal safety"),
   directMetric("viability_transit_access_commute", "viability", 5, "transit_access_commute_raw", "Transit access and commute burden"),
@@ -86,11 +91,13 @@ export const SCORED_METRICS = Object.freeze([
     "Equal opportunity and distributional fairness",
   ),
 
-  directMetric("community_hospitality_belonging", "community", 5, "hospitality_belonging_raw", "Hospitality and belonging"),
+  // Community pillar (sum = 15). v3.5: Civic-Freedom-Dignity composite added
+  // (weight 4). Other Community metrics rebalanced down proportionally.
+  directMetric("community_hospitality_belonging", "community", 4, "hospitality_belonging_raw", "Hospitality and belonging"),
   compositeMetric(
     "community_tolerance_pluralism",
     "community",
-    5,
+    4,
     Object.freeze([
       ["inclusion_equaldex_country_raw", 0.4],
       ["inclusion_freedom_house_country_raw", 0.3],
@@ -101,9 +108,16 @@ export const SCORED_METRICS = Object.freeze([
   directMetric(
     "community_cultural_historic_public_life_vitality",
     "community",
-    5,
+    3,
     "cultural_public_life_raw",
     "Cultural, historic, and public-life vitality",
+  ),
+  directMetric(
+    "community_civic_freedom_dignity",
+    "community",
+    4,
+    "civic_freedom_raw",
+    "Civic freedom and dignity (HRMI + Freedom House + V-Dem composite)",
   ),
 
   directMetric("creative_entrepreneurial_dynamism", "creative", 6, "entrepreneurial_dynamism_raw", "Entrepreneurial dynamism"),

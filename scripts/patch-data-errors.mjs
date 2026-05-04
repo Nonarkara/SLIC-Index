@@ -390,6 +390,41 @@ const CORRECTIONS = [
   ["au-hobart", "pressure_disposable_income_ppp", 500,
     "Derived: young-professional median net AUD ~3,800/mo (lowest in AU) minus Hobart 1BR rent AUD 1,900 — housing-to-income ratio among worst in AU for young workers",
     "https://www.numbeo.com/cost-of-living/in/Hobart", "derived"],
+
+  // ── Singapore Phase 1B: lived-misery corrections ─────────────────────────
+  // Per Dr Non's research bundle (16 citable sources). The dataset has been
+  // understating lived stress because it was scoring HDB-citizen reality
+  // rather than median-resident-including-foreigner reality.
+  ["sg-singapore", "pressure_working_time_pressure", 45.4,
+    "PMC peer-reviewed: Singapore full-time avg 45.4 hrs/wk; 57% report long hours degrade work-life balance (prior 42.6 understated)",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC10291095/", "national"],
+  ["sg-singapore", "pressure_housing_burden", 38,
+    "Reddit/HDB analysis: HDB takes 8.9 years of median income (vs 4.8 in 1990) — burden has nearly doubled. Prior 27 reflected citizen-HDB; 38 reflects median-resident reality including young professionals and non-citizens",
+    "https://www.reddit.com/r/SingaporeRaw/comments/1q0i12v/", "city"],
+  ["sg-singapore", "gini_coefficient_context", 0.55,
+    "SmartWealth Singapore: top quintile S$5.26M net wealth, bottom quintile S$293K — wealth Gini 0.55 (prior 0.376 used the softer income-Gini)",
+    "https://smartwealth.sg/income-inequality-singapore/", "national"],
+
+  // ── Scandinavia: hospitality reduction for documented loneliness ─────────
+  // Per Dr Non's Nordic research bundle: Finland 64% experienced loneliness;
+  // Sweden ~31% men / 59% women aged 75+ live alone with 52-73% reporting
+  // loneliness; loneliness is a "silent epidemic" across the region.
+  // Gallup positive-experience indices over-rank Nordic wellbeing by missing
+  // social isolation. Adjusting hospitality_belonging downward to reflect
+  // the lived-loneliness signal documented in NordForsk + IF Insurance +
+  // International Journal of Public Health research.
+  ["dk-copenhagen", "community_hospitality_belonging", 47,
+    "NordForsk + IF Insurance + Nordic Co-operation: documented loneliness epidemic. Gallup positive-experience overstates Nordic wellbeing by missing social isolation",
+    "https://pub.norden.org/", "national"],
+  ["fi-helsinki", "community_hospitality_belonging", 46,
+    "Finland 64% report having experienced loneliness or social exclusion (IF Insurance / NordForsk). Gallup overstates wellbeing by missing isolation",
+    "https://pub.norden.org/", "national"],
+  ["se-gothenburg", "community_hospitality_belonging", 47,
+    "Sweden: 60% youth 16-24 report mental-health problems (NordForsk). Loneliness is a silent epidemic. Gallup overstates",
+    "https://pub.norden.org/", "national"],
+  ["no-bergen", "community_hospitality_belonging", 48,
+    "Norway: 11.2% working population reduced capacity due to work-related anxiety; widespread loneliness despite happiness rankings",
+    "https://pub.norden.org/", "national"],
 ];
 
 async function main() {
