@@ -2,7 +2,8 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 
 export default defineConfig({
-  base: "/SLIC-Index/",
+  // GitHub Pages deploys under /SLIC-Index/; Vercel and local dev serve from root.
+  base: process.env.GITHUB_ACTIONS ? "/SLIC-Index/" : "/",
   plugins: [react()],
   server: {
     host: "127.0.0.1",

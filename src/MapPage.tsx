@@ -204,7 +204,9 @@ export default function MapPage({
                   fontSize={10}
                   fill="#6b6459"
                 >
-                  {`#${hovered.rank} · SLIC ${hovered.slicScore?.toFixed(1)} · Grade ${hovered.coverageGrade}`}
+                  {hovered.rankingStatus === "Ranked"
+                    ? `#${hovered.rank} · SLIC ${hovered.slicScore?.toFixed(1)} · Grade ${hovered.coverageGrade}`
+                    : `Watchlist · Grade ${hovered.coverageGrade}`}
                 </text>
               </g>
             )}
