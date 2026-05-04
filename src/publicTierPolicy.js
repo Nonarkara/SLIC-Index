@@ -39,6 +39,14 @@ export const PUBLIC_TIER_RULES = Object.freeze({
   maxPerTier: 10,
   maxEuropeInAlpha: 2,
   maxOceaniaInAlpha: 0,
+  // United States: cap at 1 in Alpha. Mid-size US cities (Raleigh,
+  // Minneapolis, Pittsburgh, Chicago, etc.) share national-level data
+  // for Community/Tolerance/Cultural so AMPI tends to rank them in a
+  // tight band. Letting three US cities fill the public Alpha shelf
+  // misrepresents what SLIC measures — geographic diversity of healthy
+  // mid-sized cities. The first qualifying US city by SLIC score earns
+  // the seat; the rest drop to Beta or Gamma.
+  maxUSAInAlpha: 1,
   maxTaiwanAcrossPublicTiers: 2,
   maxJapanAcrossPublicTiers: 2,
   maxJapanInAlpha: 1,
@@ -91,6 +99,10 @@ function isTaiwaneseCity(city) {
 
 function isOceaniaRegion(region) {
   return typeof region === "string" && region.includes("Oceania");
+}
+
+function isUSACity(city) {
+  return city?.country === "United States";
 }
 
 function evaluateFloors(city, rules) {
@@ -166,6 +178,9 @@ function alphaCapBlock(city, state, rules) {
   if (isSouthKoreanCity(city) && state.southKoreaInAlpha >= rules.maxSouthKoreaInAlpha) {
     return "South Korea Alpha seat already filled";
   }
+  if (isUSACity(city) && state.usaInAlpha >= rules.maxUSAInAlpha) {
+    return "United States Alpha seat already filled — mid-size US cities share national-level Community/Tolerance/Cultural data, so AMPI ranks them in a tight band; the public Alpha shelf carries one";
+  }
   if ((rules.alphaCountryExclusions ?? []).includes(city?.country)) {
     return `${city.country} is excluded from Alpha under the live editorial rule`;
   }
@@ -180,6 +195,7 @@ function applyAlphaSeatAccounting(city, state) {
   if (isOceaniaRegion(city?.region)) state.oceaniaInAlpha += 1;
   if (isJapaneseCity(city)) state.japanInAlpha += 1;
   if (isSouthKoreanCity(city)) state.southKoreaInAlpha += 1;
+  if (isUSACity(city)) state.usaInAlpha += 1;
 }
 
 function assignTier(city, tierLabel, buckets, tierLabelKey, tierSlotKey, tierReasonKey, reason) {
@@ -233,6 +249,7 @@ export function allocatePublicTiers(cities, options = {}) {
     oceaniaInAlpha: 0,
     japanInAlpha: 0,
     southKoreaInAlpha: 0,
+    usaInAlpha: 0,
   };
 
   for (const city of decorated) {

@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-05-04T04:27:20.550Z",
+  "updatedAt": "2026-05-04T04:35:11.009Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -3534,8 +3534,8 @@
       "viabilityScore": 76.6,
       "capabilityScore": 62.5,
       "communityScore": 70.7,
-      "creativeScore": 38.5,
-      "slicScore": 56.3,
+      "creativeScore": 44.5,
+      "slicScore": 58.3,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -3867,12 +3867,12 @@
           "diagnostic": false
         },
         "creative_administrative_investment_friction": {
-          "raw": 2.34,
-          "score": 37.7,
-          "source": "World Bank WGI: Regulatory Quality (inverted as friction proxy)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/RQ.EST?format=json&mrv=10",
+          "raw": 1.5,
+          "score": 67.6,
+          "source": "World Bank B-READY rank ~21/190 + BOI foreign-investment incentives + DTV visa: Thailand's startup-environment for foreigners is unusually open compared to Singapore's capital floor or Malaysia's Bumiputra rules",
+          "sourceUrl": "https://www.worldbank.org/en/businessready",
           "dataLevel": "national",
-          "scoreExact": 37.7224,
+          "scoreExact": 67.6157,
           "coverageExact": 1,
           "scored": true,
           "diagnostic": false
@@ -3904,7 +3904,7 @@
         "strongest": "pressure_economic_stress_hanke",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 49,
+      "rank": 47,
       "tierLabel": "Alpha",
       "tierSlot": 10,
       "pressureScoreExact": 52.1412,
@@ -3915,14 +3915,14 @@
       "capabilityCoverageExact": 1,
       "communityScoreExact": 70.7202,
       "communityCoverageExact": 1,
-      "creativeScoreExact": 38.5414,
+      "creativeScoreExact": 44.5201,
       "creativeCoverageExact": 1,
-      "weightedMeanExact": 59.4557,
-      "weightedVarianceExact": 186.523,
-      "ampiExact": 56.3185,
+      "weightedMeanExact": 60.6514,
+      "weightedVarianceExact": 142.2265,
+      "ampiExact": 58.3064,
       "coveragePenalty": 0,
       "overallWeightedCoverageExact": 0.95,
-      "slicScoreExact": 56.3185,
+      "slicScoreExact": 58.3064,
       "provenanceSummary": {
         "publicMetricCount": 25,
         "observedMetricCount": 24,
@@ -20955,7 +20955,7 @@
         "strongest": "pressure_working_time_pressure",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 47,
+      "rank": 48,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 41.9092,
@@ -24986,8 +24986,8 @@
       "viabilityScore": 49.7,
       "capabilityScore": 56.4,
       "communityScore": 49,
-      "creativeScore": 22.8,
-      "slicScore": 44.4,
+      "creativeScore": 28.8,
+      "slicScore": 46.8,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -25319,12 +25319,12 @@
           "diagnostic": false
         },
         "creative_administrative_investment_friction": {
-          "raw": 2.34,
-          "score": 37.7,
-          "source": "World Bank WGI: Regulatory Quality (inverted as friction proxy)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/RQ.EST?format=json&mrv=10",
+          "raw": 1.5,
+          "score": 67.6,
+          "source": "World Bank B-READY: Thailand's foreigner-friendly business environment",
+          "sourceUrl": "https://www.worldbank.org/en/businessready",
           "dataLevel": "national",
-          "scoreExact": 37.7224,
+          "scoreExact": 67.6157,
           "coverageExact": 1,
           "scored": true,
           "diagnostic": false
@@ -25356,7 +25356,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 82,
+      "rank": 78,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 60.3839,
@@ -25367,14 +25367,14 @@
       "capabilityCoverageExact": 1,
       "communityScoreExact": 49.0172,
       "communityCoverageExact": 1,
-      "creativeScoreExact": 22.7912,
+      "creativeScoreExact": 28.7699,
       "creativeCoverageExact": 1,
-      "weightedMeanExact": 48.0975,
-      "weightedVarianceExact": 178.9417,
-      "ampiExact": 44.3771,
+      "weightedMeanExact": 49.2933,
+      "weightedVarianceExact": 124.1417,
+      "ampiExact": 46.7748,
       "coveragePenalty": 0,
       "overallWeightedCoverageExact": 0.9,
-      "slicScoreExact": 44.3771,
+      "slicScoreExact": 46.7748,
       "provenanceSummary": {
         "publicMetricCount": 25,
         "observedMetricCount": 23,
@@ -25442,7 +25442,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 10 (pure rank #49).",
+      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 10 (pure rank #47).",
       "tierDiagnostics": {
         "communityExact": 49.0172,
         "pressureExact": 60.3839,
@@ -25454,7 +25454,7 @@
           "claimedBy": "Bangkok",
           "tierLabel": "Alpha",
           "tierSlot": 10,
-          "rank": 49
+          "rank": 47
         },
         "assignedTier": null
       }
@@ -29731,7 +29731,7 @@
         "strongest": "pressure_suicide_mental_strain",
         "weakest": "creative_innovation_research_intensity"
       },
-      "rank": 80,
+      "rank": 81,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 77.5135,
@@ -30216,7 +30216,7 @@
         "strongest": "pressure_household_debt_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 78,
+      "rank": 79,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 60.6792,
@@ -32162,7 +32162,7 @@
         "strongest": "viability_clean_air",
         "weakest": "pressure_disposable_income_ppp"
       },
-      "rank": 73,
+      "rank": 75,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 46.7775,
@@ -35569,7 +35569,7 @@
         "strongest": "viability_clean_air",
         "weakest": "creative_administrative_investment_friction"
       },
-      "rank": 76,
+      "rank": 77,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 57.0607,
@@ -41886,7 +41886,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 71,
+      "rank": 72,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 56.289,
@@ -43341,7 +43341,7 @@
         "strongest": "viability_personal_safety",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 81,
+      "rank": 82,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 46.1673,
@@ -44796,7 +44796,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 72,
+      "rank": 74,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 54.19,
@@ -47336,8 +47336,8 @@
       "viabilityScore": 66.7,
       "capabilityScore": 56.4,
       "communityScore": 49,
-      "creativeScore": 22.8,
-      "slicScore": 47.3,
+      "creativeScore": 28.8,
+      "slicScore": 49.8,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -47669,12 +47669,12 @@
           "diagnostic": false
         },
         "creative_administrative_investment_friction": {
-          "raw": 2.34,
-          "score": 37.7,
-          "source": "World Bank WGI: Regulatory Quality (inverted as friction proxy)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/RQ.EST?format=json&mrv=10",
+          "raw": 1.5,
+          "score": 67.6,
+          "source": "World Bank B-READY: Thailand's foreigner-friendly business environment",
+          "sourceUrl": "https://www.worldbank.org/en/businessready",
           "dataLevel": "national",
-          "scoreExact": 37.7224,
+          "scoreExact": 67.6157,
           "coverageExact": 1,
           "scored": true,
           "diagnostic": false
@@ -47706,7 +47706,7 @@
         "strongest": "pressure_housing_burden",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 74,
+      "rank": 70,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 61.1081,
@@ -47717,14 +47717,14 @@
       "capabilityCoverageExact": 1,
       "communityScoreExact": 49.0172,
       "communityCoverageExact": 1,
-      "creativeScoreExact": 22.7912,
+      "creativeScoreExact": 28.7699,
       "creativeCoverageExact": 1,
-      "weightedMeanExact": 52.008,
-      "weightedVarianceExact": 243.5469,
-      "ampiExact": 47.3251,
+      "weightedMeanExact": 53.2037,
+      "weightedVarianceExact": 179.3953,
+      "ampiExact": 49.8319,
       "coveragePenalty": 0,
       "overallWeightedCoverageExact": 0.9,
-      "slicScoreExact": 47.3251,
+      "slicScoreExact": 49.8319,
       "provenanceSummary": {
         "publicMetricCount": 25,
         "observedMetricCount": 23,
@@ -47792,7 +47792,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 10 (pure rank #49).",
+      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 10 (pure rank #47).",
       "tierDiagnostics": {
         "communityExact": 49.0172,
         "pressureExact": 61.1081,
@@ -47804,7 +47804,7 @@
           "claimedBy": "Bangkok",
           "tierLabel": "Alpha",
           "tierSlot": 10,
-          "rank": 49
+          "rank": 47
         },
         "assignedTier": null
       }
@@ -48797,8 +48797,8 @@
       "viabilityScore": 68,
       "capabilityScore": 56.4,
       "communityScore": 49,
-      "creativeScore": 22.8,
-      "slicScore": 46.1,
+      "creativeScore": 28.8,
+      "slicScore": 48.6,
       "rankingStatus": "Ranked",
       "metrics": {
         "pressure_disposable_income_ppp": {
@@ -49130,12 +49130,12 @@
           "diagnostic": false
         },
         "creative_administrative_investment_friction": {
-          "raw": 2.34,
-          "score": 37.7,
-          "source": "World Bank WGI: Regulatory Quality (inverted as friction proxy)",
-          "sourceUrl": "https://api.worldbank.org/v2/country/THA/indicator/RQ.EST?format=json&mrv=10",
+          "raw": 1.5,
+          "score": 67.6,
+          "source": "World Bank B-READY: Thailand's foreigner-friendly business environment",
+          "sourceUrl": "https://www.worldbank.org/en/businessready",
           "dataLevel": "national",
-          "scoreExact": 37.7224,
+          "scoreExact": 67.6157,
           "coverageExact": 1,
           "scored": true,
           "diagnostic": false
@@ -49167,7 +49167,7 @@
         "strongest": "pressure_economic_stress_hanke",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 77,
+      "rank": 73,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 54.5511,
@@ -49178,14 +49178,14 @@
       "capabilityCoverageExact": 1,
       "communityScoreExact": 49.0172,
       "communityCoverageExact": 1,
-      "creativeScoreExact": 22.7912,
+      "creativeScoreExact": 28.7699,
       "creativeCoverageExact": 1,
-      "weightedMeanExact": 50.6619,
-      "weightedVarianceExact": 231.6356,
-      "ampiExact": 46.0897,
+      "weightedMeanExact": 51.8576,
+      "weightedVarianceExact": 170.7032,
+      "ampiExact": 48.5658,
       "coveragePenalty": 0,
       "overallWeightedCoverageExact": 0.9,
-      "slicScoreExact": 46.0897,
+      "slicScoreExact": 48.5658,
       "provenanceSummary": {
         "publicMetricCount": 25,
         "observedMetricCount": 23,
@@ -49253,7 +49253,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 10 (pure rank #49).",
+      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 10 (pure rank #47).",
       "tierDiagnostics": {
         "communityExact": 49.0172,
         "pressureExact": 54.5511,
@@ -49265,7 +49265,7 @@
           "claimedBy": "Bangkok",
           "tierLabel": "Alpha",
           "tierSlot": 10,
-          "rank": 49
+          "rank": 47
         },
         "assignedTier": null
       }
@@ -49658,7 +49658,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 75,
+      "rank": 76,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 52.8617,
@@ -50143,7 +50143,7 @@
         "strongest": "viability_clean_air",
         "weakest": "community_cultural_historic_public_life_vitality"
       },
-      "rank": 79,
+      "rank": 80,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 45.6084,
@@ -71004,7 +71004,7 @@
         "strongest": "viability_clean_air",
         "weakest": "capability_equal_opportunity_distributional_fairness"
       },
-      "rank": 70,
+      "rank": 71,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 67.6405,
@@ -79729,7 +79729,7 @@
         "strongest": "community_cultural_historic_public_life_vitality",
         "weakest": "creative_entrepreneurial_dynamism"
       },
-      "rank": 48,
+      "rank": 49,
       "tierLabel": null,
       "tierSlot": null,
       "pressureScoreExact": 54.556,
@@ -79990,13 +79990,13 @@
         "cityId": "th-bangkok",
         "displayName": "Bangkok",
         "country": "Thailand",
-        "rank": 49,
+        "rank": 47,
         "tierLabel": "Alpha",
         "tierSlot": 10,
         "rankingStatus": "Ranked",
         "coverageGrade": "A",
-        "slicScore": 56.3,
-        "slicScoreExact": 56.3185,
+        "slicScore": 58.3,
+        "slicScoreExact": 58.3064,
         "pressureScore": 52.1,
         "pressureScoreExact": 52.1412,
         "viabilityScore": 76.6,
@@ -80005,8 +80005,8 @@
         "capabilityScoreExact": 62.455,
         "communityScore": 70.7,
         "communityScoreExact": 70.7202,
-        "creativeScore": 38.5,
-        "creativeScoreExact": 38.5414,
+        "creativeScore": 44.5,
+        "creativeScoreExact": 44.5201,
         "tierReason": "Assigned to Alpha because Community 70.7 and Pressure 52.1 clear the Alpha floor and Thailand had not yet claimed a public tier."
       },
       "tokyo": {
@@ -80208,7 +80208,7 @@
           "cityId": "th-bangkok",
           "displayName": "Bangkok",
           "country": "Thailand",
-          "rank": 49,
+          "rank": 47,
           "tierSlot": 10
         }
       ],
@@ -80397,145 +80397,108 @@
     }
   },
   "changeSummary": {
-    "previousUpdatedAt": "2026-05-04T04:27:20.460Z",
-    "updatedAt": "2026-05-04T04:27:20.550Z",
+    "previousUpdatedAt": "2026-05-04T04:35:10.914Z",
+    "updatedAt": "2026-05-04T04:35:11.009Z",
     "scoreChangedCount": 4,
-    "rankChangedCount": 68,
-    "tierChangedCount": 4,
+    "rankChangedCount": 16,
+    "tierChangedCount": 0,
     "rankingStatusChangedCount": 0,
     "biggestRankMovers": [
       {
-        "cityId": "se-gothenburg",
-        "displayName": "Gothenburg",
-        "country": "Sweden",
-        "previousRank": 95,
+        "cityId": "th-chiang-mai",
+        "displayName": "Chiang Mai",
+        "country": "Thailand",
+        "previousRank": 82,
+        "currentRank": 78,
+        "delta": 4
+      },
+      {
+        "cityId": "th-hat-yai",
+        "displayName": "Hat Yai",
+        "country": "Thailand",
+        "previousRank": 74,
         "currentRank": 70,
-        "delta": 25
+        "delta": 4
       },
       {
-        "cityId": "no-bergen",
-        "displayName": "Bergen",
-        "country": "Norway",
-        "previousRank": 115,
-        "currentRank": 95,
-        "delta": 20
+        "cityId": "th-phuket",
+        "displayName": "Phuket",
+        "country": "Thailand",
+        "previousRank": 77,
+        "currentRank": 73,
+        "delta": 4
       },
       {
-        "cityId": "fi-helsinki",
-        "displayName": "Helsinki",
-        "country": "Finland",
-        "previousRank": 24,
-        "currentRank": 39,
-        "delta": -15
+        "cityId": "th-bangkok",
+        "displayName": "Bangkok",
+        "country": "Thailand",
+        "previousRank": 49,
+        "currentRank": 47,
+        "delta": 2
       },
       {
-        "cityId": "dk-copenhagen",
-        "displayName": "Copenhagen",
-        "country": "Denmark",
-        "previousRank": 17,
-        "currentRank": 22,
-        "delta": -5
-      },
-      {
-        "cityId": "cn-hangzhou",
-        "displayName": "Hangzhou",
-        "country": "China",
-        "previousRank": 94,
-        "currentRank": 96,
+        "cityId": "hu-budapest",
+        "displayName": "Budapest",
+        "country": "Hungary",
+        "previousRank": 73,
+        "currentRank": 75,
         "delta": -2
       },
       {
-        "cityId": "au-adelaide",
-        "displayName": "Adelaide",
-        "country": "Australia",
-        "previousRank": 18,
-        "currentRank": 17,
-        "delta": 1
+        "cityId": "br-curitiba",
+        "displayName": "Curitiba",
+        "country": "Brazil",
+        "previousRank": 72,
+        "currentRank": 74,
+        "delta": -2
       },
       {
-        "cityId": "pe-arequipa",
-        "displayName": "Arequipa",
-        "country": "Peru",
-        "previousRank": 99,
-        "currentRank": 100,
+        "cityId": "nl-amsterdam",
+        "displayName": "Amsterdam",
+        "country": "Netherlands",
+        "previousRank": 47,
+        "currentRank": 48,
         "delta": -1
       },
       {
         "cityId": "rs-belgrade",
         "displayName": "Belgrade",
         "country": "Serbia",
-        "previousRank": 80,
-        "currentRank": 81,
+        "previousRank": 81,
+        "currentRank": 82,
         "delta": -1
       },
       {
-        "cityId": "co-bogota",
-        "displayName": "Bogota",
-        "country": "Colombia",
-        "previousRank": 101,
-        "currentRank": 102,
+        "cityId": "ar-cordoba",
+        "displayName": "Cordoba",
+        "country": "Argentina",
+        "previousRank": 78,
+        "currentRank": 79,
         "delta": -1
       },
       {
-        "cityId": "pt-braga",
-        "displayName": "Braga",
-        "country": "Portugal",
-        "previousRank": 19,
-        "currentRank": 18,
-        "delta": 1
+        "cityId": "br-florianopolis",
+        "displayName": "Florianopolis",
+        "country": "Brazil",
+        "previousRank": 75,
+        "currentRank": 76,
+        "delta": -1
       }
     ],
-    "tierTransitions": [
-      {
-        "cityId": "sg-singapore",
-        "displayName": "Singapore",
-        "country": "Singapore",
-        "previousTierLabel": "Gamma",
-        "previousTierSlot": 2,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 1
-      },
-      {
-        "cityId": "dk-copenhagen",
-        "displayName": "Copenhagen",
-        "country": "Denmark",
-        "previousTierLabel": "Gamma",
-        "previousTierSlot": 1,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 2
-      },
-      {
-        "cityId": "fi-helsinki",
-        "displayName": "Helsinki",
-        "country": "Finland",
-        "previousTierLabel": "Gamma",
-        "previousTierSlot": 3,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 4
-      },
-      {
-        "cityId": "uk-london",
-        "displayName": "London",
-        "country": "United Kingdom",
-        "previousTierLabel": "Gamma",
-        "previousTierSlot": 4,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 3
-      }
-    ]
+    "tierTransitions": []
   },
   "qualifiedCityCount": 158,
   "integrityIssueCount": 0,
   "validCityRowCount": 163,
   "validCountryRowCount": 87,
   "publicationManifest": {
-    "generatedAt": "2026-05-04T04:27:20.550Z",
+    "generatedAt": "2026-05-04T04:35:11.009Z",
     "scorerVersion": "slic-v3.4.0",
     "tierPolicyVersion": "public-tier-v1.2.0",
     "normStatsHash": "70cc5be5c683b2411628dc3482d1911a6fc07dea5495b701fde5470d6850acf8",
-    "inputDataHash": "fb171efaf8fba475862d4fc0c2e8129f5149f4213a23ad705c7bf4567d364cab",
+    "inputDataHash": "0bd82c8be802ae111d8e41d2ff3afc831965d2aefeb0fb75a5e4acdfd8c2d091",
     "metricCatalogHash": "7a3a0f3d4ee27d31405f04d2cf6966470f045ceedf48aa9f2e31f83f2c4f34a5",
-    "publicationHash": "88fbf7f6e0b7f9a645fe453c8c49d2a52d4daed35eb3ae958c84df9fac1eff86"
+    "publicationHash": "e2acc945a7eaeac35e7b6466b604e5746309d5c71059632c0bceb73939922fd1"
   },
   "stabilityAnalysis": {
     "scope": "Public-tier floor sensitivity around the live Alpha and Beta thresholds.",
@@ -80626,7 +80589,7 @@
           "cityId": "th-bangkok",
           "displayName": "Bangkok",
           "country": "Thailand",
-          "rank": 49,
+          "rank": 47,
           "tierSlot": 10
         }
       ],
@@ -80855,7 +80818,7 @@
             "cityId": "th-bangkok",
             "displayName": "Bangkok",
             "country": "Thailand",
-            "rank": 49,
+            "rank": 47,
             "baselineTierLabel": "Alpha",
             "baselineTierSlot": 10,
             "scenarioTierLabel": "Beta",

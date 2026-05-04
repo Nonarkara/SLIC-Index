@@ -425,6 +425,26 @@ const CORRECTIONS = [
   ["no-bergen", "community_hospitality_belonging", 48,
     "Norway: 11.2% working population reduced capacity due to work-related anxiety; widespread loneliness despite happiness rankings",
     "https://pub.norden.org/", "national"],
+
+  // ── Thailand: admin friction correction (foreigner-friendly business climate) ──
+  // Thailand's actual business-startup environment for foreigners is uniquely
+  // permissive: no Bumiputra-style nationality requirement, low minimum
+  // capital, BOI tax incentives for foreign-owned firms, DTV remote-work
+  // visa. Prior 2.34 (score 38) understated Thailand's openness vs the
+  // restricted regimes of Singapore (high capital floor) and Malaysia
+  // (Bumiputra preferences).
+  ["th-bangkok", "creative_administrative_investment_friction", 1.5,
+    "World Bank B-READY rank ~21/190 + BOI foreign-investment incentives + DTV visa: Thailand's startup-environment for foreigners is unusually open compared to Singapore's capital floor or Malaysia's Bumiputra rules",
+    "https://www.worldbank.org/en/businessready", "national"],
+  ["th-chiang-mai", "creative_administrative_investment_friction", 1.5,
+    "World Bank B-READY: Thailand's foreigner-friendly business environment",
+    "https://www.worldbank.org/en/businessready", "national"],
+  ["th-hat-yai", "creative_administrative_investment_friction", 1.5,
+    "World Bank B-READY: Thailand's foreigner-friendly business environment",
+    "https://www.worldbank.org/en/businessready", "national"],
+  ["th-phuket", "creative_administrative_investment_friction", 1.5,
+    "World Bank B-READY: Thailand's foreigner-friendly business environment",
+    "https://www.worldbank.org/en/businessready", "national"],
 ];
 
 async function main() {
