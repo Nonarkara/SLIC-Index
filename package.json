@@ -7,6 +7,8 @@
     "dev": "vite",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
     "build": "vite build",
+    "build:gh": "GITHUB_ACTIONS=true vite build",
+    "deploy": "npm run build:gh && npx gh-pages -d dist",
     "preview": "vite preview",
     "start": "node server.js",
     "rescore": "node scripts/rescore-all-cities.mjs",
