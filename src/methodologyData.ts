@@ -1024,6 +1024,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "Household debt burden", weight: 4, description: "Debt relative to income. High leverage suggests more fragile household resilience.", inputs: ["household debt proxy"] },
           { name: "Working time pressure", weight: 4, description: "Average weekly hours and related overwork burden. Higher sustained work pressure scores worse.", inputs: ["weekly hours", "overwork share"] },
           { name: "Suicide and severe mental strain", weight: 3, description: "A severe-strain public-health signal. Higher suicide or equivalent strain proxy scores worse.", inputs: ["age-standardized suicide rate"] },
+          { name: "Economic Stress (Hanke Misery Index)", weight: 2, description: "Hanke Annual Misery Index 2025: 2×unemployment + inflation + bank-lending-rate − real GDP/capita growth. Applied at country level. Lower = less macroeconomic stress.", inputs: ["unemployment rate", "CPI inflation", "bank lending rate", "real GDP/capita growth"] },
         ],
       },
       {
@@ -1065,6 +1066,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "Hospitality and belonging", weight: 5, description: "Do people feel welcome in practice? Net migration, resident attachment, multilingual usability, and the culture of helping strangers.", inputs: ["net migration", "testimony audit", "multilingual services"] },
           { name: "Tolerance and pluralism", weight: 5, description: "Openness & Inclusion composite: 40% Equaldex LGBTQI Equality Index, 30% Freedom House aggregate, and 30% reversed hate-crime or civil-liberties proxy where city evidence is thin.", inputs: ["Equaldex country index", "Freedom House aggregate", "city hate-crime per 100k"] },
           { name: "Cultural and public-life vitality", weight: 5, description: "Everyday third places, historic continuity, events, and public-life texture. Visitor demand is contextual, not an automatic bonus.", inputs: ["tourism arrivals per 1000", "events", "public attention"] },
+          { name: "Civic Freedom & Dignity", weight: 4, description: "Composite: 0.4 × HRMI Empowerment + 0.3 × Freedom House FIW + 0.3 × V-Dem Liberal Democracy Index (×100). Higher = more civic freedom and political rights.", inputs: ["HRMI Empowerment score", "Freedom House FIW", "V-Dem LDI"] },
         ],
       },
       {
@@ -1574,6 +1576,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "ภาระที่อยู่อาศัย", weight: 8, description: "สัดส่วนต้นทุนที่อยู่อาศัยต่อรายได้ครัวเรือนหรือรายได้ของคนเริ่มทำงาน", inputs: ["median rent", "housing-cost share"] },
           { name: "แรงกดดันจากชั่วโมงงาน", weight: 7, description: "ชั่วโมงงานเฉลี่ยและสัดส่วนการทำงานเกิน 48 ชั่วโมง", inputs: ["weekly hours", "overwork share"] },
           { name: "การฆ่าตัวตายและภาวะเครียดรุนแรง", weight: 7, description: "การฆ่าตัวตายหรือ mental-harm proxy ที่ป้องกันเชิงวิชาการได้", inputs: ["suicide rate", "mental-health harm proxy"] },
+          { name: "ความตึงเครียดทางเศรษฐกิจ (Hanke Misery Index)", weight: 2, description: "Hanke Annual Misery Index 2025: 2×อัตราว่างงาน + เงินเฟ้อ + อัตราดอกเบี้ยกู้ยืม − การเติบโต GDP ต่อหัวจริง ใช้ระดับประเทศ คะแนนต่ำ = ความตึงเครียดมหภาคน้อยกว่า", inputs: ["unemployment rate", "CPI inflation", "bank lending rate", "real GDP/capita growth"] },
           { name: "โมเมนตัมการเติบโตทางเศรษฐกิจ", weight: 6, description: "อัตราการเติบโต GDP ใช้เป็นสัญญาณล่วงหน้าของแรงส่งทางเศรษฐกิจ", inputs: ["GDP growth %", "country context"] },
           { name: "รายได้ใช้สอยจริงแบบ PPP หลังภาษี", weight: 4, description: "เงินคงเหลือหลังภาษีและค่าใช้จ่ายจำเป็น แปลงผ่าน PPP เพียงครั้งเดียวเพื่อให้เทียบกำลังซื้อข้ามเมืองได้", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
           { name: "ภาระหนี้ครัวเรือน", weight: 4, description: "หนี้เทียบกับรายได้ใช้สอยจริงหรือ proxy ที่ดีที่สุด", inputs: ["household debt", "disposable income"] },
@@ -1620,6 +1623,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "การต้อนรับและความรู้สึกเป็นส่วนหนึ่ง", weight: 6, description: "ความรู้สึกต้อนรับ ความผูกพันของผู้อยู่อาศัย และการใช้งานหลายภาษา", inputs: ["social listening", "testimony audit", "multilingual services"] },
           { name: "ความเปิดกว้างและพหุนิยม", weight: 4, description: "การอยู่ร่วมกันได้อย่างลื่นไหล การเข้าถึงตลาดอย่างเท่าเทียม และเสรีภาพในการใช้ชีวิต", inputs: ["legal openness", "discrimination proxy", "market-access signal"] },
           { name: "ความเชื่อมั่นต่ออนาคตจากอัตราเกิด", weight: 2, description: "ใช้อัตราการเกิดรวมเป็นสัญญาณเชิงบริบทที่มีน้ำหนักเบา ไม่ใช่ตัวตัดสินหลักของคุณภาพชีวิตเมือง", inputs: ["World Bank TFR"] },
+          { name: "เสรีภาพพลเมืองและศักดิ์ศรี", weight: 4, description: "ค่าเฉลี่ยถ่วงน้ำหนัก: 0.4 × HRMI Empowerment + 0.3 × Freedom House FIW + 0.3 × V-Dem Liberal Democracy Index (×100) คะแนนสูง = เสรีภาพพลเมืองและสิทธิการเมืองมากกว่า", inputs: ["HRMI Empowerment score", "Freedom House FIW", "V-Dem LDI"] },
         ],
       },
       {
@@ -2104,6 +2108,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "住房负担", weight: 8, description: "住房成本占家庭或年轻职业人收入的比例。", inputs: ["median rent", "housing-cost share"] },
           { name: "工时压力", weight: 7, description: "平均工时与超长工时 prevalence。", inputs: ["weekly hours", "overwork share"] },
           { name: "自杀与严重心理压力", weight: 7, description: "自杀率或最可辩护的心理伤害 proxy。", inputs: ["suicide rate", "mental-health harm proxy"] },
+          { name: "经济压力（Hanke Misery Index）", weight: 2, description: "Hanke Annual Misery Index 2025：2×失业率 + 通货膨胀率 + 银行贷款利率 − 实际人均 GDP 增速。国家层面数据。分数越低代表宏观经济压力越小。", inputs: ["unemployment rate", "CPI inflation", "bank lending rate", "real GDP/capita growth"] },
           { name: "经济增长动能", weight: 6, description: "GDP 增速作为前瞻性的经济势头信号。", inputs: ["GDP growth %", "country context"] },
           { name: "税后 PPP 可支配生活空间", weight: 4, description: "税后扣除必需支出后的剩余空间，通过 PPP 因子转换一次后再做跨城市比较。", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
           { name: "家庭债务负担", weight: 4, description: "债务相对于可支配收入或最佳可得 proxy 的比率。", inputs: ["household debt", "disposable income"] },
@@ -2150,6 +2155,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
           { name: "好客与归属", weight: 6, description: "欢迎感、居民依附与多语言可用性。", inputs: ["social listening", "testimony audit", "multilingual services"] },
           { name: "包容与多元共处", weight: 4, description: "低摩擦共处、平等市场准入与生活方式自由。", inputs: ["legal openness", "discrimination proxy", "market-access signal"] },
           { name: "生育乐观度", weight: 2, description: "总和生育率作为一个轻量的社会预期信号，不应被误读成城市生活质量的主导指标。", inputs: ["World Bank TFR"] },
+          { name: "公民自由与尊严", weight: 4, description: "综合指标：0.4 × HRMI Empowerment + 0.3 × Freedom House FIW + 0.3 × V-Dem 自由民主指数（×100）。分数越高代表公民自由与政治权利越有保障。", inputs: ["HRMI Empowerment score", "Freedom House FIW", "V-Dem LDI"] },
         ],
       },
       {

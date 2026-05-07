@@ -144,6 +144,8 @@ const METRIC_LABELS: Record<Locale, Record<string, string>> = {
     gdp_per_capita_ppp_context: "GDP per Capita (PPP)",
     gini_coefficient_context: "Gini Coefficient",
     investment_signal_raw: "Investment Signal",
+    pressure_economic_stress_hanke: "Economic Stress (Hanke)",
+    community_civic_freedom_dignity: "Civic Freedom & Dignity",
   },
   th: {
     pressure_disposable_income_ppp: "รายได้ใช้สอยคงเหลือ (PPP)",
@@ -174,6 +176,8 @@ const METRIC_LABELS: Record<Locale, Record<string, string>> = {
     gdp_per_capita_ppp_context: "GDP ต่อหัว (PPP)",
     gini_coefficient_context: "ค่าสัมประสิทธิ์จินี",
     investment_signal_raw: "สัญญาณการลงทุน",
+    pressure_economic_stress_hanke: "ความตึงเครียดทางเศรษฐกิจ (Hanke)",
+    community_civic_freedom_dignity: "เสรีภาพพลเมืองและศักดิ์ศรี",
   },
   zh: {
     pressure_disposable_income_ppp: "可支配收入（PPP）",
@@ -204,6 +208,8 @@ const METRIC_LABELS: Record<Locale, Record<string, string>> = {
     gdp_per_capita_ppp_context: "人均GDP（PPP）",
     gini_coefficient_context: "基尼系数",
     investment_signal_raw: "投资信号",
+    pressure_economic_stress_hanke: "经济压力（Hanke）",
+    community_civic_freedom_dignity: "公民自由与尊严",
   },
 };
 
