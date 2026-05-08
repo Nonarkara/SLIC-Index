@@ -54,11 +54,24 @@ export async function trackVisitor(page = "/") {
   sessionStorage.setItem("slic_tracked", "true");
 
   // 1. Google Sheets (fire-and-forget, no-cors)
+  // Send the full set of fields the Apps Script can record so visits via
+  // slic.nonarkara.org are distinguishable from legacy nonarkara.github.io paths.
   fetch(GOOGLE_SHEETS_TRACKING, {
     method: "POST",
     mode: "no-cors",
     headers: { "Content-Type": "text/plain" },
-    body: JSON.stringify({ ...geo, userAgent, referrer }),
+    body: JSON.stringify({
+      ...geo,
+      userAgent,
+      referrer,
+      dashboard: "SLIC",
+      hostname: window.location.hostname,
+      page: window.location.href,
+      language: navigator.language,
+      screen: `${screen.width}x${screen.height}`,
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      v: "v3",
+    }),
   }).catch(() => {});
 
   // 2. Supabase (parallel, silent on failure)
