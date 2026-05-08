@@ -2,8 +2,9 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 
 export default defineConfig({
-  // GitHub Pages deploys under /SLIC-Index/; Vercel and local dev serve from root.
-  base: process.env.GITHUB_ACTIONS ? "/SLIC-Index/" : "/",
+  // Custom domain slic.nonarkara.org serves from root — base is always "/".
+  // The /SLIC-Index/ subdirectory URL still works because gh-pages sets the CNAME.
+  base: "/",
   plugins: [react()],
   server: {
     host: "127.0.0.1",
