@@ -9,10 +9,10 @@
 import { supabase } from "./supabaseClient";
 
 const GOOGLE_SHEETS_TRACKING =
-  "https://script.google.com/macros/s/AKfycbzSIskjTOoavYg6U_uLgG9xjRY4FLuv2tuYhT-FGuHE1aSt6-rdqnu_u_-49eMBslZQ/exec";
+  "https://script.google.com/macros/s/AKfycbwzTwBNOseKkvkkjD-LH6B3GWrsFcwS6MTDbn7W5eb3zHxA-swtlHYuwJ3w5PAVXDhU7Q/exec";
 
 const GOOGLE_SHEETS_COUNT =
-  "https://script.google.com/macros/s/AKfycbzSIskjTOoavYg6U_uLgG9xjRY4FLuv2tuYhT-FGuHE1aSt6-rdqnu_u_-49eMBslZQ/exec";
+  "https://script.google.com/macros/s/AKfycbwzTwBNOseKkvkkjD-LH6B3GWrsFcwS6MTDbn7W5eb3zHxA-swtlHYuwJ3w5PAVXDhU7Q/exec";
 
 /* ── Geolocation helper ── */
 

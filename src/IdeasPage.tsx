@@ -148,11 +148,28 @@ function CopyButton({ text, locale }: { text: string; locale: Locale }) {
   const [copied, setCopied] = useState(false);
   const ui = ideasUiCopy[locale];
 
-  function handleCopy() {
-    navigator.clipboard.writeText(text).then(() => {
+  async function handleCopy() {
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(text);
+      } else {
+        throw new Error("Clipboard API unavailable");
+      }
+    } catch {
+      const fallback = document.createElement("textarea");
+      fallback.value = text;
+      fallback.setAttribute("readonly", "");
+      fallback.style.position = "fixed";
+      fallback.style.left = "-9999px";
+      fallback.style.top = "0";
+      document.body.appendChild(fallback);
+      fallback.select();
+      document.execCommand("copy");
+      document.body.removeChild(fallback);
+    } finally {
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
-    });
+    }
   }
 
   return (

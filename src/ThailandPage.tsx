@@ -378,7 +378,9 @@ export default function ThailandPage({
                 </div>
 
                 <div className="metric-taglist">
-                  {province.highlights.map((h) => (<span key={h}>{h}</span>))}
+                  {province.highlights.map((h, highlightIndex) => (
+                    <span key={`${province.id}-${highlightIndex}-${h}`}>{h}</span>
+                  ))}
                   {province.status === "provisional" && <span>{ui.provisional}</span>}
                 </div>
               </article>

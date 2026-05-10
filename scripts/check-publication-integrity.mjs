@@ -12,13 +12,13 @@ const EXPECTED_ALPHA = [
   "Raleigh",
   "Montreal",
   "Kaohsiung",
-  "Eindhoven",
-  "Graz",
   "Taipei",
+  "Eindhoven",
   "Jeju City",
+  "Graz",
   "Valparaiso",
-  "Bangkok",
   "Fukuoka",
+  "Bangkok",
 ];
 
 const REQUIRED_BETA = ["Lyon", "Prague", "Tokyo", "Perth", "Dunedin"];
