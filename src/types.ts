@@ -10,6 +10,7 @@ export type SitePath =
   | "/exercise"
   | "/thailand"
   | "/ideas"
+  | "/essay"
   | "/history"
   | "/side-by-side"
   | "/map"

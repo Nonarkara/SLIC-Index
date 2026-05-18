@@ -16,6 +16,7 @@ const navPaths: SitePath[] = [
   "/data",
   "/thailand",
   "/ideas",
+  "/essay",
   "/about-slic",
   "/history",
 ];
@@ -49,6 +50,7 @@ function navLabel(path: SitePath, locale: Locale): string {
   if (path === "/methodology") return copy.nav.methodology;
   if (path === "/data") return locale === "en" ? "Data" : locale === "th" ? "ข้อมูล" : "数据";
   if (path === "/ideas") return copy.nav.ideas;
+  if (path === "/essay") return copy.nav.essay;
   if (path === "/compare") return copy.nav.compare;
   if (path === "/side-by-side") return locale === "en" ? "Side by Side" : locale === "th" ? "เทียบเมือง" : "城市对比";
   if (path === "/map") return locale === "en" ? "Map" : locale === "th" ? "แผนที่" : "地图";

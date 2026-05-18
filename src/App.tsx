@@ -19,6 +19,7 @@ const CompareRankingsPage = lazy(() => import("./CompareRankingsPage"));
 const SideBySidePage = lazy(() => import("./SideBySidePage"));
 const CityScorecardPage = lazy(() => import("./CityScorecardPage"));
 const MapPage = lazy(() => import("./MapPage"));
+const EssayPage = lazy(() => import("./EssayPage"));
 
 type DocumentWithViewTransition = Document & {
   startViewTransition?: Document["startViewTransition"];
@@ -87,6 +88,10 @@ function resolvePath(pathname: string): SitePath {
 
   if (bare === "/thailand") {
     return "/thailand";
+  }
+
+  if (bare === "/essay") {
+    return "/essay";
   }
 
   if (bare === "/ideas") {
@@ -382,6 +387,8 @@ export default function App() {
             <ExercisePage onNavigate={navigate} locale={locale} />
           ) : route === "/thailand" ? (
             <ThailandPage onNavigate={navigate} locale={locale} />
+          ) : route === "/essay" ? (
+            <EssayPage onNavigate={navigate} locale={locale} />
           ) : route === "/ideas" ? (
             <IdeasPage onNavigate={navigate} locale={locale} />
           ) : route === "/compare" ? (
