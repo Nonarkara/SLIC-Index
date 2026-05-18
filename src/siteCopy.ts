@@ -117,7 +117,7 @@ export const siteCopy = {
         "Coverage grades, fallback proxies, and missing-data rules remain visible. High GDP alone does not determine rank.",
       collaborationLabel: "Prepared in collaboration with",
       collaboration:
-        "Created by Non Arkara and Associate Professor Poon Thiengburanathum as a SLIC product prepared in collaboration with the Ministry of Digital Economy and Society, the Digital Economy Promotion Agency, Smart City Thailand Office, and Axiom.",
+        "Created by Non Arkara and Associate Professor Poon Thiengburanathum as a SLIC product prepared in collaboration with the Ministry of Digital Economy and Society, the Digital Economy Promotion Agency, Smart City Thailand Office, and Axiom × ReTL.",
       note:
         "Methodology, weights, and source hierarchy remain declared. The next publishable release must attach trusted source URLs, source tiers, and workbook-derived scores before reopening the public ranking as final.",
     },
@@ -232,7 +232,7 @@ export const siteCopy = {
         "เกรดความครอบคลุม ตัวแทนข้อมูล และกติกาข้อมูลขาดหายจะถูกเปิดเผยอย่างชัดเจน GDP สูงเพียงอย่างเดียวไม่ทำให้เมืองชนะ",
       collaborationLabel: "จัดทำร่วมกับ",
       collaboration:
-        "สร้างโดย Non Arkara และ Associate Professor Poon Thiengburanathum ในฐานะผลิตภัณฑ์ SLIC ที่จัดทำร่วมกับกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม สำนักงานส่งเสริมเศรษฐกิจดิจิทัล Smart City Thailand Office และ Axiom",
+        "สร้างโดย Non Arkara และ Associate Professor Poon Thiengburanathum ในฐานะผลิตภัณฑ์ SLIC ที่จัดทำร่วมกับกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม สำนักงานส่งเสริมเศรษฐกิจดิจิทัล Smart City Thailand Office และ Axiom × ReTL",
       note:
         "ระเบียบวิธี น้ำหนัก และลำดับชั้นแหล่งข้อมูลยังคงประกาศอย่างชัดเจน รุ่นที่พร้อมเผยแพร่จริงต้องแนบ URL แหล่งข้อมูล ระดับแหล่งข้อมูล และคะแนนที่ได้จากเวิร์กบุ๊กก่อนเปิดอันดับสาธารณะอีกครั้งในฐานะฉบับสุดท้าย",
     },
@@ -347,7 +347,7 @@ export const siteCopy = {
         "数据覆盖等级、替代代理与缺失规则会被明确公开。高 GDP 本身不能决定名次。",
       collaborationLabel: "合作完成",
       collaboration:
-        "该项目由 Non Arkara 与 Associate Professor Poon Thiengburanathum 共同发起，作为 SLIC 产品，与 Ministry of Digital Economy and Society、Digital Economy Promotion Agency、Smart City Thailand Office、Axiom 协作完成。",
+        "该项目由 Non Arkara 与 Associate Professor Poon Thiengburanathum 共同发起，作为 SLIC 产品，与 Ministry of Digital Economy and Society、Digital Economy Promotion Agency、Smart City Thailand Office、Axiom × ReTL 协作完成。",
       note:
         "方法、权重与来源层级保持公开。下一版只有在附齐可信来源 URL、来源层级与工作簿导出分数后，才应重新开放为最终公开榜单。",
     },

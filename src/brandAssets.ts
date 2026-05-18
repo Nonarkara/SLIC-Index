@@ -43,4 +43,11 @@ export const collaborationLogos: BrandAsset[] = [
     width: 528,
     height: 266,
   },
+  {
+    name: "ReTL",
+    src: "/Logos/retl_logo.png",
+    alt: "ReTL — The Reason to Live Company",
+    width: 528,
+    height: 266,
+  },
 ];
