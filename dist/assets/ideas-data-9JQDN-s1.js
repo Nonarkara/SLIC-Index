@@ -17,7 +17,7 @@ const submitReport = async ({ lat, lng, category, description, photoUrl }) => {
   );
   const data = await res.json();
   // Returns: [{ service_request_id, token, service_notice }]
-  console.log("Report filed:", data[0].service_request_id);
+  // Report filed successfully
 };
 
 // List existing reports near a location:
