@@ -1,4 +1,5 @@
 import { type MouseEvent, useEffect, useMemo, useState } from "react";
+import { displayCountry } from "./cityUtils";
 import ZeroSumAllocator from "./ZeroSumAllocator";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import { evaluateConsequences } from "./consequenceRules";
@@ -25,11 +26,11 @@ type MatchedCity = FullRankedCity & {
 };
 
 const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#ff8f4a",
-  viability: "#31d596",
-  capability: "#66a3ff",
-  community: "#c084fc",
-  creative: "#ff5ea8",
+  pressure: "#b85c28",
+  viability: "#1a6b5a",
+  capability: "#2a5a8c",
+  community: "#8c4a2a",
+  creative: "#a0382a",
 };
 
 const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
@@ -788,7 +789,7 @@ export default function RankingsPage({
                       <div>
                         <span className="rankings-feature-kicker">{ui.bestMatchTitle}</span>
                         <h3>
-                          {featuredCity.name}, {featuredCity.country}
+                          {featuredCity.name}{displayCountry(featuredCity.country) ? `, ${displayCountry(featuredCity.country)}` : ""}
                         </h3>
                         <p>{ui.bestMatchBody}</p>
                       </div>
@@ -846,7 +847,7 @@ export default function RankingsPage({
                             <div style={{ minWidth: 0 }}>
                               <div className="city-name-row">
                                 <span className="city-display-name">{city.name}</span>
-                                <span className="city-country">{city.country}</span>
+                                {displayCountry(city.country) && <span className="city-country">{displayCountry(city.country)}</span>}
                               </div>
                               <div className="rankings-pillar-bars">
                                 {PILLAR_ORDER.map((pid) => (

@@ -1,4 +1,5 @@
 import { type CSSProperties, type MouseEvent, useEffect, useMemo, useState } from "react";
+import { displayCountry } from "./cityUtils";
 import { evaluateConsequences } from "./consequenceRules";
 import type { FiredConsequence } from "./consequenceRules";
 import { allocatePublicTiers, assignPureScoreRanks, PUBLIC_TIER_RULES } from "./publicTierPolicy.js";
@@ -457,7 +458,7 @@ export default function HomePage({
                 <span className="v3-city-card-name">{city.displayName}</span>
                 <span className="v3-city-card-score">{city.customScore.toFixed(1)}</span>
               </div>
-              <span className="v3-city-card-country">{city.country}</span>
+              {displayCountry(city.country) && <span className="v3-city-card-country">{displayCountry(city.country)}</span>}
               <span className="v3-city-card-region">{city.region}</span>
               <div className="v3-city-card-bars">
                 {PILLAR_ORDER.map((pillar) => (
@@ -598,7 +599,7 @@ export default function HomePage({
                 <span className="v3-tier-chip-rank">#{city.rank}</span>
                 <span className="v3-tier-chip-body">
                   <strong>{city.displayName}</strong>
-                  <span>{city.country}</span>
+                  {displayCountry(city.country) && <span>{displayCountry(city.country)}</span>}
                 </span>
               </a>
             ))}
@@ -618,7 +619,7 @@ export default function HomePage({
                 <span className="v3-tier-chip-rank">#{city.rank}</span>
                 <span className="v3-tier-chip-body">
                   <strong>{city.displayName}</strong>
-                  <span>{city.country}</span>
+                  {displayCountry(city.country) && <span>{displayCountry(city.country)}</span>}
                 </span>
               </a>
             ))}
@@ -687,7 +688,7 @@ export default function HomePage({
                         <span className="v3-spider-rank">#{String(city.customRank).padStart(2, "0")}</span>
                         <span className="v3-spider-name">{city.displayName}</span>
                         <span className="v3-spider-score">{city.customScore.toFixed(1)}</span>
-                        <span className="v3-spider-country">{city.country}</span>
+                        {displayCountry(city.country) && <span className="v3-spider-country">{displayCountry(city.country)}</span>}
                       </a>
                     ))}
                   </div>

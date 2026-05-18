@@ -1,4 +1,5 @@
 import publishedData from "./data/publishedRankingData.json";
+import { displayCountry } from "./cityUtils";
 import { CITY_CONTEXT } from "./data/cityContext";
 import { getCityEditorialEntry } from "./cityEditorial";
 import { getExerciseCities } from "./rankingsData";
@@ -982,7 +983,7 @@ export default function CityScorecardPage({
             <div className="scorecard-hero-copy">
               <p className="eyebrow">{city.region}</p>
               <h1 className="scorecard-city-name">{city.displayName}</h1>
-              <p className="scorecard-country">{city.country}</p>
+              {displayCountry(city.country) && <p className="scorecard-country">{displayCountry(city.country)}</p>}
               {cityEditorial?.heroLine && (
                 <p className="scorecard-hero-line">{cityEditorial.heroLine}</p>
               )}
@@ -1182,7 +1183,7 @@ export default function CityScorecardPage({
               >
                 <div className="scorecard-peer-rank">#{peer.rank}</div>
                 <div className="scorecard-peer-name">{peer.displayName}</div>
-                <div className="scorecard-peer-country">{peer.country}</div>
+                {displayCountry(peer.country) && <div className="scorecard-peer-country">{displayCountry(peer.country)}</div>}
                 <div className="scorecard-peer-score">{peer.slicScore.toFixed(1)}</div>
                 {(() => {
                   const pCtx = CITY_CONTEXT[peer.cityId];

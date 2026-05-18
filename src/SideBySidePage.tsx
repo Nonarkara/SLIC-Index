@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { displayCountry } from "./cityUtils";
 import { getExerciseCities } from "./rankingsData";
 import { t } from "./i18n";
 import { rankingPublication } from "./rankingPublication";
@@ -179,7 +180,7 @@ export default function SideBySidePage({
                         onClick={() => handleAdd(c.id)}
                       >
                         <strong>{c.name}</strong>
-                        <span>{c.country}</span>
+                        {displayCountry(c.country) && <span>{displayCountry(c.country)}</span>}
                       </button>
                     ))}
                   </div>
@@ -216,7 +217,7 @@ export default function SideBySidePage({
               <div className={`sbs-column tier-border-${getTier(city)}`} key={city.id}>
                 <div className="sbs-city-header">
                   <span className="sbs-city-name-btn" style={{cursor: "default"}}>{city.name}</span>
-                  <span className="sbs-city-country">{city.country}</span>
+                  {displayCountry(city.country) && <span className="sbs-city-country">{displayCountry(city.country)}</span>}
                   <span className={`sbs-city-tier tier-text-${getTier(city)}`}>{getTierLabel(city, locale)}</span>
                 </div>
 
