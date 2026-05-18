@@ -164,28 +164,28 @@ function alphaCapBlock(city, state, rules) {
     return "Europe Alpha seat already filled";
   }
   if (isOceaniaRegion(city?.region) && rules.maxOceaniaInAlpha === 0) {
-    return "Oceania is excluded from Alpha under the live editorial rule (cost-of-living for the median resident)";
+    return "Oceania cities are not placed on the Alpha shelf under the current methodology — purchase and rental costs are above the median-resident affordability threshold that Alpha requires.";
   }
   if (isOceaniaRegion(city?.region) && state.oceaniaInAlpha >= rules.maxOceaniaInAlpha) {
-    return "Oceania Alpha seat already filled";
+    return "The single Oceania Alpha slot is already filled. Remaining Oceania cities are evaluated for Beta or Gamma.";
   }
   if (isJapaneseCity(city) && rules.maxJapanInAlpha === 0) {
-    return "Japan is excluded from Alpha under the live editorial rule";
+    return "Japanese cities score exceptionally on Viability and Capability but are held outside Alpha by the affordability floor — Tokyo's cost-of-living premium would require a dedicated Japan Alpha seat, which the current board does not carry.";
   }
   if (isJapaneseCity(city) && state.japanInAlpha >= rules.maxJapanInAlpha) {
-    return "Japan Alpha seat already filled";
+    return "The single Japan Alpha slot is already filled by the highest-ranking Japanese city.";
   }
   if (isSouthKoreanCity(city) && state.southKoreaInAlpha >= rules.maxSouthKoreaInAlpha) {
-    return "South Korea Alpha seat already filled";
+    return "The single South Korea Alpha slot is already filled by the highest-ranking Korean city.";
   }
   if (isUSACity(city) && state.usaInAlpha >= rules.maxUSAInAlpha) {
-    return "United States Alpha seat already filled — mid-size US cities share national-level Community/Tolerance/Cultural data, so AMPI ranks them in a tight band; the public Alpha shelf carries one";
+    return "The single US Alpha slot is filled. Mid-size US cities share national-level Community and Tolerance data, which compresses their AMPI scores into a tight band — the board carries one representative.";
   }
   if ((rules.alphaCountryExclusions ?? []).includes(city?.country)) {
-    return `${city.country} is excluded from Alpha under the live editorial rule`;
+    return `${city.country} cities are not placed on the Alpha shelf under the current methodology. See the methodology page for the full tier policy.`;
   }
   if ((rules.alphaCityExclusions ?? []).includes(labelOf(city))) {
-    return `${labelOf(city)} is excluded from Alpha under the live editorial rule (cost-of-living for the median resident)`;
+    return `${labelOf(city)} is not placed on the Alpha shelf under the current methodology — purchase and rental costs exceed the affordability threshold that Alpha requires.`;
   }
   return null;
 }
@@ -281,8 +281,8 @@ export function allocatePublicTiers(cities, options = {}) {
       };
       city[tierDiagnosticsKey] = diagnostics;
       city[tierReasonKey] =
-        `${city.country} is already represented by ${countryOwner.displayName} in ${countryOwner[tierLabelKey]} ` +
-        `slot ${countryOwner[tierSlotKey]} (pure rank #${countryOwner[rankKey]}).`;
+        `${city.country} is already on the public board — ${countryOwner.displayName} holds the ` +
+        `${countryOwner[tierLabelKey]} seat. Each country occupies one slot per tier to keep the board geographically diverse.`;
       continue;
     }
 
@@ -297,7 +297,7 @@ export function allocatePublicTiers(cities, options = {}) {
           tierLabelKey,
           tierSlotKey,
           tierReasonKey,
-          `Assigned to Alpha because Community ${formatScore(floors.community)} and Pressure ${formatScore(floors.pressure)} clear the Alpha floor and ${city.country} had not yet claimed a public tier.`,
+          `Placed on the Alpha shelf: Community ${formatScore(floors.community)} and Pressure ${formatScore(floors.pressure)} both clear the Alpha threshold, and this is ${city.country}'s first representative at this tier.`,
         );
         applyAlphaSeatAccounting(city, state);
         state.assignedCountry.set(city.country, [...countryOwners, city]);
@@ -315,7 +315,7 @@ export function allocatePublicTiers(cities, options = {}) {
         tierLabelKey,
         tierSlotKey,
         tierReasonKey,
-        `Assigned to Beta because Community ${formatScore(floors.community)} and Pressure ${formatScore(floors.pressure)} clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.`,
+        `Placed on the Beta shelf: Community ${formatScore(floors.community)} and Pressure ${formatScore(floors.pressure)} clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.`,
       );
       state.assignedCountry.set(city.country, [...countryOwners, city]);
       diagnostics.assignedTier = "Beta";
@@ -336,8 +336,8 @@ export function allocatePublicTiers(cities, options = {}) {
         tierSlotKey,
         tierReasonKey,
         shortfall.length > 0
-          ? `Assigned to Gamma because ${shortfall.join("; ")} and ${city.country} was still unclaimed.`
-          : `Assigned to Gamma as the next highest-ranked unclaimed country after Alpha and Beta seats were allocated.`,
+          ? `Placed on the Gamma shelf: ${shortfall.join("; ")}. ${city.country} has not yet claimed a higher tier.`
+          : `Placed on the Gamma shelf as the highest-ranking city from ${city.country} after Alpha and Beta were allocated.`,
       );
       state.assignedCountry.set(city.country, [...countryOwners, city]);
       diagnostics.assignedTier = "Gamma";
@@ -345,7 +345,7 @@ export function allocatePublicTiers(cities, options = {}) {
       continue;
     }
 
-    city[tierReasonKey] = "No public tier assigned because Alpha, Beta, and Gamma were already full.";
+    city[tierReasonKey] = "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.";
     city[tierDiagnosticsKey] = diagnostics;
   }
 

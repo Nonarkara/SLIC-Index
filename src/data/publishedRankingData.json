@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-05-18T07:09:29.486Z",
+  "updatedAt": "2026-05-18T10:34:23.114Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -1068,7 +1068,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Alpha because Community 65.4 and Pressure 66.8 clear the Alpha floor and Taiwan had not yet claimed a public tier.",
+      "tierReason": "Placed on the Alpha shelf: Community 65.4 and Pressure 66.8 both clear the Alpha threshold, and this is Taiwan's first representative at this tier.",
       "tierDiagnostics": {
         "communityExact": 65.3637,
         "pressureExact": 66.7711,
@@ -1553,7 +1553,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Alpha because Community 65.3 and Pressure 45.4 clear the Alpha floor and Taiwan had not yet claimed a public tier.",
+      "tierReason": "Placed on the Alpha shelf: Community 65.3 and Pressure 45.4 both clear the Alpha threshold, and this is Taiwan's first representative at this tier.",
       "tierDiagnostics": {
         "communityExact": 65.3361,
         "pressureExact": 45.391,
@@ -2038,7 +2038,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Alpha because Community 63.2 and Pressure 77.6 clear the Alpha floor and United States had not yet claimed a public tier.",
+      "tierReason": "Placed on the Alpha shelf: Community 63.2 and Pressure 77.6 both clear the Alpha threshold, and this is United States's first representative at this tier.",
       "tierDiagnostics": {
         "communityExact": 63.2065,
         "pressureExact": 77.5754,
@@ -2523,7 +2523,7 @@
           "composite": 0
         }
       },
-      "tierReason": "South Korea is already represented by Jeju City in Alpha slot 7 (pure rank #18).",
+      "tierReason": "South Korea is already on the public board — Jeju City holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 55.6643,
         "pressureExact": 51.8568,
@@ -3014,7 +3014,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Poland is already represented by Torun in Beta slot 10 (pure rank #51).",
+      "tierReason": "Poland is already on the public board — Torun holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 53.4888,
         "pressureExact": 65.7991,
@@ -3505,7 +3505,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Alpha because Community 59.9 and Pressure 60.0 clear the Alpha floor and Japan had not yet claimed a public tier.",
+      "tierReason": "Placed on the Alpha shelf: Community 59.9 and Pressure 60.0 both clear the Alpha threshold, and this is Japan's first representative at this tier.",
       "tierDiagnostics": {
         "communityExact": 59.8616,
         "pressureExact": 60.0246,
@@ -3990,7 +3990,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Alpha because Community 70.7 and Pressure 49.9 clear the Alpha floor and Thailand had not yet claimed a public tier.",
+      "tierReason": "Placed on the Alpha shelf: Community 70.7 and Pressure 49.9 both clear the Alpha threshold, and this is Thailand's first representative at this tier.",
       "tierDiagnostics": {
         "communityExact": 70.7202,
         "pressureExact": 49.9116,
@@ -4475,7 +4475,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Beta because Community 75.1 and Pressure 56.3 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.",
+      "tierReason": "Placed on the Beta shelf: Community 75.1 and Pressure 56.3 clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.",
       "tierDiagnostics": {
         "communityExact": 75.0587,
         "pressureExact": 56.2695,
@@ -4960,7 +4960,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Alpha because Community 81.6 and Pressure 69.7 clear the Alpha floor and Canada had not yet claimed a public tier.",
+      "tierReason": "Placed on the Alpha shelf: Community 81.6 and Pressure 69.7 both clear the Alpha threshold, and this is Canada's first representative at this tier.",
       "tierDiagnostics": {
         "communityExact": 81.6489,
         "pressureExact": 69.72,
@@ -5445,7 +5445,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Chile is already represented by Valparaiso in Alpha slot 8 (pure rank #24).",
+      "tierReason": "Chile is already on the public board — Valparaiso holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 66.5835,
         "pressureExact": 57.42,
@@ -5936,7 +5936,7 @@
           "composite": 0
         }
       },
-      "tierReason": "United States is already represented by Raleigh in Alpha slot 1 (pure rank #1).",
+      "tierReason": "United States is already on the public board — Raleigh holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 60.3626,
         "pressureExact": 78.5521,
@@ -6427,7 +6427,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Japan is already represented by Tokyo in Beta slot 8 (pure rank #34).",
+      "tierReason": "Japan is already on the public board — Tokyo holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 59.8616,
         "pressureExact": 60.9809,
@@ -6918,7 +6918,7 @@
           "composite": 0
         }
       },
-      "tierReason": "United States is already represented by Raleigh in Alpha slot 1 (pure rank #1).",
+      "tierReason": "United States is already on the public board — Raleigh holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 55.5404,
         "pressureExact": 75.6468,
@@ -7887,7 +7887,7 @@
           "composite": 0
         }
       },
-      "tierReason": "South Korea is already represented by Jeju City in Alpha slot 7 (pure rank #18).",
+      "tierReason": "South Korea is already on the public board — Jeju City holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 55.8291,
         "pressureExact": 51.4479,
@@ -8378,7 +8378,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Canada is already represented by Montreal in Alpha slot 2 (pure rank #2).",
+      "tierReason": "Canada is already on the public board — Montreal holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 82.8854,
         "pressureExact": 65.5708,
@@ -8869,7 +8869,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Alpha because Community 66.6 and Pressure 63.2 clear the Alpha floor and Chile had not yet claimed a public tier.",
+      "tierReason": "Placed on the Alpha shelf: Community 66.6 and Pressure 63.2 both clear the Alpha threshold, and this is Chile's first representative at this tier.",
       "tierDiagnostics": {
         "communityExact": 66.5835,
         "pressureExact": 63.2074,
@@ -9354,7 +9354,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Beta because Community 66.2 and Pressure 77.8 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.",
+      "tierReason": "Placed on the Beta shelf: Community 66.2 and Pressure 77.8 clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.",
       "tierDiagnostics": {
         "communityExact": 66.2112,
         "pressureExact": 77.8489,
@@ -9839,7 +9839,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Alpha because Community 75.9 and Pressure 68.8 clear the Alpha floor and Netherlands had not yet claimed a public tier.",
+      "tierReason": "Placed on the Alpha shelf: Community 75.9 and Pressure 68.8 both clear the Alpha threshold, and this is Netherlands's first representative at this tier.",
       "tierDiagnostics": {
         "communityExact": 75.9108,
         "pressureExact": 68.7584,
@@ -10324,7 +10324,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Alpha because Community 76.9 and Pressure 65.5 clear the Alpha floor and Austria had not yet claimed a public tier.",
+      "tierReason": "Placed on the Alpha shelf: Community 76.9 and Pressure 65.5 both clear the Alpha threshold, and this is Austria's first representative at this tier.",
       "tierDiagnostics": {
         "communityExact": 76.8722,
         "pressureExact": 65.5297,
@@ -10809,7 +10809,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Beta because Community 68.7 and Pressure 64.6 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.",
+      "tierReason": "Placed on the Beta shelf: Community 68.7 and Pressure 64.6 clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.",
       "tierDiagnostics": {
         "communityExact": 68.6789,
         "pressureExact": 64.5632,
@@ -11772,7 +11772,7 @@
           "composite": 0
         }
       },
-      "tierReason": "United States is already represented by Raleigh in Alpha slot 1 (pure rank #1).",
+      "tierReason": "United States is already on the public board — Raleigh holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 58.2606,
         "pressureExact": 64.3485,
@@ -12263,7 +12263,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Portugal is already represented by Braga in Beta slot 3 (pure rank #15).",
+      "tierReason": "Portugal is already on the public board — Braga holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 68.6789,
         "pressureExact": 58.2043,
@@ -12754,7 +12754,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Beta because Community 58.4 and Pressure 56.4 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.",
+      "tierReason": "Placed on the Beta shelf: Community 58.4 and Pressure 56.4 clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.",
       "tierDiagnostics": {
         "communityExact": 58.3991,
         "pressureExact": 56.3589,
@@ -13239,7 +13239,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Beta because Community 53.5 and Pressure 67.2 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.",
+      "tierReason": "Placed on the Beta shelf: Community 53.5 and Pressure 67.2 clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.",
       "tierDiagnostics": {
         "communityExact": 53.4888,
         "pressureExact": 67.1873,
@@ -13724,7 +13724,7 @@
           "composite": 0
         }
       },
-      "tierReason": "South Korea is already represented by Jeju City in Alpha slot 7 (pure rank #18).",
+      "tierReason": "South Korea is already on the public board — Jeju City holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 55.6643,
         "pressureExact": 55.9258,
@@ -14215,7 +14215,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Gamma because Alpha floor not met (38.4 Community, 41.3 Pressure); Beta floor not met (38.4 Community, 41.3 Pressure) and Singapore was still unclaimed.",
+      "tierReason": "Placed on the Gamma shelf: Alpha floor not met (38.4 Community, 41.3 Pressure); Beta floor not met (38.4 Community, 41.3 Pressure). Singapore has not yet claimed a higher tier.",
       "tierDiagnostics": {
         "communityExact": 38.3699,
         "pressureExact": 41.2595,
@@ -14700,7 +14700,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Gamma because Beta floor not met (82.1 Community, 40.4 Pressure) and Switzerland was still unclaimed.",
+      "tierReason": "Placed on the Gamma shelf: Beta floor not met (82.1 Community, 40.4 Pressure). Switzerland has not yet claimed a higher tier.",
       "tierDiagnostics": {
         "communityExact": 82.0524,
         "pressureExact": 40.4259,
@@ -15185,7 +15185,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Gamma because Beta floor not met (80.8 Community, 43.7 Pressure) and Denmark was still unclaimed.",
+      "tierReason": "Placed on the Gamma shelf: Beta floor not met (80.8 Community, 43.7 Pressure). Denmark has not yet claimed a higher tier.",
       "tierDiagnostics": {
         "communityExact": 80.7522,
         "pressureExact": 43.6739,
@@ -15670,7 +15670,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 11.8978,
         "pressureExact": 94.742,
@@ -16155,7 +16155,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Australia is already represented by Melbourne in Beta slot 2 (pure rank #13).",
+      "tierReason": "Australia is already on the public board — Melbourne holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 69.1469,
         "pressureExact": 36.5727,
@@ -16646,7 +16646,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 11.8978,
         "pressureExact": 95.4965,
@@ -17131,7 +17131,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Australia is already represented by Melbourne in Beta slot 2 (pure rank #13).",
+      "tierReason": "Australia is already on the public board — Melbourne holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 69.1469,
         "pressureExact": 47.5803,
@@ -17622,7 +17622,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Austria is already represented by Graz in Alpha slot 6 (pure rank #10).",
+      "tierReason": "Austria is already on the public board — Graz holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 75.0175,
         "pressureExact": 45.8638,
@@ -18113,13 +18113,13 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Beta because Community 69.1 and Pressure 45.7 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.",
+      "tierReason": "Placed on the Beta shelf: Community 69.1 and Pressure 45.7 clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.",
       "tierDiagnostics": {
         "communityExact": 69.1469,
         "pressureExact": 45.7414,
         "alphaEligible": true,
         "betaEligible": true,
-        "alphaCapBlock": "Oceania is excluded from Alpha under the live editorial rule (cost-of-living for the median resident)",
+        "alphaCapBlock": "Oceania cities are not placed on the Alpha shelf under the current methodology — purchase and rental costs are above the median-resident affordability threshold that Alpha requires.",
         "countryBlock": null,
         "assignedTier": "Beta"
       }
@@ -18598,7 +18598,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Australia is already represented by Melbourne in Beta slot 2 (pure rank #13).",
+      "tierReason": "Australia is already on the public board — Melbourne holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 69.1469,
         "pressureExact": 52.1621,
@@ -19089,7 +19089,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 30.1379,
         "pressureExact": 72.441,
@@ -19574,7 +19574,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Australia is already represented by Melbourne in Beta slot 2 (pure rank #13).",
+      "tierReason": "Australia is already on the public board — Melbourne holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 69.1469,
         "pressureExact": 51.2842,
@@ -20065,7 +20065,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Canada is already represented by Montreal in Alpha slot 2 (pure rank #2).",
+      "tierReason": "Canada is already on the public board — Montreal holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 80.4125,
         "pressureExact": 50.4014,
@@ -20556,7 +20556,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Gamma as the next highest-ranked unclaimed country after Alpha and Beta seats were allocated.",
+      "tierReason": "Placed on the Gamma shelf as the highest-ranking city from Puerto Rico after Alpha and Beta were allocated.",
       "tierDiagnostics": {
         "communityExact": 63.5994,
         "pressureExact": 59.3268,
@@ -21041,7 +21041,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Netherlands is already represented by Eindhoven in Alpha slot 4 (pure rank #7).",
+      "tierReason": "Netherlands is already on the public board — Eindhoven holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 75.9108,
         "pressureExact": 42.9319,
@@ -21532,7 +21532,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 15.7595,
         "pressureExact": 55.7179,
@@ -22017,7 +22017,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Japan is already represented by Tokyo in Beta slot 8 (pure rank #34).",
+      "tierReason": "Japan is already on the public board — Tokyo holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 59.8616,
         "pressureExact": 61.209,
@@ -22508,7 +22508,7 @@
           "composite": 0
         }
       },
-      "tierReason": "France is already represented by Lyon in Beta slot 4 (pure rank #25).",
+      "tierReason": "France is already on the public board — Lyon holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 71.9675,
         "pressureExact": 33.0856,
@@ -22999,7 +22999,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Poland is already represented by Torun in Beta slot 10 (pure rank #51).",
+      "tierReason": "Poland is already on the public board — Torun holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 53.4888,
         "pressureExact": 60.9972,
@@ -23490,7 +23490,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Canada is already represented by Montreal in Alpha slot 2 (pure rank #2).",
+      "tierReason": "Canada is already on the public board — Montreal holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 78.5577,
         "pressureExact": 45.1172,
@@ -23981,7 +23981,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Gamma as the next highest-ranked unclaimed country after Alpha and Beta seats were allocated.",
+      "tierReason": "Placed on the Gamma shelf as the highest-ranking city from Slovakia after Alpha and Beta were allocated.",
       "tierDiagnostics": {
         "communityExact": 64.7914,
         "pressureExact": 60.3797,
@@ -24466,7 +24466,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Alpha because Community 55.7 and Pressure 56.4 clear the Alpha floor and South Korea had not yet claimed a public tier.",
+      "tierReason": "Placed on the Alpha shelf: Community 55.7 and Pressure 56.4 both clear the Alpha threshold, and this is South Korea's first representative at this tier.",
       "tierDiagnostics": {
         "communityExact": 55.6643,
         "pressureExact": 56.3819,
@@ -24951,7 +24951,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Poland is already represented by Torun in Beta slot 10 (pure rank #51).",
+      "tierReason": "Poland is already on the public board — Torun holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 53.4888,
         "pressureExact": 56.0952,
@@ -25442,7 +25442,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 10 (pure rank #49).",
+      "tierReason": "Thailand is already on the public board — Bangkok holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 49.0172,
         "pressureExact": 59.241,
@@ -25933,7 +25933,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Gamma as the next highest-ranked unclaimed country after Alpha and Beta seats were allocated.",
+      "tierReason": "Placed on the Gamma shelf as the highest-ranking city from Mauritius after Alpha and Beta were allocated.",
       "tierDiagnostics": {
         "communityExact": 50.1149,
         "pressureExact": 59.0963,
@@ -26418,7 +26418,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Italy is already represented by Milan in Beta slot 9 (pure rank #38).",
+      "tierReason": "Italy is already on the public board — Milan holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 66.2112,
         "pressureExact": 59.7057,
@@ -26909,7 +26909,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 43.6669,
         "pressureExact": 65.5785,
@@ -27394,7 +27394,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 44.342,
         "pressureExact": 65.6824,
@@ -28356,7 +28356,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 43.8689,
         "pressureExact": 66.9703,
@@ -28841,7 +28841,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 44.342,
         "pressureExact": 62.7432,
@@ -29326,7 +29326,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Japan is already represented by Tokyo in Beta slot 8 (pure rank #34).",
+      "tierReason": "Japan is already on the public board — Tokyo holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 59.8616,
         "pressureExact": 62.1441,
@@ -29817,7 +29817,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 27.1801,
         "pressureExact": 80.019,
@@ -30302,7 +30302,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 56.2064,
         "pressureExact": 62.7094,
@@ -30787,7 +30787,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Gamma because Alpha floor not met (24.2 Community, 75.7 Pressure); Beta floor not met (24.2 Community, 75.7 Pressure) and United Arab Emirates was still unclaimed.",
+      "tierReason": "Placed on the Gamma shelf: Alpha floor not met (24.2 Community, 75.7 Pressure); Beta floor not met (24.2 Community, 75.7 Pressure). United Arab Emirates has not yet claimed a higher tier.",
       "tierDiagnostics": {
         "communityExact": 24.2101,
         "pressureExact": 75.7107,
@@ -31272,7 +31272,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 15.7595,
         "pressureExact": 53.2446,
@@ -31757,7 +31757,7 @@
           "composite": 0
         }
       },
-      "tierReason": "United Arab Emirates is already represented by Dubai in Gamma slot 8 (pure rank #57).",
+      "tierReason": "United Arab Emirates is already on the public board — Dubai holds the Gamma seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 24.2101,
         "pressureExact": 76.6053,
@@ -32248,7 +32248,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 59.9905,
         "pressureExact": 48.3096,
@@ -32733,7 +32733,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 71.5844,
         "pressureExact": 53.0364,
@@ -33218,7 +33218,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 16.2686,
         "pressureExact": 45.5848,
@@ -33703,7 +33703,7 @@
           "composite": 0
         }
       },
-      "tierReason": "New Zealand is already represented by Christchurch in Beta slot 5 (pure rank #26).",
+      "tierReason": "New Zealand is already on the public board — Christchurch holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 70.7942,
         "pressureExact": 39.8076,
@@ -34194,7 +34194,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 15.7595,
         "pressureExact": 49.1535,
@@ -34679,13 +34679,13 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Beta because Community 70.8 and Pressure 52.0 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.",
+      "tierReason": "Placed on the Beta shelf: Community 70.8 and Pressure 52.0 clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.",
       "tierDiagnostics": {
         "communityExact": 70.7942,
         "pressureExact": 52.0062,
         "alphaEligible": true,
         "betaEligible": true,
-        "alphaCapBlock": "Oceania is excluded from Alpha under the live editorial rule (cost-of-living for the median resident)",
+        "alphaCapBlock": "Oceania cities are not placed on the Alpha shelf under the current methodology — purchase and rental costs are above the median-resident affordability threshold that Alpha requires.",
         "countryBlock": null,
         "assignedTier": "Beta"
       }
@@ -35164,7 +35164,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 27.1801,
         "pressureExact": 74.7637,
@@ -35649,7 +35649,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 41.0056,
         "pressureExact": 54.5572,
@@ -36134,7 +36134,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Gamma as the next highest-ranked unclaimed country after Alpha and Beta seats were allocated.",
+      "tierReason": "Placed on the Gamma shelf as the highest-ranking city from Costa Rica after Alpha and Beta were allocated.",
       "tierDiagnostics": {
         "communityExact": 60.9375,
         "pressureExact": 55.2656,
@@ -36619,7 +36619,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 56.2064,
         "pressureExact": 55.7876,
@@ -37104,7 +37104,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 16.1272,
         "pressureExact": 49.1106,
@@ -37589,7 +37589,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Australia is already represented by Melbourne in Beta slot 2 (pure rank #13).",
+      "tierReason": "Australia is already on the public board — Melbourne holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 69.1469,
         "pressureExact": 46.0012,
@@ -38080,7 +38080,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 16.2282,
         "pressureExact": 48.6898,
@@ -38565,7 +38565,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 47.0377,
         "pressureExact": 55.7048,
@@ -39050,7 +39050,7 @@
           "composite": 0
         }
       },
-      "tierReason": "New Zealand is already represented by Christchurch in Beta slot 5 (pure rank #26).",
+      "tierReason": "New Zealand is already on the public board — Christchurch holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 70.7942,
         "pressureExact": 56.844,
@@ -39541,7 +39541,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 27.7346,
         "pressureExact": 59.4674,
@@ -40026,7 +40026,7 @@
           "composite": 0
         }
       },
-      "tierReason": "New Zealand is already represented by Christchurch in Beta slot 5 (pure rank #26).",
+      "tierReason": "New Zealand is already on the public board — Christchurch holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 70.7942,
         "pressureExact": 45.5286,
@@ -40517,7 +40517,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 27.6239,
         "pressureExact": 51.3577,
@@ -41002,7 +41002,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 15.7595,
         "pressureExact": 45.3243,
@@ -41487,7 +41487,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Gamma as the next highest-ranked unclaimed country after Alpha and Beta seats were allocated.",
+      "tierReason": "Placed on the Gamma shelf as the highest-ranking city from Romania after Alpha and Beta were allocated.",
       "tierDiagnostics": {
         "communityExact": 50.9655,
         "pressureExact": 61.1631,
@@ -41972,7 +41972,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 44.342,
         "pressureExact": 56.1478,
@@ -42457,7 +42457,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Beta because Community 60.3 and Pressure 47.6 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.",
+      "tierReason": "Placed on the Beta shelf: Community 60.3 and Pressure 47.6 clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.",
       "tierDiagnostics": {
         "communityExact": 60.3278,
         "pressureExact": 47.6257,
@@ -42942,7 +42942,7 @@
           "composite": null
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 23.3913,
         "pressureExact": 42.0658,
@@ -43427,7 +43427,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 38.0049,
         "pressureExact": 48.9095,
@@ -43912,7 +43912,7 @@
           "composite": null
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 55.1707,
         "pressureExact": 51.4842,
@@ -44397,7 +44397,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 51.5988,
         "pressureExact": 71.474,
@@ -44882,7 +44882,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 46.1623,
         "pressureExact": 57.2368,
@@ -45367,7 +45367,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 11.8978,
         "pressureExact": 94.5441,
@@ -45852,7 +45852,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 48.6385,
         "pressureExact": 58.342,
@@ -46337,7 +46337,7 @@
           "composite": null
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 49.2623,
         "pressureExact": 52.9102,
@@ -46822,7 +46822,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 27.6239,
         "pressureExact": 51.8471,
@@ -47307,7 +47307,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 85.9497,
         "pressureExact": 67.5996,
@@ -47792,7 +47792,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 10 (pure rank #49).",
+      "tierReason": "Thailand is already on the public board — Bangkok holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 49.0172,
         "pressureExact": 60.6406,
@@ -48283,7 +48283,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 22.2912,
         "pressureExact": 58.2643,
@@ -48768,7 +48768,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 13.9336,
         "pressureExact": 67.0171,
@@ -49253,7 +49253,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Thailand is already represented by Bangkok in Alpha slot 10 (pure rank #49).",
+      "tierReason": "Thailand is already on the public board — Bangkok holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 49.0172,
         "pressureExact": 54.2172,
@@ -49744,7 +49744,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 46.1623,
         "pressureExact": 56.1977,
@@ -50229,7 +50229,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 46.1623,
         "pressureExact": 52.2905,
@@ -50714,7 +50714,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 14.3076,
         "pressureExact": 46.6923,
@@ -51199,7 +51199,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 14.3076,
         "pressureExact": 48.5002,
@@ -51684,7 +51684,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 73.5136,
         "pressureExact": 67.1326,
@@ -52169,7 +52169,7 @@
           "composite": null
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 25.4619,
         "pressureExact": 54.5549,
@@ -52654,7 +52654,7 @@
           "composite": null
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 34.1781,
         "pressureExact": 42.3749,
@@ -53139,7 +53139,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 43.0462,
         "pressureExact": 62.7109,
@@ -53624,7 +53624,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 36.3935,
         "pressureExact": 67.0487,
@@ -54109,7 +54109,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 48.6385,
         "pressureExact": 55.1849,
@@ -54594,7 +54594,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 36.7699,
         "pressureExact": 59.4924,
@@ -55079,7 +55079,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 34.8616,
         "pressureExact": 54.2227,
@@ -55564,7 +55564,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 39.9673,
         "pressureExact": 46.5042,
@@ -56049,7 +56049,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 43.0462,
         "pressureExact": 59.4695,
@@ -56534,7 +56534,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 36.7699,
         "pressureExact": 56.8938,
@@ -57019,7 +57019,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 20.7446,
         "pressureExact": 93.9148,
@@ -57504,7 +57504,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 13.9336,
         "pressureExact": 44.7808,
@@ -57989,7 +57989,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 39.9673,
         "pressureExact": 46.9769,
@@ -58474,7 +58474,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 46.2937,
         "pressureExact": 57.8482,
@@ -58959,7 +58959,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 36.3935,
         "pressureExact": 63.7461,
@@ -59444,7 +59444,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 47.398,
         "pressureExact": 50.884,
@@ -59929,7 +59929,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Czechia is already represented by Prague in Beta slot 1 (pure rank #12).",
+      "tierReason": "Czechia is already on the public board — Prague holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 84.5775,
         "pressureExact": 73.4871,
@@ -60420,7 +60420,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 41.0158,
         "pressureExact": 58.9999,
@@ -60905,7 +60905,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 79.3869,
         "pressureExact": 68.4611,
@@ -61390,7 +61390,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 41.0158,
         "pressureExact": 60.671,
@@ -61875,7 +61875,7 @@
           "composite": null
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 10.8145,
         "pressureExact": 49.4535,
@@ -62360,7 +62360,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 39.9673,
         "pressureExact": 46.7987,
@@ -62845,7 +62845,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 87.7055,
         "pressureExact": 69.2691,
@@ -63330,7 +63330,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 46.2937,
         "pressureExact": 52.3404,
@@ -63815,7 +63815,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 50.5232,
         "pressureExact": 43.9609,
@@ -64300,7 +64300,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 40.3447,
         "pressureExact": 46.015,
@@ -64785,7 +64785,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 17.5884,
         "pressureExact": 67.2086,
@@ -65270,7 +65270,7 @@
           "composite": null
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 51.7576,
         "pressureExact": 55.2046,
@@ -65755,7 +65755,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 35.3671,
         "pressureExact": 48.3121,
@@ -66240,7 +66240,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 53.5894,
         "pressureExact": 31.8193,
@@ -66725,7 +66725,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 79.2376,
         "pressureExact": 65.3641,
@@ -67210,7 +67210,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 24.1361,
         "pressureExact": 52.8753,
@@ -67695,7 +67695,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 52.3085,
         "pressureExact": 52.4212,
@@ -68180,7 +68180,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 35.3671,
         "pressureExact": 45.8131,
@@ -68665,7 +68665,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 46.2937,
         "pressureExact": 60.14,
@@ -69150,7 +69150,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 24.1361,
         "pressureExact": 51.3765,
@@ -69635,7 +69635,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 53.5894,
         "pressureExact": 33.0187,
@@ -70120,7 +70120,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 38.2225,
         "pressureExact": 55.3468,
@@ -70605,7 +70605,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 31.852,
         "pressureExact": 48.9145,
@@ -71090,7 +71090,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 75.9403,
         "pressureExact": 72.8797,
@@ -71575,7 +71575,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 31.852,
         "pressureExact": 47.8119,
@@ -72060,7 +72060,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 93.3653,
         "pressureExact": 88.0814,
@@ -72545,7 +72545,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 88.8694,
         "pressureExact": 73.1808,
@@ -73030,7 +73030,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 37.3665,
         "pressureExact": 44.4321,
@@ -73515,7 +73515,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 18.7465,
         "pressureExact": 46.5324,
@@ -74000,7 +74000,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 18.7465,
         "pressureExact": 46.7562,
@@ -74485,7 +74485,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 18.7465,
         "pressureExact": 46.2559,
@@ -74970,7 +74970,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 78.7092,
         "pressureExact": 30.2898,
@@ -75455,7 +75455,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 79.4771,
         "pressureExact": 80.4314,
@@ -75940,7 +75940,7 @@
           "composite": null
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 60.5944,
         "pressureExact": 43.2558,
@@ -77382,7 +77382,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Gamma because Alpha floor not met (72.9 Community, 37.3 Pressure); Beta floor not met (72.9 Community, 37.3 Pressure) and United Kingdom was still unclaimed.",
+      "tierReason": "Placed on the Gamma shelf: Alpha floor not met (72.9 Community, 37.3 Pressure); Beta floor not met (72.9 Community, 37.3 Pressure). United Kingdom has not yet claimed a higher tier.",
       "tierDiagnostics": {
         "communityExact": 72.8992,
         "pressureExact": 37.2923,
@@ -77868,7 +77868,7 @@
           "composite": 0
         }
       },
-      "tierReason": "United States is already represented by Raleigh in Alpha slot 1 (pure rank #1).",
+      "tierReason": "United States is already on the public board — Raleigh holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 69.7527,
         "pressureExact": 29.795,
@@ -78360,13 +78360,13 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Beta because Community 73.0 and Pressure 49.0 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.",
+      "tierReason": "Placed on the Beta shelf: Community 73.0 and Pressure 49.0 clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.",
       "tierDiagnostics": {
         "communityExact": 73.0065,
         "pressureExact": 49.0144,
         "alphaEligible": true,
         "betaEligible": true,
-        "alphaCapBlock": "Tokyo is excluded from Alpha under the live editorial rule (cost-of-living for the median resident)",
+        "alphaCapBlock": "Tokyo is not placed on the Alpha shelf under the current methodology — purchase and rental costs exceed the affordability threshold that Alpha requires.",
         "countryBlock": null,
         "assignedTier": "Beta"
       }
@@ -78845,7 +78845,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Assigned to Beta because Community 86.1 and Pressure 68.9 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections.",
+      "tierReason": "Placed on the Beta shelf: Community 86.1 and Pressure 68.9 clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.",
       "tierDiagnostics": {
         "communityExact": 86.0757,
         "pressureExact": 68.8555,
@@ -79330,7 +79330,7 @@
           "composite": 0
         }
       },
-      "tierReason": "No public tier assigned because Alpha, Beta, and Gamma were already full.",
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities.",
       "tierDiagnostics": {
         "communityExact": 5.2128,
         "pressureExact": 66.0423,
@@ -79815,7 +79815,7 @@
           "composite": 0
         }
       },
-      "tierReason": "Italy is already represented by Milan in Beta slot 9 (pure rank #38).",
+      "tierReason": "Italy is already on the public board — Milan holds the Beta seat. Each country occupies one slot per tier to keep the board geographically diverse.",
       "tierDiagnostics": {
         "communityExact": 69.8048,
         "pressureExact": 59.099,
@@ -79984,7 +79984,7 @@
         "communityScoreExact": 38.3699,
         "creativeScore": 73.3,
         "creativeScoreExact": 73.3339,
-        "tierReason": "Assigned to Gamma because Alpha floor not met (38.4 Community, 41.3 Pressure); Beta floor not met (38.4 Community, 41.3 Pressure) and Singapore was still unclaimed."
+        "tierReason": "Placed on the Gamma shelf: Alpha floor not met (38.4 Community, 41.3 Pressure); Beta floor not met (38.4 Community, 41.3 Pressure). Singapore has not yet claimed a higher tier."
       },
       "bangkok": {
         "cityId": "th-bangkok",
@@ -80007,7 +80007,7 @@
         "communityScoreExact": 70.7202,
         "creativeScore": 44.5,
         "creativeScoreExact": 44.5201,
-        "tierReason": "Assigned to Alpha because Community 70.7 and Pressure 49.9 clear the Alpha floor and Thailand had not yet claimed a public tier."
+        "tierReason": "Placed on the Alpha shelf: Community 70.7 and Pressure 49.9 both clear the Alpha threshold, and this is Thailand's first representative at this tier."
       },
       "tokyo": {
         "cityId": "jp-tokyo",
@@ -80030,7 +80030,7 @@
         "communityScoreExact": 73.0065,
         "creativeScore": 44.2,
         "creativeScoreExact": 44.1791,
-        "tierReason": "Assigned to Beta because Community 73.0 and Pressure 49.0 clear the Beta floor, while Alpha was unavailable under the published caps or earlier selections."
+        "tierReason": "Placed on the Beta shelf: Community 73.0 and Pressure 49.0 clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it."
       }
     },
     "workedExample": {
@@ -80397,193 +80397,21 @@
     }
   },
   "changeSummary": {
-    "previousUpdatedAt": "2026-05-18T07:09:29.287Z",
-    "updatedAt": "2026-05-18T07:09:29.486Z",
-    "scoreChangedCount": 158,
-    "rankChangedCount": 123,
-    "tierChangedCount": 22,
+    "previousUpdatedAt": "2026-05-18T07:09:29.486Z",
+    "updatedAt": "2026-05-18T10:34:23.114Z",
+    "scoreChangedCount": 0,
+    "rankChangedCount": 0,
+    "tierChangedCount": 0,
     "rankingStatusChangedCount": 0,
-    "biggestRankMovers": [
-      {
-        "cityId": "sg-singapore",
-        "displayName": "Singapore",
-        "country": "Singapore",
-        "previousRank": 20,
-        "currentRank": 42,
-        "delta": -22
-      },
-      {
-        "cityId": "do-santo-domingo",
-        "displayName": "Santo Domingo",
-        "country": "Dominican Republic",
-        "previousRank": 131,
-        "currentRank": 113,
-        "delta": 18
-      },
-      {
-        "cityId": "ch-zurich",
-        "displayName": "Zurich",
-        "country": "Switzerland",
-        "previousRank": 24,
-        "currentRank": 39,
-        "delta": -15
-      },
-      {
-        "cityId": "it-milan",
-        "displayName": "Milan",
-        "country": "Italy",
-        "previousRank": 25,
-        "currentRank": 38,
-        "delta": -13
-      },
-      {
-        "cityId": "kr-suwon",
-        "displayName": "Suwon",
-        "country": "South Korea",
-        "previousRank": 14,
-        "currentRank": 27,
-        "delta": -13
-      },
-      {
-        "cityId": "us-chicago",
-        "displayName": "Chicago",
-        "country": "United States",
-        "previousRank": 23,
-        "currentRank": 11,
-        "delta": 12
-      },
-      {
-        "cityId": "ca-toronto",
-        "displayName": "Toronto",
-        "country": "Canada",
-        "previousRank": 21,
-        "currentRank": 9,
-        "delta": 12
-      },
-      {
-        "cityId": "ca-vancouver",
-        "displayName": "Vancouver",
-        "country": "Canada",
-        "previousRank": 33,
-        "currentRank": 21,
-        "delta": 12
-      },
-      {
-        "cityId": "kr-busan",
-        "displayName": "Busan",
-        "country": "South Korea",
-        "previousRank": 13,
-        "currentRank": 23,
-        "delta": -10
-      },
-      {
-        "cityId": "au-hobart",
-        "displayName": "Hobart",
-        "country": "Australia",
-        "previousRank": 46,
-        "currentRank": 36,
-        "delta": 10
-      }
-    ],
-    "tierTransitions": [
-      {
-        "cityId": "tw-taipei",
-        "displayName": "Taipei",
-        "country": "Taiwan",
-        "previousTierLabel": "Alpha",
-        "previousTierSlot": 4,
-        "currentTierLabel": "Alpha",
-        "currentTierSlot": 5
-      },
-      {
-        "cityId": "fr-lyon",
-        "displayName": "Lyon",
-        "country": "France",
-        "previousTierLabel": "Beta",
-        "previousTierSlot": 7,
-        "currentTierLabel": "Beta",
-        "currentTierSlot": 4
-      },
-      {
-        "cityId": "it-milan",
-        "displayName": "Milan",
-        "country": "Italy",
-        "previousTierLabel": "Beta",
-        "previousTierSlot": 5,
-        "currentTierLabel": "Beta",
-        "currentTierSlot": 9
-      },
-      {
-        "cityId": "nl-eindhoven",
-        "displayName": "Eindhoven",
-        "country": "Netherlands",
-        "previousTierLabel": "Alpha",
-        "previousTierSlot": 5,
-        "currentTierLabel": "Alpha",
-        "currentTierSlot": 4
-      },
-      {
-        "cityId": "at-graz",
-        "displayName": "Graz",
-        "country": "Austria",
-        "previousTierLabel": "Alpha",
-        "previousTierSlot": 7,
-        "currentTierLabel": "Alpha",
-        "currentTierSlot": 6
-      },
-      {
-        "cityId": "pt-braga",
-        "displayName": "Braga",
-        "country": "Portugal",
-        "previousTierLabel": "Beta",
-        "previousTierSlot": 2,
-        "currentTierLabel": "Beta",
-        "currentTierSlot": 3
-      },
-      {
-        "cityId": "ee-tallinn",
-        "displayName": "Tallinn",
-        "country": "Estonia",
-        "previousTierLabel": "Beta",
-        "previousTierSlot": 9,
-        "currentTierLabel": "Beta",
-        "currentTierSlot": 6
-      },
-      {
-        "cityId": "sg-singapore",
-        "displayName": "Singapore",
-        "country": "Singapore",
-        "previousTierLabel": "Gamma",
-        "previousTierSlot": 1,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 4
-      },
-      {
-        "cityId": "ch-zurich",
-        "displayName": "Zurich",
-        "country": "Switzerland",
-        "previousTierLabel": "Beta",
-        "previousTierSlot": 4,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 2
-      },
-      {
-        "cityId": "dk-copenhagen",
-        "displayName": "Copenhagen",
-        "country": "Denmark",
-        "previousTierLabel": "Gamma",
-        "previousTierSlot": 2,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 1
-      }
-    ]
+    "biggestRankMovers": [],
+    "tierTransitions": []
   },
   "qualifiedCityCount": 158,
   "integrityIssueCount": 0,
   "validCityRowCount": 163,
   "validCountryRowCount": 87,
   "publicationManifest": {
-    "generatedAt": "2026-05-18T07:09:29.486Z",
+    "generatedAt": "2026-05-18T10:34:23.114Z",
     "scorerVersion": "slic-v3.4.0",
     "tierPolicyVersion": "public-tier-v1.2.0",
     "normStatsHash": "842e410474c687fa39608d61802f0f4a41db6c6e51afe3f52e6cdb8ae5581278",
