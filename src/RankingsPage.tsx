@@ -842,6 +842,7 @@ export default function RankingsPage({
                             className={`rankings-city-row${isTop ? " is-top" : ""}`}
                             href={appHref(`/city/${city.id}`)}
                             onClick={(event) => navigateLink(event, onNavigate, `/city/${city.id}`)}
+                            aria-label={`View ${city.name} scorecard`}
                             style={{ cursor: "pointer" }}
                           >
                             <div style={{ minWidth: 0 }}>

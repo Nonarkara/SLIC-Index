@@ -22,6 +22,7 @@
   --accent-blue: #2a5a8c;
   --max-width: 1200px;
   --radius: 0;
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -423,7 +424,7 @@ section[id] {
 .sidebar-card {
   background: var(--surface-soft);
   border: 1px solid var(--border);
-  transition: border-color 0.2s ease;
+  transition: border-color 0.2s var(--ease-spring);
 }
 
 .hero-stats article:hover,
@@ -1408,7 +1409,7 @@ section[id] {
   font: inherit;
   line-height: 1.35;
   cursor: pointer;
-  transition: border-color 180ms ease, transform 180ms ease;
+  transition: border-color 180ms var(--ease-spring), transform 180ms var(--ease-spring);
 }
 
 .knowledge-rack-chip:hover {
@@ -1935,7 +1936,7 @@ section[id] {
   margin: 0 0 1.5rem;
   white-space: pre-line;
   min-height: 2.2em;
-  transition: opacity 0.6s ease, transform 0.6s ease, filter 0.6s ease;
+  transition: opacity 0.6s var(--ease-spring), transform 0.6s var(--ease-spring), filter 0.6s var(--ease-spring);
 }
 
 .hp-headline--visible {
@@ -3452,6 +3453,23 @@ section[id] {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
+}
+
+.idea-empty-state {
+  padding: 1.15rem;
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+}
+
+.idea-empty-state h3 {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+}
+
+.idea-empty-state p {
+  margin: 0;
+  color: var(--text-soft);
 }
 
 .idea-card {
@@ -4971,6 +4989,153 @@ section[id] {
   border: 1px solid rgba(30,40,60,0.1);
   color: rgba(30,40,60,0.5);
 }
+
+/* ── Hero shell / copy ── */
+.rankings-hero-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.rankings-hero-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Results shell / meta ── */
+.rankings-results-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.rankings-results-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  color: rgba(30,40,60,0.55);
+}
+.rankings-results-meta strong {
+  color: rgba(30,40,60,0.9);
+  font-weight: 700;
+}
+.rankings-results-copy {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(30,40,60,0.55);
+  max-width: 520px;
+}
+
+/* ── Filter actions ── */
+.rankings-filter-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ── Feature card (best match) ── */
+.rankings-feature-card {
+  padding: 16px;
+  background: rgba(30,40,60,0.025);
+  border: 1px solid rgba(30,40,60,0.08);
+}
+.rankings-feature-topline {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.rankings-feature-kicker {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(30,40,60,0.45);
+  margin-bottom: 6px;
+}
+.rankings-feature-topline h3 {
+  font-family: "Libre Baskerville", serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: #1c1914;
+  margin: 0 0 6px;
+}
+.rankings-feature-topline p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: rgba(30,40,60,0.55);
+  margin: 0;
+}
+.rankings-feature-score {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.rankings-feature-score span {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(30,40,60,0.45);
+}
+.rankings-feature-score strong {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 28px;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  color: rgba(26,58,107,0.9);
+  line-height: 1;
+}
+.rankings-feature-score small {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  color: rgba(30,40,60,0.45);
+}
+
+/* ── Profile readout ── */
+.rankings-profile-readout {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.rankings-profile-readout strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: #1c1914;
+}
+.rankings-profile-readout p {
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(30,40,60,0.55);
+  margin: 0;
+}
+
+/* ── Insight list / cards ── */
+.rankings-insight-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+.rankings-insight-kicker {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .rankings-count-toggle {
   display: flex;
   gap: 0;
@@ -5306,6 +5471,26 @@ section[id] {
 .rankings-city-row:hover .city-tier-arrow {
   opacity: 0.7;
   transform: translateX(2px);
+}
+
+/* ── Rankings row — 480px phone adjustments ── */
+@media (max-width: 480px) {
+  .rankings-city-row {
+    padding: 7px 8px;
+    gap: 6px;
+  }
+  .rankings-pillar-bars {
+    gap: 1px;
+  }
+  .city-display-name {
+    font-size: 12px;
+  }
+  .city-country {
+    display: none;
+  }
+  .city-tier-arrow {
+    font-size: 14px;
+  }
 }
 
 /* ── Time Machine link ── */
@@ -8212,6 +8397,7 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .spider-slider-label {
+  max-width: 85px;
   width: 85px;
   font-size: 12px;
   font-weight: 600;
@@ -9911,14 +10097,14 @@ body,
 }
 
 .hp-headline {
-  max-width: 10ch;
+  max-width: 16.5ch;
   color: #fff;
-  font-size: 6.35rem;
+  font-size: clamp(3.8rem, 5.4vw, 4.5rem);
   line-height: 0.94;
 }
 
 .hp-deck {
-  max-width: 42rem;
+  max-width: 52rem;
   color: rgba(248, 245, 240, 0.84);
 }
 

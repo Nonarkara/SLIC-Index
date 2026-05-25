@@ -71,7 +71,7 @@ SCORED_METRICS = [
         "pressure_disposable_income_ppp",
         "pressure",
         "Tax-adjusted PPP disposable income",
-        9,
+        8,
         "Residual money after essentials, converted once through the PPP private-consumption factor.",
         "gross income, tax rate, rent, utilities, transit, internet, food, PPP factor",
     ),
@@ -80,14 +80,14 @@ SCORED_METRICS = [
         "pressure",
         "Housing burden",
         5,
-        "Housing cost share of income; higher burden scores worse.",
-        "rent, gross income",
+        "Purchase price per sq ft (USD, Numbeo 2024-25). Higher price = higher burden = lower score. Direction: negative.",
+        "Numbeo property prices — city-centre purchase price per sq ft in USD",
     ),
     MetricDef(
         "pressure_household_debt_burden",
         "pressure",
         "Household debt burden",
-        4,
+        2,
         "Debt relative to income, with fallback when city debt evidence is thin.",
         "household debt proxy",
     ),
@@ -103,9 +103,17 @@ SCORED_METRICS = [
         "pressure_suicide_mental_strain",
         "pressure",
         "Suicide and severe mental strain",
-        3,
-        "Public-health strain proxy; higher severe-strain burden scores worse.",
+        4,
+        "Public-health strain proxy; higher severe-strain burden scores worse. Weight raised v3.5 to amplify mental-health misery (explicitly omitted by macroeconomic indices).",
         "suicide rate or equivalent severe-strain proxy",
+    ),
+    MetricDef(
+        "pressure_economic_stress_hanke",
+        "pressure",
+        "Macroeconomic stress (Hanke Misery Index)",
+        2,
+        "Hanke Annual Misery Index 2025: 2×unemployment + inflation + bank-lending-rate − real GDP/capita growth. Country-level. Lower score = less macro stress = higher SLIC score.",
+        "unemployment (ILO), CPI inflation, bank lending rate, real GDP/capita growth (IMF/World Bank)",
     ),
     MetricDef(
         "viability_personal_safety",
@@ -175,7 +183,7 @@ SCORED_METRICS = [
         "community_hospitality_belonging",
         "community",
         "Hospitality and belonging",
-        5,
+        4,
         "Do people feel welcome in practice?",
         "migration, testimony audit, multilingual usability",
     ),
@@ -183,7 +191,7 @@ SCORED_METRICS = [
         "community_tolerance_pluralism",
         "community",
         "Tolerance and pluralism",
-        5,
+        4,
         "Composite scored metric: 40% Equaldex, 30% Freedom House, 30% reversed hate-crime or civil-liberties proxy.",
         "Equaldex, Freedom House, hate crime / liberties proxy",
     ),
@@ -191,9 +199,17 @@ SCORED_METRICS = [
         "community_cultural_historic_public_life_vitality",
         "community",
         "Cultural, historic, and public-life vitality",
-        5,
+        3,
         "Everyday public-life texture; visitor demand is contextual, not an automatic bonus.",
         "events, public life, historic continuity, public attention",
+    ),
+    MetricDef(
+        "community_civic_freedom_dignity",
+        "community",
+        "Civic freedom and dignity",
+        4,
+        "Composite: 0.4 × HRMI Empowerment + 0.3 × Freedom House FIW + 0.3 × V-Dem Liberal Democracy Index (×100). Higher = more civic freedom. Added v3.5 as the lived-dignity counterweight to macroeconomic stress metrics.",
+        "HRMI Empowerment score, Freedom House FIW total, V-Dem Liberal Democracy Index",
     ),
     MetricDef(
         "creative_entrepreneurial_dynamism",
@@ -620,7 +636,7 @@ def build_story(snapshot, snapshot_stats):
     story.append(paragraph(
         "After score computation, ranked cities receive a pure score rank from the exact unrounded score field: descending SLIC, then deterministic tie-breaks on Community, Pressure, and city label. "
         f"Alpha, Beta, and Gamma are then computed as a separate public overlay. The overlay allows one city per country across all three tiers, except Taiwan may hold {rule_snapshot.get('maxTaiwanAcrossPublicTiers', 2)} public-tier seats and Japan may hold {max_japan_cross_tier} public-tier seats; "
-        f"Alpha requires Community >= {rule_snapshot.get('alphaMinCommunity', 40)} and Pressure >= {rule_snapshot.get('alphaMinPressure', 40)}, with Europe capped at {rule_snapshot.get('maxEuropeInAlpha', 2)} Alpha seats, "
+        f"Alpha requires Community >= {rule_snapshot.get('alphaMinCommunity', 40)}, Pressure >= {rule_snapshot.get('alphaMinPressure', 40)}, and coverage grade {rule_snapshot.get('alphaMinCoverageGrade', 'A')}, so missing stress inputs cannot be converted into a top-shelf public claim; Europe is capped at {rule_snapshot.get('maxEuropeInAlpha', 2)} Alpha seats, "
         f"Oceania capped at {rule_snapshot.get('maxOceaniaInAlpha', 0)}, South Korea capped at {rule_snapshot.get('maxSouthKoreaInAlpha', 1)}, Japan capped at {rule_snapshot.get('maxJapanInAlpha', 1)}, {alpha_country_exclusions} excluded from Alpha by country, and the editorial city list ({alpha_city_exclusions}) also excluded from Alpha — these cities are barred from Alpha because their median-resident cost-of-living puts them outside SLIC's positive showcase; "
         f"Beta raises the floors to Community >= {rule_snapshot.get('betaMinCommunity', 45)} and Pressure >= {rule_snapshot.get('betaMinPressure', 45)}; Gamma fills from the remaining ranked cities.",
         s["body"],
