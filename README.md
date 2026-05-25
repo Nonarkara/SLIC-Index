@@ -2,7 +2,7 @@
 
 > "Every city ranking is a lie. Here's ours."
 
-**157 cities. 5 pillars. 35 signals. Every score traceable.** No paywall. No proprietary black box. No 12-month lobby cycle.
+**163 cities, 158 ranked. 5 pillars. 22 scored signals + 3 diagnostics. Every score traceable.** No paywall. No proprietary black box. No 12-month lobby cycle.
 
 SLIC is the first city ranking that admits what it measures and why. EIU calculates hardship pay for expats. Mercer does the same for HR departments. Resonance measures Instagram buzz. Monocle curates lifestyle for the already-rich. Yonsei counts smart city apps without asking if they help anyone.
 
@@ -38,7 +38,7 @@ SLIC measures what's left after rent.
 |---------|-------------|------|
 | **[V1](https://github.com/Nonarkara/slic-landing-page)** | 103 cities. The LinkedIn provocation that started it all. | [slic-index.onrender.com](https://slic-index.onrender.com) |
 | **[V2](https://github.com/Nonarkara/slic-index-V2)** | SCSE 2026 Taipei launch. Interactive spider. 174 cities. European mayors asked to replace The Economist's index. | [GitHub Pages](https://nonarkara.github.io/slic-index-V2/) |
-| **V3** (you are here) | Op-ed redesign. 157 ranked cities. Six-index comparison. Blind spots diagram. Watchlist transparency. | [GitHub Pages](https://nonarkara.github.io/SLIC-Index/) |
+| **V3** (you are here) | Op-ed redesign. 158 ranked cities + 5 watchlist (163 total). Six-index comparison. Blind spots diagram. Watchlist transparency. | [GitHub Pages](https://nonarkara.github.io/SLIC-Index/) |
 
 ## Tech Stack
 

@@ -3,7 +3,7 @@
 ## What This Is
 
 SLIC (Smart and Liveable Cities Index) V3 — a transparent, open-source city ranking system.
-163 published cities (154 ranked + 9 watchlist), 5 pillars, 20 scored metrics + 3 diagnostics. Deployed to GitHub Pages.
+163 published cities (158 ranked + 5 watchlist), 5 pillars, 22 scored metrics + 3 diagnostics. Deployed to Cloudflare Pages (slic.nonarkara.org) and GitHub Pages.
 
 - **Live site:** https://nonarkara.github.io/SLIC-Index/
 - **Repo:** https://github.com/nonarkara/SLIC-Index
@@ -136,7 +136,7 @@ The `dist/` directory is committed to the repo. GitHub Pages serves from the `gh
 
 See `/Users/nonarkara/Projects/CLAUDE.md` §11 (The Codex Incident — Anti-Regression Laws) for the full rules. These items are the personality of SLIC Index V3. Do not remove, replace, or "simplify" any of them without Dr Non's explicit in-chat approval:
 
-- **163-cities ranking grid (154 ranked + 9 watchlist)** — the core artifact. Do not reduce the city count, do not swap in a generic table component.
+- **163-cities ranking grid (158 ranked + 5 watchlist)** — the core artifact. Do not reduce the city count, do not swap in a generic table component.
 - **5-pillar scoring layout** — the five pillars are the IP. Do not collapse into a single score or a generic bar chart.
 - **Custom CSS only — NO Tailwind.** Do not introduce Tailwind, shadcn, or any utility-class framework. The bespoke CSS is the aesthetic.
 - **"Monocle meets Red Dot" type scale** — editorial typography, hairline rules, mono numerics. ZERO border-radius. ZERO gradients.
