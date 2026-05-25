@@ -145,10 +145,10 @@ export default function SiteFooter({
 
   const vintageNote =
     locale === "th"
-      ? "ข้อมูล: วินเทจปี 2024–2025 · เผยแพร่ครั้งล่าสุด: เมษายน 2026"
+      ? "ข้อมูล: วินเทจปี 2024–2025 · เผยแพร่ครั้งล่าสุด: พฤษภาคม 2026"
       : locale === "zh"
-        ? "数据：2024–2025 年版本 · 最后发布：2026 年 4 月"
-        : "Data: 2024–2025 vintage · Last published: April 2026";
+        ? "数据：2024–2025 年版本 · 最后发布：2026 年 5 月"
+        : "Data: 2024–2025 vintage · Last published: May 2026";
 
   return (
     <footer className="site-footer section">

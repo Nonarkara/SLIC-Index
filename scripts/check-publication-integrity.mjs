@@ -9,19 +9,19 @@ import {
 } from "../src/publicTierPolicy.js";
 
 const EXPECTED_ALPHA = [
-  "Raleigh",
   "Montreal",
+  "Raleigh",
   "Kaohsiung",
-  "Taipei",
   "Eindhoven",
-  "Jeju City",
   "Graz",
-  "Valparaiso",
+  "Taipei",
+  "Jeju City",
   "Fukuoka",
+  "Valparaiso",
   "Bangkok",
 ];
 
-const REQUIRED_BETA = ["Lyon", "Prague", "Tokyo", "Perth", "Dunedin"];
+const REQUIRED_BETA = ["Gothenburg", "Bergen", "Prague", "Melbourne", "Helsinki", "Lyon"];
 
 function assert(condition, message, errors) {
   if (!condition) errors.push(message);
@@ -94,6 +94,7 @@ const alphaTaiwan = alpha.filter((city) => city.country === "Taiwan").length;
 const alphaSouthKorea = alpha.filter((city) => city.country === "South Korea").length;
 const alphaJapan = alpha.filter((city) => city.country === "Japan").length;
 const alphaIsrael = alpha.filter((city) => city.country === "Israel").length;
+const alphaBelowCoverageFloor = alpha.filter((city) => city.coverageGrade !== PUBLIC_TIER_RULES.alphaMinCoverageGrade);
 
 assert(alphaEurope <= PUBLIC_TIER_RULES.maxEuropeInAlpha, "Alpha Europe cap breached.", errors);
 assert(alphaOceania <= PUBLIC_TIER_RULES.maxOceaniaInAlpha, "Alpha Oceania cap breached.", errors);
@@ -101,6 +102,11 @@ assert(alphaTaiwan <= PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers, "Alpha Taiwa
 assert(alphaSouthKorea <= PUBLIC_TIER_RULES.maxSouthKoreaInAlpha, "Alpha South Korea cap breached.", errors);
 assert(alphaJapan <= PUBLIC_TIER_RULES.maxJapanInAlpha, "Alpha Japan cap breached.", errors);
 assert(alphaIsrael === 0, "Alpha includes Israel despite the current exclusion rule.", errors);
+assert(
+  alphaBelowCoverageFloor.length === 0,
+  `Alpha includes cities below the ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}-grade coverage floor: ${alphaBelowCoverageFloor.map((city) => `${city.displayName} (${city.coverageGrade ?? "unknown"})`).join(", ")}`,
+  errors,
+);
 
 const singapore = publication.cities.find((city) => city.displayName === "Singapore");
 const bangkok = publication.cities.find((city) => city.displayName === "Bangkok");

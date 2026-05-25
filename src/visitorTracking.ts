@@ -86,7 +86,7 @@ export async function trackVisitor(page = "/") {
         user_agent: userAgent,
         referrer,
         page,
-        version: "v2",
+        version: "v3",
       })
       .then(({ error }) => {
         if (error) console.warn("Supabase visitor insert failed:", error.message);

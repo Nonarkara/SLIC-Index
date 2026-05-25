@@ -125,6 +125,9 @@ const bangkokRank = bangkokWorked?.rank ?? 27;
 const bangkokAlphaSlot = bangkokWorked?.tierSlot ?? 9;
 const bangkokCommunity = bangkokWorked?.communityScore?.toFixed(1) ?? "90.0";
 const bangkokPressure = bangkokWorked?.pressureScore?.toFixed(1) ?? "45.4";
+const bangkokCoverage = bangkokWorked?.coverageGrade ?? "A";
+const alphaCountryExclusionList = PUBLIC_TIER_RULES.alphaCountryExclusions.join(", ") || "none";
+const alphaCityExclusionList = PUBLIC_TIER_RULES.alphaCityExclusions.join(", ") || "none";
 
 function navigateLink(
   event: MouseEvent<HTMLAnchorElement>,
@@ -425,18 +428,18 @@ export default function HomePage({
             <p className="v3-alpha-bridge-body">
               {t(
                 locale,
-                `It is the editorial overlay reserved for cities where the median resident actually thrives — not the top ten by pure score. Cities with higher pure rank can fail a gate (floor scores, country cap, editorial exclusion); cities with lower pure rank can earn a seat. Bangkok is the worked example: pure rank #${bangkokRank}, Alpha slot ${bangkokAlphaSlot}. Community ${bangkokCommunity} and Pressure ${bangkokPressure} clear the floor, Thailand's seat is uncontested, no exclusion blocks it.`,
-                `คือชั้นบรรณาธิการที่สงวนไว้ให้กับเมืองที่ผู้อยู่อาศัยมัธยฐานเจริญงอกงามจริง — ไม่ใช่ top-10 ตามคะแนนล้วน เมืองที่อันดับคะแนนสูงกว่าอาจไม่ผ่านประตู (เกณฑ์ขั้นต่ำ เพดานประเทศ การกีดกันบรรณาธิการ) เมืองที่อันดับคะแนนต่ำกว่าอาจได้ที่นั่ง กรุงเทพฯ คือตัวอย่าง: อันดับล้วน #${bangkokRank} · Alpha สล็อตที่ ${bangkokAlphaSlot} · Community ${bangkokCommunity} และ Pressure ${bangkokPressure} ผ่านพื้น · ที่นั่งของไทยไม่มีคู่แข่ง · ไม่มีการกีดกัน`,
-                `它是为中位居民真正安居的城市保留的编辑层 —— 而非按纯分排出的前 10。纯分更高的城市可能未通过门槛（底线、国家上限、编辑排除）；纯分更低的城市可能赢得席位。曼谷是范例：纯分第 ${bangkokRank} · Alpha 第 ${bangkokAlphaSlot} 席 · 社区 ${bangkokCommunity}、压力 ${bangkokPressure} 越过底线 · 泰国席位无人争夺 · 不在任何排除清单上。`,
+                `It is the editorial overlay reserved for cities where the median resident actually thrives — not the top ten by pure score. Cities with higher pure rank can fail a gate (floor scores, ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}-grade coverage, country cap, editorial exclusion); cities with lower pure rank can earn a seat. Bangkok is the worked example: pure rank #${bangkokRank}, Alpha slot ${bangkokAlphaSlot}. Community ${bangkokCommunity} and Pressure ${bangkokPressure} clear the floor, coverage is ${bangkokCoverage}, Thailand's seat is uncontested, no exclusion blocks it. Travel-cost evidence strengthens the public story: Bangkok combines major global visitor pull with unusually low everyday food, transport, and lodging costs, but that evidence is context, not a hidden score boost.`,
+                `คือชั้นบรรณาธิการที่สงวนไว้ให้กับเมืองที่ผู้อยู่อาศัยมัธยฐานเจริญงอกงามจริง — ไม่ใช่ top-10 ตามคะแนนล้วน เมืองที่อันดับคะแนนสูงกว่าอาจไม่ผ่านประตู (เกณฑ์ขั้นต่ำ coverage grade ${PUBLIC_TIER_RULES.alphaMinCoverageGrade} เพดานประเทศ การกีดกันบรรณาธิการ) เมืองที่อันดับคะแนนต่ำกว่าอาจได้ที่นั่ง กรุงเทพฯ คือตัวอย่าง: อันดับล้วน #${bangkokRank} · Alpha สล็อตที่ ${bangkokAlphaSlot} · Community ${bangkokCommunity} และ Pressure ${bangkokPressure} ผ่านพื้น · coverage ${bangkokCoverage} · ที่นั่งของไทยไม่มีคู่แข่ง · ไม่มีการกีดกัน หลักฐานต้นทุนการเดินทางช่วยเสริมเรื่องเล่าสาธารณะ: กรุงเทพฯ มีแรงดึงดูดนักเดินทางระดับโลกพร้อมต้นทุนอาหาร การเดินทาง และที่พักที่ยังต่ำผิดปกติ แต่หลักฐานนี้เป็นบริบท ไม่ใช่คะแนนแฝง`,
+                `它是为中位居民真正安居的城市保留的编辑层 —— 而非按纯分排出的前 10。纯分更高的城市可能未通过门槛（底线、${PUBLIC_TIER_RULES.alphaMinCoverageGrade} 级覆盖、国家上限、编辑排除）；纯分更低的城市可能赢得席位。曼谷是范例：纯分第 ${bangkokRank} · Alpha 第 ${bangkokAlphaSlot} 席 · 社区 ${bangkokCommunity}、压力 ${bangkokPressure} 越过底线 · 覆盖 ${bangkokCoverage} · 泰国席位无人争夺 · 不在任何排除清单上。旅行成本证据强化了公开叙事：曼谷兼具全球游客吸引力与异常低的日常餐饮、交通、住宿成本，但这只是背景证据，不是隐藏加分。`,
               )}
             </p>
           </div>
           <p className="v3-alpha-subtitle">
             {t(
               locale,
-              `Each country holds at most one Alpha seat, with a few exceptions for regions where SLIC has strong multi-city data (two seats for Japan and East Asia). Alpha requires both Community and Pressure scores above ${PUBLIC_TIER_RULES.alphaMinCommunity} — a liveability floor, not just a high overall score. Europe holds ${PUBLIC_TIER_RULES.maxEuropeInAlpha} Alpha seats; Oceania holds none (purchase and rental costs exceed the median-resident threshold Alpha requires). Some cities are excluded from Alpha specifically because of housing cost — not because they are bad cities, but because Alpha is reserved for cities where a person on a local salary can actually build a life. The full tier policy is published in the methodology.`,
-              `แต่ละประเทศมีที่นั่ง Alpha ได้สูงสุดหนึ่งที่ โดยมีข้อยกเว้นสำหรับภูมิภาคที่ SLIC มีข้อมูลเมืองหลายแห่งที่แข็งแกร่ง Alpha ต้องมีคะแนน Community และ Pressure เกิน ${PUBLIC_TIER_RULES.alphaMinCommunity} ทั้งคู่ — เป็นเกณฑ์ขั้นต่ำด้านความน่าอยู่ ไม่ใช่แค่คะแนนรวมสูง บางเมืองถูกกันออกจาก Alpha เพราะค่าครองชีพ ไม่ใช่เพราะเป็นเมืองแย่ แต่เพราะ Alpha สงวนไว้สำหรับเมืองที่คนมีรายได้ท้องถิ่นสามารถสร้างชีวิตได้จริง นโยบายชั้นฉบับเต็มเผยแพร่ในหน้าระเบียบวิธี`,
-              `原则上每国一个 Alpha 席位，部分地区因 SLIC 拥有多城强数据而有例外（如日本和东亚可占两席）。Alpha 要求 Community 与 Pressure 都高于 ${PUBLIC_TIER_RULES.alphaMinCommunity}——这是宜居门槛，不只是总分高。大洋洲不设 Alpha 席位，因为该区域的购房与租房成本超出了 Alpha 所要求的中位居民可负担线。部分城市因住房成本被排除在 Alpha 之外——不是因为它们不好，而是 Alpha 专为当地薪资水平的人也能真正安家的城市保留。完整的分层政策已在方法论页面公开。`,
+              `Each country holds at most one Alpha seat, with a few exceptions for regions where SLIC has strong multi-city data (two seats for Japan and East Asia). Alpha requires both Community and Pressure scores above ${PUBLIC_TIER_RULES.alphaMinCommunity}, plus ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}-grade coverage — a liveability floor, not just a high overall score. Europe holds ${PUBLIC_TIER_RULES.maxEuropeInAlpha} Alpha seats; Oceania holds none (purchase and rental costs exceed the median-resident threshold Alpha requires). Some cities are excluded from Alpha specifically because of housing cost — not because they are bad cities, but because Alpha is reserved for cities where a person on a local salary can actually build a life. The full tier policy is published in the methodology.`,
+              `แต่ละประเทศมีที่นั่ง Alpha ได้สูงสุดหนึ่งที่ โดยมีข้อยกเว้นสำหรับภูมิภาคที่ SLIC มีข้อมูลเมืองหลายแห่งที่แข็งแกร่ง Alpha ต้องมีคะแนน Community และ Pressure เกิน ${PUBLIC_TIER_RULES.alphaMinCommunity} ทั้งคู่ พร้อม coverage grade ${PUBLIC_TIER_RULES.alphaMinCoverageGrade} — เป็นเกณฑ์ขั้นต่ำด้านความน่าอยู่ ไม่ใช่แค่คะแนนรวมสูง บางเมืองถูกกันออกจาก Alpha เพราะค่าครองชีพ ไม่ใช่เพราะเป็นเมืองแย่ แต่เพราะ Alpha สงวนไว้สำหรับเมืองที่คนมีรายได้ท้องถิ่นสามารถสร้างชีวิตได้จริง นโยบายชั้นฉบับเต็มเผยแพร่ในหน้าระเบียบวิธี`,
+              `原则上每国一个 Alpha 席位，部分地区因 SLIC 拥有多城强数据而有例外（如日本和东亚可占两席）。Alpha 要求 Community 与 Pressure 都高于 ${PUBLIC_TIER_RULES.alphaMinCommunity}，且覆盖等级达到 ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}——这是宜居门槛，不只是总分高。大洋洲不设 Alpha 席位，因为该区域的购房与租房成本超出了 Alpha 所要求的中位居民可负担线。部分城市因住房成本被排除在 Alpha 之外——不是因为它们不好，而是 Alpha 专为当地薪资水平的人也能真正安家的城市保留。完整的分层政策已在方法论页面公开。`,
             )}
           </p>
         </div>
@@ -580,9 +583,9 @@ export default function HomePage({
         <p className="v3-lower-tier-lede">
           {t(
             locale,
-            "Beta and Gamma are a separate public tier overlay, not simple rank bands. Cities can cascade here when Alpha caps bind, when a compatriot already took a public slot, or when Beta's stricter liveability floor rejects them.",
-            "Beta และ Gamma เป็นชั้นเผยแพร่แยกต่างหาก ไม่ใช่เพียงช่วงอันดับ เมืองอาจไหลลงมาเมื่อเพดาน Alpha ทำงาน เมื่อเมืองร่วมชาติยึดสล็อตสาธารณะไปแล้ว หรือเมื่อเกณฑ์ความน่าอยู่ที่เข้มขึ้นของ Beta ไม่ผ่าน",
-            "Beta 与 Gamma 是独立的公开分层，不是简单的名次区间。城市会因 Alpha 上限、同国城市已占公开席位，或 Beta 更严格的宜居底线而级联至此。",
+            `Beta and Gamma are a separate public tier overlay, not simple rank bands. Cities can cascade here when Alpha caps bind, when a compatriot already took a public slot, or when Beta's stricter liveability floor rejects them. Current Alpha exclusions: countries ${alphaCountryExclusionList}; cities ${alphaCityExclusionList}.`,
+            `Beta และ Gamma เป็นชั้นเผยแพร่แยกต่างหาก ไม่ใช่เพียงช่วงอันดับ เมืองอาจไหลลงมาเมื่อเพดาน Alpha ทำงาน เมื่อเมืองร่วมชาติยึดสล็อตสาธารณะไปแล้ว หรือเมื่อเกณฑ์ความน่าอยู่ที่เข้มขึ้นของ Beta ไม่ผ่าน ข้อยกเว้น Alpha ปัจจุบัน: ประเทศ ${alphaCountryExclusionList}; เมือง ${alphaCityExclusionList}`,
+            `Beta 与 Gamma 是独立的公开分层，不是简单的名次区间。城市会因 Alpha 上限、同国城市已占公开席位，或 Beta 更严格的宜居底线而级联至此。当前 Alpha 排除项：国家 ${alphaCountryExclusionList}；城市 ${alphaCityExclusionList}。`,
           )}
         </p>
         <div className="v3-lower-tier-row">

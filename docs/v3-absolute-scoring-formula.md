@@ -191,9 +191,9 @@ Public tiers are a separate overlay:
 ```text
 Alpha: up to 10 cities, one city per country across Alpha/Beta/Gamma
        except Taiwan may appear 2 times and Japan may appear 2 times,
-       Community >= 40, Pressure >= 40,
+       Community >= 40, Pressure >= 40, Coverage grade A,
        Europe max 2, Oceania max 0, South Korea max 1,
-       Japan max 1, Israel excluded, Tokyo excluded
+       Japan max 1, Israel excluded, alphaCityExclusions excluded
 
 Beta:  up to 10 cities, one city per country across Alpha/Beta/Gamma
        except Taiwan may appear 2 times and Japan may appear 2 times,

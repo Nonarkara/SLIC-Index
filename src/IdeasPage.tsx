@@ -42,6 +42,8 @@ const ideasUiCopy: Record<
     difficultyAria: string;
     stackLabel: string;
     tagsLabel: string;
+    noResultsTitle: string;
+    noResultsBody: string;
   }
 > = {
   en: {
@@ -74,6 +76,8 @@ const ideasUiCopy: Record<
     difficultyAria: "Idea difficulty filter",
     stackLabel: "Stack",
     tagsLabel: "Tags",
+    noResultsTitle: "No matching ideas",
+    noResultsBody: "Try another category or difficulty level.",
   },
   th: {
     title: "ขโมยไอเดียนี้ไปใช้",
@@ -105,6 +109,8 @@ const ideasUiCopy: Record<
     difficultyAria: "ตัวกรองระดับความยาก",
     stackLabel: "ชุดเทคโนโลยี",
     tagsLabel: "แท็ก",
+    noResultsTitle: "ไม่พบไอเดียที่ตรงกัน",
+    noResultsBody: "ลองเลือกหมวดหมู่หรือระดับความยากอื่น",
   },
   zh: {
     title: "拿去用吧",
@@ -135,6 +141,8 @@ const ideasUiCopy: Record<
     difficultyAria: "想法难度筛选",
     stackLabel: "技术栈",
     tagsLabel: "标签",
+    noResultsTitle: "没有匹配的想法",
+    noResultsBody: "请尝试其他类别或难度。",
   },
 };
 
@@ -290,6 +298,12 @@ export default function IdeasPage({
             <p className="section-summary">{ui.sectionSummary}</p>
           </div>
 
+          {filtered.length === 0 ? (
+            <div className="idea-empty-state">
+              <h3>{ui.noResultsTitle}</h3>
+              <p>{ui.noResultsBody}</p>
+            </div>
+          ) : (
           <div className="idea-grid">
             {filtered.map((idea) => (
               <article className="idea-card" key={idea.id}>
@@ -378,6 +392,7 @@ export default function IdeasPage({
               </article>
             ))}
           </div>
+          )}
         </section>
       </main>
 

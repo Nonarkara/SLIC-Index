@@ -799,7 +799,7 @@ function ReferenceCard({
       <h3>{reference.label}</h3>
       <p>{reference.note}</p>
       {reference.url ? (
-        <a className="inline-page-link" href={reference.url} target="_blank" rel="noreferrer">
+        <a className="inline-page-link" href={reference.url} target="_blank" rel="noopener noreferrer">
           {ui.references}
         </a>
       ) : (

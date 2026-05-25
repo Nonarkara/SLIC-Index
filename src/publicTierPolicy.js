@@ -6,8 +6,9 @@
 
 import { numeric, scoreAccessor } from "./publicationMath.js";
 
-export const PUBLIC_TIER_POLICY_VERSION = "public-tier-v1.2.0";
+export const PUBLIC_TIER_POLICY_VERSION = "public-tier-v1.3.0";
 export const PUBLIC_TIER_ORDER = Object.freeze(["Alpha", "Beta", "Gamma"]);
+const COVERAGE_GRADE_ORDER = Object.freeze(["Watchlist", "C", "B", "A"]);
 
 // Editorial rule for Alpha (the public face of SLIC):
 // Alpha is reserved for cities where the median resident genuinely thrives.
@@ -15,7 +16,9 @@ export const PUBLIC_TIER_ORDER = Object.freeze(["Alpha", "Beta", "Gamma"]);
 // Melbourne, Auckland, Tokyo, Singapore) have catastrophic affordability
 // problems for residents and DO NOT belong on the public Alpha shelf —
 // they can earn Beta or Gamma seats, but never Alpha. The country/region
-// caps and city exclusions encode this rule alongside the floor scores.
+// caps, coverage floor, and city exclusions encode this rule alongside the
+// floor scores. Alpha requires A-grade coverage so missing pressure/stress
+// inputs cannot be converted into a top-shelf public claim.
 //
 // EDITORIAL PRESENCE: Bangkok is the index's anchor city — pluralism,
 // hospitality, strong community signal, the lived case study against the
@@ -34,6 +37,7 @@ export const PUBLIC_TIER_ORDER = Object.freeze(["Alpha", "Beta", "Gamma"]);
 export const PUBLIC_TIER_RULES = Object.freeze({
   alphaMinCommunity: 40,
   alphaMinPressure: 40,
+  alphaMinCoverageGrade: "A",
   betaMinCommunity: 45,
   betaMinPressure: 45,
   maxPerTier: 10,
@@ -54,8 +58,30 @@ export const PUBLIC_TIER_RULES = Object.freeze({
   alphaCountryExclusions: ["Israel"],
   // Specific cities barred from Alpha despite passing floor scores —
   // applied alongside the country/region caps. These cities are
-  // structurally too expensive for the median resident.
-  alphaCityExclusions: ["Tokyo"],
+  // structurally too expensive for the median resident. The 2025
+  // Demographia median-multiple table supports the major-market exclusions;
+  // Deloitte Property Index 2025 supports the European ownership-income
+  // exclusions. San Jose, CA is not name-matched because the current universe
+  // also contains San Jose, Costa Rica.
+  alphaCityExclusions: [
+    "Tokyo",
+    "Hong Kong",
+    "Sydney",
+    "Vancouver",
+    "Los Angeles",
+    "Adelaide",
+    "Honolulu",
+    "San Francisco",
+    "Melbourne",
+    "San Diego",
+    "Brisbane",
+    "London",
+    "Amsterdam",
+    "Athens",
+    "Prague",
+    "Košice",
+    "Kosice",
+  ],
 });
 
 export function mergePublicTierRules(overrides = {}) {
@@ -79,6 +105,16 @@ function scoreField(city, baseKey) {
 
 function formatScore(value) {
   return numeric(value) ? value.toFixed(1) : "n/a";
+}
+
+function coverageRank(grade) {
+  const index = COVERAGE_GRADE_ORDER.indexOf(grade);
+  return index === -1 ? 0 : index;
+}
+
+function meetsCoverageFloor(city, grade) {
+  if (!grade) return true;
+  return coverageRank(city?.coverageGrade) >= coverageRank(grade);
 }
 
 function isEuropeanRegion(region) {
@@ -108,14 +144,22 @@ function isUSACity(city) {
 function evaluateFloors(city, rules) {
   const community = scoreField(city, "communityScore");
   const pressure = scoreField(city, "pressureScore");
+  const alphaCoverageEligible = meetsCoverageFloor(city, rules.alphaMinCoverageGrade);
   return {
     community,
     pressure,
-    alphaEligible:
+    alphaCoverageEligible,
+    alphaFloorEligible:
       numeric(community) &&
       numeric(pressure) &&
       community >= rules.alphaMinCommunity &&
       pressure >= rules.alphaMinPressure,
+    alphaEligible:
+      numeric(community) &&
+      numeric(pressure) &&
+      community >= rules.alphaMinCommunity &&
+      pressure >= rules.alphaMinPressure &&
+      alphaCoverageEligible,
     betaEligible:
       numeric(community) &&
       numeric(pressure) &&
@@ -187,6 +231,9 @@ function alphaCapBlock(city, state, rules) {
   if ((rules.alphaCityExclusions ?? []).includes(labelOf(city))) {
     return `${labelOf(city)} is not placed on the Alpha shelf under the current methodology — purchase and rental costs exceed the affordability threshold that Alpha requires.`;
   }
+  if (!meetsCoverageFloor(city, rules.alphaMinCoverageGrade)) {
+    return `${labelOf(city)} is not placed on the Alpha shelf because Alpha requires ${rules.alphaMinCoverageGrade}-grade coverage; current coverage is ${city?.coverageGrade ?? "unknown"}. Missing stress inputs cannot be converted into a top-shelf public claim.`;
+  }
   return null;
 }
 
@@ -257,6 +304,8 @@ export function allocatePublicTiers(cities, options = {}) {
     const diagnostics = {
       communityExact: floors.community,
       pressureExact: floors.pressure,
+      alphaCoverageEligible: floors.alphaCoverageEligible,
+      alphaFloorEligible: floors.alphaFloorEligible,
       alphaEligible: floors.alphaEligible,
       betaEligible: floors.betaEligible,
       alphaCapBlock: null,
@@ -286,7 +335,7 @@ export function allocatePublicTiers(cities, options = {}) {
       continue;
     }
 
-    if (state.buckets.Alpha.length < rules.maxPerTier && floors.alphaEligible) {
+    if (state.buckets.Alpha.length < rules.maxPerTier && floors.alphaFloorEligible) {
       const capBlock = alphaCapBlock(city, state, rules);
       diagnostics.alphaCapBlock = capBlock;
       if (!capBlock) {
@@ -297,7 +346,7 @@ export function allocatePublicTiers(cities, options = {}) {
           tierLabelKey,
           tierSlotKey,
           tierReasonKey,
-          `Placed on the Alpha shelf: Community ${formatScore(floors.community)} and Pressure ${formatScore(floors.pressure)} both clear the Alpha threshold, and this is ${city.country}'s first representative at this tier.`,
+          `Placed on the Alpha shelf: Community ${formatScore(floors.community)} and Pressure ${formatScore(floors.pressure)} both clear the Alpha threshold, coverage is ${city.coverageGrade ?? "unknown"}, and this is ${city.country}'s first representative at this tier.`,
         );
         applyAlphaSeatAccounting(city, state);
         state.assignedCountry.set(city.country, [...countryOwners, city]);
@@ -308,6 +357,9 @@ export function allocatePublicTiers(cities, options = {}) {
     }
 
     if (state.buckets.Beta.length < rules.maxPerTier && floors.betaEligible) {
+      const alphaBlockDetail = diagnostics.alphaCapBlock
+        ? ` Alpha was not available: ${diagnostics.alphaCapBlock}`
+        : " Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.";
       assignTier(
         city,
         "Beta",
@@ -315,7 +367,7 @@ export function allocatePublicTiers(cities, options = {}) {
         tierLabelKey,
         tierSlotKey,
         tierReasonKey,
-        `Placed on the Beta shelf: Community ${formatScore(floors.community)} and Pressure ${formatScore(floors.pressure)} clear the Beta threshold. Alpha was not available — either the regional cap was filled, or a higher-scoring city from this country already occupies it.`,
+        `Placed on the Beta shelf: Community ${formatScore(floors.community)} and Pressure ${formatScore(floors.pressure)} clear the Beta threshold.${alphaBlockDetail}`,
       );
       state.assignedCountry.set(city.country, [...countryOwners, city]);
       diagnostics.assignedTier = "Beta";
@@ -325,7 +377,8 @@ export function allocatePublicTiers(cities, options = {}) {
 
     if (state.buckets.Gamma.length < rules.maxPerTier) {
       const shortfall = [];
-      if (!floors.alphaEligible) shortfall.push(`Alpha floor not met (${formatScore(floors.community)} Community, ${formatScore(floors.pressure)} Pressure)`);
+      if (!floors.alphaFloorEligible) shortfall.push(`Alpha floor not met (${formatScore(floors.community)} Community, ${formatScore(floors.pressure)} Pressure)`);
+      if (floors.alphaFloorEligible && !floors.alphaCoverageEligible) shortfall.push(`Alpha coverage floor not met (${city.coverageGrade ?? "unknown"} coverage; ${rules.alphaMinCoverageGrade} required)`);
       if (!floors.betaEligible) shortfall.push(`Beta floor not met (${formatScore(floors.community)} Community, ${formatScore(floors.pressure)} Pressure)`);
 
       assignTier(

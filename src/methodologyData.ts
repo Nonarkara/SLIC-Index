@@ -128,38 +128,38 @@ const maxJapanCrossTier = PUBLIC_TIER_RULES.maxJapanAcrossPublicTiers ?? 1;
 
 const englishTierProtocolRule =
   `Published ordinal rank is pure SLIC score order computed from the exact unrounded score fields. Alpha, Beta, and Gamma are a separate public overlay applied after ranking, not hidden inside rank itself. ` +
-  `The overlay allows one city per country across all three public tiers, except Taiwan may hold ${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers} public-tier slots and Japan may hold ${maxJapanCrossTier} public-tier slots in the live protocol. Alpha requires Community >= ${PUBLIC_TIER_RULES.alphaMinCommunity} and Pressure >= ${PUBLIC_TIER_RULES.alphaMinPressure}, with Europe capped at ${PUBLIC_TIER_RULES.maxEuropeInAlpha} Alpha seats, Oceania capped at ${PUBLIC_TIER_RULES.maxOceaniaInAlpha}, South Korea capped at ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha}, Japan capped at ${PUBLIC_TIER_RULES.maxJapanInAlpha}; ${alphaCountryExclusionList} excluded from Alpha by country, and ${alphaCityExclusionList} barred from Alpha by editorial cost-of-living rule. ` +
+  `The overlay allows one city per country across all three public tiers, except Taiwan may hold ${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers} public-tier slots and Japan may hold ${maxJapanCrossTier} public-tier slots in the live protocol. Alpha requires Community >= ${PUBLIC_TIER_RULES.alphaMinCommunity}, Pressure >= ${PUBLIC_TIER_RULES.alphaMinPressure}, and coverage grade ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}; missing stress inputs cannot be converted into a top-shelf claim. Europe is capped at ${PUBLIC_TIER_RULES.maxEuropeInAlpha} Alpha seats, Oceania capped at ${PUBLIC_TIER_RULES.maxOceaniaInAlpha}, South Korea capped at ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha}, Japan capped at ${PUBLIC_TIER_RULES.maxJapanInAlpha}; ${alphaCountryExclusionList} excluded from Alpha by country, and ${alphaCityExclusionList} barred from Alpha by editorial cost-of-living rule. ` +
   `Beta keeps the country rule, retains the Taiwan and Japan exceptions, and raises the liveability floor to Community >= ${PUBLIC_TIER_RULES.betaMinCommunity} and Pressure >= ${PUBLIC_TIER_RULES.betaMinPressure}. Gamma then fills from the remaining ranked cities.`;
 
 const englishSingaporeRule =
   singaporeCity && bangkokCity
     ? `Singapore currently holds pure score rank #${singaporeCity.rank} with SLIC ${formatOneDecimal(singaporeCity.slicScore)} and Coverage ${singaporeCity.coverageGrade}, but the public tier overlay places it in ${singaporeCity.tierLabel ?? "no public tier"}. ` +
       `Its Viability (${formatOneDecimal(singaporeCity.viabilityScore)}) and Capability (${formatOneDecimal(singaporeCity.capabilityScore)}) remain elite, yet Community (${formatOneDecimal(singaporeCity.communityScore)}) sits below both the Alpha floor of ${PUBLIC_TIER_RULES.alphaMinCommunity} and the Beta floor of ${PUBLIC_TIER_RULES.betaMinCommunity}; Pressure (${formatOneDecimal(singaporeCity.pressureScore)}) clears Alpha but not Beta. ` +
-      `Bangkok illustrates the opposite outcome: it sits at pure score rank #${bangkokCity.rank} with SLIC ${formatOneDecimal(bangkokCity.slicScore)}, yet enters ${bangkokCity.tierLabel ?? "the public tiers"} because Community (${formatOneDecimal(bangkokCity.communityScore)}) and Pressure (${formatOneDecimal(bangkokCity.pressureScore)}) both clear Alpha and no higher-ranked Thai city claims Thailand's public-tier place first.`
+      `Bangkok illustrates the opposite outcome: it sits at pure score rank #${bangkokCity.rank} with SLIC ${formatOneDecimal(bangkokCity.slicScore)}, yet enters ${bangkokCity.tierLabel ?? "the public tiers"} because Community (${formatOneDecimal(bangkokCity.communityScore)}) and Pressure (${formatOneDecimal(bangkokCity.pressureScore)}) both clear Alpha and no higher-ranked Thai city claims Thailand's public-tier place first. Separate travel-cost sources reinforce Bangkok's public-facing value proposition, but they remain contextual evidence rather than a scored tourism-affordability bonus.`
     : "Singapore and Bangkok are cited on this page only when their current published rows are available in the live dataset.";
 
 const thaiTierProtocolRule =
   `อันดับที่เผยแพร่เป็นลำดับคะแนน SLIC ล้วน ๆ จากค่าคะแนนแบบ exact ก่อน แล้วค่อยวางชั้น Alpha, Beta และ Gamma เป็นชั้นสาธารณะแยกต่างหาก ไม่ได้ซ่อนอยู่ในตัวเลขอันดับเอง ` +
-  `กติกาชั้นสาธารณะให้ได้หนึ่งเมืองต่อหนึ่งประเทศตลอดทั้งสามชั้น โดยยกเว้นไต้หวันที่ถือได้ ${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers} ที่นั่งและญี่ปุ่นที่ถือได้ ${maxJapanCrossTier} ที่นั่งในโปรโตคอลปัจจุบัน Alpha ต้องมี Community >= ${PUBLIC_TIER_RULES.alphaMinCommunity} และ Pressure >= ${PUBLIC_TIER_RULES.alphaMinPressure} โดยยุโรปมีได้ ${PUBLIC_TIER_RULES.maxEuropeInAlpha} ที่นั่งใน Alpha, โอเชียเนียได้ ${PUBLIC_TIER_RULES.maxOceaniaInAlpha}, เกาหลีใต้ได้ ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha}, ญี่ปุ่นได้ ${PUBLIC_TIER_RULES.maxJapanInAlpha}; ${alphaCountryExclusionList} ถูกกันออกจาก Alpha ตามประเทศ และ ${alphaCityExclusionList} ถูกกันตามกฎบรรณาธิการเรื่องค่าครองชีพของผู้อยู่อาศัยมัธยฐาน ` +
+  `กติกาชั้นสาธารณะให้ได้หนึ่งเมืองต่อหนึ่งประเทศตลอดทั้งสามชั้น โดยยกเว้นไต้หวันที่ถือได้ ${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers} ที่นั่งและญี่ปุ่นที่ถือได้ ${maxJapanCrossTier} ที่นั่งในโปรโตคอลปัจจุบัน Alpha ต้องมี Community >= ${PUBLIC_TIER_RULES.alphaMinCommunity}, Pressure >= ${PUBLIC_TIER_RULES.alphaMinPressure}, และ coverage grade ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}; ข้อมูลแรงกดดันที่ขาดอยู่ห้ามถูกแปลงเป็นข้ออ้างระดับสูงสุด ยุโรปมีได้ ${PUBLIC_TIER_RULES.maxEuropeInAlpha} ที่นั่งใน Alpha, โอเชียเนียได้ ${PUBLIC_TIER_RULES.maxOceaniaInAlpha}, เกาหลีใต้ได้ ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha}, ญี่ปุ่นได้ ${PUBLIC_TIER_RULES.maxJapanInAlpha}; ${alphaCountryExclusionList} ถูกกันออกจาก Alpha ตามประเทศ และ ${alphaCityExclusionList} ถูกกันตามกฎบรรณาธิการเรื่องค่าครองชีพของผู้อยู่อาศัยมัธยฐาน ` +
   `ชั้น Beta ยังคงกติกาประเทศเดียวกันพร้อมข้อยกเว้นของไต้หวันและญี่ปุ่น แต่ยกเพดานความน่าอยู่เป็น Community >= ${PUBLIC_TIER_RULES.betaMinCommunity} และ Pressure >= ${PUBLIC_TIER_RULES.betaMinPressure} ส่วน Gamma จะเติมจากเมืองที่เหลือซึ่งยังติดอันดับอยู่`;
 
 const thaiSingaporeRule =
   singaporeCity && bangkokCity
     ? `สิงคโปร์มีอันดับคะแนนล้วน #${singaporeCity.rank} ด้วย SLIC ${formatOneDecimal(singaporeCity.slicScore)} และ Coverage ${singaporeCity.coverageGrade} แต่ชั้นสาธารณะจัดให้สิงคโปร์อยู่ใน ${singaporeCity.tierLabel ?? "ชั้นนอกกลุ่มสาธารณะ"}. ` +
       `Viability (${formatOneDecimal(singaporeCity.viabilityScore)}) และ Capability (${formatOneDecimal(singaporeCity.capabilityScore)}) ยังสูงมาก แต่ Community (${formatOneDecimal(singaporeCity.communityScore)}) ต่ำกว่าเพดานทั้ง Alpha ${PUBLIC_TIER_RULES.alphaMinCommunity} และ Beta ${PUBLIC_TIER_RULES.betaMinCommunity}; ส่วน Pressure (${formatOneDecimal(singaporeCity.pressureScore)}) ผ่าน Alpha แต่ไม่ผ่าน Beta ` +
-      `กรุงเทพฯ แสดงผลลัพธ์อีกด้านหนึ่ง: แม้อยู่อันดับคะแนนล้วน #${bangkokCity.rank} และ SLIC ${formatOneDecimal(bangkokCity.slicScore)} แต่ได้เข้า ${bangkokCity.tierLabel ?? "ชั้นสาธารณะ"} เพราะ Community (${formatOneDecimal(bangkokCity.communityScore)}) และ Pressure (${formatOneDecimal(bangkokCity.pressureScore)}) ผ่านเกณฑ์ Alpha ทั้งคู่ และไม่มีเมืองไทยที่อันดับสูงกว่ามาแย่งสิทธิ์ของประเทศไทยก่อน`
+      `กรุงเทพฯ แสดงผลลัพธ์อีกด้านหนึ่ง: แม้อยู่อันดับคะแนนล้วน #${bangkokCity.rank} และ SLIC ${formatOneDecimal(bangkokCity.slicScore)} แต่ได้เข้า ${bangkokCity.tierLabel ?? "ชั้นสาธารณะ"} เพราะ Community (${formatOneDecimal(bangkokCity.communityScore)}) และ Pressure (${formatOneDecimal(bangkokCity.pressureScore)}) ผ่านเกณฑ์ Alpha ทั้งคู่ และไม่มีเมืองไทยที่อันดับสูงกว่ามาแย่งสิทธิ์ของประเทศไทยก่อน แหล่งข้อมูลต้นทุนการเดินทางแยกต่างหากช่วยยืนยัน value proposition สาธารณะของกรุงเทพฯ แต่เป็นหลักฐานเชิงบริบท ไม่ใช่โบนัสคะแนนด้านท่องเที่ยว`
     : "หน้านี้จะอ้างถึงสิงคโปร์และกรุงเทพฯ ต่อเมื่อมีแถวข้อมูลปัจจุบันของทั้งสองเมืองอยู่ในชุดข้อมูลที่เผยแพร่";
 
 const chineseTierProtocolRule =
   `公开排名先按精确未四舍五入的 SLIC 分数排序，然后再叠加 Alpha、Beta、Gamma 这套独立的公开分层规则，而不是把地理筛选藏进名次本身。` +
-  `公开分层在三层合计范围内原则上实行每国一城，但当前协议允许台湾占 ${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers} 个公开层级席位、日本占 ${maxJapanCrossTier} 个公开层级席位。Alpha 要求 Community >= ${PUBLIC_TIER_RULES.alphaMinCommunity} 且 Pressure >= ${PUBLIC_TIER_RULES.alphaMinPressure}；欧洲在 Alpha 最多 ${PUBLIC_TIER_RULES.maxEuropeInAlpha} 城，大洋洲最多 ${PUBLIC_TIER_RULES.maxOceaniaInAlpha} 城，韩国最多 ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha} 城，日本最多 ${PUBLIC_TIER_RULES.maxJapanInAlpha} 城；${alphaCountryExclusionList} 按国家排除 Alpha，${alphaCityExclusionList} 按编辑可负担规则排除 Alpha。` +
+  `公开分层在三层合计范围内原则上实行每国一城，但当前协议允许台湾占 ${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers} 个公开层级席位、日本占 ${maxJapanCrossTier} 个公开层级席位。Alpha 要求 Community >= ${PUBLIC_TIER_RULES.alphaMinCommunity}、Pressure >= ${PUBLIC_TIER_RULES.alphaMinPressure}，且覆盖等级达到 ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}；缺失的压力数据不能被换算成最高层级声明。欧洲在 Alpha 最多 ${PUBLIC_TIER_RULES.maxEuropeInAlpha} 城，大洋洲最多 ${PUBLIC_TIER_RULES.maxOceaniaInAlpha} 城，韩国最多 ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha} 城，日本最多 ${PUBLIC_TIER_RULES.maxJapanInAlpha} 城；${alphaCountryExclusionList} 按国家排除 Alpha，${alphaCityExclusionList} 按编辑可负担规则排除 Alpha。` +
   `Beta 继续执行同样的国家规则与台湾、日本例外，同时把宜居底线提高到 Community >= ${PUBLIC_TIER_RULES.betaMinCommunity} 且 Pressure >= ${PUBLIC_TIER_RULES.betaMinPressure}。Gamma 再从其余已排名城市中补足。`;
 
 const chineseSingaporeRule =
   singaporeCity && bangkokCity
     ? `新加坡当前的纯分数排名是第 ${singaporeCity.rank} 名，SLIC 为 ${formatOneDecimal(singaporeCity.slicScore)}，Coverage 为 ${singaporeCity.coverageGrade}，但公开分层把它放在 ${singaporeCity.tierLabel ?? "公开层级之外"}。` +
       `它的 Viability（${formatOneDecimal(singaporeCity.viabilityScore)}）与 Capability（${formatOneDecimal(singaporeCity.capabilityScore)}）依然很强，但 Community（${formatOneDecimal(singaporeCity.communityScore)}）低于 Alpha 底线 ${PUBLIC_TIER_RULES.alphaMinCommunity}，也低于 Beta 底线 ${PUBLIC_TIER_RULES.betaMinCommunity}；Pressure（${formatOneDecimal(singaporeCity.pressureScore)}）虽过 Alpha 线，却未过 Beta 线。` +
-      `曼谷呈现出相反的结果：它的纯分数排名是第 ${bangkokCity.rank} 名，SLIC 为 ${formatOneDecimal(bangkokCity.slicScore)}，却进入了 ${bangkokCity.tierLabel ?? "公开层级"}，因为 Community（${formatOneDecimal(bangkokCity.communityScore)}）与 Pressure（${formatOneDecimal(bangkokCity.pressureScore)}）都跨过了 Alpha 门槛，而且没有排名更高的泰国城市先占掉泰国的公开层级位置。`
+      `曼谷呈现出相反的结果：它的纯分数排名是第 ${bangkokCity.rank} 名，SLIC 为 ${formatOneDecimal(bangkokCity.slicScore)}，却进入了 ${bangkokCity.tierLabel ?? "公开层级"}，因为 Community（${formatOneDecimal(bangkokCity.communityScore)}）与 Pressure（${formatOneDecimal(bangkokCity.pressureScore)}）都跨过了 Alpha 门槛，而且没有排名更高的泰国城市先占掉泰国的公开层级位置。独立旅行成本来源进一步支持曼谷的公开价值叙事，但它们只是背景证据，不是旅游可负担性的计分加成。`
     : "只有在实时公开数据中能够找到新加坡与曼谷的当前行时，本页才会引用这两个城市。";
 
 const methodologyReferences: MethodologyReference[] = [
@@ -402,6 +402,20 @@ const methodologyReferences: MethodologyReference[] = [
     publisher: "World Bank",
     url: "https://data.worldbank.org/indicator/SP.DYN.TFRT.IN",
     note: "Official World Bank total fertility rate data used as a societal optimism proxy in the Community pillar.",
+  },
+  {
+    id: 36,
+    label: "133 World Cities Ranked Cheapest to Most Expensive: Backpacker Index for 2025",
+    publisher: "Price of Travel",
+    url: "https://www.priceoftravel.com/cheapest-places-visit",
+    note: "Travel-value benchmark used only as contextual evidence; Bangkok appears among the cheaper global major destinations in the 2025 backpacker cost ranking.",
+  },
+  {
+    id: 37,
+    label: "Bangkok Travel Cost",
+    publisher: "Budget Your Trip",
+    url: "https://www.budgetyourtrip.com/thailand/bangkok",
+    note: "Structured travel-cost breakdown from traveler budgets used only to corroborate low everyday visitor costs; it does not enter SLIC scoring.",
   },
 ];
 
@@ -1118,8 +1132,8 @@ const methodologyContent: Record<Locale, MethodologyData> = {
       },
       {
         title: "Visitor demand is contextual, not automatic",
-        body: "Travel demand enters as a cultural-demand signal only when it survives crowding, safety, ecology, and resident-room checks.",
-        citations: [1],
+        body: "Travel demand enters as a cultural-demand signal only when it survives crowding, safety, ecology, and resident-room checks. For Bangkok, travel-cost sources support the public claim that global visitor appeal coexists with low day-to-day costs, but this evidence is not a scored tourism-affordability bonus.",
+        citations: [1, 36, 37],
       },
       {
         title: "V3.3: Pure score rank, separate public tiers",

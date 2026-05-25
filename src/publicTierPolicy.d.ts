@@ -1,8 +1,10 @@
 export type PublicTierLabel = "Alpha" | "Beta" | "Gamma";
+export type PublicTierCoverageGrade = "Watchlist" | "C" | "B" | "A";
 
 export interface PublicTierRules {
   alphaMinCommunity: number;
   alphaMinPressure: number;
+  alphaMinCoverageGrade: PublicTierCoverageGrade;
   betaMinCommunity: number;
   betaMinPressure: number;
   maxPerTier: number;

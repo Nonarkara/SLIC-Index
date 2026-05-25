@@ -131,6 +131,7 @@ assert(
   specText.includes("`slicScoreExact`") &&
   specText.includes(`except Taiwan may appear \`${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers}\` times`) &&
   specText.includes(`Japan may appear \`${PUBLIC_TIER_RULES.maxJapanAcrossPublicTiers ?? 1}\` times`) &&
+  specText.includes(`coverage grade \`${PUBLIC_TIER_RULES.alphaMinCoverageGrade}\``) &&
   specText.includes(`Alpha caps Europe at \`${PUBLIC_TIER_RULES.maxEuropeInAlpha}\` slots`) &&
   specText.includes(`Oceania at \`${PUBLIC_TIER_RULES.maxOceaniaInAlpha}\` slot`) &&
   specText.includes(`South Korea at \`${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha}\` slot`) &&
@@ -142,6 +143,7 @@ assert(
 assert(
   formulaText.includes(`except Taiwan may appear ${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers} times`) &&
   formulaText.includes(`Japan may appear ${PUBLIC_TIER_RULES.maxJapanAcrossPublicTiers ?? 1} times`) &&
+  formulaText.includes(`Coverage grade ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}`) &&
   formulaText.includes(`Europe max ${PUBLIC_TIER_RULES.maxEuropeInAlpha}`) &&
   formulaText.includes(`Oceania max ${PUBLIC_TIER_RULES.maxOceaniaInAlpha}`) &&
   formulaText.includes(`South Korea max ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha}`) &&
@@ -155,6 +157,7 @@ assert(
   pdfText.includes("rule_snapshot") &&
   pdfText.includes("maxTaiwanAcrossPublicTiers") &&
   pdfText.includes("maxJapanAcrossPublicTiers") &&
+  pdfText.includes("alphaMinCoverageGrade") &&
   pdfText.includes("alphaCityExclusions") &&
   pdfText.includes("alphaCountryExclusions") &&
   pdfText.includes("excluded from Alpha"),
@@ -165,6 +168,7 @@ const ruleSnapshot = publication.methodologyFacts?.ruleSnapshot ?? {};
 assert(
   ruleSnapshot.alphaMinCommunity === PUBLIC_TIER_RULES.alphaMinCommunity &&
   ruleSnapshot.alphaMinPressure === PUBLIC_TIER_RULES.alphaMinPressure &&
+  ruleSnapshot.alphaMinCoverageGrade === PUBLIC_TIER_RULES.alphaMinCoverageGrade &&
   ruleSnapshot.betaMinCommunity === PUBLIC_TIER_RULES.betaMinCommunity &&
   ruleSnapshot.betaMinPressure === PUBLIC_TIER_RULES.betaMinPressure &&
   ruleSnapshot.maxEuropeInAlpha === PUBLIC_TIER_RULES.maxEuropeInAlpha &&

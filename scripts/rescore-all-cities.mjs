@@ -405,6 +405,7 @@ function buildStabilityAnalysis(rankedCities) {
     baselineRuleSnapshot: {
       alphaMinCommunity: PUBLIC_TIER_RULES.alphaMinCommunity,
       alphaMinPressure: PUBLIC_TIER_RULES.alphaMinPressure,
+      alphaMinCoverageGrade: PUBLIC_TIER_RULES.alphaMinCoverageGrade,
       betaMinCommunity: PUBLIC_TIER_RULES.betaMinCommunity,
       betaMinPressure: PUBLIC_TIER_RULES.betaMinPressure,
       maxEuropeInAlpha: PUBLIC_TIER_RULES.maxEuropeInAlpha,
@@ -550,6 +551,7 @@ function buildMethodologyFacts(data, diagnostics) {
       exactScoreField: "slicScoreExact",
       alphaMinCommunity: PUBLIC_TIER_RULES.alphaMinCommunity,
       alphaMinPressure: PUBLIC_TIER_RULES.alphaMinPressure,
+      alphaMinCoverageGrade: PUBLIC_TIER_RULES.alphaMinCoverageGrade,
       betaMinCommunity: PUBLIC_TIER_RULES.betaMinCommunity,
       betaMinPressure: PUBLIC_TIER_RULES.betaMinPressure,
       maxEuropeInAlpha: PUBLIC_TIER_RULES.maxEuropeInAlpha,

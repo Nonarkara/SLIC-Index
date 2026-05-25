@@ -225,8 +225,8 @@ The public tier overlay is computed separately from rank:
 
 1. Alpha, Beta, and Gamma each contain up to `10` cities
 2. only one city per country may appear across the three public tiers combined, except Taiwan may appear `2` times and Japan may appear `2` times
-3. Alpha requires `communityScore >= 40` and `pressureScore >= 40`
-4. Alpha caps Europe at `2` slots, Oceania at `0` slot, South Korea at `1` slot, Japan at `1` slots, and excludes Israel; Tokyo is also barred from Alpha under the editorial cost-of-living rule
+3. Alpha requires `communityScore >= 40`, `pressureScore >= 40`, and coverage grade `A`
+4. Alpha caps Europe at `2` slots, Oceania at `0` slot, South Korea at `1` slot, Japan at `1` slots, and excludes Israel; the published `alphaCityExclusions` list is also barred from Alpha under the editorial cost-of-living rule
 5. Beta keeps the country rule, preserves the Taiwan and Japan exceptions, and raises the floors to `communityScore >= 45` and `pressureScore >= 45`
 6. Gamma fills from the remaining ranked cities under the same country rule
 

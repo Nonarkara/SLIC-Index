@@ -27,7 +27,7 @@ function PartnerCardView({ card }: { card: PartnerCard }) {
       <h3>{card.name}</h3>
       <p>{card.body}</p>
       {card.url && (
-        <a className="inline-page-link" href={card.url} target="_blank" rel="noreferrer">
+        <a className="inline-page-link" href={card.url} target="_blank" rel="noopener noreferrer">
           {card.url.replace(/^https?:\/\//, "").replace(/\/$/, "")}
         </a>
       )}
@@ -120,7 +120,7 @@ export default function SlicProfilePage({
                   className="inline-page-link"
                   href={profile.privatePartner.url}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                 >
                   {profile.slicFootnoteLabel}
                 </a>
@@ -195,7 +195,7 @@ export default function SlicProfilePage({
               className="paper-card profile-logo-card"
               href={OFFICIAL_SLIC_URL}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
               <p className="panel-label">{profile.resourceLabel}</p>
               <h3>{profile.externalLabel}</h3>

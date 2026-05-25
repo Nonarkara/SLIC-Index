@@ -70,7 +70,7 @@ const submitReport = async ({ lat, lng, category, description, photoUrl }) => {
   );
   const data = await res.json();
   // Returns: [{ service_request_id, token, service_notice }]
-  console.log("Report filed:", data[0].service_request_id);
+  // Report filed successfully
 };
 
 // List existing reports near a location:
@@ -383,7 +383,7 @@ curl -u admin:district \\
     title: "pol.is",
     city: "Taipei",
     country: "Taiwan",
-    category: "governance",
+    category: "civic-ai",
     problem:
       "Traditional public consultations produced a flood of unstructured comments that no one read. Minority groups drowned out moderate majorities. Governments could not find consensus even when it existed.",
     solution:
