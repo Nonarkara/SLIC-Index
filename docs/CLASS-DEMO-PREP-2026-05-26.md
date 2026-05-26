@@ -8,7 +8,9 @@ on `codex/red-dot-design-2-5-1` and deployed to Cloudflare Pages
 
 ## (a) What I changed
 
-Six commits, each isolated for clean review.
+Twelve commits in two passes, each isolated for clean review.
+
+### Pass 1 — first audit (covered in this doc's original draft)
 
 | # | Hash       | Subject |
 |---|------------|---------|
@@ -17,7 +19,44 @@ Six commits, each isolated for clean review.
 | 3 | `f684299`  | docs: align count copy with published dataset (158 ranked + 5 watchlist) |
 | 4 | `f8782ba`  | regen: refresh Thai and Chinese methodology PDFs |
 | 5 | `52c4f2a`  | chore: patch bump 0.0.0 → 0.0.1 for class-demo fix pass |
-| 6 | (deploy)   | `npx wrangler pages deploy dist --project-name slic-index --branch main` |
+
+### Pass 2 — "Fix everything. Make it perfect." (second pass)
+
+| # | Hash       | Subject |
+|---|------------|---------|
+|  6 | `1f21ada`  | docs: README reflects 10-index Compare, Cloudflare-primary deploy, Axiom × ReTL |
+|  7 | `da47158`  | fix: methodology PDF author + creator metadata (was 'OpenAI Codex') |
+|  8 | `03ae653`  | docs: log 3 new lessons from the 2026-05-26 fix pass |
+|  9 | `cd4808c`  | fix: dedupe display of alphaCityExclusions ('Košice, Kosice' → 'Košice') |
+| 10 | `657834b`  | **typography**: load IBM Plex Sans Thai + Noto Sans SC; scope via :lang() |
+| 11 | `207df04`  | chore: refresh publishedRankingData timestamp (no score deltas) |
+| 12 | (deploy)   | `npx wrangler pages deploy dist --project-name slic-index --branch main` — production verified at 18:41 GMT |
+
+### Pass-2 highlights worth narrating in class
+
+- **Typography fix (#10) is the biggest visual change.** Before this commit,
+  every Thai page was rendering with the OS default Thai font — Sukhumvit Set
+  on macOS, Leelawadee UI on Windows, Sarabun variants on Android — all of
+  which carry the prominent หัว head-loops that workspace §0 forbids ("use
+  IBM Plex Sans Thai (non-looped) as the primary Thai face"). Loaded IBM
+  Plex Sans Thai and Noto Sans SC via Google Fonts, scoped to `:lang(th)` /
+  `:lang(zh)` selectors that ride App.tsx's existing `<html lang>` mirror.
+  Compare a Thai screenshot today vs yesterday — the letterforms are
+  loop-free and demonstrably "made by Thais."
+- **README drift (#6).** README claimed "157 cities / Six-index comparison /
+  GitHub + Vercel deployment / Axiom AI" — all stale. Now mirrors the live
+  10-index Compare page, Cloudflare-primary deploy, and Axiom × ReTL
+  partnership.
+- **Display dedup (#9).** Methodology page and homepage Alpha-exclusion
+  copy read "Košice, Kosice" in three locales — both spellings were in the
+  matching list defensively, but they shouldn't surface in human copy.
+  Added `getDisplayAlphaCityExclusions()` helper that strips diacritics for
+  deduplication and keeps `Košice` (canonical). All 21 tests + math
+  integrity still green.
+- **PDF metadata (#7).** The methodology paper's `/Author` field read
+  "OpenAI Codex" in any PDF reader's Get Info pane. Now reads "Dr. Non
+  Arkara & A.P. Poon Thiengburanathum (SLIC Index)" with the SLIC engine
+  as creator.
 
 ### Commit 1 — `10034b7` · methodology v1.3.0 (was 18 files uncommitted on entry)
 
@@ -88,14 +127,16 @@ corrected "163 cities, 158 ranked" meta description.
   CLAUDE.md §11, these are anti-regression items.
 - **`Axiom × ReTL` branding throughout.** Recent commit `0450d7f` explicitly
   restored this; not mine to undo.
-- **The methodology PDF author field reads `OpenAI Codex`.** Visible in PDF
-  reader metadata. Cosmetic only, and changing it requires a script edit you
-  may want to make yourself — not a safe fix for tonight.
 - **`tasks/lessons.md` note** that "Node.js 20.x required" + the GH Actions
   CI token expired warning. Both still true; manual `npm run deploy` (the
   wrangler path) is the documented workaround, and that's what I used.
 - **The `_pre-submission-status.md` file in repo root.** Not referenced from
   the app and looks like a working note. Not mine to clean up tonight.
+- **Pass 2: the looped→non-looped Thai typography change** is a §0
+  compliance fix, not a redesign — the Latin face (Libre Baskerville for
+  display, Inter for body, JetBrains Mono for numerics) is unchanged.
+  Pass 2 did NOT touch the colour palette, the layout, the spacing scale,
+  any logo, or any anti-regression item in CLAUDE.md §11.
 - **Pre-existing TypeScript strictness**: the build script intentionally
   skips `tsc --noEmit`. `npm run typecheck` is clean today, but `npm run build`
   does not gate on it by design. Did not change that contract.
@@ -153,12 +194,20 @@ to add a "session entry" for the audit pass, say the word in the morning.
 - [ ] Open `https://slic.nonarkara.org` on phone first (§11.8). Verify
   Alpha tier, Bangkok at #52, footer says "Last published: May 2026."
 - [ ] Switch locale EN → TH → ZH. Allocator labels, Alpha bridge copy,
-  footer date all localise.
+  footer date all localise. **NEW**: Thai letterforms are now non-looped
+  (IBM Plex Sans Thai); Chinese is now Noto Sans SC. Both should look
+  consistent across devices, not OS-default.
 - [ ] Open Methodology page. Confirm "Alpha requires Community ≥ 40,
-  Pressure ≥ 40, and coverage grade A" appears.
+  Pressure ≥ 40, and coverage grade A" appears. The Alpha exclusion list
+  shows 16 cities ending in `Košice` — no longer `Košice, Kosice`.
+- [ ] Open Compare page. H1 reads "Ten indices. Same planet." Spider lets
+  you rebuild SLIC's top 10; other 9 indices stay frozen.
 - [ ] Tap "Steal this idea" (Ideas). Filter to a category with no matches
   and confirm the new empty-state renders ("No matching ideas").
 - [ ] Click Methodology PDF link — should download an EN PDF dated today.
+  PDF "Get Info" → Author = Dr. Non Arkara & A.P. Poon Thiengburanathum.
 
-Build green · 21 / 21 tests pass · publication integrity pass · methodology
-drift pass · production deploy verified at 02:22 GMT.
+Pass 2 verified: build green · 21 / 21 tests pass · publication integrity
+pass · methodology drift pass · production deploy verified at 18:41 GMT
+(`curl https://slic.nonarkara.org/assets/index-*.css | grep "IBM+Plex+Sans+Thai"`
+returns a hit).
