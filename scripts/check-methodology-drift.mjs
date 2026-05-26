@@ -192,6 +192,7 @@ assert(
 );
 const homeReferencesCityExclusions =
   homePageText.includes("PUBLIC_TIER_RULES.alphaCityExclusions") ||
+  homePageText.includes("getDisplayAlphaCityExclusions") ||
   (PUBLIC_TIER_RULES.alphaCityExclusions ?? []).every((city) => homePageText.includes(city));
 assert(
   homeReferencesCityExclusions,

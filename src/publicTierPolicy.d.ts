@@ -38,6 +38,8 @@ export const PUBLIC_TIER_RULES: PublicTierRules;
 
 export function mergePublicTierRules(overrides?: Partial<PublicTierRules>): Readonly<PublicTierRules>;
 
+export function getDisplayAlphaCityExclusions(rules?: PublicTierRules): string[];
+
 export function compareCitiesByPublishedScore<T>(
   left: T,
   right: T,

@@ -2,7 +2,7 @@ import { type CSSProperties, type MouseEvent, useEffect, useMemo, useState } fro
 import { displayCountry } from "./cityUtils";
 import { evaluateConsequences } from "./consequenceRules";
 import type { FiredConsequence } from "./consequenceRules";
-import { allocatePublicTiers, assignPureScoreRanks, PUBLIC_TIER_RULES } from "./publicTierPolicy.js";
+import { allocatePublicTiers, assignPureScoreRanks, getDisplayAlphaCityExclusions, PUBLIC_TIER_RULES } from "./publicTierPolicy.js";
 import { rankingPublication } from "./rankingPublication";
 import SiteFooter from "./SiteFooter";
 import type { PillarAllocation } from "./ZeroSumAllocator";
@@ -127,7 +127,7 @@ const bangkokCommunity = bangkokWorked?.communityScore?.toFixed(1) ?? "90.0";
 const bangkokPressure = bangkokWorked?.pressureScore?.toFixed(1) ?? "45.4";
 const bangkokCoverage = bangkokWorked?.coverageGrade ?? "A";
 const alphaCountryExclusionList = PUBLIC_TIER_RULES.alphaCountryExclusions.join(", ") || "none";
-const alphaCityExclusionList = PUBLIC_TIER_RULES.alphaCityExclusions.join(", ") || "none";
+const alphaCityExclusionList = getDisplayAlphaCityExclusions().join(", ") || "none";
 
 function navigateLink(
   event: MouseEvent<HTMLAnchorElement>,

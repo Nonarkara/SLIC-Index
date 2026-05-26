@@ -91,6 +91,23 @@ export function mergePublicTierRules(overrides = {}) {
   });
 }
 
+/**
+ * Display-ready alphaCityExclusions list — diacritic-deduped.
+ * The raw list contains both "Košice" and "Kosice" so that matching against
+ * a dataset that uses either spelling still works. For human-readable copy
+ * we want one canonical spelling per city, so we collapse by stripping
+ * diacritics and keeping the first occurrence (which preserves "Košice"
+ * over "Kosice").
+ */
+export function getDisplayAlphaCityExclusions(rules = PUBLIC_TIER_RULES) {
+  const seen = new Map();
+  for (const name of rules.alphaCityExclusions ?? []) {
+    const key = String(name).normalize("NFD").replace(/[̀-ͯ]/g, "");
+    if (!seen.has(key)) seen.set(key, name);
+  }
+  return Array.from(seen.values());
+}
+
 function labelOf(city) {
   return city.displayName ?? city.name ?? city.cityId ?? city.id ?? city.country ?? "Unknown";
 }

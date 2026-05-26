@@ -1,5 +1,5 @@
 import publishedRankingData from "./data/publishedRankingData.json";
-import { PUBLIC_TIER_RULES } from "./publicTierPolicy.js";
+import { getDisplayAlphaCityExclusions, PUBLIC_TIER_RULES } from "./publicTierPolicy.js";
 import type { Locale, MethodologyData, MethodologyReference, SourceTier, WorksheetColumn } from "./types";
 
 interface MethodologyPublishedCity {
@@ -123,7 +123,7 @@ const workedExampleAmpiFormula =
     : "AMPI = mu - var/mu\nCoverage -> grade -> penalty\nSLIC = published score";
 const workedExampleDiRaw = workedExample?.disposableIncomeRaw != null ? workedExample.disposableIncomeRaw.toFixed(2) : "—";
 const alphaCountryExclusionList = (PUBLIC_TIER_RULES.alphaCountryExclusions ?? []).join(", ") || "none";
-const alphaCityExclusionList = (PUBLIC_TIER_RULES.alphaCityExclusions ?? []).join(", ") || "none";
+const alphaCityExclusionList = getDisplayAlphaCityExclusions().join(", ") || "none";
 const maxJapanCrossTier = PUBLIC_TIER_RULES.maxJapanAcrossPublicTiers ?? 1;
 
 const englishTierProtocolRule =
