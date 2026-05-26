@@ -9931,6 +9931,24 @@ details[open].scorecard-derived-formula summary::before {
   margin: 0.25rem 0 0;
 }
 
+/*
+ * Juror-scannable one-line citation. Hairline-bordered top edge so the line
+ * reads as a sealed protocol stamp at the bottom of every page. Mono uppercase
+ * 11px matches the 'panel-label' eyebrow scale (§11.7 three-size rule).
+ */
+.site-footer-citation {
+  margin: 0.75rem 0 0;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(28, 25, 20, 0.12);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.55;
+  line-height: 1.5;
+  word-spacing: 0.04em;
+}
+
 @media (max-width: 1100px) {
   .mh-edition {
     display: none;

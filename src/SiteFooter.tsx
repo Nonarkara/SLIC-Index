@@ -150,6 +150,17 @@ export default function SiteFooter({
         ? "数据：2024–2025 年版本 · 最后发布：2026 年 5 月"
         : "Data: 2024–2025 vintage · Last published: May 2026";
 
+  // Juror-scannable one-line citation. Mirrors the long-form 'Suggested credit'
+  // block above but renders as a hairline-bordered mono line on every page.
+  // Year reflects publication year of V3 (2026); refresh annually if methodology
+  // version major-bumps.
+  const citation =
+    locale === "th"
+      ? "อ้างอิงเป็น: Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org"
+      : locale === "zh"
+        ? "建议引用：Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org"
+        : "Cite as: Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org";
+
   return (
     <footer className="site-footer section">
       <div className="site-footer-grid">
@@ -235,6 +246,7 @@ export default function SiteFooter({
         </nav>
         <p className="site-footer-note">{footerNote}</p>
         <p className="site-footer-vintage">{vintageNote}</p>
+        <p className="site-footer-citation">{citation}</p>
       </div>
     </footer>
   );
