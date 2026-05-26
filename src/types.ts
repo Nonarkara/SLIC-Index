@@ -3,6 +3,7 @@ export type Locale = "en" | "th" | "zh";
 export type SitePath =
   | "/"
   | "/about-slic"
+  | "/awards"
   | "/data"
   | "/methodology"
   | "/rankings"

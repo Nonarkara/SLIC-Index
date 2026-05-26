@@ -20,6 +20,7 @@ const SideBySidePage = lazy(() => import("./SideBySidePage"));
 const CityScorecardPage = lazy(() => import("./CityScorecardPage"));
 const MapPage = lazy(() => import("./MapPage"));
 const EssayPage = lazy(() => import("./EssayPage"));
+const AwardsPage = lazy(() => import("./AwardsPage"));
 
 type DocumentWithViewTransition = Document & {
   startViewTransition?: Document["startViewTransition"];
@@ -68,6 +69,10 @@ function resolvePath(pathname: string): SitePath {
 
   if (bare === "/about-slic") {
     return "/about-slic";
+  }
+
+  if (bare === "/awards") {
+    return "/awards";
   }
 
   if (bare === "/methodology") {
@@ -273,6 +278,12 @@ export default function App() {
           : locale === "zh"
             ? "关于 SLIC"
             : "About SLIC"
+        : route === "/awards"
+          ? locale === "th"
+            ? "เอกสารยื่นรางวัล SLIC"
+            : locale === "zh"
+              ? "SLIC 投奖案卷"
+              : "SLIC Submission Dossier"
         : route === "/methodology"
           ? locale === "th"
             ? "ระเบียบวิธี SLIC"
@@ -387,6 +398,8 @@ export default function App() {
             <DataSourcesPage onNavigate={navigate} locale={locale} />
           ) : route === "/about-slic" ? (
             <SlicProfilePage onNavigate={navigate} locale={locale} />
+          ) : route === "/awards" ? (
+            <AwardsPage onNavigate={navigate} locale={locale} />
           ) : route === "/rankings" ? (
             <RankingsPage onNavigate={navigate} locale={locale} />
           ) : route === "/exercise" ? (

@@ -237,6 +237,9 @@ export default function SiteFooter({
           <a href={appHref("/history")} onClick={(event) => navigateLink(event, onNavigate, "/history")}>
             {copy.nav.history}
           </a>
+          <a href={appHref("/awards")} onClick={(event) => navigateLink(event, onNavigate, "/awards")}>
+            {locale === "th" ? "เอกสารยื่นรางวัล" : locale === "zh" ? "投奖案卷" : "Submissions"}
+          </a>
           <a href="https://nonarkara.github.io/SLIC-Index-V1/" target="_blank" rel="noopener noreferrer">
             {archiveLabels.v1}
           </a>

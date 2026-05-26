@@ -201,6 +201,34 @@ export default function SlicProfilePage({
               <h3>{profile.externalLabel}</h3>
               <p>{profile.slicFootnoteLabel}</p>
             </a>
+
+            <a
+              className="paper-card profile-logo-card"
+              href={appHref("/awards")}
+              onClick={(event) => navigateLink(event, onNavigate, "/awards")}
+            >
+              <p className="panel-label">
+                {locale === "th"
+                  ? "การยื่นรางวัล"
+                  : locale === "zh"
+                    ? "投奖"
+                    : "Submissions"}
+              </p>
+              <h3>
+                {locale === "th"
+                  ? "เอกสารยื่นรางวัล SLIC"
+                  : locale === "zh"
+                    ? "SLIC 投奖案卷"
+                    : "SLIC Submission Dossier"}
+              </h3>
+              <p>
+                {locale === "th"
+                  ? "หน้าเดียวสำหรับกรรมการ Red Dot, DEmark และ CEA Creative Excellence ครอบคลุมเกณฑ์ ระเบียบวิธี และไฟล์ที่เกี่ยวข้องทั้งหมด"
+                  : locale === "zh"
+                    ? "评审一页通览 —— Red Dot、DEmark、CEA 创造卓越奖：标准、方法、所有工件。"
+                    : "One page for Red Dot, DEmark, and CEA Creative Excellence jurors — criteria, methodology answer, every artifact."}
+              </p>
+            </a>
           </div>
         </section>
       </main>
