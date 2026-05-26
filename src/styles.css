@@ -1,4 +1,44 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap");
+
+/*
+ * CJK + Thai script overrides — workspace CLAUDE.md §0.
+ *
+ * Thai (U+0E00-U+0E7F): non-looped only. IBM Plex Sans Thai is the chosen
+ * primary face; Noto Sans Thai is the only acceptable fallback. NEVER fall
+ * back to system Thai (Sukhumvit Set / Leelawadee / Sarabun) — all of those
+ * carry prominent หัว head-loops that read as "not made by Thais".
+ *
+ * Chinese (U+4E00-U+9FFF + CJK punctuation): use Noto Sans SC so Simplified
+ * glyphs land cleanly instead of inheriting the macOS PingFang fallback
+ * which is fine on Apple but renders inconsistently on Windows/Android.
+ *
+ * Strategy: when the <html lang="th"|"zh"> attribute is set (App.tsx
+ * mirrors locale → lang), force the script-specific font family on every
+ * descendant. Latin faces remain primary for English content.
+ */
+/*
+ * Use !important to defeat the 251 explicit `font-family: "Libre Baskerville", …`
+ * declarations in this file when (and only when) the active locale is Thai or
+ * Chinese. Latin code paths keep their native faces because Thai/Chinese rules
+ * are scoped via :lang(). Mono code paths still use JetBrains Mono first so
+ * Latin numerics keep their tabular feel; the script font is added as the
+ * per-glyph fallback for Thai/Chinese inside mono labels.
+ */
+:lang(th),
+:lang(th) * {
+  font-family: "IBM Plex Sans Thai", "Noto Sans Thai", "Prompt", "Kanit", -apple-system, sans-serif !important;
+}
+:lang(th) :is(code, pre, .mono, [class*="mono"], [style*="JetBrains"]) {
+  font-family: "JetBrains Mono", "IBM Plex Sans Thai", "Noto Sans Thai", monospace !important;
+}
+
+:lang(zh),
+:lang(zh) * {
+  font-family: "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", -apple-system, sans-serif !important;
+}
+:lang(zh) :is(code, pre, .mono, [class*="mono"], [style*="JetBrains"]) {
+  font-family: "JetBrains Mono", "Noto Sans SC", "PingFang SC", monospace !important;
+}
 
 /* ═══════ V3: MONOCLE EDITORIAL — warm, photographic, story-driven ═══════ */
 :root {
