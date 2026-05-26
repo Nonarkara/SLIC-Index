@@ -783,7 +783,9 @@ def build_pdf(locale: str):
         topMargin=16 * mm,
         bottomMargin=16 * mm,
         title="SLIC Index V3 — Methodology Technical Paper",
-        author="OpenAI Codex",
+        author="Dr. Non Arkara & A.P. Poon Thiengburanathum (SLIC Index)",
+        subject="Smart and Liveable Cities Index — Methodology and Scoring Specification",
+        creator="SLIC Index methodology engine",
     )
     doc.build(build_story(snapshot, snapshot_stats), onFirstPage=header_footer, onLaterPages=header_footer)
     print(f"Wrote {output}")
