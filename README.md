@@ -11,9 +11,9 @@ SLIC measures what's left after rent.
 ## What Makes V3 Different
 
 - **Op-ed editorial homepage** — not a dashboard, a publication. Makes the argument, shows the evidence, hands you the tool.
-- **Six-index comparison** — side-by-side with EIU, Mercer, Resonance, Monocle, and Yonsei-Cambridge. Hover any city to see where else it appears.
+- **Ten-index comparison** — side-by-side with EIU, Mercer, Resonance, Monocle, Yonsei-Cambridge, IMD, Global Power City Index, Oxford Economics, Hanke Annual Misery, and SLIC Soft Power. Hover any city to see where else it appears.
 - **Blind spots diagram** — checkmark grid showing what each index measures. SLIC is the only one that covers all eight dimensions.
-- **Interactive spider** — drag to rebuild SLIC's top 10 based on your priorities. The other five indices stay frozen.
+- **Interactive spider** — drag to rebuild SLIC's top 10 based on your priorities. The other nine indices stay frozen.
 - **Watchlist transparency** — war zones and cities with insufficient data are on our watchlist, not quietly dropped.
 - **Multilingual** — English, Thai, Chinese. Every piece of copy.
 
@@ -29,8 +29,8 @@ SLIC measures what's left after rent.
 
 ## Live
 
-**[View V3 →](https://nonarkara.github.io/SLIC-Index/)** (GitHub Pages)
-**[Mirror →](https://slic-index-v2.vercel.app/)** (Vercel)
+**[View V3 →](https://slic.nonarkara.org/)** (Cloudflare Pages, custom domain)
+**[Mirror →](https://nonarkara.github.io/SLIC-Index/)** (GitHub Pages)
 
 ## Version History
 
@@ -38,15 +38,15 @@ SLIC measures what's left after rent.
 |---------|-------------|------|
 | **[V1](https://github.com/Nonarkara/slic-landing-page)** | 103 cities. The LinkedIn provocation that started it all. | [slic-index.onrender.com](https://slic-index.onrender.com) |
 | **[V2](https://github.com/Nonarkara/slic-index-V2)** | SCSE 2026 Taipei launch. Interactive spider. 174 cities. European mayors asked to replace The Economist's index. | [GitHub Pages](https://nonarkara.github.io/slic-index-V2/) |
-| **V3** (you are here) | Op-ed redesign. 158 ranked cities + 5 watchlist (163 total). Six-index comparison. Blind spots diagram. Watchlist transparency. | [GitHub Pages](https://nonarkara.github.io/SLIC-Index/) |
+| **V3** (you are here) | Op-ed redesign. 158 ranked cities + 5 watchlist (163 total). Ten-index comparison. Blind spots diagram. Watchlist transparency. AMPI absolute scoring. Public-tier overlay (Alpha/Beta/Gamma) with A-grade coverage floor for Alpha. | [slic.nonarkara.org](https://slic.nonarkara.org/) |
 
 ## Tech Stack
 
-- React 19 + TypeScript + Vite
+- React 19 + TypeScript 5.8 + Vite 6 (no Tailwind — custom CSS only)
 - Interactive spider web allocator (custom SVG + pointer events)
 - Real-time city re-ranking with zero-sum weight allocation
-- Visitor tracking (Google Sheets + Supabase dual-write)
-- Static deployment (GitHub Pages + Vercel)
+- Visitor tracking (Google Sheets + Supabase dual-write, with Cloudflare Web Analytics)
+- Static deployment: Cloudflare Pages (production at slic.nonarkara.org) + GitHub Pages mirror
 
 ## Created By
 
@@ -54,7 +54,8 @@ SLIC measures what's left after rent.
 - Ministry of Digital Economy and Society, Thailand
 - Digital Economy Promotion Agency (depa)
 - Smart City Thailand Office
-- Axiom AI
+- PMU-A (Program Management Unit for Area-Based Development)
+- Axiom × ReTL (research pipeline + AI tooling)
 
 ## License
 
