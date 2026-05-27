@@ -100,6 +100,7 @@ export default function SideBySidePage({
 
   const labels = PILLAR_LABELS[locale];
   const selectedCities = selectedIds.map((id) => allCities.find((c) => c.id === id)!).filter(Boolean);
+  const maxSelected = selectedIds.length >= 5;
 
   const handleRemove = (indexToRemove: number) => {
     setSelectedIds((prev) => prev.filter((_, i) => i !== indexToRemove));
@@ -153,9 +154,19 @@ export default function SideBySidePage({
                 </div>
               ))}
               {selectedIds.length < 5 && !isAdding && (
-                <button type="button" className="sbs-chip-add" onClick={() => setIsAdding(true)}>
+                <button
+                  type="button"
+                  className="sbs-chip-add"
+                  onClick={() => setIsAdding(true)}
+                  aria-label={t(locale, "Add city to comparison", "เพิ่มเมืองเพื่อเปรียบเทียบ", "添加城市进行比较")}
+                >
                   + {t(locale, "Add City", "เพิ่มเมือง", "添加城市")}
                 </button>
+              )}
+              {maxSelected && (
+                <span className="sbs-chip-limit" role="status">
+                  {t(locale, "5/5 selected. Remove one to add another.", "เลือกครบ 5/5 แล้ว ลบหนึ่งเมืองเพื่อเพิ่มเมืองอื่น", "已选 5/5。移除一座城市后可再添加。")}
+                </span>
               )}
             </div>
 

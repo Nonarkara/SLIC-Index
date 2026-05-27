@@ -10716,6 +10716,17 @@ body,
   color: var(--text);
 }
 
+.sbs-chip-limit {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.05rem;
+  padding: 0.4rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: var(--text-soft);
+}
+
 .sbs-picker {
   position: absolute;
   top: 100%;
