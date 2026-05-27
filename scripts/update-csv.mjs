@@ -80,7 +80,26 @@ function csvVal(v) {
   return s;
 }
 
-const rows = [headers.join(",")];
+/* ── Metadata preamble ── */
+// Five-line `# ...` comment block at the top of the file. CSV readers that
+// honor the `comment` parameter (pandas: read_csv(..., comment="#")) skip these
+// cleanly. Excel / Google Sheets render them as label rows in column A — still
+// communicates provenance to a human opening the file cold.
+const updatedAt = (publishedData.updatedAt ?? new Date().toISOString()).slice(0, 10);
+const scoreModelVersion = publishedData.methodologyFacts?.scoreModelVersion ?? "slic-v3";
+const tierPolicyVersion = publishedData.methodologyFacts?.tierPolicyVersion ?? "public-tier-v1";
+const rankedCount = ranked.length;
+const watchlistCount = allCities.filter((c) => c.rankingStatus !== "Ranked").length;
+const preamble = [
+  `# SLIC Index V3 — Smart and Liveable Cities Index`,
+  `# Publisher: Dr. Non Arkara & A.P. Poon Thiengburanathum (Chiang Mai University) · slic.nonarkara.org`,
+  `# Methodology: https://slic.nonarkara.org/methodology · paper: /downloads/slic-methodology-technical-paper-en.pdf`,
+  `# Scope: ${rankedCount} ranked + ${watchlistCount} watchlist = ${rankedCount + watchlistCount} cities · 5 pillars · 22 scored metrics + 3 diagnostics`,
+  `# Score model: ${scoreModelVersion} · Tier policy: ${tierPolicyVersion} · Last updated: ${updatedAt} · License: open citation, no paid placement`,
+  `# Cite as: Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org`,
+];
+
+const rows = [...preamble, headers.join(",")];
 
 for (const city of ranked) {
   const ctx = CITY_CONTEXT[city.cityId];
@@ -132,7 +151,7 @@ const csvPath = join(root, "public/downloads/slic-ranked-cities-v2.csv");
 writeFileSync(csvPath, rows.join("\n") + "\n", "utf8");
 
 console.log(`Written: ${csvPath}`);
-console.log(`Rows: ${rows.length - 1} cities + 1 header = ${rows.length} lines`);
+console.log(`Rows: ${preamble.length} # preamble + 1 header + ${rows.length - preamble.length - 1} cities = ${rows.length} lines`);
 console.log(`Columns: ${headers.length}`);
 
 // Spot-check Bangkok and Singapore

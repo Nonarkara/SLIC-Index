@@ -1,3 +1,9 @@
+# SLIC Index V3 — Smart and Liveable Cities Index
+# Publisher: Dr. Non Arkara & A.P. Poon Thiengburanathum (Chiang Mai University) · slic.nonarkara.org
+# Methodology: https://slic.nonarkara.org/methodology · paper: /downloads/slic-methodology-technical-paper-en.pdf
+# Scope: 158 ranked + 5 watchlist = 163 cities · 5 pillars · 22 scored metrics + 3 diagnostics
+# Score model: slic-v3.4.0 · Tier policy: public-tier-v1.3.0 · Last updated: 2026-05-26 · License: open citation, no paid placement
+# Cite as: Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org
 rank,cityId,displayName,country,region,cityType,slicScore,pressureScore,viabilityScore,capabilityScore,communityScore,creativeScore,coverageGrade,overallWeightedCoverage,rankingStatus,populationM,countryPopM,nationalSharePct,industries,birthRate,workingHrsPerWk,waterAccessPct,broadbandPer100,climateScore,gdpGrowthPct,peer1,peer2,peer3
 1,ca-montreal,Montreal,Canada,North America,secondary,73.9,69.7,94.9,84,81.6,54.1,A,0.95,Ranked,4.3,40,10.8,tech; finance; services,1.26,34.8,96.9,42.5,44.0,1.55,Ottawa,Gothenburg,Eindhoven
 2,se-gothenburg,Gothenburg,Sweden,"Western, Northern, and Southern Europe",primary,72.6,72.9,100,85.5,75.9,63.3,B,0.51,Ranked,1,10.5,9.5,manufacturing; shipping; tech,1.52,,,,36.0,,Montreal,Kaohsiung,Bergen

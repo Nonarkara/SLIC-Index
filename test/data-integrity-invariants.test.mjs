@@ -126,10 +126,14 @@ test("invariant 12 — methodologyFacts counts match live cities[]", () => {
   assert.equal(mf.watchlistCityCount, watch.length, `watchlistCityCount drift: ${mf.watchlistCityCount} vs ${watch.length}`);
 });
 
-test("invariant 13 — slic-ranked-cities-v2.csv row count matches Ranked.length + 1 header", async () => {
+test("invariant 13 — slic-ranked-cities-v2.csv row count matches Ranked.length + 1 header (after stripping # preamble)", async () => {
   const fs = await import("node:fs");
-  const csv = fs.readFileSync("public/downloads/slic-ranked-cities-v2.csv", "utf8").trim().split("\n");
-  assert.equal(csv.length, ranked.length + 1, `CSV: ${csv.length} lines, expected ${ranked.length + 1}`);
+  const csv = fs
+    .readFileSync("public/downloads/slic-ranked-cities-v2.csv", "utf8")
+    .trim()
+    .split("\n")
+    .filter((line) => !line.startsWith("#"));
+  assert.equal(csv.length, ranked.length + 1, `CSV (excluding # preamble): ${csv.length} lines, expected ${ranked.length + 1}`);
 });
 
 test("invariant 14 — every metric key on a city exists in metricCatalog", () => {
