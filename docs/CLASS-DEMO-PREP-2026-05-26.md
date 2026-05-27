@@ -211,3 +211,123 @@ Pass 2 verified: build green · 21 / 21 tests pass · publication integrity
 pass · methodology drift pass · production deploy verified at 18:41 GMT
 (`curl https://slic.nonarkara.org/assets/index-*.css | grep "IBM+Plex+Sans+Thai"`
 returns a hit).
+
+---
+
+## Pass 3 — Red Dot / DEmark / CEA awards audit (overnight 26→27 May)
+
+Same `codex/red-dot-design-2-5-1` branch. After Non's confirmed plan (audit
++ ship fixes + new submission surface), Pass 3 added these commits on top
+of Pass 1 + 2:
+
+| Hash | Subject |
+|------|---------|
+| `c9fb6db` | **docs: awards audit** — Red Dot Editorial / DEmark / CEA Tech & Advocacy (4 scorecards + cross-award gap matrix) |
+| `ff62b69` | docs: refresh pre-submission status to v1.3.0 / 158+5 / Pass-3 awards context |
+| `77f47ae` | feat: juror-scannable one-line citation strip in footer |
+| `a285fca` | docs: submission video script (EN + TH master cuts, 90s) |
+| `7944ac4` | **feat(/awards)**: submission dossier page — one juror surface for four awards |
+| `f82c593` | feat(/about-slic): "Presented at" panel (GITEX Singapore, Taipei Summit 2026 + 2023) |
+| `481ceb3` | feat: CSV preamble — 6 lines of #-prefixed provenance metadata |
+| `6668dbc` | **feat: methodology PDF cover page** (provocation + canonical numbers + authors) |
+| `78f2e75` | fix(a11y): bump footer citation opacity 0.55 → 0.7 for WCAG AA contrast |
+
+Pass-3 produced three load-bearing artifacts beyond the code changes:
+
+- **`docs/AWARDS-AUDIT-2026-05.md`** — 220 lines. Four scorecards (Red Dot
+  Editorial, Red Dot Information Design as self-audit, DEmark System
+  Service & Digital Platform, CEA Creative Technology + Advocacy). Each
+  scorecard names the criteria, scores SLIC against each (🟢/🟡/🔴),
+  and tags fixes by ship-this-pass / defer-to-Non / cannot-fix-tonight.
+  Closes with a cross-award gap matrix showing which fixes pay for
+  themselves across multiple submissions.
+- **`/awards` page** — new juror-facing route at
+  https://slic.nonarkara.org/awards. Hero with canonical numbers card,
+  four reading-frame cards (one per award), provenance band, scaffolded
+  impact-evidence section, submission calendar, route walk, downloads
+  panel. Discoverable from /about-slic Resources grid + footer nav.
+  Trilingual EN/TH/ZH via existing t() helper.
+- **`docs/submission-video-script.md`** — 90-second EN + TH master cut
+  narration drafts for DEmark mandatory video / Red Dot R2 / CEA
+  supporting media. B-roll shot list + direction notes + production
+  checklist. Recording is October-ish (deferred per plan).
+
+### Calendar reality Non needs to know
+
+Red Dot 2026 and DEmark 2026 already closed (8 May). Only CEA Creative
+Excellence 2026 is potentially still live (June–August historical
+cycle). The other two are 2027 prep. The audit positions SLIC for
+Red Dot 2027 Editorial Design (Early Bird ~Feb 2027), DEmark 2027 Q1,
+and CEA 2026 via DEPA channel.
+
+### Chulalongkorn note (added 2026-05-27 by orchestrator brief)
+
+This dashboard is no longer only a TKC class demo. The SLIC index is the
+**contracting vehicle for the Chulalongkorn academic-zone engagement**
+initiated with the Vice-Rector (Assoc. Prof. Manoj Lohatepanont, Sc.D.)
+on 2026-05-27. The engagement structure:
+
+  - SLIC asks for a study budget
+  - VR provides door-opener endorsements to operational units inside Chula
+  - Non / SLIC team enters faculties to learn what each needs
+  - Deliverable is free; DEPA stamps the brand for legitimacy
+
+The site bar is therefore "must work for the Chula Vice-Rector and
+operational staff in Chula faculties," not just "must work for TKC
+engineers tomorrow." For the next iteration, stability + institutional
+trust signals matter more than new features. Surfaces that mention
+partner adoption, citations, and methodology rigor are now load-bearing
+for a real engagement.
+
+Background record: `/Users/nonarkara/Projects/100daysofnon/diary/day-072/
+artifacts/2026-05-27-chula-vice-rector-meeting-*`
+
+### Pass-3 verification
+
+- Build green · `npm run verify` clean · 21/21 tests pass
+- TypeScript: clean (`tsc --noEmit -p tsconfig.app.json`)
+- Walked all 13 routes (12 existing + new `/awards`) at desktop 1440 and
+  mobile 375 in dev preview — zero console errors, zero horizontal
+  overflow, all locale switches working
+- IBM Plex Sans Thai still painting Thai glyphs on `/awards`; Noto Sans
+  SC painting Chinese — :lang() overrides honored
+- Footer citation appears on every page; passes WCAG AA contrast after
+  the opacity bump
+- CSV preamble live: `curl https://slic.nonarkara.org/downloads/slic-ranked-cities-v2.csv | head -1`
+  returns `# SLIC Index V3 — Smart and Liveable Cities Index`
+- Methodology PDF page count grew 10→11 (new cover page); author
+  metadata still reads "Dr. Non Arkara & A.P. Poon Thiengburanathum"
+- Production deployed via wrangler to slic.nonarkara.org · preview at
+  https://7946a480.slic-index.pages.dev
+
+### Caveats Non should know
+
+- **`/awards` route loads through the 404→redirect dance** like every
+  other internal route. Browser sees a brief flash if hitting the URL
+  cold; click-through navigation from any page has no flash. This is
+  pre-existing CF behavior since `588e448`, not new to /awards.
+- **Impact-evidence section on `/awards` is placeholders.** Per plan
+  decision 3 — Non to fill (citations, partner adoptions, academic use)
+  before any panel sees the URL.
+- **CEA outreach to info@cea.or.th is Non's** per plan decision 2.
+- **Video script is drafted but unrecorded.** EN + TH cuts ready in
+  `docs/submission-video-script.md`. Record in October-ish.
+- **Cover page on methodology PDF is page 1 only.** Did NOT add a full
+  reportlab TableOfContents — too risky tonight. Page 1 cover gives
+  the juror a publication-grade landing artifact; deeper TOC + citation
+  reformat is a future pass.
+- **Red Dot category locked to Editorial Design** per plan decision 1.
+  Information Design and UX/Apps frames stay as self-audit lenses only.
+
+### Final commit tally across all three passes
+
+- Pass 1: 6 commits (methodology v1.3.0 + count fixes + PDFs + version bump + prep doc + deploy)
+- Pass 2: 6 commits (README + PDF author + lessons + Košice dedup + typography + housekeeping)
+- Pass 3: 9 commits (audit doc + pre-submission refresh + footer citation + video script + /awards + press panel + CSV preamble + PDF cover + a11y fix)
+
+**Total: 21 commits since the audit started ~24 hours ago.** Each commit
+isolated and reviewable.
+
+```
+ git log --oneline -25
+```

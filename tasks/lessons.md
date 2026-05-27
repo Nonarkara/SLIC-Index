@@ -89,6 +89,68 @@ Per §13: the same mistake never happens twice.
 
 ---
 
+## 2026-05-26 · Defensive duplicates in policy lists leaked into UI copy
+
+- **What went wrong:** `publicTierPolicy.js` kept both "Košice" and "Kosice"
+  in `alphaCityExclusions` so matching worked against either dataset spelling.
+  Methodology page + homepage joined the array directly into human copy,
+  rendering "...Athens, Prague, Košice, Kosice barred from Alpha..." — reads
+  as a typo.
+- **Correct behaviour:** Add a display helper alongside the raw policy data.
+  `getDisplayAlphaCityExclusions()` strips diacritics for dedup, keeps first
+  occurrence (canonical "Košice"). Matching logic still uses the raw list.
+  Drift check updated to accept the new function reference.
+- **How to recognise:** Any policy list that lives in source data AND surfaces
+  in human-readable copy. If you see two near-identical strings joined by
+  comma in the rendered UI, the source data has a defensive duplicate that
+  needs a display-only normalization layer.
+
+---
+
+## 2026-05-26 · Awards-pass — three more lessons
+
+### CSV preamble breaks the row-count invariant
+
+- **What went wrong:** Added `# ...` comment lines to the CSV header for
+  juror-readable provenance. Test invariant 13 counted total lines and
+  failed (164 lines vs expected 159 = ranked 158 + header 1).
+- **Correct behaviour:** Update the invariant to strip `#` lines before
+  counting. Comment-prefix convention is intentional and tools that read
+  the CSV (pandas, jq + ad-hoc shell) honor `comment="#"`. Excel renders
+  them as label rows in column A — still readable.
+- **How to recognise:** Any test that does `lines.length === N` on a file
+  that now carries metadata preamble.
+
+### Cloudflare Pages `_redirects` doesn't actually rewrite — it 404s with SPA bootstrap
+
+- **What went wrong:** Assumed `_redirects` rule `/*  /index.html  200`
+  would make `curl https://slic.nonarkara.org/awards` return 200. It
+  doesn't — CF Pages serves the static 404.html (with status 404) for
+  any path that isn't a file. The 404.html's `<script>` then redirects
+  to `/?p=awards`, the SPA bootstraps from `index.html`, reads the `?p=`
+  query, and `replaceState`s back to `/awards`. Works in browsers, looks
+  broken to curl.
+- **Correct behaviour:** This is by design since `588e448`. Don't try to
+  "fix" it — the redirect dance is the SPA fallback strategy. Verify
+  new routes work by clicking through in a real browser, not by curling.
+- **How to recognise:** `curl https://slic.nonarkara.org/<route>` returns
+  404 but the body contains "SLIC Index Route Restore" — that's the
+  bootstrap path. Working as intended.
+
+### Footer opacity at 0.55 fails WCAG AA contrast on cream background
+
+- **What went wrong:** Set `.site-footer-citation { opacity: 0.55 }` for
+  a "subtle protocol stamp" look. On `#f8f5f0` cream background that
+  produces ~3.8:1 contrast against the `#1c1914` foreground — under the
+  4.5:1 threshold for 11px body text.
+- **Correct behaviour:** Compute the effective rgb after opacity blend
+  against the actual background before picking the value. For cream
+  `#f8f5f0`, opacity ≤ 0.6 generally fails. 0.7 lands at ~5.5:1 — safe.
+- **How to recognise:** Tracked-out mono text on cream that fades to gray.
+  Check with a contrast checker BEFORE shipping. §11.10 is non-negotiable.
+
+---
+
 <!-- FORMAT for future entries:
 ## YYYY-MM-DD · [short title of the mistake]
 - **What went wrong:** ...
