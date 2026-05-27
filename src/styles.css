@@ -9944,7 +9944,9 @@ details[open].scorecard-derived-formula summary::before {
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  opacity: 0.55;
+  /* opacity 0.7 keeps contrast ≥ 4.5:1 against the cream background per §11.10
+   * (was 0.55, which dropped to ~3.8:1 — below WCAG AA for 11px body text). */
+  opacity: 0.7;
   line-height: 1.5;
   word-spacing: 0.04em;
 }
