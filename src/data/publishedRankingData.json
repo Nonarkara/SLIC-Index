@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-05-26T18:39:04.797Z",
+  "updatedAt": "2026-05-27T16:05:36.183Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -179,7 +179,7 @@
       "scored": true,
       "diagnostic": false,
       "inputKey": "housing_burden_raw",
-      "label": "Housing burden",
+      "label": "Housing price pressure",
       "components": []
     },
     "pressure_household_debt_burden": {
@@ -80396,7 +80396,7 @@
           },
           {
             "key": "pressure_housing_burden",
-            "label": "Housing burden",
+            "label": "Housing price pressure",
             "weight": 5,
             "scoreExact": 81.6104,
             "scoreRounded": 81.6
@@ -80730,8 +80730,8 @@
     }
   },
   "changeSummary": {
-    "previousUpdatedAt": "2026-05-25T09:02:00.052Z",
-    "updatedAt": "2026-05-26T18:39:04.797Z",
+    "previousUpdatedAt": "2026-05-26T18:39:04.797Z",
+    "updatedAt": "2026-05-27T16:05:36.183Z",
     "scoreChangedCount": 0,
     "rankChangedCount": 0,
     "tierChangedCount": 0,
@@ -80744,12 +80744,12 @@
   "validCityRowCount": 163,
   "validCountryRowCount": 87,
   "publicationManifest": {
-    "generatedAt": "2026-05-26T18:39:04.797Z",
+    "generatedAt": "2026-05-27T16:05:36.183Z",
     "scorerVersion": "slic-v3.4.0",
     "tierPolicyVersion": "public-tier-v1.3.0",
     "normStatsHash": "2e1c92a28140da75e0b21564ec6a1ed0019d6b2ffcb8b14c0207ffc708e20d8c",
     "inputDataHash": "e1bde057c69b14020c5888353c1f2a9523966ee7b20dfa97e1ca5553483da2de",
-    "metricCatalogHash": "7a3a0f3d4ee27d31405f04d2cf6966470f045ceedf48aa9f2e31f83f2c4f34a5",
+    "metricCatalogHash": "3b622fe33af487bf2af65aef6bab2ee90812300e220ac991caa5da97be973532",
     "publicationHash": "c79059c2bd2337473d6dec5cd65424041ba94c6352982c7c45777455a872dd6c"
   },
   "stabilityAnalysis": {

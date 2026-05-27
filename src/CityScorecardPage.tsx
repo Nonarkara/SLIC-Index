@@ -118,7 +118,7 @@ const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "commun
 const METRIC_LABELS: Record<Locale, Record<string, string>> = {
   en: {
     pressure_disposable_income_ppp: "Disposable Income (PPP)",
-    pressure_housing_burden: "Housing Burden",
+    pressure_housing_burden: "Housing Price Pressure",
     pressure_economic_growth_momentum: "Economic Growth Momentum",
     pressure_household_debt_burden: "Household Debt",
     pressure_working_time_pressure: "Working Hours",
@@ -150,7 +150,7 @@ const METRIC_LABELS: Record<Locale, Record<string, string>> = {
   },
   th: {
     pressure_disposable_income_ppp: "รายได้ใช้สอยคงเหลือ (PPP)",
-    pressure_housing_burden: "ภาระค่าที่อยู่อาศัย",
+    pressure_housing_burden: "แรงกดดันราคาที่อยู่อาศัย",
     pressure_economic_growth_momentum: "โมเมนตัมการเติบโตทางเศรษฐกิจ",
     pressure_household_debt_burden: "ภาระหนี้ครัวเรือน",
     pressure_working_time_pressure: "ชั่วโมงทำงาน",
@@ -182,7 +182,7 @@ const METRIC_LABELS: Record<Locale, Record<string, string>> = {
   },
   zh: {
     pressure_disposable_income_ppp: "可支配收入（PPP）",
-    pressure_housing_burden: "住房负担",
+    pressure_housing_burden: "住房价格压力",
     pressure_economic_growth_momentum: "经济增长动能",
     pressure_household_debt_burden: "家庭债务负担",
     pressure_working_time_pressure: "工作时长压力",
@@ -259,7 +259,7 @@ const SCORECARD_TEXT = {
     secondaryCity: "Secondary city",
     lockedVerified: "Locked (verified)",
     disposableIncome: "Disposable income (PPP)",
-    housingBurden: "Housing burden",
+    housingBurden: "Housing price",
     safetyRate: "Safety (homicide rate)",
     airQuality: "Air quality (PM2.5)",
     healthcareQuality: "Healthcare quality",
@@ -280,6 +280,7 @@ const SCORECARD_TEXT = {
     stronger: "Strongest signal",
     weaker: "Weakest signal",
     ofIncome: "% of income",
+    perSqft: " USD/sqft",
     per100k: "per 100k",
     pctEnrollment: "% enrollment",
     population: "Population",
@@ -325,7 +326,7 @@ const SCORECARD_TEXT = {
     secondaryCity: "เมืองรอง",
     lockedVerified: "ล็อกแล้ว (ตรวจสอบแล้ว)",
     disposableIncome: "รายได้ใช้สอยคงเหลือ (PPP)",
-    housingBurden: "ภาระค่าที่อยู่อาศัย",
+    housingBurden: "ราคาที่อยู่อาศัย",
     safetyRate: "ความปลอดภัย (อัตราฆาตกรรม)",
     airQuality: "คุณภาพอากาศ (PM2.5)",
     healthcareQuality: "คุณภาพระบบสุขภาพ",
@@ -346,6 +347,7 @@ const SCORECARD_TEXT = {
     stronger: "สัญญาณที่แข็งแรงที่สุด",
     weaker: "สัญญาณที่อ่อนที่สุด",
     ofIncome: "% ของรายได้",
+    perSqft: " USD/ตร.ฟุต",
     per100k: "ต่อ 100,000 คน",
     pctEnrollment: "% อัตราการลงทะเบียนเรียน",
     population: "ประชากร",
@@ -391,7 +393,7 @@ const SCORECARD_TEXT = {
     secondaryCity: "次级城市",
     lockedVerified: "已锁定（已核验）",
     disposableIncome: "可支配收入（PPP）",
-    housingBurden: "住房负担",
+    housingBurden: "住房价格",
     safetyRate: "安全（凶杀率）",
     airQuality: "空气质量（PM2.5）",
     healthcareQuality: "医疗质量",
@@ -412,6 +414,7 @@ const SCORECARD_TEXT = {
     stronger: "最强信号",
     weaker: "最弱信号",
     ofIncome: "% 的收入",
+    perSqft: " 美元/平方英尺",
     per100k: "每10万人",
     pctEnrollment: "% 入学率",
     population: "人口",
@@ -707,6 +710,18 @@ function findCity(cityId: string): PublishedCity | undefined {
   } as PublishedCity;
 }
 
+function readCityIdFromLocation(): string {
+  const barePath = stripBase(window.location.pathname);
+  const rawPathId = barePath.startsWith("/city/") ? barePath.slice("/city/".length) : "";
+  const rawId = rawPathId || new URLSearchParams(window.location.search).get("city") || "";
+  const decoded = decodeURIComponent(rawId).split(/[?#]/)[0] ?? "";
+  const segments = decoded.split("/").filter(Boolean);
+
+  // Recover from older static-host redirects that could produce
+  // /city/city/{id}; city IDs never contain slashes.
+  return segments[segments.length - 1] ?? "";
+}
+
 function pillarScoreKey(pillar: PillarId): keyof PublishedCity {
   return `${pillar}Score` as keyof PublishedCity;
 }
@@ -918,8 +933,7 @@ export default function CityScorecardPage({
   onNavigate: (path: SitePath | string) => void;
   locale: Locale;
 }) {
-  const pathSegments = stripBase(window.location.pathname).split("/city/");
-  const cityId = decodeURIComponent(pathSegments[pathSegments.length - 1] ?? "");
+  const cityId = readCityIdFromLocation();
   const city = findCity(cityId);
   const copy = SCORECARD_TEXT[locale];
   const rankedCities = allCities.filter((c) => c.rankingStatus === "Ranked");
@@ -1087,7 +1101,7 @@ export default function CityScorecardPage({
             {city.metrics?.pressure_housing_burden?.raw !== null && city.metrics?.pressure_housing_burden?.raw !== undefined && (
               <div className="scorecard-overview-card">
                 <span className="scorecard-overview-label">{copy.housingBurden}</span>
-                <strong>{city.metrics.pressure_housing_burden.raw.toFixed(1)}{copy.ofIncome}</strong>
+                <strong>{city.metrics.pressure_housing_burden.raw.toFixed(1)}{copy.perSqft}</strong>
               </div>
             )}
             {city.metrics?.viability_personal_safety?.raw !== null && city.metrics?.viability_personal_safety?.raw !== undefined && (

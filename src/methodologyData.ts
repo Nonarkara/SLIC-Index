@@ -1034,7 +1034,7 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         citations: [2, 3, 7],
         metrics: [
           { name: "Tax-adjusted disposable income", weight: 9, description: "Residual money after tax and essential costs, converted once through the PPP private-consumption factor so purchasing room is comparable across cities.", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
-          { name: "Housing burden", weight: 5, description: "Housing cost as share of income. Higher housing burden scores worse and directly compresses practical room to live.", inputs: ["median rent", "gross income"] },
+          { name: "Housing price pressure", weight: 5, description: "City-market purchase price per square foot. Higher housing price pressure scores worse because it compresses the practical room to build a life locally.", inputs: ["USD per square foot", "city market purchase price"] },
           { name: "Household debt burden", weight: 4, description: "Debt relative to income. High leverage suggests more fragile household resilience.", inputs: ["household debt proxy"] },
           { name: "Working time pressure", weight: 4, description: "Average weekly hours and related overwork burden. Higher sustained work pressure scores worse.", inputs: ["weekly hours", "overwork share"] },
           { name: "Suicide and severe mental strain", weight: 3, description: "A severe-strain public-health signal. Higher suicide or equivalent strain proxy scores worse.", inputs: ["age-standardized suicide rate"] },
@@ -1151,8 +1151,8 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         citations: [],
       },
       {
-        title: "V3.1: Housing burden ceiling widened to 55%",
-        body: "The winsorization ceiling for pressure_housing_burden was raised from 38.85% to 55.0%, so that cities paying 40–50% of median income on housing (New York, London, Paris, Zurich, Vancouver, Munich, Toronto, Amsterdam, Copenhagen) are differentiated from each other instead of all being clamped to a score of zero. Housing pain now moves the pressure pillar.",
+        title: "V3.1: Housing price ceiling widened",
+        body: "The winsorization ceiling for pressure_housing_burden was widened after the public data contract moved to city-market purchase price per square foot. High-cost cities are now differentiated from each other instead of being flattened into the same penalty band. Housing pain now moves the pressure pillar.",
         citations: [],
       },
       {
@@ -1587,13 +1587,12 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         justification: "เสานี้วัดพลังเศรษฐกิจและผลกระทบต่อชีวิตจริงของคนเมือง",
         citations: [2, 3, 7],
         metrics: [
-          { name: "ภาระที่อยู่อาศัย", weight: 8, description: "สัดส่วนต้นทุนที่อยู่อาศัยต่อรายได้ครัวเรือนหรือรายได้ของคนเริ่มทำงาน", inputs: ["median rent", "housing-cost share"] },
-          { name: "แรงกดดันจากชั่วโมงงาน", weight: 7, description: "ชั่วโมงงานเฉลี่ยและสัดส่วนการทำงานเกิน 48 ชั่วโมง", inputs: ["weekly hours", "overwork share"] },
-          { name: "การฆ่าตัวตายและภาวะเครียดรุนแรง", weight: 7, description: "การฆ่าตัวตายหรือ mental-harm proxy ที่ป้องกันเชิงวิชาการได้", inputs: ["suicide rate", "mental-health harm proxy"] },
-          { name: "ความตึงเครียดทางเศรษฐกิจ (Hanke Misery Index)", weight: 2, description: "Hanke Annual Misery Index 2025: 2×อัตราว่างงาน + เงินเฟ้อ + อัตราดอกเบี้ยกู้ยืม − การเติบโต GDP ต่อหัวจริง ใช้ระดับประเทศ คะแนนต่ำ = ความตึงเครียดมหภาคน้อยกว่า", inputs: ["unemployment rate", "CPI inflation", "bank lending rate", "real GDP/capita growth"] },
-          { name: "โมเมนตัมการเติบโตทางเศรษฐกิจ", weight: 6, description: "อัตราการเติบโต GDP ใช้เป็นสัญญาณล่วงหน้าของแรงส่งทางเศรษฐกิจ", inputs: ["GDP growth %", "country context"] },
-          { name: "รายได้ใช้สอยจริงแบบ PPP หลังภาษี", weight: 4, description: "เงินคงเหลือหลังภาษีและค่าใช้จ่ายจำเป็น แปลงผ่าน PPP เพียงครั้งเดียวเพื่อให้เทียบกำลังซื้อข้ามเมืองได้", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
+          { name: "รายได้ใช้สอยจริงแบบ PPP หลังภาษี", weight: 9, description: "เงินคงเหลือหลังภาษีและค่าใช้จ่ายจำเป็น แปลงผ่าน PPP เพียงครั้งเดียวเพื่อให้เทียบกำลังซื้อข้ามเมืองได้", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
+          { name: "แรงกดดันราคาที่อยู่อาศัย", weight: 5, description: "ราคาซื้อขายในตลาดเมืองต่อหนึ่งตารางฟุต ยิ่งสูงยิ่งกดคะแนน เพราะบีบพื้นที่จริงในการสร้างชีวิตด้วยรายได้ท้องถิ่น", inputs: ["USD per square foot", "city market purchase price"] },
           { name: "ภาระหนี้ครัวเรือน", weight: 4, description: "หนี้เทียบกับรายได้ใช้สอยจริงหรือ proxy ที่ดีที่สุด", inputs: ["household debt", "disposable income"] },
+          { name: "แรงกดดันจากชั่วโมงงาน", weight: 4, description: "ชั่วโมงงานเฉลี่ยและภาระการทำงานเกิน ยิ่งสูงต่อเนื่องยิ่งกดคะแนน", inputs: ["weekly hours", "overwork share"] },
+          { name: "การฆ่าตัวตายและภาวะเครียดรุนแรง", weight: 3, description: "สัญญาณสาธารณสุขของความเครียดรุนแรง อัตราฆ่าตัวตายหรือ proxy ที่เทียบเท่าสูงกว่าจะกดคะแนน", inputs: ["age-standardized suicide rate"] },
+          { name: "ความตึงเครียดทางเศรษฐกิจ (Hanke Misery Index)", weight: 2, description: "Hanke Annual Misery Index 2025: 2×อัตราว่างงาน + เงินเฟ้อ + อัตราดอกเบี้ยกู้ยืม − การเติบโต GDP ต่อหัวจริง ใช้ระดับประเทศ คะแนนต่ำ = ความตึงเครียดมหภาคน้อยกว่า", inputs: ["unemployment rate", "CPI inflation", "bank lending rate", "real GDP/capita growth"] },
         ],
       },
       {
@@ -2119,13 +2118,12 @@ const methodologyContent: Record<Locale, MethodologyData> = {
         justification: "这一支柱惩罚虚假繁荣，并将可支配空间放在评分核心。",
         citations: [2, 3, 7],
         metrics: [
-          { name: "住房负担", weight: 8, description: "住房成本占家庭或年轻职业人收入的比例。", inputs: ["median rent", "housing-cost share"] },
-          { name: "工时压力", weight: 7, description: "平均工时与超长工时 prevalence。", inputs: ["weekly hours", "overwork share"] },
-          { name: "自杀与严重心理压力", weight: 7, description: "自杀率或最可辩护的心理伤害 proxy。", inputs: ["suicide rate", "mental-health harm proxy"] },
-          { name: "经济压力（Hanke Misery Index）", weight: 2, description: "Hanke Annual Misery Index 2025：2×失业率 + 通货膨胀率 + 银行贷款利率 − 实际人均 GDP 增速。国家层面数据。分数越低代表宏观经济压力越小。", inputs: ["unemployment rate", "CPI inflation", "bank lending rate", "real GDP/capita growth"] },
-          { name: "经济增长动能", weight: 6, description: "GDP 增速作为前瞻性的经济势头信号。", inputs: ["GDP growth %", "country context"] },
-          { name: "税后 PPP 可支配生活空间", weight: 4, description: "税后扣除必需支出后的剩余空间，通过 PPP 因子转换一次后再做跨城市比较。", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
+          { name: "税后 PPP 可支配生活空间", weight: 9, description: "税后扣除必需支出后的剩余空间，通过 PPP 因子转换一次后再做跨城市比较。", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
+          { name: "住房价格压力", weight: 5, description: "城市市场每平方英尺购房价格。价格越高，越压缩本地收入者建立生活的实际空间。", inputs: ["USD per square foot", "city market purchase price"] },
           { name: "家庭债务负担", weight: 4, description: "债务相对于可支配收入或最佳可得 proxy 的比率。", inputs: ["household debt", "disposable income"] },
+          { name: "工时压力", weight: 4, description: "平均工时与持续过劳负担。长期工作压力越高，得分越低。", inputs: ["weekly hours", "overwork share"] },
+          { name: "自杀与严重心理压力", weight: 3, description: "严重心理压力的公共卫生信号。自杀率或同等压力 proxy 越高，得分越低。", inputs: ["age-standardized suicide rate"] },
+          { name: "经济压力（Hanke Misery Index）", weight: 2, description: "Hanke Annual Misery Index 2025：2×失业率 + 通货膨胀率 + 银行贷款利率 − 实际人均 GDP 增速。国家层面数据。分数越低代表宏观经济压力越小。", inputs: ["unemployment rate", "CPI inflation", "bank lending rate", "real GDP/capita growth"] },
         ],
       },
       {

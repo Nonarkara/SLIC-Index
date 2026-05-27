@@ -154,7 +154,7 @@ export const V4_DISPOSABLE_INCOME: AnchorTable = [
   [0, 0], [200, 25], [500, 50], [2000, 75], [4000, 100],
 ] as const;
 
-/** V5 Rent as % of income — lower is better */
+/** V5 housing price pressure — lower is better */
 export const V5_RENT_BURDEN: AnchorTable = [
   [70, 0], [50, 25], [30, 50], [20, 75], [10, 100],
 ] as const;

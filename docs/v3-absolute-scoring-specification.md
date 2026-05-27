@@ -52,7 +52,7 @@ The current public implementation is percentile-winsorized, not piecewise-anchor
 | Metric | Weight | Notes |
 |---|---:|---|
 | `pressure_disposable_income_ppp` | 9 | Post-tax residual income after essentials, PPP-adjusted |
-| `pressure_housing_burden` | 5 | Higher housing share scores worse |
+| `pressure_housing_burden` | 5 | Higher city-market housing price pressure scores worse |
 | `pressure_household_debt_burden` | 4 | Country fallback allowed |
 | `pressure_working_time_pressure` | 4 | Higher work burden scores worse |
 | `pressure_suicide_mental_strain` | 3 | Higher severe-strain proxy scores worse |

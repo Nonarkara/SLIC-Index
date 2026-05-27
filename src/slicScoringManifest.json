@@ -260,7 +260,7 @@
     },
     {
       "metric_id": "housing_burden",
-      "metric_name": "Housing burden",
+      "metric_name": "Housing price pressure",
       "pillar_id": "pressure",
       "pillar_name": "Growth",
       "pillar_weight": 25,
@@ -271,7 +271,7 @@
       "data_level": "city_or_metro",
       "source_priority": "Tier 1 city/metro > Tier 2 subnational > Tier 3 national/international > Tier 4 audited secondary",
       "workbook_input": "housing_burden_raw",
-      "notes": "Higher rent or housing cost share scores worse."
+      "notes": "Higher city-market purchase price per square foot scores worse."
     },
     {
       "metric_id": "household_debt_burden",
@@ -646,12 +646,12 @@
     },
     {
       "input_key": "housing_burden_raw",
-      "label": "Housing burden raw",
+      "label": "Housing price pressure raw",
       "source_column": "housing_burden_raw",
       "directionality": "negative",
       "coverage_weight": 1,
       "aggregate_metric_id": "housing_burden",
-      "notes": "Higher housing share scores worse."
+      "notes": "Higher city-market purchase price per square foot scores worse."
     },
     {
       "input_key": "household_debt_effective_raw",

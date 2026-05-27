@@ -66,7 +66,7 @@ export const SCORED_METRICS = Object.freeze([
   // Household debt 4 → 2 (overlaps with Hanke's lending-rate component).
   // DI_PPP 9 → 8 (still primary, modest reweight to make room).
   directMetric("pressure_disposable_income_ppp", "pressure", 8, "di_ppp_raw", "Tax-adjusted PPP disposable income"),
-  directMetric("pressure_housing_burden", "pressure", 5, "housing_burden_raw", "Housing burden"),
+  directMetric("pressure_housing_burden", "pressure", 5, "housing_burden_raw", "Housing price pressure"),
   directMetric("pressure_household_debt_burden", "pressure", 2, "household_debt_effective_raw", "Household debt burden"),
   directMetric("pressure_working_time_pressure", "pressure", 4, "working_time_pressure_raw", "Working time pressure"),
   directMetric("pressure_suicide_mental_strain", "pressure", 4, "suicide_mental_strain_raw", "Suicide and severe mental strain"),
