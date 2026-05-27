@@ -151,6 +151,22 @@ Per §13: the same mistake never happens twice.
 
 ---
 
+## 2026-05-27 · 404.html redirect loop on Cloudflare (previous lesson was wrong)
+
+- **What went wrong:** An earlier lesson (2026-05-26, "Cloudflare Pages `_redirects` doesn't actually rewrite") stated that the 404-bootstrap pattern was "working as intended since 588e448" and that `curl` returning 404 was expected. This was incorrect — the 404.html script was designed for GitHub Pages where `l.pathname.split('/').slice(0,2)` yields the `/SLIC-Index` base. On Cloudflare (no subdirectory), slice(0,2) yields the SAME path that triggered the 404 (e.g. `/rankings`), so the redirect target is `/rankings/?p=rankings` — also a 404 — creating an infinite loop. The prior lesson was tested by clicking nav links inside the SPA (which use `pushState` and never touch 404.html), not by navigating directly to a non-root URL.
+- **Correct behaviour:** The 404.html script must compute `repoBase` by checking whether the first path segment matches `SLIC-Index` (GitHub Pages only). On Cloudflare (no match), `repoBase` is empty and the redirect goes to `/?p=route` (HTTP 200). This is the fix in commit `8c92afa`.
+- **How to recognise:** If navigating directly to `slic.nonarkara.org/rankings` in a fresh browser tab shows the error boundary or a blank page (not the rankings), the 404 bootstrap is broken. Test by copying a deep URL and opening it cold — not by clicking through the nav.
+
+---
+
+## 2026-05-27 · Housing burden → Housing price pressure label propagation
+
+- **What went wrong:** When renaming a metric's display label, multiple layers must be updated together: `publicationMath.js` (scored metrics list), `publishedRankingData.json` (metricCatalog + per-city entries), `slicScoringManifest.json` (metric_name + input label), `scoringEngine.ts` (JSDoc comment), `methodologyData.ts` (EN/TH/ZH methodology content + changelog), `CityScorecardPage.tsx` (METRIC_LABELS), and `docs/v3-absolute-scoring-specification.md` (spec table).
+- **Correct behaviour:** Before renaming any metric display label, grep for the existing name across all of the above files. Make all changes in a single commit so the data pipeline stays consistent. Run `npm run verify:math` after — the 21 invariants will catch any metric catalog / scoring manifest drift.
+- **How to recognise:** `npm run check:methodology` fails with drift errors if the label is updated in some layers but not others.
+
+---
+
 <!-- FORMAT for future entries:
 ## YYYY-MM-DD · [short title of the mistake]
 - **What went wrong:** ...
