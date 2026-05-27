@@ -145,6 +145,109 @@ export default function SlicProfilePage({
           </div>
         </section>
 
+        <section className="paper-section section" aria-label="Presented at">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">
+                {locale === "th"
+                  ? "นำเสนอที่"
+                  : locale === "zh"
+                    ? "曾经出席"
+                    : "Presented at"}
+              </p>
+              <h2>
+                {locale === "th"
+                  ? "เวทีและงานที่ SLIC ออกตัวจริงต่อสาธารณะ"
+                  : locale === "zh"
+                    ? "SLIC 公开亮相的舞台与活动"
+                    : "Stages and venues SLIC has appeared on"}
+              </h2>
+            </div>
+            <p className="section-summary">
+              {locale === "th"
+                ? "เหตุการณ์ที่ตรวจสอบได้ของ SLIC บนเวทีสาธารณะ ใช้เป็นหลักฐานสำหรับการยื่นรางวัล เหตุการณ์ใหม่จะเพิ่มเข้ามาเมื่อตรวจสอบและบันทึกได้แล้ว"
+                : locale === "zh"
+                  ? "SLIC 在公开舞台上的可核验出席。作为投奖佐证使用。新事件经核验后再补入。"
+                  : "Verified public appearances of SLIC. Used as evidence in award submissions. New events land here only after they are confirmed and recorded."}
+            </p>
+          </div>
+
+          <div className="profile-card-grid">
+            <article className="paper-card">
+              <p className="panel-label">
+                {locale === "th" ? "เมษายน 2569" : locale === "zh" ? "2026 年 4 月" : "April 2026"}
+              </p>
+              <h3>GITEX AI Asia · Singapore</h3>
+              <p>
+                {locale === "th"
+                  ? "Marina Bay Sands, 9–10 เมษายน 2569 · ผู้เข้าร่วมกว่า 23,000 คนจาก 110+ ประเทศ · ดร. นนท์ นำเสนอ V3 Protocol Beta บนเวทีหลักต่อหน้าผู้ชมกว่าพันคน · เวิร์กช็อป Government Innovation as a Service ที่นั่งเต็มก่อนเริ่มงาน"
+                  : locale === "zh"
+                    ? "滨海湾金沙，2026 年 4 月 9–10 日 · 110+ 国家逾 23,000 名观众 · Dr. Non 在主舞台向上千名观众展示 V3 Protocol Beta · 后续政府创新即服务工作坊开场前即座无虚席"
+                    : "Marina Bay Sands, 9–10 April 2026 · 23,000+ attendees from 110+ countries · Dr. Non presented V3 Protocol Beta on the main stage to a thousand-strong audience · Follow-on Government Innovation as a Service workshop filled before opening remarks"}
+              </p>
+            </article>
+
+            <article className="paper-card">
+              <p className="panel-label">
+                {locale === "th" ? "มีนาคม 2569" : locale === "zh" ? "2026 年 3 月" : "March 2026"}
+              </p>
+              <h3>Smart City Summit & Expo · Taipei</h3>
+              <p>
+                {locale === "th"
+                  ? "การเปิดตัว V2 ในรูปคีย์โน้ตที่งาน Smart City Summit & Expo เมืองไทเป — งาน smart city ที่ใหญ่ที่สุดในเอเชีย · 174 เมือง, 53 ประเทศ, ผู้เชี่ยวชาญ 3,000+ คน"
+                  : locale === "zh"
+                    ? "在台北 Smart City Summit & Expo（亚洲最大智慧城市活动）以主旨演讲发布 V2 · 174 座城市、53 个国家、3,000+ 名专业人士"
+                    : "V2 keynote launch at Smart City Summit & Expo Taipei — the largest smart city event in Asia · 174 cities, 53 countries, 3,000+ professionals"}
+              </p>
+            </article>
+
+            <article className="paper-card">
+              <p className="panel-label">
+                {locale === "th" ? "มีนาคม 2566" : locale === "zh" ? "2023 年 3 月" : "March 2023"}
+              </p>
+              <h3>Smart City Summit & Expo · Taipei</h3>
+              <p>
+                {locale === "th"
+                  ? "การนำเสนอกรอบ smart city ระยะแรกของ ดร. นนท์ ครั้งแรกบนเวที Smart City Summit & Expo เมืองไทเป — จุดเริ่มต้นของแนวคิดที่ภายหลังกลายเป็น SLIC Index"
+                  : locale === "zh"
+                    ? "Dr. Non 在台北 Smart City Summit & Expo 首次公开展示其早期智慧城市框架 —— 后来演变为 SLIC Index 的雏形"
+                    : "Dr. Non's first public presentation of his early smart city frameworks at Smart City Summit & Expo Taipei — the starting point of the thinking that later became the SLIC Index"}
+              </p>
+            </article>
+
+            <article className="paper-card">
+              <p className="panel-label">
+                {locale === "th" ? "เพิ่มเติม" : locale === "zh" ? "更多" : "More"}
+              </p>
+              <h3>
+                {locale === "th"
+                  ? "งานเพิ่มเติม · ติดตามผ่านลิงก์ Submissions"
+                  : locale === "zh"
+                    ? "更多活动 · 通过投奖案卷链接追踪"
+                    : "Additional appearances · tracked via the Submissions link"}
+              </h3>
+              <p>
+                {locale === "th"
+                  ? "งาน วงสัมมนา และการเชิญพูดในอนาคตจะถูกบันทึกที่นี่เมื่อยืนยันแล้ว ระหว่างนี้สามารถดู /history เพื่ออ่านเส้นทางการพัฒนา SLIC แบบครบถ้วน"
+                  : locale === "zh"
+                    ? "未来的会议、论坛与受邀演讲将在确认后记录于此。在此期间请访问 /history 阅读 SLIC 的完整发展路径。"
+                    : "Future conferences, panels, and invited talks land here only after confirmation. See /history for the full development arc of SLIC in the meantime."}
+              </p>
+              <a
+                className="inline-page-link"
+                href={appHref("/history")}
+                onClick={(event) => navigateLink(event, onNavigate, "/history")}
+              >
+                {locale === "th"
+                  ? "เปิดเส้นทางการพัฒนา"
+                  : locale === "zh"
+                    ? "查看发展历程"
+                    : "Open the journey timeline"}
+              </a>
+            </article>
+          </div>
+        </section>
+
         <section className="paper-visual-strip section" aria-label="SLIC publication context">
           <div className="field-ledger-copy">
             <p className="eyebrow">{profile.publicationLabel}</p>
