@@ -259,9 +259,9 @@ export default function AwardsPage({
 
   const impactNote = t(
     locale,
-    "Placeholders — Non to fill before any submission goes live. Anything published here must be falsifiable and citable.",
-    "ตัวยึดที่ยังว่างอยู่ — Non จะเป็นผู้กรอกก่อนการยื่นรางวัลจริง สิ่งที่เผยแพร่ที่นี่ต้องตรวจสอบได้และมีแหล่งอ้างอิง",
-    "占位 —— Non 在任何投奖前自行补全。在此发布的内容必须可证伪、可引用。",
+    "Evidence checklist for jurors. Public claims stay conservative: only confirmed appearances and citable records are shown here.",
+    "เช็กลิสต์หลักฐานสำหรับกรรมการ ข้อกล่าวอ้างสาธารณะใช้ถ้อยคำระมัดระวัง: แสดงเฉพาะเวทีที่ยืนยันแล้วและบันทึกที่อ้างอิงได้",
+    "供评审使用的证据清单。公开主张保持克制：这里只列出已确认的出席与可引用记录。",
   );
 
   const impactRows: { label: string; placeholder: string }[] = [
@@ -269,31 +269,46 @@ export default function AwardsPage({
       label: t(locale, "Visitor reach", "ผู้เข้าชม", "访问量"),
       placeholder: t(
         locale,
-        "Visitor count + geographic distribution from getVisitorStats() — to surface from the live API",
-        "จำนวนผู้เข้าชม + การกระจายเชิงภูมิศาสตร์จาก getVisitorStats() — ดึงจาก API จริง",
-        "访问量 + 地理分布，来自 getVisitorStats() —— 从生产 API 拉取",
+        "Live visitor count appears on the homepage; geographic distribution stays internal until exported with a citable analytics snapshot.",
+        "จำนวนผู้เข้าชมแบบสดแสดงบนหน้าแรก ส่วนการกระจายเชิงภูมิศาสตร์เก็บไว้ภายในจนกว่าจะมี snapshot analytics ที่อ้างอิงได้",
+        "首页显示实时访问量；地理分布在导出可引用的分析快照前保持内部使用。",
       ),
     },
     {
       label: t(locale, "Press / citations", "สื่อ / การอ้างอิง", "媒体 / 引用"),
-      placeholder: "TODO — list each citation with source name, date, URL, language",
+      placeholder: t(
+        locale,
+        "Citation log is held until each source has a public URL, date, publisher, and language label.",
+        "บันทึกการอ้างอิงจะเผยแพร่เมื่อแต่ละแหล่งมี URL สาธารณะ วันที่ ผู้เผยแพร่ และภาษากำกับครบถ้วน",
+        "引用记录须在每个来源具备公开 URL、日期、发布方与语言标注后再公开。",
+      ),
     },
     {
       label: t(locale, "Summit / conference appearances", "งานสัมมนา / เวที", "峰会 / 会议出席"),
       placeholder: t(
         locale,
-        "GITEX Singapore 2026 main stage; Smart City Expo; Taipei Smart City Summit — confirm dates and link recordings/photos",
-        "GITEX Singapore 2026 เวทีหลัก; Smart City Expo; Taipei Smart City Summit — ยืนยันวันที่และลิงก์บันทึก/ภาพ",
-        "GITEX Singapore 2026 主舞台；Smart City Expo；台北智慧城市峰会 —— 确认日期并链接录像/照片",
+        "Confirmed: Smart City Summit & Expo Taipei, March 2026; GITEX AI Asia Singapore, April 2026. Scheduled next: LEAP EAST Hong Kong, 8–10 July 2026.",
+        "ยืนยันแล้ว: Smart City Summit & Expo ไทเป มีนาคม 2569; GITEX AI Asia สิงคโปร์ เมษายน 2569 เวทีถัดไปที่มีกำหนด: LEAP EAST ฮ่องกง 8–10 กรกฎาคม 2569",
+        "已确认：2026 年 3 月台北智慧城市峰会；2026 年 4 月新加坡 GITEX AI Asia。下一站已排期：2026 年 7 月 8–10 日香港 LEAP EAST。",
       ),
     },
     {
       label: t(locale, "Partner adoption", "การนำไปใช้ของพันธมิตร", "合作伙伴采用"),
-      placeholder: "TODO — each partner: organisation name, what they adopted (methodology, dataset, workbench), evidence URL",
+      placeholder: t(
+        locale,
+        "Institutional backing is public: DEPA, PMU-A, and Chiang Mai University. Adoption claims are added only when the adopting partner approves a citable record.",
+        "การสนับสนุนเชิงสถาบันเปิดเผยแล้ว: DEPA, PMU-A และมหาวิทยาลัยเชียงใหม่ การกล่าวอ้างเรื่องการนำไปใช้จะเพิ่มเมื่อพันธมิตรผู้ใช้อนุมัติบันทึกที่อ้างอิงได้",
+        "机构支持已公开：DEPA、PMU-A 与清迈大学。采用声明只在采用方批准可引用记录后加入。",
+      ),
     },
     {
       label: t(locale, "Academic use", "การใช้งานเชิงวิชาการ", "学术使用"),
-      placeholder: "TODO — courses / theses / papers citing SLIC; CMU + external institutions",
+      placeholder: t(
+        locale,
+        "Academic-use evidence is listed only after a public syllabus, thesis, paper, or institutional note exists.",
+        "หลักฐานการใช้งานเชิงวิชาการจะแสดงเฉพาะเมื่อมี syllabus วิทยานิพนธ์ paper หรือบันทึกสถาบันที่เปิดเผยต่อสาธารณะ",
+        "学术使用证据只在存在公开课程大纲、论文、研究文章或机构说明后列出。",
+      ),
     },
   ];
 

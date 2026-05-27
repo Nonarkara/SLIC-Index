@@ -503,9 +503,9 @@ export default function HomePage({
         <h2 className="hp-launch-trail-title">
           {t(
             locale,
-            "A city ranking is only useful if it enters the rooms where city decisions get made. Here is where SLIC went.",
-            "ดัชนีเมืองมีประโยชน์ก็ต่อเมื่อได้เข้าสู่ห้องที่การตัดสินใจเรื่องเมืองเกิดขึ้นจริง นี่คือที่ที่ SLIC ไป",
-            "城市排名只有进入真正做城市决策的场合才有意义。这里是 SLIC 去过的地方。",
+            "A city ranking is only useful if it enters the rooms where city decisions get made. Here is where SLIC has gone — and where it is scheduled next.",
+            "ดัชนีเมืองมีประโยชน์ก็ต่อเมื่อได้เข้าสู่ห้องที่การตัดสินใจเรื่องเมืองเกิดขึ้นจริง นี่คือที่ที่ SLIC ไปมาแล้ว — และเวทีถัดไปที่มีกำหนด",
+            "城市排名只有进入真正做城市决策的场合才有意义。这里是 SLIC 已经去过的地方，以及下一站安排。",
           )}
         </h2>
         <div className="hp-launch-trail-grid">
@@ -543,16 +543,16 @@ export default function HomePage({
 
           <div className="hp-launch-event hp-launch-event--upcoming">
             <div className="hp-launch-event-photo hp-launch-event-photo--graphic">
-              <img src={LEAP_EAST_PHOTO} alt="Dr Non speaking at LEAP EAST, Hong Kong, 8–10 July 2026" loading="lazy" />
+              <img src={LEAP_EAST_PHOTO} alt="LEAP EAST Hong Kong event card, 8–10 July 2026" loading="lazy" />
             </div>
             <div className="hp-launch-event-meta">
               <span className="hp-launch-event-tag hp-launch-event-tag--upcoming">Hong Kong</span>
               <span className="hp-launch-event-date">July 2026</span>
               <p>{t(
                 locale,
-                "LEAP EAST, HKCEC — Asia's leading conference for innovation leaders and investors. 8–10 July 2026.",
-                "LEAP EAST, HKCEC — งานประชุมชั้นนำในเอเชียสำหรับผู้นำด้านนวัตกรรมและนักลงทุน 8–10 กรกฎาคม 2569",
-                "LEAP EAST，香港会展中心——亚洲领先的创新领袖与投资者峰会。2026 年 7 月 8–10 日。",
+                "Scheduled next: LEAP EAST, HKCEC — Asia's leading conference for innovation leaders and investors, 8–10 July 2026.",
+                "เวทีถัดไปที่มีกำหนด: LEAP EAST, HKCEC — งานประชุมชั้นนำในเอเชียสำหรับผู้นำด้านนวัตกรรมและนักลงทุน 8–10 กรกฎาคม 2569",
+                "下一站已排期：LEAP EAST，香港会展中心——亚洲领先的创新领袖与投资者峰会，2026 年 7 月 8–10 日。",
               )}</p>
             </div>
           </div>
