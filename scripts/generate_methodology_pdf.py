@@ -347,6 +347,57 @@ def styles():
             textColor=colors.HexColor("#6b6459"),
             spaceAfter=4,
         ),
+        "cover_eyebrow": ParagraphStyle(
+            "cover_eyebrow",
+            parent=sample["BodyText"],
+            fontName="Courier",
+            fontSize=9,
+            leading=12,
+            textColor=colors.HexColor("#b85c28"),
+            alignment=TA_CENTER,
+            spaceAfter=24,
+            wordWrap="LTR",
+        ),
+        "cover_title": ParagraphStyle(
+            "cover_title",
+            parent=sample["Title"],
+            fontName="Helvetica-Bold",
+            fontSize=34,
+            leading=40,
+            textColor=colors.HexColor("#1c1914"),
+            alignment=TA_CENTER,
+            spaceAfter=10,
+        ),
+        "cover_subtitle": ParagraphStyle(
+            "cover_subtitle",
+            parent=sample["Heading2"],
+            fontName="Helvetica",
+            fontSize=14,
+            leading=18,
+            textColor=colors.HexColor("#1c1914"),
+            alignment=TA_CENTER,
+            spaceAfter=36,
+        ),
+        "cover_provocation": ParagraphStyle(
+            "cover_provocation",
+            parent=sample["BodyText"],
+            fontName="Helvetica-Oblique",
+            fontSize=14,
+            leading=20,
+            textColor=colors.HexColor("#1c1914"),
+            alignment=TA_CENTER,
+            spaceAfter=30,
+        ),
+        "cover_caption": ParagraphStyle(
+            "cover_caption",
+            parent=sample["BodyText"],
+            fontName="Courier",
+            fontSize=8,
+            leading=11,
+            textColor=colors.HexColor("#6b6459"),
+            alignment=TA_CENTER,
+            spaceAfter=4,
+        ),
         "mono": ParagraphStyle(
             "mono",
             parent=sample["Code"],
@@ -511,12 +562,51 @@ def build_story(snapshot, snapshot_stats):
     story = []
     updated_at = snapshot.get("updatedAt", "snapshot timestamp unavailable")
     methodology_facts = snapshot.get("methodologyFacts", {})
+    score_model = methodology_facts.get("scoreModelVersion", "slic-v3")
+    tier_policy = methodology_facts.get("tierPolicyVersion", "public-tier-v1")
+    ranked_count = len(snapshot_stats["ranked"])
+    watch_count = len(snapshot_stats["watchlist"])
+    total_count = len(snapshot_stats["cities"])
     example = worked_example(snapshot, snapshot_stats)
     singapore = methodology_facts.get("referenceCities", {}).get("singapore") or next((city for city in snapshot_stats["ranked"] if city.get("displayName") == "Singapore"), None)
     bangkok = methodology_facts.get("referenceCities", {}).get("bangkok") or next((city for city in snapshot_stats["ranked"] if city.get("displayName") == "Bangkok"), None)
     rule_snapshot = methodology_facts.get("ruleSnapshot", {})
 
-    story.append(Spacer(1, 18 * mm))
+    # ── Cover page ───────────────────────────────────────────────────────────
+    story.append(Spacer(1, 38 * mm))
+    story.append(Paragraph("SLIC INDEX V3 &middot; SMART AND LIVEABLE CITIES INDEX", s["cover_eyebrow"]))
+    story.append(Paragraph("Methodology", s["cover_title"]))
+    story.append(Paragraph("Technical Paper &middot; English master edition", s["cover_subtitle"]))
+    story.append(Paragraph(
+        '&ldquo;Every city ranking is a lie. Here&rsquo;s ours &mdash; public methodology, public data, no paid placement.&rdquo;',
+        s["cover_provocation"],
+    ))
+    story.append(Spacer(1, 26 * mm))
+    story.append(Paragraph(
+        f"{total_count} cities &middot; {ranked_count} ranked &middot; {watch_count} watchlist &middot; 5 pillars &middot; {SCORED_COUNT} scored metrics + {DIAGNOSTIC_COUNT} diagnostics",
+        s["cover_caption"],
+    ))
+    story.append(Paragraph(
+        f"Score model: {score_model} &middot; Tier policy: {tier_policy}",
+        s["cover_caption"],
+    ))
+    story.append(Paragraph(
+        f"Published snapshot: {updated_at}",
+        s["cover_caption"],
+    ))
+    story.append(Spacer(1, 16 * mm))
+    story.append(Paragraph(
+        "Dr. Non Arkara &amp; Associate Professor Poon Thiengburanathum (Chiang Mai University)",
+        s["cover_caption"],
+    ))
+    story.append(Paragraph(
+        "Published in collaboration with DEPA Thailand and PMU-A &middot; slic.nonarkara.org",
+        s["cover_caption"],
+    ))
+    story.append(PageBreak())
+
+    # ── Page 2: classical title + summary table ─────────────────────────────
+    story.append(Spacer(1, 12 * mm))
     story.append(Paragraph("SLIC Index V3", s["title"]))
     story.append(Paragraph("Methodology Technical Paper", s["subtitle"]))
     story.append(Paragraph("English master edition", s["subtitle"]))
