@@ -29,6 +29,7 @@ interface HomeCity {
   capabilityScore: number;
   communityScore: number;
   creativeScore: number;
+  coverageGrade: string | null;
   coveragePenalty: number;
   slicScore: number;
   rank: number;
@@ -110,6 +111,7 @@ const publishedBoard: HomeCity[] = rankingPublication.cities
     capabilityScore: city.capabilityScoreExact ?? city.capabilityScore ?? 0,
     communityScore: city.communityScoreExact ?? city.communityScore ?? 0,
     creativeScore: city.creativeScoreExact ?? city.creativeScore ?? 0,
+    coverageGrade: city.coverageGrade ?? null,
     coveragePenalty: city.coveragePenalty ?? 0,
     slicScore: city.slicScore,
     rank: city.rank,
