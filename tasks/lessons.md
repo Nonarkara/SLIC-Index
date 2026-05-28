@@ -159,6 +159,14 @@ Per §13: the same mistake never happens twice.
 
 ---
 
+## 2026-05-28 · coverageGrade missing from publishedBoard → 0 Alpha cities on homepage
+
+- **What went wrong:** `publishedBoard` in `HomePage.tsx` maps city objects from `rankingPublication.cities` into a `HomeCity` interface that did not include `coverageGrade`. `allocatePublicTiers` calls `meetsCoverageFloor(city, "A")` which reads `city.coverageGrade`. With that field `undefined`, `coverageRank(undefined)` returns 0, which fails `>= coverageRank("A")` for every city. Result: `tieredResults.alpha` was always empty — the hero Alpha grid rendered with 0 city cards. The bug was introduced in commit `10034b7` ("methodology: A-grade coverage floor for Alpha") which added the coverage check without adding `coverageGrade` to the `publishedBoard` map. It became visible after the 404 redirect loop fix (Pass 4) allowed the homepage to load correctly for the first time.
+- **Correct behaviour:** Any property that `allocatePublicTiers` (or any policy function) reads from a city object must be present in the `publishedBoard` map AND in the `HomeCity` interface. Fix: add `coverageGrade: city.coverageGrade ?? null` to the map, and `coverageGrade: string | null` to the interface.
+- **How to recognise:** Homepage Alpha grid shows the badge and title but no city cards. The `v3-alpha-grid` DOM node has 0 children. `tieredResults.alpha.length === 0` when the published data clearly has 10 alpha cities. Check `meetsCoverageFloor` and verify that every field it reads is present in the city objects passed to `allocatePublicTiers`.
+
+---
+
 ## 2026-05-27 · Housing burden → Housing price pressure label propagation
 
 - **What went wrong:** When renaming a metric's display label, multiple layers must be updated together: `publicationMath.js` (scored metrics list), `publishedRankingData.json` (metricCatalog + per-city entries), `slicScoringManifest.json` (metric_name + input label), `scoringEngine.ts` (JSDoc comment), `methodologyData.ts` (EN/TH/ZH methodology content + changelog), `CityScorecardPage.tsx` (METRIC_LABELS), and `docs/v3-absolute-scoring-specification.md` (spec table).
