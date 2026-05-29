@@ -10252,6 +10252,7 @@ body,
 .v3-tier-badge {
   margin: 0;
   border-radius: 0;
+  justify-self: start;
 }
 
 .v3-alpha-title {
