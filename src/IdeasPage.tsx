@@ -177,10 +177,10 @@ const ideasUiCopy: Record<
     noResultsBody: "다른 카테고리나 난이도를 시도해보세요.",
   },
   ja: {
-    title: "このアイデアをお使いください",
+    title: "このアイデアを盗んでください",
     eyebrow: "オープンソース市民テック",
     intro:
-      "40年の都市イノベーション、午後一つでリリース可能です。ここにあるすべてのツールはオープンソースで、実際の都市に世界中で展開・検証済みです。リポジトリをクローンして都市名を変えるだけ。",
+      "40年の都市イノベーション、半日でリリース可能です。ここにあるすべてのツールはオープンソースで、実際の都市に世界中で展開・検証済みです。リポジトリをクローンして都市名を変えるだけ。",
     statTools: "12のオープンソースツール",
     statCountries: "40カ国以上で展開",
     statPeople: "10億人以上が利用",
@@ -214,8 +214,8 @@ const difficultyLabels: Record<Locale, Record<CityIdea["difficulty"], string>> =
   en: { starter: "Starter", intermediate: "Intermediate", advanced: "Advanced" },
   th: { starter: "เริ่มต้น", intermediate: "ปานกลาง", advanced: "ขั้นสูง" },
   zh: { starter: "入门", intermediate: "中级", advanced: "高级" },
-  ko: { starter: "쉬움", intermediate: "보통", advanced: "어려움" },
-  ja: { starter: "簡単", intermediate: "普通", advanced: "難しい" },
+  ko: { starter: "초급", intermediate: "중급", advanced: "고급" },
+  ja: { starter: "入門", intermediate: "中級", advanced: "上級" },
 };
 
 function CopyButton({ text, locale }: { text: string; locale: Locale }) {

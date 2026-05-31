@@ -751,7 +751,7 @@ export const ideaCategories: {
 }[] = [
   {
     value: "citizen-reporting",
-    labels: { en: "Citizen Reporting", th: "การแจ้งเหตุโดยพลเมือง", zh: "市民举报", ko: "시민 신고", ja: "市民レポート" },
+    labels: { en: "Citizen Reporting", th: "การแจ้งเหตุโดยพลเมือง", zh: "市民举报", ko: "시민 신고", ja: "市民通報" },
   },
   {
     value: "smart-infrastructure",
@@ -779,6 +779,6 @@ export const ideaCategories: {
   },
   {
     value: "health",
-    labels: { en: "Health", th: "สุขภาพ", zh: "健康", ko: "보건", ja: "健康" },
+    labels: { en: "Health", th: "สุขภาพ", zh: "健康", ko: "보건", ja: "保健" },
   },
 ];

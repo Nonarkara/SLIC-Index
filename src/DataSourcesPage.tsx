@@ -318,7 +318,7 @@ const pillarLabels: Record<Locale, Record<PillarId, string>> = {
   th: { pressure: "แรงกดดัน", viability: "ความน่าอยู่", capability: "ศักยภาพ", community: "ชุมชน", creative: "สร้างสรรค์" },
   zh: { pressure: "压力", viability: "宜居", capability: "能力", community: "社区", creative: "创造" },
   ko: { pressure: "성장", viability: "생활가능성", capability: "역량", community: "커뮤니티", creative: "창의성" },
-  ja: { pressure: "成長", viability: "生活持続性", capability: "ケイパビリティ", community: "コミュニティ", creative: "クリエイティブ" },
+  ja: { pressure: "成長", viability: "生活持続性", capability: "能力", community: "コミュニティ", creative: "創造性" },
 };
 
 const dataLevelLabels: Record<Locale, Record<DataLevel, string>> = {
