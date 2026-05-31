@@ -1,7 +1,7 @@
 # SLIC Index V3 — Pre-Submission Status
 
 > One-page status for Dr Non to skim on the plane.
-> Updated: 2026-05-26 · Live: https://slic.nonarkara.org · Score model: `slic-v3.4.0` · Tier policy: `public-tier-v1.3.0`
+> Updated: 2026-06-01 · Live: https://slic.nonarkara.org · Score model: `slic-v3.4.0` · Tier policy: `public-tier-v1.3.0` · Languages: EN / TH / ZH / KO / JA
 
 ---
 
@@ -77,7 +77,7 @@ Every future data refresh, tier-rule edit, or rescore runs all 21 tests. No sile
 |---|---|
 | `viability_transit_access_commute` missing for several cities | Honestly reflected in coverage grade C. Methodology paper says it. Filling fake transit data would compromise the credibility argument — the gap is the credibility. |
 | `community_birth_rate_optimism` missing for some cities | Same. Diagnostic only — does not enter SLIC composite. |
-| Methodology PDF body translation (currently EN master; TH/ZH share EN content with localised metadata) | Substantial translation effort; metadata table and key facts are localised. Not on the Red Dot critical path. |
+| Methodology PDF body translation (EN master PDF; TH/ZH/KO/JA share EN content with localised metadata) | Substantial translation effort; the site UI is now in all 5 languages, but the downloadable PDF remains EN. Not on the Red Dot critical path. |
 | 1.9 MB JSON published-data chunk on page load | Could be code-split, but the site loads in <2s on broadband and the chunk is gzipped to 158 KB. |
 | xlsx Google Sheets template (689 KB methodology toolkit) | Partner toolkit, not a user-facing artifact. |
 
