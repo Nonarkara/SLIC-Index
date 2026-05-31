@@ -37,6 +37,26 @@ const pillarLabels: Record<Locale, Record<ScorePillar, string>> = {
     infrastructure: "基础设施",
     culture: "文化",
   },
+  ko: {
+    overall: "종합",
+    safety: "안전",
+    economy: "경제",
+    health: "보건",
+    education: "교육",
+    environment: "환경",
+    infrastructure: "인프라",
+    culture: "문화",
+  },
+  ja: {
+    overall: "総合",
+    safety: "安全",
+    economy: "経済",
+    health: "健康",
+    education: "教育",
+    environment: "環境",
+    infrastructure: "インフラ",
+    culture: "文化",
+  },
 };
 
 const thailandUiCopy: Record<
@@ -221,6 +241,98 @@ const thailandUiCopy: Record<
     southEastBody:
       "甲米和普吉等沿海府拥有泰国最干净的空气和强劲的旅游经济，但医疗基础和教育可及性仍较薄。东部海岸带的春武里和罗勇则显示出工业经济实力。",
   },
+  ko: {
+    scope: "범위",
+    ranked: "순위 지정",
+    all: "전체 주",
+    region: "지역",
+    allRegions: "전체",
+    sortBy: "기둥별 정렬",
+    topProvinces: "상위 주",
+    leadingOn: "선두 분야",
+    topSummary: "카드는 모든 기둥의 점수 구성과 주요 주별 지표를 보여줍니다.",
+    fullTable: "전체 표",
+    remaining: "나머지 주",
+    rank: "순위",
+    rankLabel: "순위",
+    province: "주",
+    regionColumn: "지역",
+    gppPerCapita: "1인당 GPP",
+    avgIncome: "평균 소득",
+    perMonth: "/월",
+    pm25: "PM2.5",
+    beds: "병상/만명",
+    crime: "범죄율",
+    green: "녹지 %",
+    provisional: "잠정치",
+    infraShort: "인프라",
+    patternsEyebrow: "지역 패턴",
+    patternsTitle: "주별 데이터가 드러내는 것",
+    patternsSummary:
+      "태국 내부의 SLIC 지형은 경제 산출과 환경 품질, 그리고 인프라 규모와 문화적 깊이 사이의 극명한 균형을 보여줍니다.",
+    centralLabel: "중부",
+    centralTitle: "경제 중심지, 환경 비용",
+    centralBody:
+      "방콕과 위성 도시들은 경제와 인프라에서 탁월하지만 PM2.5, 교통 혼잡, 주거 압박으로 실제 생활은 수치보다 더 힘듭니다. 논타부리와 파툼타니는 수도 인접의 이점을 누리지만 같은 대기질 부담을 안고 있습니다.",
+    northLabel: "북부",
+    northTitle: "문화적 풍요, 계절적 부담",
+    northBody:
+      "치앙마이와 치앙라이는 문화 점수가 가장 높지만 계절적 농업 소각으로 전국 최악의 PM2.5를 기록합니다. 대기질은 이 지역의 가장 뚜렷한 약점이자 가장 시급한 정책 과제입니다.",
+    isanLabel: "북동부 (이산)",
+    isanTitle: "사람의 온기, 경제적 격차",
+    isanBody:
+      "이산 주들은 안전과 문화 활력에서 좋은 점수를 보이지만 경제 지표는 최하위를 유지합니다. 콘깬 같은 대학병원 거점은 집중 투자가 보건 및 교육 점수에 어떤 영향을 미칠 수 있는지 보여줍니다.",
+    southEastLabel: "남부 및 동부",
+    southEastTitle: "최고의 공기질, 고르지 않은 깊이",
+    southEastBody:
+      "끄라비와 푸껫 같은 해안 주들은 태국에서 가장 깨끗한 공기와 강한 관광 경제를 자랑하지만 의료 인프라와 교육 접근성은 여전히 부족합니다. 동부 해안 지대인 촌부리와 라용은 산업 경제의 강점을 보여줍니다.",
+  },
+  ja: {
+    scope: "対象範囲",
+    ranked: "順位付き",
+    all: "全府",
+    region: "地域",
+    allRegions: "全て",
+    sortBy: "柱で並べ替え",
+    topProvinces: "上位府",
+    leadingOn: "リード分野",
+    topSummary: "カードは全柱のスコア構成と主要な府別指標を表示します。",
+    fullTable: "全表",
+    remaining: "残りの府",
+    rank: "順位",
+    rankLabel: "順位",
+    province: "府",
+    regionColumn: "地域",
+    gppPerCapita: "一人当たりGPP",
+    avgIncome: "平均所得",
+    perMonth: "/月",
+    pm25: "PM2.5",
+    beds: "病床/万人",
+    crime: "犯罪率",
+    green: "緑地 %",
+    provisional: "暫定値",
+    infraShort: "インフラ",
+    patternsEyebrow: "地域パターン",
+    patternsTitle: "府別データが明らかにすること",
+    patternsSummary:
+      "タイ国内のSLIC地図は、経済産出と環境品質の間、そしてインフラ規模と文化的深みの間にある明確なトレードオフを示しています。",
+    centralLabel: "中部",
+    centralTitle: "経済の重力と環境コスト",
+    centralBody:
+      "バンコクと衛星都市は経済とインフラで優位に立つが、PM2.5・渋滞・住宅圧力により実際の生活は数字が示すより困難です。ノンタブリーとパトゥムタニーは首都近隣の恩恵を受けつつ、同じ大気質の負担を抱えています。",
+    northLabel: "北部",
+    northTitle: "文化的豊かさと季節的負担",
+    northBody:
+      "チェンマイとチェンライは文化スコアが最も高いが、季節的な農業焼却により全国最悪のPM2.5を記録します。大気質はこの地域で最も顕著な弱点であり、最も緊急な政策課題です。",
+    isanLabel: "東北部（イサーン）",
+    isanTitle: "人の温かさと経済格差",
+    isanBody:
+      "イサーンの府は安全と文化活力では好成績を収めるが、経済指標では依然として最下位です。コンケンのような大学病院拠点は、集中投資が保健・教育スコアにどれほど貢献できるかを示しています。",
+    southEastLabel: "南部・東部",
+    southEastTitle: "最高の空気質、不均一な深み",
+    southEastBody:
+      "クラビやプーケットなどの沿岸府はタイで最もきれいな空気と強い観光経済を持つが、医療インフラと教育アクセスは薄いままです。東部臨海地帯のチョンブリーとラヨーンは工業経済の強みを示しています。",
+  },
 };
 
 function formatBaht(value: number): string {
@@ -345,7 +457,7 @@ export default function ThailandPage({
 
                 {province.mayor && (
                   <p className="city-mayor" style={{ fontSize: "0.78rem", color: "#6b6459", margin: "0 0 0.6rem" }}>
-                    {locale === "th" ? "ผู้ว่าฯ" : locale === "zh" ? "市长" : "Mayor"}{" "}
+                    {locale === "th" ? "ผู้ว่าฯ" : locale === "zh" ? "市长" : locale === "ko" ? "지사" : locale === "ja" ? "知事" : "Mayor"}{" "}
                     <strong>{locale === "th" && province.mayorTh ? province.mayorTh : province.mayor}</strong>
                   </p>
                 )}

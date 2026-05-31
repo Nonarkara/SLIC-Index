@@ -227,18 +227,106 @@ const copy = {
     manifestLabel: "清单",
     reproducibilityLabel: "可复现性",
   },
+  ko: {
+    eyebrow: "증거 등록부",
+    title: "SLIC의 기반 데이터",
+    intro:
+      "현재 발행 번들의 감사 화면: 관측된 지표 행, 출처 수준, 출처 계열, 지표 구조 및 재현성 지문.",
+    publicLines: "공개 지표 행",
+    observedLines: "데이터가 있는 행",
+    sourceLabels: "출처 레이블",
+    sourceUrls: "출처 URL",
+    sourceDomains: "출처 도메인",
+    componentInputs: "구성 요소 입력",
+    cities: "도시",
+    ranked: "순위 지정",
+    watchlist: "관찰 목록",
+    scoreModel: "점수 모델",
+    updated: "업데이트",
+    provenanceTitle: "출처 구성",
+    provenanceSummary:
+      "모든 공개 지표 행에는 데이터 수준이 지정됩니다. 도시 및 광역 데이터는 로컬 증거이며, 국가·파생·복합 데이터는 명시적 프록시 또는 계산된 증거로 숨겨진 가산점이 아닙니다.",
+    sourceTitle: "출처 계열",
+    sourceSummary:
+      "출처 데스크는 현재 발행 번들의 모든 지표 수준 및 구성 요소 수준 출처 URL을 집계합니다.",
+    metricTitle: "지표 구조",
+    metricSummary:
+      "공개 점수는 5개 기둥에 걸쳐 20개의 채점 지표와 합산에 포함되지 않는 3개의 진단 지표를 사용합니다.",
+    coverageTitle: "커버리지 및 감사 추적",
+    coverageSummary:
+      "발행 번들은 해시와 무결성 검사를 포함하여 향후 재실행 시 동일한 모델, 정규화 통계 및 지표 카탈로그와 비교할 수 있습니다.",
+    observedShare: "관측 비율",
+    totalShare: "전체 비율",
+    noUrl: "URL 없음",
+    scored: "채점됨",
+    diagnostic: "진단",
+    weight: "가중치",
+    coverageGrade: "커버리지 등급",
+    issueCount: "무결성 문제",
+    rankInversions: "순위 역전",
+    tierCount: "등급 도시",
+    tierPolicy: "등급 정책",
+    manifestLabel: "매니페스트",
+    reproducibilityLabel: "재현성",
+  },
+  ja: {
+    eyebrow: "証拠レジスタ",
+    title: "SLICの基礎データ",
+    intro:
+      "現行の発行バンドルのコンパクトな監査画面：観測された指標行、出所レベル、出典ファミリー、指標構造、再現性フィンガープリント。",
+    publicLines: "公開指標行",
+    observedLines: "データのある行",
+    sourceLabels: "出典ラベル",
+    sourceUrls: "出典 URL",
+    sourceDomains: "出典ドメイン",
+    componentInputs: "コンポーネント入力",
+    cities: "都市",
+    ranked: "ランク付き",
+    watchlist: "観察リスト",
+    scoreModel: "スコアモデル",
+    updated: "更新日時",
+    provenanceTitle: "出所の構成",
+    provenanceSummary:
+      "すべての公開指標行にはデータレベルが割り当てられます。都市・都市圏データはローカルの証拠であり、国家・派生・複合データは明示的なプロキシまたは計算済みの証拠で、隠れたボーナスではありません。",
+    sourceTitle: "出典ファミリー",
+    sourceSummary:
+      "ソースデスクは現行の発行バンドル内のすべての指標レベルおよびコンポーネントレベルの出典 URL を集計します。",
+    metricTitle: "指標構造",
+    metricSummary:
+      "公開スコアは5つの柱にわたる20本のスコアリング指標と、合計に含まれない3つの診断指標を使用します。",
+    coverageTitle: "カバレッジと監査証跡",
+    coverageSummary:
+      "発行バンドルにはハッシュと整合性チェックが含まれており、将来の再実行時に同一モデル・正規化統計・指標カタログと照合できます。",
+    observedShare: "観測割合",
+    totalShare: "全体割合",
+    noUrl: "URL なし",
+    scored: "採点済み",
+    diagnostic: "診断",
+    weight: "重み",
+    coverageGrade: "カバレッジグレード",
+    issueCount: "整合性の問題",
+    rankInversions: "順位逆転",
+    tierCount: "ティア付き都市",
+    tierPolicy: "ティアポリシー",
+    manifestLabel: "マニフェスト",
+    reproducibilityLabel: "再現性",
+  },
 } as const;
 
 const pillarLabels: Record<Locale, Record<PillarId, string>> = {
   en: { pressure: "Pressure", viability: "Viability", capability: "Capability", community: "Community", creative: "Creative" },
   th: { pressure: "แรงกดดัน", viability: "ความน่าอยู่", capability: "ศักยภาพ", community: "ชุมชน", creative: "สร้างสรรค์" },
   zh: { pressure: "压力", viability: "宜居", capability: "能力", community: "社区", creative: "创造" },
+  ko: { pressure: "성장", viability: "생활가능성", capability: "역량", community: "커뮤니티", creative: "창의성" },
+  ja: { pressure: "成長", viability: "生活持続性", capability: "ケイパビリティ", community: "コミュニティ", creative: "クリエイティブ" },
 };
 
 const dataLevelLabels: Record<Locale, Record<DataLevel, string>> = {
   en: { city: "City / metro", national: "National", derived: "Derived", composite: "Composite", missing: "Missing" },
   th: { city: "เมือง / เมโทร", national: "ระดับชาติ", derived: "คำนวณต่อ", composite: "คอมโพสิต", missing: "ขาดข้อมูล" },
   zh: { city: "城市 / 都会", national: "国家层", derived: "派生", composite: "复合", missing: "缺失" },
+  ko: { city: "도시 수준", national: "국가 수준", derived: "파생", composite: "복합", missing: "데이터 없음" },
+  ja: { city: "都市レベル", national: "国家レベル", derived: "派生", composite: "複合", missing: "データなし" },
 };
 
 function isObserved(metric?: MetricComponent) {
@@ -305,7 +393,11 @@ function tally<T extends string>(values: T[]) {
 }
 
 function numberFormat(locale: Locale) {
-  return new Intl.NumberFormat(locale === "th" ? "th-TH" : locale === "zh" ? "zh-CN" : "en-US");
+  if (locale === "th") return new Intl.NumberFormat("th-TH");
+  if (locale === "zh") return new Intl.NumberFormat("zh-CN");
+  if (locale === "ko") return new Intl.NumberFormat("ko-KR");
+  if (locale === "ja") return new Intl.NumberFormat("ja-JP");
+  return new Intl.NumberFormat("en-US");
 }
 
 function percent(value: number | null | undefined) {
@@ -318,7 +410,13 @@ function shortHash(value: string | undefined) {
 
 function formatDate(value: string | undefined, locale: Locale) {
   if (!value) return "—";
-  return new Intl.DateTimeFormat(locale === "th" ? "th-TH" : locale === "zh" ? "zh-CN" : "en-US", {
+  const intlLocale =
+    locale === "th" ? "th-TH" :
+    locale === "zh" ? "zh-CN" :
+    locale === "ko" ? "ko-KR" :
+    locale === "ja" ? "ja-JP" :
+    "en-US";
+  return new Intl.DateTimeFormat(intlLocale, {
     year: "numeric",
     month: "short",
     day: "numeric",
