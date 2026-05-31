@@ -227,6 +227,14 @@ Per §13: the same mistake never happens twice.
 
 ---
 
+## 2026-06-01 · Native-speaker audit before ambassador distribution
+
+- **What went wrong:** After completing ko/ja i18n expansion across 23 files using AI translation, the output was nearly ambassador-ready but contained ~120 issues: critical meaning errors (균형=balance where "tradeoffs" was intended; 합리적인=rational where "affordable" was intended; 지속가능성=sustainability used for the Viability pillar), register errors (감사된/監査済み meaning "financially audited" used in data-validation context), domain-term errors (宜居性 is Chinese not Japanese; ケイパビリティ and クリエイティブ were business jargon where 能力 and 創造性 are the academic standard), a factual typo (author's name "Non Arkara" corrupted with Cyrillic characters in one locale), and cross-file pillar label inconsistencies (RankingsPage and CityScorecardPage used different Japanese terms for the same pillar).
+- **Correct behaviour:** Before showing any locale expansion to a native-speaker audience (especially ambassadors, academic peers, or award jurors), run a full audit pass with a native-speaker prompt — not just a build/typecheck pass. The audit found issues that TypeScript and the 21 invariants cannot catch: wrong register, wrong domain vocabulary, meaning inversions, cross-file inconsistencies. Treat locale expansion as two-phase: (1) machine-assisted translation pass, (2) native-register audit pass. Neither is optional.
+- **How to recognise:** Any i18n expansion > 5 files, or any locale going to a professional/formal audience, needs the audit. Symptoms: a native speaker's first reaction is hesitation rather than approval. TypeScript can be clean with 21/21 invariants passing while meaning errors remain invisible.
+
+---
+
 <!-- FORMAT for future entries:
 ## YYYY-MM-DD · [short title of the mistake]
 - **What went wrong:** ...
