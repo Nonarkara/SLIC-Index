@@ -40,6 +40,18 @@ const menuLabels: Record<Locale, { open: string; close: string; primary: string;
     primary: "主导航",
     mobile: "移动导航",
   },
+  ko: {
+    open: "내비게이션 열기",
+    close: "내비게이션 닫기",
+    primary: "주요 내비게이션",
+    mobile: "모바일 내비게이션",
+  },
+  ja: {
+    open: "ナビゲーションを開く",
+    close: "ナビゲーションを閉じる",
+    primary: "メインナビゲーション",
+    mobile: "モバイルナビゲーション",
+  },
 };
 
 function navLabel(path: SitePath, locale: Locale): string {
@@ -48,12 +60,30 @@ function navLabel(path: SitePath, locale: Locale): string {
   if (path === "/about-slic") return copy.nav.aboutSlic;
   if (path === "/rankings") return copy.nav.rankings;
   if (path === "/methodology") return copy.nav.methodology;
-  if (path === "/data") return locale === "en" ? "Data" : locale === "th" ? "ข้อมูล" : "数据";
+  if (path === "/data") {
+    if (locale === "th") return "ข้อมูล";
+    if (locale === "zh") return "数据";
+    if (locale === "ko") return "데이터";
+    if (locale === "ja") return "データ";
+    return "Data";
+  }
   if (path === "/ideas") return copy.nav.ideas;
   if (path === "/essay") return copy.nav.essay;
   if (path === "/compare") return copy.nav.compare;
-  if (path === "/side-by-side") return locale === "en" ? "Side by Side" : locale === "th" ? "เทียบเมือง" : "城市对比";
-  if (path === "/map") return locale === "en" ? "Map" : locale === "th" ? "แผนที่" : "地图";
+  if (path === "/side-by-side") {
+    if (locale === "th") return "เทียบเมือง";
+    if (locale === "zh") return "城市对比";
+    if (locale === "ko") return "도시 비교";
+    if (locale === "ja") return "都市比較";
+    return "Side by Side";
+  }
+  if (path === "/map") {
+    if (locale === "th") return "แผนที่";
+    if (locale === "zh") return "地图";
+    if (locale === "ko") return "지도";
+    if (locale === "ja") return "地図";
+    return "Map";
+  }
   if (path === "/history") return copy.nav.history;
   return copy.nav.thailand;
 }
@@ -142,14 +172,14 @@ export default function SiteMasthead({
         className="skip-link"
         tabIndex={0}
       >
-        {locale === "th" ? "ข้ามไปเนื้อหาหลัก" : locale === "zh" ? "跳至主要内容" : "Skip to content"}
+        {locale === "th" ? "ข้ามไปเนื้อหาหลัก" : locale === "zh" ? "跳至主要内容" : locale === "ko" ? "본문으로 이동" : locale === "ja" ? "メインコンテンツへ" : "Skip to content"}
       </a>
       <div className="mh-inner">
         <a
           href={appHref("/")}
           className="mh-wordmark"
           onClick={(event) => navigateLink(event, onNavigate, "/")}
-          aria-label={locale === "th" ? "กลับหน้าหลัก SLIC" : locale === "zh" ? "SLIC 首页" : "SLIC home"}
+          aria-label={locale === "th" ? "กลับหน้าหลัก SLIC" : locale === "zh" ? "SLIC 首页" : locale === "ko" ? "SLIC 홈" : locale === "ja" ? "SLICホーム" : "SLIC home"}
         >
           <img 
             src={`${BASE}${slicLogo.src}`} 

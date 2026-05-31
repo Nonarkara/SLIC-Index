@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap");
 
 /*
  * CJK + Thai script overrides — workspace CLAUDE.md §0.
@@ -38,6 +38,31 @@
 }
 :lang(zh) :is(code, pre, .mono, [class*="mono"], [style*="JetBrains"]) {
   font-family: "JetBrains Mono", "Noto Sans SC", "PingFang SC", monospace !important;
+}
+
+/*
+ * Korean (U+AC00-U+D7A3 + Hangul Jamo): use Noto Sans KR — clean, geometric,
+ * matches the editorial sans-serif aesthetic of the site.
+ */
+:lang(ko),
+:lang(ko) * {
+  font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", -apple-system, sans-serif !important;
+}
+:lang(ko) :is(code, pre, .mono, [class*="mono"], [style*="JetBrains"]) {
+  font-family: "JetBrains Mono", "Noto Sans KR", monospace !important;
+}
+
+/*
+ * Japanese (Hiragana U+3040-U+309F, Katakana U+30A0-U+30FF, CJK):
+ * Noto Sans JP — consistent with the CJK family, no decorative strokes.
+ * System fallback: Hiragino Sans (macOS/iOS) → Yu Gothic (Windows).
+ */
+:lang(ja),
+:lang(ja) * {
+  font-family: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", -apple-system, sans-serif !important;
+}
+:lang(ja) :is(code, pre, .mono, [class*="mono"], [style*="JetBrains"]) {
+  font-family: "JetBrains Mono", "Noto Sans JP", monospace !important;
 }
 
 /* ═══════ V3: MONOCLE EDITORIAL — warm, photographic, story-driven ═══════ */
@@ -11480,5 +11505,51 @@ a.essay-reference-text:hover {
   .essay-photo figcaption {
     flex-direction: column;
     gap: 0.25rem;
+  }
+}
+
+/* ── Essay abstract (non-EN locales) ── */
+.essay-abstract {
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+  padding: 2rem 2.5rem;
+  border-left: 2px solid var(--color-accent);
+  background: rgba(184, 92, 40, 0.03);
+}
+
+.essay-abstract-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin: 0 0 1.25rem;
+}
+
+.essay-abstract p {
+  font-family: var(--font-body);
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 1.75;
+  color: var(--color-ink);
+  margin: 0 0 1rem;
+}
+
+.essay-abstract p:last-of-type {
+  margin-bottom: 0;
+}
+
+.essay-lang-note {
+  margin-top: 1.5rem !important;
+  font-family: var(--font-mono);
+  font-size: 11px !important;
+  letter-spacing: 0.04em;
+  color: rgba(28, 25, 20, 0.45) !important;
+  border-top: 1px solid rgba(28, 25, 20, 0.1);
+  padding-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  .essay-abstract {
+    padding: 1.25rem 1.25rem 1.25rem 1.25rem;
   }
 }

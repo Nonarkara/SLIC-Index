@@ -30,6 +30,8 @@ const localeMap: Record<Locale, string> = {
   en: "en",
   th: "th",
   zh: "zh-CN",
+  ko: "ko",
+  ja: "ja",
 };
 
 function detectLocale(): Locale {
@@ -38,7 +40,7 @@ function detectLocale(): Locale {
   }
 
   const savedLocale = window.localStorage.getItem("slic-locale");
-  if (savedLocale === "en" || savedLocale === "th" || savedLocale === "zh") {
+  if (savedLocale === "en" || savedLocale === "th" || savedLocale === "zh" || savedLocale === "ko" || savedLocale === "ja") {
     return savedLocale;
   }
 
@@ -51,6 +53,12 @@ function detectLocale(): Locale {
   }
   if (candidates.some((value) => value.startsWith("zh"))) {
     return "zh";
+  }
+  if (candidates.some((value) => value.startsWith("ko"))) {
+    return "ko";
+  }
+  if (candidates.some((value) => value.startsWith("ja"))) {
+    return "ja";
   }
 
   return "en";
@@ -165,6 +173,16 @@ const routeLoadingCopy: Record<
     title: "正在准备下一个版块。",
     body: "正在载入页面模块与界面资源。",
   },
+  ko: {
+    eyebrow: "페이지 로딩 중",
+    title: "다음 섹션을 준비하고 있습니다.",
+    body: "페이지 모듈과 인터페이스 리소스를 불러오고 있습니다.",
+  },
+  ja: {
+    eyebrow: "ページを読み込み中",
+    title: "次のセクションを準備しています。",
+    body: "ページモジュールとインターフェースアセットを読み込んでいます。",
+  },
 };
 
 function RouteLoading({ locale }: { locale: Locale }) {
@@ -199,6 +217,18 @@ const errorCopy: Record<Locale, { eyebrow: string; title: string; body: string; 
     title: "此页面无法加载。",
     body: "页面模块未能渲染。请尝试重新加载或返回首页。",
     retry: "重新加载",
+  },
+  ko: {
+    eyebrow: "페이지 오류",
+    title: "이 화면을 불러올 수 없습니다.",
+    body: "페이지 모듈 렌더링에 실패했습니다. 페이지를 새로고침하거나 홈으로 돌아가 주세요.",
+    retry: "새로고침",
+  },
+  ja: {
+    eyebrow: "ページエラー",
+    title: "このページを読み込めませんでした。",
+    body: "ページモジュールのレンダリングに失敗しました。再読み込みするか、ホームページに戻ってください。",
+    retry: "再読み込み",
   },
 };
 
@@ -271,97 +301,26 @@ export default function App() {
 
   useEffect(() => {
     const localeTitlePrefix = localeLabels[locale];
-    const routeTitle =
-      route === "/about-slic"
-        ? locale === "th"
-          ? "เกี่ยวกับ SLIC"
-          : locale === "zh"
-            ? "关于 SLIC"
-            : "About SLIC"
-        : route === "/awards"
-          ? locale === "th"
-            ? "เอกสารยื่นรางวัล SLIC"
-            : locale === "zh"
-              ? "SLIC 投奖案卷"
-              : "SLIC Submission Dossier"
-        : route === "/methodology"
-          ? locale === "th"
-            ? "ระเบียบวิธี SLIC"
-            : locale === "zh"
-              ? "SLIC 方法论"
-              : "SLIC Methodology"
-          : route === "/data"
-            ? locale === "th"
-              ? "ข้อมูลและแหล่งอ้างอิง SLIC"
-              : locale === "zh"
-                ? "SLIC 数据与来源"
-                : "SLIC Data and Sources"
-          : route === "/rankings"
-            ? locale === "th"
-              ? "การจัดอันดับเมือง SLIC"
-              : locale === "zh"
-                ? "SLIC 城市排名"
-                : "SLIC Rankings"
-            : route === "/exercise"
-              ? locale === "th"
-                ? "แบบฝึกหาเมืองที่เหมาะกับคุณ"
-                : locale === "zh"
-                  ? "城市匹配练习"
-                  : "City Match Exercise"
-            : route === "/thailand"
-              ? locale === "th"
-                ? "SLIC ประเทศไทย"
-                : locale === "zh"
-                  ? "SLIC 泰国"
-                  : "SLIC Thailand"
-              : route === "/essay"
-                ? locale === "th"
-                  ? "บทความ SLIC"
-                  : locale === "zh"
-                    ? "SLIC 文章"
-                    : "SLIC Essay"
-                : route === "/ideas"
-                ? locale === "th"
-                  ? "ขโมยไอเดียนี้"
-                  : locale === "zh"
-                    ? "偷师这个创意"
-                    : "Steal This Idea"
-              : route === "/compare"
-                ? locale === "th"
-                  ? "เปรียบเทียบดัชนี"
-                  : locale === "zh"
-                    ? "对比排名"
-                    : "Compare Rankings"
-              : route === "/history"
-                ? locale === "th"
-                  ? "เบื้องหลัง SLIC"
-                  : locale === "zh"
-                    ? "SLIC 发展历程"
-                    : "How SLIC Was Built"
-              : route === "/side-by-side"
-                ? locale === "th"
-                  ? "เปรียบเทียบเมืองแบบเคียงข้าง"
-                  : locale === "zh"
-                    ? "城市并排对比"
-                    : "Side by Side"
-              : route === "/map"
-                ? locale === "th"
-                  ? "แผนที่โลก SLIC"
-                  : locale === "zh"
-                    ? "SLIC 全球地图"
-                    : "SLIC Global Map"
-              : route === "/city"
-                ? locale === "th"
-                  ? "สรุปคะแนนเมือง"
-                  : locale === "zh"
-                    ? "城市评分卡"
-                    : "City Scorecard"
-                : locale === "th"
-                  ? "สร้างอันดับเมืองของคุณ"
-                  : locale === "zh"
-                    ? "构建你的城市排名"
-                    : "Build Your City Ranking";
 
+    const routeTitles: Record<SitePath, Record<Locale, string>> = {
+      "/about-slic": { en: "About SLIC", th: "เกี่ยวกับ SLIC", zh: "关于 SLIC", ko: "SLIC 소개", ja: "SLICについて" },
+      "/awards": { en: "SLIC Submission Dossier", th: "เอกสารยื่นรางวัล SLIC", zh: "SLIC 投奖案卷", ko: "SLIC 수상 제출 서류", ja: "SLIC 応募資料" },
+      "/methodology": { en: "SLIC Methodology", th: "ระเบียบวิธี SLIC", zh: "SLIC 方法论", ko: "SLIC 방법론", ja: "SLIC 方法論" },
+      "/data": { en: "SLIC Data and Sources", th: "ข้อมูลและแหล่งอ้างอิง SLIC", zh: "SLIC 数据与来源", ko: "SLIC 데이터 및 출처", ja: "SLICデータと出典" },
+      "/rankings": { en: "SLIC Rankings", th: "การจัดอันดับเมือง SLIC", zh: "SLIC 城市排名", ko: "SLIC 순위", ja: "SLICランキング" },
+      "/exercise": { en: "City Match Exercise", th: "แบบฝึกหาเมืองที่เหมาะกับคุณ", zh: "城市匹配练习", ko: "도시 매칭 연습", ja: "都市マッチング練習" },
+      "/thailand": { en: "SLIC Thailand", th: "SLIC ประเทศไทย", zh: "SLIC 泰国", ko: "SLIC 태국", ja: "SLICタイランド" },
+      "/essay": { en: "SLIC Essay", th: "บทความ SLIC", zh: "SLIC 文章", ko: "SLIC 에세이", ja: "SLICエッセイ" },
+      "/ideas": { en: "Steal This Idea", th: "ขโมยไอเดียนี้", zh: "偷师这个创意", ko: "이 아이디어를 가져가세요", ja: "このアイデアを盗め" },
+      "/compare": { en: "Compare Rankings", th: "เปรียบเทียบดัชนี", zh: "对比排名", ko: "순위 비교", ja: "ランキング比較" },
+      "/history": { en: "How SLIC Was Built", th: "เบื้องหลัง SLIC", zh: "SLIC 发展历程", ko: "SLIC 개발 여정", ja: "SLICの開発経緯" },
+      "/side-by-side": { en: "Side by Side", th: "เปรียบเทียบเมืองแบบเคียงข้าง", zh: "城市并排对比", ko: "도시 나란히 비교", ja: "都市並列比較" },
+      "/map": { en: "SLIC Global Map", th: "แผนที่โลก SLIC", zh: "SLIC 全球地图", ko: "SLIC 글로벌 지도", ja: "SLICグローバルマップ" },
+      "/city": { en: "City Scorecard", th: "สรุปคะแนนเมือง", zh: "城市评分卡", ko: "도시 스코어카드", ja: "都市スコアカード" },
+      "/": { en: "Build Your City Ranking", th: "สร้างอันดับเมืองของคุณ", zh: "构建你的城市排名", ko: "나만의 도시 순위 만들기", ja: "あなたの都市ランキングを作る" },
+    };
+
+    const routeTitle = routeTitles[route]?.[locale] ?? routeTitles["/"][locale];
     document.title = `${routeTitle} · ${localeTitlePrefix}`;
   }, [locale, route]);
 
