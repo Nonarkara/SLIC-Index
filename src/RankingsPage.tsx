@@ -56,7 +56,7 @@ const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
     creative: "创新",
   },
   ko: { pressure: "성장", viability: "생활가능성", capability: "역량", community: "커뮤니티", creative: "창의성" },
-  ja: { pressure: "成長", viability: "生活持続性", capability: "ケイパビリティ", community: "コミュニティ", creative: "クリエイティブ" },
+  ja: { pressure: "成長", viability: "生活持続性", capability: "能力", community: "コミュニティ", creative: "創造性" },
 };
 
 const PILLAR_HINTS: Record<Locale, Record<PillarId, string>> = {
@@ -92,8 +92,8 @@ const PILLAR_HINTS: Record<Locale, Record<PillarId, string>> = {
     pressure: "経済的活力、市場メカニズム、自然な結果としての生活可能性。",
     viability: "安全、大気、交通、水、デジタルの信頼性。",
     capability: "医療、教育、上方移動への平等なアクセス。",
-    community: "帰属感、寛容さ、公共の生活、社会的質感。",
-    creative: "起業、研究、生産的な競争力、野心。",
+    community: "帰属感、寛容性、公共の生活、社会的肌合い。",
+    creative: "起業家精神、研究、生産的な競争力、野心。",
   },
 };
 
@@ -183,7 +183,7 @@ const PRESETS: Array<{
       en: "Affordable metropolis",
       th: "มหานครที่ยังพอใช้ชีวิตได้",
       zh: "可负担的大都市",
-      ko: "합리적인 대도시",
+      ko: "물가 부담 없는 대도시",
       ja: "手頃な大都市",
     },
     tagline: {
@@ -191,7 +191,7 @@ const PRESETS: Array<{
       th: "ชีวิตเมืองใหญ่ที่ค่าเช่าไม่กินเงินเดือน",
       zh: "大城市生活，但租金不会吞掉薪水。",
       ko: "집세가 월급을 잡아먹지 않는 대도시 생활",
-      ja: "家賃が給料を食わない大都市生活。",
+      ja: "家賃に給料を食われない大都市生活。",
     },
   },
   {
@@ -238,7 +238,7 @@ const PRESETS: Array<{
       th: "สวรรค์ของวัยเกษียณ",
       zh: "退休天堂",
       ko: "은퇴 낙원",
-      ja: "リタイヤメント天国",
+      ja: "リタイア天国",
     },
     tagline: {
       en: "Safety, healthcare, belonging — nothing else matters.",
@@ -493,7 +493,7 @@ const interactiveCopy: Record<
     tierBand: "{from}–{to}위",
   },
   ja: {
-    heroEyebrow: "優先度エンジン",
+    heroEyebrow: "プリファレンスエンジン",
     heroTitle: "都市フィールドを自分の生活に合わせて調整",
     heroIntro: "このワークベンチは{count}都市全体をリアルタイムで再ランキングします。スパイダー図をドラッグするか、スライダーを調整するか、プリセットを使用して、本当に望む生活に合った都市を見つけてください。",
     heroNoteTitle: "なぜ追跡可能なのか",
@@ -507,7 +507,7 @@ const interactiveCopy: Record<
     resetLabel: "SLICベースラインにリセット",
     canonicalBadge: "公式SLICランキング",
     customBadge: "あなたのプロファイル一致",
-    canonicalNote: "宣言されたベースライン：成長 25 / 生活持続性 22 / ケイパビリティ 18 / コミュニティ 15 / クリエイティブ 20",
+    canonicalNote: "宣言されたベースライン：成長 25 / 生活持続性 22 / 能力 18 / コミュニティ 15 / 創造性 20",
     methodologyTitle: "宣言された方法論",
     methodologyBody: "成長は経済的モメンタムと必要経費後の余裕を反映します。ここでの重みの調整は公開されたワークブックスコアを変更しません。",
     consequencesTitle: "トレードオフシグナル",
@@ -521,21 +521,21 @@ const interactiveCopy: Record<
     citiesLabel: "表示中の都市",
     top10: "上位10",
     top50: "上位50",
-    showAll: "全て",
+    showAll: "すべて",
     regionLabel: "地域",
     allRegions: "全地域",
     featureSignal: "現在のシグナル",
     featurePriority: "最も一致する柱",
     featureWhy: "適合する理由",
     featureTags: "フィールドタグ",
-    listTitle: "プロファイル一致全リスト",
+    listTitle: "プロファイル一致の全リスト",
     scoreNow: "現在",
     reviewMethodology: "方法論を確認",
     downloadSheet: "シートテンプレートをダウンロード",
     tierAlpha: "アルファ",
     tierBeta: "ベータ",
     tierGamma: "ガンマ",
-    tierContenders: "コンテンダー",
+    tierContenders: "上位候補群",
     tierBand: "{from}–{to}位",
   },
 };
@@ -651,7 +651,7 @@ function profileReadout(
   if (locale === "ko") {
     return {
       eyebrow: "현재 프로필",
-      title: `${labels[top[0]]} 우선 · ${labels[top[1]]} 차순`,
+      title: `${labels[top[0]]} 우선 · ${labels[top[1]]} 차순위`,
       body: `이 프로필은 ${labels[top[0]]}과 ${labels[top[1]]}을 적극적으로 우대하며, ${labels[low[0]]}과 ${labels[low[1]]}의 비중을 낮춰 더 구체적인 도시 유형으로 결과를 이동시킵니다.`,
     };
   }

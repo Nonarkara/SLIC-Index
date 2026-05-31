@@ -104,7 +104,7 @@ const PILLAR_LABELS: Record<string, Record<PillarId, string>> = {
   th: { pressure: "แรงกดดันการเติบโต", viability: "ความน่าอยู่", capability: "ศักยภาพ", community: "ชุมชน", creative: "ความสร้างสรรค์" },
   zh: { pressure: "增长压力", viability: "宜居性", capability: "能力", community: "社区", creative: "创新" },
   ko: { pressure: "성장 압력", viability: "생활 가능성", capability: "역량", community: "커뮤니티", creative: "창의성" },
-  ja: { pressure: "成長プレッシャー", viability: "生活適合性", capability: "能力", community: "コミュニティ", creative: "創造性" },
+  ja: { pressure: "成長圧力", viability: "生活持続性", capability: "能力", community: "コミュニティ", creative: "創造性" },
 };
 
 const PILLAR_WEIGHTS: Record<PillarId, number> = {
@@ -229,7 +229,7 @@ const METRIC_LABELS: Record<Locale, Record<string, string>> = {
     viability_climate_sunlight_livability: "기후 및 일조",
     capability_healthcare_quality: "의료 수준",
     capability_education_quality: "교육 수준",
-    capability_equal_opportunity_distributional_fairness: "균등한 기회",
+    capability_equal_opportunity_distributional_fairness: "평등한 기회",
     community_hospitality_belonging: "환대 및 소속감",
     community_tolerance_pluralism: "관용 및 다원성",
     community_cultural_historic_public_life_vitality: "문화 생활",
@@ -238,7 +238,7 @@ const METRIC_LABELS: Record<Locale, Record<string, string>> = {
     creative_innovation_research_intensity: "혁신 및 R&D",
     creative_economic_vitality_productive_context: "경제 활력",
     creative_administrative_investment_friction: "행정 마찰",
-    equal_opportunity_raw: "균등한 기회",
+    equal_opportunity_raw: "평등한 기회",
     gdp_growth_context: "GDP 성장 맥락",
     gdp_per_capita_ppp_context: "1인당 GDP (PPP)",
     gini_coefficient_context: "지니 계수",
@@ -248,7 +248,7 @@ const METRIC_LABELS: Record<Locale, Record<string, string>> = {
   },
   ja: {
     pressure_disposable_income_ppp: "可処分所得（PPP）",
-    pressure_housing_burden: "住宅価格プレッシャー",
+    pressure_housing_burden: "住宅価格圧力",
     pressure_economic_growth_momentum: "経済成長モメンタム",
     pressure_household_debt_burden: "家計債務負担",
     pressure_working_time_pressure: "労働時間",
@@ -304,14 +304,14 @@ const DATA_LEVEL_LABELS: Record<Locale, Record<string, string>> = {
   },
   ko: {
     city: "도시 데이터",
-    national: "국가 대리",
+    national: "국가 수준 대리값",
     derived: "파생값",
     composite: "복합값",
     missing: "데이터 없음",
   },
   ja: {
     city: "都市データ",
-    national: "国家レベル代理",
+    national: "国レベルの代理値",
     derived: "派生値",
     composite: "複合値",
     missing: "データなし",
@@ -526,7 +526,7 @@ const SCORECARD_TEXT = {
     backToRankings: "순위로 돌아가기",
     backToAllCities: "순위로 돌아가기",
     citiesSuffix: "개 도시",
-    coverageSuffix: "커버리지",
+    coverageSuffix: "적용 범위",
     exploratoryField: "탐색 데이터",
     cityOverview: "도시 개요",
     slicReading: "SLIC 분석",
@@ -534,7 +534,7 @@ const SCORECARD_TEXT = {
     photoBy: "사진 제공",
     type: "유형",
     region: "지역",
-    dataCoverage: "데이터 커버리지",
+    dataCoverage: "데이터 적용 범위",
     status: "상태",
     primaryCity: "주요 도시",
     secondaryCity: "보조 도시",
@@ -550,17 +550,17 @@ const SCORECARD_TEXT = {
     publishedScoreNote: "이 카드는 검증된 워크북 내보내기에서 해당 도시의 공개 SLIC 점수를 보여줍니다. 아래의 다섯 가지 기둥 값은 그 수치를 추적하는 공개 경로입니다.",
     exploratoryScoreNote: "이 도시는 아직 검증된 공개 보드에 포함되지 않았습니다. 여기에 표시된 수치는 비교를 위한 탐색적 점수이며 공개 보드 점수가 아닙니다.",
     weightSuffix: "가중치",
-    dataCoverageNote: "데이터 커버리지",
+    dataCoverageNote: "데이터 적용 범위",
     whatStandsOut: "주요 특징",
     highestMetric: "최고 점수 지표",
     lowestMetric: "최저 점수 지표",
     dataTransparency: "데이터 투명성",
-    overallCoverage: "전체 커버리지",
-    transparencyNote: '"도시 데이터"로 표시된 지표는 검증된 도시 수준 출처에서 가져옵니다. "국가 대리"는 이 도시에 적용된 국가 수준 추정치를 의미합니다. "파생값"은 다른 입력값에서 계산된 값을 의미합니다.',
-    transparencyPending: "이 도시에는 아직 공개된 워크북 커버리지 스냅샷이 없습니다. 도시가 검증된 보드에 입력된 후 지표 수준의 출처가 표시됩니다.",
+    overallCoverage: "전체 적용 범위",
+    transparencyNote: '"도시 데이터"로 표시된 지표는 검증된 도시 수준 출처에서 가져옵니다. "국가 수준 대리값"은 이 도시에 적용된 국가 수준 추정치를 의미합니다. "파생값"은 다른 입력값에서 계산된 값을 의미합니다.',
+    transparencyPending: "이 도시에는 아직 공개된 워크북 적용 범위 스냅샷이 없습니다. 도시가 검증된 보드에 입력된 후 지표 수준의 출처가 표시됩니다.",
     stronger: "가장 강한 신호",
     weaker: "가장 약한 신호",
-    ofIncome: "% 소득",
+    ofIncome: "소득 대비 %",
     perSqft: " USD/sqft",
     per100k: "10만 명당",
     pctEnrollment: "% 등록률",
@@ -582,8 +582,8 @@ const SCORECARD_TEXT = {
     derivedDiFormula: "DI_PPP = (총소득 × (1 − 세율) − 임대료 − 공과금 − 교통비 − 인터넷비 − 식비) ÷ PPP지수",
     derivedGenericNote: "도시 수준 입력값과 국가 기준치로부터 계산됩니다.",
     coverageBreakdownTitle: "데이터 수준별 분류",
-    coverageCityDirect: "도시 직접",
-    coverageNationalProxy: "국가 대리",
+    coverageCityDirect: "도시 직접 데이터",
+    coverageNationalProxy: "국가 수준 대리값",
     coverageDerived: "파생값",
     coverageMissing: "데이터 없음",
   },
@@ -616,21 +616,21 @@ const SCORECARD_TEXT = {
     exploratoryScoreTrace: "探索的スコアのトレース",
     publishedScoreNote: "このカードは、検証済みワークブックエクスポートから当該都市の公開SLICスコアを表示します。下の5つの柱の値は、その数値への公開トレースです。",
     exploratoryScoreNote: "この都市はまだ検証済み公開ボードに含まれていません。ここに表示されている数値は比較のための探索的スコアであり、公開ボードのスコアではありません。",
-    weightSuffix: "ウェイト",
+    weightSuffix: "重み",
     dataCoverageNote: "データカバレッジ",
     whatStandsOut: "注目点",
     highestMetric: "最高スコア指標",
     lowestMetric: "最低スコア指標",
     dataTransparency: "データの透明性",
     overallCoverage: "全体カバレッジ",
-    transparencyNote: '「都市データ」と表示された指標は、検証済みの都市レベルの出典から取得されています。「国家レベル代理」は、この都市に適用された国家レベルの推定値を意味します。「派生値」は他の入力値から計算された値を意味します。',
+    transparencyNote: '「都市データ」と表示された指標は、検証済みの都市レベルの出典から取得されています。「国レベルの代理値」は、この都市に適用された国レベルの推定値を意味します。「派生値」は他の入力値から計算された値を意味します。',
     transparencyPending: "この都市にはまだ公開ワークブックのカバレッジスナップショットが添付されていません。都市が検証済みボードに入った後、指標レベルの出典情報が表示されます。",
     stronger: "最も強いシグナル",
     weaker: "最も弱いシグナル",
-    ofIncome: "% 所得",
+    ofIncome: "所得の%",
     perSqft: " USD/sqft",
     per100k: "10万人当たり",
-    pctEnrollment: "% 就学率",
+    pctEnrollment: "就学率 (%)",
     population: "人口",
     cityShare: "全国比率",
     birthRate: "出生率（TFR）",
@@ -641,7 +641,7 @@ const SCORECARD_TEXT = {
     climateScore: "気候",
     gdpGrowth: "GDP成長",
     peersEyebrow: "類似都市",
-    peersTitle: "似たような都市",
+    peersTitle: "類似都市",
     tagSameRegion: "同じ地域",
     tagSimilarScale: "規模が近い",
     tagSimilarIncome: "所得が近い",
@@ -649,8 +649,8 @@ const SCORECARD_TEXT = {
     derivedDiFormula: "DI_PPP = (総収入 × (1 − 税率) − 家賃 − 光熱費 − 交通費 − インターネット代 − 食費) ÷ PPP係数",
     derivedGenericNote: "都市レベルの入力データと国家基準値から計算されます。",
     coverageBreakdownTitle: "データレベル別内訳",
-    coverageCityDirect: "都市直接",
-    coverageNationalProxy: "国家レベル代理",
+    coverageCityDirect: "都市直接データ",
+    coverageNationalProxy: "国レベルの代理値",
     coverageDerived: "派生値",
     coverageMissing: "データなし",
   },
@@ -689,7 +689,7 @@ const INDUSTRY_LABELS: Record<Locale, Record<string, string>> = {
   },
   zh: {
     manufacturing: "工业", shipping: "港口城市", tech: "科技中心", finance: "金融中心",
-    tourism: "旅游业", government: "首都/行政中心", energy: "能源产业", mining: "资源型城市",
+    tourism: "旅游业", government: "首都・行政中心", energy: "能源产业", mining: "资源型城市",
     education: "大学城", pharma: "医药产业", automotive: "汽车工业", trade: "贸易中心",
     services: "服务业", agriculture: "农业", media: "传媒中心", garments: "纺织业",
     biotech: "生物科技", fashion: "时尚产业", healthcare: "医疗产业",
@@ -703,7 +703,7 @@ const INDUSTRY_LABELS: Record<Locale, Record<string, string>> = {
   },
   ja: {
     manufacturing: "製造業", shipping: "港湾都市", tech: "テックハブ", finance: "金融ハブ",
-    tourism: "観光ハブ", government: "首都/行政中心", energy: "エネルギー産業", mining: "資源型都市",
+    tourism: "観光ハブ", government: "首都・行政中心", energy: "エネルギー産業", mining: "資源型都市",
     education: "大学都市", pharma: "製薬ハブ", automotive: "自動車産業", trade: "貿易ハブ",
     services: "サービス経済", agriculture: "農業", media: "メディアハブ", garments: "縫製産業",
     biotech: "バイオテックハブ", fashion: "ファッションハブ", healthcare: "医療ハブ",
@@ -844,7 +844,7 @@ function coverageCaveat(
     return ` 该分数包含 −${coveragePenalty} 数据覆盖扣分（${coverageGrade} 级），因部分支柱缺少城市级数据。`;
   }
   if (locale === "ko") {
-    return ` 이 점수에는 −${coveragePenalty} 커버리지 패널티(등급 ${coverageGrade})가 포함되어 있습니다. 하나 이상의 기둥에서 도시 수준 데이터가 불완전하기 때문입니다.`;
+    return ` 이 점수에는 −${coveragePenalty} 적용 범위 패널티(등급 ${coverageGrade})가 포함되어 있습니다. 하나 이상의 기둥에서 도시 수준 데이터가 불완전하기 때문입니다.`;
   }
   if (locale === "ja") {
     return ` このスコアには −${coveragePenalty} のカバレッジペナルティ（グレード ${coverageGrade}）が含まれています。1つ以上の柱で都市レベルのデータが不完全なためです。`;
@@ -889,7 +889,7 @@ function tierBridgeNote(
         : locale === "zh"
           ? `本城未列入 ${rankedCityCount} 座已排名城市的公开榜单，也未占 Alpha/Beta/Gamma 任何席位。当一个或多个支柱的城市级证据尚未达到覆盖阈值，或当背景跨出方法论边界（冲突区、特殊主权状态）时，SLIC 将城市归入观察名单。下方数字是已发布的记录，并非排名。`
           : locale === "ko"
-            ? `이 도시는 ${rankedCityCount}개 도시의 공개 순위 목록에 없으며 Alpha/Beta/Gamma 등급의 자리도 없습니다. SLIC는 하나 이상의 기둥에 대한 검증된 데이터가 커버리지 기준 미달이거나 컨텍스트가 방법론의 경계 밖에 있을 때(분쟁 지역, 특별 주권 상태) 도시를 관찰 목록에 올립니다. 아래 수치는 공개 기록이며 순위가 아닙니다.`
+            ? `이 도시는 ${rankedCityCount}개 도시의 공개 순위 목록에 없으며 Alpha/Beta/Gamma 등급의 자리도 없습니다. SLIC는 하나 이상의 기둥에 대한 검증된 데이터가 적용 범위 기준 미달이거나 컨텍스트가 방법론의 경계 밖에 있을 때(분쟁 지역, 특별 주권 상태) 도시를 관찰 목록에 올립니다. 아래 수치는 공개 기록이며 순위가 아닙니다.`
             : locale === "ja"
               ? `この都市は${rankedCityCount}都市の公開ランキングリストに含まれておらず、Alpha/Beta/Gammaのいずれの席も保有していません。SLICは、1つ以上の柱の検証済みデータがカバレッジ基準を下回るか、コンテキストが方法論の境界外にある場合（紛争地域、特別主権状態）、都市をウォッチリストに掲載します。以下の数値は公開記録であり、ランキングではありません。`
               : `This city is not in the public ranked list of ${rankedCityCount} cities, nor does it hold a seat in any public tier. SLIC places a city on the Watchlist when verified pillar data is below the coverage threshold, or when the context sits outside the methodology's boundary (conflict zone, special sovereignty status). The numbers below are the published record — not a ranking.`,
