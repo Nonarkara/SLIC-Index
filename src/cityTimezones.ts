@@ -28,6 +28,8 @@ const localeMap: Record<Locale, string> = {
   en: "en-GB",
   th: "th-TH",
   zh: "zh-CN",
+  ko: "ko-KR",
+  ja: "ja-JP",
 };
 
 export function resolveCityTimeZone(city: string): string | undefined {

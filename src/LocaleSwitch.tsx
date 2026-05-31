@@ -5,6 +5,8 @@ const localeSwitchLabel: Record<Locale, string> = {
   en: "Language selector",
   th: "ตัวเลือกภาษา",
   zh: "语言切换",
+  ko: "언어 선택",
+  ja: "言語選択",
 };
 
 export default function LocaleSwitch({

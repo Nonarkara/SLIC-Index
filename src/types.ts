@@ -1,5 +1,5 @@
 export type ScoreMode = "slic" | "pressure" | "viability" | "capability" | "community" | "creative";
-export type Locale = "en" | "th" | "zh";
+export type Locale = "en" | "th" | "zh" | "ko" | "ja";
 export type SitePath =
   | "/"
   | "/about-slic"
