@@ -164,21 +164,21 @@ const chineseSingaporeRule =
     : "只有在实时公开数据中能够找到新加坡与曼谷的当前行时，本页才会引用这两个城市。";
 
 const koreanTierProtocolRule =
-  `공개 순위는 정확한 미반올림 SLIC 점수 순서로 먼저 결정되며, Alpha·Beta·Gamma는 순위 이후에 별도로 적용되는 공개 오버레이입니다. 순위 번호 안에 지리적 필터가 숨겨져 있지 않습니다. ` +
+  `공개 순위는 정확한 비반올림 SLIC 점수 순서로 먼저 결정되며, Alpha·Beta·Gamma는 순위 이후에 별도로 적용되는 공개 오버레이입니다. 순위 번호 안에 지리적 필터가 숨겨져 있지 않습니다. ` +
   `공개 층 오버레이는 세 층 전체에 걸쳐 국가당 한 도시를 원칙으로 하되, 현행 프로토콜에서 대만은 ${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers}개 공개 층 슬롯을, 일본은 ${maxJapanCrossTier}개 슬롯을 보유할 수 있습니다. Alpha는 Community >= ${PUBLIC_TIER_RULES.alphaMinCommunity}, Pressure >= ${PUBLIC_TIER_RULES.alphaMinPressure}, 커버리지 등급 ${PUBLIC_TIER_RULES.alphaMinCoverageGrade} 이상을 요구하며, 누락된 압력 데이터는 최고 등급 주장으로 전환될 수 없습니다. 유럽은 Alpha에서 최대 ${PUBLIC_TIER_RULES.maxEuropeInAlpha}석, 오세아니아 ${PUBLIC_TIER_RULES.maxOceaniaInAlpha}석, 한국 ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha}석, 일본 ${PUBLIC_TIER_RULES.maxJapanInAlpha}석으로 제한됩니다. ${alphaCountryExclusionList}는 국가 규칙에 따라 Alpha에서 제외되며, ${alphaCityExclusionList}는 편집 생활비 규칙에 따라 Alpha에서 제외됩니다. ` +
-  `Beta는 동일한 국가 규칙과 대만·일본 예외를 유지하면서 Community >= ${PUBLIC_TIER_RULES.betaMinCommunity}와 Pressure >= ${PUBLIC_TIER_RULES.betaMinPressure}로 생활 가능성 하한선을 높입니다. Gamma는 나머지 순위 도시들로 채워집니다.`;
+  `Beta는 동일한 국가 규칙과 대만·일본 예외를 유지하면서 Community >= ${PUBLIC_TIER_RULES.betaMinCommunity}와 Pressure >= ${PUBLIC_TIER_RULES.betaMinPressure}로 거주 적합성 하한선을 높입니다. Gamma는 나머지 순위 도시들로 채워집니다.`;
 
 const koreanSingaporeRule =
   singaporeCity && bangkokCity
-    ? `싱가포르의 현재 순수 점수 순위는 #${singaporeCity.rank}이며, SLIC 점수는 ${formatOneDecimal(singaporeCity.slicScore)}, 커버리지는 ${singaporeCity.coverageGrade}이지만 공개 층 오버레이는 싱가포르를 ${singaporeCity.tierLabel ?? "공개 층 외부"}에 배치합니다. ` +
-      `Viability(${formatOneDecimal(singaporeCity.viabilityScore)})와 Capability(${formatOneDecimal(singaporeCity.capabilityScore)})는 여전히 뛰어나지만, Community(${formatOneDecimal(singaporeCity.communityScore)})는 Alpha 하한 ${PUBLIC_TIER_RULES.alphaMinCommunity}과 Beta 하한 ${PUBLIC_TIER_RULES.betaMinCommunity} 모두를 밑돌며, Pressure(${formatOneDecimal(singaporeCity.pressureScore)})는 Alpha 기준은 통과하지만 Beta 기준은 통과하지 못합니다. ` +
-      `방콕은 반대 결과를 보여줍니다. 순수 점수 순위 #${bangkokCity.rank}에 SLIC ${formatOneDecimal(bangkokCity.slicScore)}이지만, Community(${formatOneDecimal(bangkokCity.communityScore)})와 Pressure(${formatOneDecimal(bangkokCity.pressureScore)}) 모두 Alpha 기준을 충족하고, 더 높은 순위의 태국 도시가 태국의 공개 층 자리를 먼저 차지하지 않았기 때문에 ${bangkokCity.tierLabel ?? "공개 층"}에 진입합니다. 독립적인 여행 비용 출처는 방콕의 공개 가치 제안을 뒷받침하지만, 이는 맥락적 증거이지 관광 감당 가능성 보너스 점수가 아닙니다.`
+    ? `싱가포르의 현재 순수 점수 순위는 ${singaporeCity.rank}위이며, SLIC 점수는 ${formatOneDecimal(singaporeCity.slicScore)}, 커버리지는 ${singaporeCity.coverageGrade}이지만 공개 층 오버레이는 싱가포르를 ${singaporeCity.tierLabel ?? "공개 층 외부"}에 배치합니다. ` +
+      `Viability(${formatOneDecimal(singaporeCity.viabilityScore)})와 Capability(${formatOneDecimal(singaporeCity.capabilityScore)})는 여전히 뛰어나지만, Community(${formatOneDecimal(singaporeCity.communityScore)})는 Alpha 하한 ${PUBLIC_TIER_RULES.alphaMinCommunity}과 Beta 하한 ${PUBLIC_TIER_RULES.betaMinCommunity} 모두를 밑돌며, Pressure(${formatOneDecimal(singaporeCity.pressureScore)})는 Alpha 기준은 충족하지만 Beta 기준은 충족하지 못합니다. ` +
+      `방콕은 반대 결과를 보여줍니다. 순수 점수 순위 ${bangkokCity.rank}위에 SLIC ${formatOneDecimal(bangkokCity.slicScore)}이지만, Community(${formatOneDecimal(bangkokCity.communityScore)})와 Pressure(${formatOneDecimal(bangkokCity.pressureScore)}) 모두 Alpha 기준을 충족하고, 더 높은 순위의 태국 도시가 태국의 공개 층 자리를 먼저 차지하지 않았기 때문에 ${bangkokCity.tierLabel ?? "공개 층"}에 진입합니다. 독립적인 여행 비용 출처는 방콕의 공개 가치 제안을 뒷받침하지만, 이는 맥락적 증거이지 관광 감당 가능성 보너스 점수가 아닙니다.`
     : "이 페이지는 실시간 공개 데이터셋에 싱가포르와 방콕의 현재 행이 있을 때만 두 도시를 인용합니다.";
 
 const japaneseTierProtocolRule =
-  `公開順位はまず正確な非丸め SLIC スコア順で決定され、Alpha・Beta・Gamma は順位の後に別途適用される公開オーバーレイです。順位番号の内側に地理的フィルターは隠されていません。 ` +
-  `公開層オーバーレイは三層合計で原則として1国1都市ですが、現行プロトコルでは台湾が${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers}スロット、日本が${maxJapanCrossTier}スロットを保有できます。Alpha は Community >= ${PUBLIC_TIER_RULES.alphaMinCommunity}、Pressure >= ${PUBLIC_TIER_RULES.alphaMinPressure}、カバレッジグレード ${PUBLIC_TIER_RULES.alphaMinCoverageGrade} 以上を要件とし、欠損したプレッシャーデータを最高層の主張に変換することはできません。ヨーロッパは Alpha で最大 ${PUBLIC_TIER_RULES.maxEuropeInAlpha}席、オセアニア ${PUBLIC_TIER_RULES.maxOceaniaInAlpha}席、韓国 ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha}席、日本 ${PUBLIC_TIER_RULES.maxJapanInAlpha}席に制限されます。${alphaCountryExclusionList} は国ルールにより Alpha から除外され、${alphaCityExclusionList} は編集部の生活費ルールにより Alpha から除外されます。 ` +
-  `Beta は同じ国ルールと台湾・日本の例外を維持しながら、Community >= ${PUBLIC_TIER_RULES.betaMinCommunity}、Pressure >= ${PUBLIC_TIER_RULES.betaMinPressure} へと宜居性の下限を引き上げます。Gamma は残りのランク都市から補充されます。`;
+  `公開順位はまず正確な非四捨五入 SLIC スコア順で決定され、Alpha・Beta・Gamma は順位の後に別途適用される公開オーバーレイです。順位番号の内側に地理的フィルターは隠されていません。 ` +
+  `公開層オーバーレイは三層合計で原則として1国1都市ですが、現行プロトコルでは台湾が${PUBLIC_TIER_RULES.maxTaiwanAcrossPublicTiers}スロット、日本が${maxJapanCrossTier}スロットを保有できます。Alpha は Community >= ${PUBLIC_TIER_RULES.alphaMinCommunity}、Pressure >= ${PUBLIC_TIER_RULES.alphaMinPressure}、カバレッジグレード ${PUBLIC_TIER_RULES.alphaMinCoverageGrade} 以上を要件とし、欠損したプレッシャーデータを最高層の主張に変換することはできません。ヨーロッパは Alpha で最大 ${PUBLIC_TIER_RULES.maxEuropeInAlpha}席、オセアニア ${PUBLIC_TIER_RULES.maxOceaniaInAlpha}席、韓国 ${PUBLIC_TIER_RULES.maxSouthKoreaInAlpha}席、日本 ${PUBLIC_TIER_RULES.maxJapanInAlpha}席に制限されます。${alphaCountryExclusionList} は国別ルールにより Alpha から除外され、${alphaCityExclusionList} は編集部の生活費ルールにより Alpha から除外されます。 ` +
+  `Beta は同じ国別ルールと台湾・日本の例外を維持しながら、Community >= ${PUBLIC_TIER_RULES.betaMinCommunity}、Pressure >= ${PUBLIC_TIER_RULES.betaMinPressure} へと居住適合性の下限を引き上げます。Gamma は残りのランク都市から補充されます。`;
 
 const japaneseSingaporeRule =
   singaporeCity && bangkokCity
@@ -629,13 +629,13 @@ const koreanSourceTiers: SourceTier[] = [
   },
   {
     tier: "4등급",
-    title: "감사된 2차 및 실험적 레이어 데이터",
+    title: "검증된 2차 및 실험적 레이어 데이터",
     description: "OpenAQ, Copernicus CAMS, Sentinel-2 / Sentinel-5P 맥락 레이어, JAXA 토지 제품, Landsat 파생 식생 레이어, M-Lab, 소셜 리스닝, 크라우드소싱 생활비 레이어, 그리고 명시적 주의사항이 포함된 도시 증언.",
   },
   {
     tier: "5등급",
-    title: "분석가 평가 및 교차 참조",
-    description: "실제 경험, 교차 참조 연구, 전문 지식을 바탕으로 한 SLIC 분석가의 수작업 평가. 관용성, 환대, 문화적 생활, 그리고 순수 데이터 수집이 어려운 정성적 신호에 활용됩니다.",
+    title: "분석가 평가 및 교차 검증",
+    description: "실제 경험, 교차 검증 연구, 전문 지식을 바탕으로 한 SLIC 분석가의 수작업 평가. 관용성, 환대, 문화적 생활, 그리고 순수 데이터 수집이 어려운 정성적 신호에 활용됩니다.",
   },
 ];
 
@@ -657,13 +657,13 @@ const japaneseSourceTiers: SourceTier[] = [
   },
   {
     tier: "第4層",
-    title: "監査済み二次・実験的レイヤーデータ",
-    description: "OpenAQ、Copernicus CAMS、Sentinel-2 / Sentinel-5P 文脈レイヤー、JAXA 土地製品、Landsat 派生植生レイヤー、M-Lab、ソーシャルリスニング、クラウドソーシング生活費レイヤー、および明示的な注意書き付きの都市証言。",
+    title: "検証済み二次・実験的レイヤーデータ",
+    description: "OpenAQ、Copernicus CAMS、Sentinel-2 / Sentinel-5P 文脈レイヤー、JAXA 土地被覆データ、Landsat 派生植生レイヤー、M-Lab、ソーシャルリスニング、クラウドソーシング生活費レイヤー、および明示的な注意書き付きの都市証言。",
   },
   {
     tier: "第5層",
-    title: "アナリスト評価・クロスリファレンス",
-    description: "実地経験、クロスリファレンス調査、専門知識に基づく SLIC アナリストの手動評価。寛容性、ホスピタリティ、文化的生活など、純粋なデータ収集が困難な定性的シグナルに使用されます。",
+    title: "アナリスト評価・クロス検証",
+    description: "実地経験、クロス検証調査、専門知識に基づく SLIC アナリストの手動評価。寛容性、ホスピタリティ、文化的生活など、純粋なデータ収集が困難な定性的シグナルに使用されます。",
   },
 ];
 
