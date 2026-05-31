@@ -269,7 +269,7 @@ const thailandUiCopy: Record<
     patternsEyebrow: "지역 패턴",
     patternsTitle: "주별 데이터가 드러내는 것",
     patternsSummary:
-      "태국 내부의 SLIC 지형은 경제 산출과 환경 품질, 그리고 인프라 규모와 문화적 깊이 사이의 극명한 균형을 보여줍니다.",
+      "태국 내부의 SLIC 지형은 경제 산출과 환경 품질, 그리고 인프라 규모와 문화적 깊이 사이의 극명한 상충관계를 보여줍니다.",
     centralLabel: "중부",
     centralTitle: "경제 중심지, 환경 비용",
     centralBody:
@@ -292,7 +292,7 @@ const thailandUiCopy: Record<
     ranked: "順位付き",
     all: "全府",
     region: "地域",
-    allRegions: "全て",
+    allRegions: "すべて",
     sortBy: "柱で並べ替え",
     topProvinces: "上位府",
     leadingOn: "リード分野",
