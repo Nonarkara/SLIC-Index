@@ -441,6 +441,41 @@ export default function HomePage({
         </div>
       </section>
 
+      <section className="hp-verdict section">
+        <div className="hp-verdict-inner">
+          <p className="hp-verdict-p">
+            {t(
+              locale,
+              "These ten cities have almost nothing in common. Montreal endures eight months of winter. Kaohsiung has no metro. Valparaíso is built on cliffs that flood. Graz is a city most people couldn't find on a map.",
+              "สิบเมืองนี้แทบไม่มีอะไรเหมือนกัน มอนทรีออลทนหนาวแปดเดือนต่อปี เกาสงไม่มีรถไฟใต้ดิน วัลปาราอีโซสร้างบนหน้าผาที่น้ำท่วมซ้ำซาก กราซเป็นเมืองที่คนส่วนใหญ่หาบนแผนที่ไม่เจอ",
+              "这十座城市几乎毫无共同之处。蒙特利尔要熬过八个月的冬天。高雄没有地铁。瓦尔帕莱索建在时常被水淹的悬崖上。格拉茨是大多数人在地图上找不到的城市。",
+              "이 열 개 도시는 거의 공통점이 없습니다. 몬트리올은 8개월의 겨울을 버팁니다. 가오슝에는 지하철이 없습니다. 발파라이소는 자주 침수되는 절벽 위에 세워져 있습니다. 그라츠는 대부분의 사람들이 지도에서 찾지 못하는 도시입니다.",
+              "この10都市には、ほとんど共通点がありません。モントリオールは8ヶ月の冬を耐え抜きます。高雄に地下鉄はありません。バルパライソは頻繁に洪水が起きる崖の上に建てられています。グラーツは、ほとんどの人が地図上で見つけられない都市です。",
+            )}
+          </p>
+          <p className="hp-verdict-p hp-verdict-p--mid">
+            {t(
+              locale,
+              "What they share is the absence of a specific pressure — the kind that makes a city technically impressive but inaccessible to the person living a normal life inside it.",
+              "สิ่งที่พวกเมืองเหล่านี้มีร่วมกันคือการขาดไปของแรงกดดันชนิดหนึ่ง — ชนิดที่ทำให้เมืองดูน่าประทับใจในแง่ตัวเลข แต่ไม่อาจเข้าถึงได้สำหรับคนที่ใช้ชีวิตธรรมดาอยู่ในนั้น",
+              "它们的共同点，是某种压力的缺席——那种让一座城市在数字上令人印象深刻、但对于普通生活其中的人却难以企及的压力。",
+              "이 도시들의 공통점은 특정 압박의 부재입니다 — 도시를 수치상으로 인상적으로 만들지만, 그 안에서 평범한 삶을 사는 사람에게는 닿을 수 없게 만드는 그런 압박입니다.",
+              "これらの都市が共有しているのは、ある特定の圧力の不在です——数字の上では都市を印象的に見せながら、その中で普通の生活を送る人には手の届かないものにしてしまうような圧力です。",
+            )}
+          </p>
+          <p className="hp-verdict-p hp-verdict-p--anchor">
+            {t(
+              locale,
+              "Singapore scores 94.1 on Capability. No city in this dataset comes close. It is Gamma tier. That single fact tells you more about what SLIC is measuring than any equation we could publish.",
+              "สิงคโปร์ได้คะแนน Capability 94.1 ไม่มีเมืองใดในชุดข้อมูลนี้เทียบได้ แต่สิงคโปร์อยู่ใน Gamma tier ข้อเท็จจริงประการเดียวนี้บอกอะไรเกี่ยวกับสิ่งที่ SLIC วัดได้มากกว่าสมการใดๆ ที่เราจะเผยแพร่",
+              "新加坡的能力得分是94.1，数据集中无出其右。但它是Gamma级。这一个事实，比我们能发布的任何方程式都更能说明SLIC在衡量什么。",
+              "싱가포르의 역량 점수는 94.1입니다. 이 데이터셋의 어떤 도시도 근접하지 못합니다. 그럼에도 싱가포르는 감마 등급입니다. 이 하나의 사실이, 우리가 발표할 수 있는 어떤 방정식보다 SLIC가 무엇을 측정하는지를 더 잘 말해줍니다.",
+              "シンガポールの能力スコアは94.1です。このデータセットで近い都市はありません。それでもシンガポールはガンマ級です。この一つの事実が、私たちが発表できるどんな方程式よりも、SLICが何を測っているかを雄弁に物語っています。",
+            )}
+          </p>
+        </div>
+      </section>
+
       <section className="v3-alpha" id="tiers">
         <div className="v3-alpha-header section">
           <span className="v3-tier-badge v3-tier-badge--alpha">&alpha; ALPHA</span>

@@ -2301,6 +2301,41 @@ section[id] {
 
 .hp-thesis-link:hover { opacity: 0.7; }
 
+/* Verdict — the editorial claim that connects the Alpha ten */
+.hp-verdict {
+  padding: 3.5rem 0 4.5rem;
+  border-top: 1px solid rgba(28, 25, 20, 0.1);
+}
+
+.hp-verdict-inner {
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+.hp-verdict-p {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 400;
+  line-height: 1.85;
+  color: var(--color-text);
+  margin: 0 0 1.4rem;
+}
+
+.hp-verdict-p--mid {
+  opacity: 0.6;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+}
+
+.hp-verdict-p--anchor {
+  padding-left: 1rem;
+  border-left: 2px solid var(--accent-amber);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  margin: 0;
+}
+
 @media (max-width: 768px) {
   .hp-opening { min-height: 60vh; padding: 6rem 0 3rem; }
   .hp-headline { font-size: clamp(2.2rem, 10vw, 3.5rem); }
