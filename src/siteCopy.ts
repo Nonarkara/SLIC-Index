@@ -365,7 +365,7 @@ export const siteCopy = {
       rankings: "순위",
       exercise: "도시 매칭",
       thailand: "태국 순위",
-      ideas: "이 아이디어를 가져가세요",
+      ideas: "이 아이디어를 훔쳐가세요",
       essay: "에세이",
       compare: "비교",
       history: "개발 여정",
@@ -374,7 +374,7 @@ export const siteCopy = {
     shared: {
       updated: "업데이트",
       allRegions: "전체",
-      exportCsv: "필터된 CSV 내보내기",
+      exportCsv: "필터링된 CSV 내보내기",
       downloadSheetTemplate: "스프레드시트 템플릿 다운로드",
       liveTop10: "상위 10개 미리보기",
       openFullRanking: "순위 미리보기 열기",
@@ -421,7 +421,7 @@ export const siteCopy = {
       cautionBody:
         "이 순위를 알려진 한계가 있는 선언된 측정 프레임으로 읽어주세요. 투자 조언, 법적 조언, 또는 단일 지표가 모든 사람에게 도시의 의미를 결정할 수 있다는 주장이 아닙니다.",
       income: "PPP 1인당 소득",
-      disposable: "세후 PPP 여유",
+      disposable: "세후 PPP 가처분 소득",
       housing: "초기 경력자 주거 부담",
       healthcare: "의료",
       education: "교육",
@@ -461,7 +461,7 @@ export const siteCopy = {
         "이 빌드는 실제 생활 가능성, 존엄성, 커뮤니티, 창의적 경제 에너지를 통해 도시를 순위화하는 SLIC의 공개 프로토타입입니다.",
       transparencyLabel: "투명성 및 개인정보 보호",
       disclosure:
-        "어떤 도시, 개발자, 정부, 공급업체, 또는 스폰서도 이 지수에서 포함, 가중치, 배치, 또는 편집 처리를 위해 비용을 지불하지 않았습니다.",
+        "어떤 도시, 개발자, 정부, 공급업체, 또는 후원자도 이 지수에서 포함, 가중치, 배치, 또는 편집 처리를 위해 대가를 지불하지 않았습니다.",
       privacy:
         "이 빌드는 공개적이고 집계된 도시 수준 및 국가 수준 데이터를 중심으로 설계되었습니다. 실험적인 증언 또는 소셜 리스닝 레이어는 게시 전에 집계되고 비개인적이어야 합니다.",
       coverage:
@@ -496,7 +496,7 @@ export const siteCopy = {
       openFullRanking: "ランキングプレビューを開く",
       coreBoard: "審査済みボード",
       extendedField: "候補都市全体",
-      liveStatus: "公開ランキング稼働中",
+      liveStatus: "公開ランキング公開中",
       liveScope: "公開済み163都市 / 5つの公開指標 / 検証済みワークブックエクスポート",
       localTime: "現地時刻",
     },
@@ -537,7 +537,7 @@ export const siteCopy = {
       cautionBody:
         "このランキングを、既知の限界を持つ宣言された測定フレームとして読んでください。投資アドバイス、法的アドバイス、または単一指標が全員にとっての都市の意味を決められるという主張ではありません。",
       income: "PPP一人当たり所得",
-      disposable: "税引後PPP余力",
+      disposable: "税引後PPP可処分所得",
       housing: "キャリア初期の住宅負担",
       healthcare: "医療",
       education: "教育",
@@ -547,7 +547,7 @@ export const siteCopy = {
       safety: "安全性",
       tolerance: "寛容度",
       localClock: "都市時刻",
-      openingEase: "開業のしやすさ",
+      openingEase: "創業のしやすさ",
       taxRegime: "税制",
       stability: "安定性",
       incentives: "インセンティブ",
@@ -560,7 +560,7 @@ export const siteCopy = {
       country: "国",
       region: "地域",
       score: "スコア",
-      access: "アクセス性",
+      access: "アクセシビリティ",
     },
     thailand: {
       eyebrow: "タイ指数",
@@ -577,14 +577,14 @@ export const siteCopy = {
         "このビルドは、実際の生活可能性、尊厳、コミュニティ、創造的経済エネルギーを通じて都市をランク付けするSLICの公開プロトタイプです。",
       transparencyLabel: "透明性とプライバシー",
       disclosure:
-        "いかなる都市、開発者、政府、ベンダー、またはスポンサーも、このインデックスへの掲載、重み付け、配置、または編集上の扱いに対して費用を支払っていません。",
+        "いかなる都市、開発者、政府、ベンダー、またはスポンサーも、このインデックスへの掲載、重み付け、配置、または編集上の扱いに対して対価を支払っていません。",
       privacy:
         "このビルドは公開された集計済みの都市レベルおよび国レベルのデータを中心に設計されています。実験的な証言やソーシャルリスニング層は公開前に集計・匿名化する必要があります。",
       coverage:
         "カバレッジグレード、代替プロキシ、欠損データルールは公開されます。高いGDPだけでは順位は決まりません。",
       collaborationLabel: "協力して作成",
       collaboration:
-        "Non AkararaとPoon Thiengburanathum准教授がSLIC製品として、デジタル経済社会省、デジタル経済振興機構、タイスマートシティオフィス、Axiom × ReTLと共同で作成しました。",
+        "Non ArkaraとPoon Thiengburanathum准教授がSLIC製品として、デジタル経済社会省、デジタル経済振興機構、タイスマートシティオフィス、Axiom × ReTLと共同で作成しました。",
       note:
         "方法論、重み、出典の階層は公開されています。次の公開可能なリリースは、最終的な公開ランキングとして再開する前に、信頼できる出典URL、出典層、ワークブックから導出したスコアを添付する必要があります。",
     },
