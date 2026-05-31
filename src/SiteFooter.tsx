@@ -1,14 +1,13 @@
 import BrandLockup from "./BrandLockup";
 import { collaborationLogos } from "./brandAssets";
+import { pickLocale, type LocalizedRecord } from "./i18n";
 import { appHref } from "./routing";
 import { getCopy } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-const footerEndnoteCopy: Record<
-  Locale,
-  {
+const footerEndnoteCopy: LocalizedRecord<{
     eyebrow: string;
     reuseLabel: string;
     reuseBody: string;
@@ -20,8 +19,7 @@ const footerEndnoteCopy: Record<
     liveBody: string;
     fundingLabel: string;
     fundingBody: string;
-  }
-> = {
+}> = {
   en: {
     eyebrow: "Publication protocol",
     reuseLabel: "Reuse and credit",
@@ -106,7 +104,7 @@ export default function SiteFooter({
   locale: Locale;
 }) {
   const copy = getCopy(locale);
-  const endnotes = footerEndnoteCopy[locale];
+  const endnotes = pickLocale(footerEndnoteCopy, locale);
   const footerHighlights = [
     copy.footer.disclosure,
     copy.footer.privacy,

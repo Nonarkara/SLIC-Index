@@ -14,6 +14,8 @@ const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   en: { pressure: "Growth", viability: "Viability", capability: "Capability", community: "Community", creative: "Creative" },
   th: { pressure: "การเติบโต", viability: "ความน่าอยู่", capability: "ศักยภาพ", community: "ชุมชน", creative: "ความสร้างสรรค์" },
   zh: { pressure: "增长", viability: "宜居", capability: "能力", community: "社区", creative: "创新" },
+  ko: { pressure: "성장", viability: "생활가능성", capability: "역량", community: "커뮤니티", creative: "창의성" },
+  ja: { pressure: "成長", viability: "生活持続性", capability: "ケイパビリティ", community: "コミュニティ", creative: "クリエイティブ" },
 };
 
 const PILLAR_COLORS: Record<PillarId, string> = {
@@ -53,9 +55,9 @@ function getTierIndex(rank: number): number {
 
 function getTierLabel(city: FullRankedCity, locale: Locale): string {
   const publishedTier = getPublishedTier(city);
-  if (publishedTier === "Alpha") return t(locale, "α Alpha", "α อัลฟา", "α 阿尔法");
-  if (publishedTier === "Beta") return t(locale, "β Beta", "β เบตา", "β 贝塔");
-  if (publishedTier === "Gamma") return t(locale, "γ Gamma", "γ แกมมา", "γ 伽马");
+  if (publishedTier === "Alpha") return t(locale, "α Alpha", "α อัลฟา", "α 阿尔法", "α 알파", "α アルファ");
+  if (publishedTier === "Beta") return t(locale, "β Beta", "β เบตา", "β 贝塔", "β 베타", "β ベータ");
+  if (publishedTier === "Gamma") return t(locale, "γ Gamma", "γ แกมมา", "γ 伽马", "γ 감마", "γ ガンマ");
   const i = getTierIndex(city.globalRank);
   if (i >= 0 && i < TIER_GLYPHS.length) return `${TIER_GLYPHS[i]} ${TIER_NAMES[i]}`;
   return `#${city.globalRank}`;
@@ -129,10 +131,10 @@ export default function SideBySidePage({
       <main>
         <section className="section sbs-page">
           <p className="eyebrow">
-            {t(locale, "SIDE BY SIDE", "เปรียบเทียบ", "城市对比")}
+            {t(locale, "SIDE BY SIDE", "เปรียบเทียบ", "城市对比", "나란히 비교", "並列比較")}
           </p>
           <h1 className="sbs-title">
-            {t(locale, "Compare cities, your way.", "เปรียบเทียบเมืองในแบบของคุณ", "按你的方式比较城市")}
+            {t(locale, "Compare cities, your way.", "เปรียบเทียบเมืองในแบบของคุณ", "按你的方式比较城市", "내 방식으로 도시를 비교하세요.", "あなたの方法で都市を比較。")}
           </h1>
           <p className="sbs-subtitle">
             {t(
@@ -140,17 +142,19 @@ export default function SideBySidePage({
               "Build a custom basket to compare cities. Published Alpha, Beta, and Gamma follow the live public tier protocol; beyond that, Greek letters continue as ten-rank comparison markers.",
               "สร้างตะกร้าเมืองที่คุณต้องการเปรียบเทียบ Alpha, Beta และ Gamma ใช้ชั้นเผยแพร่จริงของระบบ ส่วนหลังจากนั้นใช้อักษรกรีกเป็นเครื่องหมายเปรียบเทียบทุก 10 อันดับ",
               "创建自定义篮子来比较城市。Alpha、Beta、Gamma 采用实时公开分层规则；其后继续用希腊字母作为每十名的比较标记。",
+              "비교할 도시 바구니를 만드세요. 알파, 베타, 감마는 실제 공개 분류 기준을 따르며, 그 이후는 10개 순위 단위로 그리스 문자를 비교 표시로 사용합니다.",
+              "比較する都市バスケットを作成してください。アルファ、ベータ、ガンマはライブ公開ティアプロトコルに従い、それ以降はギリシャ文字を10ランクの比較マーカーとして使用します。",
             )}
           </p>
 
           <div className="sbs-basket">
-            <h3 className="sbs-basket-title">{t(locale, "Your compare basket", "ตะกร้าเปรียบเทียบของคุณ", "你的比较篮子")}</h3>
+            <h3 className="sbs-basket-title">{t(locale, "Your compare basket", "ตะกร้าเปรียบเทียบของคุณ", "你的比较篮子", "내 비교 바구니", "あなたの比較バスケット")}</h3>
             <div className="sbs-basket-chips">
               {selectedCities.map((city, idx) => (
                 <div key={city.id} className={`sbs-chip tier-${getTier(city)}`}>
                   <span className="sbs-chip-tier-glyph" aria-label={getTierLabel(city, locale)}>{getTierGlyph(city)}</span>
                   <span>{city.name}</span>
-                  <button type="button" onClick={() => handleRemove(idx)} aria-label={t(locale, `Remove ${city.name}`, `ลบ ${city.name}`, `移除${city.name}`)}>&times;</button>
+                  <button type="button" onClick={() => handleRemove(idx)} aria-label={t(locale, `Remove ${city.name}`, `ลบ ${city.name}`, `移除${city.name}`, `${city.name} 제거`, `${city.name}を削除`)}>&times;</button>
                 </div>
               ))}
               {selectedIds.length < 5 && !isAdding && (
@@ -158,14 +162,14 @@ export default function SideBySidePage({
                   type="button"
                   className="sbs-chip-add"
                   onClick={() => setIsAdding(true)}
-                  aria-label={t(locale, "Add city to comparison", "เพิ่มเมืองเพื่อเปรียบเทียบ", "添加城市进行比较")}
+                  aria-label={t(locale, "Add city to comparison", "เพิ่มเมืองเพื่อเปรียบเทียบ", "添加城市进行比较", "비교에 도시 추가", "比較に都市を追加")}
                 >
-                  + {t(locale, "Add City", "เพิ่มเมือง", "添加城市")}
+                  + {t(locale, "Add City", "เพิ่มเมือง", "添加城市", "도시 추가", "都市を追加")}
                 </button>
               )}
               {maxSelected && (
                 <span className="sbs-chip-limit" role="status">
-                  {t(locale, "5/5 selected. Remove one to add another.", "เลือกครบ 5/5 แล้ว ลบหนึ่งเมืองเพื่อเพิ่มเมืองอื่น", "已选 5/5。移除一座城市后可再添加。")}
+                  {t(locale, "5/5 selected. Remove one to add another.", "เลือกครบ 5/5 แล้ว ลบหนึ่งเมืองเพื่อเพิ่มเมืองอื่น", "已选 5/5。移除一座城市后可再添加。", "최대 5개 도시에 도달했습니다. 하나를 제거하면 다른 도시를 추가할 수 있습니다.", "5都市の上限に達しました。一つ削除すると追加できます。")}
                 </span>
               )}
             </div>
@@ -175,7 +179,7 @@ export default function SideBySidePage({
                 <input
                   className="sbs-search"
                   type="text"
-                  placeholder={t(locale, "Search city...", "ค้นหาเมือง...", "搜索城市...")}
+                  placeholder={t(locale, "Search city...", "ค้นหาเมือง...", "搜索城市...", "도시 검색...", "都市を検索...")}
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   autoFocus
@@ -203,7 +207,7 @@ export default function SideBySidePage({
           {selectedCities.length === 0 && (
             <div className="sbs-empty">
               <p className="sbs-empty-eyebrow">
-                {t(locale, "EMPTY BASKET", "ตะกร้าว่าง", "篮子为空")}
+                {t(locale, "EMPTY BASKET", "ตะกร้าว่าง", "篮子为空", "빈 바구니", "空のバスケット")}
               </p>
               <p className="sbs-empty-title">
                 {t(
@@ -211,6 +215,8 @@ export default function SideBySidePage({
                   "Pick a city to start the comparison.",
                   "เลือกเมืองเพื่อเริ่มเปรียบเทียบ",
                   "选择一座城市开始比较。",
+                  "비교를 시작하려면 도시를 선택하세요.",
+                  "比較を開始するには都市を選択してください。",
                 )}
               </p>
               <p className="sbs-empty-body">
@@ -219,6 +225,8 @@ export default function SideBySidePage({
                   "Add up to five cities. Each column carries the five SLIC pillars, tier band, and resident-facing context side by side.",
                   "เพิ่มได้สูงสุดห้าเมือง แต่ละคอลัมน์จะแสดงทั้งห้าเสา คะแนนชั้น และบริบทสำหรับผู้อยู่อาศัยเคียงข้างกัน",
                   "最多可添加五座城市。每列并排呈现五大支柱、层级与本地生活背景。",
+                  "최대 5개 도시를 추가하세요. 각 열에는 5개의 SLIC 기둥, 등급 구간 및 주민 관점 맥락이 나란히 표시됩니다.",
+                  "最大5都市を追加できます。各列には5つのSLICの柱、ティアバンド、住民向けコンテキストが並んで表示されます。",
                 )}
               </p>
             </div>
@@ -244,20 +252,20 @@ export default function SideBySidePage({
 
                 <div className="sbs-slic-context">
                    <div className="sbs-context-item">
-                     <span>{t(locale, "Type", "ประเภท", "类型")}</span>
+                     <span>{t(locale, "Type", "ประเภท", "类型", "유형", "タイプ")}</span>
                      <strong>
                        {city.cityType === "primary"
-                         ? t(locale, "Primary", "เมืองหลัก", "主城市")
-                         : t(locale, "Secondary", "เมืองรอง", "次级城市")}
+                         ? t(locale, "Primary", "เมืองหลัก", "主城市", "주요 도시", "主要都市")
+                         : t(locale, "Secondary", "เมืองรอง", "次级城市", "보조 도시", "副都市")}
                      </strong>
                    </div>
                    <div className="sbs-context-item">
-                     <span>{t(locale, "Region", "ภูมิภาค", "区域")}</span>
+                     <span>{t(locale, "Region", "ภูมิภาค", "区域", "지역", "地域")}</span>
                      <strong>{city.region}</strong>
                    </div>
                    {city.metrics?.pppIncomePerHead && (
                      <div className="sbs-context-item">
-                       <span>{t(locale, "Income (PPP)", "รายได้ (PPP)", "收入（PPP）")}</span>
+                       <span>{t(locale, "Income (PPP)", "รายได้ (PPP)", "收入（PPP）", "소득 (PPP)", "所得（PPP）")}</span>
                        <strong>${Math.round(city.metrics.pppIncomePerHead).toLocaleString()}</strong>
                      </div>
                    )}

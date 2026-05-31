@@ -4,6 +4,7 @@ import publishedData from "./data/publishedRankingData.json";
 import KnowledgeRackPanel from "./KnowledgeRackPanel";
 import MethodologySpiderChart from "./MethodologySpiderChart";
 import PillarWeightChart from "./PillarWeightChart";
+import { pickLocale, type LocalizedRecord } from "./i18n";
 import { appHref } from "./routing";
 import { getCopy } from "./siteCopy";
 import SiteFooter from "./SiteFooter";
@@ -24,9 +25,7 @@ interface PublishedDiagnostics {
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-const methodUiCopy: Record<
-  Locale,
-  {
+type MethodUiCopy = {
     openEquation: string;
     openPdf: string;
     downloadPdf: string;
@@ -58,8 +57,9 @@ const methodUiCopy: Record<
     contextLabel: string;
     dataMixTitle: string;
     dataMixSummary: string;
-  }
-> = {
+  };
+
+const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
   en: {
     openEquation: "See the score equation",
     openPdf: "Read the technical PDF",
@@ -198,8 +198,7 @@ const dataLevelShare = (level: string) => {
   return fallbackDataLevelShare(level);
 };
 
-const publishedDataMix: Record<
-  Locale,
+const publishedDataMix: LocalizedRecord<
   Array<{
     label: string;
     value: number;
@@ -268,7 +267,7 @@ export default function MethodologyPage({
   locale: Locale;
 }) {
   const copy = getCopy(locale);
-  const ui = methodUiCopy[locale];
+  const ui = pickLocale(methodUiCopy, locale);
   const methodology = getMethodologyData(locale);
   const [pdfOpen, setPdfOpen] = useState(false);
   const pdfPath = `${BASE}/downloads/slic-methodology-technical-paper-en.pdf`;
@@ -341,7 +340,7 @@ export default function MethodologyPage({
             <MethodologySpiderChart
               title={ui.dataMixTitle}
               subtitle={ui.dataMixSummary}
-              data={publishedDataMix[locale]}
+              data={pickLocale(publishedDataMix, locale)}
               locale={locale}
             />
 
@@ -745,7 +744,7 @@ function WorkedExample({
   ui,
 }: {
   example: MethodologyWorkedExample;
-  ui: (typeof methodUiCopy)[Locale];
+  ui: MethodUiCopy;
 }) {
   return (
     <div className="worked-example-grid">
@@ -789,7 +788,7 @@ function ReferenceCard({
   ui,
 }: {
   reference: MethodologyReference;
-  ui: (typeof methodUiCopy)[Locale];
+  ui: MethodUiCopy;
 }) {
   return (
     <article className="paper-card reference-card">

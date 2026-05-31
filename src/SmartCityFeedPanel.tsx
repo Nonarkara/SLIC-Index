@@ -1,16 +1,14 @@
 import { smartCityFeed } from "./smartCityFeed";
+import { pickLocale, type LocalizedRecord } from "./i18n";
 import type { Locale } from "./types";
 
-const feedCopy: Record<
-  Locale,
-  {
+const feedCopy: LocalizedRecord<{
     eyebrow: string;
     title: string;
     summary: string;
     readMore: string;
     via: string;
-  }
-> = {
+}> = {
   en: {
     eyebrow: "Live signal feed",
     title: "Smart city pulse",
@@ -93,7 +91,7 @@ function timeAgo(dateStr: string, locale: Locale): string {
 }
 
 export default function SmartCityFeedPanel({ locale }: { locale: Locale }) {
-  const ui = feedCopy[locale];
+  const ui = pickLocale(feedCopy, locale);
   const sortedFeed = [...smartCityFeed].sort(
     (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
   );

@@ -1,11 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
+import { pickLocale, type LocalizedRecord } from "./i18n";
 import type { KnowledgeRackChunk, KnowledgeRackDocument, Locale } from "./types";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-const rackUiCopy: Record<
-  Locale,
-  {
+const rackUiCopy: LocalizedRecord<{
     eyebrow: string;
     title: string;
     summary: string;
@@ -24,8 +23,7 @@ const rackUiCopy: Record<
     pages: string;
     chunks: string;
     searchExamples: string[];
-  }
-> = {
+}> = {
   en: {
     eyebrow: "Knowledge rack",
     title: "Ask the indexed source library",
@@ -214,7 +212,7 @@ function truncate(text: string, max = 420): string {
 }
 
 export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
-  const ui = rackUiCopy[locale];
+  const ui = pickLocale(rackUiCopy, locale);
   const [question, setQuestion] = useState(ui.searchExamples[0]);
   const [documents, setDocuments] = useState<KnowledgeRackDocument[]>([]);
   const [chunks, setChunks] = useState<KnowledgeRackChunk[] | null>(null);
@@ -293,7 +291,7 @@ export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
   }, []);
 
   useEffect(() => {
-    const nextQuestion = rackUiCopy[locale].searchExamples[0];
+    const nextQuestion = pickLocale(rackUiCopy, locale).searchExamples[0];
     setQuestion(nextQuestion);
     runSearch(nextQuestion);
     // Locale changes should reseed the visible prompt and the initial retrieval.

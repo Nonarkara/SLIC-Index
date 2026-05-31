@@ -1,13 +1,11 @@
 import { rankingIntegrity, rankingPublication } from "./rankingPublication";
+import { pickLocale, type LocalizedRecord } from "./i18n";
 import type { Locale } from "./types";
 
-const bannerCopy: Record<
-  Locale,
-  {
+const bannerCopy: LocalizedRecord<{
     eyebrow: string;
     note: string;
-  }
-> = {
+}> = {
   en: {
     eyebrow: "Ranking status",
     note: "This ranking may be cited with attribution. See the methodology paper for replication details.",
@@ -23,7 +21,7 @@ const bannerCopy: Record<
 };
 
 export default function RankingIntegrityBanner({ locale }: { locale: Locale }) {
-  const copy = bannerCopy[locale];
+  const copy = pickLocale(bannerCopy, locale);
   const cityCount = rankingPublication.cities.length;
   const catalog = (rankingPublication as unknown as { metricCatalog?: Record<string, { scored?: boolean; diagnostic?: boolean }> }).metricCatalog ?? {};
   const catalogEntries = Object.values(catalog);

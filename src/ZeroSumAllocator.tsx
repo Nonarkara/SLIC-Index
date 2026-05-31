@@ -1,4 +1,6 @@
 import { type CSSProperties, type FC, type PointerEvent as ReactPointerEvent, useCallback, useRef, useState } from "react";
+import { pickLocale, type LocalizedRecord } from "./i18n";
+import type { Locale } from "./types";
 
 export interface PillarAllocation {
   id: string;
@@ -6,8 +8,6 @@ export interface PillarAllocation {
   color: string;
   value: number;
 }
-
-export type AllocatorLocale = "en" | "th" | "zh";
 
 interface ZeroSumAllocatorProps {
   pillars: PillarAllocation[];
@@ -17,10 +17,10 @@ interface ZeroSumAllocatorProps {
   max?: number;
   size?: number;
   descriptions?: Record<string, string>;
-  locale?: AllocatorLocale;
+  locale?: Locale;
 }
 
-const ALLOCATOR_HINT: Record<AllocatorLocale, string> = {
+const ALLOCATOR_HINT: LocalizedRecord<string> = {
   en: "drag a bar to weight what matters to you",
   th: "ลากแถบเพื่อให้น้ำหนักสิ่งที่สำคัญกับคุณ",
   zh: "拖动滑块以赋予你所重视事物的权重",
@@ -72,7 +72,7 @@ const SpiderWebChart: FC<{
   size?: number;
   draggingIndex: number | null;
   hasInteracted: boolean;
-  locale: AllocatorLocale;
+  locale: Locale;
 }> = ({ pillars, total, size = 380, draggingIndex, hasInteracted, locale }) => {
   const { canvas, cx, cy, maxR, labelR } = allocatorLayout(size);
   const step = 360 / pillars.length;
@@ -259,7 +259,7 @@ const SpiderWebChart: FC<{
           fontFamily="'JetBrains Mono', monospace"
           fill="rgba(226, 232, 240, 0.42)"
         >
-          {ALLOCATOR_HINT[locale]}
+          {pickLocale(ALLOCATOR_HINT, locale)}
         </text>
       )}
     </svg>
