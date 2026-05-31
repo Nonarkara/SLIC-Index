@@ -175,6 +175,58 @@ Per §13: the same mistake never happens twice.
 
 ---
 
+## 2026-06-01 · Partial locale expansion must be an explicit contract
+
+- **What went wrong:** Korean and Japanese were added as valid UI locales, but several long-form components still only carried English, Thai, and Chinese copy. Typing those objects as `Record<Locale, ...>` made `npm run typecheck` fail; weakening the locale type or copying placeholder text everywhere would hide the real publication state.
+- **Correct behaviour:** English, Thai, and Chinese are the fully translated core locales. Korean and Japanese are valid extended UI locales that may fall back to English on long-form surfaces until full translations land. Use `LocalizedRecord<T>` and `pickLocale(copy, locale)` from `src/i18n.ts` for that case. Use `Record<Locale, T>` only when every locale is complete.
+- **How to recognise:** TypeScript errors that say an EN/TH/ZH object is missing `ko` and `ja`, or props that reject a full `Locale` because the child component only accepts `"en" | "th" | "zh"`.
+
+---
+
+## 2026-06-01 · Release completeness needs one command
+
+- **What went wrong:** The repo had strong individual gates (`verify`, publication integrity, methodology drift) but no single command that meant "safe enough to ship or submit." That makes historical handoff fragile because different collaborators may run different subsets.
+- **Correct behaviour:** Run `npm run verify:release` before deployment, award submission, public teaching, or archival handoff. The command chains typecheck, production build, tests, publication integrity, and methodology drift checks. Keep the checklist in `docs/RELEASE-COMPLETENESS-GATE.md` current.
+- **How to recognise:** A change touches ranking data, tier rules, methodology copy, locale coverage, or downloadable artifacts and someone asks "is it complete?" The answer should be the release gate result, not memory.
+
+---
+
+## 2026-06-01 · Full Korean + Japanese i18n expansion — 23 files, 7 parallel agents
+
+**What this was:** A complete fifth-and-sixth locale rollout for SLIC Index V3. Korean (`ko`) and Japanese (`ja`) were added across every surface in the codebase — all navigation, all page chrome, all UI strings, all data labels, pillar labels, tier labels, metric names, country/region copy, editorial sections, scoring explanations, and long-form methodology content.
+
+**Scope (23 source files touched):**
+- Infrastructure: `src/types.ts`, `src/i18n.ts`, `src/siteCopy.ts`, `src/LocaleSwitch.tsx`, `src/styles.css`, `src/cityTimezones.ts`
+- Router + nav: `src/App.tsx`, `src/SiteMasthead.tsx`
+- Page components: `src/HomePage.tsx`, `src/RankingsPage.tsx`, `src/CompareRankingsPage.tsx`, `src/SideBySidePage.tsx`, `src/MapPage.tsx`, `src/CityScorecardPage.tsx`, `src/DataSourcesPage.tsx`, `src/ThailandPage.tsx`, `src/IdeasPage.tsx`, `src/AwardsPage.tsx`, `src/HistoryPage.tsx`, `src/EssayPage.tsx`
+- Data/content: `src/ideasData.ts`, `src/slicProfileData.ts`, `src/methodologyData.ts`
+
+**Architecture decisions locked:**
+
+1. **`CoreLocale = "en" | "th" | "zh"` vs full `Locale`** — `methodologyData.ts` has full en/th/zh translations (~600 lines each). ko/ja use `localizeMethodologyFallback()` which takes the English base and swaps the tier protocol rule, Singapore rule, and source tiers for localized equivalents. This is architecturally honest: a 6,000-word technical methodology paper needs real translation, not placeholder text. The fallback ensures ko/ja users see correct structural data while the full literary translation waits for a dedicated translation pass.
+
+2. **`LocalizedRecord<T>` pattern for optional locale completeness** — `src/i18n.ts` exports `type LocalizedRecord<T> = Record<CoreLocale, T> & Partial<Record<ExtendedLocale, T>>` for cases where ko/ja are optional. Use `Record<Locale, T>` only when every locale is genuinely complete. TypeScript enforces this.
+
+3. **EssayPage multilingual strategy (the "ikigai" work)** — The essay is personal journalism by Nontawat Arkara, written in English. Full literary translation would lose voice and require a different author. Solution: native-language abstract (4 paragraphs, ~200 words each) above the English essay body, all chrome (title, subtitle, eyebrow, section headers, pull quotes, captions, references header) in user's locale, plus an honest language note. This mirrors how FT/Economist handle long-form editorial. The abstract describes: Kenny the expat, Chen the infrastructure builder, the corn vendor outside the Marriott, and SLIC's limits as a tool. CSS: `.essay-abstract`, `.essay-abstract-label`, `.essay-lang-note`.
+
+**Pillar labels established (canonical for all future ko/ja work):**
+- Korean: Growth=성장, Viability=생활가능성, Capability=역량, Community=커뮤니티, Creative=창의성
+- Japanese: Growth=成長, Viability=生活持続性, Capability=ケイパビリティ, Community=コミュニティ, Creative=クリエイティブ
+
+**Register used:**
+- Korean: 합니다/입니다 formal polite (academic/civic context)
+- Japanese: です/ます formal polite
+
+**Number formats:** `ko: "ko-KR"`, `ja: "ja-JP"` via `Intl.NumberFormat`
+
+**Font stacks added to `styles.css`:** `:lang(ko)` → Noto Sans KR; `:lang(ja)` → Noto Sans JP (Google Fonts import added)
+
+**Parallel agent strategy used:** 7 agents ran sequentially-then-in-parallel across the 23-file surface. Each agent received exact file paths, line ranges, terminology maps, and register instructions. Agents reported clean builds individually. Final verify:math ran 21/21 pass after all agents completed.
+
+**Lesson:** When expanding locales, establish the pillar/tier/register terminology first (a terminology map document) before dispatching agents. That map prevents inconsistent translations where different agents independently coin different terms for the same concept.
+
+---
+
 <!-- FORMAT for future entries:
 ## YYYY-MM-DD · [short title of the mistake]
 - **What went wrong:** ...
