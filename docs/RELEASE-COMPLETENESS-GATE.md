@@ -17,6 +17,7 @@ This gate runs:
 3. `npm test` — data-integrity and publication stability invariants.
 4. `npm run check:publication` — public ranking and tier snapshot integrity.
 5. `npm run check:methodology` — methodology, formula, tier-rule, and PDF-source drift checks.
+6. `npm run check:translations` — locale regression checks for duplicated core translations and known Korean/Japanese register hazards.
 
 If this command fails, the release is not complete. Do not silence the gate. Fix the failing contract or document why the release is intentionally blocked.
 

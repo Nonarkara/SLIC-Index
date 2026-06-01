@@ -14,11 +14,12 @@
     "rescore": "node scripts/rescore-all-cities.mjs",
     "check:publication": "node scripts/check-publication-integrity.mjs",
     "check:methodology": "node scripts/check-methodology-drift.mjs",
+    "check:translations": "node scripts/check_translations.mjs",
     "fixture:benchmarks": "node scripts/update-publication-benchmark-fixture.mjs",
     "methodology:pdf": "python3 scripts/generate_methodology_pdf.py",
     "test": "node --test test/*.test.mjs",
     "verify": "npm run typecheck && npm run build && npm test",
-    "verify:release": "npm run verify && npm run check:publication && npm run check:methodology",
+    "verify:release": "npm run verify && npm run check:publication && npm run check:methodology && npm run check:translations",
     "verify:math": "npm run rescore && npm run check:publication && npm run check:methodology && npm test"
   },
   "dependencies": {
