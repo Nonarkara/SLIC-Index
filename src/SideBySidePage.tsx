@@ -15,7 +15,7 @@ const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   th: { pressure: "การเติบโต", viability: "ความน่าอยู่", capability: "ศักยภาพ", community: "ชุมชน", creative: "ความสร้างสรรค์" },
   zh: { pressure: "增长", viability: "宜居", capability: "能力", community: "社区", creative: "创新" },
   ko: { pressure: "성장", viability: "생활가능성", capability: "역량", community: "커뮤니티", creative: "창의성" },
-  ja: { pressure: "成長", viability: "生活持続性", capability: "ケイパビリティ", community: "コミュニティ", creative: "クリエイティブ" },
+  ja: { pressure: "成長", viability: "生活持続性", capability: "能力", community: "コミュニティ", creative: "創造性" },
 };
 
 const PILLAR_COLORS: Record<PillarId, string> = {
@@ -99,17 +99,22 @@ export default function SideBySidePage({
   const [selectedIds, setSelectedIds] = useState<string[]>(initialIds);
   const [isAdding, setIsAdding] = useState<boolean>(false);
   const [search, setSearch] = useState("");
+  const [announcement, setAnnouncement] = useState<string>("");
 
   const labels = PILLAR_LABELS[locale];
   const selectedCities = selectedIds.map((id) => allCities.find((c) => c.id === id)!).filter(Boolean);
   const maxSelected = selectedIds.length >= 5;
 
   const handleRemove = (indexToRemove: number) => {
+    const cityToRemove = allCities.find(c => c.id === selectedIds[indexToRemove]);
+    if (cityToRemove) setAnnouncement(`${cityToRemove.name} removed from comparison basket.`);
     setSelectedIds((prev) => prev.filter((_, i) => i !== indexToRemove));
   };
 
   const handleAdd = (newCityId: string) => {
     if (selectedIds.includes(newCityId)) return;
+    const cityToAdd = allCities.find(c => c.id === newCityId);
+    if (cityToAdd) setAnnouncement(`${cityToAdd.name} added to comparison basket.`);
     setSelectedIds((prev) => [...prev, newCityId]);
     setIsAdding(false);
     setSearch("");
@@ -128,6 +133,9 @@ export default function SideBySidePage({
 
   return (
     <>
+      <div className="visually-hidden" aria-live="polite" aria-atomic="true">
+        {announcement}
+      </div>
       <main>
         <section className="section sbs-page">
           <p className="eyebrow">

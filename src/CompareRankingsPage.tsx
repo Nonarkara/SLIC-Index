@@ -23,7 +23,7 @@ const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   th: { pressure: "การเติบโต", viability: "ความน่าอยู่", capability: "ศักยภาพ", community: "ชุมชน", creative: "ความสร้างสรรค์" },
   zh: { pressure: "增长", viability: "宜居", capability: "能力", community: "社区", creative: "创新" },
   ko: { pressure: "성장", viability: "생활가능성", capability: "역량", community: "커뮤니티", creative: "창의성" },
-  ja: { pressure: "成長", viability: "生活持続性", capability: "ケイパビリティ", community: "コミュニティ", creative: "クリエイティブ" },
+  ja: { pressure: "成長", viability: "生活持続性", capability: "能力", community: "コミュニティ", creative: "創造性" },
 };
 const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
 // Default state: SLIC's canonical weights (25/22/18/15/20). When users land

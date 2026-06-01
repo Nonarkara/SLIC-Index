@@ -89,7 +89,7 @@ const PILLAR_HINTS: Record<Locale, Record<PillarId, string>> = {
     creative: "창업, 연구, 생산적 경쟁력, 야망.",
   },
   ja: {
-    pressure: "経済的活力、市場メカニズム、自然な結果としての生活可能性。",
+    pressure: "経済的活力、市場メカニズム、自然な結果としての生活持続性。",
     viability: "安全、大気、交通、水、デジタルの信頼性。",
     capability: "医療、教育、上方移動への平等なアクセス。",
     community: "帰属感、寛容性、公共の生活、社会的肌合い。",
