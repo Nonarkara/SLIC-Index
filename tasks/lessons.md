@@ -211,7 +211,7 @@ Per §13: the same mistake never happens twice.
 
 **Pillar labels established (canonical for all future ko/ja work):**
 - Korean: Growth=성장, Viability=생활가능성, Capability=역량, Community=커뮤니티, Creative=창의성
-- Japanese: Growth=成長, Viability=生活持続性, Capability=ケイパビリティ, Community=コミュニティ, Creative=クリエイティブ
+- Japanese: Growth=成長, Viability=生活持続性, Capability=能力, Community=コミュニティ, Creative=創造性
 
 **Register used:**
 - Korean: 합니다/입니다 formal polite (academic/civic context)
