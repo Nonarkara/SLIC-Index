@@ -107,7 +107,7 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
   "th-bangkok": {
     heroLine: "Plural, improvised, magnetic, and structurally alive.",
     intro:
-      "Bangkok is Thailand's dominant metropolis, a city where temples, towers, markets, migrant labor, nightlife, bureaucracy, and improvisation operate on the same crowded grid. SLIC reads it not as polished order but as urban capacity: a place whose hospitality, pluralism, experience density, and now genuinely strong Bangkok-metro connectivity keep absorbing very different ways of living. That global pull is not abstract: Mastercard put Bangkok first in 2019, and Euromonitor's arrivals tables put it first again in 2024 and 2025.",
+      "Bangkok's Alpha placement is the index's worked example in full: pure rank #52, tenth seat in the Alpha tier. Seventeen cities with higher pure scores fail gates Bangkok clears — floor scores, coverage, country caps, editorial exclusions. What SLIC measures that most indices miss: the pressure curve here has not priced out the median resident. The cost of daily life — food, transport, rent, the street-level texture of a working week — remains accessible at Bangkok income levels, even as the city's global visitor pull and connectivity figures rival cities ranked well above it. The index does not reward that story with extra points. It rewards it with a seat.",
     photo: {
       fileName: "Bangkok Skyline from Wat Saket.jpg",
       credit: "Slyronit",
@@ -336,9 +336,9 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "sg-singapore": {
-    heroLine: "Extreme competence, engineered almost to the point of abstraction.",
+    heroLine: "The highest Capability score in the dataset. Gamma tier.",
     intro:
-      "Singapore is one of the world's most efficient urban systems, where port power, state capacity, transit, public order, and global capital operate with almost frightening smoothness. SLIC reads it as a city of extraordinary capability whose strength is undeniable, even as the question remains how much frictionless success should count against spontaneity and looseness.",
+      "Singapore scores 94.1 on Capability — the highest in this dataset by a significant margin, and a real reflection of port power, state capacity, transit, and administrative competence operating at near-maximum efficiency. It is Gamma tier. This is not a paradox or a scoring error; it is the index working exactly as intended. Gamma is where a city lands when it fails the Alpha floor: Community 38.8 against a required 40. The 1.2-point gap reflects what the data registers — that extraordinary administrative and economic competence does not automatically translate into the social warmth, civic openness, and everyday looseness the Community pillar measures. SLIC does not argue this is a bad city. It argues that 'extraordinary' and 'the median resident thrives here' are different claims, and both deserve to be said out loud.",
     photo: {
       fileName: "Singapore skyline 2022.jpg",
       credit: "Bruce Poon",
