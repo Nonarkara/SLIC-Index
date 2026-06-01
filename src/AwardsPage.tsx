@@ -421,22 +421,50 @@ export default function AwardsPage({
 
   const calendarRows = [
     {
-      award: "Red Dot Brands & Communication — Editorial Design",
+      award: t(
+        locale,
+        "Red Dot Brands & Communication — Editorial Design",
+        "Red Dot Brands & Communication — Editorial Design",
+        "Red Dot 品牌与传播设计 — 编辑设计",
+        "Red Dot 브랜드 및 커뮤니케이션 디자인 — 편집 디자인",
+        "Red Dot ブランド＆コミュニケーションデザイン — エディトリアルデザイン",
+      ),
       status: t(locale, "Closed (May 2026)", "ปิดรับ (พ.ค. 2569)", "已截止（2026 年 5 月）", "마감 (2026년 5월)", "締め切り（2026年5月）"),
       next: t(locale, "Early Bird ~Feb 2027", "Early Bird ~ก.พ. 2570", "Early Bird ~2027 年 2 月", "얼리버드 ~2027년 2월", "アーリーバード〜2027年2月"),
     },
     {
-      award: "DEmark — System Service & Digital Platform",
+      award: t(
+        locale,
+        "DEmark — System Service & Digital Platform",
+        "DEmark — System Service & Digital Platform",
+        "DEmark — 系统服务与数字平台",
+        "DEmark — 시스템 서비스 및 디지털 플랫폼",
+        "DEmark — システムサービス＆デジタルプラットフォーム",
+      ),
       status: t(locale, "Closed (May 2026)", "ปิดรับ (พ.ค. 2569)", "已截止（2026 年 5 月）", "마감 (2026년 5월)", "締め切り（2026年5月）"),
       next: t(locale, "Q1 2027", "ไตรมาส 1 ปี 2570", "2027 Q1", "2027년 1분기", "2027年Q1"),
     },
     {
-      award: "CEA Creative Technology Award",
+      award: t(
+        locale,
+        "CEA Creative Technology Award",
+        "CEA Creative Technology Award",
+        "CEA 创造性技术奖",
+        "CEA 창의 기술상",
+        "CEA クリエイティブテクノロジー賞",
+      ),
       status: t(locale, "Likely open Jun–Aug 2026", "น่าจะเปิดรับ มิ.ย.–ส.ค. 2569", "预计 2026 年 6–8 月开启", "2026년 6–8월 개방 예상", "2026年6〜8月開放予定"),
       next: t(locale, "2026 cycle — confirm via DEPA channel", "รอบปี 2569 — ยืนยันผ่านช่องทาง DEPA", "2026 周期 —— 通过 DEPA 渠道确认", "2026 사이클 — DEPA 채널을 통해 확인", "2026サイクル — DEPAチャンネルで確認"),
     },
     {
-      award: "CEA Creative Advocacy Award",
+      award: t(
+        locale,
+        "CEA Creative Advocacy Award",
+        "CEA Creative Advocacy Award",
+        "CEA 创造性倡导奖",
+        "CEA 창의 옹호상",
+        "CEA クリエイティブアドボカシー賞",
+      ),
       status: t(locale, "Likely open Jun–Aug 2026", "น่าจะเปิดรับ มิ.ย.–ส.ค. 2569", "预计 2026 年 6–8 月开启", "2026년 6–8월 개방 예상", "2026年6〜8月開放予定"),
       next: t(locale, "2026 cycle companion entry", "รายการคู่ในรอบปี 2569", "2026 周期同投", "2026 사이클 동반 출품", "2026サイクル同時出品"),
     },

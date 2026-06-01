@@ -57,6 +57,7 @@ type MethodUiCopy = {
     contextLabel: string;
     dataMixTitle: string;
     dataMixSummary: string;
+    localDocument: string;
   };
 
 const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
@@ -93,6 +94,7 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     dataMixTitle: "Published data-level mix",
     dataMixSummary:
       "Share of non-null published metric lines by data level in the current public dataset.",
+    localDocument: "Local project document.",
   },
   th: {
     openEquation: "ดูสมการคะแนน",
@@ -127,6 +129,7 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     dataMixTitle: "สัดส่วนชั้นข้อมูลที่เผยแพร่",
     dataMixSummary:
       "สัดส่วนของ metric line ที่ไม่เป็นค่าว่าง แยกตาม data level ในชุดข้อมูลสาธารณะปัจจุบัน",
+    localDocument: "เอกสารโครงการส่วนท้องถิ่น",
   },
   zh: {
     openEquation: "查看评分公式",
@@ -158,9 +161,78 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     illustrative: "说明性预览计算",
     citations: "引用",
     contextLabel: "背景项",
-    dataMixTitle: "已发布数据层级结构",
+    dataMixTitle: "已发布数据层级构成",
     dataMixSummary:
-      "当前公开数据集中，非空指标条目按 data level 划分后的占比。",
+      "当前公开数据集中，各数据层级的非空指标占比。",
+    localDocument: "本地项目文档。",
+  },
+  ko: {
+    openEquation: "점수 방정식 보기",
+    openPdf: "기술 PDF 읽기",
+    downloadPdf: "PDF 다운로드",
+    closePdf: "문서 닫기",
+    pdfWindowTitle: "SLIC 기술 방법론 백서",
+    pdfWindowNote: "다운로드 가능한 영문 마스터 에디션용 내장 리더.",
+    home: "홈",
+    guide: "가이드",
+    critique: "비평",
+    remote: "위성 레이어",
+    scoring: "공식",
+    glossary: "기호",
+    example: "예시",
+    models: "방법 경계",
+    references: "참고문헌",
+    rack: "지식 랙",
+    glossarySymbol: "기호",
+    glossaryDefinition: "정의",
+    glossaryExplanation: "설명",
+    worksheetColumn: "열",
+    worksheetPurpose: "목적",
+    worksheetSource: "주요 출처",
+    sourceTierLabel: "계층",
+    protocolLabel: "프로토콜",
+    roleLabel: "역할",
+    finalScore: "최종 SLIC 점수",
+    illustrative: "예시적 프리뷰 계산",
+    citations: "인용",
+    contextLabel: "컨텍스트 레이블",
+    dataMixTitle: "발표된 데이터 수준 혼합",
+    dataMixSummary: "현재 공개 데이터셋에서 데이터 수준별 유효 지표 점유율.",
+    localDocument: "현지 프로젝트 문서.",
+  },
+  ja: {
+    openEquation: "スコアの方程式を見る",
+    openPdf: "テクニカルPDFを読む",
+    downloadPdf: "PDFをダウンロード",
+    closePdf: "文書を閉じる",
+    pdfWindowTitle: "SLIC技術方法論ペーパー",
+    pdfWindowNote: "ダウンロード可能な英語版マスターエディション用の埋め込みリーダー。",
+    home: "ホーム",
+    guide: "ガイド",
+    critique: "批評",
+    remote: "衛星レイヤー",
+    scoring: "公式",
+    glossary: "記号",
+    example: "例",
+    models: "方法の境界",
+    references: "参考文献",
+    rack: "ナレッジラック",
+    glossarySymbol: "記号",
+    glossaryDefinition: "定義",
+    glossaryExplanation: "説明",
+    worksheetColumn: "列",
+    worksheetPurpose: "目的",
+    worksheetSource: "主な出典",
+    sourceTierLabel: "層",
+    protocolLabel: "プロトコル",
+    roleLabel: "役割",
+    finalScore: "最終的なSLICスコア",
+    illustrative: "例示的なプレビュー計算",
+    citations: "引用",
+    contextLabel: "コンテキストラベル",
+    dataMixTitle: "公開されたデータレベルミックス",
+    dataMixSummary: "現在の公開データセットにおけるデータレベル別の有効指標シェア。",
+    localDocument: "ローカルプロジェクト文書。",
   },
 };
 
@@ -221,6 +293,18 @@ const publishedDataMix: LocalizedRecord<
     { label: "国家层", value: dataLevelShare("national") },
     { label: "复合项", value: dataLevelShare("composite") },
     { label: "派生项", value: dataLevelShare("derived") },
+  ],
+  ko: [
+    { label: "도시 / 대도시", value: dataLevelShare("city") },
+    { label: "국가", value: dataLevelShare("national") },
+    { label: "복합", value: dataLevelShare("composite") },
+    { label: "파생", value: dataLevelShare("derived") },
+  ],
+  ja: [
+    { label: "都市 / 大都市圏", value: dataLevelShare("city") },
+    { label: "国家", value: dataLevelShare("national") },
+    { label: "複合", value: dataLevelShare("composite") },
+    { label: "派生", value: dataLevelShare("derived") },
   ],
 };
 
@@ -802,7 +886,7 @@ function ReferenceCard({
           {ui.references}
         </a>
       ) : (
-        <p className="reference-unlinked">Local project document.</p>
+        <p className="reference-unlinked">{ui.localDocument}</p>
       )}
     </article>
   );

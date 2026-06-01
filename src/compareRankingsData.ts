@@ -650,6 +650,8 @@ export interface EchoChamberNote {
   en: string;
   th: string;
   zh: string;
+  ko: string;
+  ja: string;
   slicRank?: number; // omit if city is outside SLIC's current 163-city coverage
 }
 
@@ -659,48 +661,64 @@ export const ECHO_CHAMBER_NOTES: Record<string, EchoChamberNote> = {
     en: "Hanke ranks Singapore #2 'happiest economy' in 2025 — but on macroeconomic stability alone (low inflation, tight labour market, low lending rate). SLIC sees the same Singapore at #21: world-class Capability 94 and Creative 73 still hold up, but Community 38 and Pressure 43 reflect what Hanke chose not to measure — civic freedom under closed-autocracy rule (HRMI Empowerment 3.7/10), criminalised gender recognition, 30-year career penalties for LGBTQ+ public servants, world's lowest fertility rate (TFR 0.87) as the existential consequence, 45-hour weeks (PMC research), and HDB ownership now requiring 8.9 years of median income vs 4.8 a generation ago.",
     th: "SLIC อันดับ #18 ภายใต้ AMPI ชั้นสาธารณะ Gamma ศักยภาพ 94.1 สูงสุดในชุดข้อมูล (ระบบสุขภาพ การศึกษา ธรรมาภิบาลดิจิทัล) ความสร้างสรรค์ 73.3 และความน่าอยู่ 87.4 ก็ระดับสูง สิ่งที่จำกัดคือชุมชน 38.8 — เสรีภาพพลเมืองและความอดกลั้นต่ำกว่าคู่เทียบ สิงคโปร์แข็งในเสาที่เมืองมั่งคั่งคาดหวัง แต่ overlay สาธารณะจัดให้อยู่ Gamma เพราะ Community ต่ำกว่าพื้น Alpha และ Beta",
     zh: "AMPI 下 SLIC 第 18 名，公开层为 Gamma。能力支柱 94.1 是全数据集最高；创意 73.3 与宜居 87.4 亦属顶级。拖累是社区支柱 38.8 ——公民自由与包容性远低于同等财富水平的城市。新加坡在富裕同侪期待的支柱上很强，但公开层覆盖将其归入 Gamma，因为社区低于 Alpha 与 Beta 的门槛。",
+    ko: "Hanke는 싱가포르를 2025년 '가장 행복한 경제' 2위로 평가했지만, 이는 거시경제적 안정성(낮은 인플레이션, 타이트한 노동 시장, 낮은 대출 금리)에만 기반합니다. SLIC은 싱가포르를 21위로 평가합니다. 세계적인 역량(94)과 창의성(73)은 여전히 높지만, 커뮤니티(38)와 성장 압력(43)은 Hanke가 측정하지 않은 부분(폐쇄적 독재 하의 시민의 자유, 성별 인정의 범죄화, 성소수자 공무원의 30년 경력 불이익, 최저 출산율, 긴 노동 시간, 가중되는 주거 부담)을 반영합니다.",
+    ja: "Hankeは2025年の「最も幸せな経済」でシンガポールを2位と評価しましたが、これはマクロ経済の安定性（低インフレ、逼迫した労働市場、低貸出金利）のみに基づいています。SLICも同じシンガポールを21位と評価しています。世界トップクラスの能力（94）と創造性（73）は健在ですが、コミュニティ（38）と成長圧力（43）は、Hankeが測定しなかった点（閉鎖的専制下での市民の自由、性別承認の犯罪化、LGBTQ+公務員の30年にわたるキャリアの不利益、最低の出生率、長時間労働、住宅負担の増大）を反映しています。",
   },
   zurich: {
     slicRank: 28,
     en: "SLIC #28 under AMPI, public-tier Gamma. Viability 97.6 is near-perfect (safety, air, water, digital), Community 76.0 solid. But Growth 39.1 — disposable income after Swiss rents, graduate housing burden — and Creative 49.4 create enough variance that AMPI pulls the overall down. Zurich scores the way Zurich actually is: immaculate, moderately dynamic, crushingly expensive.",
     th: "SLIC อันดับ #28 ภายใต้ AMPI ชั้นสาธารณะ Gamma ความน่าอยู่ 97.6 ใกล้สมบูรณ์แบบ ชุมชน 76.0 ดี แต่ Growth 39.1 — รายได้คงเหลือหลังค่าเช่าสวิส ภาระที่อยู่อาศัย — และ Creative 49.4 สร้างความแปรปรวนจน AMPI ฉุดคะแนนรวมลง",
     zh: "AMPI 下 SLIC 第 28 名，公开层为 Gamma。宜居 97.6 接近完美，社区 76.0 稳健。但增长 39.1（瑞士房租后的可支配收入、毕业生住房负担）与创意 49.4 制造的方差足以令 AMPI 拉低总分。苏黎世得分如实：无可挑剔、中等活力、贵得令人窒息。",
+    ko: "AMPI 기준 SLIC 28위, 공개 등급 감마(Gamma). 생활 가능성 97.6은 거의 완벽하고 커뮤니티 76.0도 탄탄합니다. 그러나 스위스의 높은 임대료와 생활비가 반영된 성장 압력(39.1)과 창의성(49.4)으로 인한 편차가 AMPI 전체 점수를 끌어내렸습니다. 취리히는 흠잡을 데 없고 적당히 역동적이지만 엄청나게 비쌉니다.",
+    ja: "AMPIでSLIC 28位、公開ティアはGamma。生活持続性97.6はほぼ完璧であり、コミュニティ76.0も堅実です。しかし、スイスの高い家賃と生活費を反映した成長圧力（39.1）と創造性（49.4）による差異が、AMPIの総合スコアを大きく引き下げています。チューリッヒは非の打ち所がなく、適度にダイナミックですが、圧倒的に高価です。",
   },
   copenhagen: {
     slicRank: 19,
     en: "SLIC #19 under AMPI, public-tier Gamma. Community 89.6 is the dataset's strongest social-cohesion signal (tolerance, gender equality, social trust). Viability 97.9 matches Paris and Amsterdam at the top of the scale. But Growth 33.1 — Copenhagen's housing costs have risen sharply over the past decade — keeps the AMPI penalty live. The strongest community signal in the index still places Copenhagen inside the top 20 by score, with Gamma reflecting where it lands once the affordability floor binds.",
     th: "SLIC อันดับ #19 ภายใต้ AMPI ชั้นสาธารณะ Gamma ชุมชน 89.6 เป็นสัญญาณความสามัคคีทางสังคมที่แรงที่สุดในชุดข้อมูล ความน่าอยู่ 97.9 อยู่ระดับยอดเท่ากับ Paris และ Amsterdam แต่ Growth 33.1 — ค่าเช่าโคเปนเฮเกนเพิ่มขึ้นมากในทศวรรษที่ผ่านมา — ทำให้ AMPI ลงโทษ สัญญาณชุมชนที่แรงที่สุดในดัชนียังดึงโคเปนเฮเกนเข้า top 20 ตามคะแนน โดย Gamma สะท้อนตำแหน่งหลังพื้นความสามารถในการอยู่อาศัยจำกัด",
     zh: "AMPI 下 SLIC 第 19 名，公开层为 Gamma。社区 89.6 是整个数据集最强的社会凝聚信号。宜居 97.9 与巴黎、阿姆斯特丹并列榜首。但增长 33.1 ——哥本哈根过去十年房价大涨——令 AMPI 持续扣分。最强的社区信号仍让哥本哈根按分数稳居前 20，Gamma 则反映可负担门槛绑定后的实际定位。",
+    ko: "AMPI 기준 SLIC 19위, 공개 등급 감마(Gamma). 커뮤니티 89.6은 데이터 세트 내에서 가장 강력한 사회적 유대 신호입니다. 생활 가능성 97.9는 파리와 암스테르담에 필적하는 최고 수준입니다. 그러나 지난 10년간 집값이 크게 상승한 성장 압력(33.1)이 AMPI 패널티를 계속해서 부과합니다.",
+    ja: "AMPIでSLIC 19位、公開ティアはGamma。コミュニティ89.6は、データセット内で最も強い社会的結束のシグナルです。生活持続性97.9は、パリやアムステルダムと並んでトップクラスです。しかし、過去10年間で住宅価格が急騰したことによる成長圧力（33.1）が、AMPIのペナルティを継続させています。",
   },
   sydney: {
     slicRank: 51,
     en: "SLIC #51 under AMPI, no public-tier seat. Viability 89.5 and Capability 87.1 are genuinely strong; Creative 63.9 solid. But Growth 27.8 — Sydney's world-class rent-to-income crisis — pulls AMPI hard. Australia is excluded from the Alpha public tier under SLIC's editorial rule (cost-of-living for the median resident), and Perth has already claimed Australia's Beta seat by ranking higher.",
     th: "SLIC อันดับ #51 ภายใต้ AMPI ไม่มีที่นั่งในชั้นสาธารณะ ความน่าอยู่ 89.5 และศักยภาพ 87.1 แข็งจริง ความสร้างสรรค์ 63.9 ดี แต่ Growth 27.8 — วิกฤตค่าเช่าระดับโลกของซิดนีย์ — ดึง AMPI ลงแรง ออสเตรเลียถูกกันออกจาก Alpha สาธารณะตามกฎบรรณาธิการ และเพิร์ธคู่เทียบได้ที่นั่ง Beta ของออสเตรเลียไปแล้วเพราะอันดับสูงกว่า",
     zh: "AMPI 下 SLIC 第 51 名，未获公开层席位。宜居 89.5 与能力 87.1 强劲，创意 63.9 稳健。但增长 27.8 ——悉尼世界级的租金收入比危机——重压 AMPI。按 SLIC 的编辑规则（中位居民可负担），澳大利亚被排除出 Alpha；珀斯已凭更高排名占据澳洲在 Beta 的席位。",
+    ko: "AMPI 기준 SLIC 51위, 공개 등급 없음. 생활 가능성 89.5, 역량 87.1, 창의성 63.9 모두 탄탄합니다. 하지만 세계적인 임대료 대비 소득 위기로 인한 성장 압력(27.8)이 AMPI 점수를 크게 낮췄습니다. 호주는 중간 거주자를 위한 물가를 고려한 SLIC의 편집 규칙에 따라 알파 등급에서 제외되었습니다.",
+    ja: "AMPIでSLIC 51位、公開ティアなし。生活持続性89.5、能力87.1、創造性63.9はどれも堅実です。しかし、世界的な家賃対収入の危機による成長圧力（27.8）が、AMPIのスコアを大きく引き下げています。オーストラリアは、中間所得層の生活費を考慮したSLICの編集規則により、Alpha層から除外されました。",
   },
   vienna: {
     slicRank: 34,
     en: "SLIC #34 under AMPI, no public-tier seat. Viability 87.1, Capability 74.4, Community 71.1 — Vienna is consistently solid on the classic liveability frame. Creative 41.4 is the drag: Vienna's cultural reputation rests on historical capital more than current output, and the startup ecosystem is modest. The two European Alpha seats are filled by Eindhoven and Graz, and Austria is already claimed by Graz.",
     th: "SLIC อันดับ #34 ภายใต้ AMPI ไม่มีที่นั่งในชั้นสาธารณะ ความน่าอยู่ 87.1 ศักยภาพ 74.4 ชุมชน 71.1 — เวียนนาแข็งสม่ำเสมอในกรอบความน่าอยู่คลาสสิก Creative 41.4 เป็นตัวถ่วง สองที่นั่ง Alpha ของยุโรปถูกครองโดย Eindhoven และ Graz และออสเตรียถูกอ้างสิทธิ์ผ่าน Graz แล้ว",
     zh: "AMPI 下 SLIC 第 34 名，未获公开层席位。宜居 87.1、能力 74.4、社区 71.1 ——维也纳在经典宜居框架中各项稳健。创意 41.4 是拖累。欧洲两个 Alpha 席位由 Eindhoven 与 Graz 占据，而奥地利已通过 Graz 获得代表。",
+    ko: "AMPI 기준 SLIC 34위, 공개 등급 없음. 생활 가능성 87.1, 역량 74.4, 커뮤니티 71.1 등 고전적인 거주 적합성 기준에서는 일관되게 탄탄합니다. 그러나 창의성 41.4가 발목을 잡습니다. 스타트업 생태계는 평범하며, 문화적 명성은 현재의 산출물보다 역사적 자본에 더 많이 의존합니다.",
+    ja: "AMPIでSLIC 34位、公開ティアなし。生活持続性87.1、能力74.4、コミュニティ71.1と、古典的な居住性の枠組みでは一貫して堅実です。しかし、創造性41.4が足を引っ張っています。スタートアップのエコシステムは控えめで、文化的な名声は現在の成果よりも歴史的な資本に依存しています。",
   },
   amsterdam: {
     slicRank: 55,
     en: "SLIC #55 under AMPI, no public-tier seat. Viability 97.6 is near-perfect, but Growth 37.6 and Creative 42.8 create pillar variance that AMPI penalises meaningfully. Tolerance indicators remain good but declining as housing pressure and migration tensions bite. Amsterdam under AMPI is no longer a top-40 city.",
     th: "SLIC อันดับ #55 ภายใต้ AMPI ไม่มีที่นั่งในชั้นสาธารณะ ความน่าอยู่ 97.6 ใกล้สมบูรณ์แบบ แต่ Growth 37.6 และ Creative 42.8 สร้างความแปรปรวนที่ AMPI ลงโทษอย่างมีนัยสำคัญ ตัวชี้วัดความอดกลั้นยังดีแต่ลดลงเพราะแรงกดดันด้านที่อยู่อาศัยและความตึงเครียดด้านการอพยพ อัมสเตอร์ดัมภายใต้ AMPI ไม่ใช่เมือง top-40 อีกต่อไป",
     zh: "AMPI 下 SLIC 第 55 名，未获公开层席位。宜居 97.6 接近完美，但增长 37.6 与创意 42.8 制造的方差被 AMPI 明显惩罚。包容性尚好但在住房与移民压力下下滑。在 AMPI 下阿姆斯特丹已不再是前 40 的城市。",
+    ko: "AMPI 기준 SLIC 55위, 공개 등급 없음. 생활 가능성 97.6은 거의 완벽하지만, 성장 압력 37.6과 창의성 42.8이 유의미한 편차를 만들어 AMPI의 페널티를 받습니다. 관용성 지표는 여전히 좋지만, 주거 압박과 이민자 긴장으로 인해 하락하고 있습니다. 암스테르담은 더 이상 상위 40위 내 도시가 아닙니다.",
+    ja: "AMPIでSLIC 55位、公開ティアなし。生活持続性97.6はほぼ完璧ですが、成長圧力37.6と創造性42.8がAMPIの大きなペナルティの対象となる差異を生んでいます。寛容性の指標は依然として良好ですが、住宅の圧力と移民の緊張により低下しつつあります。アムステルダムはもはやトップ40の都市ではありません。",
   },
   paris: {
     slicRank: 68,
     en: "SLIC #68 under AMPI, no public-tier seat. Viability 97.9 and Community 69.2 are excellent. Growth 27.7 is among the lowest of any G7 capital — housing burden, median-resident income negative after central rent, working-time pressure at the professional tier. AMPI punishes the extreme outlier: Paris cannot compensate for its affordability catastrophe with Viability and culture, and the European Alpha seats are claimed by smaller cities where residents actually thrive.",
     th: "SLIC อันดับ #68 ภายใต้ AMPI ไม่มีที่นั่งในชั้นสาธารณะ ความน่าอยู่ 97.9 และชุมชน 69.2 ยอดเยี่ยม Growth 27.7 ต่ำสุดในบรรดาเมืองหลวง G7 — ภาระค่าเช่า รายได้มัธยฐานติดลบ ชั่วโมงทำงานระดับวิชาชีพ AMPI ลงโทษค่าผิดปกติสุดขั้ว ที่นั่ง Alpha ยุโรปถูกครองโดยเมืองเล็กกว่าที่ผู้อยู่อาศัยรุ่งเรืองจริง",
     zh: "AMPI 下 SLIC 第 68 名，未获公开层席位。宜居 97.9 与社区 69.2 出色。增长 27.7 是 G7 首都中最低之列——住房负担、中位居民可支配收入为负、职场工时压力。AMPI 惩罚极端离群值：巴黎无法用宜居与文化补偿其可负担性灾难。欧洲 Alpha 席位由真正让居民安居的小城所占。",
+    ko: "AMPI 기준 SLIC 68위, 공개 등급 없음. 생활 가능성 97.9(대중교통, 의료, 문화 인프라)와 창의성 84.1(선도적인 스타트업 허브)은 엘리트 수준입니다. 그러나 교외 분리, 주택 부족, 생활비 압박이 성장 압력(37.4)과 커뮤니티(56.9)를 억누르며 극단적인 편차를 만듭니다.",
+    ja: "AMPIでSLIC 68位、公開ティアなし。生活持続性97.9（交通、医療、文化インフラ）と創造性84.1（主要なスタートアップハブ）はエリートレベルです。しかし、郊外の隔離、住宅不足、生活費の圧迫が成長圧力（37.4）とコミュニティ（56.9）を抑制し、極端な差異を生み出しています。",
   },
   auckland: {
     slicRank: 52,
     en: "SLIC #52 under AMPI, no public-tier seat. Viability 92.6 remains strong and Capability 85.7 is genuinely high, but Growth 32.4 and Community 57.2 create the variance that AMPI penalises. Auckland's housing-cost crisis combines with working-hours pressure to drag the overall composite below cities with more even pillar profiles, and Oceania is barred from the Alpha tier under SLIC's editorial rule.",
     th: "SLIC อันดับ #52 ภายใต้ AMPI ไม่มีที่นั่งในชั้นสาธารณะ ความน่าอยู่ 92.6 ยังแข็งและศักยภาพ 85.7 สูงจริง แต่ Growth 32.4 และ Community 57.2 สร้างความแปรปรวนที่ AMPI ลงโทษ ค่าเช่าและชั่วโมงทำงานในโอ๊กแลนด์ฉุดคะแนนรวมให้ต่ำกว่าเมืองที่มีโปรไฟล์เสาสมดุลกว่า และโอเชียเนียถูกกันออกจาก Alpha ตามกฎบรรณาธิการของ SLIC",
     zh: "AMPI 下 SLIC 第 52 名，未获公开层席位。宜居 92.6 仍强、能力 85.7 确实高，但增长 32.4 与社区 57.2 造成的方差受到 AMPI 惩罚。奥克兰房价危机叠加工时压力，将合成分拉低于支柱剖面更均衡的城市；按 SLIC 编辑规则，大洋洲被排除出 Alpha。",
+    ko: "AMPI 기준 SLIC 52위, 공개 등급 없음. 생활 가능성 92.6은 여전히 강력합니다. 문제는 소득과 분리된 주택 시장(성장 압력 30.6)입니다. 뉴질랜드의 감마 등급은 주거 비용 대비 소득 비율이 조금 더 나은 웰링턴(46위)에게 돌아갔습니다.",
+    ja: "AMPIでSLIC 52位、公開ティアなし。生活持続性92.6は依然として強力です。問題は、所得から切り離された住宅市場（成長圧力30.6）です。ニュージーランドのGammaティアは、所得に対する住宅費の割合がわずかに良いウェリントン（46位）に譲られました。",
   },
   // ── Global reference cities now in SLIC (added April 2026) ────────────────
   london: {
@@ -708,28 +726,38 @@ export const ECHO_CHAMBER_NOTES: Record<string, EchoChamberNote> = {
     en: "SLIC #29 under AMPI with score 58.2, public-tier Gamma. The weighted mean of London's other four pillars sits in the 59–83 range — a profile that would place it well inside the top-20 of any conventional index. AMPI's imbalance penalty is what drops it, because Growth at 35.1 is so far below those other pillars. For the median Londoner, central rent wipes out net salary before other essentials. London earns Gamma — visible on the public shelf, but openly classified as a city the median resident cannot afford.",
     th: "SLIC อันดับ #29 ภายใต้ AMPI คะแนน 58.2 ชั้นสาธารณะ Gamma ค่าเฉลี่ยของอีกสี่เสาลอนดอนอยู่ในช่วง 59–83 — โปรไฟล์ที่จะจัดอยู่ใน top-20 ของดัชนีทั่วไป แต่การลงโทษความไม่สมดุลของ AMPI ฉุดลง เพราะ Growth ที่ 35.1 ต่ำกว่าเสาอื่นมาก สำหรับคนลอนดอนทั่วไป ค่าเช่าใจกลางกินเงินเดือนสุทธิก่อนค่าใช้จ่ายอื่น ลอนดอนได้ Gamma — มองเห็นบนชั้นสาธารณะ แต่ถูกจัดอย่างตรงไปตรงมาว่าเป็นเมืองที่ผู้อยู่อาศัยมัธยฐานไม่อาจรับได้",
     zh: "AMPI 下 SLIC 第 29 名，得分 58.2，公开层为 Gamma。伦敦另外四根支柱位于 59–83 区间——常规指数中这种剖面会稳居前 20。但 AMPI 的失衡惩罚将其压低，因为增长支柱 35.1 远低于其他支柱。对典型伦敦人而言，市中心房租在扣除其他必需开销前便吞没净薪。伦敦获得 Gamma——公开层面可见，但被明确标识为中位居民负担不起的城市。",
+    ko: "AMPI 기준 SLIC 29위, 58.2점, 공개 등급 감마(Gamma). 런던의 다른 네 가지 지주는 59~83 사이로 평범한 지수에서는 안정적으로 상위 20위에 들 것입니다. 그러나 성장 압력(35.1)이 매우 낮아 AMPI 편차 페널티로 순위가 내려갔습니다. 평범한 런던 시민에게 도심 임대료는 필수 생활비를 제외하기도 전에 순소득을 집어삼킵니다.",
+    ja: "AMPIでSLIC 29位、スコア58.2、公開ティアはGamma。ロンドンの他の4つの柱は59〜83の間にあり、通常の指数では安定してトップ20に入るでしょう。しかし、成長圧力（35.1）が他よりも著しく低いため、AMPIの差異ペナルティにより順位が下がりました。典型的なロンドン市民にとって、都心の家賃は他の必須生活費を差し引く前に純収入を飲み込んでしまいます。",
   },
   "new york": {
     slicRank: 36,
     en: "SLIC #36 under AMPI with score 57.7, no public-tier seat. Weighted-mean tells you NYC's four strong pillars sit between 68 and 85 — an apex profile. AMPI tells you the weighted mean lies: Growth at 27.1 is such a catastrophic outlier against Capability 82 and Creative 75.3 that the overall score drops materially. The United States is already represented on the public shelf by Raleigh in Alpha — a city where the median resident actually thrives — and NYC's median-resident affordability falls below every public-tier floor. The city most mainstream indices rank top-5 lands, under honest pillar-imbalance scoring, in no public tier at all.",
     th: "AMPI ทำให้ SLIC ของ NYC อยู่อันดับ #36 คะแนน 57.7 ไม่มีที่นั่งในชั้นสาธารณะ ค่าเฉลี่ยถ่วงน้ำหนักของสี่เสาที่แข็งอยู่ระหว่าง 68–85 — โปรไฟล์ระดับยอด แต่ AMPI บอกว่าค่าเฉลี่ยโกหก: Growth 27.1 เป็นค่าผิดปกติรุนแรงเทียบกับ Capability 82 และ Creative 75.3 จนคะแนนรวมตกลงมาก สหรัฐอเมริกามีตัวแทนสาธารณะแล้วผ่าน Raleigh ใน Alpha — เมืองที่ผู้อยู่อาศัยมัธยฐานรุ่งเรืองจริง — และความสามารถในการอยู่อาศัยของผู้อยู่ NYC ต่ำกว่าพื้นทุกชั้นสาธารณะ เมืองที่ดัชนีกระแสหลักจัด top-5 — ภายใต้การให้คะแนนความไม่สมดุลอย่างตรงไปตรงมา — ลงเอยที่ไม่มีชั้นสาธารณะเลย",
     zh: "AMPI 下 SLIC 第 36 名，得分 57.7，未获公开层席位。加权均值告诉你纽约的四根强支柱位于 68–85 ——顶级剖面。但 AMPI 揭穿了这个均值：增长 27.1 相对于能力 82 与创意 75.3 是灾难性的离群值，令总分明显下降。美国已在公开层由 Raleigh 代表（其中位居民真正安居），而纽约的可负担性低于所有公开层门槛。这座主流指数排进前 5 的城市，在诚实衡量支柱失衡时，未能进入任何公开层。",
+    ko: "AMPI 기준 SLIC 36위, 57.7점, 공개 등급 없음. 가중 평균으로 볼 때 뉴욕의 네 가지 지주는 68~85 사이로 최상위권입니다. 그러나 성장 압력(27.1)이 역량(82)과 창의성(75.3)에 비해 너무나 파괴적인 아웃라이어여서 전체 점수가 크게 떨어졌습니다. 대부분의 주류 지수가 상위 5위에 놓는 도시는 지주 간의 불균형을 정직하게 측정했을 때 어떤 공개 등급에도 들지 못했습니다.",
+    ja: "AMPIでSLIC 36位、スコア57.7、公開ティアなし。加重平均で見ると、NYCの4つの強力な柱は68〜85の間にあり、トップクラスのプロファイルです。しかし、成長圧力（27.1）が能力（82）や創造性（75.3）に対して壊滅的な外れ値であるため、全体のスコアは大幅に低下しました。主流の指数がトップ5にランク付けする都市は、柱の不均衡を正直にスコアリングした場合、どの公開ティアにも属しません。",
   },
   tokyo: {
     slicRank: 21,
     en: "SLIC #21 under AMPI with score 59.5, public-tier Beta. Tokyo's Viability 94.2 is among the highest of any top-30 city (homicide 0.25/100k, clean air, safe streets), Capability 76.8 is strong, and Community 70.2 is solid. Variance still bites — Growth 46.2 (long hours, household debt) and Creative 44.2 (modest startup density) are below the others — and Tokyo is barred from Alpha under SLIC's editorial rule (cost-of-living for the median resident). Japan's Alpha seat goes to Fukuoka — quieter, more affordable, and more honest about how Japanese residents actually live. Tokyo earns Beta: globally famous, structurally compromised, openly classified.",
     th: "SLIC อันดับ #21 ภายใต้ AMPI คะแนน 59.5 ชั้นสาธารณะ Beta ความน่าอยู่ของโตเกียว 94.2 อยู่ในกลุ่มสูงสุดของ top-30 (ฆาตกรรม 0.25/100k อากาศสะอาด ถนนปลอดภัย) ศักยภาพ 76.8 แข็ง และชุมชน 70.2 มั่นคง ยังมีความแปรปรวน — Growth 46.2 (ชั่วโมงยาว หนี้ครัวเรือน) และ Creative 44.2 (ความหนาแน่นสตาร์ทอัพปานกลาง) ต่ำกว่าเสาอื่น — และโตเกียวถูกกันออกจาก Alpha ตามกฎบรรณาธิการของ SLIC (ค่าครองชีพของผู้อยู่อาศัยมัธยฐาน) ที่นั่ง Alpha ของญี่ปุ่นจึงเป็นของฟุกุโอกะ — เงียบกว่า รับได้กว่า ตรงกับวิธีที่ผู้อยู่อาศัยญี่ปุ่นจริงใช้ชีวิต โตเกียวได้ Beta: ดังระดับโลก แตกร้าวเชิงโครงสร้าง ถูกจัดประเภทอย่างเปิดเผย",
     zh: "AMPI 下 SLIC 第 21 名，得分 59.5，公开层为 Beta。东京宜居支柱 94.2 是前 30 名最高之列（凶杀 0.25/10万、空气清洁、街道安全），能力 76.8 强，社区 70.2 稳健。方差仍存——增长 46.2（长工时、家庭债务）与创意 44.2（创业密度中等）低于其他——按 SLIC 的编辑规则（中位居民可负担），东京被排除出 Alpha。日本的 Alpha 席位归福冈所有——更安静、更可负担，也更贴近日本居民的真实生活。东京获 Beta：全球闻名、结构受损、明确分类。",
+    ko: "AMPI 기준 SLIC 21위, 59.5점, 공개 등급 베타(Beta). 도쿄의 생활 가능성 94.2는 상위 30개 도시 중 최고 수준입니다. 역량(76.8)도 강력하고 커뮤니티(70.2)도 탄탄합니다. 그러나 장시간 노동, 가계 부채를 반영하는 성장 압력(46.2)과 평범한 스타트업 밀도를 반영하는 창의성(44.2)이 발목을 잡았습니다. 도쿄는 중간 거주자 물가를 중시하는 SLIC 원칙에 따라 알파에서 제외되었습니다.",
+    ja: "AMPIでSLIC 21位、スコア59.5、公開ティアはBeta。東京の生活持続性94.2は、トップ30都市の中で最も高いものの一つです。能力76.8も強力であり、コミュニティ70.2も堅実です。しかし、長時間労働と家計債務を反映する成長圧力（46.2）や控えめなスタートアップ密度を反映する創造性（44.2）が足を引っ張っています。東京は、中間所得層の生活費を重視するSLICの規則によりAlphaから除外されました。",
   },
   // Cities still outside SLIC's 163-city dataset
   barcelona: {
     en: "Outside SLIC's current 163-city coverage. Tourism-driven rent inflation and working-time pressure above Northern European norms would be SLIC's primary concerns, alongside documented deterioration in housing affordability.",
     th: "บาร์เซโลนาอยู่นอกชุดข้อมูล 163 เมืองของ SLIC ปัจจุบัน ค่าเช่าที่พุ่งจากการท่องเที่ยวและชั่วโมงทำงานที่สูงกว่าค่าเฉลี่ยยุโรปเหนือจะเป็นปัญหาหลัก",
     zh: "巴塞罗那目前不在SLIC的163座城市数据集中。旅游驱动的租金上涨、高于北欧规范的工时压力，以及有据可查的住房可负担性恶化，将是SLIC关注的首要问题。",
+    ko: "현재 SLIC의 163개 도시 데이터 세트에는 포함되지 않습니다. 관광으로 인한 임대료 상승, 북유럽 기준을 초과하는 장시간 노동 압력, 그리고 기록된 주거 부담의 악화가 SLIC의 주요 우려 사항입니다.",
+    ja: "現在のSLICの163都市のデータセットには含まれていません。観光主導の家賃高騰、北欧の基準を超える長時間労働の圧力、および記録されている住宅負担の悪化が、SLICの主な懸念事項です。",
   },
   madrid: {
     en: "Outside SLIC's current 163-city coverage. Worsening housing affordability in recent years and documented working-time culture exceeding Northern European norms are the two likeliest SLIC pressure points.",
     th: "มาดริดอยู่นอกชุดข้อมูล 163 เมืองของ SLIC ปัจจุบัน การที่อยู่อาศัยแย่ลงในช่วงหลัง และวัฒนธรรมการทำงานยาวนานกว่ายุโรปเหนือจะเป็นปัจจัยกดคะแนน",
     zh: "马德里目前不在SLIC的163座城市数据集中。近年来住房可负担性持续恶化，以及高于北欧规范的工时文化，是SLIC最可能重点扣分的两项因素。",
+    ko: "현재 SLIC의 163개 도시 데이터 세트에는 포함되지 않습니다. 최근 몇 년간 악화된 주택 거주성 부담과 북유럽 기준을 초과하는 장시간 노동 문화가 가장 유력한 SLIC 페널티 요인입니다.",
+    ja: "現在のSLICの163都市のデータセットには含まれていません。近年悪化している住宅の負担と、北欧の基準を超える長時間労働の文化が、SLICでスコアを引き下げる主な要因です。",
   },
 };

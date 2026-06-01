@@ -24,6 +24,8 @@ const ALLOCATOR_HINT: LocalizedRecord<string> = {
   en: "drag a bar to weight what matters to you",
   th: "ลากแถบเพื่อให้น้ำหนักสิ่งที่สำคัญกับคุณ",
   zh: "拖动滑块以赋予你所重视事物的权重",
+  ko: "막대를 드래그하여 당신에게 중요한 항목에 가중치를 부여하세요",
+  ja: "バーをドラッグして、自分にとって重要な項目に重み付けをしてください",
 };
 
 function allocatorLayout(size: number) {

@@ -18,6 +18,14 @@ const bannerCopy: LocalizedRecord<{
     eyebrow: "榜单状态",
     note: "可引用本排名，请注明来源。复现细节请参阅方法论论文。",
   },
+  ko: {
+    eyebrow: "순위 상태",
+    note: "이 순위는 출처를 밝히고 인용할 수 있습니다. 복제 세부 사항은 방법론 문서를 참조하세요.",
+  },
+  ja: {
+    eyebrow: "ランキングステータス",
+    note: "このランキングは帰属表示付きで引用できます。複製に関する詳細は方法論の文書をご覧ください。",
+  },
 };
 
 export default function RankingIntegrityBanner({ locale }: { locale: Locale }) {

@@ -75,9 +75,9 @@ const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   ja: {
     pressure: "成長",
     viability: "生活持続性",
-    capability: "ケイパビリティ",
+    capability: "能力",
     community: "コミュニティ",
-    creative: "クリエイティブ",
+    creative: "創造性",
   },
 };
 
@@ -320,7 +320,7 @@ export default function HomePage({
             ) : locale === "zh" ? (
               <>既在增长，也还住得起。<span className="hp-headline--accent">其余都是营销。</span></>
             ) : locale === "ko" ? (
-              <>성장하고, 여전히 합리적인 가격.{" "}<span className="hp-headline--accent">나머지는 모두 마케팅입니다.</span></>
+              <>번영하면서도 여전히 감당 가능.{" "}<span className="hp-headline--accent">나머지는 모두 마케팅입니다.</span></>
             ) : locale === "ja" ? (
               <>成長していて、それでも手頃。{" "}<span className="hp-headline--accent">それ以外はすべてマーケティング。</span></>
             ) : (
@@ -334,7 +334,7 @@ export default function HomePage({
               `${publishedRankedCount} เมืองในการจัดอันดับ พร้อมรายชื่อเฝ้าระวัง ${publishedWatchlistCount} เมืองสำหรับเขตขัดแย้งและข้อมูลไม่สมบูรณ์ แต่ละเมืองมีคะแนนที่ประกาศชัดเจนหนึ่งค่า และสามารถไล่ย้อนกลับได้ผ่าน 5 เสาหลักสาธารณะ ได้แก่ แรงกดดัน ความน่าอยู่ ศักยภาพ ชุมชน และพลังสร้างสรรค์ ระดับ Alpha ต้องผ่านเกณฑ์ขั้นต่ำของความน่าอยู่ — ไม่มีเมืองใดที่ยอมแลกผู้คนกับภาพลักษณ์`,
               `${publishedRankedCount} 座已排名城市，另设 ${publishedWatchlistCount} 座冲突区与数据覆盖观察名单城市。每座城市对应一个公开分数，可追溯到五个公开支柱：压力、宜居性、能力、社区与创造动能。Alpha 级须跨过宜居门槛——没有哪座城市能用居民换天际线。`,
               `${publishedRankedCount}개 도시 순위 + ${publishedWatchlistCount}개 분쟁 지역 및 저커버리지 관찰 목록. 도시당 공식 선언 점수 1개, 5개 공개 기둥을 통해 추적 가능: 성장, 생활가능성, 역량, 커뮤니티, 창의적 모멘텀. 알파는 생활 가능성 기준선이 필요합니다.`,
-              `${publishedRankedCount}都市のランキングと${publishedWatchlistCount}都市の紛争地域・低カバレッジ観察リスト。都市ごとに1つの宣言スコア、5つの公開柱を通じて追跡可能：成長、生活持続性、ケイパビリティ、コミュニティ、創造的モメンタム。アルファには生活持続性の最低基準が必要です。`,
+              `${publishedRankedCount}都市のランキングと${publishedWatchlistCount}都市の紛争地域・低カバレッジ観察リスト。都市ごとに1つの宣言スコア、5つの公開柱を通じて追跡可能：成長、生活持続性、能力、コミュニティ、創造性。アルファには生活持続性の最低基準が必要です。`,
             )}
           </p>
           <div className="hp-opening-actions">
@@ -518,7 +518,7 @@ export default function HomePage({
               `แต่ละประเทศมีที่นั่ง Alpha ได้สูงสุดหนึ่งที่ โดยมีข้อยกเว้นสำหรับภูมิภาคที่ SLIC มีข้อมูลเมืองหลายแห่งที่แข็งแกร่ง Alpha ต้องมีคะแนน Community และ Pressure เกิน ${PUBLIC_TIER_RULES.alphaMinCommunity} ทั้งคู่ พร้อม coverage grade ${PUBLIC_TIER_RULES.alphaMinCoverageGrade} — เป็นเกณฑ์ขั้นต่ำด้านความน่าอยู่ ไม่ใช่แค่คะแนนรวมสูง บางเมืองถูกกันออกจาก Alpha เพราะค่าครองชีพ ไม่ใช่เพราะเป็นเมืองแย่ แต่เพราะ Alpha สงวนไว้สำหรับเมืองที่คนมีรายได้ท้องถิ่นสามารถสร้างชีวิตได้จริง นโยบายชั้นฉบับเต็มเผยแพร่ในหน้าระเบียบวิธี`,
               `原则上每国一个 Alpha 席位，部分地区因 SLIC 拥有多城强数据而有例外（如日本和东亚可占两席）。Alpha 要求 Community 与 Pressure 都高于 ${PUBLIC_TIER_RULES.alphaMinCommunity}，且覆盖等级达到 ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}——这是宜居门槛，不只是总分高。大洋洲不设 Alpha 席位，因为该区域的购房与租房成本超出了 Alpha 所要求的中位居民可负担线。部分城市因住房成本被排除在 Alpha 之外——不是因为它们不好，而是 Alpha 专为当地薪资水平的人也能真正安家的城市保留。完整的分层政策已在方法论页面公开。`,
               `각 국가는 최대 하나의 알파 자리를 보유하며, SLIC가 강력한 다도시 데이터를 보유한 지역에는 일부 예외가 있습니다(일본 및 동아시아는 2석). 알파는 커뮤니티와 성장 점수 모두 ${PUBLIC_TIER_RULES.alphaMinCommunity} 이상이고 ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}등급 커버리지가 필요합니다 — 생활 가능성 기준선이며, 단순히 높은 총점이 아닙니다. 유럽은 ${PUBLIC_TIER_RULES.maxEuropeInAlpha}개 알파 자리를 보유하고, 오세아니아는 없습니다(구매 및 임대 비용이 알파가 요구하는 중위 거주자 기준선을 초과). 일부 도시는 주거 비용 때문에 알파에서 제외됩니다 — 나쁜 도시여서가 아니라, 알파는 현지 급여 수준의 사람이 실제로 삶을 구축할 수 있는 도시를 위해 예약되어 있기 때문입니다. 완전한 등급 정책은 방법론에 공개되어 있습니다.`,
-              `各国は最大1つのアルファ席を保有し、SLICが強力なマルチシティデータを持つ地域には一部例外があります（日本と東アジアは2席）。アルファはコミュニティと成長のスコアが両方${PUBLIC_TIER_RULES.alphaMinCommunity}以上、かつ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}グレードのカバレッジが必要です——生活可能性の最低基準であり、単なる高い総合スコアではありません。ヨーロッパは${PUBLIC_TIER_RULES.maxEuropeInAlpha}席のアルファ席を保有し、オセアニアは保有しません（購入・賃貸コストがアルファが要求する中央値居住者の基準を超えるため）。一部の都市は住宅コストのためにアルファから除外されます——悪い都市だからではなく、アルファは地元の給与水準の人が実際に生活を構築できる都市のために予約されているためです。完全な等級ポリシーは方法論で公開されています。`,
+              `各国は最大1つのアルファ席を保有し、SLICが強力なマルチシティデータを持つ地域には一部例外があります（日本と東アジアは2席）。アルファはコミュニティと成長のスコアが両方${PUBLIC_TIER_RULES.alphaMinCommunity}以上、かつ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}グレードのカバレッジが必要です——生活持続性の最低基準であり、単なる高い総合スコアではありません。ヨーロッパは${PUBLIC_TIER_RULES.maxEuropeInAlpha}席のアルファ席を保有し、オセアニアは保有しません（購入・賃貸コストがアルファが要求する中央値居住者の基準を超えるため）。一部の都市は住宅コストのためにアルファから除外されます——悪い都市だからではなく、アルファは地元の給与水準の人が実際に生活を構築できる都市のために予約されているためです。完全な等級ポリシーは方法論で公開されています。`,
             )}
           </p>
         </div>
@@ -597,8 +597,8 @@ export default function HomePage({
               <img src={STAGE_PHOTO} alt="SLIC keynote, Smart City Summit Taipei 2026" loading="lazy" />
             </div>
             <div className="hp-launch-event-meta">
-              <span className="hp-launch-event-tag">Taipei</span>
-              <span className="hp-launch-event-date">March 2026</span>
+              <span className="hp-launch-event-tag">{t(locale, "Taipei", "ไทเป", "台北", "타이베이", "台北")}</span>
+              <span className="hp-launch-event-date">{t(locale, "March 2026", "มีนาคม 2026", "2026年3月", "2026년 3월", "2026年3月")}</span>
               <p>{t(
                 locale,
                 "Smart City Summit & Expo — keynote to 3,000+ professionals. The largest smart city event in Asia.",
@@ -615,8 +615,8 @@ export default function HomePage({
               <img src={GITEX_STAGE_PHOTO} alt="Dr Non, main-stage keynote at GITEX AI Asia Singapore 2026" loading="lazy" />
             </div>
             <div className="hp-launch-event-meta">
-              <span className="hp-launch-event-tag">Singapore</span>
-              <span className="hp-launch-event-date">April 2026</span>
+              <span className="hp-launch-event-tag">{t(locale, "Singapore", "สิงคโปร์", "新加坡", "싱가포르", "シンガポール")}</span>
+              <span className="hp-launch-event-date">{t(locale, "April 2026", "เมษายน 2026", "2026年4月", "2026년 4월", "2026年4月")}</span>
               <p>{t(
                 locale,
                 "GITEX AI Asia, Marina Bay Sands — main-stage keynote and Government Innovation as a Service workshop. 23,000+ attendees from 110+ countries.",
@@ -633,8 +633,8 @@ export default function HomePage({
               <img src={LEAP_EAST_PHOTO} alt="LEAP EAST Hong Kong event card, 8–10 July 2026" loading="lazy" />
             </div>
             <div className="hp-launch-event-meta">
-              <span className="hp-launch-event-tag hp-launch-event-tag--upcoming">Hong Kong</span>
-              <span className="hp-launch-event-date">July 2026</span>
+              <span className="hp-launch-event-tag hp-launch-event-tag--upcoming">{t(locale, "Hong Kong", "ฮ่องกง", "香港", "홍콩", "香港")}</span>
+              <span className="hp-launch-event-date">{t(locale, "July 2026", "กรกฎาคม 2026", "2026年7月", "2026년 7월", "2026年7月")}</span>
               <p>{t(
                 locale,
                 "Scheduled next: LEAP EAST, HKCEC — Asia's leading conference for innovation leaders and investors, 8–10 July 2026.",
@@ -678,7 +678,7 @@ export default function HomePage({
             `Beta และ Gamma เป็นชั้นเผยแพร่แยกต่างหาก ไม่ใช่เพียงช่วงอันดับ เมืองอาจไหลลงมาเมื่อเพดาน Alpha ทำงาน เมื่อเมืองร่วมชาติยึดสล็อตสาธารณะไปแล้ว หรือเมื่อเกณฑ์ความน่าอยู่ที่เข้มขึ้นของ Beta ไม่ผ่าน ข้อยกเว้น Alpha ปัจจุบัน: ประเทศ ${alphaCountryExclusionList}; เมือง ${alphaCityExclusionList}`,
             `Beta 与 Gamma 是独立的公开分层，不是简单的名次区间。城市会因 Alpha 上限、同国城市已占公开席位，或 Beta 更严格的宜居底线而级联至此。当前 Alpha 排除项：国家 ${alphaCountryExclusionList}；城市 ${alphaCityExclusionList}。`,
             `베타와 감마는 단순한 순위 구간이 아닌 별도의 공개 등급 레이어입니다. 알파 상한이 적용될 때, 같은 국가 도시가 이미 공개 슬롯을 차지했을 때, 또는 베타의 엄격한 생활 가능성 기준선에서 거부될 때 도시가 여기로 이동할 수 있습니다. 현재 알파 제외 항목: 국가 ${alphaCountryExclusionList}; 도시 ${alphaCityExclusionList}.`,
-            `ベータとガンマは単純な順位帯ではなく、独立した公開等級レイヤーです。アルファの上限が適用されるとき、同国の都市がすでに公開スロットを占有しているとき、またはベータのより厳格な生活可能性の最低基準で却下されるときに都市がここに流れ込みます。現在のアルファ除外項目：国 ${alphaCountryExclusionList}；都市 ${alphaCityExclusionList}。`,
+            `ベータとガンマは単純な順位帯ではなく、独立した公開等級レイヤーです。アルファの上限が適用されるとき、同国の都市がすでに公開スロットを占有しているとき、またはベータのより厳格な生活持続性の最低基準で却下されるときに都市がここに流れ込みます。現在のアルファ除外項目：国 ${alphaCountryExclusionList}；都市 ${alphaCityExclusionList}。`,
           )}
         </p>
         <div className="v3-lower-tier-row">
