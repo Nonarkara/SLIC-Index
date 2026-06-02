@@ -155,24 +155,44 @@ export default function SiteFooter({
       ? "ระเบียบวิธี น้ำหนัก และแหล่งอ้างอิงยังคงเปิดเผยต่อสาธารณะ"
       : locale === "zh"
         ? "方法、权重与来源链条仍保持公开。"
-        : "Methodology, weights, and provenance remain public.";
+        : locale === "ko"
+          ? "방법론, 가중치, 제외 도시 목록, 모든 인용 소스는 방법론 섹션에 공개되어 있습니다."
+          : locale === "ja"
+            ? "方法論、重み付け、除外都市リスト、すべての引用ソースは方法論セクションで公開されています。"
+            : "Methodology, weights, and provenance remain public.";
 
   const archiveLabels =
     locale === "th"
-      ? { v1: "คลัง V1 ↗", v2: "คลัง V2 ↗" }
+      ? { v1: "คลัง V1 ↗", v2: "คลัง V2 ↗", v25: "คลัง V2.5 ↗" }
       : locale === "zh"
-        ? { v1: "V1 归档 ↗", v2: "V2 归档 ↗" }
-        : { v1: "V1 Archive ↗", v2: "V2 Archive ↗" };
+        ? { v1: "V1 归档 ↗", v2: "V2 归档 ↗", v25: "V2.5 归档 ↗" }
+        : locale === "ko"
+          ? { v1: "V1 아카이브 ↗", v2: "V2 아카이브 ↗", v25: "V2.5 아카이브 ↗" }
+          : locale === "ja"
+            ? { v1: "V1アーカイブ ↗", v2: "V2アーカイブ ↗", v25: "V2.5アーカイブ ↗" }
+            : { v1: "V1 Archive ↗", v2: "V2 Archive ↗", v25: "V2.5 Archive ↗" };
 
   const navAriaLabel =
-    locale === "th" ? "เมนูหลัก" : locale === "zh" ? "网站导航" : "Site navigation";
+    locale === "th"
+      ? "เมนูหลัก"
+      : locale === "zh"
+        ? "网站导航"
+        : locale === "ko"
+          ? "사이트 탐색"
+          : locale === "ja"
+            ? "サイトナビゲーション"
+            : "Site navigation";
 
   const vintageNote =
     locale === "th"
       ? "ข้อมูล: วินเทจปี 2024–2025 · เผยแพร่ครั้งล่าสุด: พฤษภาคม 2026"
       : locale === "zh"
         ? "数据：2024–2025 年版本 · 最后发布：2026 年 5 月"
-        : "Data: 2024–2025 vintage · Last published: May 2026";
+        : locale === "ko"
+          ? "데이터: 2024–2025 빈티지. 지표는 인덱스 v3.4.0 기준입니다."
+          : locale === "ja"
+            ? "データ：2024〜2025年ビンテージ。指標はインデックスv3.4.0の公開日時点です。"
+            : "Data: 2024–2025 vintage · Last published: May 2026";
 
   // Juror-scannable one-line citation. Mirrors the long-form 'Suggested credit'
   // block above but renders as a hairline-bordered mono line on every page.
@@ -183,7 +203,11 @@ export default function SiteFooter({
       ? "อ้างอิงเป็น: Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org"
       : locale === "zh"
         ? "建议引用：Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org"
-        : "Cite as: Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org";
+        : locale === "ko"
+          ? "인용: Non Arkara 및 Poon Thiengburanathum 부교수, Smart and Liveable Cities Index (SLIC) V3, 2026"
+          : locale === "ja"
+            ? "引用：Non Arkara およびPoon Thiengburanathum准教授、Smart and Liveable Cities Index (SLIC) V3、2026"
+            : "Cite as: Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org";
 
   return (
     <footer className="site-footer section">
@@ -250,7 +274,7 @@ export default function SiteFooter({
             {copy.nav.methodology}
           </a>
           <a href={appHref("/data")} onClick={(event) => navigateLink(event, onNavigate, "/data")}>
-            {locale === "th" ? "ข้อมูล" : locale === "zh" ? "数据" : "Data"}
+            {locale === "th" ? "ข้อมูล" : locale === "zh" ? "数据" : locale === "ko" ? "데이터" : locale === "ja" ? "データ" : "Data"}
           </a>
           <a href={appHref("/thailand")} onClick={(event) => navigateLink(event, onNavigate, "/thailand")}>
             {copy.nav.thailand}
@@ -262,7 +286,7 @@ export default function SiteFooter({
             {copy.nav.history}
           </a>
           <a href={appHref("/awards")} onClick={(event) => navigateLink(event, onNavigate, "/awards")}>
-            {locale === "th" ? "เอกสารยื่นรางวัล" : locale === "zh" ? "投奖案卷" : "Submissions"}
+            {locale === "th" ? "เอกสารยื่นรางวัล" : locale === "zh" ? "投奖案卷" : locale === "ko" ? "출품 서류" : locale === "ja" ? "出品書類" : "Submissions"}
           </a>
           <a href="https://nonarkara.github.io/SLIC-Index-V1/" target="_blank" rel="noopener noreferrer">
             {archiveLabels.v1}
