@@ -402,11 +402,11 @@ export default function AwardsPage({
     },
     {
       label: t(locale, "Audit document (this submission)", "เอกสารตรวจสอบ (การยื่นนี้)", "审计文档（本投奖）", "감사 문서 (이번 제출)", "監査文書（今回の出品）"),
-      href: "https://github.com/Nonarkara/SLIC-Index/blob/codex/red-dot-design-2-5-1/docs/AWARDS-AUDIT-2026-05.md",
+      href: "https://github.com/Nonarkara/SLIC-Index/blob/main/docs/AWARDS-AUDIT-2026-05.md",
     },
     {
       label: t(locale, "Video script (EN + TH)", "สคริปต์วิดีโอ (EN + TH)", "视频脚本（英 + 泰）", "영상 스크립트 (EN + TH)", "動画スクリプト（英＋タイ語）"),
-      href: "https://github.com/Nonarkara/SLIC-Index/blob/codex/red-dot-design-2-5-1/docs/submission-video-script.md",
+      href: "https://github.com/Nonarkara/SLIC-Index/blob/main/docs/submission-video-script.md",
     },
   ];
 
