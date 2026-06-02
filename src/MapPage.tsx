@@ -57,6 +57,11 @@ function dotRadius(score: number | null): number {
   return 3.5;
 }
 
+const mapCopy = {
+  grade:     { en: "Grade",     th: "เกรด",          zh: "覆盖",   ko: "등급",      ja: "グレード"       },
+  watchlist: { en: "Watchlist", th: "รายชื่อเฝ้าระวัง", zh: "观察名单", ko: "관찰 목록", ja: "ウォッチリスト" },
+};
+
 export default function MapPage({
   onNavigate,
   locale,
@@ -209,8 +214,8 @@ export default function MapPage({
                   fill="#6b6459"
                 >
                   {hovered.rankingStatus === "Ranked"
-                    ? `#${hovered.rank} · SLIC ${hovered.slicScore?.toFixed(1)} · Grade ${hovered.coverageGrade}`
-                    : `Watchlist · Grade ${hovered.coverageGrade}`}
+                    ? `#${hovered.rank} · SLIC ${hovered.slicScore?.toFixed(1)} · ${mapCopy.grade[locale]} ${hovered.coverageGrade}`
+                    : `${mapCopy.watchlist[locale]} · ${mapCopy.grade[locale]} ${hovered.coverageGrade}`}
                 </text>
               </g>
             )}

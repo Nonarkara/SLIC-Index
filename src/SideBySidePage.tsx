@@ -72,6 +72,14 @@ function getTierGlyph(city: FullRankedCity): string {
   return TIER_GLYPHS[i] ?? "·";
 }
 
+const announcementCopy: Record<Locale, { added: string; removed: string }> = {
+  en: { added: "added to comparison basket.", removed: "removed from comparison basket." },
+  th: { added: "เพิ่มในตะกร้าเปรียบเทียบแล้ว", removed: "นำออกจากตะกร้าเปรียบเทียบแล้ว" },
+  zh: { added: "已加入对比栏。", removed: "已从对比栏移除。" },
+  ko: { added: "비교 바구니에 추가되었습니다.", removed: "비교 바구니에서 제거되었습니다." },
+  ja: { added: "比較バスケットに追加されました。", removed: "比較バスケットから削除されました。" },
+};
+
 export default function SideBySidePage({
   onNavigate,
   locale,
@@ -107,14 +115,14 @@ export default function SideBySidePage({
 
   const handleRemove = (indexToRemove: number) => {
     const cityToRemove = allCities.find(c => c.id === selectedIds[indexToRemove]);
-    if (cityToRemove) setAnnouncement(`${cityToRemove.name} removed from comparison basket.`);
+    if (cityToRemove) setAnnouncement(`${cityToRemove.name} ${announcementCopy[locale].removed}`);
     setSelectedIds((prev) => prev.filter((_, i) => i !== indexToRemove));
   };
 
   const handleAdd = (newCityId: string) => {
     if (selectedIds.includes(newCityId)) return;
     const cityToAdd = allCities.find(c => c.id === newCityId);
-    if (cityToAdd) setAnnouncement(`${cityToAdd.name} added to comparison basket.`);
+    if (cityToAdd) setAnnouncement(`${cityToAdd.name} ${announcementCopy[locale].added}`);
     setSelectedIds((prev) => [...prev, newCityId]);
     setIsAdding(false);
     setSearch("");
