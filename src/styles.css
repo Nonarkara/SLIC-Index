@@ -6797,7 +6797,7 @@ section[id] {
   font-size: 0.65rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  opacity: 0.45;
+  opacity: 0.62;
   margin: 0.25rem 0 0;
 }
 
@@ -7406,12 +7406,10 @@ details[open].scorecard-derived-formula summary::before {
 .scorecard-floor-note--below {
   color: #b94040;
   border-color: #b94040;
-  opacity: 0.75;
 }
 .scorecard-floor-note--clears {
   color: #2d7a4a;
   border-color: #2d7a4a;
-  opacity: 0.75;
 }
 
 /* ── Pillar sections ── */
