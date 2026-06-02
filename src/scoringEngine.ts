@@ -1,4 +1,23 @@
 /**
+ * @deprecated — NOT USED BY THE PUBLISHED SCORER
+ *
+ * This file is an orphaned implementation that predates the current scoring
+ * pipeline. The live scorer is `src/publicationMath.js` (pillar/metric weights,
+ * winsorized normalization, weighted AMPI) together with
+ * `scripts/rescore-all-cities.mjs` (the rescore harness).
+ *
+ * This file implements a different architecture:
+ * - Unweighted AMPI (live uses weighted AMPI with pillar weights 25/22/18/15/20)
+ * - Raw-indicator-count coverage grade (live uses weighted coverage ratio)
+ * - Older 7-indicator pillar structure (live has 4-6 metrics per pillar)
+ *
+ * Do NOT use this file to understand the published scoring logic. It will give
+ * wrong results. It is kept here only to preserve development history.
+ *
+ * Lesson logged in tasks/lessons.md: 2026-06-03
+ */
+
+/**
  * SLIC Index V3 — Absolute Scoring Engine
  *
  * Pure math module. No data fetching, no side effects.

@@ -18,7 +18,7 @@ SLIC has five public pillars with fixed weights:
 
 The published model contains:
 
-- `20` scored metric lines that enter the aggregate
+- `22` scored metric lines that enter the aggregate
 - `3` visible diagnostic metric lines that remain on city scorecards but do not enter the aggregate
 - fixed percentile-based normalization anchors stored in `normStats`
 - explicit missing-data coverage handling
@@ -51,11 +51,12 @@ The current public implementation is percentile-winsorized, not piecewise-anchor
 
 | Metric | Weight | Notes |
 |---|---:|---|
-| `pressure_disposable_income_ppp` | 9 | Post-tax residual income after essentials, PPP-adjusted |
+| `pressure_disposable_income_ppp` | 8 | Post-tax residual income after essentials, PPP-adjusted |
 | `pressure_housing_burden` | 5 | Higher city-market housing price pressure scores worse |
-| `pressure_household_debt_burden` | 4 | Country fallback allowed |
+| `pressure_household_debt_burden` | 2 | Country fallback allowed |
 | `pressure_working_time_pressure` | 4 | Higher work burden scores worse |
-| `pressure_suicide_mental_strain` | 3 | Higher severe-strain proxy scores worse |
+| `pressure_suicide_mental_strain` | 4 | Higher severe-strain proxy scores worse |
+| `pressure_hanke_misery_index` | 2 | Hanke Annual Misery Index 2025: 2×unemployment + inflation + bank-lending-rate − real GDP/capita growth; country level; lower = less stress |
 
 Visible but excluded from the aggregate:
 
@@ -97,9 +98,10 @@ If one component is missing, the composite is reweighted over the observed compo
 
 | Metric | Weight | Notes |
 |---|---:|---|
-| `community_hospitality_belonging` | 5 | Higher belonging / civic warmth scores better |
-| `community_tolerance_pluralism` | 5 | Composite metric |
-| `community_cultural_historic_public_life_vitality` | 5 | Everyday cultural/public-life vitality |
+| `community_hospitality_belonging` | 4 | Higher belonging / civic warmth scores better |
+| `community_tolerance_pluralism` | 4 | Composite metric |
+| `community_cultural_historic_public_life_vitality` | 3 | Everyday cultural/public-life vitality |
+| `community_civic_freedom_dignity` | 4 | Composite: 0.4 × HRMI Empowerment + 0.3 × Freedom House FIW + 0.3 × V-Dem LDI (×100) |
 
 Composite definition:
 
