@@ -94,7 +94,7 @@ const officialAmpiFormula =
   "var(c) = (25(Pressure - mu)^2 + 22(Viability - mu)^2 + 18(Capability - mu)^2 + 15(Community - mu)^2 + 20(Creative - mu)^2) / 100\n" +
   "AMPI_5pillar(c) = mu(c) - var(c)/mu(c)";
 const growthPillarFormula =
-  "Growth(c) = (9 DI_PPP + 5 HousingBurden + 4 DebtBurden + 4 WorkingTimePressure + 3 SuicideMentalStrain) / Sum observed weights";
+  "Growth(c) = (8 DI_PPP + 5 HousingBurden + 2 DebtBurden + 4 WorkingTimePressure + 4 SuicideMentalStrain + 2 HankeMisery) / Sum observed weights";
 const toleranceCompositeFormula =
   "TolerancePluralism(c) = 0.4 EqualdexCountry + 0.3 FreedomHouseCountry + 0.3 ReverseHateCrime";
 const economicVitalityFormula =
@@ -1114,11 +1114,11 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         justification: "This is the pillar that stops SLIC from confusing prestige with room to live. GDP growth momentum remains visible on scorecards, but the current aggregate scores only the five declared lived-pressure terms below.",
         citations: [2, 3, 7],
         metrics: [
-          { name: "Tax-adjusted disposable income", weight: 9, description: "Residual money after tax and essential costs, converted once through the PPP private-consumption factor so purchasing room is comparable across cities.", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
+          { name: "Tax-adjusted disposable income", weight: 8, description: "Residual money after tax and essential costs, converted once through the PPP private-consumption factor so purchasing room is comparable across cities.", inputs: ["gross income", "tax rate", "rent", "utilities", "internet", "transport", "food", "PPP factor"] },
           { name: "Housing price pressure", weight: 5, description: "City-market purchase price per square foot. Higher housing price pressure scores worse because it compresses the practical room to build a life locally.", inputs: ["USD per square foot", "city market purchase price"] },
-          { name: "Household debt burden", weight: 4, description: "Debt relative to income. High leverage suggests more fragile household resilience.", inputs: ["household debt proxy"] },
+          { name: "Household debt burden", weight: 2, description: "Debt relative to income. High leverage suggests more fragile household resilience.", inputs: ["household debt proxy"] },
           { name: "Working time pressure", weight: 4, description: "Average weekly hours and related overwork burden. Higher sustained work pressure scores worse.", inputs: ["weekly hours", "overwork share"] },
-          { name: "Suicide and severe mental strain", weight: 3, description: "A severe-strain public-health signal. Higher suicide or equivalent strain proxy scores worse.", inputs: ["age-standardized suicide rate"] },
+          { name: "Suicide and severe mental strain", weight: 4, description: "A severe-strain public-health signal. Higher suicide or equivalent strain proxy scores worse.", inputs: ["age-standardized suicide rate"] },
           { name: "Economic Stress (Hanke Misery Index)", weight: 2, description: "Hanke Annual Misery Index 2025: 2×unemployment + inflation + bank-lending-rate − real GDP/capita growth. Applied at country level. Lower = less macroeconomic stress.", inputs: ["unemployment rate", "CPI inflation", "bank lending rate", "real GDP/capita growth"] },
         ],
       },
@@ -1155,12 +1155,12 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         name: "Community",
         weight: 15,
         thesis: "A city is not a spreadsheet. Hospitality, tolerance, cultural richness, and the feeling of belonging are what make people stay — or leave.",
-        justification: "Community is where SLIC refuses to treat openness as branding. Birth-rate optimism remains visible as a diagnostic line, but the current aggregate uses the three scored terms below and keeps the tolerance composite explicit.",
+        justification: "Community is where SLIC refuses to treat openness as branding. Birth-rate optimism remains visible as a diagnostic line, but the current aggregate uses the four scored terms below and keeps the tolerance composite explicit.",
         citations: [1, 14, 16],
         metrics: [
-          { name: "Hospitality and belonging", weight: 5, description: "Do people feel welcome in practice? Net migration, resident attachment, multilingual usability, and the culture of helping strangers.", inputs: ["net migration", "testimony audit", "multilingual services"] },
-          { name: "Tolerance and pluralism", weight: 5, description: "Openness & Inclusion composite: 40% Equaldex LGBTQI Equality Index, 30% Freedom House aggregate, and 30% reversed hate-crime or civil-liberties proxy where city evidence is thin.", inputs: ["Equaldex country index", "Freedom House aggregate", "city hate-crime per 100k"] },
-          { name: "Cultural and public-life vitality", weight: 5, description: "Everyday third places, historic continuity, events, and public-life texture. Visitor demand is contextual, not an automatic bonus.", inputs: ["tourism arrivals per 1000", "events", "public attention"] },
+          { name: "Hospitality and belonging", weight: 4, description: "Do people feel welcome in practice? Net migration, resident attachment, multilingual usability, and the culture of helping strangers.", inputs: ["net migration", "testimony audit", "multilingual services"] },
+          { name: "Tolerance and pluralism", weight: 4, description: "Openness & Inclusion composite: 40% Equaldex LGBTQI Equality Index, 30% Freedom House aggregate, and 30% reversed hate-crime or civil-liberties proxy where city evidence is thin.", inputs: ["Equaldex country index", "Freedom House aggregate", "city hate-crime per 100k"] },
+          { name: "Cultural and public-life vitality", weight: 3, description: "Everyday third places, historic continuity, events, and public-life texture. Visitor demand is contextual, not an automatic bonus.", inputs: ["tourism arrivals per 1000", "events", "public attention"] },
           { name: "Civic Freedom & Dignity", weight: 4, description: "Composite: 0.4 × HRMI Empowerment + 0.3 × Freedom House FIW + 0.3 × V-Dem Liberal Democracy Index (×100). Higher = more civic freedom and political rights.", inputs: ["HRMI Empowerment score", "Freedom House FIW", "V-Dem LDI"] },
         ],
       },
