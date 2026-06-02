@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { getCopy } from "./siteCopy";
+import { t } from "./i18n";
 import SiteFooter from "./SiteFooter";
 import { thailandProvinces, thailandRegions } from "./thailandData";
 import type { Locale, SitePath } from "./types";
@@ -401,14 +402,14 @@ export default function ThailandPage({
             <div className="rankings-filter-group">
               <div>
                 <p className="panel-label">{ui.scope}</p>
-                <div className="region-switch" role="group" aria-label="Board scope">
+                <div className="region-switch" role="group" aria-label={t(locale, "Board scope", "ขอบเขตกระดาน", "面板范围", "보드 범위", "ボード範囲")}>
                   <button type="button" className={scope === "ranked" ? "region-button active" : "region-button"} onClick={() => setScope("ranked")}>{ui.ranked}</button>
                   <button type="button" className={scope === "all" ? "region-button active" : "region-button"} onClick={() => setScope("all")}>{ui.all}</button>
                 </div>
               </div>
 
               <p className="panel-label">{ui.region}</p>
-              <div className="region-switch" role="group" aria-label="Region filter">
+              <div className="region-switch" role="group" aria-label={t(locale, "Region filter", "กรองตามภูมิภาค", "地区筛选", "지역 필터", "地域フィルター")}>
                 <button type="button" className={region === "All" ? "region-button active" : "region-button"} onClick={() => setRegion("All")}>{ui.allRegions}</button>
                 {thailandRegions.map((r) => (
                   <button key={r} type="button" className={region === r ? "region-button active" : "region-button"} onClick={() => setRegion(r)}>{r}</button>
@@ -418,7 +419,7 @@ export default function ThailandPage({
 
             <div>
               <p className="panel-label">{ui.sortBy}</p>
-              <div className="mode-switch" role="group" aria-label="Pillar filter">
+              <div className="mode-switch" role="group" aria-label={t(locale, "Pillar filter", "กรองตามเสาหลัก", "支柱筛选", "기둥 필터", "柱フィルター")}>
                 {(Object.keys(pillarLabels[locale]) as ScorePillar[]).map((p) => (
                   <button key={p} type="button" className={p === pillar ? "mode-button active" : "mode-button"} onClick={() => setPillar(p)}>{pillarLabels[locale][p]}</button>
                 ))}

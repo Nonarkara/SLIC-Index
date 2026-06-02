@@ -322,7 +322,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
             const note = ECHO_CHAMBER_NOTES[item.city.toLowerCase()];
             const liveCity = currentPublishedCity(item.city);
             const liveSlicRank = liveCity?.rank ?? note?.slicRank;
-            const liveNote = liveCity ? buildLiveEchoNote(liveCity, locale) : (note ? (locale === "th" ? note.th : locale === "zh" ? note.zh : note.en) : null);
+            const liveNote = liveCity ? buildLiveEchoNote(liveCity, locale) : (note ? (locale === "th" ? note.th : locale === "zh" ? note.zh : locale === "ko" ? note.ko : locale === "ja" ? note.ja : note.en) : null);
             return (
               <div key={item.city} className="compare-overlap-card">
                 <div className="compare-overlap-card-header">

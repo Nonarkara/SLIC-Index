@@ -40,7 +40,7 @@ export default function RankingIntegrityBanner({ locale }: { locale: Locale }) {
   const auditLabel = Number.isNaN(auditDate.valueOf())
     ? null
     : auditDate.toLocaleDateString(
-        locale === "th" ? "th-TH" : locale === "zh" ? "zh-CN" : "en-US",
+        locale === "th" ? "th-TH" : locale === "zh" ? "zh-CN" : locale === "ko" ? "ko-KR" : locale === "ja" ? "ja-JP" : "en-US",
         { year: "numeric", month: "short", day: "numeric" },
       );
   const meta =
@@ -48,19 +48,31 @@ export default function RankingIntegrityBanner({ locale }: { locale: Locale }) {
       ? `${issueCount === 0 ? "ไม่พบปัญหา" : `${issueCount} ประเด็น`}${auditLabel ? ` อัปเดตล่าสุด ${auditLabel}` : ""}`
       : locale === "zh"
         ? `${issueCount === 0 ? "无问题" : `${issueCount} 个问题`}${auditLabel ? `，更新于 ${auditLabel}` : ""}`
-        : `${issueCount === 0 ? "No issues" : `${issueCount} issues`}${auditLabel ? `, updated ${auditLabel}` : ""}`;
+        : locale === "ko"
+          ? `${issueCount === 0 ? "이상 없음" : `${issueCount}개 문제`}${auditLabel ? `, ${auditLabel} 업데이트` : ""}`
+          : locale === "ja"
+            ? `${issueCount === 0 ? "問題なし" : `${issueCount}件の問題`}${auditLabel ? `、${auditLabel} 更新` : ""}`
+            : `${issueCount === 0 ? "No issues" : `${issueCount} issues`}${auditLabel ? `, updated ${auditLabel}` : ""}`;
   const title =
     locale === "th"
       ? `อันดับที่เผยแพร่แล้ว — ${cityCount} เมือง`
       : locale === "zh"
         ? `已发布排名 — ${cityCount} 座城市`
-        : `Published ranking — ${cityCount} cities`;
+        : locale === "ko"
+          ? `공개 순위 — ${cityCount}개 도시`
+          : locale === "ja"
+            ? `公開ランキング — ${cityCount}都市`
+            : `Published ranking — ${cityCount} cities`;
   const body =
     locale === "th"
       ? `อันดับนี้เผยแพร่จากเวิร์กบุ๊ก SLIC ที่ผ่านการตรวจสอบแล้ว ครอบคลุม ${cityCount} เมือง พร้อม ${scoredCount} เมตริกที่ให้คะแนนใน 5 เสาหลัก และอีก ${diagnosticCount} diagnostic ที่มองเห็นได้ หน้าคะแนนแต่ละใบไล่ย้อนกลับไปยังตัวเลขที่เผยแพร่ได้`
       : locale === "zh"
         ? `本榜单由已核验的 SLIC 工作簿导出发布，覆盖 ${cityCount} 座城市；五大支柱内含 ${scoredCount} 条计分指标，另设 ${diagnosticCount} 条可见诊断指标。每张城市卡片都保留回溯该城市发布分数的路径。`
-        : `This board is published from the verified SLIC workbook export. ${cityCount} cities are shown across five pillars composed of ${scoredCount} scored metric lines plus ${diagnosticCount} visible diagnostics, and each city card keeps the trace back to the published score.`;
+        : locale === "ko"
+          ? `이 보드는 검증된 SLIC 워크북 내보내기에서 게시되었습니다. ${cityCount}개 도시가 5개 기둥에 걸쳐 표시되며, ${scoredCount}개의 점수 지표와 ${diagnosticCount}개의 진단 지표로 구성됩니다. 각 도시 카드는 게시된 점수로 역추적할 수 있습니다.`
+          : locale === "ja"
+            ? `このボードは検証済みのSLICワークブックエクスポートから公開されています。${cityCount}都市が5本の柱にまたがって表示され、${scoredCount}本の評点指標と${diagnosticCount}本の可視診断指標で構成されています。各都市カードには公開スコアへの追跡パスが保持されています。`
+            : `This board is published from the verified SLIC workbook export. ${cityCount} cities are shown across five pillars composed of ${scoredCount} scored metric lines plus ${diagnosticCount} visible diagnostics, and each city card keeps the trace back to the published score.`;
 
   return (
     <article className="ranking-integrity-banner" role="note" aria-live="polite">
