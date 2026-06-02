@@ -235,6 +235,22 @@ Per §13: the same mistake never happens twice.
 
 ---
 
+## 2026-06-03 · Bangkok methodology audit — four structural findings
+
+- **What was verified:** Bangkok's Alpha placement was audited metric by metric against P5/P95 normalization anchors. All 17 scored metric formulas are mathematically correct. All 5 Alpha gates are genuinely cleared. The claim "17 cities ranked above Bangkok fail gates Bangkok clears" was confirmed (26 country-blocked, 16 threshold/coverage failures).
+
+- **Finding 1 — Creative pillar vs Cultural creative economy:** Bangkok's Creative score (44.5) is correct for what the pillar measures: formal knowledge-economy production (startups, R&D, FDI flows). Bangkok's actual creative capital — food scene, nightlife, entertainment, kathoey culture, Muay Thai, Thai massage — registers in the Community pillar instead (Hospitality 100.0, Cultural vitality 75.1). The pillar name "Creative" creates a misread. Fix: clarify in methodology text and in Bangkok's editorial that Bangkok's creative output lives in Community, not Creative. Korean cities outscore Bangkok on Creative purely because Korea's national R&D/GDP ratio (5.21%) is applied to every Korean city including port and manufacturing cities — this is technically accurate but creates the misleading impression that Incheon beats Bangkok on creativity.
+
+- **Finding 2 — Digital infrastructure unit mismatch:** 131/158 cities use World Bank fixed broadband subscriptions per 100 people. ~6 cities including Bangkok use Ookla Mbps speed. These are different dimensions on the same scoring axis. Bangkok at 28.4 Mbps scores 61.3; on the WB-equivalent metric it would score approximately 24. Bangkok's digital score is inflated ~37 points relative to peers measured on the WB dimension. Additionally, 28.4 Mbps appears pre-2024 — Bangkok's actual fixed broadband is now 100+ Mbps. Both issues need a v3.5 data pass: standardize to one unit across all cities.
+
+- **Finding 3 — Transit metric globally dormant:** Only 7/158 cities have transit data and normStats p05/p95 are null/null, so the metric scores null for all cities. The 7 cities with data mix incompatible units (modal share % vs commute minutes). Transit cannot activate until unit is standardized and ≥20 cities populated. This is documented on the methodology page. Adding Bangkok transit data now would NOT help (the global normStats gap blocks all scores).
+
+- **Finding 4 — Methodology metric weights were wrong in user-facing docs (fixed this session):** Three Growth weights (DI_PPP 9→8, Debt 4→2, Suicide 3→4) and three Community weights (Hospitality/Tolerance/Cultural: all 5→4/4/3) were stale. The spec also said "20 scored metrics" but live scorer has 22. A reader following the declared weights would have gotten systematically wrong reproduction results. Fixed in methodologyData.ts, spec doc, and growthPillarFormula string.
+
+- **How to recognise:** Any time the methodology page declares metric weights, verify against the live `metricCatalog` in publishedRankingData.json. Any time a pillar is described as capturing a concept (e.g. "creative"), verify which specific metrics operationalize it vs which neighboring pillars capture adjacent concepts.
+
+---
+
 <!-- FORMAT for future entries:
 ## YYYY-MM-DD · [short title of the mistake]
 - **What went wrong:** ...

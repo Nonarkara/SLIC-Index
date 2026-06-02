@@ -1131,7 +1131,7 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         citations: [3, 5, 11, 13, 17],
         metrics: [
           { name: "Personal safety", weight: 5, description: "Harm, violent crime, visitor victimization, and night-safety signals.", inputs: ["homicide", "serious violent crime", "victimization", "night-safety proxy"] },
-          { name: "Transit access and commute burden", weight: 5, description: "Transit reach combined with commute time and late-hour usability.", inputs: ["GTFS", "commute time", "coverage"] },
+          { name: "Transit access and commute burden", weight: 5, description: "Transit reach combined with commute time and late-hour usability. Currently inactive dataset-wide: only 7 of 158 cities have raw data and those entries mix incompatible units (modal-share % vs. commute minutes), so normalization anchors cannot be computed. This metric will activate once a consistent unit is established and at least 20 cities are populated. All cities show null transit scores for this reason.", inputs: ["GTFS", "commute time", "coverage"] },
           { name: "Clean air", weight: 4, description: "PM2.5 and severe pollution exposure with CAMS and OpenAQ context.", inputs: ["PM2.5", "exceedance", "aerosol context"] },
           { name: "Water, sanitation, and utility reliability", weight: 4, description: "Safe water, sanitation, and basic service reliability.", inputs: ["WASH access", "interruptions", "compliance"] },
           { name: "Digital infrastructure", weight: 4, description: "Broadband quality, affordability, and fibre readiness.", inputs: ["fixed broadband", "affordability", "internet performance"] },
@@ -1169,7 +1169,7 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         name: "Creative",
         weight: 20,
         thesis: "Cities should not only reduce suffering. They should also generate ambition, invention, and productive energy.",
-        justification: "This pillar keeps SLIC from confusing calm with stagnation or comfort with competitiveness.",
+        justification: "This pillar measures formal knowledge-economy production: how much new business is being registered, how much is being invested in research, how much capital is flowing in, and how easy productive entry is. It deliberately does not measure cultural or entertainment creative economy — food culture, nightlife, culinary arts, and tourism-creative activity register in the Community pillar instead. A city like Bangkok scores 44.5 here (formal startup/R&D economy) while scoring 70.7 on Community (food, hospitality, cultural vitality). Both numbers are correct; they are measuring different dimensions of the same city's output.",
         citations: [2, 10, 16],
         metrics: [
           { name: "Entrepreneurial dynamism", weight: 6, description: "Startup formation, business activity, and the local velocity of productive entry.", inputs: ["new business density", "firm formation", "entrepreneurial activity"] },
