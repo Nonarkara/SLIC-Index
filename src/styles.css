@@ -6792,6 +6792,15 @@ section[id] {
   color: var(--accent-amber);
 }
 
+.scorecard-score-context {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  margin: 0.25rem 0 0;
+}
+
 .scorecard-rank {
   font-family: var(--font-mono);
   font-size: 14px;
@@ -7357,6 +7366,52 @@ details[open].scorecard-derived-formula summary::before {
   font-size: 18px;
   font-weight: 800;
   color: var(--accent-blue, #1a3a6b);
+}
+
+/* ── AMPI breakdown row ── */
+.scorecard-ampi-breakdown {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  opacity: 0.65;
+}
+.scorecard-ampi-op {
+  color: var(--color-text);
+  opacity: 0.4;
+}
+.scorecard-ampi-term--penalty {
+  color: var(--accent-amber);
+  opacity: 1;
+}
+.scorecard-ampi-term--result {
+  font-weight: 600;
+  opacity: 1;
+}
+
+/* ── Alpha floor annotation ── */
+.scorecard-floor-note {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  padding: 0.1rem 0.35rem;
+  border-radius: 0;
+  border: 1px solid currentColor;
+  margin-left: 0.5rem;
+}
+.scorecard-floor-note--below {
+  color: #b94040;
+  border-color: #b94040;
+  opacity: 0.75;
+}
+.scorecard-floor-note--clears {
+  color: #2d7a4a;
+  border-color: #2d7a4a;
+  opacity: 0.75;
 }
 
 /* ── Pillar sections ── */

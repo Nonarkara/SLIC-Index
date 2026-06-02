@@ -5,6 +5,8 @@ import { getCityEditorialEntry } from "./cityEditorial";
 import { getExerciseCities } from "./rankingsData";
 import { appHref, stripBase } from "./routing";
 import SiteFooter from "./SiteFooter";
+import { t } from "./i18n";
+import { PUBLIC_TIER_RULES } from "./publicTierPolicy.js";
 import type { Locale, SitePath } from "./types";
 
 /* ── Types from enriched JSON ── */
@@ -48,6 +50,9 @@ interface PublishedCity {
   tierSlot?: number | null;
   tierReason?: string | null;
   rankingStatus: string;
+  weightedMeanExact?: number | null;
+  ampiExact?: number | null;
+  slicScoreExact?: number | null;
   metrics: Record<string, MetricDetail>;
   highlights: { strongest: string | null; weakest: string | null };
   pressureCoverage: number | null;
@@ -1213,6 +1218,26 @@ function PillarSection({
         </div>
         <div className="scorecard-pillar-score" style={{ color }}>
           {score !== null ? score.toFixed(1) : "—"}
+          {score !== null && (pillar === "community" || pillar === "pressure") && (() => {
+            const floor = pillar === "community"
+              ? PUBLIC_TIER_RULES.alphaMinCommunity
+              : PUBLIC_TIER_RULES.alphaMinPressure;
+            if (score < floor) {
+              return (
+                <span className="scorecard-floor-note scorecard-floor-note--below">
+                  {t(locale, `↓ Alpha floor: ${floor}`, `↓ Alpha เกณฑ์ขั้นต่ำ: ${floor}`, `↓ Alpha 门槛: ${floor}`, `↓ Alpha 기준: ${floor}`, `↓ Alpha 基準: ${floor}`)}
+                </span>
+              );
+            }
+            if (score < floor + 10) {
+              return (
+                <span className="scorecard-floor-note scorecard-floor-note--clears">
+                  {t(locale, "↑ clears Alpha floor", "↑ ผ่านเกณฑ์ Alpha", "↑ 达到 Alpha 门槛", "↑ Alpha 기준 통과", "↑ Alpha 基準クリア")}
+                </span>
+              );
+            }
+            return null;
+          })()}
         </div>
       </div>
       {narrative && (
@@ -1314,6 +1339,19 @@ export default function CityScorecardPage({
             </div>
             <div className="scorecard-hero-scores">
               <div className="scorecard-slic-score">{city.slicScore?.toFixed(1) ?? "—"}</div>
+              {city.slicScore != null && city.rankingStatus === "Ranked" && (
+                <p className="scorecard-score-context">
+                  {locale === "th"
+                    ? "ชุดข้อมูล: ต่ำสุด 0 · มัธยฐาน 49 · สูงสุด 74"
+                    : locale === "zh"
+                      ? "数据集：最低 0 · 中位 49 · 最高 74"
+                      : locale === "ko"
+                        ? "데이터셋: 최솟값 0 · 중앙값 49 · 최댓값 74"
+                        : locale === "ja"
+                          ? "データセット：最小 0 · 中央値 49 · 最大 74"
+                          : "dataset: min 0 · median 49 · max 74"}
+                </p>
+              )}
               <div className="scorecard-rank" title={city.tierReason ?? undefined}>
                 {formatRankBand(city.tierLabel, city.rank, city.rankingStatus, locale)}
                 {(!city.rankingStatus || city.rankingStatus === "Ranked") && (
@@ -1552,6 +1590,36 @@ export default function CityScorecardPage({
           <span className="scorecard-equation-op">=</span>
           <span className="scorecard-equation-result">{city.slicScore?.toFixed(1)}</span>
         </div>
+        {city.weightedMeanExact != null && city.ampiExact != null && (
+          <div className="scorecard-ampi-breakdown">
+            <span className="scorecard-ampi-term">
+              {t(locale, "weighted mean", "ค่าเฉลี่ยถ่วงน้ำหนัก", "加权均值", "가중 평균", "加重平均")}
+              {": "}{city.weightedMeanExact.toFixed(1)}
+            </span>
+            {(city.weightedMeanExact - city.ampiExact) > 0.05 && (
+              <>
+                <span className="scorecard-ampi-op">−</span>
+                <span className="scorecard-ampi-term scorecard-ampi-term--penalty">
+                  {t(locale, "imbalance adjustment", "การปรับความไม่สมดุล", "不平衡调整", "불균형 조정", "不均衡調整")}
+                  {": "}{(city.weightedMeanExact - city.ampiExact).toFixed(1)}
+                </span>
+              </>
+            )}
+            {(city.coveragePenalty ?? 0) > 0 && (
+              <>
+                <span className="scorecard-ampi-op">−</span>
+                <span className="scorecard-ampi-term scorecard-ampi-term--penalty">
+                  {t(locale, "coverage penalty", "ค่าปรับ coverage", "覆盖率扣分", "커버리지 페널티", "カバレッジペナルティ")}
+                  {": "}{city.coveragePenalty}
+                </span>
+              </>
+            )}
+            <span className="scorecard-ampi-op">=</span>
+            <span className="scorecard-ampi-term scorecard-ampi-term--result">
+              {city.slicScore?.toFixed(1)}
+            </span>
+          </div>
+        )}
       </section>
 
       {/* ── Pillar breakdown sections ── */}
