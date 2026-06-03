@@ -66,8 +66,8 @@ public/
 ├── history-photos/            # Timeline page photos
 ├── downloads/
 │   ├── slic-ranked-cities-v2.csv                    # 163 cities CSV export
-│   ├── slic-methodology-technical-paper-en.pdf      # 22-page methodology paper
-│   ├── slic_google_sheets_template.xlsx
+│   ├── slic-methodology-technical-paper-en.pdf      # 11-page methodology paper
+│   ├── slic-google-sheets-template.xlsx
 │   └── slic_scoring_workbook.xlsx
 └── knowledge-rack/            # Knowledge base data
 ```
