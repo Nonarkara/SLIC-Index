@@ -61,10 +61,14 @@
     </style>
     <script>
       var l = window.location;
+      var segments = l.pathname.split('/').filter(Boolean);
+      var repoBase = segments[0] && /^SLIC-Index$/i.test(segments[0]) ? '/' + segments[0] : '';
+      var route = l.pathname.slice(repoBase.length).replace(/^\/+/, '');
+      var payload = route + (l.search ? (route ? '&' : '') + l.search.slice(1) : '') + l.hash;
       l.replace(
         l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 2).join('/') +
-        '/?p=' + encodeURIComponent(l.pathname.slice(1) + (l.search ? '&' + l.search.slice(1) : '') + l.hash)
+        repoBase +
+        '/?p=' + encodeURIComponent(payload)
       );
     </script>
   </head>
