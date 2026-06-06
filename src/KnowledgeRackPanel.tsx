@@ -150,7 +150,7 @@ const rackUiCopy: LocalizedRecord<{
 };
 
 function tokenize(text: string): string[] {
-  return text.toLowerCase().match(/[a-z0-9\u0E00-\u0E7F\u4E00-\u9FFF]+/g) ?? [];
+  return text.toLowerCase().match(/[a-z0-9\u0E00-\u0E7F\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FFF\uAC00-\uD7A3]+/g) ?? [];
 }
 
 function expandQuery(question: string): string {
@@ -175,6 +175,25 @@ function expandQuery(question: string): string {
     ["交通", "mobility"],
     ["泰国", "thailand"],
     ["公民", "citizen"],
+    // Korean
+    ["아세안", "asean"],
+    ["스마트 시티", "smart city"],
+    ["스마트시티", "smart city"],
+    ["디지털 연결성", "digital connectivity"],
+    ["지속 가능한", "sustainable"],
+    ["거버넌스", "governance"],
+    ["모빌리티", "mobility"],
+    ["태국", "thailand"],
+    ["시민", "citizen"],
+    // Japanese
+    ["アセアン", "asean"],
+    ["スマートシティ", "smart city"],
+    ["デジタル接続性", "digital connectivity"],
+    ["持続可能", "sustainable"],
+    ["ガバナンス", "governance"],
+    ["モビリティ", "mobility"],
+    ["タイ", "thailand"],
+    ["市民", "citizen"],
   ];
 
   for (const [needle, value] of phraseMap) {

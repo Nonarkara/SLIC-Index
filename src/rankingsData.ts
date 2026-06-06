@@ -2979,7 +2979,7 @@ function buildPublishedGlobalRankings(): FullRankedCity[] {
 // is what caused city ranks to differ between pages (Tallinn, Perth, Bangkok all
 // jumped). The published JSON is now the single source of truth.
 
-export const globalRankings: FullRankedCity[] =
+const globalRankings: FullRankedCity[] =
   rankingPublication.cities.length > 0 ? buildPublishedGlobalRankings() : [];
 
 // Exercise must use the same data as the published rankings to ensure
@@ -2997,35 +2997,3 @@ export function getExerciseCities(): FullRankedCity[] {
 }
 
 export const exerciseRegions = ["All", ...new Set(exerciseCities.map((city) => city.region))];
-
-export function getRankingsBoard({
-  mode = "slic",
-  region = "All",
-  scope = "field",
-}: {
-  mode?: keyof RankedCity["scores"];
-  region?: string;
-  scope?: RankingScope;
-} = {}): FullRankedCity[] {
-  const scopedRows =
-    scope === "core"
-      ? globalRankings.filter((city) => city.coreBoardEligible)
-      : globalRankings;
-  const rows = region === "All" ? scopedRows : scopedRows.filter((city) => city.region === region);
-
-  return [...rows].sort((left, right) => {
-    const scoreDelta = right.scores[mode] - left.scores[mode];
-    if (scoreDelta !== 0) {
-      return scoreDelta;
-    }
-
-    const liveDelta = right.delta - left.delta;
-    if (liveDelta !== 0) {
-      return liveDelta;
-    }
-
-    return left.globalRank - right.globalRank;
-  });
-}
-
-export const rankingRegions = ["All", ...new Set(globalRankings.map((city) => city.region))];

@@ -35,5 +35,9 @@
     "typescript": "^5.8.2",
     "vite": "^6.2.0",
     "world-atlas": "^2.0.2"
+  },
+  "devDependencies": {
+    "@types/geojson": "^7946.0.16",
+    "@types/topojson-specification": "^1.0.5"
   }
 }

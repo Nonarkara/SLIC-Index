@@ -8,7 +8,7 @@ export const localeLabels: Record<Locale, string> = {
   ja: "日本語",
 };
 
-export const siteCopy = {
+const siteCopy = {
   en: {
     nav: {
       home: "Home",

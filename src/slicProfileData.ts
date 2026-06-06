@@ -1,9 +1,9 @@
 import type { Locale } from "./types";
 
 export const OFFICIAL_SLIC_URL = "https://nonarkara.github.io/slic-landing-page/slic/";
-export const DEPA_URL = "https://www.depa.or.th/";
-export const PMUA_URL = "https://www.nxpo.or.th/A/";
-export const AXIOM_URL = "https://nonarkara.github.io/Axiom/";
+const DEPA_URL = "https://www.depa.or.th/";
+const PMUA_URL = "https://www.nxpo.or.th/A/";
+const AXIOM_URL = "https://nonarkara.github.io/Axiom/";
 
 export interface PartnerCard {
   name: string;

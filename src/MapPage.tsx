@@ -71,8 +71,8 @@ export default function MapPage({
 }) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
 
-  // Project once
-  const { landPath, cityPoints, hovered } = useMemo(() => {
+  // Project geometry once
+  const { landPath, cityPoints } = useMemo(() => {
     const projection = geoNaturalEarth1()
       .fitExtent([[10, 10], [VIEW_W - 10, VIEW_H - 10]], {
         type: "Sphere",
@@ -96,10 +96,10 @@ export default function MapPage({
       })
       .filter((c): c is PublishedCity & { x: number; y: number } => c !== null);
 
-    const hovered = cities.find((c) => c.cityId === hoveredId);
+    return { landPath, cityPoints: cities };
+  }, []);
 
-    return { landPath, cityPoints: cities, hovered };
-  }, [hoveredId]);
+  const hovered = useMemo(() => cityPoints.find((c) => c.cityId === hoveredId) ?? null, [cityPoints, hoveredId]);
 
   const cityCount = cityPoints.length;
   const rankedCount = cityPoints.filter((city) => city.rankingStatus === "Ranked").length;

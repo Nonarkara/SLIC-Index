@@ -1,4 +1,4 @@
-export const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, "");
+const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 export function appHref(path: string): string {
   if (!path) {

@@ -153,12 +153,12 @@ export const PUBLIC_METRICS = Object.freeze([
   ...DIAGNOSTIC_METRICS,
 ]);
 
-export const SCORED_METRIC_KEYS = Object.freeze(SCORED_METRICS.map((metric) => metric.key));
-export const DIAGNOSTIC_METRIC_KEYS = Object.freeze(DIAGNOSTIC_METRICS.map((metric) => metric.key));
+const SCORED_METRIC_KEYS = Object.freeze(SCORED_METRICS.map((metric) => metric.key));
+const DIAGNOSTIC_METRIC_KEYS = Object.freeze(DIAGNOSTIC_METRICS.map((metric) => metric.key));
 export const SCORED_METRIC_COUNT = SCORED_METRICS.length;
 export const DIAGNOSTIC_METRIC_COUNT = DIAGNOSTIC_METRICS.length;
 
-export const METRIC_BY_KEY = Object.freeze(
+const METRIC_BY_KEY = Object.freeze(
   Object.fromEntries(PUBLIC_METRICS.map((metric) => [metric.key, metric])),
 );
 
@@ -166,7 +166,7 @@ export function numeric(value) {
   return typeof value === "number" && Number.isFinite(value);
 }
 
-export function normalize(value, p05, p95, dir) {
+function normalize(value, p05, p95, dir) {
   if (!numeric(value) || !numeric(p05) || !numeric(p95) || p95 === p05) {
     return null;
   }
@@ -202,7 +202,7 @@ export function ampi(entries) {
   return { score, mu, variance };
 }
 
-export function roundTo(value, digits) {
+function roundTo(value, digits) {
   if (!numeric(value)) return null;
   const factor = 10 ** digits;
   return Math.round(value * factor) / factor;
