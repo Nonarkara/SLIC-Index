@@ -257,3 +257,11 @@ Per §13: the same mistake never happens twice.
 - **Correct behaviour:** ...
 - **How to recognise this pattern:** ...
 -->
+
+## 2026-06-06 · Auto-generated province data had duplicates and dead color branch
+
+- **What went wrong:** `scoreColor()` in ThailandPage had a dead branch — `>= 80` and `>= 65` both returned `--accent-cyan`, so "good" (65–79) and "excellent" (80+) scores looked identical. Separately, the auto-generated taglines for 9 provinces were identical ("Solid provincial performance with room to grow in environment."), and highlights for Nakhon Pathom, Songkhla, Chachoengsao, Samut Sakhon had the population repeated 3× because the generator fell back to population when it ran out of real facts.
+- **Correct behaviour:** `scoreColor` now uses 4 tiers: cyan (≥80), blue (≥65), amber (≥50), red (<50). Province taglines and highlights must be fact-specific to the province — never generic templates. Before shipping thailand data, grep for repeated strings within a single province's highlights array.
+- **How to recognise:** Any `highlights` array with two or more identical entries. Any `tagline` containing "with room to grow in" as a template placeholder. Any color function that returns the same value for two different branches.
+
+---

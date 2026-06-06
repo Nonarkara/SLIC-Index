@@ -341,10 +341,10 @@ function formatBaht(value: number): string {
 }
 
 function scoreColor(score: number): string {
-  if (score >= 80) return "var(--accent-cyan)";
-  if (score >= 65) return "var(--accent-cyan)";
-  if (score >= 50) return "var(--accent-amber)";
-  return "var(--accent-red)";
+  if (score >= 80) return "var(--accent-cyan)";   // excellent
+  if (score >= 65) return "var(--accent-blue)";   // good
+  if (score >= 50) return "var(--accent-amber)";  // moderate
+  return "var(--accent-red)";                     // poor
 }
 
 function ScoreBar({ score, label }: { score: number; label: string }) {
