@@ -1,0 +1,10 @@
+[
+  {
+    "id": "forecast-city-score-bangkok",
+    "file": "forecast-city-score-bangkok.json",
+    "label": "city-score",
+    "aoi": "bangkok",
+    "horizon": 12,
+    "model": "google/timesfm-2.5-200m-pytorch"
+  }
+]
