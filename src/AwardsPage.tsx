@@ -1,6 +1,7 @@
 import { appHref } from "./routing";
 import SiteFooter from "./SiteFooter";
 import { t } from "./i18n";
+import publishedData from "./data/publishedRankingData.json";
 import type { Locale, SitePath } from "./types";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -66,20 +67,20 @@ export default function AwardsPage({
     "すべての都市ランキングは嘘です。こちらが私たちのもの——公開方法論、公開データ、有料掲載なし、3言語対応。",
   );
 
-  // Canonical numbers — read directly from methodologyFacts when this expands.
-  // For now these are hard-coded to match the snapshot at publish time of this
-  // Pass-3 awards work; the cross-doc drift checker will catch any divergence.
+  // Canonical numbers — read from methodologyFacts so this page can never
+  // drift from the published dataset. Pillar count is structural (no facts field).
+  const facts = publishedData.methodologyFacts;
   const numbers: { value: string; label: string }[] = [
     {
-      value: "163",
+      value: String(facts.cityCount),
       label: t(locale, "Cities total", "เมืองทั้งหมด", "城市总数", "총 도시 수", "総都市数"),
     },
     {
-      value: "158",
+      value: String(facts.rankedCityCount),
       label: t(locale, "Ranked", "จัดอันดับ", "已排名", "순위 지정", "ランク付き"),
     },
     {
-      value: "5",
+      value: String(facts.watchlistCityCount),
       label: t(locale, "Watchlist", "เฝ้าระวัง", "观察名单", "관찰 목록", "観察リスト"),
     },
     {
@@ -87,19 +88,19 @@ export default function AwardsPage({
       label: t(locale, "Public pillars", "เสาหลักสาธารณะ", "公开支柱", "공개 기둥", "公開柱"),
     },
     {
-      value: "22 + 3",
+      value: `${facts.scoredMetricCount} + ${facts.diagnosticMetricCount}`,
       label: t(locale, "Scored + diagnostic metrics", "ตัวชี้วัด + วินิจฉัย", "评分 + 诊断指标", "채점 + 진단 지표", "採点＋診断指標"),
     },
     {
-      value: "v3.4.0",
+      value: facts.scoreModelVersion.replace("slic-", ""),
       label: t(locale, "Score model", "โมเดลคะแนน", "评分模型", "점수 모델", "スコアモデル"),
     },
     {
-      value: "v1.3.0",
+      value: facts.tierPolicyVersion.replace("public-tier-", ""),
       label: t(locale, "Tier policy", "นโยบายชั้น", "层级政策", "등급 정책", "ティアポリシー"),
     },
     {
-      value: "EN · TH · ZH",
+      value: "EN · TH · ZH · KO · JA",
       label: t(locale, "Locales", "ภาษา", "语言", "언어", "言語"),
     },
   ];
