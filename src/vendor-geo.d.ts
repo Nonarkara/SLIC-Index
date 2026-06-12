@@ -1,3 +1,4 @@
+// Ambient type shims for d3-geo / topojson-client / world-atlas — loaded via tsconfig include, not imported.
 declare module "d3-geo" {
   export interface GeoProjection {
     (coordinates: readonly [number, number]): [number, number] | null;
