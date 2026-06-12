@@ -5,7 +5,7 @@ import { getCityEditorialEntry } from "./cityEditorial";
 import { getExerciseCities } from "./rankingsData";
 import { appHref, stripBase } from "./routing";
 import SiteFooter from "./SiteFooter";
-import { t } from "./i18n";
+import { t, localeNumberFormat } from "./i18n";
 import { PUBLIC_TIER_RULES } from "./publicTierPolicy.js";
 import type { Locale, SitePath } from "./types";
 
@@ -1073,7 +1073,7 @@ function MetricRow({
         </div>
         <div className="scorecard-metric-value">
           {detail.raw !== null ? (
-            <span className="scorecard-raw-value">{detail.raw.toLocaleString()}</span>
+            <span className="scorecard-raw-value">{detail.raw.toLocaleString(localeNumberFormat[locale])}</span>
           ) : (
             <span className="scorecard-raw-value scorecard-raw-value--missing">—</span>
           )}
@@ -1447,7 +1447,7 @@ export default function CityScorecardPage({
             {city.metrics?.pressure_disposable_income_ppp?.raw !== null && city.metrics?.pressure_disposable_income_ppp?.raw !== undefined && (
               <div className="scorecard-overview-card">
                 <span className="scorecard-overview-label">{copy.disposableIncome}</span>
-                <strong>${Math.round(city.metrics.pressure_disposable_income_ppp.raw).toLocaleString()}/mo</strong>
+                <strong>${Math.round(city.metrics.pressure_disposable_income_ppp.raw).toLocaleString(localeNumberFormat[locale])}/mo</strong>
               </div>
             )}
             {city.metrics?.pressure_housing_burden?.raw !== null && city.metrics?.pressure_housing_burden?.raw !== undefined && (

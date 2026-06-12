@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { displayCountry } from "./cityUtils";
 import { getExerciseCities } from "./rankingsData";
-import { t } from "./i18n";
+import { t, localeNumberFormat } from "./i18n";
 import { rankingPublication } from "./rankingPublication";
 import SiteFooter from "./SiteFooter";
 import type { FullRankedCity, Locale, SitePath } from "./types";
@@ -282,7 +282,7 @@ export default function SideBySidePage({
                    {city.metrics?.pppIncomePerHead && (
                      <div className="sbs-context-item">
                        <span>{t(locale, "Income (PPP)", "รายได้ (PPP)", "收入（PPP）", "소득 (PPP)", "所得（PPP）")}</span>
-                       <strong>${Math.round(city.metrics.pppIncomePerHead).toLocaleString()}</strong>
+                       <strong>${Math.round(city.metrics.pppIncomePerHead).toLocaleString(localeNumberFormat[locale])}</strong>
                      </div>
                    )}
                 </div>

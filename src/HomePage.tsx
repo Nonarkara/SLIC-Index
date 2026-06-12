@@ -7,7 +7,7 @@ import { rankingPublication } from "./rankingPublication";
 import SiteFooter from "./SiteFooter";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import ZeroSumAllocator from "./ZeroSumAllocator";
-import { t } from "./i18n";
+import { t, localeNumberFormat } from "./i18n";
 import { appHref } from "./routing";
 import { scoreCityWithWeights } from "./scoring";
 import type { Locale, SitePath } from "./types";
@@ -97,14 +97,6 @@ const STAGE_PHOTO = `${BASE}/launch-photos/20260318145249_ABC01948.jpg`;
 const SHOWFLOOR_PHOTO = `${BASE}/launch-photos/20260318151147_DSC09510.jpg`;
 const GITEX_STAGE_PHOTO = `${BASE}/launch-photos/gitex-singapore-2026-02.jpg`;
 const LEAP_EAST_PHOTO = `${BASE}/launch-photos/leap-east-hong-kong-2026.png`;
-
-const localeNumberFormat: Record<Locale, string> = {
-  en: "en-US",
-  th: "th-TH",
-  zh: "zh-CN",
-  ko: "ko-KR",
-  ja: "ja-JP",
-};
 
 const severityClass: Record<string, string> = {
   severe: "tradeoff-card tradeoff-card--severe",
@@ -391,7 +383,7 @@ export default function HomePage({
       <section className="hp-photo-break">
         <img
           src={METHOD_PHOTO}
-          alt="SLIC presentation slide at Smart City Summit and Expo 2026"
+          alt={t(locale, "SLIC presentation slide at Smart City Summit and Expo 2026", "สไลด์นำเสนอ SLIC ที่งาน Smart City Summit and Expo 2026", "SLIC 在 2026 智慧城市展览会上的演示幻灯片", "2026 스마트시티 서밋 엑스포의 SLIC 발표 슬라이드", "スマートシティサミット＆エキスポ2026でのSLICプレゼンテーションスライド")}
           className="hp-photo-break-img"
           width={6000}
           height={4000}
@@ -561,7 +553,7 @@ export default function HomePage({
       <section className="hp-photo-break hp-photo-break--narrow">
         <img
           src={SHOWFLOOR_PHOTO}
-          alt="Dr Non at Smart City Summit Taipei show floor"
+          alt={t(locale, "Dr Non at Smart City Summit Taipei show floor", "ดร.นนท์ ที่บูธงาน Smart City Summit ไทเป", "Non 博士在台北智慧城市展会现场", "타이베이 스마트시티 서밋 전시장의 Non 박사", "台北スマートシティサミット会場のNon博士")}
           className="hp-photo-break-img"
           width={5997}
           height={4000}
@@ -594,7 +586,7 @@ export default function HomePage({
         <div className="hp-launch-trail-grid">
           <div className="hp-launch-event">
             <div className="hp-launch-event-photo">
-              <img src={STAGE_PHOTO} alt="SLIC keynote, Smart City Summit Taipei 2026" loading="lazy" />
+              <img src={STAGE_PHOTO} alt={t(locale, "SLIC keynote, Smart City Summit Taipei 2026", "ปาฐกถา SLIC ที่งาน Smart City Summit ไทเป 2026", "SLIC 主题演讲，2026 台北智慧城市峰会", "2026 타이베이 스마트시티 서밋 SLIC 기조연설", "台北スマートシティサミット2026でのSLIC基調講演")} loading="lazy" />
             </div>
             <div className="hp-launch-event-meta">
               <span className="hp-launch-event-tag">{t(locale, "Taipei", "ไทเป", "台北", "타이베이", "台北")}</span>
@@ -612,7 +604,7 @@ export default function HomePage({
 
           <div className="hp-launch-event">
             <div className="hp-launch-event-photo">
-              <img src={GITEX_STAGE_PHOTO} alt="Dr Non, main-stage keynote at GITEX AI Asia Singapore 2026" loading="lazy" />
+              <img src={GITEX_STAGE_PHOTO} alt={t(locale, "Dr Non, main-stage keynote at GITEX AI Asia Singapore 2026", "ดร.นนท์ ปาฐกถาเวทีหลักที่งาน GITEX AI Asia สิงคโปร์ 2026", "Non 博士在 2026 新加坡 GITEX AI Asia 主舞台发表主题演讲", "2026 싱가포르 GITEX AI Asia 메인 무대 기조연설의 Non 박사", "GITEX AI Asiaシンガポール2026メインステージで基調講演を行うNon博士")} loading="lazy" />
             </div>
             <div className="hp-launch-event-meta">
               <span className="hp-launch-event-tag">{t(locale, "Singapore", "สิงคโปร์", "新加坡", "싱가포르", "シンガポール")}</span>
@@ -630,7 +622,7 @@ export default function HomePage({
 
           <div className="hp-launch-event hp-launch-event--upcoming">
             <div className="hp-launch-event-photo hp-launch-event-photo--graphic">
-              <img src={LEAP_EAST_PHOTO} alt="LEAP EAST Hong Kong event card, 8–10 July 2026" loading="lazy" />
+              <img src={LEAP_EAST_PHOTO} alt={t(locale, "LEAP EAST Hong Kong event card, 8–10 July 2026", "บัตรงาน LEAP EAST ฮ่องกง 8–10 กรกฎาคม 2026", "LEAP EAST 香港活动卡，2026 年 7 月 8–10 日", "LEAP EAST 홍콩 행사 카드, 2026년 7월 8–10일", "LEAP EAST香港イベントカード、2026年7月8–10日")} loading="lazy" />
             </div>
             <div className="hp-launch-event-meta">
               <span className="hp-launch-event-tag hp-launch-event-tag--upcoming">{t(locale, "Hong Kong", "ฮ่องกง", "香港", "홍콩", "香港")}</span>
