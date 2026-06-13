@@ -354,7 +354,8 @@ export default function MethodologyPage({
   const ui = pickLocale(methodUiCopy, locale);
   const methodology = getMethodologyData(locale);
   const [pdfOpen, setPdfOpen] = useState(false);
-  const pdfPath = `${BASE}/downloads/slic-methodology-technical-paper-en.pdf`;
+  const pdfLocale = locale === "th" || locale === "zh" ? locale : "en";
+  const pdfPath = `${BASE}/downloads/slic-methodology-technical-paper-${pdfLocale}.pdf`;
   const officialEquation = methodology.equationSection.groups[0]?.equations[0];
   const paperAnchors = [
     { href: "#reader-guide", label: ui.guide },

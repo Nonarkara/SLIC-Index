@@ -4252,7 +4252,7 @@ section[id] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.2rem;
+  min-height: 2.75rem;
   padding: 0 0.75rem;
   border: 1px solid var(--border);
   background: rgba(30, 40, 60, 0.03);
@@ -4485,7 +4485,7 @@ section[id] {
   }
 
   .locale-button {
-    min-height: 2.2rem;
+    min-height: 2.75rem;
     padding: 0 0.6rem;
     font-size: 0.82rem;
   }
@@ -4991,6 +4991,10 @@ section[id] {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }
+/* Spider grid rings are white at 6% opacity (designed for dark bg) — override for light rankings context */
+.rankings-stage .allocator-svg polygon {
+  stroke: rgba(30, 40, 60, 0.12);
+}
 .rankings-stage-inner {
   max-width: 680px;
   margin: 0 auto;
@@ -5032,7 +5036,10 @@ section[id] {
   font-weight: 500;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  padding: 7px 12px;
+  min-height: 44px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
   color: rgba(30,40,60,0.65);
   background: transparent;
   border: 1px solid rgba(30,40,60,0.12);
@@ -9601,8 +9608,8 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .mh-burger {
-  width: 2.4rem;
-  height: 2.4rem;
+  width: 2.75rem;
+  height: 2.75rem;
   border: 1px solid var(--border);
   border-radius: 0;
   background: rgba(255, 255, 255, 0.72);
@@ -10492,14 +10499,14 @@ body,
 
   .locale-button {
     min-width: 2.1rem;
-    min-height: 2rem;
+    min-height: 2.75rem;
     padding: 0 0.48rem;
     font-size: 0.64rem;
   }
 
   .mh-burger {
-    width: 2.1rem;
-    height: 2.1rem;
+    width: 2.75rem;
+    height: 2.75rem;
     flex: 0 0 auto;
   }
 
