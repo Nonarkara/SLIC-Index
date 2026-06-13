@@ -184,11 +184,11 @@ export default function AwardsPage({
       ),
       artifact: t(
         locale,
-        "Entry point: this page + the mandatory 1–3 min video (script in docs/submission-video-script.md)",
-        "จุดเข้า: หน้านี้ + วิดีโอ 1–3 นาที (สคริปต์ใน docs/submission-video-script.md)",
-        "切入点：本页 + 强制 1–3 分钟视频（脚本在 docs/submission-video-script.md）",
-        "진입점: 이 페이지 + 필수 1–3분 영상 (스크립트: docs/submission-video-script.md)",
-        "エントリーポイント：このページ＋必須1〜3分動画（スクリプト：docs/submission-video-script.md）",
+        "Entry point: this page + the mandatory 1–3 min video (script in https://github.com/Nonarkara/SLIC-Index/blob/main/docs/submission-video-script.md)",
+        "จุดเข้า: หน้านี้ + วิดีโอ 1–3 นาที (สคริปต์ใน https://github.com/Nonarkara/SLIC-Index/blob/main/docs/submission-video-script.md)",
+        "切入点：本页 + 强制 1–3 分钟视频（脚本在 https://github.com/Nonarkara/SLIC-Index/blob/main/docs/submission-video-script.md）",
+        "진입점: 이 페이지 + 필수 1–3분 영상 (스크립트: https://github.com/Nonarkara/SLIC-Index/blob/main/docs/submission-video-script.md)",
+        "エントリーポイント：このページ＋必須1〜3分動画（スクリプト：https://github.com/Nonarkara/SLIC-Index/blob/main/docs/submission-video-script.md）",
       ),
     },
     {
@@ -288,11 +288,11 @@ export default function AwardsPage({
 
   const provenanceBody = t(
     locale,
-    "Authored by Dr. Non Arkara and Associate Professor Poon Thiengburanathum (Chiang Mai University). Computing and platform costs are supported in kind by DEPA (Digital Economy Promotion Agency) and PMU-A (Program Management Unit for Area-Based Development, Ministry of Higher Education, Research, Science and Innovation), Thailand. No private-sector funding. No sponsor has influence over scores, tier placement, or methodology. Research-pipeline and AI tooling collaboration with Axiom × ReTL. The full statement runs in every page footer.",
-    "เขียนโดย ดร.นนท์ อรกร และ รศ.ภูวงษ์ เทียงบุรานัม (มหาวิทยาลัยเชียงใหม่) ค่าใช้จ่ายโครงสร้างพื้นฐานคอมพิวเตอร์และแพลตฟอร์มได้รับการสนับสนุนเป็นสิ่งของจาก DEPA (สำนักงานส่งเสริมเศรษฐกิจดิจิทัล) และ PMU-A (กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัย และนวัตกรรม) ประเทศไทย ไม่มีผู้สนับสนุนจากภาคเอกชน ไม่มีผู้สนับสนุนรายใดมีอิทธิพลต่อคะแนน การจัดลำดับชั้น หรือระเบียบวิธี ความร่วมมือด้านกระบวนการวิจัยและเครื่องมือ AI กับ Axiom × ReTL คำชี้แจงฉบับเต็มอยู่ในท้ายทุกหน้า",
-    "由 Dr. Non Arkara 与副教授 Poon Thiengburanathum（清迈大学）撰写。计算与平台费用由泰国 DEPA（数字经济促进局）和 PMU-A（高等教育、科学、研究与创新部 — 区域发展项目管理署）以实物形式提供支持。无私营部门资助。任何赞助商均不影响评分、层级分配或方法论。研究流程与 AI 工具与 Axiom × ReTL 协作。完整声明在每页页脚展开。",
-    "Dr. Non Arkara 및 부교수 Poon Thiengburanathum(치앙마이 대학교)이 저술했습니다. 컴퓨팅 및 플랫폼 비용은 태국 DEPA(디지털경제진흥원) 및 PMU-A(고등교육·과학·연구·혁신부 — 지역개발 프로그램 관리 부서)의 현물 지원을 받습니다. 민간 부문 자금 없음. 어떤 후원자도 점수, 등급 배치 또는 방법론에 영향을 미치지 않습니다. 연구 파이프라인 및 AI 도구 협업은 Axiom × ReTL과 진행 중입니다. 전체 성명은 모든 페이지 하단에 있습니다.",
-    "Dr. Non Arkara と Poon Thiengburanathum 准教授（チェンマイ大学）が執筆しました。コンピューティングおよびプラットフォーム費用はタイのDEPA（デジタル経済振興局）とPMU-A（高等教育・科学・研究・イノベーション省 — 地域開発プログラム管理部署）による現物支援を受けています。民間部門の資金提供なし。いかなるスポンサーもスコア、ティア配置、または方法論に影響を与えません。研究パイプラインおよびAIツールの協働はAxiom × ReTLと行っています。完全な声明はすべてのページフッターに掲載されています。",
+    "Authored by Dr. Non Arkara and Associate Professor Poon Thiengburanathum (Chiang Mai University). Computing and platform costs are supported in kind by DEPA (Digital Economy Promotion Agency) and PMU-A (Program Management Unit for Area-Based Development, Ministry of Higher Education, Research, Science and Innovation), Thailand. No private-sector funding. No sponsor has influence over scores, tier placement, or methodology. Research-pipeline and AI tooling collaboration with ReTL. The full statement runs in every page footer.",
+    "เขียนโดย ดร.นนท์ อรกร และ รศ.ภูวงษ์ เทียงบุรานัม (มหาวิทยาลัยเชียงใหม่) ค่าใช้จ่ายโครงสร้างพื้นฐานคอมพิวเตอร์และแพลตฟอร์มได้รับการสนับสนุนเป็นสิ่งของจาก DEPA (สำนักงานส่งเสริมเศรษฐกิจดิจิทัล) และ PMU-A (กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัย และนวัตกรรม) ประเทศไทย ไม่มีผู้สนับสนุนจากภาคเอกชน ไม่มีผู้สนับสนุนรายใดมีอิทธิพลต่อคะแนน การจัดลำดับชั้น หรือระเบียบวิธี ความร่วมมือด้านกระบวนการวิจัยและเครื่องมือ AI กับ ReTL คำชี้แจงฉบับเต็มอยู่ในท้ายทุกหน้า",
+    "由 Dr. Non Arkara 与副教授 Poon Thiengburanathum（清迈大学）撰写。计算与平台费用由泰国 DEPA（数字经济促进局）和 PMU-A（高等教育、科学、研究与创新部 — 区域发展项目管理署）以实物形式提供支持。无私营部门资助。任何赞助商均不影响评分、层级分配或方法论。研究流程与 AI 工具与 ReTL 协作。完整声明在每页页脚展开。",
+    "Dr. Non Arkara 및 부교수 Poon Thiengburanathum(치앙마이 대학교)이 저술했습니다. 컴퓨팅 및 플랫폼 비용은 태국 DEPA(디지털경제진흥원) 및 PMU-A(고등교육·과학·연구·혁신부 — 지역개발 프로그램 관리 부서)의 현물 지원을 받습니다. 민간 부문 자금 없음. 어떤 후원자도 점수, 등급 배치 또는 방법론에 영향을 미치지 않습니다. 연구 파이프라인 및 AI 도구 협업은 ReTL과 진행 중입니다. 전체 성명은 모든 페이지 하단에 있습니다.",
+    "Dr. Non Arkara と Poon Thiengburanathum 准教授（チェンマイ大学）が執筆しました。コンピューティングおよびプラットフォーム費用はタイのDEPA（デジタル経済振興局）とPMU-A（高等教育・科学・研究・イノベーション省 — 地域開発プログラム管理部署）による現物支援を受けています。民間部門の資金提供なし。いかなるスポンサーもスコア、ティア配置、または方法論に影響を与えません。研究パイプラインおよびAIツールの協働はReTLと行っています。完全な声明はすべてのページフッターに掲載されています。",
   );
 
   const impactTitle = t(
@@ -454,7 +454,7 @@ export default function AwardsPage({
         "CEA 창의 기술상",
         "CEA クリエイティブテクノロジー賞",
       ),
-      status: t(locale, "Likely open Jun–Aug 2026", "น่าจะเปิดรับ มิ.ย.–ส.ค. 2569", "预计 2026 年 6–8 月开启", "2026년 6–8월 개방 예상", "2026年6〜8月開放予定"),
+      status: t(locale, "Open window Jun–Aug 2026 — confirm via DEPA channel", "ช่วงเปิดรับ มิ.ย.–ส.ค. 2569 — ยืนยันผ่านช่องทาง DEPA", "2026 年 6–8 月开放窗口 —— 通过 DEPA 渠道确认", "2026년 6–8월 개방 창구 — DEPA 채널을 통해 확인", "2026年6〜8月開放ウィンドウ — DEPAチャンネルで確認"),
       next: t(locale, "2026 cycle — confirm via DEPA channel", "รอบปี 2569 — ยืนยันผ่านช่องทาง DEPA", "2026 周期 —— 通过 DEPA 渠道确认", "2026 사이클 — DEPA 채널을 통해 확인", "2026サイクル — DEPAチャンネルで確認"),
     },
     {
@@ -466,7 +466,7 @@ export default function AwardsPage({
         "CEA 창의 옹호상",
         "CEA クリエイティブアドボカシー賞",
       ),
-      status: t(locale, "Likely open Jun–Aug 2026", "น่าจะเปิดรับ มิ.ย.–ส.ค. 2569", "预计 2026 年 6–8 月开启", "2026년 6–8월 개방 예상", "2026年6〜8月開放予定"),
+      status: t(locale, "Open window Jun–Aug 2026 — confirm via DEPA channel", "ช่วงเปิดรับ มิ.ย.–ส.ค. 2569 — ยืนยันผ่านช่องทาง DEPA", "2026 年 6–8 月开放窗口 —— 通过 DEPA 渠道确认", "2026년 6–8월 개방 창구 — DEPA 채널을 통해 확인", "2026年6〜8月開放ウィンドウ — DEPAチャンネルで確認"),
       next: t(locale, "2026 cycle companion entry", "รายการคู่ในรอบปี 2569", "2026 周期同投", "2026 사이클 동반 출품", "2026サイクル同時出品"),
     },
   ];
@@ -512,6 +512,28 @@ export default function AwardsPage({
         "十指数对比 —— SLIC 与 EIU、Mercer、Resonance、Monocle、Yonsei-Cambridge、IMD、GPCI、Oxford Economics、Hanke、SLIC Soft Power 并列。",
         "10개 지수 비교 — EIU, Mercer, Resonance, Monocle, Yonsei-Cambridge, IMD, GPCI, Oxford Economics, Hanke, SLIC Soft Power와 함께하는 SLIC.",
         "10指数比較——EIU、Mercer、Resonance、Monocle、Yonsei-Cambridge、IMD、GPCI、Oxford Economics、Hanke、SLIC Soft Powerと並べたSLIC。",
+      ),
+    },
+    {
+      path: "/rankings" as SitePath,
+      note: t(
+        locale,
+        "Live re-rank workbench — rebuild SLIC's top 10 from your own pillar weights. The strongest evidence of User Value for DEmark.",
+        "Workbench จัดอันดับใหม่แบบสด — สร้าง 10 อันดับแรกของ SLIC ใหม่จากน้ำหนักเสาหลักของคุณเอง หลักฐานที่แข็งแกร่งที่สุดสำหรับคุณค่าผู้ใช้สำหรับ DEmark",
+        "实时重新排名工作台 —— 根据您自己的支柱权重重建 SLIC 的前 10 名。DEmark 用户价值的最有力证据。",
+        "라이브 재순위 워크벤치 — 자체 기둥 가중치로 SLIC의 상위 10위를 재구성합니다. DEmark의 사용자 가치에 대한 가장 강력한 증거입니다.",
+        "ライブ再ランキングワークベンチ — 独自の柱の重みからSLICのトップ10を再構築します。DEmarkのユーザー価値の最も強力な証拠です。",
+      ),
+    },
+    {
+      path: "/city/th-bangkok" as SitePath,
+      note: t(
+        locale,
+        "Bangkok anchor-city scorecard — every metric, every source URL, the Alpha argument made concrete.",
+        "ตารางคะแนนเมืองหลักกรุงเทพฯ — ทุกตัวชี้วัด ทุก URL ต้นทาง ข้อโต้แย้ง Alpha ที่ทำให้เป็นรูปธรรม",
+        "曼谷锚点城市记分卡 —— 每项指标，每个源 URL，使 Alpha 论点具体化。",
+        "방콕 앵커 도시 스코어카드 — 모든 지표, 모든 소스 URL, 구체화된 Alpha 논거.",
+        "バンコクのアンカーシティスコアカード — すべての指標、すべてのソースURL、具体化されたAlphaの主張。",
       ),
     },
     {

@@ -180,7 +180,7 @@ SLIC framed as: provocation against city-ranking marketing economy. Every metric
 | CSV metadata header | ★ | ★★★ | ★★ | ★ | ★ |
 | Footer citation strip | ★ | ★★ | ★★ | ★★ | ★★ |
 | Video script (EN + TH) | ★★ | — | ★★★ | ★★ | ★★ |
-| Refresh `_pre-submission-status.md` | ★ | ★ | ★ | ★ | ★ |
+| Refresh `docs/pre-submission-status.md` | ★ | ★ | ★ | ★ | ★ |
 | `/essay` link in homepage CTA cluster | ★★ | — | ★ | ★ | ★ |
 | Contrast verification on `/awards` | ★★ | ★ | ★★ | ★ | ★ |
 

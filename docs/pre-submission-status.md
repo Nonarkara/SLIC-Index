@@ -1,7 +1,7 @@
 # SLIC Index V3 — Pre-Submission Status
 
 > One-page status for Dr Non to skim on the plane.
-> Updated: 2026-06-01 · Live: https://slic.nonarkara.org · Score model: `slic-v3.4.0` · Tier policy: `public-tier-v1.3.0` · Languages: EN / TH / ZH / KO / JA
+> Updated: 2026-06-14 · Live: https://slic.nonarkara.org · Score model: `slic-v3.4.0` · Tier policy: `public-tier-v1.3.0` · Languages: EN / TH / ZH / KO / JA
 
 ---
 
@@ -122,15 +122,17 @@ V2 archive: `https://nonarkara.github.io/SLIC-Index-V2/`
 
 ---
 
-## Awards submission status (2026-05-26)
+## Awards submission status (2026-06-14)
 
 | Award | 2026 status | Target | Notes |
 |---|---|---|---|
-| Red Dot Brands & Communication — Editorial Design | Closed (Latecomer 8 May) | **2027 Early Bird ~Feb 2027** | Category locked: Editorial Design |
+| Red Dot Brands & Communication | Closed (Latecomer 8 May) | **2027 Early Bird ~Feb 2027** | Category pending: Editorial Design vs Digital Solutions |
 | DEmark — System Service & Digital Platform | Closed (8 May) | **2027 Q1** | 1–3 min video script drafted; recording later |
-| CEA Creative Technology Award | Likely open June–Aug 2026 | **2026 if packet drops** | Relationship-led — Non handles via DEPA |
-| CEA Creative Advocacy Award | Same as above | **2026 companion** | Same channel |
+| CEA Creative Technology Award | Open window June–Aug 2026 | **2026 if packet drops** | Relationship-led — Non handles via DEPA |
+| CEA Creative Advocacy Award | Open window June–Aug 2026 | **2026 companion** | Same channel |
 
-Full audit: [`docs/AWARDS-AUDIT-2026-05.md`](docs/AWARDS-AUDIT-2026-05.md). Pass-3 fix log: [`docs/CLASS-DEMO-PREP-2026-05-26.md`](docs/CLASS-DEMO-PREP-2026-05-26.md).
+*Note: The `eefdeeb` hardening pass and June 14 targeted fixes have landed. The application dossier, site copy, and project descriptions are fully Red Dot ready.*
+
+Full audit: [`docs/AWARDS-AUDIT-2026-05.md`](AWARDS-AUDIT-2026-05.md). Pass-3 fix log: [`docs/CLASS-DEMO-PREP-2026-05-26.md`](CLASS-DEMO-PREP-2026-05-26.md).
 
 — refreshed for the awards-audit pass · numbers verified against `methodologyFacts` block in `src/data/publishedRankingData.json`
