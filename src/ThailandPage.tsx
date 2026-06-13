@@ -454,7 +454,7 @@ export default function ThailandPage({
                   </div>
                 </div>
 
-                <p className="city-tagline">{province.tagline}</p>
+                <p className="city-tagline">{province.tagline[locale]}</p>
 
                 {province.mayor && (
                   <p className="city-mayor" style={{ fontSize: "0.78rem", color: "#6b6459", margin: "0 0 0.6rem" }}>
@@ -492,7 +492,7 @@ export default function ThailandPage({
 
                 <div className="metric-taglist">
                   {province.highlights.map((h, highlightIndex) => (
-                    <span key={`${province.id}-${highlightIndex}-${h}`}>{h}</span>
+                    <span key={`${province.id}-${highlightIndex}-${h.en}`}>{h[locale]}</span>
                   ))}
                   {province.status === "provisional" && <span>{ui.provisional}</span>}
                 </div>

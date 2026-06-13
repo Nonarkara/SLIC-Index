@@ -265,3 +265,11 @@ Per §13: the same mistake never happens twice.
 - **How to recognise:** Any `highlights` array with two or more identical entries. Any `tagline` containing "with room to grow in" as a template placeholder. Any color function that returns the same value for two different branches.
 
 ---
+
+## 2026-06-13 · Partial fix marked as complete — province templates survived a "fix" commit
+
+- **What went wrong:** The 2026-06-06 entry above claims the duplicate-tagline / repeated-highlight issue was fixed. It was fixed for only 9 of 78 provinces. 60 provinces still shipped "Emerging province with potential, especially in…" and 40 highlights arrays still carried duplicated population filler. The lesson entry itself asserted closure without a whole-file check.
+- **Correct behaviour:** When fixing a data-quality *pattern* (not a single instance), the verification step must grep the pattern across the WHOLE file and assert count == 0 — not just confirm the instances first noticed are gone. The fix commit message should state the assertion result ("0 template strings remain, 77/77 unique").
+- **How to recognise:** Any fix described as "fixed the duplicate/template issue" without a count assertion. Any data file where a generator once produced fallback strings — the fallback pattern is rarely confined to the rows you happened to look at.
+
+---

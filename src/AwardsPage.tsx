@@ -60,11 +60,11 @@ export default function AwardsPage({
 
   const provocation = t(
     locale,
-    "Every city ranking is a lie. Here's ours — public methodology, public data, no paid placement, three languages.",
-    "ทุกดัชนีจัดอันดับเมืองคือเรื่องโกหก รวมถึงของผมเอง ระเบียบวิธีเปิด ข้อมูลเปิด ไม่มีการจ่ายเพื่อขึ้นอันดับ สามภาษา",
-    "每一份城市排名都是谎言，包括我们这份。方法公开，数据公开，无付费上榜，三语并行。",
-    "모든 도시 순위는 거짓입니다. 여기 우리 것이 있습니다 — 공개 방법론, 공개 데이터, 유료 순위 없음, 세 가지 언어.",
-    "すべての都市ランキングは嘘です。こちらが私たちのもの——公開方法論、公開データ、有料掲載なし、3言語対応。",
+    "Every city ranking is a lie. Here's ours — public methodology, public data, no paid placement, five languages.",
+    "ทุกดัชนีจัดอันดับเมืองคือเรื่องโกหก รวมถึงของผมเอง ระเบียบวิธีเปิด ข้อมูลเปิด ไม่มีการจ่ายเพื่อขึ้นอันดับ ห้าภาษา",
+    "每一份城市排名都是谎言，包括我们这份。方法公开，数据公开，无付费上榜，五语并行。",
+    "모든 도시 순위는 거짓입니다. 여기 우리 것이 있습니다 — 공개 방법론, 공개 데이터, 유료 순위 없음, 다섯 가지 언어.",
+    "すべての都市ランキングは嘘です。こちらが私たちのもの——公開方法論, 公開データ, 有料掲載なし, 5言語対応。",
   );
 
   // Canonical numbers — read from methodologyFacts so this page can never
@@ -176,11 +176,11 @@ export default function AwardsPage({
       ],
       answer: t(
         locale,
-        "DEmark's 2025 theme was 'The Liveable Creation'. SLIC is what that theme looks like as durable civic infrastructure — a Thai-led ranking that argues, in three languages, that a city is liveable only if a person on a local salary can build a life there. Open methodology, open data, open code, DEPA + PMU-A institutional backing.",
-        "ธีม DEmark 2568 คือ 'The Liveable Creation' SLIC คือธีมนี้ในรูปของโครงสร้างพื้นฐานพลเมืองที่ยั่งยืน คือดัชนีที่นำโดยคนไทย ที่แย้งในสามภาษาว่า เมืองน่าอยู่ก็ต่อเมื่อคนรายได้ท้องถิ่นสร้างชีวิตได้จริง ระเบียบวิธีเปิด ข้อมูลเปิด โค้ดเปิด การสนับสนุนจาก DEPA + PMU-A",
-        "DEmark 2025 主题是 'The Liveable Creation'（可居造物）。SLIC 正是这一主题作为持久公共基础设施的呈现 —— 泰国主导的城市排名，在三语中论证：只有当本地工资也能在那里安家时，城市才是宜居的。方法公开，数据公开，代码公开，DEPA 与 PMU-A 机构支持。",
-        "DEmark 2025 테마는 'The Liveable Creation'이었습니다. SLIC는 이 테마가 지속 가능한 시민 인프라로 나타난 것입니다 — 세 개의 언어로, 현지 급여를 받는 사람이 그곳에서 삶을 구축할 수 있을 때만 도시가 살기 좋다고 주장하는 태국 주도의 순위입니다. 방법론 공개, 데이터 공개, 코드 공개, DEPA + PMU-A 기관 지원.",
-        "DEmarkの2025年テーマは'The Liveable Creation'でした。SLICはそのテーマが持続的な市民インフラとして具現化したものです——3言語で、現地給与の人がそこで生活を築ける場合にのみ都市は住みやすいと主張するタイ主導のランキングです。方法論公開、データ公開、コード公開、DEPA＋PMU-A機関支援。",
+        "DEmark's 2025 theme was 'The Liveable Creation'. SLIC is what that theme looks like as durable civic infrastructure — a Thai-led ranking that argues, in five languages, that a city is liveable only if a person on a local salary can build a life there. Open methodology, open data, open code, DEPA + PMU-A institutional backing.",
+        "ธีม DEmark 2568 คือ 'The Liveable Creation' SLIC คือธีมนี้ในรูปของโครงสร้างพื้นฐานพลเมืองที่ยั่งยืน คือดัชนีที่นำโดยคนไทย ที่แย้งในห้าภาษาว่า เมืองน่าอยู่ก็ต่อเมื่อคนรายได้ท้องถิ่นสร้างชีวิตได้จริง ระเบียบวิธีเปิด ข้อมูลเปิด โค้ดเปิด การสนับสนุนจาก DEPA + PMU-A",
+        "DEmark 2025 主题是 'The Liveable Creation'（可居造物）。SLIC 正是这一主题作为持久公共基础设施的呈现 —— 泰国主导的城市排名，在五语中论证：只有当本地工资也能在那里安家时，城市才是宜居的。方法公开，数据公开，代码公开，DEPA 与 PMU-A 机构支持。",
+        "DEmark 2025 테마는 'The Liveable Creation'이었습니다. SLIC는 이 테마가 지속 가능한 시민 인프라로 나타난 것입니다 — 다섯 개의 언어로, 현지 급여를 받는 사람이 그곳에서 삶을 구축할 수 있을 때만 도시가 살기 좋다고 주장하는 태국 주도의 순위입니다. 방법론 공개, 데이터 공개, 코드 공개, DEPA + PMU-A 기관 지원.",
+        "DEmarkの2025年テーマは'The Liveable Creation'でした。SLICはそのテーマが持続的な市民インフラとして具现化したものです——5言語で、現地給与の人がそこで生活を築ける場合にのみ都市は住みやすいと主張するタイ主導のランキングです。方法論公開、データ公開、コード公開、DEPA＋PMU-A機関支援。",
       ),
       artifact: t(
         locale,
