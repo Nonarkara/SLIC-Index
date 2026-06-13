@@ -11,13 +11,13 @@
     "b": 2024
   },
   "stats": {
-    "p_low": NaN,
-    "p_high": NaN,
+    "p_low": null,
+    "p_high": null,
     "ramp_low_pctile": 50.0,
     "ramp_high_pctile": 99.0,
     "pixel_count": 39917,
-    "max_l2": Infinity,
-    "median_l2": Infinity
+    "max_l2": null,
+    "median_l2": null
   },
   "dataset": "GOOGLE/SATELLITE_EMBEDDING/V1/ANNUAL"
 }

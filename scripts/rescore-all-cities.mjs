@@ -50,6 +50,7 @@ import {
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const DATA_PATH = path.join(ROOT, "src/data/publishedRankingData.json");
+const FACTS_PATH = path.join(ROOT, "src/data/methodologyFacts.json");
 
 const PUBLIC_METRIC_KEYS = PUBLIC_METRICS.map((metric) => metric.key);
 const DATA_LEVEL_KEYS = ["city", "national", "derived", "composite", "missing"];
@@ -848,6 +849,7 @@ async function main() {
   };
 
   await writeFile(DATA_PATH, JSON.stringify(data, null, 2) + "\n");
+  await writeFile(FACTS_PATH, JSON.stringify(data.methodologyFacts, null, 2) + "\n");
 
   const displayRanked = rankedWithTiers.slice().sort((left, right) => left.rank - right.rank);
   console.log(`Rescored ${data.cities.length} cities.`);

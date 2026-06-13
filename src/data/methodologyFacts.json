@@ -1,0 +1,479 @@
+{
+  "scoreModelVersion": "slic-v3.4.0",
+  "tierPolicyVersion": "public-tier-v1.3.0",
+  "scoredMetricCount": 22,
+  "diagnosticMetricCount": 3,
+  "cityCount": 163,
+  "rankedCityCount": 158,
+  "watchlistCityCount": 5,
+  "ruleSnapshot": {
+    "pureRankUsesExactScore": true,
+    "exactScoreField": "slicScoreExact",
+    "alphaMinCommunity": 40,
+    "alphaMinPressure": 40,
+    "alphaMinCoverageGrade": "A",
+    "betaMinCommunity": 45,
+    "betaMinPressure": 45,
+    "maxEuropeInAlpha": 2,
+    "maxOceaniaInAlpha": 0,
+    "maxTaiwanAcrossPublicTiers": 2,
+    "maxSouthKoreaInAlpha": 1,
+    "maxJapanInAlpha": 1,
+    "maxJapanAcrossPublicTiers": 2,
+    "alphaCountryExclusions": [
+      "Israel"
+    ],
+    "alphaCityExclusions": [
+      "Tokyo",
+      "Hong Kong",
+      "Sydney",
+      "Vancouver",
+      "Los Angeles",
+      "Adelaide",
+      "Honolulu",
+      "San Francisco",
+      "Melbourne",
+      "San Diego",
+      "Brisbane",
+      "London",
+      "Amsterdam",
+      "Athens",
+      "Prague",
+      "Košice",
+      "Kosice"
+    ]
+  },
+  "referenceCities": {
+    "singapore": {
+      "cityId": "sg-singapore",
+      "displayName": "Singapore",
+      "country": "Singapore",
+      "rank": 48,
+      "tierLabel": "Gamma",
+      "tierSlot": 5,
+      "rankingStatus": "Ranked",
+      "coverageGrade": "A",
+      "slicScore": 59.4,
+      "slicScoreExact": 59.4386,
+      "pressureScore": 41.3,
+      "pressureScoreExact": 41.2595,
+      "viabilityScore": 90.4,
+      "viabilityScoreExact": 90.377,
+      "capabilityScore": 94.1,
+      "capabilityScoreExact": 94.1479,
+      "communityScore": 38.4,
+      "communityScoreExact": 38.3699,
+      "creativeScore": 73.3,
+      "creativeScoreExact": 73.3339,
+      "tierReason": "Placed on the Gamma shelf: Alpha floor not met (38.4 Community, 41.3 Pressure); Beta floor not met (38.4 Community, 41.3 Pressure). Singapore has not yet claimed a higher tier."
+    },
+    "bangkok": {
+      "cityId": "th-bangkok",
+      "displayName": "Bangkok",
+      "country": "Thailand",
+      "rank": 52,
+      "tierLabel": "Alpha",
+      "tierSlot": 10,
+      "rankingStatus": "Ranked",
+      "coverageGrade": "A",
+      "slicScore": 58.5,
+      "slicScoreExact": 58.4728,
+      "pressureScore": 49.9,
+      "pressureScoreExact": 49.9116,
+      "viabilityScore": 76.6,
+      "viabilityScoreExact": 76.6463,
+      "capabilityScore": 68.2,
+      "capabilityScoreExact": 68.2098,
+      "communityScore": 70.7,
+      "communityScoreExact": 70.7202,
+      "creativeScore": 44.5,
+      "creativeScoreExact": 44.5201,
+      "tierReason": "Placed on the Alpha shelf: Community 70.7 and Pressure 49.9 both clear the Alpha threshold, coverage is A, and this is Thailand's first representative at this tier."
+    },
+    "tokyo": {
+      "cityId": "jp-tokyo",
+      "displayName": "Tokyo",
+      "country": "Japan",
+      "rank": 43,
+      "tierLabel": null,
+      "tierSlot": null,
+      "rankingStatus": "Ranked",
+      "coverageGrade": "A",
+      "slicScore": 60.4,
+      "slicScoreExact": 60.4476,
+      "pressureScore": 49,
+      "pressureScoreExact": 49.0144,
+      "viabilityScore": 94.2,
+      "viabilityScoreExact": 94.2412,
+      "capabilityScore": 72.9,
+      "capabilityScoreExact": 72.8762,
+      "communityScore": 73,
+      "communityScoreExact": 73.0065,
+      "creativeScore": 44.2,
+      "creativeScoreExact": 44.1791,
+      "tierReason": "Japan is already on the public board — Fukuoka holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse."
+    }
+  },
+  "workedExample": {
+    "cityId": "tw-kaohsiung",
+    "displayName": "Kaohsiung",
+    "country": "Taiwan",
+    "disposableIncomeRaw": 2002.82,
+    "pillarScores": {
+      "pressure": 66.8,
+      "viability": 86.5,
+      "capability": 90.6,
+      "community": 65.4,
+      "creative": 56.9
+    },
+    "safety": {
+      "raw": 0.8,
+      "p05": 0.23,
+      "p95": 22.63,
+      "scoreExact": 97.4554,
+      "scoreRounded": 97.5
+    },
+    "pressure": {
+      "terms": [
+        {
+          "key": "pressure_disposable_income_ppp",
+          "label": "Tax-adjusted PPP disposable income",
+          "weight": 8,
+          "scoreExact": 81.4753,
+          "scoreRounded": 81.5
+        },
+        {
+          "key": "pressure_housing_burden",
+          "label": "Housing price pressure",
+          "weight": 5,
+          "scoreExact": 81.6104,
+          "scoreRounded": 81.6
+        },
+        {
+          "key": "pressure_working_time_pressure",
+          "label": "Working time pressure",
+          "weight": 4,
+          "scoreExact": 41.4495,
+          "scoreRounded": 41.4
+        },
+        {
+          "key": "pressure_suicide_mental_strain",
+          "label": "Suicide and severe mental strain",
+          "weight": 4,
+          "scoreExact": 27.5207,
+          "scoreRounded": 27.5
+        },
+        {
+          "key": "pressure_economic_stress_hanke",
+          "label": "Macroeconomic stress (Hanke Misery Index)",
+          "weight": 2,
+          "scoreExact": 100,
+          "scoreRounded": 100
+        }
+      ],
+      "numeratorExact": 1535.7352,
+      "denominator": 23,
+      "scoreExact": 66.7711,
+      "scoreRounded": 66.8
+    },
+    "overall": {
+      "weightedMeanExact": 73.2167,
+      "weightedVarianceExact": 165.5407,
+      "ampiExact": 70.9557,
+      "slicScoreExact": 70.9557,
+      "slicScoreRounded": 71,
+      "coverageExact": 0.8,
+      "coverageRounded": 0.8,
+      "coverageGrade": "A",
+      "coveragePenalty": 0
+    },
+    "weightedMeanTerms": [
+      {
+        "pillar": "pressure",
+        "weight": 25,
+        "scoreExact": 66.7711,
+        "scoreRounded": 66.8
+      },
+      {
+        "pillar": "viability",
+        "weight": 22,
+        "scoreExact": 86.4751,
+        "scoreRounded": 86.5
+      },
+      {
+        "pillar": "capability",
+        "weight": 18,
+        "scoreExact": 90.5846,
+        "scoreRounded": 90.6
+      },
+      {
+        "pillar": "community",
+        "weight": 15,
+        "scoreExact": 65.3637,
+        "scoreRounded": 65.4
+      },
+      {
+        "pillar": "creative",
+        "weight": 20,
+        "scoreExact": 56.9479,
+        "scoreRounded": 56.9
+      }
+    ]
+  },
+  "publicTierMembers": {
+    "Alpha": [
+      {
+        "cityId": "ca-montreal",
+        "displayName": "Montreal",
+        "country": "Canada",
+        "rank": 1,
+        "tierSlot": 1
+      },
+      {
+        "cityId": "us-raleigh",
+        "displayName": "Raleigh",
+        "country": "United States",
+        "rank": 4,
+        "tierSlot": 2
+      },
+      {
+        "cityId": "tw-kaohsiung",
+        "displayName": "Kaohsiung",
+        "country": "Taiwan",
+        "rank": 5,
+        "tierSlot": 3
+      },
+      {
+        "cityId": "nl-eindhoven",
+        "displayName": "Eindhoven",
+        "country": "Netherlands",
+        "rank": 6,
+        "tierSlot": 4
+      },
+      {
+        "cityId": "at-graz",
+        "displayName": "Graz",
+        "country": "Austria",
+        "rank": 12,
+        "tierSlot": 5
+      },
+      {
+        "cityId": "tw-taipei",
+        "displayName": "Taipei",
+        "country": "Taiwan",
+        "rank": 17,
+        "tierSlot": 6
+      },
+      {
+        "cityId": "kr-jeju-city",
+        "displayName": "Jeju City",
+        "country": "South Korea",
+        "rank": 19,
+        "tierSlot": 7
+      },
+      {
+        "cityId": "jp-fukuoka",
+        "displayName": "Fukuoka",
+        "country": "Japan",
+        "rank": 33,
+        "tierSlot": 8
+      },
+      {
+        "cityId": "cl-valparaiso",
+        "displayName": "Valparaiso",
+        "country": "Chile",
+        "rank": 35,
+        "tierSlot": 9
+      },
+      {
+        "cityId": "th-bangkok",
+        "displayName": "Bangkok",
+        "country": "Thailand",
+        "rank": 52,
+        "tierSlot": 10
+      }
+    ],
+    "Beta": [
+      {
+        "cityId": "se-gothenburg",
+        "displayName": "Gothenburg",
+        "country": "Sweden",
+        "rank": 2,
+        "tierSlot": 1
+      },
+      {
+        "cityId": "no-bergen",
+        "displayName": "Bergen",
+        "country": "Norway",
+        "rank": 3,
+        "tierSlot": 2
+      },
+      {
+        "cityId": "cz-prague",
+        "displayName": "Prague",
+        "country": "Czechia",
+        "rank": 9,
+        "tierSlot": 3
+      },
+      {
+        "cityId": "au-melbourne",
+        "displayName": "Melbourne",
+        "country": "Australia",
+        "rank": 14,
+        "tierSlot": 4
+      },
+      {
+        "cityId": "pt-braga",
+        "displayName": "Braga",
+        "country": "Portugal",
+        "rank": 16,
+        "tierSlot": 5
+      },
+      {
+        "cityId": "ee-tallinn",
+        "displayName": "Tallinn",
+        "country": "Estonia",
+        "rank": 24,
+        "tierSlot": 6
+      },
+      {
+        "cityId": "fr-lyon",
+        "displayName": "Lyon",
+        "country": "France",
+        "rank": 25,
+        "tierSlot": 7
+      },
+      {
+        "cityId": "fi-helsinki",
+        "displayName": "Helsinki",
+        "country": "Finland",
+        "rank": 28,
+        "tierSlot": 8
+      },
+      {
+        "cityId": "nz-christchurch",
+        "displayName": "Christchurch",
+        "country": "New Zealand",
+        "rank": 31,
+        "tierSlot": 9
+      },
+      {
+        "cityId": "it-milan",
+        "displayName": "Milan",
+        "country": "Italy",
+        "rank": 36,
+        "tierSlot": 10
+      }
+    ],
+    "Gamma": [
+      {
+        "cityId": "dk-copenhagen",
+        "displayName": "Copenhagen",
+        "country": "Denmark",
+        "rank": 13,
+        "tierSlot": 1
+      },
+      {
+        "cityId": "jp-sapporo",
+        "displayName": "Sapporo",
+        "country": "Japan",
+        "rank": 39,
+        "tierSlot": 2
+      },
+      {
+        "cityId": "ch-zurich",
+        "displayName": "Zurich",
+        "country": "Switzerland",
+        "rank": 41,
+        "tierSlot": 3
+      },
+      {
+        "cityId": "ie-cork",
+        "displayName": "Cork",
+        "country": "Ireland",
+        "rank": 45,
+        "tierSlot": 4
+      },
+      {
+        "cityId": "sg-singapore",
+        "displayName": "Singapore",
+        "country": "Singapore",
+        "rank": 48,
+        "tierSlot": 5
+      },
+      {
+        "cityId": "sk-bratislava",
+        "displayName": "Bratislava",
+        "country": "Slovakia",
+        "rank": 51,
+        "tierSlot": 6
+      },
+      {
+        "cityId": "uk-london",
+        "displayName": "London",
+        "country": "United Kingdom",
+        "rank": 53,
+        "tierSlot": 7
+      },
+      {
+        "cityId": "be-antwerp",
+        "displayName": "Antwerp",
+        "country": "Belgium",
+        "rank": 54,
+        "tierSlot": 8
+      },
+      {
+        "cityId": "pl-torun",
+        "displayName": "Torun",
+        "country": "Poland",
+        "rank": 56,
+        "tierSlot": 9
+      },
+      {
+        "cityId": "ae-dubai",
+        "displayName": "Dubai",
+        "country": "United Arab Emirates",
+        "rank": 60,
+        "tierSlot": 10
+      }
+    ]
+  },
+  "provenance": {
+    "publicMetricLineCount": 4075,
+    "observedMetricLines": 3476,
+    "dataLevelCounts": {
+      "city": 1613,
+      "national": 1113,
+      "derived": 287,
+      "composite": 463,
+      "missing": 599
+    },
+    "dataLevelShares": {
+      "city": 0.3958,
+      "national": 0.2731,
+      "derived": 0.0704,
+      "composite": 0.1136,
+      "missing": 0.147
+    },
+    "observedDataLevelShares": {
+      "city": 0.464,
+      "national": 0.3202,
+      "derived": 0.0826,
+      "composite": 0.1332
+    },
+    "gradeCounts": {
+      "A": 138,
+      "B": 5,
+      "Watchlist": 1,
+      "C": 19
+    }
+  },
+  "coverage": {
+    "gradeCounts": {
+      "A": 138,
+      "B": 5,
+      "Watchlist": 1,
+      "C": 19
+    }
+  }
+}

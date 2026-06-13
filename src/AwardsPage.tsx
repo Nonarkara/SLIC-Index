@@ -1,7 +1,7 @@
 import { appHref } from "./routing";
 import SiteFooter from "./SiteFooter";
 import { t } from "./i18n";
-import publishedData from "./data/publishedRankingData.json";
+import methodologyFacts from "./data/methodologyFacts.json";
 import type { Locale, SitePath } from "./types";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -69,7 +69,7 @@ export default function AwardsPage({
 
   // Canonical numbers — read from methodologyFacts so this page can never
   // drift from the published dataset. Pillar count is structural (no facts field).
-  const facts = publishedData.methodologyFacts;
+  const facts = methodologyFacts;
   const numbers: { value: string; label: string }[] = [
     {
       value: String(facts.cityCount),
