@@ -58,6 +58,7 @@ type MethodUiCopy = {
     dataMixTitle: string;
     dataMixSummary: string;
     localDocument: string;
+    inputsLabel: string;
   };
 
 const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
@@ -95,6 +96,7 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     dataMixSummary:
       "Share of non-null published metric lines by data level in the current public dataset.",
     localDocument: "Local project document.",
+    inputsLabel: "Inputs: ",
   },
   th: {
     openEquation: "ดูสมการคะแนน",
@@ -130,6 +132,7 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     dataMixSummary:
       "สัดส่วนของ metric line ที่ไม่เป็นค่าว่าง แยกตาม data level ในชุดข้อมูลสาธารณะปัจจุบัน",
     localDocument: "เอกสารโครงการส่วนท้องถิ่น",
+    inputsLabel: "ข้อมูลนำเข้า: ",
   },
   zh: {
     openEquation: "查看评分公式",
@@ -165,6 +168,7 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     dataMixSummary:
       "当前公开数据集中，各数据层级的非空指标占比。",
     localDocument: "本地项目文档。",
+    inputsLabel: "输入：",
   },
   ko: {
     openEquation: "점수 방정식 보기",
@@ -199,6 +203,7 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     dataMixTitle: "발표된 데이터 수준 혼합",
     dataMixSummary: "현재 공개 데이터셋에서 데이터 수준별 유효 지표 점유율.",
     localDocument: "현지 프로젝트 문서.",
+    inputsLabel: "입력값: ",
   },
   ja: {
     openEquation: "スコアの方程式を見る",
@@ -230,9 +235,10 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     illustrative: "例示的なプレビュー計算",
     citations: "引用",
     contextLabel: "コンテキストラベル",
-    dataMixTitle: "公開されたデータレベルミックス",
+    dataMixTitle: "公開された数据レベルミックス",
     dataMixSummary: "現在の公開データセットにおけるデータレベル別の有効指標シェア。",
     localDocument: "ローカルプロジェクト文書。",
+    inputsLabel: "入力: ",
   },
 };
 
@@ -686,7 +692,7 @@ export default function MethodologyPage({
                         <span>{metricShareText(metric.weight, totalMetricWeight)}</span>
                       </div>
                       <p>{metric.description}</p>
-                      <p className="metric-inputs">Inputs: {metric.inputs.join(", ")}</p>
+                      <p className="metric-inputs">{ui.inputsLabel}{metric.inputs.join(", ")}</p>
                     </article>
                   ))}
                 </div>
