@@ -956,7 +956,7 @@ export default function RankingsPage({
 
                 {/* Coverage legend */}
                 <div className="coverage-legend">
-                  {locale === "en" ? "Data coverage: " : locale === "th" ? "ครอบคลุมข้อมูล: " : "数据覆盖: "}
+                  {locale === "en" ? "Data coverage: " : locale === "th" ? "ครอบคลุมข้อมูล: " : locale === "ko" ? "데이터 커버리지: " : locale === "ja" ? "データ網羅率: " : "数据覆盖: "}
                   <span style={{ color: GRADE_COLORS.A }}>A</span> 75%+
                   {" · "}
                   <span style={{ color: GRADE_COLORS.B }}>B</span> 50–74%
