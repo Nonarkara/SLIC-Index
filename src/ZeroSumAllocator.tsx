@@ -118,7 +118,7 @@ const SpiderWebChart: FC<{
               return `${point.x},${point.y}`;
             }).join(" ")}
             fill="none"
-            stroke="rgba(255,255,255,0.06)"
+            stroke="var(--spider-grid, rgba(255,255,255,0.06))"
             strokeWidth={frac === 1 ? 1.35 : 0.8}
             strokeDasharray={frac < 1 ? "3 3" : undefined}
           />
@@ -212,7 +212,7 @@ const SpiderWebChart: FC<{
               cy={point.y}
               r={isDragging ? 14 : 11}
               fill={pillar.color}
-              stroke="rgba(255,255,255,0.92)"
+              stroke="var(--bg, rgba(255,255,255,0.92))"
               strokeWidth={isDragging ? 3 : 2}
               filter={isDragging ? "url(#allocatorGlow)" : undefined}
               style={{
@@ -230,7 +230,7 @@ const SpiderWebChart: FC<{
               fontSize={11.5}
               fontWeight={700}
               fontFamily="'JetBrains Mono', monospace"
-              fill={isDragging ? pillar.color : "rgba(226, 232, 240, 0.92)"}
+              fill={isDragging ? pillar.color : "var(--spider-label, rgba(226, 232, 240, 0.92))"}
               letterSpacing="0.03em"
             >
               {pillar.label}
@@ -259,7 +259,7 @@ const SpiderWebChart: FC<{
           textAnchor="middle"
           fontSize={11}
           fontFamily="'JetBrains Mono', monospace"
-          fill="rgba(226, 232, 240, 0.42)"
+          fill="var(--spider-hint, rgba(226, 232, 240, 0.42))"
         >
           {pickLocale(ALLOCATOR_HINT, locale)}
         </text>

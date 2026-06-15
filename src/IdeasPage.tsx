@@ -377,7 +377,7 @@ export default function IdeasPage({
                   <div className="idea-card-photo">
                     <img
                       src={`${BASE}/${idea.image}`}
-                      alt={`${idea.city} — ${idea.title}`}
+                      alt={`${idea.city} — ${idea.title[locale]}`}
                       loading="lazy"
                     />
                     {idea.imageCredit && (
@@ -399,7 +399,7 @@ export default function IdeasPage({
                         {ideaCategories.find((c) => c.value === idea.category)?.labels[locale]}
                       </span>
                     </div>
-                    <h3>{idea.title}</h3>
+                    <h3>{idea.title[locale]}</h3>
                     <p className="city-location">
                       {idea.city}, {idea.country}
                     </p>
@@ -407,13 +407,13 @@ export default function IdeasPage({
                 </div>
 
                 <p className="idea-problem">
-                  <strong>{ui.problem}:</strong> {idea.problem}
+                  <strong>{ui.problem}:</strong> {idea.problem[locale]}
                 </p>
                 <p className="idea-solution">
-                  <strong>{ui.solution}:</strong> {idea.solution}
+                  <strong>{ui.solution}:</strong> {idea.solution[locale]}
                 </p>
                 <p className="idea-impact">
-                  <strong>{ui.impact}:</strong> {idea.impact}
+                  <strong>{ui.impact}:</strong> {idea.impact[locale]}
                 </p>
 
                 <div className="metric-taglist-group">

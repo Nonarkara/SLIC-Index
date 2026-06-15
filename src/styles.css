@@ -11667,3 +11667,26 @@ a.essay-reference-text:hover {
     padding: 1.25rem 1.25rem 1.25rem 1.25rem;
   }
 }
+
+:root {
+  --spider-grid: rgba(40, 32, 20, 0.08);
+  --spider-label: rgba(40, 32, 20, 0.75);
+  --spider-hint: rgba(40, 32, 20, 0.42);
+}
+
+.v3-spider-full {
+  --spider-grid: rgba(255, 255, 255, 0.06);
+  --spider-label: rgba(226, 232, 240, 0.92);
+  --spider-hint: rgba(226, 232, 240, 0.42);
+}
+
+/* Mobile Tap Targets >= 44px */
+@media (max-width: 768px) {
+  .region-button,
+  .mode-button,
+  .locale-button,
+  .mh-burger {
+    min-height: 44px !important;
+    min-width: 44px !important;
+  }
+}

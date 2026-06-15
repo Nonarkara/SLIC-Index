@@ -49,7 +49,7 @@ export function getEssayBodyCopy(locale: Locale, Cite: (props: { ids: number[] }
         ),
         p9: (
           <p>
-            เวนดี้ เอสเปแลนด์ และมิทเชล สตีเวนส์ ในรายงานแลนด์มาร์กของพวกเขาเกี่ยวกับความสมดุล (commensuration) ในฐานะกระบวนการทางสังคม สังเกตว่าระบบจัดอันดับไม่ได้วัดความเป็นไปของโลกเท่านั้น แต่ยังจัดระเบียบโลกขึ้นใหม่ด้วย<Cite ids={[3]} /> เมืองที่ติดอันดับดีย่อมดึงดูดเงินทุนที่ช่วยให้ติดอันดับดียิ่งขึ้น เมืองที่ติดอันดับแย่ย่อมสูญเสียการลงทุนที่อาจจะช่วยให้พวกเขาปรับปรุงได้ ดัชนีไม่ได้อธิบายสภาวะสมดุล แต่มันบังคับให้เกิดสภาวะสมดุล
+            เวนดี้ เอสเปแลนด์ และมิทเชล สตีเวนส์ ในรายงานแลนด์มาร์กของพวกเขาเกี่ยวกับความสมดุล (commensuration) ในฐานะกระบวนการทางสังคม สังเกตว่าระบบจัดอันดับไม่ได้วัดความเป็นไปของโลกเท่านั้น แต่ยังจัดระเบียบโลกขึ้นใหม่ด้วย<Cite ids={[3]} /> เมืองที่ติดอันดับดีย่อมดึงดูดเงินทุนที่ช่วยให้ติดอันดับดียิ่งขึ้น เมืองที่ติดอันดับแย่ย่อมสูญเสียการลงทุนที่อาจจะช่วยให้พวกเขาปรับปรุงได้ ดัชนีไม่ได้อธิบายสภาวะสมดุล แต่มันบังคับให้เกิดสภาวะสมดุล การแสวงหาความสามารถในการเป็นที่ประจักษ์ในระดับโลกนี้ มักผลักดันสิ่งที่งานวิจัยของผมในเซี่ยงไฮ้ระบุว่าเป็น "การทำให้กลายเป็นย่านผู้ดีจากภายใน" (gentrification from within) ซึ่งมรดกทางวัฒนธรรมถูกทำให้กลายเป็นสินค้าเพื่อเพิ่มอันดับ ขับไล่โครงสร้างทางสังคมที่ทำให้ย่านนั้นมีความยืดหยุ่นและเข้มแข็ง<Cite ids={[21, 22]} />
           </p>
         ),
         p10: (
@@ -126,7 +126,7 @@ export function getEssayBodyCopy(locale: Locale, Cite: (props: { ids: number[] }
         p24: (
           <p>
             เจน เจคอบส์ ซึ่งเข้าใจเมืองดีกว่าคนส่วนใหญ่ที่ได้รับเงินจ้างให้ศึกษาเมือง เขียนใน{" "}
-            <em>The Death and Life of Great American Cities</em> ว่าปัญหาพื้นฐานของการวางผังเมืองคือแนวโน้มที่จะแทนที่พฤติกรรมมนุษย์ที่สังเกตได้จริงด้วยหมวดหมู่นามธรรม<Cite ids={[11]} /> นักวางผังเมืองที่เธอวิพากษ์วิจารณ์ได้สร้างทางหลวงผ่านย่านชุมชนต่าง ๆ เพราะแบบจำลองของพวกเขาระบุว่าย่านนั้นมีความหนาแน่นต่ำเกินไป — โดยไม่ได้สังเกตว่าย่านนั้นกำลังรุ่งเรืองในทุก ๆ ด้านที่ผู้อยู่อาศัยมองเห็น อุตสาหกรรมการจัดอันดับมีปัญหาแบบเดียวกันนี้ในเวอร์ชันของตนเอง มันวัดสิ่งที่วัดได้ง่ายตามระเบียบวิธีของตน แล้วรายงานผลราวกับว่าความง่ายในการวัดนั้นเป็นคุณสมบัติของเมือง ไม่ใช่ของคุณสมบัติของเครื่องมือ
+            <em>The Death and Life of Great American Cities</em> ว่าปัญหาพื้นฐานของการวางผังเมืองคือแนวโน้มที่จะแทนที่พฤติกรรมมนุษย์ที่สังเกตได้จริงด้วยหมวดหมู่นามธรรม<Cite ids={[11]} /> นักวางผังเมืองที่เธอวิพากษ์วิจารณ์ได้สร้างทางหลวงผ่านย่านชุมชนต่าง ๆ เพราะแบบจำลองของพวกเขาระบุว่าย่านนั้นมีความหนาแน่นต่ำเกินไป — โดยไม่ได้สังเกตว่าย่านนั้นกำลังรุ่งเรืองในทุก ๆ ด้านที่ผู้อยู่อาศัยมองเห็น งานวิจัยเชิงชาติพันธุ์วรรณนาของผมในย่าน <em>lilong</em> ดั้งเดิมของเซี่ยงไฮ้ก็ตอกย้ำเรื่องนี้: การพัฒนาเมืองแบบบนลงล่างมักจะปฏิบัติต่อมรดกที่ยังมีชีวิตในฐานะอุปสรรคที่ต้องถูกรื้อถอนหรือเป็นสินค้าที่ต้องถูกทำให้เป็นย่านผู้ดี แทนที่จะเป็นโครงสร้างพื้นฐานทางสังคมที่มีความยืดหยุ่น<Cite ids={[23]} /> อุตสาหกรรมการจัดอันดับมีปัญหาแบบเดียวกันนี้ในเวอร์ชันของตนเอง มันวัดสิ่งที่วัดได้ง่ายตามระเบียบวิธีของตน แล้วรายงานผลราวกับว่าความง่ายในการวัดนั้นเป็นคุณสมบัติของเมือง ไม่ใช่ของคุณสมบัติของเครื่องมือ
           </p>
         ),
         p25: (
@@ -256,7 +256,7 @@ export function getEssayBodyCopy(locale: Locale, Cite: (props: { ids: number[] }
         ),
         p9: (
           <p>
-            温迪·埃斯佩兰（Wendy Espeland）和米切尔·史蒂文斯（Mitchell Stevens）在他们将“同量化”（commensuration）作为一种社会过程的标志性论述中指出，排名系统不仅衡量世界，还在重塑世界<Cite ids={[3]} />。排名靠前的城市吸引着使其排名更好的资金，排名靠后的城市则失去了本可以帮助其改善的投资。指数并非在描述一种平衡，而是在强加一种平衡。
+            温迪·埃斯佩兰（Wendy Espeland）和米切尔·史蒂文斯（Mitchell Stevens）在他们将“同量化”（commensuration）作为一种社会过程的标志性论述中指出，排名系统不仅衡量世界，还在重塑世界<Cite ids={[3]} />。排名靠前的城市吸引着使其排名更好的资金，排名靠后的城市则失去了本可以帮助其改善的投资。指数并非在描述一种平衡，而是在强加一种平衡。这种对全球可读性的追求，通常会推动我在上海的研究中所称的“内部士绅化”（gentrification from within），即文化遗产被商品化以提升排名，从而取代了使社区具有韧性的社会结构。<Cite ids={[21, 22]} />
           </p>
         ),
         p10: (
@@ -333,7 +333,7 @@ export function getEssayBodyCopy(locale: Locale, Cite: (props: { ids: number[] }
         p24: (
           <p>
             简·雅各布斯（Jane Jacobs）比大多数拿薪水研究城市的人更了解城市，她在{" "}
-            <em>The Death and Life of Great American Cities</em> 中写道，城市规划的根本问题在于其倾向于用抽象类别代替具体的、可观察的人类行为<Cite ids={[11]} />。她所批评的规划者在社区中修建高速公路，是因为他们的模型显示该社区的密度太低——而没有观察到该社区在居民看来，在每一个维度上都在蓬勃发展。排名行业也有同样问题的另一版本。它衡量其方法论所能探知的内容，并把结果报告成仿佛这种可读性是城市的属性，而不是仪器的属性。
+            <em>The Death and Life of Great American Cities</em> 中写道，城市规划的根本问题在于其倾向于用抽象类别代替具体的、可观察的人类行为<Cite ids={[11]} />。她所批评的规划者在社区中修建高速公路，是因为他们的模型显示该社区的密度太低——而没有观察到该社区在居民看来，在每一个维度上都在蓬勃发展。我在上海传统<em>里弄</em>（lilong）社区的民族志研究也印证了这一点：自上而下的城市规划经常将活态的文化遗产视为需要清除的障碍或需要士绅化的商品，而不是一种具有韧性的社会基础设施。<Cite ids={[23]} />排名行业也有同样问题的另一版本。它衡量其方法论所能探知的内容，并把结果报告成仿佛这种可读性是城市的属性，而不是仪器的属性。
           </p>
         ),
         p25: (
@@ -463,7 +463,7 @@ export function getEssayBodyCopy(locale: Locale, Cite: (props: { ids: number[] }
         ),
         p9: (
           <p>
-            웬디 에스펠랜드(Wendy Espeland)와 미첼 스티븐스(Mitchell Stevens)는 사회적 과정으로서의 계량화(commensuration)에 대한 획기적인 연구에서 순위 체계가 세상을 단순히 측정하는 데 그치지 않고 세상을 재조직한다고 지적합니다<Cite ids={[3]} />. 좋은 순위를 얻은 도시는 자본을 끌어들여 더 좋은 순위를 얻게 만들고, 낮은 순위의 도시는 스스로 개선할 수 있는 기회가 될 투자를 잃게 됩니다. 이 지수는 균형 상태를 설명하는 것이 아니라, 특정한 균형을 강제하고 있습니다.
+            웬디 에스펠랜드(Wendy Espeland)와 미첼 스티븐스(Mitchell Stevens)는 사회적 과정으로서의 계량화(commensuration)에 대한 획기적인 연구에서 순위 체계가 세상을 단순히 측정하는 데 그치지 않고 세상을 재조직한다고 지적합니다<Cite ids={[3]} />. 좋은 순위를 얻은 도시는 자본을 끌어들여 더 좋은 순위를 얻게 만들고, 낮은 순위의 도시는 스스로 개선할 수 있는 기회가 될 투자를 잃게 됩니다. 이 지수는 균형 상태를 설명하는 것이 아니라, 특정한 균형을 강제하고 있습니다. 이러한 세계적 가독성에 대한 추구는 상하이에서의 제 연구가 "내부로부터의 젠트리피케이션(gentrification from within)"이라고 파악한 현상을 종종 부추깁니다. 순위를 높이기 위해 문화 유산이 상품화되고, 이로 인해 동네를 회복력 있게 만드는 사회적 구조 자체가 밀려나는 것입니다.<Cite ids={[21, 22]} />
           </p>
         ),
         p10: (
@@ -538,7 +538,7 @@ export function getEssayBodyCopy(locale: Locale, Cite: (props: { ids: number[] }
         ),
         p24: (
           <p>
-            도시를 연구하여 돈을 벌어온 대부분의 사람들보다 도시를 더 잘 이해했던 제인 제이콥스(Jane Jacobs)는 《미국 대도시의 죽음과 삶》 (<em>The Death and Life of Great American Cities</em>) 에서 도시 계획의 근본적인 문제는 구체적이고 관찰 가능한 인간 행동 대신 추상적인 범주를 대체하려는 경향이라고 썼습니다<Cite ids={[11]} />. 그녀가 비판한 도시 계획가들은 모델이 그 동네의 밀도가 너무 낮다고 말한다는 이유로 주거 지역을 관통하는 고속도로를 닦았습니다. 정작 그 동네가 주민들의 눈에는 모든 측면에서 번창하고 있다는 사실은 관찰하지 않은 채로 말입니다. 순위 산업도 동일한 문제의 복사판을 안고 있습니다. 그 방법론이 볼 수 있는 것만 측정하고, 측정하기 쉽다는 속성을 도구의 속성이 아닌 도시의 원래 속성인 것처럼 포장하여 발표합니다.
+            도시를 연구하여 돈을 벌어온 대부분의 사람들보다 도시를 더 잘 이해했던 제인 제이콥스(Jane Jacobs)는 《미국 대도시의 죽음과 삶》 (<em>The Death and Life of Great American Cities</em>) 에서 도시 계획의 근본적인 문제는 구체적이고 관찰 가능한 인간 행동 대신 추상적인 범주를 대체하려는 경향이라고 썼습니다<Cite ids={[11]} />. 그녀가 비판한 도시 계획가들은 모델이 그 동네의 밀도가 너무 낮다고 말한다는 이유로 주거 지역을 관통하는 고속도로를 닦았습니다. 정작 그 동네가 주민들의 눈에는 모든 측면에서 번창하고 있다는 사실은 관찰하지 않은 채로 말입니다. 상하이의 전통적인 <em>리롱(lilong)</em> 동네에 대한 저의 민족지학적 연구도 이를 뒷받침합니다. 하향식 도시 계획은 종종 살아있는 유산을 회복력 있는 사회적 인프라로 보기보다는 치워야 할 장애물이나 젠트리피케이션의 상품으로 취급합니다.<Cite ids={[23]} /> 순위 산업도 동일한 문제의 복사판을 안고 있습니다. 그 방법론이 볼 수 있는 것만 측정하고, 측정하기 쉽다는 속성을 도구의 속성이 아닌 도시의 원래 속성인 것처럼 포장하여 발표합니다.
           </p>
         ),
         p25: (
@@ -666,7 +666,7 @@ export function getEssayBodyCopy(locale: Locale, Cite: (props: { ids: number[] }
         ),
         p9: (
           <p>
-            ウェンディ・エスペランド（Wendy Espeland）とミッチェル・スティーブンス（Mitchell Stevens）は、社会的プロセスとしての計量化（commensuration）に関する画期的な研究の中で、ランキングシステムは世界をただ測定するだけでなく、世界を再組織化すると指摘しています<Cite ids={[3]} />。高い順位の都市は資本を引き寄せてさらに順位を上げ、低い順位の都市は改善の機会となる投資を失います。この指数は均衡状態を説明しているのではなく、特定の均衡を強制しているのです。
+            ウェンディ・エスペランド（Wendy Espeland）とミッチェル・スティーブンス（Mitchell Stevens）は、社会的プロセスとしての計量化（commensuration）に関する画期的な研究の中で、ランキングシステムは世界をただ測定するだけでなく、世界を再組織化すると指摘しています<Cite ids={[3]} />。高い順位の都市は資本を引き寄せてさらに順位を上げ、低い順位の都市は改善の機会となる投資を失います。この指数は均衡状態を説明しているのではなく、特定の均衡を強制しているのです。このグローバルな可読性の追求は、私が上海での研究で「内部からのジェントリフィケーション（gentrification from within）」と特定した現象をしばしば引き起こします。ランキングを上げるために文化遺産が商品化され、結果として地域に回復力をもたらす社会構造そのものが排除されてしまうのです。<Cite ids={[21, 22]} />
           </p>
         ),
         p10: (
@@ -741,7 +741,7 @@ export function getEssayBodyCopy(locale: Locale, Cite: (props: { ids: number[] }
         ),
         p24: (
           <p>
-            都市を研究して給与を得てきた大半の人々よりも都市をよく理解していたジェイン・ジェイコブズ（Jane Jacobs）は、著書『アメリカ大都市の死と生』 (<em>The Death and Life of Great American Cities</em>) の中で、都市計画の根本的な問題は、具体的で観察可能な人間行動の代わりに抽象的なカテゴリを当てはめようとする傾向だと書きました<Cite ids={[11]} />。彼女が批判した都市計画家たちは、モデルがその地区の密度が低すぎると言っているという理由で、近隣地域を貫通する高速道路を建設しました。その地区が、住民の目にはあらゆる側面で繁栄しているという事実を観察しないまま。ランキング業界も同様の問題の複製を抱えています。方法論が感知できるものだけを測定し、測定しやすいという属性を、測定器の属性ではなく、さも都市の本来の属性であるかのように報告するのです。
+            都市を研究して給与を得てきた大半の人々よりも都市をよく理解していたジェイン・ジェイコブズ（Jane Jacobs）は、著書『アメリカ大都市の死と生』 (<em>The Death and Life of Great American Cities</em>) の中で、都市計画の根本的な問題は、具体的で観察可能な人間行動の代わりに抽象的なカテゴリを当てはめようとする傾向だと書きました<Cite ids={[11]} />。彼女が批判した都市計画家たちは、モデルがその地区の密度が低すぎると言っているという理由で、近隣地域を貫通する高速道路を建設しました。その地区が、住民の目にはあらゆる側面で繁栄しているという事実を観察しないまま。上海の伝統的な<em>里弄（lilong）</em>における私の民族誌的研究もこれを裏付けています。トップダウンの都市計画は、生きた遺産を回復力のある社会的インフラとしてではなく、排除すべき障害物やジェントリフィケーションの対象となる商品として扱うことが頻繁にあります。<Cite ids={[23]} />ランキング業界も同様の問題の複製を抱えています。方法論が感知できるものだけを測定し、測定しやすいという属性を、測定器の属性ではなく、さも都市の本来の属性であるかのように報告するのです。
           </p>
         ),
         p25: (
@@ -912,7 +912,10 @@ export function getEssayBodyCopy(locale: Locale, Cite: (props: { ids: number[] }
             process, observe that ranking systems do not merely measure the world — they reorganise
             it.<Cite ids={[3]} /> Cities that rank well attract the capital that makes them rank better.
             Cities that rank poorly lose the investment that might have helped them improve. The index
-            does not describe an equilibrium; it enforces one.
+            does not describe an equilibrium; it enforces one. This pursuit of global legibility often
+            drives what my own research in Shanghai identifies as "gentrification from within," where
+            heritage is commodified to boost rankings, displacing the very social fabric that makes
+            neighborhoods resilient.<Cite ids={[21, 22]} />
           </p>
         ),
         p10: (
@@ -1060,9 +1063,12 @@ export function getEssayBodyCopy(locale: Locale, Cite: (props: { ids: number[] }
             observable human behaviours.<Cite ids={[11]} /> The planners she was criticising built
             highways through neighbourhoods because their models said the neighbourhood had too low a
             density — without observing that the neighbourhood was, by every measure visible to its
-            residents, thriving. The ranking industry has a version of the same problem. It measures
-            what is legible to its methodology and reports the results as if legibility were a property
-            of the city rather than of the instrument.
+            residents, thriving. My own ethnographic research in Shanghai's traditional <em>lilong</em>
+            neighborhoods reinforces this: top-down urbanism frequently treats lived heritage as an obstacle
+            to be cleared or a commodity to be gentrified, rather than a resilient social
+            infrastructure.<Cite ids={[23]} /> The ranking industry has a version of the same problem. It
+            measures what is legible to its methodology and reports the results as if legibility were a
+            property of the city rather than of the instrument.
           </p>
         ),
         p25: (

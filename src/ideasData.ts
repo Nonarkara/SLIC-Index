@@ -4,10 +4,11 @@
 // ---------------------------------------------------------------------------
 
 import type { Locale } from "./types";
+import { ideasTranslations } from "./ideasTranslations";
 
 export interface CityIdea {
   id: string;
-  title: string;
+  title: Record<Locale, string>;
   city: string;
   country: string;
   category:
@@ -19,9 +20,9 @@ export interface CityIdea {
     | "community"
     | "governance"
     | "health";
-  problem: string;
-  solution: string;
-  impact: string;
+  problem: Record<Locale, string>;
+  solution: Record<Locale, string>;
+  impact: Record<Locale, string>;
   techStack: string[];
   difficulty: "starter" | "intermediate" | "advanced";
   codeSnippet: string;
@@ -39,16 +40,13 @@ export const cityIdeas: CityIdea[] = [
   // 1 -----------------------------------------------------------------------
   {
     id: "fixmystreet",
-    title: "FixMyStreet",
+    title: ideasTranslations["fixmystreet"].title,
     city: "London",
     country: "UK",
     category: "citizen-reporting",
-    problem:
-      "Potholes, broken lights, and fly-tipping went unreported for weeks because there was no easy way for citizens to reach the right council department. Phone lines closed at 5pm. Emails vanished.",
-    solution:
-      "FixMyStreet lets anyone drop a pin on a map, describe the issue, and attach a photo. The platform automatically routes the report to the correct local authority using boundary data. Councils receive structured tickets they can triage, assign, and resolve — with public status updates visible to the reporter.",
-    impact:
-      "Over 2 million reports filed across the UK. Average council response time dropped 30% in participating boroughs. Forked and deployed in Nigeria, Sweden, Norway, Australia, and 20+ other countries.",
+    problem: ideasTranslations["fixmystreet"].problem,
+    solution: ideasTranslations["fixmystreet"].solution,
+    impact: ideasTranslations["fixmystreet"].impact,
     techStack: ["Perl", "Catalyst", "PostgreSQL", "Leaflet.js", "Open311 API"],
     difficulty: "starter",
     codeSnippet: `// FixMyStreet-compatible report via the Open311 standard
@@ -96,16 +94,13 @@ const getNearbyReports = async (lat, lng) => {
   // 2 -----------------------------------------------------------------------
   {
     id: "decidim",
-    title: "Decidim",
+    title: ideasTranslations["decidim"].title,
     city: "Barcelona",
     country: "Spain",
     category: "governance",
-    problem:
-      "City budgets were decided behind closed doors. Citizens had no structured way to propose, debate, or vote on how public money should be spent. Civic participation was low and dominated by the same vocal minority.",
-    solution:
-      "Decidim is a full participatory democracy platform. Citizens log in, propose projects, debate them in threaded discussions, and vote on budgets within a defined allocation. Councils publish results and track implementation publicly. It handles budgeting, referendums, citizen assemblies, and open city plans.",
-    impact:
-      "Barcelona allocated €75 million in participatory budgets through Decidim. Deployed in 90+ cities including Helsinki, Paris, and New York. Over 1 million registered users worldwide. Helsinki used it for their entire city strategy co-creation.",
+    problem: ideasTranslations["decidim"].problem,
+    solution: ideasTranslations["decidim"].solution,
+    impact: ideasTranslations["decidim"].impact,
     techStack: ["Ruby on Rails", "PostgreSQL", "GraphQL", "Sidekiq", "Docker"],
     difficulty: "intermediate",
     codeSnippet: `# Deploy Decidim with Docker Compose — ready in ~10 minutes
@@ -150,16 +145,13 @@ services:
   // 3 -----------------------------------------------------------------------
   {
     id: "onebusaway",
-    title: "OneBusAway",
+    title: ideasTranslations["onebusaway"].title,
     city: "Seattle",
     country: "USA",
     category: "mobility",
-    problem:
-      "Riders standing at bus stops had no idea if the bus was two minutes away or twenty. Static timetables meant missed connections and buses abandoned mid-route with no communication to waiting passengers.",
-    solution:
-      "OneBusAway aggregates real-time vehicle positions from transit agencies via GTFS-Realtime feeds and serves them through a clean REST API. Cities connect their transit data once; the platform handles mobile apps, SMS queries, voice assistants, and web interfaces automatically.",
-    impact:
-      "Powers MTA Bus Time in New York City (2 million daily users), Tampa Bay transit, Washington DC, Atlanta, and Raleigh. The GTFS-RT standard it helped establish is now used by every major transit agency worldwide.",
+    problem: ideasTranslations["onebusaway"].problem,
+    solution: ideasTranslations["onebusaway"].solution,
+    impact: ideasTranslations["onebusaway"].impact,
     techStack: ["Java", "Spring", "GTFS-RT", "REST API", "PostgreSQL", "Android/iOS"],
     difficulty: "starter",
     codeSnippet: `// OneBusAway REST API — query stops and arrivals
@@ -213,16 +205,13 @@ const getArrivals = async (stopId) => {
   // 4 -----------------------------------------------------------------------
   {
     id: "openaq",
-    title: "OpenAQ",
+    title: ideasTranslations["openaq"].title,
     city: "Global",
     country: "30+ countries",
     category: "sustainability",
-    problem:
-      "Air quality data existed in a hundred different formats, locked in government silos and proprietary sensors. Cities, researchers, and citizens had no unified view. Bangkok had data. It just wasn't accessible.",
-    solution:
-      "OpenAQ aggregates real-time PM2.5, PM10, NO₂, O₃, CO, and SO₂ readings from 8,000+ monitoring stations worldwide into a single open API. Any city can add their sensors. Any developer can query the data. Free, forever.",
-    impact:
-      "231 million measurements from 65 countries. Used by WHO, World Bank, and climate researchers. Powers citizen air quality apps across Southeast Asia, Africa, and Latin America. Bangkok has live data at this moment.",
+    problem: ideasTranslations["openaq"].problem,
+    solution: ideasTranslations["openaq"].solution,
+    impact: ideasTranslations["openaq"].impact,
     techStack: ["Python", "Node.js", "PostgreSQL", "REST API", "AWS Lambda"],
     difficulty: "starter",
     codeSnippet: `# Query live air quality data via OpenAQ API v3
@@ -279,16 +268,13 @@ if __name__ == "__main__":
   // 5 -----------------------------------------------------------------------
   {
     id: "abstreet",
-    title: "A/B Street",
+    title: ideasTranslations["abstreet"].title,
     city: "Seattle",
     country: "USA",
     category: "mobility",
-    problem:
-      "City planners proposed changes to traffic signals, bike lanes, and bus routes, but had no way to test the impact before spending millions on construction. Public consultations ran on gut feel and political intuition.",
-    solution:
-      "A/B Street is a traffic simulation built on real OpenStreetMap data. You can close a road, add a protected bike lane, retime traffic signals, or reroute a bus line — and watch in real time how vehicles, cyclists, and pedestrians respond. No GIS licence, no consultant, no budget required.",
-    impact:
-      "Used by city planners in Seattle, the UK's Active Travel England programme, and urban design schools worldwide. 8,000+ GitHub stars. Contributed to real road redesign decisions in London and Seattle.",
+    problem: ideasTranslations["abstreet"].problem,
+    solution: ideasTranslations["abstreet"].solution,
+    impact: ideasTranslations["abstreet"].impact,
     techStack: ["Rust", "WebAssembly", "OpenStreetMap", "GTFS", "Svelte"],
     difficulty: "advanced",
     codeSnippet: `# Install A/B Street and run Seattle simulation
@@ -331,16 +317,13 @@ cargo run --release --bin cli -- \\
   // 6 -----------------------------------------------------------------------
   {
     id: "dhis2",
-    title: "DHIS2",
+    title: ideasTranslations["dhis2"].title,
     city: "Oslo",
     country: "Norway",
     category: "health",
-    problem:
-      "Health ministries in developing countries collected data on paper, in incompatible spreadsheets, and through ad-hoc SMS systems. Disease outbreaks were invisible until they were crises. Vaccine coverage was a guess.",
-    solution:
-      "DHIS2 is a national health data platform that standardises collection, aggregation, and reporting from village clinic to ministry level. It runs on any server, works offline, syncs when connected, and ships with a full GIS dashboard, analytics, and alert system.",
-    impact:
-      "Deployed in 80+ countries covering 40% of the world's population. Powered COVID-19 surveillance in 50+ countries. Used as the national HMIS by Uganda, Kenya, Tanzania, Vietnam, Bangladesh, and dozens more. Free, forever, for any government.",
+    problem: ideasTranslations["dhis2"].problem,
+    solution: ideasTranslations["dhis2"].solution,
+    impact: ideasTranslations["dhis2"].impact,
     techStack: ["Java", "Spring", "PostgreSQL", "React", "Docker", "REST API"],
     difficulty: "intermediate",
     codeSnippet: `# Deploy DHIS2 with Docker — full national health platform in minutes
@@ -392,16 +375,13 @@ curl -u admin:district \\
   // 7 -----------------------------------------------------------------------
   {
     id: "polis",
-    title: "pol.is",
+    title: ideasTranslations["polis"].title,
     city: "Taipei",
     country: "Taiwan",
     category: "civic-ai",
-    problem:
-      "Traditional public consultations produced a flood of unstructured comments that no one read. Minority groups drowned out moderate majorities. Governments could not find consensus even when it existed.",
-    solution:
-      "pol.is uses machine learning to cluster opinions into consensus groups without participants needing to read every comment. Citizens vote agree/disagree/pass on short statements. The algorithm finds which statements cut across group lines — areas of genuine common ground — and surfaces them to decision-makers.",
-    impact:
-      "Used by vTaiwan to reach consensus on Uber regulation — a decision that was then implemented by the government. Deployed for AI governance deliberation in Taiwan and Scotland. The UK government piloted it for climate consultation. Open-source, self-hostable.",
+    problem: ideasTranslations["polis"].problem,
+    solution: ideasTranslations["polis"].solution,
+    impact: ideasTranslations["polis"].impact,
     techStack: ["Node.js", "React", "Python", "K-means clustering", "PCA", "PostgreSQL", "Docker"],
     difficulty: "advanced",
     codeSnippet: `# Self-host pol.is with Docker
@@ -451,16 +431,13 @@ curl -X POST http://localhost/api/v3/comments \\
   // 8 -----------------------------------------------------------------------
   {
     id: "sensor-community",
-    title: "Sensor.Community",
+    title: ideasTranslations["sensor-community"].title,
     city: "Stuttgart",
     country: "Germany",
     category: "sustainability",
-    problem:
-      "Government air quality stations cost €50,000 each and were placed kilometres apart. Citizens in polluted streets had no data. Stuttgart had some of the worst air in Germany and almost no granular measurements.",
-    solution:
-      "Sensor.Community is a DIY citizen sensor network. Anyone can build a PM2.5/PM10 sensor for €30–50 using an ESP8266 microcontroller and a Nova SDS011 sensor, connect it to their home WiFi, and start contributing hyperlocal air quality data to an open global map.",
-    impact:
-      "14,000+ active sensors in 70+ countries. Stuttgart went from 2 government stations to 300+ citizen sensors in three years. The data directly influenced traffic bans on high-pollution days in Germany. Now one of the densest air quality networks in the world.",
+    problem: ideasTranslations["sensor-community"].problem,
+    solution: ideasTranslations["sensor-community"].solution,
+    impact: ideasTranslations["sensor-community"].impact,
     techStack: ["ESP8266/ESP32", "Arduino C++", "JSON API", "InfluxDB", "Grafana"],
     difficulty: "starter",
     codeSnippet: `// Query live sensor data from Sensor.Community API
@@ -512,16 +489,13 @@ getSensorData(13.75, 100.5).then(sensors => {
   // 9 -----------------------------------------------------------------------
   {
     id: "opentripplanner",
-    title: "OpenTripPlanner",
+    title: ideasTranslations["opentripplanner"].title,
     city: "Portland",
     country: "USA",
     category: "mobility",
-    problem:
-      "Existing routing apps handled cars well. But a trip from Sukhumvit to the airport involving BTS, a bus, and a walk had no unified planner. Each mode required a different app. Transfers were invisible.",
-    solution:
-      "OpenTripPlanner (OTP) takes a city's GTFS transit feeds and OpenStreetMap data and produces a multi-modal routing engine. Walk from door to bus stop, transfer to metro, exit and cycle to destination — in one trip, with live arrival times when GTFS-RT is connected.",
-    impact:
-      "Powers transit routing for Helsinki (Digitransit), New Zealand, Grenoble, Atlanta MARTA, and dozens more. The GraphQL API makes it trivially easy to embed in any app. Finland's national routing runs entirely on OTP.",
+    problem: ideasTranslations["opentripplanner"].problem,
+    solution: ideasTranslations["opentripplanner"].solution,
+    impact: ideasTranslations["opentripplanner"].impact,
     techStack: ["Java", "GTFS", "GTFS-RT", "OpenStreetMap", "GraphQL", "Docker"],
     difficulty: "intermediate",
     codeSnippet: `# Start OpenTripPlanner with Docker + your city's GTFS data
@@ -577,16 +551,13 @@ query {
   // 10 ----------------------------------------------------------------------
   {
     id: "openenergymonitor",
-    title: "OpenEnergyMonitor",
+    title: ideasTranslations["openenergymonitor"].title,
     city: "Bristol",
     country: "UK",
     category: "smart-infrastructure",
-    problem:
-      "Cities committed to net-zero targets with no granular data on where energy was actually being consumed. Building-level monitoring required expensive proprietary systems. Community energy projects had no shared platform.",
-    solution:
-      "OpenEnergyMonitor is open-source hardware and software for monitoring electricity, heat, and solar generation at building and district level. The emonPi device clips onto electricity cables non-invasively, pushes readings to the emoncms dashboard, and feeds into district-level heat maps.",
-    impact:
-      "10,000+ installations worldwide. Powers community energy monitoring in Bristol (Easton Energy Group), Scotland (Community Energy Scotland), and rural cooperatives across Europe. Every hardware design file and line of code is public.",
+    problem: ideasTranslations["openenergymonitor"].problem,
+    solution: ideasTranslations["openenergymonitor"].solution,
+    impact: ideasTranslations["openenergymonitor"].impact,
     techStack: ["PHP", "MySQL", "Node-RED", "MQTT", "Raspberry Pi", "Arduino", "REST API"],
     difficulty: "intermediate",
     codeSnippet: `# Query an emoncms instance for feed data
@@ -636,16 +607,13 @@ print(f"Total consumption last 48h: {total_kwh:.2f} kWh")`,
   // 11 ----------------------------------------------------------------------
   {
     id: "vroom",
-    title: "VROOM",
+    title: ideasTranslations["vroom"].title,
     city: "Paris",
     country: "France",
     category: "smart-infrastructure",
-    problem:
-      "Municipal waste trucks drove fixed routes regardless of which bins were full. Delivery services crisscrossed the same streets. On-demand bus routes were assigned by human dispatchers under time pressure. All of this wasted fuel, time, and money.",
-    solution:
-      "VROOM (Vehicle Routing Open-source Optimization Machine) solves Vehicle Routing Problems in milliseconds. You give it a list of vehicles with start/end locations and a list of jobs with coordinates and time windows. It returns the optimal route allocation, minimising distance and time.",
-    impact:
-      "Used by municipalities in France, Belgium, and Canada for waste route optimisation. Deployed in last-mile delivery platforms serving millions of daily deliveries. 1,700+ GitHub stars. The JSON API makes integration trivial — any city IT department can connect it to existing fleet software.",
+    problem: ideasTranslations["vroom"].problem,
+    solution: ideasTranslations["vroom"].solution,
+    impact: ideasTranslations["vroom"].impact,
     techStack: ["C++20", "Node.js", "Express", "REST API", "Docker"],
     difficulty: "advanced",
     codeSnippet: `// VROOM REST API — optimise routes for 3 vehicles, 6 pickup jobs
@@ -692,16 +660,13 @@ result.routes.forEach(r =>
   // 12 ----------------------------------------------------------------------
   {
     id: "freifunk",
-    title: "Freifunk",
+    title: ideasTranslations["freifunk"].title,
     city: "Berlin",
     country: "Germany",
     category: "community",
-    problem:
-      "Public WiFi was expensive, patchy, and controlled by commercial operators who tracked users, sold their data, and turned off access the moment their contract ended. Poor neighbourhoods had none at all.",
-    solution:
-      "Freifunk is a community-run mesh WiFi network. Volunteers buy off-the-shelf routers (€30–80), flash them with OpenWrt and the Freifunk firmware, and place them in windows or on rooftops. Each device connects to neighbours and shares internet upstream — creating a self-healing mesh that grows organically.",
-    impact:
-      "800+ local communities across Germany. Berlin alone has 1,000+ active nodes. Deployed in refugee camps, public squares, community centres, and libraries. The model has been replicated in Austria, Switzerland, Luxembourg, and urban areas globally. Zero corporate involvement required.",
+    problem: ideasTranslations["freifunk"].problem,
+    solution: ideasTranslations["freifunk"].solution,
+    impact: ideasTranslations["freifunk"].impact,
     techStack: ["OpenWrt", "B.A.T.M.A.N. (mesh protocol)", "Lua", "UCI", "Linux"],
     difficulty: "starter",
     codeSnippet: `# Flash a standard router to join a Freifunk mesh network

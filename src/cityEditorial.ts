@@ -1,3 +1,6 @@
+import type { Locale } from "./types";
+import { cityEditorialTranslations } from "./cityEditorialTranslations";
+
 interface CityPhotoSpec {
   fileName: string;
   credit: string;
@@ -6,14 +9,14 @@ interface CityPhotoSpec {
 }
 
 interface CityEditorialSeed {
-  heroLine?: string;
-  intro?: string;
+  heroLine?: Record<Locale, string>;
+  intro?: Record<Locale, string>;
   photo: CityPhotoSpec;
 }
 
 export interface CityEditorialEntry {
-  heroLine?: string;
-  intro?: string;
+  heroLine?: Record<Locale, string>;
+  intro?: Record<Locale, string>;
   photo: {
     credit: string;
     alt: string;
@@ -39,9 +42,8 @@ function buildCommonsImageUrl(fileName: string, width = COMMONS_IMAGE_WIDTH) {
 
 const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
   "tw-kaohsiung": {
-    heroLine: "Port infrastructure, warmer light, less daily strain.",
-    intro:
-      "Kaohsiung is Taiwan's southern harbor metropolis: a working port city that has spent two decades turning industrial edge into public waterfront, arts infrastructure, and a looser daily rhythm. In SLIC terms it matters because logistics strength, cultural reinvention, warmer climate, and more breathable urban pace now sit in the same frame.",
+    heroLine: cityEditorialTranslations["tw-kaohsiung"].heroLine,
+    intro: cityEditorialTranslations["tw-kaohsiung"].intro,
     photo: {
       fileName: "Cijin kaohsiung skyline.png",
       credit: "Bpp88520",
@@ -50,9 +52,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "tw-taipei": {
-    heroLine: "High capability without metropolitan coldness.",
-    intro:
-      "Taipei is Taiwan's political, cultural, and knowledge core, dense enough to be efficient but still legible enough to feel humane. SLIC reads it as a city where transit, safety, civility, food culture, and plural everyday life compound rather than cancel each other out.",
+    heroLine: cityEditorialTranslations["tw-taipei"].heroLine,
+    intro: cityEditorialTranslations["tw-taipei"].intro,
     photo: {
       fileName: "2026 Taipei Skyline.jpg",
       credit: "Heeheemalu",
@@ -61,9 +62,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "us-raleigh": {
-    heroLine: "Triangle growth with more room to stay legible.",
-    intro:
-      "Raleigh is the capital of North Carolina and the largest city in the Research Triangle, shaped less by spectacle than by universities, research, and steady knowledge-economy growth. SLIC treats it as a low-friction city: ambitious, educated, and metropolitan, but still spacious enough for daily life to remain usable.",
+    heroLine: cityEditorialTranslations["us-raleigh"].heroLine,
+    intro: cityEditorialTranslations["us-raleigh"].intro,
     photo: {
       fileName: "Raleigh Skyline.jpg",
       credit: "Abhiram Juvvadi",
@@ -72,9 +72,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "kr-busan": {
-    heroLine: "Korea's working waterfront at a more human temperature.",
-    intro:
-      "Busan is South Korea's main port metropolis after Seoul, with container infrastructure, beaches, hillsides, and film-culture visibility all compressed into one maritime city. In SLIC terms it offers a powerful counter-model to capital-city overload: economic relevance and urban texture without quite the same level of pressure.",
+    heroLine: cityEditorialTranslations["kr-busan"].heroLine,
+    intro: cityEditorialTranslations["kr-busan"].intro,
     photo: {
       fileName: "Skyline of Busan Including Gwangan Bridge, Marine City and LCT Skyscrapers.jpg",
       credit: "S h y numis",
@@ -83,9 +82,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "pl-katowice": {
-    heroLine: "Post-industrial Poland without the museum treatment.",
-    intro:
-      "Katowice is the core city of Upper Silesia's polycentric industrial belt, shaped by coal, steel, rail, and the long afterlife of heavy infrastructure. SLIC reads it as a serious working city now remaking itself through services, culture, and regional connectivity, while still keeping a tougher, more affordable urban logic than Western Europe's showcase capitals.",
+    heroLine: cityEditorialTranslations["pl-katowice"].heroLine,
+    intro: cityEditorialTranslations["pl-katowice"].intro,
     photo: {
       fileName: "Panoramic view of Katowice.jpg",
       credit: "Derbrauni",
@@ -94,9 +92,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "jp-fukuoka": {
-    heroLine: "Japan's western gateway with balanced metropolitan scale.",
-    intro:
-      "Fukuoka is Kyushu's leading city and one of Japan's oldest gateway ports to the Asian mainland, compact enough to feel coherent but large enough to carry real startup, university, and logistics energy. In SLIC terms it is balanced metropolitanism: competent, connected, and fast-moving without becoming punishing.",
+    heroLine: cityEditorialTranslations["jp-fukuoka"].heroLine,
+    intro: cityEditorialTranslations["jp-fukuoka"].intro,
     photo: {
       fileName: "Fukuoka Skyline of Seaside Momochi.jpg",
       credit: "Nryate",
@@ -105,9 +102,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "th-bangkok": {
-    heroLine: "Plural, improvised, magnetic, and structurally alive.",
-    intro:
-      "Bangkok's Alpha placement is the index's worked example in full: pure rank #52, tenth seat in the Alpha tier. Seventeen cities with higher pure scores fail gates Bangkok clears — floor scores, coverage, country caps, editorial exclusions. What SLIC measures that most indices miss: the pressure curve here has not priced out the median resident. The cost of daily life — food, transport, rent, the street-level texture of a working week — remains accessible at Bangkok income levels, even as the city's global visitor pull and connectivity figures rival cities ranked well above it. The index does not reward that story with extra points. It rewards it with a seat.\n\nA note on the pillar split: Bangkok's Creative score (44.5) reflects the formal knowledge economy — startup density, R&D spending, FDI flows. That is not where Bangkok's creative capital lives. It lives in the Community pillar: Hospitality scores 100.0, the highest in the dataset, because Bangkok's Gallup acceptance index exceeds every peer city. Cultural and public-life vitality scores 75.1. Tolerance scores 74.7, with Equaldex at the ceiling following marriage equality in January 2025. Bangkok's extraordinary food scene, nightlife, kathoey culture, Muay Thai, street art, and 24-hour hospitality economy are Community scores, not Creative scores. The index is reading the city correctly. It is just reading it in the right column.",
+    heroLine: cityEditorialTranslations["th-bangkok"].heroLine,
+    intro: cityEditorialTranslations["th-bangkok"].intro,
     photo: {
       fileName: "Bangkok Skyline from Wat Saket.jpg",
       credit: "Slyronit",
@@ -116,9 +112,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "fr-lyon": {
-    heroLine: "Institutional France in a more usable key.",
-    intro:
-      "Lyon is France's second great urban pole, sitting between the Rhone and Saone with a mix of industry, research, gastronomy, and dense neighborhood life. SLIC treats it as a city where institutional depth still feels usable: economically serious and culturally thick, but less theatrical and often more livable day to day than the capital.",
+    heroLine: cityEditorialTranslations["fr-lyon"].heroLine,
+    intro: cityEditorialTranslations["fr-lyon"].intro,
     photo: {
       fileName: "Lyon - panorama - panoramio.jpg",
       credit: "Gregorini Demetrio",
@@ -127,9 +122,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "ca-montreal": {
-    heroLine: "North America's French metropolis, still porous and cultural.",
-    intro:
-      "Montreal is the major French-speaking metropolis of North America, built from port history, immigration, universities, festivals, and a civic culture that still feels relatively open-textured. In SLIC terms, culture is not ornament here; it is part of the operating system that makes daily urban life feel social, creative, and worth inhabiting.",
+    heroLine: cityEditorialTranslations["ca-montreal"].heroLine,
+    intro: cityEditorialTranslations["ca-montreal"].intro,
     photo: {
       fileName: "Montreal skyline.jpg",
       credit: "MTLskyline",
@@ -138,9 +132,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "cl-santiago": {
-    heroLine: "Capability and concentration under Andean pressure.",
-    intro:
-      "Santiago is Chile's dominant metropolitan core, with finance, universities, state power, and entrepreneurial energy concentrated in one Andean basin. SLIC reads it as a city of real capability and momentum whose attraction lies in the depth of opportunity it offers before the pressure curve hardens into inequality and strain.",
+    heroLine: cityEditorialTranslations["cl-santiago"].heroLine,
+    intro: cityEditorialTranslations["cl-santiago"].intro,
     photo: {
       fileName: "View of the Santiago skyline from the roof of the Ministry of Foreign Affairs (16689217244).jpg",
       credit: "Maina Kiai",
@@ -149,9 +142,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "us-pittsburgh": {
-    heroLine: "Industrial gravity, remade into a sharper civic machine.",
-    intro:
-      "Pittsburgh is a post-steel American city that never fully abandoned the disciplines of heavy industry; it redirected them into universities, medicine, robotics, and a more compact civic economy. In SLIC terms it matters because capability here is not abstract prestige but a lived structure of institutions, reinvention, and workable urban scale.",
+    heroLine: cityEditorialTranslations["us-pittsburgh"].heroLine,
+    intro: cityEditorialTranslations["us-pittsburgh"].intro,
     photo: {
       fileName: "Pittsburgh skyline.jpg",
       credit: "IanManka",
@@ -160,9 +152,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "jp-kobe": {
-    heroLine: "Harbor city elegance with mountains still in the frame.",
-    intro:
-      "Kobe is one of Japan's classic port cities, stretched between mountain slope and harbor edge in a way that keeps the metropolitan form unusually legible. SLIC reads it as a city where trade, design consciousness, and daily calm still hold together without the crushing pressure of the very largest Japanese cores.",
+    heroLine: cityEditorialTranslations["jp-kobe"].heroLine,
+    intro: cityEditorialTranslations["jp-kobe"].intro,
     photo: {
       fileName: "Kobe Skyline & Berge.jpg",
       credit: "Zairon",
@@ -171,9 +162,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "us-minneapolis": {
-    heroLine: "Northern capability with room for real daily life.",
-    intro:
-      "Minneapolis is the stronger half of the Twin Cities economic engine, built on health systems, corporate depth, university capacity, and a long civic tradition of regional planning. In SLIC terms it is a serious winter city that still manages to feel structurally fairer, more organized, and more livable than many larger American peers.",
+    heroLine: cityEditorialTranslations["us-minneapolis"].heroLine,
+    intro: cityEditorialTranslations["us-minneapolis"].intro,
     photo: {
       fileName: "Minneapolis Skyline (19165922448).jpg",
       credit: "Tony Webster",
@@ -182,9 +172,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "il-haifa": {
-    heroLine: "Israel's mountain port with a broader social horizon.",
-    intro:
-      "Haifa is Israel's principal northern port, terraced up Mount Carmel and shaped by industry, research, and one of the country's more visibly mixed urban societies. SLIC reads it as a city where coexistence, infrastructure, and topographic drama make a different proposition from the concentrated pressure of the main central belt.",
+    heroLine: cityEditorialTranslations["il-haifa"].heroLine,
+    intro: cityEditorialTranslations["il-haifa"].intro,
     photo: {
       fileName: "Haifa skyline view.jpg",
       credit: "StateofIsrael",
@@ -193,9 +182,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "kr-suwon": {
-    heroLine: "Seoul-region power without quite the same compression.",
-    intro:
-      "Suwon is the capital of Gyeonggi-do and one of the major cities orbiting the Seoul region, carrying electronics, administration, and inherited fortress urbanism in the same geography. In SLIC terms it matters as a metropolitan release valve: high-connectivity Korea with slightly more room, less symbolism, and a more workable everyday tempo.",
+    heroLine: cityEditorialTranslations["kr-suwon"].heroLine,
+    intro: cityEditorialTranslations["kr-suwon"].intro,
     photo: {
       fileName: "Suwon cityscape.jpg",
       credit: "Zubro",
@@ -204,9 +192,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "ca-ottawa": {
-    heroLine: "Administrative capital, but calmer than the label suggests.",
-    intro:
-      "Ottawa is Canada's federal capital, but its daily character is less imperial than procedural: government, research, bilingual institutions, and a river-based urban form that rarely needs to perform itself theatrically. SLIC reads it as a city where public-sector stability and human-scale order still convert into real livability.",
+    heroLine: cityEditorialTranslations["ca-ottawa"].heroLine,
+    intro: cityEditorialTranslations["ca-ottawa"].intro,
     photo: {
       fileName: "Ottawa skyline 2018.jpg",
       credit: "DXR",
@@ -215,9 +202,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "cl-valparaiso": {
-    heroLine: "Chile's vertical port of improvisation, memory, and abrasion.",
-    intro:
-      "Valparaiso is Chile's old Pacific port, famous not because it is tidy but because its hills, lifts, murals, stairs, and maritime edge still make urban life feel textured and specific. SLIC reads it as a city where cultural thickness and lived character remain strong even when the infrastructure story is less polished.",
+    heroLine: cityEditorialTranslations["cl-valparaiso"].heroLine,
+    intro: cityEditorialTranslations["cl-valparaiso"].intro,
     photo: {
       fileName: "Valparaíso Skyline (232242693).jpg",
       credit: "Ubc School Of Journalism",
@@ -226,9 +212,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "it-milan": {
-    heroLine: "Italian productivity with a sharper metropolitan edge.",
-    intro:
-      "Milan is Italy's financial and business capital, a city where fashion, design, manufacturing inheritance, and European service-sector ambition all compress into one hard-working metropolitan core. In SLIC terms it scores not as romance but as capacity: organized, economically relevant, and still culturally dense enough to matter beyond pure output.",
+    heroLine: cityEditorialTranslations["it-milan"].heroLine,
+    intro: cityEditorialTranslations["it-milan"].intro,
     photo: {
       fileName: "Milano skyline.JPG",
       credit: "Nicolago",
@@ -237,9 +222,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "nl-eindhoven": {
-    heroLine: "Design and deep-tech in a city that stays functional.",
-    intro:
-      "Eindhoven is the Netherlands' engineering and design city, built on the long afterlife of Philips, technical education, and a regional innovation economy that punches above its size. SLIC reads it as a city where competence is unusually visible: productive, inventive, and less burdened by big-capital theatricality.",
+    heroLine: cityEditorialTranslations["nl-eindhoven"].heroLine,
+    intro: cityEditorialTranslations["nl-eindhoven"].intro,
     photo: {
       fileName: "Eindhovenskyline.jpg",
       credit: "David Eerdmans",
@@ -248,9 +232,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "at-graz": {
-    heroLine: "Austria's second city with less choreography and more ease.",
-    intro:
-      "Graz is a university city, regional capital, and manufacturing center whose baroque fabric and southern setting give it a softer urban grain than Vienna. In SLIC terms it is one of those places where medium scale works in its favor: enough institutional depth to be serious, not so much size that everyday life becomes over-abstracted.",
+    heroLine: cityEditorialTranslations["at-graz"].heroLine,
+    intro: cityEditorialTranslations["at-graz"].intro,
     photo: {
       fileName: "Graz, Austria skyline - July 2004.jpg",
       credit: "Diliff",
@@ -259,9 +242,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "pt-braga": {
-    heroLine: "Northern Portugal's compact city of continuity and upgrade.",
-    intro:
-      "Braga is one of Portugal's oldest cities, but it now combines ecclesiastical and historic depth with a younger knowledge-economy and technology profile. SLIC reads it as a city where continuity has not become stagnation; the historic shell still carries an urban life that is modern, connected, and comparatively usable.",
+    heroLine: cityEditorialTranslations["pt-braga"].heroLine,
+    intro: cityEditorialTranslations["pt-braga"].intro,
     photo: {
       fileName: "Braga skyline (54191790081).jpg",
       credit: "Sarunas Burdulis",
@@ -270,9 +252,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "il-tel-aviv": {
-    heroLine: "Beach-edge intensity with very little patience for stillness.",
-    intro:
-      "Tel Aviv is Israel's economic and cultural engine, where startup ambition, nightlife, liberal self-image, and Mediterranean shoreline all feed a city running at permanently elevated speed. SLIC reads it as magnetic and highly capable, but also as a place where intensity is part of both the draw and the cost.",
+    heroLine: cityEditorialTranslations["il-tel-aviv"].heroLine,
+    intro: cityEditorialTranslations["il-tel-aviv"].intro,
     photo: {
       fileName: "Tel Aviv Skyline 02.jpg",
       credit: "Ynhockey",
@@ -281,9 +262,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "us-chicago": {
-    heroLine: "Continental-scale America in one vertical frame.",
-    intro:
-      "Chicago remains the great inland metropolis of the United States: finance, logistics, universities, architecture, rail, and lakefront spectacle all layered into one city with genuine global weight. SLIC reads it as a place of very high capability and cultural force whose challenge is converting that scale into broadly breathable daily life.",
+    heroLine: cityEditorialTranslations["us-chicago"].heroLine,
+    intro: cityEditorialTranslations["us-chicago"].intro,
     photo: {
       fileName: "Chicago Skyline (10546216053).jpg",
       credit: "Zellaby",
@@ -292,9 +272,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "pt-porto": {
-    heroLine: "Granite, river edge, and a strong enough center to hold.",
-    intro:
-      "Porto is northern Portugal's main city, built along the Douro in a way that keeps commerce, memory, and rough urban texture in continuous contact. SLIC reads it as a city where beauty is not just postcard value; it is tied to density, walkability, cultural continuity, and a more grounded cost structure than bigger Southern European magnets.",
+    heroLine: cityEditorialTranslations["pt-porto"].heroLine,
+    intro: cityEditorialTranslations["pt-porto"].intro,
     photo: {
       fileName: "Porto 2016-17 Porto skyline (34662247350).jpg",
       credit: "Bosc d'Anjou",
@@ -303,9 +282,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "ee-tallinn": {
-    heroLine: "A Baltic capital that stays wired and legible.",
-    intro:
-      "Tallinn is Estonia's capital and digital showcase, but what matters in SLIC terms is not branding alone; it is the way administrative competence, compact scale, and a still-readable historic core reinforce each other. The result is a city that feels technologically modern without losing urban intelligibility.",
+    heroLine: cityEditorialTranslations["ee-tallinn"].heroLine,
+    intro: cityEditorialTranslations["ee-tallinn"].intro,
     photo: {
       fileName: "Tallinn skyline 2025.jpg",
       credit: "Sander Valdre",
@@ -314,9 +292,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "pl-torun": {
-    heroLine: "Historic Poland at a slower, better-kept urban speed.",
-    intro:
-      "Torun is one of Poland's great medieval cities, small enough that its historic grain still organizes everyday experience rather than merely surviving as scenery. SLIC reads it as a city where continuity, walkability, and manageable scale remain active assets in the lived structure of the place.",
+    heroLine: cityEditorialTranslations["pl-torun"].heroLine,
+    intro: cityEditorialTranslations["pl-torun"].intro,
     photo: {
       fileName: "Old town hall in Torun (8).jpg",
       credit: "Krzysztof Golik",
@@ -325,9 +302,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "kr-incheon": {
-    heroLine: "Korea's western gateway built on logistics and open horizon.",
-    intro:
-      "Incheon is South Korea's major western port and airport city, a gateway metropolis whose identity comes from movement, reclamation, logistics, and the national role of connecting Korea outward. In SLIC terms it matters because infrastructure here is not ornamental; it is the city's main grammar and a real source of capability.",
+    heroLine: cityEditorialTranslations["kr-incheon"].heroLine,
+    intro: cityEditorialTranslations["kr-incheon"].intro,
     photo: {
       fileName: "Port of Incheon.jpg",
       credit: "Davidinkorea",
@@ -336,9 +312,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "sg-singapore": {
-    heroLine: "The highest Capability score in the dataset. Gamma tier.",
-    intro:
-      "Singapore scores 94.1 on Capability — the highest in this dataset by a significant margin, and a real reflection of port power, state capacity, transit, and administrative competence operating at near-maximum efficiency. It is Gamma tier. This is not a paradox or a scoring error; it is the index working exactly as intended. Gamma is where a city lands when it fails the Alpha floor: Community 38.4 against a required 40. The 1.6-point gap reflects what the data registers — that extraordinary administrative and economic competence does not automatically translate into the social warmth, civic openness, and everyday looseness the Community pillar measures. SLIC does not argue this is a bad city. It argues that 'extraordinary' and 'the median resident thrives here' are different claims, and both deserve to be said out loud.",
+    heroLine: cityEditorialTranslations["sg-singapore"].heroLine,
+    intro: cityEditorialTranslations["sg-singapore"].intro,
     photo: {
       fileName: "Singapore skyline 2022.jpg",
       credit: "Bruce Poon",
@@ -347,9 +322,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "ch-zurich": {
-    heroLine: "Swiss order with global finance hiding in plain sight.",
-    intro:
-      "Zurich is a city where banking, infrastructure, lakefront calm, and civic discipline all reinforce a sense of uncommon reliability. In SLIC terms it is not only about wealth; it is about how institutional order, mobility, and environmental quality combine into a daily experience that feels unusually low-friction.",
+    heroLine: cityEditorialTranslations["ch-zurich"].heroLine,
+    intro: cityEditorialTranslations["ch-zurich"].intro,
     photo: {
       fileName: "Zurich Skyline.jpg",
       credit: "Schuetze75",
@@ -358,9 +332,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "dk-copenhagen": {
-    heroLine: "Welfare urbanism made legible at metropolitan scale.",
-    intro:
-      "Copenhagen is one of the clearest examples of a northern European city where planning, mobility, public space, and welfare-state assumptions still visibly structure everyday life. SLIC reads it as a place where systems coherence is the point: not glamorous in the abstract, but deeply convincing in use.",
+    heroLine: cityEditorialTranslations["dk-copenhagen"].heroLine,
+    intro: cityEditorialTranslations["dk-copenhagen"].intro,
     photo: {
       fileName: "A Copenhagen skyline (7592520318).jpg",
       credit: "Karen Mardahl",
@@ -369,9 +342,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "kr-jeju-city": {
-    heroLine: "Volcanic Korea at a slower, more elemental pace.",
-    intro:
-      "Jeju is South Korea's main island province, shaped by volcanic geography, a distinct local culture, and a longstanding role as the country's natural and spiritual counterweight to the mainland's relentless pace. SLIC reads it as a city that earns its Alpha place not through density or output but through a combination of governance at island scale, cultural distinctiveness — the haenyeo diving tradition, the Jeju language, the UNESCO-listed craters — and a daily rhythm that never fully submitted to the Seoul compression model.",
+    heroLine: cityEditorialTranslations["kr-jeju-city"].heroLine,
+    intro: cityEditorialTranslations["kr-jeju-city"].intro,
     photo: {
       fileName: "Seongsan Ilchulbong 03.jpg",
       credit: "PANONIAN",
@@ -380,9 +352,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "au-perth": {
-    heroLine: "Australia's isolated west, built on space and coastal ease.",
-    intro:
-      "Perth is the most isolated large city on earth by the standard measure — a fact that has shaped both its psychology and its offer. Built on mining-boom capital, Indian Ocean coastline, and an almost impractical abundance of space, Perth has spent the past decade building out university research, technology, and livability infrastructure that no longer needs to apologize for the distance. SLIC reads it as a city where the pressure curve stays genuinely low: warm, spacious, coastal, and now competent enough to matter beyond resource extraction.",
+    heroLine: cityEditorialTranslations["au-perth"].heroLine,
+    intro: cityEditorialTranslations["au-perth"].intro,
     photo: {
       fileName: "Perth from Kings Park.jpg",
       credit: "eGuide Travel",
@@ -391,9 +362,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "jp-tokyo": {
-    heroLine: "Incomprehensible scale, kept almost entirely coherent.",
-    intro:
-      "Tokyo is the world's largest metropolitan area by any measure, a city of 37-million-plus that still manages to run on time, stay safe, feed itself extraordinarily well, and distribute a quality of urban experience that smaller cities cannot replicate. SLIC reads it as the definitive case of system competence at extreme scale — where transit, density, safety, and accumulated cultural production compound into something that has no real equivalent. The trade-offs are real: working hours, conformity pressure, and housing cost. But the system that delivers in return is equally without parallel.",
+    heroLine: cityEditorialTranslations["jp-tokyo"].heroLine,
+    intro: cityEditorialTranslations["jp-tokyo"].intro,
     photo: {
       fileName: "Tokyo skyline seen from Tokyo Skytree.jpg",
       credit: "Ruthsic",

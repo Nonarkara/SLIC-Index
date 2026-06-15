@@ -373,10 +373,10 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           {INDEX_PROFILES.map((profile) => (
             <article key={profile.id} className="compare-meth-card" style={{ borderTopColor: profile.accentHex }}>
               <div className="compare-meth-header"><strong>{profile.name}</strong><span>{profile.publisher} &middot; {profile.year}</span></div>
-              <div className="compare-meth-section"><p className="compare-meth-label">{t(locale, "They claim", "พวกเขาอ้างว่า", "他们声称", "주장하는 내용", "彼らの主張")}</p><p>{profile.methodology.claimedPurpose}</p></div>
-              <div className="compare-meth-section compare-meth-reality"><p className="compare-meth-label">{t(locale, "What it actually measures", "วัดอะไรจริงๆ", "实际衡量什么", "실제로 측정하는 것", "実際に測定するもの")}</p><p>{profile.methodology.actualMeasure}</p></div>
-              <div className="compare-meth-section"><p className="compare-meth-label">{t(locale, "Blind spots", "จุดบอด", "盲点", "사각지대", "盲点")}</p><ul className="compare-blindspots">{profile.methodology.blindSpots.map((b) => <li key={b}>{b}</li>)}</ul></div>
-              <div className="compare-meth-audience"><p className="compare-meth-label">{t(locale, "Who it really serves", "รับใช้ใครจริงๆ", "真正服务谁", "실제로 누구를 위한 것인가", "実際に誰のためのものか")}</p><p>{profile.methodology.audienceNote}</p></div>
+              <div className="compare-meth-section"><p className="compare-meth-label">{t(locale, "They claim", "พวกเขาอ้างว่า", "他们声称", "주장하는 내용", "彼らの主張")}</p><p>{profile.methodology.claimedPurpose[locale]}</p></div>
+              <div className="compare-meth-section compare-meth-reality"><p className="compare-meth-label">{t(locale, "What it actually measures", "วัดอะไรจริงๆ", "实际衡量什么", "실제로 측정하는 것", "実際に測定するもの")}</p><p>{profile.methodology.actualMeasure[locale]}</p></div>
+              <div className="compare-meth-section"><p className="compare-meth-label">{t(locale, "Blind spots", "จุดบอด", "盲点", "사각지대", "盲点")}</p><ul className="compare-blindspots">{profile.methodology.blindSpots[locale].map((b) => <li key={b}>{b}</li>)}</ul></div>
+              <div className="compare-meth-audience"><p className="compare-meth-label">{t(locale, "Who it really serves", "รับใช้ใครจริงๆ", "真正服务谁", "실제로 누구를 위한 것인가", "実際に誰のためのものか")}</p><p>{profile.methodology.audienceNote[locale]}</p></div>
             </article>
           ))}
         </div>
@@ -390,8 +390,8 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
             {INDEX_PROFILES.map((profile) => (
               <article key={profile.id} className="compare-critique-block">
                 <p className="compare-critique-eyebrow" style={{ color: profile.accentHex }}>{profile.shortName}</p>
-                <h3 className="compare-critique-headline">{profile.critique.headline}</h3>
-                <p className="compare-critique-body">{profile.critique.body}</p>
+                <h3 className="compare-critique-headline">{profile.critique.headline[locale]}</h3>
+                <p className="compare-critique-body">{profile.critique.body[locale]}</p>
               </article>
             ))}
           </div>

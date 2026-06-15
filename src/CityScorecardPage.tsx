@@ -1333,8 +1333,8 @@ export default function CityScorecardPage({
               <p className="eyebrow">{city.region}</p>
               <h1 className="scorecard-city-name">{city.displayName}</h1>
               {displayCountry(city.country) && <p className="scorecard-country">{displayCountry(city.country)}</p>}
-              {cityEditorial?.heroLine && (
-                <p className="scorecard-hero-line">{cityEditorial.heroLine}</p>
+              {cityEditorial?.heroLine?.[locale] && (
+                <p className="scorecard-hero-line">{cityEditorial.heroLine[locale]}</p>
               )}
             </div>
             <div className="scorecard-hero-scores">
@@ -1402,11 +1402,11 @@ export default function CityScorecardPage({
 
       {isPublished && cityEditorial && (
         <section className="section scorecard-editorial">
-          <div className={`scorecard-editorial-grid${cityEditorial.intro ? "" : " scorecard-editorial-grid--credit-only"}`}>
-            {cityEditorial.intro && (
+          <div className={`scorecard-editorial-grid${cityEditorial.intro?.[locale] ? "" : " scorecard-editorial-grid--credit-only"}`}>
+            {cityEditorial.intro?.[locale] && (
               <div>
                 <p className="eyebrow">{copy.slicReading}</p>
-                <p className="scorecard-editorial-copy">{cityEditorial.intro}</p>
+                <p className="scorecard-editorial-copy">{cityEditorial.intro[locale]}</p>
               </div>
             )}
             <aside className="scorecard-editorial-credit">

@@ -110,6 +110,9 @@ const REFS = [
   { id: 18, text: "V-Dem Institute (2024). Democracy Report 2024: Democracy Winning and Losing at the Ballot. University of Gothenburg." },
   { id: 19, text: "Peen, J., Schoevers, R.A., Beekman, A.T. & Dekker, J. (2010). The current status of urban-rural differences in psychiatric disorders. Acta Psychiatrica Scandinavica, 121(2), 84–93." },
   { id: 20, text: "UN-Habitat (2022). World Cities Report 2022: Envisaging the Future of Cities. United Nations Human Settlements Programme." },
+  { id: 21, text: "Arkaraprasertkul, N. (2016). Gentrification from within: urban social change as anthropological process. Asian Anthropology, 15(1), 1-20." },
+  { id: 22, text: "Arkaraprasertkul, N. (2018). Gentrifying heritage: how historic preservation drives gentrification in urban Shanghai. International Journal of Heritage Studies, 24(3), 324-340." },
+  { id: 23, text: "Arkaraprasertkul, N. (2009). Towards modern urban housing: redefining Shanghai's lilong. Journal of Urbanism, 2(1), 11-29." },
 ];
 
 // ── Locale-aware UI strings ─────────────────────────────────────────────────
