@@ -69,6 +69,8 @@ export interface FullRankedCity extends RankedCity {
   inclusionRationale: string;
   metrics: CityLifeMetrics;
   coreBoardEligible: boolean;
+  coverageGrade?: string | null;
+  overallWeightedCoverage?: number | null;
   slicScoreExact?: number | null;
   pressureScoreExact?: number | null;
   viabilityScoreExact?: number | null;

@@ -2935,6 +2935,8 @@ function buildPublishedGlobalRankings(): FullRankedCity[] {
       tierLabel: publishedRow.tierLabel ?? null,
       tierSlot: publishedRow.tierSlot ?? null,
       tierReason: publishedRow.tierReason ?? null,
+      coverageGrade: publishedRow.coverageGrade ?? null,
+      overallWeightedCoverage: publishedRow.overallWeightedCoverage ?? null,
       slicScoreExact: publishedRow.slicScoreExact ?? null,
       pressureScoreExact: publishedRow.pressureScoreExact ?? null,
       viabilityScoreExact: publishedRow.viabilityScoreExact ?? null,
