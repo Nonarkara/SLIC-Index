@@ -398,6 +398,14 @@ export default function AwardsPage({
       href: `${BASE}/downloads/slic-ranked-cities-v2.csv`,
     },
     {
+      label: t(locale, "SLIC Index 2026 — Presentation deck (PPTX)", "สไลด์นำเสนอ SLIC Index 2026 (PPTX)", "SLIC Index 2026 — 演示文稿 (PPTX)", "SLIC Index 2026 — 프레젠테이션 덱 (PPTX)", "SLIC Index 2026 — プレゼンテーションデッキ（PPTX）"),
+      href: `${BASE}/downloads/slic-index-2026-presentation.pptx`,
+    },
+    {
+      label: t(locale, "City Intelligence Brief — Bangkok example (PPTX)", "City Intelligence Brief — ตัวอย่างกรุงเทพฯ (PPTX)", "城市情报简报 — 曼谷示例 (PPTX)", "도시 인텔리전스 브리프 — 방콕 예시 (PPTX)", "シティ・インテリジェンス・ブリーフ — バンコク例（PPTX）"),
+      href: `${BASE}/downloads/slic-ci-briefing-template.pptx`,
+    },
+    {
       label: t(locale, "Source code on GitHub", "ซอร์สโค้ดบน GitHub", "GitHub 源代码", "GitHub 소스 코드", "GitHubソースコード"),
       href: "https://github.com/Nonarkara/SLIC-Index",
     },
