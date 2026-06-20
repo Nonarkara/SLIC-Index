@@ -571,32 +571,37 @@ export default function ThailandPage({
                   <th>{t(locale, "Billionaires", "มหาเศรษฐี", "亿万富翁", "억만장자", "億万長者")}</th>
                   <th>{t(locale, "SLIC rank", "อันดับ SLIC", "SLIC排名", "SLIC 순위", "SLICランク")}</th>
                   <th>{t(locale, "SLIC score", "คะแนน SLIC", "SLIC得分", "SLIC 점수", "SLICスコア")}</th>
+                  <th>{t(locale, "TFR 2023", "TFR 2023", "TFR 2023", "TFR 2023", "TFR 2023")}</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="th-asean-highlight">
                   <td><strong>Bangkok</strong></td>
-                  <td>#17</td><td>38</td><td>#66</td><td>53.7</td>
+                  <td>#17</td><td>38</td><td>#66</td><td>53.7</td><td>1.32</td>
                 </tr>
                 <tr>
                   <td>Singapore</td>
                   <td>#12</td><td>51</td><td>#34</td><td>62.8</td>
+                  <td style={{ color: "var(--accent)" }}>1.04</td>
                 </tr>
                 <tr>
                   <td>Shanghai</td>
                   <td>#3</td><td>120</td><td>#107</td><td>42.3</td>
+                  <td style={{ color: "var(--accent)" }}>1.09</td>
                 </tr>
                 <tr>
                   <td>Hong Kong</td>
                   <td>#7</td><td>88</td><td style={{ color: "var(--text-muted)", fontStyle: "italic" }} colSpan={2}>
                     {t(locale, "not in SLIC dataset", "ไม่อยู่ในชุดข้อมูล SLIC", "不在SLIC数据集中", "SLIC 데이터셋 미포함", "SLICデータセット未収録")}
                   </td>
+                  <td style={{ color: "var(--accent)" }}>0.77</td>
                 </tr>
                 <tr>
                   <td>Mumbai</td>
                   <td>#6</td><td>90</td><td style={{ color: "var(--text-muted)", fontStyle: "italic" }} colSpan={2}>
                     {t(locale, "not in SLIC dataset", "ไม่อยู่ในชุดข้อมูล SLIC", "不在SLIC数据集中", "SLIC 데이터셋 미포함", "SLICデータセット未収录")}
                   </td>
+                  <td>2.03</td>
                 </tr>
               </tbody>
             </table>
@@ -608,6 +613,76 @@ export default function ThailandPage({
               "来源：Visual Capitalist / Voronoi 2026年福布斯亿万富翁数据。香港和孟买尚未纳入SLIC数据集——是v4扩展的候选城市。",
               "출처: Visual Capitalist / Voronoi 2026 포브스 억만장자 데이터. 홍콩과 뭄바이는 아직 SLIC 데이터셋에 없습니다 — v4 확장 후보.",
               "出典：Visual Capitalist / Voronoi 2026年フォーブス億万長者データ。香港とムンバイはまだSLICデータセットに含まれていません — v4拡張の候補。"
+            )}
+          </p>
+        </section>
+
+        {/* ═══════ HOURS FOR $1,000 — TIME COST OF LABOR ═══════ */}
+        <section className="th-hours-section section">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">{t(locale, "OECD 2023 · SLIC Estimate", "OECD 2023 · การประมาณการ SLIC", "OECD 2023 · SLIC估算", "OECD 2023 · SLIC 추정", "OECD 2023 · SLIC推定")}</p>
+              <h2>{t(locale, "Hours of work to earn $1,000 (PPP)", "ชั่วโมงทำงานเพื่อได้รับ 1,000 ดอลลาร์ (PPP)", "获得1000美元所需工作小时数（PPP）", "$1,000 벌기 위한 근무 시간(PPP)", "$1,000稼ぐための労働時間（PPP）")}</h2>
+            </div>
+            <p className="section-summary">
+              {t(locale,
+                "The most compressed livability signal available: annual average wages ÷ annual working hours, PPP-adjusted to the same purchasing power baseline. Thailand is not OECD-member — the figure here is SLIC's own estimate using ILO/NSO wage data and World Bank PPP conversion.",
+                "สัญญาณการดำรงชีวิตที่กระชับที่สุดที่มีอยู่: ค่าจ้างเฉลี่ยต่อปี ÷ ชั่วโมงทำงานต่อปี ปรับ PPP เป็นฐานกำลังซื้อเดียวกัน ไทยไม่ใช่สมาชิก OECD — ตัวเลขที่นี่คือการประมาณการของ SLIC",
+                "最压缩的宜居性信号：年均工资÷年工作小时数，按PPP调整至相同购买力基准。泰国不是OECD成员——这里的数字是SLIC使用国际劳工组织/国家统计局工资数据和世界银行PPP转换的估算。",
+                "가장 압축된 주거성 신호: 연평균 임금 ÷ 연간 근무 시간, 동일한 구매력 기준으로 PPP 조정. 태국은 OECD 회원이 아닙니다.",
+                "最もコンパクルな住みやすさシグナル：年平均賃金÷年間労働時間、同一購買力ベースラインにPPP調整。タイはOECD非加盟国です。"
+              )}
+            </p>
+          </div>
+          <div className="th-hours-table-wrap">
+            <table className="th-asean-table">
+              <thead>
+                <tr>
+                  <th>{t(locale, "Country / City", "ประเทศ / เมือง", "国家 / 城市", "국가 / 도시", "国 / 都市")}</th>
+                  <th>{t(locale, "Hours for $1,000 PPP", "ชั่วโมงต่อ $1,000 PPP", "每$1000 PPP所需小时", "$1,000 PPP당 시간", "$1,000 PPP あたり時間")}</th>
+                  <th>{t(locale, "Note", "หมายเหตุ", "备注", "비고", "備考")}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Luxembourg</td><td>16h</td>
+                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>{t(locale, "OECD best", "OECD ดีที่สุด", "OECD最佳", "OECD 최고", "OECD最良")}</td>
+                </tr>
+                <tr>
+                  <td>Germany / Berlin</td><td>20h</td>
+                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>OECD</td>
+                </tr>
+                <tr>
+                  <td>Australia / Sydney</td><td>23h</td>
+                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>OECD</td>
+                </tr>
+                <tr>
+                  <td>Japan / Tokyo</td><td>34h</td>
+                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>OECD</td>
+                </tr>
+                <tr>
+                  <td>South Korea / Seoul</td><td>38h</td>
+                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>OECD</td>
+                </tr>
+                <tr>
+                  <td>Colombia / Bogotá</td><td>86h</td>
+                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>{t(locale, "OECD worst", "OECD แย่ที่สุด", "OECD最差", "OECD 최저", "OECD最悪")}</td>
+                </tr>
+                <tr className="th-asean-highlight">
+                  <td><strong>Thailand / Bangkok</strong></td>
+                  <td>~100–120h</td>
+                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>{t(locale, "SLIC est. · not OECD", "ประมาณการ SLIC · ไม่ใช่สมาชิก OECD", "SLIC估算·非OECD", "SLIC 추정 · 비OECD", "SLIC推定·非OECD")}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="compare-scatter-note">
+            {t(locale,
+              "Thailand estimate: ILO/NSO mean monthly wages (~15,500 THB / ~$1,550 PPP) × 12 months = ~$18,600 PPP/year. Annual working hours ~2,168 (ILO Thailand). Hours per $1,000 ≈ 2,168 / 18.6 = ~116h. Range reflects uncertainty in PPP conversion and which wage measure is used. OECD data: Our World in Data / OECD, 2023.",
+              "การประมาณการไทย: ค่าจ้างเฉลี่ยรายเดือน ILO/NSO (~15,500 บาท / ~$1,550 PPP) × 12 เดือน = ~$18,600 PPP/ปี ชั่วโมงทำงานต่อปี ~2,168 (ILO ไทย) ชั่วโมงต่อ $1,000 ≈ ~116 ชั่วโมง",
+              "泰国估算：ILO/NSO月均工资（约15,500泰铢/$1,550 PPP）× 12个月 = 约$18,600 PPP/年。年工作小时约2,168小时（ILO泰国数据）。每$1,000所需小时≈2,168/18.6≈116小时。",
+              "태국 추정: ILO/NSO 월평균 임금(~15,500 THB/$1,550 PPP) × 12개월 = ~$18,600 PPP/년. 연간 근무시간 ~2,168시간. $1,000당 시간 ≈ 116시간.",
+              "タイ推定：ILO/NSO月平均賃金（約15,500バーツ/$1,550 PPP）×12ヶ月=約$18,600 PPP/年。年間労働時間約2,168時間。$1,000あたり時間≈116時間。"
             )}
           </p>
         </section>

@@ -41,27 +41,31 @@ interface PublishedCity {
 const rankedCities = ((publishedData.cities ?? []) as PublishedCity[]).filter((c) => c.rankingStatus === "Ranked");
 
 /* ─── Billionaire capital vs livability: cities present in both datasets ─── */
+/* tfr = country-level total fertility rate, 2023 (UN / World Bank) */
 const BILLI_DATA: Array<{
-  name: string; b: number; s: number;
+  name: string; b: number; s: number; tfr: number;
   labeled: boolean; hero?: boolean;
   lx: number; ly: number; la: string;
 }> = [
-  { name: "New York",   b: 146, s: 66.4, labeled: true,  lx:  9, ly:  4, la: "start" },
-  { name: "Shenzhen",   b: 132, s: 43.7, labeled: true,  lx:  0, ly: -9, la: "middle" },
-  { name: "Shanghai",   b: 120, s: 42.3, labeled: false, lx:  0, ly:  0, la: "middle" },
-  { name: "London",     b: 102, s: 65.6, labeled: true,  lx: -9, ly:  4, la: "end" },
-  { name: "Moscow",     b:  82, s: 31.4, labeled: true,  lx:  0, ly: 14, la: "middle" },
-  { name: "Hangzhou",   b:  64, s: 42.6, labeled: false, lx:  0, ly:  0, la: "middle" },
-  { name: "Singapore",  b:  51, s: 62.8, labeled: true,  lx:  9, ly:  4, la: "start" },
-  { name: "São Paulo",  b:  51, s: 45.5, labeled: false, lx:  0, ly:  0, la: "middle" },
-  { name: "Taipei",     b:  49, s: 61.2, labeled: false, lx:  0, ly:  0, la: "middle" },
-  { name: "Paris",      b:  44, s: 53.2, labeled: false, lx:  0, ly:  0, la: "middle" },
-  { name: "Guangzhou",  b:  41, s: 45.1, labeled: false, lx:  0, ly:  0, la: "middle" },
-  { name: "Bangkok",    b:  38, s: 53.7, labeled: true,  lx:  9, ly:  4, la: "start", hero: true },
-  { name: "Tokyo",      b:  31, s: 60.4, labeled: true,  lx:  0, ly: -9, la: "middle" },
-  { name: "Bengaluru",  b:  30, s: 36.2, labeled: false, lx:  0, ly:  0, la: "middle" },
-  { name: "Milan",      b:  29, s: 61.2, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "New York",   b: 146, s: 66.4, tfr: 1.62, labeled: true,  lx:  9, ly:  4, la: "start" },
+  { name: "Shenzhen",   b: 132, s: 43.7, tfr: 1.09, labeled: true,  lx:  0, ly: -9, la: "middle" },
+  { name: "Shanghai",   b: 120, s: 42.3, tfr: 1.09, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "London",     b: 102, s: 65.6, tfr: 1.49, labeled: true,  lx: -9, ly:  4, la: "end" },
+  { name: "Moscow",     b:  82, s: 31.4, tfr: 1.41, labeled: true,  lx:  0, ly: 14, la: "middle" },
+  { name: "Hangzhou",   b:  64, s: 42.6, tfr: 1.09, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "Singapore",  b:  51, s: 62.8, tfr: 1.04, labeled: true,  lx:  9, ly:  4, la: "start" },
+  { name: "São Paulo",  b:  51, s: 45.5, tfr: 1.77, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "Taipei",     b:  49, s: 61.2, tfr: 0.87, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "Paris",      b:  44, s: 53.2, tfr: 1.68, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "Guangzhou",  b:  41, s: 45.1, tfr: 1.09, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "Bangkok",    b:  38, s: 53.7, tfr: 1.32, labeled: true,  lx:  9, ly:  4, la: "start", hero: true },
+  { name: "Tokyo",      b:  31, s: 60.4, tfr: 1.20, labeled: true,  lx:  0, ly: -9, la: "middle" },
+  { name: "Bengaluru",  b:  30, s: 36.2, tfr: 2.03, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "Milan",      b:  29, s: 61.2, tfr: 1.24, labeled: false, lx:  0, ly:  0, la: "middle" },
 ];
+/* TFR quadrant thresholds (used for generational optimism section) */
+const TFR_HIGH = 1.5;   // above = "hopeful" signal (below replacement but meaningfully above sub-1.5)
+const BILLI_HIGH = 55;  // billionaires
 /* SVG scatter layout constants */
 const SML = 60, SMR = 25, SMT = 35, SMB = 50, SW = 640, SH = 370;
 const SPW = SW - SML - SMR, SPH = SH - SMT - SMB;
@@ -516,6 +520,82 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
             "左上角群体——东京、米兰、台北、新加坡——以较少的亿万富翁实现了高SLIC得分。右下角群体显示中国城市拥有非凡的资本集中度，但未能在宜居指标上得到体现。曼谷处于中间位置：比地区同行有更强的经济引力，但宜居性仍有提升空间。",
             "왼쪽 상단 그룹 — 도쿄, 밀라노, 타이베이, 싱가포르 — 은 적은 수의 억만장자로 높은 SLIC 점수를 달성합니다. 오른쪽 하단 그룹은 엄청난 자본 집중이 생활가능성 지표에 반영되지 않는 중국 도시들을 보여줍니다. 방콕은 중간 지점에 위치합니다.",
             "左上のクラスター（東京、ミラノ、台北、シンガポール）は、少ない億万長者数で高いSLICスコアを達成しています。右下のクラスターは、驚異的な資本集中が宜住指標に反映されていない中国の都市を示しています。バンコクは中央に位置しています。"
+          )}
+        </p>
+      </section>
+
+      {/* ═══════ 08. GENERATIONAL OPTIMISM — TFR × CAPITAL ═══════ */}
+      <section className="compare-tfr-section section">
+        <h2 className="compare-section-title">
+          {t(locale, "Capital × future: generational optimism", "ทุน × อนาคต: ความหวังของคนรุ่นใหม่", "资本 × 未来：世代乐观主义", "자본 × 미래: 세대적 낙관주의", "資本 × 未来：世代的楽観主義")}
+        </h2>
+        <p className="compare-section-sub">
+          {t(locale,
+            "Total fertility rate (UN/World Bank, 2023) for the 15 cities in both the billionaire and SLIC datasets. Cities above 1.5 TFR are making a revealed-preference bet on the future; below 1.5, the demographic signal is cautionary. Replacement rate is 2.1.",
+            "อัตราเจริญพันธุ์รวม (UN/World Bank, 2023) สำหรับ 15 เมืองในชุดข้อมูลทั้งมหาเศรษฐีและ SLIC เมืองที่มี TFR สูงกว่า 1.5 กำลังแสดงการเดิมพันที่เปิดเผยต่ออนาคต ต่ำกว่า 1.5 สัญญาณประชากรเป็นการเตือน",
+            "15个同时在亿万富翁和SLIC数据集中的城市的总和生育率（联合国/世界银行，2023年）。TFR高于1.5的城市正在对未来做出显性偏好押注；低于1.5，人口信号是警示性的。替代率为2.1。",
+            "억만장자 및 SLIC 데이터셋에 있는 15개 도시의 총합계출산율(UN/세계은행, 2023). TFR 1.5 이상은 미래에 대한 선호 베팅을 나타냅니다.",
+            "億万長者とSLICデータセット両方に含まれる15都市の合計特殊出生率（UN/世界銀行、2023年）。TFR1.5以上の都市は未来への投票を示しています。"
+          )}
+        </p>
+
+        {/* 4-quadrant grid */}
+        <div className="compare-tfr-grid">
+          {/* Q1: Capital + Future */}
+          <article className="compare-tfr-card compare-tfr-card--q1">
+            <p className="compare-tfr-card-label">{t(locale, "Capital + Future", "ทุน + อนาคต", "资本 + 未来", "자본 + 미래", "資本 + 未来")}</p>
+            <p className="compare-tfr-card-sub">{t(locale, "TFR ≥ 1.5 · Billionaires ≥ 55", "TFR ≥ 1.5 · มหาเศรษฐี ≥ 55", "TFR ≥ 1.5 · 亿万富翁 ≥ 55", "TFR ≥ 1.5 · 억만장자 ≥ 55", "TFR ≥ 1.5 · 億万長者 ≥ 55")}</p>
+            <div className="compare-tfr-cities">
+              {BILLI_DATA.filter(d => d.tfr >= TFR_HIGH && d.b >= BILLI_HIGH).map(d => (
+                <span key={d.name} className="compare-tfr-city">{d.name} <em>{d.tfr.toFixed(2)}</em></span>
+              ))}
+            </div>
+            <p className="compare-tfr-note">{t(locale, "Rare. Capital accumulation and demographic optimism co-existing.", "หายาก ทุนสะสมและความหวังทางประชากรศาสตร์อยู่ร่วมกัน", "罕见。资本积累与人口乐观主义共存。", "드뭅니다. 자본 축적과 인구 낙관주의의 공존.", "希少。資本蓄積と人口的楽観主義の共存。")}</p>
+          </article>
+
+          {/* Q2: Future Momentum */}
+          <article className="compare-tfr-card compare-tfr-card--q2">
+            <p className="compare-tfr-card-label">{t(locale, "Future Momentum", "แรงขับเคลื่อนอนาคต", "未来动力", "미래 모멘텀", "未来の勢い")}</p>
+            <p className="compare-tfr-card-sub">{t(locale, "TFR ≥ 1.5 · Billionaires < 55", "TFR ≥ 1.5 · มหาเศรษฐี < 55", "TFR ≥ 1.5 · 亿万富翁 < 55", "TFR ≥ 1.5 · 억만장자 < 55", "TFR ≥ 1.5 · 億万長者 < 55")}</p>
+            <div className="compare-tfr-cities">
+              {BILLI_DATA.filter(d => d.tfr >= TFR_HIGH && d.b < BILLI_HIGH).map(d => (
+                <span key={d.name} className="compare-tfr-city">{d.name} <em>{d.tfr.toFixed(2)}</em></span>
+              ))}
+            </div>
+            <p className="compare-tfr-note">{t(locale, "Future-betting without corresponding capital concentration.", "เดิมพันกับอนาคตโดยไม่มีการกระจุกตัวของทุนที่สอดคล้องกัน", "对未来押注，但没有相应的资本集中。", "자본 집중 없이 미래에 베팅.", "相応の資本集中なしで未来に賭ける。")}</p>
+          </article>
+
+          {/* Q3: Wealth Without Future */}
+          <article className="compare-tfr-card compare-tfr-card--q3">
+            <p className="compare-tfr-card-label">{t(locale, "Wealth Without Future", "ความมั่งคั่งไร้อนาคต", "没有未来的财富", "미래 없는 부", "未来なき富")}</p>
+            <p className="compare-tfr-card-sub">{t(locale, "TFR < 1.5 · Billionaires ≥ 55", "TFR < 1.5 · มหาเศรษฐี ≥ 55", "TFR < 1.5 · 亿万富翁 ≥ 55", "TFR < 1.5 · 억만장자 ≥ 55", "TFR < 1.5 · 億万長者 ≥ 55")}</p>
+            <div className="compare-tfr-cities">
+              {BILLI_DATA.filter(d => d.tfr < TFR_HIGH && d.b >= BILLI_HIGH).map(d => (
+                <span key={d.name} className="compare-tfr-city">{d.name} <em>{d.tfr.toFixed(2)}</em></span>
+              ))}
+            </div>
+            <p className="compare-tfr-note">{t(locale, "Capital without renewal. The largest cluster of cities in this dataset.", "ทุนโดยไม่มีการต่ออายุ กลุ่มเมืองที่ใหญ่ที่สุดในชุดข้อมูลนี้", "没有更新的资本。该数据集中最大的城市集群。", "갱신 없는 자본. 이 데이터셋에서 가장 큰 도시 클러스터.", "更新なき資本。このデータセットで最大の都市クラスター。")}</p>
+          </article>
+
+          {/* Q4: Demographic Headwind */}
+          <article className="compare-tfr-card compare-tfr-card--q4">
+            <p className="compare-tfr-card-label">{t(locale, "Demographic Headwind", "แรงต้านประชากรศาสตร์", "人口逆风", "인구통계학적 역풍", "人口学的逆風")}</p>
+            <p className="compare-tfr-card-sub">{t(locale, "TFR < 1.5 · Billionaires < 55", "TFR < 1.5 · มหาเศรษฐี < 55", "TFR < 1.5 · 亿万富翁 < 55", "TFR < 1.5 · 억만장자 < 55", "TFR < 1.5 · 億万長者 < 55")}</p>
+            <div className="compare-tfr-cities">
+              {BILLI_DATA.filter(d => d.tfr < TFR_HIGH && d.b < BILLI_HIGH).map(d => (
+                <span key={d.name} className={`compare-tfr-city${d.hero ? " compare-tfr-city--hero" : ""}`}>{d.name} <em>{d.tfr.toFixed(2)}</em></span>
+              ))}
+            </div>
+            <p className="compare-tfr-note">{t(locale, "Below-replacement TFR with modest capital gravity. Bangkok sits here alongside Tokyo, Milan, and Taipei — a city with more economic weight than its demographic signal suggests.", "TFR ต่ำกว่าอัตราทดแทนพร้อมแรงดึงดูดทุนที่พอประมาณ กรุงเทพฯ อยู่ที่นี่ร่วมกับโตเกียว มิลาน และไทเป", "低于替代率的TFR，资本引力有限。曼谷与东京、米兰、台北并列——一座经济分量超过其人口信号的城市。", "보충 TFR 이하에 자본 중력이 낮습니다. 방콕은 도쿄, 밀라노, 타이베이와 함께 여기 위치합니다.", "補充TFR以下で資本重力は控えめ。バンコクは東京、ミラノ、台北とともにここに位置しています。")}</p>
+          </article>
+        </div>
+        <p className="compare-scatter-note">
+          {t(locale,
+            "TFR source: UN World Population Prospects 2024 / World Bank WDI (country-level). 5-year trend for all 15 cities is declining — none of the plotted countries has reversed its fertility trajectory since 2018. The China curve (peaked 1.41b in 2023, projected to return to 600m by 2100) is the extreme case Thailand is watching 20 years behind.",
+            "ที่มา TFR: UN World Population Prospects 2024 / World Bank WDI (ระดับประเทศ) แนวโน้ม 5 ปีของทั้ง 15 เมืองกำลังลดลง — ไม่มีประเทศใดในกราฟที่พลิกกลับวิถีเจริญพันธุ์ตั้งแต่ปี 2018",
+            "TFR来源：联合国人口展望2024 / 世界银行WDI（国家层面）。全部15个城市的5年趋势均下降——自2018年以来，没有一个国家逆转了其生育率轨迹。",
+            "TFR 출처: UN 세계 인구 전망 2024 / 세계은행 WDI (국가 수준). 15개 도시 모두 5년 추세가 하락 중.",
+            "TFR出典：国連世界人口予測2024/世界銀行WDI（国レベル）。15都市すべての5年トレンドは下降中。"
           )}
         </p>
       </section>

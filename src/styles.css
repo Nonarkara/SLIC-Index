@@ -11776,3 +11776,75 @@ a.essay-reference-text:hover {
     font-size: 12px;
   }
 }
+
+/* TFR × CAPITAL QUADRANT (CompareRankingsPage) */
+.compare-tfr-section { padding: 3rem 0; border-top: 1px solid var(--border); }
+.compare-tfr-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 2rem 0 1.5rem;
+}
+.compare-tfr-card {
+  background: var(--bg);
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+.compare-tfr-card--q1 { background: color-mix(in srgb, var(--accent) 4%, var(--bg)); }
+.compare-tfr-card--q3 { background: color-mix(in srgb, #888 4%, var(--bg)); }
+.compare-tfr-card-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.25rem;
+}
+.compare-tfr-card--q1 .compare-tfr-card-label { color: var(--accent); }
+.compare-tfr-card--q3 .compare-tfr-card-label,
+.compare-tfr-card--q4 .compare-tfr-card-label { color: var(--text-muted); }
+.compare-tfr-card-sub {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  margin: 0 0 0.75rem;
+}
+.compare-tfr-cities {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.75rem;
+  margin: 0 0 0.75rem;
+}
+.compare-tfr-city {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text);
+  white-space: nowrap;
+}
+.compare-tfr-city em {
+  font-style: normal;
+  color: var(--text-muted);
+  font-size: 10px;
+}
+.compare-tfr-city--hero {
+  color: var(--accent);
+  font-weight: 600;
+}
+.compare-tfr-note {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}
+
+/* HOURS FOR $1,000 (ThailandPage) */
+.th-hours-section { padding: 3rem 0; border-top: 1px solid var(--border); }
+.th-hours-table-wrap { overflow-x: auto; margin: 1.5rem 0 1rem; }
+
+@media (max-width: 600px) {
+  .compare-tfr-grid { grid-template-columns: 1fr; }
+  .th-hours-section .section-heading { flex-direction: column; gap: 0.75rem; }
+}
