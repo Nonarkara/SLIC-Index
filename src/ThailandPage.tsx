@@ -545,6 +545,73 @@ export default function ThailandPage({
           </section>
         )}
 
+        {/* ASEAN capital gravity cluster */}
+        <section className="th-asean-cluster section">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">{t(locale, "Capital gravity", "แรงดึงดูดทุน", "资本引力", "자본 중력", "資本重力")}</p>
+              <h2>{t(locale, "Bangkok in the ASEAN billionaire cluster", "กรุงเทพฯ ในกลุ่มมหาเศรษฐีอาเซียน", "曼谷在东盟亿万富翁集群中的位置", "ASEAN 억만장자 클러스터에서의 방콕", "ASEANの億万長者クラスターにおけるバンコク")}</h2>
+            </div>
+            <p className="section-summary">
+              {t(locale,
+                "Bangkok ranks 17th globally for billionaire concentration with 38 billionaires — ahead of Seoul, Tokyo, and most of Europe. Among the ASEAN-adjacent cities that compete for regional capital, it sits in a distinct position: more economic gravity than its SLIC rank alone would suggest.",
+                "กรุงเทพฯ อยู่อันดับที่ 17 ของโลกในด้านการกระจุกตัวของมหาเศรษฐีด้วยจำนวน 38 คน — นำหน้าโซล โตเกียว และยุโรปส่วนใหญ่ ในกลุ่มเมืองใกล้เคียงอาเซียนที่แข่งขันเพื่อดึงดูดทุนในภูมิภาค กรุงเทพฯ อยู่ในตำแหน่งที่โดดเด่น",
+                "曼谷以38位亿万富翁在全球亿万富翁集中度排名第17位——领先于首尔、东京和欧洲大部分地区。在争夺区域资本的东盟邻近城市中，它处于独特地位：经济引力远超其SLIC排名所呈现的。",
+                "방콕은 38명의 억만장자를 보유하여 글로벌 억만장자 집중도 17위를 기록합니다 — 서울, 도쿄, 유럽 대부분을 앞섭니다.",
+                "バンコクは38人の億万長者を擁し、世界的な億万長者集積度で17位にランクインしています — ソウル、東京、そしてヨーロッパの大部分を上回っています。"
+              )}
+            </p>
+          </div>
+          <div className="th-asean-table-wrap">
+            <table className="th-asean-table">
+              <thead>
+                <tr>
+                  <th>{t(locale, "City", "เมือง", "城市", "도시", "都市")}</th>
+                  <th>{t(locale, "Billionaire rank", "อันดับมหาเศรษฐี", "富豪排名", "억만장자 순위", "富豪ランク")}</th>
+                  <th>{t(locale, "Billionaires", "มหาเศรษฐี", "亿万富翁", "억만장자", "億万長者")}</th>
+                  <th>{t(locale, "SLIC rank", "อันดับ SLIC", "SLIC排名", "SLIC 순위", "SLICランク")}</th>
+                  <th>{t(locale, "SLIC score", "คะแนน SLIC", "SLIC得分", "SLIC 점수", "SLICスコア")}</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="th-asean-highlight">
+                  <td><strong>Bangkok</strong></td>
+                  <td>#17</td><td>38</td><td>#66</td><td>53.7</td>
+                </tr>
+                <tr>
+                  <td>Singapore</td>
+                  <td>#12</td><td>51</td><td>#34</td><td>62.8</td>
+                </tr>
+                <tr>
+                  <td>Shanghai</td>
+                  <td>#3</td><td>120</td><td>#107</td><td>42.3</td>
+                </tr>
+                <tr>
+                  <td>Hong Kong</td>
+                  <td>#7</td><td>88</td><td style={{ color: "var(--text-muted)", fontStyle: "italic" }} colSpan={2}>
+                    {t(locale, "not in SLIC dataset", "ไม่อยู่ในชุดข้อมูล SLIC", "不在SLIC数据集中", "SLIC 데이터셋 미포함", "SLICデータセット未収録")}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Mumbai</td>
+                  <td>#6</td><td>90</td><td style={{ color: "var(--text-muted)", fontStyle: "italic" }} colSpan={2}>
+                    {t(locale, "not in SLIC dataset", "ไม่อยู่ในชุดข้อมูล SLIC", "不在SLIC数据集中", "SLIC 데이터셋 미포함", "SLICデータセット未収录")}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p className="th-asean-note">
+            {t(locale,
+              "Source: Visual Capitalist / Voronoi 2026 Forbes Billionaires data. Hong Kong and Mumbai are not yet in the SLIC dataset — candidates for v4 expansion.",
+              "ที่มา: Visual Capitalist / Voronoi ข้อมูลมหาเศรษฐีฟอร์บส 2026 ฮ่องกงและมุมไบยังไม่อยู่ในชุดข้อมูล SLIC — ผู้สมัครสำหรับการขยายตัวใน v4",
+              "来源：Visual Capitalist / Voronoi 2026年福布斯亿万富翁数据。香港和孟买尚未纳入SLIC数据集——是v4扩展的候选城市。",
+              "출처: Visual Capitalist / Voronoi 2026 포브스 억만장자 데이터. 홍콩과 뭄바이는 아직 SLIC 데이터셋에 없습니다 — v4 확장 후보.",
+              "出典：Visual Capitalist / Voronoi 2026年フォーブス億万長者データ。香港とムンバイはまだSLICデータセットに含まれていません — v4拡張の候補。"
+            )}
+          </p>
+        </section>
+
         <section className="paper-section section">
           <div className="section-heading">
             <div>

@@ -11690,3 +11690,89 @@ a.essay-reference-text:hover {
     min-width: 44px !important;
   }
 }
+
+/* ═══════════════════════════════════════════════
+   BILLIONAIRE CAPITAL SCATTER (CompareRankingsPage)
+   ═══════════════════════════════════════════════ */
+.compare-scatter-section {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.compare-scatter-wrap {
+  background: #1c1914;
+  padding: 1rem;
+  margin: 2rem 0 1.5rem;
+  overflow-x: auto;
+}
+
+.compare-scatter-note {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-muted);
+  max-width: 720px;
+  margin: 0;
+}
+
+/* ═══════════════════════════════════════════════
+   ASEAN CAPITAL CLUSTER (ThailandPage)
+   ═══════════════════════════════════════════════ */
+.th-asean-cluster {
+  padding: 3rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.th-asean-table-wrap {
+  overflow-x: auto;
+  margin: 1.5rem 0 1rem;
+}
+
+.th-asean-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.th-asean-table th {
+  text-align: left;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+.th-asean-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.th-asean-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.th-asean-highlight td {
+  background: color-mix(in srgb, var(--accent) 6%, transparent);
+}
+
+.th-asean-highlight td:first-child {
+  border-left: 3px solid var(--accent);
+}
+
+.th-asean-note {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0.5rem 0 0;
+}
+
+@media (max-width: 600px) {
+  .th-asean-table th,
+  .th-asean-table td {
+    padding: 8px 8px;
+    font-size: 12px;
+  }
+}

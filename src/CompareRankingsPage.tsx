@@ -40,6 +40,36 @@ interface PublishedCity {
 }
 const rankedCities = ((publishedData.cities ?? []) as PublishedCity[]).filter((c) => c.rankingStatus === "Ranked");
 
+/* ─── Billionaire capital vs livability: cities present in both datasets ─── */
+const BILLI_DATA: Array<{
+  name: string; b: number; s: number;
+  labeled: boolean; hero?: boolean;
+  lx: number; ly: number; la: string;
+}> = [
+  { name: "New York",   b: 146, s: 66.4, labeled: true,  lx:  9, ly:  4, la: "start" },
+  { name: "Shenzhen",   b: 132, s: 43.7, labeled: true,  lx:  0, ly: -9, la: "middle" },
+  { name: "Shanghai",   b: 120, s: 42.3, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "London",     b: 102, s: 65.6, labeled: true,  lx: -9, ly:  4, la: "end" },
+  { name: "Moscow",     b:  82, s: 31.4, labeled: true,  lx:  0, ly: 14, la: "middle" },
+  { name: "Hangzhou",   b:  64, s: 42.6, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "Singapore",  b:  51, s: 62.8, labeled: true,  lx:  9, ly:  4, la: "start" },
+  { name: "São Paulo",  b:  51, s: 45.5, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "Taipei",     b:  49, s: 61.2, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "Paris",      b:  44, s: 53.2, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "Guangzhou",  b:  41, s: 45.1, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "Bangkok",    b:  38, s: 53.7, labeled: true,  lx:  9, ly:  4, la: "start", hero: true },
+  { name: "Tokyo",      b:  31, s: 60.4, labeled: true,  lx:  0, ly: -9, la: "middle" },
+  { name: "Bengaluru",  b:  30, s: 36.2, labeled: false, lx:  0, ly:  0, la: "middle" },
+  { name: "Milan",      b:  29, s: 61.2, labeled: false, lx:  0, ly:  0, la: "middle" },
+];
+/* SVG scatter layout constants */
+const SML = 60, SMR = 25, SMT = 35, SMB = 50, SW = 640, SH = 370;
+const SPW = SW - SML - SMR, SPH = SH - SMT - SMB;
+function scX(b: number): number { return SML + (b / 155) * SPW; }
+function scY(s: number): number { return SMT + (1 - s / 100) * SPH; }
+const SREF_Y = scY(53);  // SLIC ≈ 53 reference
+const SREF_X = scX(52);  // billionaire cluster boundary
+
 /** AMPI across pillars — matches the published SLIC aggregation. */
 function scoreCity(city: PublishedCity, weights: Record<PillarId, number>): number {
   return scoreCityWithWeights({
@@ -411,6 +441,83 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           <a className="v3-cta" href={appHref("/methodology")} onClick={(event) => navigateLink(event, onNavigate, "/methodology")}>{t(locale, "READ THE FULL METHODOLOGY", "อ่านระเบียบวิธีเต็ม", "阅读完整方法论", "전체 방법론 읽기", "完全な方法論を読む")} &rarr;</a>
           <a className="v3-cta-secondary" href={appHref("/rankings")} onClick={(event) => navigateLink(event, onNavigate, "/rankings")}>{t(locale, "SEE THE SLIC RANKING", "ดูอันดับ SLIC", "查看SLIC排名", "SLIC 순위 보기", "SLICランキングを見る")}</a>
         </div>
+      </section>
+
+      {/* ═══════ 07. BILLIONAIRE CAPITAL SCATTER ═══════ */}
+      <section className="compare-scatter-section section">
+        <h2 className="compare-section-title">
+          {t(locale, "Capital gravity vs. livability", "แรงดึงดูดทุนกับคุณภาพชีวิต", "资本引力与宜居性", "자본 중력 대 생활가능성", "資本重力と宜住性")}
+        </h2>
+        <p className="compare-section-sub">
+          {t(locale,
+            "15 cities that appear in both the 2026 Forbes Billionaires list and the SLIC dataset — each plotted by billionaire count (x) and SLIC livability score (y). The shape of the cloud is the editorial.",
+            "15 เมืองที่ปรากฏในทั้งรายชื่อมหาเศรษฐีฟอร์บส 2026 และฐานข้อมูล SLIC — แต่ละจุดแสดงจำนวนมหาเศรษฐี (แกน x) และคะแนนคุณภาพชีวิต SLIC (แกน y)",
+            "15个同时出现在2026年福布斯富豪榜和SLIC数据集中的城市 — 按亿万富翁数量（x轴）和SLIC宜居得分（y轴）绘制。",
+            "2026년 포브스 억만장자 명단과 SLIC 데이터셋 양쪽에 등장하는 15개 도시 — 억만장자 수(x)와 SLIC 생활가능성 점수(y)로 표시.",
+            "2026年フォーブス長者番付とSLICデータセット両方に登場する15都市 — 億万長者数（x）とSLIC宜住スコア（y）でプロット。"
+          )}
+        </p>
+        <div className="compare-scatter-wrap">
+          <svg viewBox={`0 0 ${SW} ${SH}`} role="img" aria-label="Scatter chart: billionaire count vs SLIC livability score" style={{ display: "block", width: "100%", maxWidth: "640px", margin: "0 auto" }}>
+            <rect x="0" y="0" width={SW} height={SH} fill="#1c1914" />
+            {/* Grid */}
+            {[0, 25, 50, 75, 100].map(s => (
+              <line key={`gy${s}`} x1={SML} x2={SW - SMR} y1={scY(s)} y2={scY(s)} stroke="#f8f5f0" strokeWidth="0.5" strokeOpacity="0.1" />
+            ))}
+            {[0, 40, 80, 120, 155].map(b => (
+              <line key={`gx${b}`} x1={scX(b)} x2={scX(b)} y1={SMT} y2={SH - SMB} stroke="#f8f5f0" strokeWidth="0.5" strokeOpacity="0.1" />
+            ))}
+            {/* Reference lines */}
+            <line x1={SML} x2={SW - SMR} y1={SREF_Y} y2={SREF_Y} stroke="#b85c28" strokeWidth="1" strokeOpacity="0.35" strokeDasharray="4 4" />
+            <line x1={SREF_X} x2={SREF_X} y1={SMT} y2={SH - SMB} stroke="#b85c28" strokeWidth="1" strokeOpacity="0.35" strokeDasharray="4 4" />
+            {/* Quadrant labels */}
+            <text x={SML + 8} y={SMT + 15} fill="#f8f5f0" fillOpacity="0.18" fontSize="8" fontFamily="'JetBrains Mono', monospace">LIVABLE · UNDERSTATED</text>
+            <text x={SREF_X + 8} y={SMT + 15} fill="#f8f5f0" fillOpacity="0.18" fontSize="8" fontFamily="'JetBrains Mono', monospace">CAPITAL + QUALITY</text>
+            <text x={SML + 8} y={SH - SMB - 8} fill="#f8f5f0" fillOpacity="0.18" fontSize="8" fontFamily="'JetBrains Mono', monospace">LIMITED CAPITAL</text>
+            <text x={SREF_X + 8} y={SH - SMB - 8} fill="#f8f5f0" fillOpacity="0.18" fontSize="8" fontFamily="'JetBrains Mono', monospace">BILLIONAIRE FACTORIES</text>
+            {/* Dots */}
+            {BILLI_DATA.map(d => (
+              <circle key={d.name} cx={scX(d.b)} cy={scY(d.s)}
+                r={d.hero ? 7 : 5}
+                fill={d.hero ? "#b85c28" : "#f8f5f0"}
+                fillOpacity={d.hero ? 1 : 0.55}
+              />
+            ))}
+            {/* Labels */}
+            {BILLI_DATA.filter(d => d.labeled).map(d => (
+              <text key={`lbl${d.name}`}
+                x={scX(d.b) + d.lx}
+                y={scY(d.s) + d.ly}
+                fill={d.hero ? "#b85c28" : "#f8f5f0"}
+                fillOpacity={d.hero ? 1 : 0.7}
+                fontSize="10"
+                fontFamily="'JetBrains Mono', monospace"
+                textAnchor={d.la}
+              >
+                {d.name}
+              </text>
+            ))}
+            {/* Axis ticks */}
+            {[0, 40, 80, 120, 155].map(b => (
+              <text key={`xt${b}`} x={scX(b)} y={SH - SMB + 16} fill="#f8f5f0" fillOpacity="0.35" fontSize="9" fontFamily="'JetBrains Mono', monospace" textAnchor="middle">{b}</text>
+            ))}
+            {[0, 25, 50, 75, 100].map(s => (
+              <text key={`yt${s}`} x={SML - 6} y={scY(s) + 3} fill="#f8f5f0" fillOpacity="0.35" fontSize="9" fontFamily="'JetBrains Mono', monospace" textAnchor="end">{s}</text>
+            ))}
+            {/* Axis captions */}
+            <text x={SW / 2} y={SH - 6} fill="#f8f5f0" fillOpacity="0.3" fontSize="9" fontFamily="'JetBrains Mono', monospace" textAnchor="middle">BILLIONAIRES (VISUAL CAPITALIST / VORONOI, 2026)</text>
+            <text x={14} y={SMT + SPH / 2} fill="#f8f5f0" fillOpacity="0.3" fontSize="9" fontFamily="'JetBrains Mono', monospace" textAnchor="middle" transform={`rotate(-90 14 ${SMT + SPH / 2})`}>SLIC SCORE</text>
+          </svg>
+        </div>
+        <p className="compare-scatter-note">
+          {t(locale,
+            "The top-left cluster — Tokyo, Milan, Taipei, Singapore — achieves high SLIC scores with modest billionaire counts. The bottom-right cluster shows Chinese cities whose extraordinary capital concentration is not matched by livability metrics. Bangkok sits at the median: more economic gravity than its regional peers, with livability headroom that makes it the city to watch.",
+            "กลุ่มซ้ายบน — โตเกียว มิลาน ไทเป สิงคโปร์ — บรรลุคะแนน SLIC สูงด้วยจำนวนมหาเศรษฐีที่ไม่มาก กลุ่มขวาล่างแสดงเมืองจีนที่มีการกระจุกตัวของทุนมหาศาลแต่ไม่สะท้อนในตัวชี้วัดคุณภาพชีวิต กรุงเทพฯ อยู่ที่จุดกึ่งกลาง: มีแรงดึงดูดทางเศรษฐกิจมากกว่าเพื่อนบ้านในภูมิภาค พร้อมศักยภาพคุณภาพชีวิตที่ยังมีห้องให้เติบโต",
+            "左上角群体——东京、米兰、台北、新加坡——以较少的亿万富翁实现了高SLIC得分。右下角群体显示中国城市拥有非凡的资本集中度，但未能在宜居指标上得到体现。曼谷处于中间位置：比地区同行有更强的经济引力，但宜居性仍有提升空间。",
+            "왼쪽 상단 그룹 — 도쿄, 밀라노, 타이베이, 싱가포르 — 은 적은 수의 억만장자로 높은 SLIC 점수를 달성합니다. 오른쪽 하단 그룹은 엄청난 자본 집중이 생활가능성 지표에 반영되지 않는 중국 도시들을 보여줍니다. 방콕은 중간 지점에 위치합니다.",
+            "左上のクラスター（東京、ミラノ、台北、シンガポール）は、少ない億万長者数で高いSLICスコアを達成しています。右下のクラスターは、驚異的な資本集中が宜住指標に反映されていない中国の都市を示しています。バンコクは中央に位置しています。"
+          )}
+        </p>
       </section>
 
       <SiteFooter onNavigate={onNavigate} locale={locale} />
