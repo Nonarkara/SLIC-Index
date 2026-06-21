@@ -732,6 +732,110 @@ export default function ThailandPage({
           </p>
         </section>
 
+        <section className="th-geology-section section">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">{t(locale, "Axis 7 — Substrate Vulnerability", "แกนที่ 7 — ความเปราะบางของชั้นดิน", "第7轴 — 地质脆弱性", "7축 — 지반 취약성", "軸7 — 地盤脆弱性")}</p>
+              <h2>{t(locale, "Built on 2,000-Year Sediment", "กรุงเทพฯ บนตะกอนอายุ 2,000 ปี", "建于两千年沉积层之上", "2,000년 퇴적층 위에 세워진 도시", "2,000年の堆積物の上に建つ都市")}</h2>
+            </div>
+            <p className="section-summary">{t(locale,
+              "Bangkok did not exist 8,000 years ago — the land it stands on was open sea. The Chao Phraya and Mae Klong rivers spent 6,000 years depositing the sediment that made it habitable. The same rivers are still depositing. The same sea is still trying to return.",
+              "กรุงเทพฯ ไม่ได้มีอยู่เมื่อ 8,000 ปีก่อน — พื้นที่ที่เมืองตั้งอยู่นั้นเคยเป็นทะเลเปิด แม่น้ำเจ้าพระยาและแม่กลองใช้เวลา 6,000 ปีในการทับถมตะกอนจนกลายเป็นพื้นที่อยู่อาศัยได้ แม่น้ำยังคงทับถมอยู่ ทะเลก็ยังคงพยายามกลับคืนมา",
+              "8,000年前，曼谷并不存在——它所在的土地曾是开阔的大海。昭披耶河和湄公河花了6,000年沉积泥沙，才使这片土地适合居住。这些河流至今仍在沉积，大海也仍在试图归来。",
+              "8,000년 전 방콕은 존재하지 않았습니다 — 그 땅은 열린 바다였습니다. 짜오프라야강과 매끌롱강이 6,000년에 걸쳐 퇴적물을 쌓아 거주 가능한 땅을 만들었습니다. 강은 여전히 퇴적 중이고, 바다는 여전히 돌아오려 하고 있습니다.",
+              "8,000年前、バンコクは存在しませんでした—その土地は開けた海でした。チャオプラヤー川とメークロン川が6,000年かけて堆積物を積み上げ、居住可能な土地を作りました。川は今も堆積を続け、海は今も戻ろうとしています。"
+            )}</p>
+          </div>
+
+          <div className="th-geology-timeline">
+            <div className="th-geology-panel">
+              <span className="th-geology-panel-year">8,000 ya</span>
+              <span className="th-geology-panel-era">{t(locale, "Maximum marine intrusion", "ทะเลรุกล้ำที่สุด", "最大海侵", "최대 해침기", "最大海進期")}</span>
+              <p className="th-geology-panel-desc">{t(locale,
+                "Sea level several metres higher than today. Bangkok area was open sea — the Ancient Ayutthaya Bay. Most of central Thailand was submerged.",
+                "ระดับน้ำทะเลสูงกว่าปัจจุบันหลายเมตร พื้นที่กรุงเทพฯ เป็นทะเลเปิด — อ่าวอยุธยาโบราณ",
+                "海平面比今天高出数米。曼谷地区是开阔的大海——古代大城湾，泰国中部大部分地区被淹没。",
+                "해수면이 현재보다 수 미터 높았습니다. 방콕 지역은 열린 바다였습니다 — 고대 아유타야만.",
+                "海面は現在より数メートル高く、バンコク地域は開放的な海—古代アユタヤ湾—でした。"
+              )}</p>
+            </div>
+            <div className="th-geology-panel">
+              <span className="th-geology-panel-year">2,000 ya</span>
+              <span className="th-geology-panel-era">{t(locale, "Bay narrows, delta extends", "ปากอ่าวและดินดอนขยายตัว", "海湾收窄，三角洲延伸", "만이 좁아지고 삼각주 확장", "湾が狭まり、デルタが拡大")}</span>
+              <p className="th-geology-panel-desc">{t(locale,
+                "Coastline retreated southward. New land formed from river sediment — brackish lakes, mangrove zones, beach ridges. First habitable ground where Bangkok now stands.",
+                "แนวชายฝั่งถอยร่นลงทางใต้ ดินใหม่เกิดจากตะกอนแม่น้ำ — ทะเลสาบน้ำกร่อย ป่าชายเลน สันทรายชายฝั่ง",
+                "海岸线向南退缩。河流沉积物形成新土地——半咸水湖、红树林带、沙堤。曼谷现址首次出现可居住土地。",
+                "해안선이 남쪽으로 후퇴했습니다. 강의 퇴적물로 새 땅이 형성됐습니다 — 기수 호수, 맹그로브 지대, 해변 능선.",
+                "海岸線が南に後退し、川の堆積物から新しい土地が形成されました——汽水湖、マングローブ帯、砂堤。"
+              )}</p>
+            </div>
+            <div className="th-geology-panel th-geology-panel--present">
+              <span className="th-geology-panel-year">{t(locale, "Present", "ปัจจุบัน", "当今", "현재", "現在")}</span>
+              <span className="th-geology-panel-era">{t(locale, "Land built by the river", "แผ่นดินที่แม่น้ำสร้างขึ้น", "河流造就的土地", "강이 만든 땅", "川が作った土地")}</span>
+              <p className="th-geology-panel-desc">{t(locale,
+                "Bangkok stands on sediment deposited over ~2,000 years by the Chao Phraya and Mae Klong rivers. The substrate is soft, low-elevation, and still consolidating — a city geologically younger than most ancient civilizations.",
+                "กรุงเทพฯ ตั้งอยู่บนตะกอนที่สะสมมากว่า 2,000 ปีจากแม่น้ำเจ้าพระยาและแม่กลอง พื้นดินอ่อน ระดับต่ำ และยังอัดตัวอยู่",
+                "曼谷建立在昭披耶河和湄公河约2,000年沉积的泥沙之上。基底松软、海拔低，仍在固结中——从地质学角度看，比大多数古代文明更年轻的城市。",
+                "방콕은 약 2,000년에 걸쳐 짜오프라야강과 매끌롱강이 퇴적한 토사 위에 세워져 있습니다. 지반이 연약하고 해발이 낮으며 아직 다짐이 진행 중입니다.",
+                "バンコクはチャオプラヤー川とメークロン川が約2,000年かけて堆積した土砂の上に建っています。基盤は軟弱で標高が低く、まだ圧密が進んでいます。"
+              )}</p>
+            </div>
+          </div>
+
+          <div className="th-geology-stats">
+            <div className="th-geology-stat th-geology-stat--risk">
+              <span className="th-geology-stat-value">1–2 cm/yr</span>
+              <span className="th-geology-stat-label">{t(locale, "Bangkok subsidence rate", "อัตราการทรุดตัวของกรุงเทพฯ", "曼谷地面沉降速率", "방콕 지반침하율", "バンコク地盤沈下率")}</span>
+              <span className="th-geology-stat-sub">Groundwater extraction · InSAR satellite measurement</span>
+            </div>
+            <div className="th-geology-stat">
+              <span className="th-geology-stat-value">~3 mm/yr</span>
+              <span className="th-geology-stat-label">{t(locale, "Global sea-level rise", "การเพิ่มขึ้นของระดับน้ำทะเลโลก", "全球海平面上升", "지구 해수면 상승", "世界海面上昇率")}</span>
+              <span className="th-geology-stat-sub">IPCC AR6 current rate · accelerating</span>
+            </div>
+            <div className="th-geology-stat th-geology-stat--risk">
+              <span className="th-geology-stat-value">1.3–2.3 cm/yr</span>
+              <span className="th-geology-stat-label">{t(locale, "Combined relative rise", "อัตราการเพิ่มขึ้นสัมพัทธ์รวม", "综合相对上升速率", "복합 상대 상승률", "複合相対上昇率")}</span>
+              <span className="th-geology-stat-sub">Effective rate Bangkok faces today</span>
+            </div>
+          </div>
+
+          <div className="th-geology-horizon">
+            <div className="th-geology-horizon-col">
+              <span className="th-geology-horizon-year">2050</span>
+              <span className="th-geology-horizon-est">~30–50 cm</span>
+              <span className="th-geology-horizon-note">{t(locale,
+                "relative sea-level rise vs. today · IPCC intermediate scenario + current subsidence rate",
+                "การเพิ่มขึ้นของระดับน้ำทะเลเทียบกับปัจจุบัน · สถานการณ์กลางของ IPCC + อัตราการทรุดตัวปัจจุบัน",
+                "相对海平面较今天上升 · IPCC中间情景 + 当前沉降速率",
+                "현재 대비 해수면 상대 상승 · IPCC 중간 시나리오 + 현재 침하율",
+                "現在比の相対海面上昇 · IPCC中間シナリオ + 現在の沈下率"
+              )}</span>
+            </div>
+            <div className="th-geology-horizon-divider" />
+            <div className="th-geology-horizon-col">
+              <span className="th-geology-horizon-year">2100</span>
+              <span className="th-geology-horizon-est">~80–120 cm</span>
+              <span className="th-geology-horizon-note">{t(locale,
+                "if subsidence continues at current rate · high-end IPCC projection · most of low-lying Bangkok below tidal reach",
+                "หากการทรุดตัวดำเนินต่อในอัตราปัจจุบัน · ประมาณการสูงสุดของ IPCC · พื้นที่กรุงเทพฯ ระดับต่ำส่วนใหญ่อยู่ต่ำกว่าระดับน้ำขึ้น",
+                "若沉降以目前速率持续 · IPCC高端预测 · 曼谷大部分低洼地区将低于潮汐水位",
+                "현재 속도로 침하가 지속될 경우 · IPCC 최고 예측 · 저지대 방콕 대부분이 조석 범위 아래로",
+                "現在の速度で沈下が続く場合 · IPCCハイエンド予測 · 低地バンコクの大部分が潮汐域以下に"
+              )}</span>
+            </div>
+          </div>
+
+          <p className="th-geology-note">{t(locale,
+            "Sources: IPCC AR6 Working Group I (2021) sea-level projections; Phien-wej et al. (2006) and subsequent InSAR studies on Bangkok land subsidence; Asian Development Bank regional climate projections. Bangkok average elevation 0.5–1.5 m above mean sea level. The 7th axis — Geological/Climate-Adaptation Vulnerability — is under active development for inclusion in SLIC v4 scoring.",
+            "ที่มา: รายงาน IPCC AR6 Working Group I (2021) การคาดการณ์ระดับน้ำทะเล; Phien-wej et al. (2006) และการศึกษา InSAR เกี่ยวกับการทรุดตัวของดินในกรุงเทพฯ; การคาดการณ์สภาพภูมิอากาศระดับภูมิภาคของ ADB",
+            "来源：IPCC AR6 第一工作组（2021年）海平面预测；Phien-wej等（2006年）及后续曼谷地面沉降InSAR研究；亚洲开发银行区域气候预测。曼谷平均海拔0.5-1.5米。第7轴——地质/气候适应脆弱性——正在积极开发中，计划纳入SLIC v4评分。",
+            "출처: IPCC AR6 실무그룹 I (2021) 해수면 예측; Phien-wej 외 (2006) 및 방콕 지반침하 InSAR 연구; ADB 지역 기후 예측. 방콕 평균 해발 0.5-1.5m. 7번째 축—지질/기후 적응 취약성—은 SLIC v4 점수화에 포함하기 위해 적극 개발 중입니다.",
+            "出典：IPCC AR6 第1作業部会（2021年）海面上昇予測；Phien-wej他（2006年）及びその後のバンコク地盤沈下InSAR研究；ADB地域気候予測。バンコク平均標高0.5-1.5m。第7軸—地質/気候適応脆弱性—はSLIC v4スコアリングへの組み込みに向けて積極的に開発中です。"
+          )}</p>
+        </section>
+
         <section className="paper-section section">
           <div className="section-heading">
             <div>
