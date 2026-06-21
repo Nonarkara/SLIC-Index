@@ -11963,3 +11963,48 @@ a.essay-reference-text:hover {
   .compare-corridor-table th,
   .compare-corridor-table td { padding: 7px 8px; font-size: 12px; }
 }
+
+/* FDI CAPITAL ATTRACTION VELOCITY (ThailandPage) */
+.th-fdi-section { padding: 3rem 0; border-top: 1px solid var(--border); }
+.th-fdi-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 2rem 0 1rem;
+}
+.th-fdi-stat {
+  background: var(--bg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.th-fdi-stat--positive { background: color-mix(in srgb, var(--accent) 3%, var(--bg)); }
+.th-fdi-stat-value {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+.th-fdi-stat--positive .th-fdi-stat-value { color: var(--accent); }
+.th-fdi-stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.th-fdi-stat-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 0.1rem;
+}
+@media (max-width: 600px) {
+  .th-fdi-stats { grid-template-columns: 1fr; }
+  .th-fdi-stat-value { font-size: 1.6rem; }
+}

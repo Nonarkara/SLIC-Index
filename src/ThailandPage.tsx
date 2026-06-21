@@ -687,6 +687,51 @@ export default function ThailandPage({
           </p>
         </section>
 
+        {/* ═══════ FDI — CAPITAL ATTRACTION VELOCITY ═══════ */}
+        <section className="th-fdi-section section">
+          <div className="section-heading">
+            <div>
+              <p className="eyebrow">DBD · {t(locale, "Jan–May 2026", "ม.ค.–พ.ค. 2569", "2026年1–5月", "2026년 1–5월", "2026年1–5月")}</p>
+              <h2>{t(locale, "Capital attraction velocity", "ความเร็วในการดึงดูดทุน", "资本吸引速度", "자본 유치 속도", "資本誘致速度")}</h2>
+            </div>
+            <p className="section-summary">
+              {t(locale,
+                "Foreign Business Act approvals — direct establishment of foreign-owned businesses in Thailand, a separate and more verifiable stream than BOI-promoted incentivized investments. The most directly comparable livability signal SLIC has: DBD publishes investor counts and totals monthly, cleanly year-over-year.",
+                "การอนุมัติตาม พ.ร.บ. ประกอบธุรกิจของคนต่างด้าว — การจัดตั้งธุรกิจที่เป็นเจ้าของโดยต่างชาติในประเทศไทยโดยตรง ซึ่งเป็นสายที่แยกต่างหากและตรวจสอบได้มากกว่าการลงทุนที่ส่งเสริมโดย BOI",
+                "外国商业法批准——外资在泰国直接设立企业，这是比BOI促进的激励投资更独立、更可验证的渠道。这是SLIC拥有的最直接可比的宜居性信号：DBD每月公布投资者数量和总额，年度可比性强。",
+                "외국사업법 승인 — 태국 내 외국 소유 사업체의 직접 설립으로, BOI 인센티브 투자보다 별도의 검증 가능한 경로입니다.",
+                "外国人事業法承認 — タイにおける外国人所有企業の直接設立で、BOI奨励投資とは別の、より検証しやすいルートです。"
+              )}
+            </p>
+          </div>
+          <div className="th-fdi-stats">
+            <div className="th-fdi-stat">
+              <span className="th-fdi-stat-value">528</span>
+              <span className="th-fdi-stat-label">{t(locale, "approved investors", "นักลงทุนที่ได้รับอนุมัติ", "获批投资者", "승인 투자자", "承認済み投資家")}</span>
+              <span className="th-fdi-stat-sub">Jan–May 2026 · FBA approvals</span>
+            </div>
+            <div className="th-fdi-stat">
+              <span className="th-fdi-stat-value">฿153.56B</span>
+              <span className="th-fdi-stat-label">{t(locale, "total investment value", "มูลค่าการลงทุนรวม", "总投资额", "총 투자 가치", "総投資額")}</span>
+              <span className="th-fdi-stat-sub">~US$4.4B · ~฿291M per investor</span>
+            </div>
+            <div className="th-fdi-stat th-fdi-stat--positive">
+              <span className="th-fdi-stat-value">+73%</span>
+              <span className="th-fdi-stat-label">{t(locale, "year-over-year", "เมื่อเทียบปีต่อปี", "同比增长", "전년 대비", "前年比")}</span>
+              <span className="th-fdi-stat-sub">vs. Jan–May 2025</span>
+            </div>
+          </div>
+          <p className="compare-scatter-note">
+            {t(locale,
+              "Source: Dept. of Business Development (DBD), Ministry of Commerce — Director-General Poonpong Naiyanapakorn, as secretary of the Foreign Business Committee, via The Nation Thailand, June 2026. ⚠ Caveat: single-year surges may reflect a low 2025 base (political uncertainty in H2 2024–Q1 2025) rather than structural shift. Verify against DBD 3-year trend before publishing in rankings. Currency conversion estimated at June 2026 spot rate.",
+              "ที่มา: กรมพัฒนาธุรกิจการค้า กระทรวงพาณิชย์ — อธิบดีภูมิพักตร์ นาคจินดา ในฐานะเลขานุการคณะกรรมการประกอบธุรกิจของคนต่างด้าว ผ่าน The Nation Thailand มิถุนายน 2569 ⚠ ข้อควรระวัง: การเพิ่มขึ้นในปีเดียวอาจสะท้อนฐานต่ำของปี 2568 ไม่ใช่การเปลี่ยนแปลงเชิงโครงสร้าง",
+              "来源：商务发展厅（DBD），商务部 — 总局长蓬帕·那亚纳帕孔，通过The Nation Thailand，2026年6月。⚠警告：单年激增可能反映2025年基数较低，而非结构性转变。在发布排名前需与DBD三年趋势核实。",
+              "출처: 상업개발부(DBD), 상무부 — 국장 Poonpong Naiyanapakorn, The Nation Thailand 경유, 2026년 6월. ⚠ 주의: 단년 급등은 구조적 변화가 아닌 2025년 낮은 기저 효과를 반영할 수 있습니다.",
+              "出典：商業開発局（DBD）、商務省 — 局長Poonpong Naiyanapakorn、The Nation Thailand経由、2026年6月。⚠注意：単年急増は構造的変化ではなく2025年の低基数を反映している可能性があります。"
+            )}
+          </p>
+        </section>
+
         <section className="paper-section section">
           <div className="section-heading">
             <div>
