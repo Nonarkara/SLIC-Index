@@ -66,6 +66,50 @@ const BILLI_DATA: Array<{
 /* TFR quadrant thresholds (used for generational optimism section) */
 const TFR_HIGH = 1.5;   // above = "hopeful" signal (below replacement but meaningfully above sub-1.5)
 const BILLI_HIGH = 55;  // billionaires
+
+/* ─── European NUTS-2 top-10 by regional GDP, 2021 (Eurostat / ONS via Visual Capitalist) ─── */
+/* bb = inside the Blue Banana corridor (London → Rhine → Milan) */
+const EU_NUTS2: Array<{ rank: number; region: string; anchor: string; gdp: number; bb: boolean }> = [
+  { rank:  1, region: "Île-de-France",        anchor: "Paris",           gdp: 866, bb: false },
+  { rank:  2, region: "Lombardy",             anchor: "Milan",           gdp: 721, bb: true  },
+  { rank:  3, region: "Upper Bavaria",        anchor: "Munich",          gdp: 507, bb: true  },
+  { rank:  4, region: "Eastern Midlands",     anchor: "London area",     gdp: 358, bb: true  },
+  { rank:  5, region: "Community of Madrid",  anchor: "Madrid",          gdp: 316, bb: false },
+  { rank:  6, region: "Catalonia",            anchor: "Barcelona",       gdp: 308, bb: false },
+  { rank:  7, region: "Rhône-Alpes",          anchor: "Lyon",            gdp: 298, bb: false },
+  { rank:  8, region: "Stockholm",            anchor: "Stockholm",       gdp: 281, bb: false },
+  { rank:  9, region: "Düsseldorf",           anchor: "Düsseldorf",      gdp: 270, bb: true  },
+  { rank: 10, region: "Darmstadt",            anchor: "Frankfurt area",  gdp: 267, bb: true  },
+];
+
+/* ─── Asian corridor analogs to the Blue Banana ─── */
+const ASIAN_CORRIDORS: Array<{
+  name: string; nameEn: string; cities: string;
+  gdpNote: string; role: string; hero?: boolean;
+}> = [
+  {
+    name: "East Asian Pacific Rim",
+    nameEn: "East Asian Pacific Rim",
+    cities: "Tokyo → Seoul → Shanghai → Hong Kong → Shenzhen → Singapore",
+    gdpNote: "~$12T combined metro GDP",
+    role: "anchor chain",
+  },
+  {
+    name: "South Asian Arc",
+    nameEn: "South Asian Arc",
+    cities: "Mumbai → Bangalore → Hyderabad → Chennai",
+    gdpNote: "~$1.2T combined metro GDP",
+    role: "emerging",
+  },
+  {
+    name: "ASEAN Mainland",
+    nameEn: "ASEAN Mainland",
+    cities: "Bangkok / EEC → Phnom Penh → Ho Chi Minh City",
+    gdpNote: "~$0.5T combined metro GDP",
+    role: "gateway",
+    hero: true,
+  },
+];
 /* SVG scatter layout constants */
 const SML = 60, SMR = 25, SMT = 35, SMB = 50, SW = 640, SH = 370;
 const SPW = SW - SML - SMR, SPH = SH - SMT - SMB;
@@ -598,6 +642,85 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
             "TFR出典：国連世界人口予測2024/世界銀行WDI（国レベル）。15都市すべての5年トレンドは下降中。"
           )}
         </p>
+      </section>
+
+      {/* ═══════ 09. ECONOMIC CORRIDOR MEMBERSHIP — BLUE BANANA LENS ═══════ */}
+      <section className="compare-corridor-section section">
+        <h2 className="compare-section-title">
+          {t(locale, "Economic corridor membership", "การเป็นสมาชิกเส้นทางเศรษฐกิจ", "经济走廊成员资格", "경제 회랑 소속", "経済回廊の所属")}
+        </h2>
+        <p className="compare-section-sub">
+          {t(locale,
+            "The Blue Banana — London → Amsterdam → Rhine → Milan — hosts over half of Europe's top-20 NUTS-2 regional economies. The corridor lens asks a question no single-city index does: is this city inside a megalopolitan economic corridor, or outside one?",
+            "บลูบานาน่า — ลอนดอน → อัมสเตอร์ดัม → ไรน์ → มิลาน — เป็นที่ตั้งของมากกว่าครึ่งหนึ่งของ 20 ภูมิภาคเศรษฐกิจ NUTS-2 อันดับต้นๆ ของยุโรป",
+            "蓝香蕉——伦敦→阿姆斯特丹→莱茵河→米兰——拥有欧洲前20个NUTS-2区域经济体的一半以上。走廊视角提出了单城市指数无法回答的问题：这座城市是否位于大都市经济走廊内？",
+            "블루 바나나 — 런던 → 암스테르담 → 라인강 → 밀라노 — 유럽 상위 20개 NUTS-2 지역 경제의 절반 이상을 차지합니다.",
+            "ブルーバナナ — ロンドン → アムステルダム → ライン → ミラノ — はヨーロッパのNUTS-2上位20地域経済の半数以上を擁しています。"
+          )}
+        </p>
+
+        {/* EU NUTS-2 table */}
+        <div className="compare-corridor-table-wrap">
+          <table className="compare-corridor-table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>{t(locale, "Region", "ภูมิภาค", "地区", "지역", "地域")}</th>
+                <th>{t(locale, "Anchor city", "เมืองหลัก", "锚定城市", "앵커 도시", "アンカー都市")}</th>
+                <th>GDP €B <span style={{ fontWeight: 400, opacity: 0.6 }}>(2021)</span></th>
+                <th>{t(locale, "Corridor", "เส้นทาง", "走廊", "회랑", "回廊")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {EU_NUTS2.map(r => (
+                <tr key={r.rank}>
+                  <td>{r.rank}</td>
+                  <td>{r.region}</td>
+                  <td style={{ color: "var(--text-muted)" }}>{r.anchor}</td>
+                  <td>{r.gdp}</td>
+                  <td>{r.bb ? <span className="compare-corridor-bb">Blue Banana</span> : <span style={{ color: "var(--text-muted)", fontSize: "11px" }}>—</span>}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="compare-scatter-note" style={{ marginTop: "0.75rem" }}>
+            {t(locale,
+              "Source: Eurostat / Office for National Statistics via Visual Capitalist / Voronoi, 2021 GDP at current prices. NUTS-2 data carries a 2–3 year publication lag — 2023 figures should be available from Eurostat by mid-2026.",
+              "ที่มา: Eurostat / สำนักงานสถิติแห่งชาติสหราชอาณาจักร ผ่าน Visual Capitalist / Voronoi ข้อมูล GDP ปี 2021 ราคาปัจจุบัน ข้อมูล NUTS-2 มีความล่าช้าในการเผยแพร่ 2–3 ปี",
+              "来源：欧盟统计局/英国国家统计局，经Visual Capitalist/Voronoi，2021年当前价格GDP。NUTS-2数据有2-3年的发布滞后期。",
+              "출처: Eurostat/영국 국가통계국, Visual Capitalist/Voronoi 경유, 2021년 현재 가격 GDP.",
+              "出典：ユーロスタット/英国国家統計局、Visual Capitalist/Voronoi経由、2021年現在価格GDP。"
+            )}
+          </p>
+        </div>
+
+        {/* Asian corridor cards */}
+        <h3 className="compare-corridor-subtitle">
+          {t(locale, "Asian corridor analogs", "เส้นทางเศรษฐกิจเอเชียที่เทียบเท่า", "亚洲走廊类比", "아시아 회랑 유사체", "アジア回廊の類似体")}
+        </h3>
+        <div className="compare-corridor-cards">
+          {ASIAN_CORRIDORS.map(c => (
+            <article key={c.nameEn} className={`compare-corridor-card${c.hero ? " compare-corridor-card--hero" : ""}`}>
+              <p className="compare-corridor-card-label">{c.name}</p>
+              <p className="compare-corridor-card-cities">{c.cities}</p>
+              <div className="compare-corridor-card-meta">
+                <span className="compare-corridor-card-gdp">{c.gdpNote}</span>
+                <span className="compare-corridor-card-role">{c.role}</span>
+              </div>
+              {c.hero && (
+                <p className="compare-corridor-card-note">
+                  {t(locale,
+                    "Bangkok sits at the western anchor of this corridor — the EEC (Eastern Economic Corridor) is its special economic zone. Analogous to Milan at the southern tip of the Blue Banana: a gateway city between a developed corridor and the periphery.",
+                    "กรุงเทพฯ อยู่ที่จุดยึดทางตะวันตกของเส้นทางนี้ — EEC (เขตพัฒนาพิเศษภาคตะวันออก) คือเขตเศรษฐกิจพิเศษ เทียบได้กับมิลานที่ปลายใต้ของบลูบานาน่า: เมืองประตูระหว่างเส้นทางที่พัฒนาแล้วกับเขตรอบนอก",
+                    "曼谷位于该走廊的西部锚点——EEC（东部经济走廊）是其经济特区。类似于蓝香蕉南端的米兰：一座连接发达走廊与外围地区的门户城市。",
+                    "방콕은 이 회랑의 서쪽 앵커에 위치합니다 — EEC(동부경제회랑)가 경제특구입니다. 블루 바나나 남단의 밀라노와 유사합니다.",
+                    "バンコクはこの回廊の西端アンカーに位置しています — EEC（東部経済回廊）がその経済特区です。ブルーバナナ南端のミラノに類似しています。"
+                  )}
+                </p>
+              )}
+            </article>
+          ))}
+        </div>
       </section>
 
       <SiteFooter onNavigate={onNavigate} locale={locale} />

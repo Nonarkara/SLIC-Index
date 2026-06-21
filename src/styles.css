@@ -11848,3 +11848,118 @@ a.essay-reference-text:hover {
   .compare-tfr-grid { grid-template-columns: 1fr; }
   .th-hours-section .section-heading { flex-direction: column; gap: 0.75rem; }
 }
+
+/* ECONOMIC CORRIDOR SECTION (CompareRankingsPage) */
+.compare-corridor-section { padding: 3rem 0; border-top: 1px solid var(--border); }
+.compare-corridor-table-wrap { overflow-x: auto; margin: 2rem 0 1.5rem; }
+.compare-corridor-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+.compare-corridor-table th {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  white-space: nowrap;
+}
+.compare-corridor-table td {
+  font-family: var(--font-mono);
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+}
+.compare-corridor-bb {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  padding: 1px 5px;
+  white-space: nowrap;
+}
+.compare-corridor-subtitle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 2.5rem 0 1rem;
+  font-weight: 400;
+}
+.compare-corridor-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin: 0 0 1.5rem;
+}
+.compare-corridor-card {
+  background: var(--bg);
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+.compare-corridor-card--hero {
+  background: color-mix(in srgb, var(--accent) 4%, var(--bg));
+}
+.compare-corridor-card-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 0.5rem;
+}
+.compare-corridor-card--hero .compare-corridor-card-label {
+  color: var(--accent);
+}
+.compare-corridor-card-cities {
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 0 0.75rem;
+  color: var(--text);
+}
+.compare-corridor-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 0 0 0.75rem;
+}
+.compare-corridor-card-gdp {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text);
+}
+.compare-corridor-card-role {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  padding: 1px 5px;
+}
+.compare-corridor-card--hero .compare-corridor-card-role {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+.compare-corridor-card-note {
+  font-size: 12px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0;
+  border-top: 1px solid var(--border);
+  padding-top: 0.75rem;
+}
+
+@media (max-width: 700px) {
+  .compare-corridor-cards { grid-template-columns: 1fr; }
+  .compare-corridor-table th,
+  .compare-corridor-table td { padding: 7px 8px; font-size: 12px; }
+}
