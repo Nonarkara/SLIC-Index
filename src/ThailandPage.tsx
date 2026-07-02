@@ -621,7 +621,7 @@ export default function ThailandPage({
         <section className="th-hours-section section">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">{t(locale, "OECD 2023 · SLIC Estimate", "OECD 2023 · การประมาณการ SLIC", "OECD 2023 · SLIC估算", "OECD 2023 · SLIC 추정", "OECD 2023 · SLIC推定")}</p>
+              <p className="eyebrow">{t(locale, "OECD 2023 · SLIC estimate", "OECD 2023 · การประมาณการ SLIC", "OECD 2023 · SLIC估算", "OECD 2023 · SLIC 추정", "OECD 2023 · SLIC推定")}</p>
               <h2>{t(locale, "Hours of work to earn $1,000 (PPP)", "ชั่วโมงทำงานเพื่อได้รับ 1,000 ดอลลาร์ (PPP)", "获得1000美元所需工作小时数（PPP）", "$1,000 벌기 위한 근무 시간(PPP)", "$1,000稼ぐための労働時間（PPP）")}</h2>
             </div>
             <p className="section-summary">
@@ -735,8 +735,8 @@ export default function ThailandPage({
         <section className="th-geology-section section">
           <div className="section-heading">
             <div>
-              <p className="eyebrow">{t(locale, "Axis 7 — Substrate Vulnerability", "แกนที่ 7 — ความเปราะบางของชั้นดิน", "第7轴 — 地质脆弱性", "7축 — 지반 취약성", "軸7 — 地盤脆弱性")}</p>
-              <h2>{t(locale, "Built on 2,000-Year Sediment", "กรุงเทพฯ บนตะกอนอายุ 2,000 ปี", "建于两千年沉积层之上", "2,000년 퇴적층 위에 세워진 도시", "2,000年の堆積物の上に建つ都市")}</h2>
+              <p className="eyebrow">{t(locale, "Axis 7 — substrate vulnerability", "แกนที่ 7 — ความเปราะบางของชั้นดิน", "第7轴 — 地质脆弱性", "7축 — 지반 취약성", "軸7 — 地盤脆弱性")}</p>
+              <h2>{t(locale, "Built on 2,000-year sediment", "กรุงเทพฯ บนตะกอนอายุ 2,000 ปี", "建于两千年沉积层之上", "2,000년 퇴적층 위에 세워진 도시", "2,000年の堆積物の上に建つ都市")}</h2>
             </div>
             <p className="section-summary">{t(locale,
               "Bangkok did not exist 8,000 years ago — the land it stands on was open sea. The Chao Phraya and Mae Klong rivers spent 6,000 years depositing the sediment that made it habitable. The same rivers are still depositing. The same sea is still trying to return.",
