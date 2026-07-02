@@ -273,3 +273,8 @@ Per §13: the same mistake never happens twice.
 - **How to recognise:** Any fix described as "fixed the duplicate/template issue" without a count assertion. Any data file where a generator once produced fallback strings — the fallback pattern is rarely confined to the rows you happened to look at.
 
 ---
+
+## 2026-07-03 · Undefined CSS tokens shipped invisible defects across 5 sections
+- **What went wrong:** Sections shipped over two sessions referenced `var(--accent)`, `var(--text-muted)`, `var(--font-sans)`, `var(--section-pad)` — none defined in the design system (canonical: `--accent-amber`, `--text-soft`, `--font-body`, literal `3rem`). CSS custom-property fallback made every such declaration invalid at computed-value time: accent colors inherited dark, tint backgrounds vanished, one section had zero vertical padding. DOM-structure verification passed; rendered color was never checked.
+- **Correct behaviour:** (1) Before using any CSS variable in new styles, grep `:root` for its definition — 5 seconds. (2) Verification of visual work must include computed-style checks (`getComputedStyle(...).color`) on at least one accent element, not just element-existence queries. Per §11.10, "in the DOM" ≠ "renders as designed".
+- **How to recognise:** Writing `var(--anything)` from memory of other projects' token names; verifying a visual feature with only `querySelectorAll(...).length` checks.
