@@ -1,0 +1,94 @@
+{
+  "us-pittsburgh": {
+    "heroLine": "Industrial gravity, remade into a sharper civic machine.",
+    "intro": "Pittsburgh is a post-steel American city that never fully abandoned the disciplines of heavy industry; it redirected them into universities, medicine, robotics, and a more compact civic economy. In SLIC terms it matters because capability here is not abstract prestige but a lived structure of institutions, reinvention, and workable urban scale."
+  },
+  "jp-kobe": {
+    "heroLine": "Harbor city elegance with mountains still in the frame.",
+    "intro": "Kobe is one of Japan's classic port cities, stretched between mountain slope and harbor edge in a way that keeps the metropolitan form unusually legible. SLIC reads it as a city where trade, design consciousness, and daily calm still hold together without the crushing pressure of the very largest Japanese cores."
+  },
+  "us-minneapolis": {
+    "heroLine": "Northern capability with room for real daily life.",
+    "intro": "Minneapolis is the stronger half of the Twin Cities economic engine, built on health systems, corporate depth, university capacity, and a long civic tradition of regional planning. In SLIC terms it is a serious winter city that still manages to feel structurally fairer, more organized, and more livable than many larger American peers."
+  },
+  "il-haifa": {
+    "heroLine": "Israel's mountain port with a broader social horizon.",
+    "intro": "Haifa is Israel's principal northern port, terraced up Mount Carmel and shaped by industry, research, and one of the country's more visibly mixed urban societies. SLIC reads it as a city where coexistence, infrastructure, and topographic drama make a different proposition from the concentrated pressure of the main central belt."
+  },
+  "kr-suwon": {
+    "heroLine": "Seoul-region power without quite the same compression.",
+    "intro": "Suwon is the capital of Gyeonggi-do and one of the major cities orbiting the Seoul region, carrying electronics, administration, and inherited fortress urbanism in the same geography. In SLIC terms it matters as a metropolitan release valve: high-connectivity Korea with slightly more room, less symbolism, and a more workable everyday tempo."
+  },
+  "ca-ottawa": {
+    "heroLine": "Administrative capital, but calmer than the label suggests.",
+    "intro": "Ottawa is Canada's federal capital, but its daily character is less imperial than procedural: government, research, bilingual institutions, and a river-based urban form that rarely needs to perform itself theatrically. SLIC reads it as a city where public-sector stability and human-scale order still convert into real livability."
+  },
+  "cl-valparaiso": {
+    "heroLine": "Chile's vertical port of improvisation, memory, and abrasion.",
+    "intro": "Valparaiso is Chile's old Pacific port, famous not because it is tidy but because its hills, lifts, murals, stairs, and maritime edge still make urban life feel textured and specific. SLIC reads it as a city where cultural thickness and lived character remain strong even when the infrastructure story is less polished."
+  },
+  "it-milan": {
+    "heroLine": "Italian productivity with a sharper metropolitan edge.",
+    "intro": "Milan is Italy's financial and business capital, a city where fashion, design, manufacturing inheritance, and European service-sector ambition all compress into one hard-working metropolitan core. In SLIC terms it scores not as romance but as capacity: organized, economically relevant, and still culturally dense enough to matter beyond pure output."
+  },
+  "nl-eindhoven": {
+    "heroLine": "Design and deep-tech in a city that stays functional.",
+    "intro": "Eindhoven is the Netherlands' engineering and design city, built on the long afterlife of Philips, technical education, and a regional innovation economy that punches above its size. SLIC reads it as a city where competence is unusually visible: productive, inventive, and less burdened by big-capital theatricality."
+  },
+  "at-graz": {
+    "heroLine": "Austria's second city with less choreography and more ease.",
+    "intro": "Graz is a university city, regional capital, and manufacturing center whose baroque fabric and southern setting give it a softer urban grain than Vienna. In SLIC terms it is one of those places where medium scale works in its favor: enough institutional depth to be serious, not so much size that everyday life becomes over-abstracted."
+  },
+  "pt-braga": {
+    "heroLine": "Northern Portugal's compact city of continuity and upgrade.",
+    "intro": "Braga is one of Portugal's oldest cities, but it now combines ecclesiastical and historic depth with a younger knowledge-economy and technology profile. SLIC reads it as a city where continuity has not become stagnation; the historic shell still carries an urban life that is modern, connected, and comparatively usable."
+  },
+  "il-tel-aviv": {
+    "heroLine": "Beach-edge intensity with very little patience for stillness.",
+    "intro": "Tel Aviv is Israel's economic and cultural engine, where startup ambition, nightlife, liberal self-image, and Mediterranean shoreline all feed a city running at permanently elevated speed. SLIC reads it as magnetic and highly capable, but also as a place where intensity is part of both the draw and the cost."
+  },
+  "us-chicago": {
+    "heroLine": "Continental-scale America in one vertical frame.",
+    "intro": "Chicago remains the great inland metropolis of the United States: finance, logistics, universities, architecture, rail, and lakefront spectacle all layered into one city with genuine global weight. SLIC reads it as a place of very high capability and cultural force whose challenge is converting that scale into broadly breathable daily life."
+  },
+  "pt-porto": {
+    "heroLine": "Granite, river edge, and a strong enough center to hold.",
+    "intro": "Porto is northern Portugal's main city, built along the Douro in a way that keeps commerce, memory, and rough urban texture in continuous contact. SLIC reads it as a city where beauty is not just postcard value; it is tied to density, walkability, cultural continuity, and a more grounded cost structure than bigger Southern European magnets."
+  },
+  "ee-tallinn": {
+    "heroLine": "A Baltic capital that stays wired and legible.",
+    "intro": "Tallinn is Estonia's capital and digital showcase, but what matters in SLIC terms is not branding alone; it is the way administrative competence, compact scale, and a still-readable historic core reinforce each other. The result is a city that feels technologically modern without losing urban intelligibility."
+  },
+  "pl-torun": {
+    "heroLine": "Historic Poland at a slower, better-kept urban speed.",
+    "intro": "Torun is one of Poland's great medieval cities, small enough that its historic grain still organizes everyday experience rather than merely surviving as scenery. SLIC reads it as a city where continuity, walkability, and manageable scale remain active assets in the lived structure of the place."
+  },
+  "kr-incheon": {
+    "heroLine": "Korea's western gateway built on logistics and open horizon.",
+    "intro": "Incheon is South Korea's major western port and airport city, a gateway metropolis whose identity comes from movement, reclamation, logistics, and the national role of connecting Korea outward. In SLIC terms it matters because infrastructure here is not ornamental; it is the city's main grammar and a real source of capability."
+  },
+  "sg-singapore": {
+    "heroLine": "The highest Capability score in the dataset. Gamma tier.",
+    "intro": "Singapore scores 94.1 on Capability \u2014 the highest in this dataset by a significant margin, and a real reflection of port power, state capacity, transit, and administrative competence operating at near-maximum efficiency. It is Gamma tier. This is not a paradox or a scoring error; it is the index working exactly as intended. Gamma is where a city lands when it fails the Alpha floor: Community 38.4 against a required 40. The 1.6-point gap reflects what the data registers \u2014 that extraordinary administrative and economic competence does not automatically translate into the social warmth, civic openness, and everyday looseness the Community pillar measures. SLIC does not argue this is a bad city. It argues that 'extraordinary' and 'the median resident thrives here' are different claims, and both deserve to be said out loud."
+  },
+  "ch-zurich": {
+    "heroLine": "Swiss order with global finance hiding in plain sight.",
+    "intro": "Zurich is a city where banking, infrastructure, lakefront calm, and civic discipline all reinforce a sense of uncommon reliability. In SLIC terms it is not only about wealth; it is about how institutional order, mobility, and environmental quality combine into a daily experience that feels unusually low-friction."
+  },
+  "dk-copenhagen": {
+    "heroLine": "Welfare urbanism made legible at metropolitan scale.",
+    "intro": "Copenhagen is one of the clearest examples of a northern European city where planning, mobility, public space, and welfare-state assumptions still visibly structure everyday life. SLIC reads it as a place where systems coherence is the point: not glamorous in the abstract, but deeply convincing in use."
+  },
+  "kr-jeju-city": {
+    "heroLine": "Volcanic Korea at a slower, more elemental pace.",
+    "intro": "Jeju is South Korea's main island province, shaped by volcanic geography, a distinct local culture, and a longstanding role as the country's natural and spiritual counterweight to the mainland's relentless pace. SLIC reads it as a city that earns its Alpha place not through density or output but through a combination of governance at island scale, cultural distinctiveness \u2014 the haenyeo diving tradition, the Jeju language, the UNESCO-listed craters \u2014 and a daily rhythm that never fully submitted to the Seoul compression model."
+  },
+  "au-perth": {
+    "heroLine": "Australia's isolated west, built on space and coastal ease.",
+    "intro": "Perth is the most isolated large city on earth by the standard measure \u2014 a fact that has shaped both its psychology and its offer. Built on mining-boom capital, Indian Ocean coastline, and an almost impractical abundance of space, Perth has spent the past decade building out university research, technology, and livability infrastructure that no longer needs to apologize for the distance. SLIC reads it as a city where the pressure curve stays genuinely low: warm, spacious, coastal, and now competent enough to matter beyond resource extraction."
+  },
+  "jp-tokyo": {
+    "heroLine": "Incomprehensible scale, kept almost entirely coherent.",
+    "intro": "Tokyo is the world's largest metropolitan area by any measure, a city of 37-million-plus that still manages to run on time, stay safe, feed itself extraordinarily well, and distribute a quality of urban experience that smaller cities cannot replicate. SLIC reads it as the definitive case of system competence at extreme scale \u2014 where transit, density, safety, and accumulated cultural production compound into something that has no real equivalent. The trade-offs are real: working hours, conformity pressure, and housing cost. But the system that delivers in return is equally without parallel."
+  }
+}

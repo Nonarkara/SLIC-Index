@@ -582,23 +582,23 @@ export default function ThailandPage({
                 <tr>
                   <td>Singapore</td>
                   <td>#12</td><td>51</td><td>#34</td><td>62.8</td>
-                  <td style={{ color: "var(--accent)" }}>1.04</td>
+                  <td style={{ color: "var(--accent-amber)" }}>1.04</td>
                 </tr>
                 <tr>
                   <td>Shanghai</td>
                   <td>#3</td><td>120</td><td>#107</td><td>42.3</td>
-                  <td style={{ color: "var(--accent)" }}>1.09</td>
+                  <td style={{ color: "var(--accent-amber)" }}>1.09</td>
                 </tr>
                 <tr>
                   <td>Hong Kong</td>
-                  <td>#7</td><td>88</td><td style={{ color: "var(--text-muted)", fontStyle: "italic" }} colSpan={2}>
+                  <td>#7</td><td>88</td><td style={{ color: "var(--text-soft)", fontStyle: "italic" }} colSpan={2}>
                     {t(locale, "not in SLIC dataset", "ไม่อยู่ในชุดข้อมูล SLIC", "不在SLIC数据集中", "SLIC 데이터셋 미포함", "SLICデータセット未収録")}
                   </td>
-                  <td style={{ color: "var(--accent)" }}>0.77</td>
+                  <td style={{ color: "var(--accent-amber)" }}>0.77</td>
                 </tr>
                 <tr>
                   <td>Mumbai</td>
-                  <td>#6</td><td>90</td><td style={{ color: "var(--text-muted)", fontStyle: "italic" }} colSpan={2}>
+                  <td>#6</td><td>90</td><td style={{ color: "var(--text-soft)", fontStyle: "italic" }} colSpan={2}>
                     {t(locale, "not in SLIC dataset", "ไม่อยู่ในชุดข้อมูล SLIC", "不在SLIC数据集中", "SLIC 데이터셋 미포함", "SLICデータセット未収录")}
                   </td>
                   <td>2.03</td>
@@ -646,32 +646,32 @@ export default function ThailandPage({
               <tbody>
                 <tr>
                   <td>Luxembourg</td><td>16h</td>
-                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>{t(locale, "OECD best", "OECD ดีที่สุด", "OECD最佳", "OECD 최고", "OECD最良")}</td>
+                  <td style={{ color: "var(--text-soft)", fontSize: "12px" }}>{t(locale, "OECD best", "OECD ดีที่สุด", "OECD最佳", "OECD 최고", "OECD最良")}</td>
                 </tr>
                 <tr>
                   <td>Germany / Berlin</td><td>20h</td>
-                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>OECD</td>
+                  <td style={{ color: "var(--text-soft)", fontSize: "12px" }}>OECD</td>
                 </tr>
                 <tr>
                   <td>Australia / Sydney</td><td>23h</td>
-                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>OECD</td>
+                  <td style={{ color: "var(--text-soft)", fontSize: "12px" }}>OECD</td>
                 </tr>
                 <tr>
                   <td>Japan / Tokyo</td><td>34h</td>
-                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>OECD</td>
+                  <td style={{ color: "var(--text-soft)", fontSize: "12px" }}>OECD</td>
                 </tr>
                 <tr>
                   <td>South Korea / Seoul</td><td>38h</td>
-                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>OECD</td>
+                  <td style={{ color: "var(--text-soft)", fontSize: "12px" }}>OECD</td>
                 </tr>
                 <tr>
                   <td>Colombia / Bogotá</td><td>86h</td>
-                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>{t(locale, "OECD worst", "OECD แย่ที่สุด", "OECD最差", "OECD 최저", "OECD最悪")}</td>
+                  <td style={{ color: "var(--text-soft)", fontSize: "12px" }}>{t(locale, "OECD worst", "OECD แย่ที่สุด", "OECD最差", "OECD 최저", "OECD最悪")}</td>
                 </tr>
                 <tr className="th-asean-highlight">
                   <td><strong>Thailand / Bangkok</strong></td>
                   <td>~100–120h</td>
-                  <td style={{ color: "var(--text-muted)", fontSize: "12px" }}>{t(locale, "SLIC est. · not OECD", "ประมาณการ SLIC · ไม่ใช่สมาชิก OECD", "SLIC估算·非OECD", "SLIC 추정 · 비OECD", "SLIC推定·非OECD")}</td>
+                  <td style={{ color: "var(--text-soft)", fontSize: "12px" }}>{t(locale, "SLIC est. · not OECD", "ประมาณการ SLIC · ไม่ใช่สมาชิก OECD", "SLIC估算·非OECD", "SLIC 추정 · 비OECD", "SLIC推定·非OECD")}</td>
                 </tr>
               </tbody>
             </table>
@@ -818,11 +818,11 @@ export default function ThailandPage({
               <span className="th-geology-horizon-year">2100</span>
               <span className="th-geology-horizon-est">~80–120 cm</span>
               <span className="th-geology-horizon-note">{t(locale,
-                "if subsidence continues at current rate · high-end IPCC projection · most of low-lying Bangkok below tidal reach",
-                "หากการทรุดตัวดำเนินต่อในอัตราปัจจุบัน · ประมาณการสูงสุดของ IPCC · พื้นที่กรุงเทพฯ ระดับต่ำส่วนใหญ่อยู่ต่ำกว่าระดับน้ำขึ้น",
-                "若沉降以目前速率持续 · IPCC高端预测 · 曼谷大部分低洼地区将低于潮汐水位",
-                "현재 속도로 침하가 지속될 경우 · IPCC 최고 예측 · 저지대 방콕 대부분이 조석 범위 아래로",
-                "現在の速度で沈下が続く場合 · IPCCハイエンド予測 · 低地バンコクの大部分が潮汐域以下に"
+                "IPCC intermediate–high scenario, assuming groundwater regulation slows subsidence · most of low-lying Bangkok within tidal reach",
+                "สถานการณ์กลาง–สูงของ IPCC โดยสมมติว่าการควบคุมน้ำบาดาลชะลอการทรุดตัว · พื้นที่กรุงเทพฯ ระดับต่ำส่วนใหญ่อยู่ในระยะน้ำขึ้นถึง",
+                "IPCC中高情景，假设地下水管制减缓沉降 · 曼谷大部分低洼地区将处于潮汐可及范围",
+                "IPCC 중간–높음 시나리오, 지하수 규제로 침하가 둔화된다고 가정 · 저지대 방콕 대부분이 조석 범위 내",
+                "IPCC中〜高シナリオ、地下水規制により沈下が減速すると仮定 · 低地バンコクの大部分が潮汐域内に"
               )}</span>
             </div>
           </div>

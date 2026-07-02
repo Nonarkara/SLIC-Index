@@ -11709,7 +11709,7 @@ a.essay-reference-text:hover {
 .compare-scatter-note {
   font-size: 13px;
   line-height: 1.75;
-  color: var(--text-muted);
+  color: var(--text-soft);
   max-width: 720px;
   margin: 0;
 }
@@ -11739,7 +11739,7 @@ a.essay-reference-text:hover {
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-soft);
   padding: 8px 12px;
   border-bottom: 1px solid var(--border);
 }
@@ -11756,16 +11756,16 @@ a.essay-reference-text:hover {
 }
 
 .th-asean-highlight td {
-  background: color-mix(in srgb, var(--accent) 6%, transparent);
+  background: color-mix(in srgb, var(--accent-amber) 6%, transparent);
 }
 
 .th-asean-highlight td:first-child {
-  border-left: 3px solid var(--accent);
+  border-left: 3px solid var(--accent-amber);
 }
 
 .th-asean-note {
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--text-soft);
   margin: 0.5rem 0 0;
 }
 
@@ -11791,23 +11791,23 @@ a.essay-reference-text:hover {
   background: var(--bg);
   padding: 1.25rem 1.5rem 1.5rem;
 }
-.compare-tfr-card--q1 { background: color-mix(in srgb, var(--accent) 4%, var(--bg)); }
+.compare-tfr-card--q1 { background: color-mix(in srgb, var(--accent-amber) 4%, var(--bg)); }
 .compare-tfr-card--q3 { background: color-mix(in srgb, #888 4%, var(--bg)); }
 .compare-tfr-card-label {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: var(--accent-amber);
   margin: 0 0 0.25rem;
 }
-.compare-tfr-card--q1 .compare-tfr-card-label { color: var(--accent); }
+.compare-tfr-card--q1 .compare-tfr-card-label { color: var(--accent-amber); }
 .compare-tfr-card--q3 .compare-tfr-card-label,
-.compare-tfr-card--q4 .compare-tfr-card-label { color: var(--text-muted); }
+.compare-tfr-card--q4 .compare-tfr-card-label { color: var(--text-soft); }
 .compare-tfr-card-sub {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--text-muted);
+  color: var(--text-soft);
   margin: 0 0 0.75rem;
 }
 .compare-tfr-cities {
@@ -11824,17 +11824,17 @@ a.essay-reference-text:hover {
 }
 .compare-tfr-city em {
   font-style: normal;
-  color: var(--text-muted);
+  color: var(--text-soft);
   font-size: 10px;
 }
 .compare-tfr-city--hero {
-  color: var(--accent);
+  color: var(--accent-amber);
   font-weight: 600;
 }
 .compare-tfr-note {
   font-size: 12px;
   line-height: 1.6;
-  color: var(--text-muted);
+  color: var(--text-soft);
   margin: 0;
   border-top: 1px solid var(--border);
   padding-top: 0.75rem;
@@ -11862,7 +11862,7 @@ a.essay-reference-text:hover {
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-soft);
   padding: 8px 12px;
   border-bottom: 1px solid var(--border);
   text-align: left;
@@ -11879,8 +11879,8 @@ a.essay-reference-text:hover {
   font-size: 9px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: var(--accent);
-  border: 1px solid var(--accent);
+  color: var(--accent-amber);
+  border: 1px solid var(--accent-amber);
   padding: 1px 5px;
   white-space: nowrap;
 }
@@ -11889,7 +11889,7 @@ a.essay-reference-text:hover {
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-soft);
   margin: 2.5rem 0 1rem;
   font-weight: 400;
 }
@@ -11906,18 +11906,18 @@ a.essay-reference-text:hover {
   padding: 1.25rem 1.5rem 1.5rem;
 }
 .compare-corridor-card--hero {
-  background: color-mix(in srgb, var(--accent) 4%, var(--bg));
+  background: color-mix(in srgb, var(--accent-amber) 4%, var(--bg));
 }
 .compare-corridor-card-label {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-soft);
   margin: 0 0 0.5rem;
 }
 .compare-corridor-card--hero .compare-corridor-card-label {
-  color: var(--accent);
+  color: var(--accent-amber);
 }
 .compare-corridor-card-cities {
   font-size: 13px;
@@ -11941,18 +11941,18 @@ a.essay-reference-text:hover {
   font-size: 9px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-soft);
   border: 1px solid var(--border);
   padding: 1px 5px;
 }
 .compare-corridor-card--hero .compare-corridor-card-role {
-  color: var(--accent);
-  border-color: var(--accent);
+  color: var(--accent-amber);
+  border-color: var(--accent-amber);
 }
 .compare-corridor-card-note {
   font-size: 12px;
   line-height: 1.65;
-  color: var(--text-muted);
+  color: var(--text-soft);
   margin: 0;
   border-top: 1px solid var(--border);
   padding-top: 0.75rem;
@@ -11981,7 +11981,7 @@ a.essay-reference-text:hover {
   flex-direction: column;
   gap: 0.3rem;
 }
-.th-fdi-stat--positive { background: color-mix(in srgb, var(--accent) 3%, var(--bg)); }
+.th-fdi-stat--positive { background: color-mix(in srgb, var(--accent-amber) 3%, var(--bg)); }
 .th-fdi-stat-value {
   font-family: var(--font-mono);
   font-size: 2rem;
@@ -11990,18 +11990,18 @@ a.essay-reference-text:hover {
   color: var(--text);
   letter-spacing: -0.02em;
 }
-.th-fdi-stat--positive .th-fdi-stat-value { color: var(--accent); }
+.th-fdi-stat--positive .th-fdi-stat-value { color: var(--accent-amber); }
 .th-fdi-stat-label {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-soft);
 }
 .th-fdi-stat-sub {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--text-muted);
+  color: var(--text-soft);
   margin-top: 0.1rem;
 }
 @media (max-width: 600px) {
@@ -12010,7 +12010,7 @@ a.essay-reference-text:hover {
 }
 
 /* ─── ThailandPage: Geological Substrate Vulnerability (Axis 7) ─── */
-.th-geology-section { padding: var(--section-pad) 0; border-top: 1px solid var(--border); }
+.th-geology-section { padding: 3rem 0; border-top: 1px solid var(--border); }
 .th-geology-section .section-heading { margin-bottom: 2.5rem; }
 
 .th-geology-timeline {
@@ -12028,26 +12028,26 @@ a.essay-reference-text:hover {
   flex-direction: column;
   gap: 0.5rem;
 }
-.th-geology-panel--present { background: color-mix(in srgb, var(--accent) 3%, var(--bg)); }
+.th-geology-panel--present { background: color-mix(in srgb, var(--accent-amber) 3%, var(--bg)); }
 .th-geology-panel-year {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-soft);
 }
-.th-geology-panel--present .th-geology-panel-year { color: var(--accent); }
+.th-geology-panel--present .th-geology-panel-year { color: var(--accent-amber); }
 .th-geology-panel-era {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 13px;
   font-weight: 600;
   color: var(--text);
   line-height: 1.3;
 }
 .th-geology-panel-desc {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 13px;
-  color: var(--text-muted);
+  color: var(--text-soft);
   line-height: 1.6;
   margin: 0;
 }
@@ -12067,27 +12067,27 @@ a.essay-reference-text:hover {
   flex-direction: column;
   gap: 0.3rem;
 }
-.th-geology-stat--risk { background: color-mix(in srgb, #c0392b 4%, var(--bg)); }
+.th-geology-stat--risk { background: color-mix(in srgb, var(--accent-red) 4%, var(--bg)); }
 .th-geology-stat-value {
   font-family: var(--font-mono);
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 700;
   line-height: 1;
   color: var(--text);
   letter-spacing: -0.02em;
 }
-.th-geology-stat--risk .th-geology-stat-value { color: #c0392b; }
+.th-geology-stat--risk .th-geology-stat-value { color: var(--accent-red); }
 .th-geology-stat-label {
   font-family: var(--font-mono);
   font-size: 10px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-soft);
 }
 .th-geology-stat-sub {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--text-muted);
+  color: var(--text-soft);
   margin-top: 0.1rem;
 }
 
@@ -12110,27 +12110,27 @@ a.essay-reference-text:hover {
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text-soft);
 }
 .th-geology-horizon-est {
   font-family: var(--font-mono);
   font-size: 1.5rem;
   font-weight: 700;
-  color: #c0392b;
+  color: var(--accent-red);
   line-height: 1;
   letter-spacing: -0.02em;
 }
 .th-geology-horizon-note {
-  font-family: var(--font-sans);
+  font-family: var(--font-body);
   font-size: 12px;
-  color: var(--text-muted);
+  color: var(--text-soft);
   line-height: 1.5;
 }
 
 .th-geology-note {
   font-family: var(--font-mono);
   font-size: 11px;
-  color: var(--text-muted);
+  color: var(--text-soft);
   line-height: 1.7;
   border-top: 1px solid var(--border);
   padding-top: 0.75rem;
@@ -12141,5 +12141,5 @@ a.essay-reference-text:hover {
   .th-geology-stats { grid-template-columns: 1fr; }
   .th-geology-horizon { grid-template-columns: 1fr; }
   .th-geology-horizon-divider { display: none; }
-  .th-geology-stat-value { font-size: 1.5rem; }
+  .th-geology-stat-value { font-size: 1.6rem; }
 }

@@ -676,9 +676,9 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
                 <tr key={r.rank}>
                   <td>{r.rank}</td>
                   <td>{r.region}</td>
-                  <td style={{ color: "var(--text-muted)" }}>{r.anchor}</td>
+                  <td style={{ color: "var(--text-soft)" }}>{r.anchor}</td>
                   <td>{r.gdp}</td>
-                  <td>{r.bb ? <span className="compare-corridor-bb">Blue Banana</span> : <span style={{ color: "var(--text-muted)", fontSize: "11px" }}>—</span>}</td>
+                  <td>{r.bb ? <span className="compare-corridor-bb">Blue Banana</span> : <span style={{ color: "var(--text-soft)", fontSize: "11px" }}>—</span>}</td>
                 </tr>
               ))}
             </tbody>

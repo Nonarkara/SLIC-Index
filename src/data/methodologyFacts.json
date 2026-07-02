@@ -48,53 +48,53 @@
       "cityId": "sg-singapore",
       "displayName": "Singapore",
       "country": "Singapore",
-      "rank": 48,
-      "tierLabel": "Gamma",
-      "tierSlot": 5,
+      "rank": 34,
+      "tierLabel": "Alpha",
+      "tierSlot": 7,
       "rankingStatus": "Ranked",
       "coverageGrade": "A",
-      "slicScore": 59.4,
-      "slicScoreExact": 59.4386,
-      "pressureScore": 41.3,
-      "pressureScoreExact": 41.2595,
+      "slicScore": 62.8,
+      "slicScoreExact": 62.8412,
+      "pressureScore": 44.1,
+      "pressureScoreExact": 44.1076,
       "viabilityScore": 90.4,
       "viabilityScoreExact": 90.377,
       "capabilityScore": 94.1,
       "capabilityScoreExact": 94.1479,
-      "communityScore": 38.4,
-      "communityScoreExact": 38.3699,
+      "communityScore": 45.7,
+      "communityScoreExact": 45.7432,
       "creativeScore": 73.3,
       "creativeScoreExact": 73.3339,
-      "tierReason": "Placed on the Gamma shelf: Alpha floor not met (38.4 Community, 41.3 Pressure); Beta floor not met (38.4 Community, 41.3 Pressure). Singapore has not yet claimed a higher tier."
+      "tierReason": "Placed on the Alpha shelf: Community 45.7 and Pressure 44.1 both clear the Alpha threshold, coverage is A, and this is Singapore's first representative at this tier."
     },
     "bangkok": {
       "cityId": "th-bangkok",
       "displayName": "Bangkok",
       "country": "Thailand",
-      "rank": 52,
-      "tierLabel": "Alpha",
-      "tierSlot": 10,
+      "rank": 66,
+      "tierLabel": null,
+      "tierSlot": null,
       "rankingStatus": "Ranked",
       "coverageGrade": "A",
-      "slicScore": 58.5,
-      "slicScoreExact": 58.4728,
-      "pressureScore": 49.9,
-      "pressureScoreExact": 49.9116,
+      "slicScore": 53.7,
+      "slicScoreExact": 53.7232,
+      "pressureScore": 42.6,
+      "pressureScoreExact": 42.5936,
       "viabilityScore": 76.6,
       "viabilityScoreExact": 76.6463,
       "capabilityScore": 68.2,
       "capabilityScoreExact": 68.2098,
       "communityScore": 70.7,
       "communityScoreExact": 70.7202,
-      "creativeScore": 44.5,
-      "creativeScoreExact": 44.5201,
-      "tierReason": "Placed on the Alpha shelf: Community 70.7 and Pressure 49.9 both clear the Alpha threshold, coverage is A, and this is Thailand's first representative at this tier."
+      "creativeScore": 38.5,
+      "creativeScoreExact": 38.5414,
+      "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities."
     },
     "tokyo": {
       "cityId": "jp-tokyo",
       "displayName": "Tokyo",
       "country": "Japan",
-      "rank": 43,
+      "rank": 48,
       "tierLabel": null,
       "tierSlot": null,
       "rankingStatus": "Ranked",
@@ -124,7 +124,7 @@
       "viability": 86.5,
       "capability": 90.6,
       "community": 65.4,
-      "creative": 56.9
+      "creative": 37
     },
     "safety": {
       "raw": 0.8,
@@ -177,11 +177,11 @@
       "scoreRounded": 66.8
     },
     "overall": {
-      "weightedMeanExact": 73.2167,
-      "weightedVarianceExact": 165.5407,
-      "ampiExact": 70.9557,
-      "slicScoreExact": 70.9557,
-      "slicScoreRounded": 71,
+      "weightedMeanExact": 69.2309,
+      "weightedVarianceExact": 358.7729,
+      "ampiExact": 64.0486,
+      "slicScoreExact": 64.0486,
+      "slicScoreRounded": 64,
       "coverageExact": 0.8,
       "coverageRounded": 0.8,
       "coverageGrade": "A",
@@ -215,8 +215,8 @@
       {
         "pillar": "creative",
         "weight": 20,
-        "scoreExact": 56.9479,
-        "scoreRounded": 56.9
+        "scoreExact": 37.0191,
+        "scoreRounded": 37
       }
     ]
   },
@@ -237,59 +237,59 @@
         "tierSlot": 2
       },
       {
-        "cityId": "tw-kaohsiung",
-        "displayName": "Kaohsiung",
-        "country": "Taiwan",
+        "cityId": "nl-eindhoven",
+        "displayName": "Eindhoven",
+        "country": "Netherlands",
         "rank": 5,
         "tierSlot": 3
       },
       {
-        "cityId": "nl-eindhoven",
-        "displayName": "Eindhoven",
-        "country": "Netherlands",
-        "rank": 6,
-        "tierSlot": 4
-      },
-      {
-        "cityId": "at-graz",
-        "displayName": "Graz",
-        "country": "Austria",
+        "cityId": "dk-copenhagen",
+        "displayName": "Copenhagen",
+        "country": "Denmark",
         "rank": 12,
-        "tierSlot": 5
-      },
-      {
-        "cityId": "tw-taipei",
-        "displayName": "Taipei",
-        "country": "Taiwan",
-        "rank": 17,
-        "tierSlot": 6
+        "tierSlot": 4
       },
       {
         "cityId": "kr-jeju-city",
         "displayName": "Jeju City",
         "country": "South Korea",
-        "rank": 19,
+        "rank": 21,
+        "tierSlot": 5
+      },
+      {
+        "cityId": "tw-kaohsiung",
+        "displayName": "Kaohsiung",
+        "country": "Taiwan",
+        "rank": 26,
+        "tierSlot": 6
+      },
+      {
+        "cityId": "sg-singapore",
+        "displayName": "Singapore",
+        "country": "Singapore",
+        "rank": 34,
         "tierSlot": 7
       },
       {
         "cityId": "jp-fukuoka",
         "displayName": "Fukuoka",
         "country": "Japan",
-        "rank": 33,
+        "rank": 38,
         "tierSlot": 8
+      },
+      {
+        "cityId": "bh-manama",
+        "displayName": "Manama",
+        "country": "Bahrain",
+        "rank": 39,
+        "tierSlot": 9
       },
       {
         "cityId": "cl-valparaiso",
         "displayName": "Valparaiso",
         "country": "Chile",
-        "rank": 35,
-        "tierSlot": 9
-      },
-      {
-        "cityId": "th-bangkok",
-        "displayName": "Bangkok",
-        "country": "Thailand",
-        "rank": 52,
+        "rank": 40,
         "tierSlot": 10
       }
     ],
@@ -312,128 +312,128 @@
         "cityId": "cz-prague",
         "displayName": "Prague",
         "country": "Czechia",
-        "rank": 9,
+        "rank": 8,
         "tierSlot": 3
       },
       {
         "cityId": "au-melbourne",
         "displayName": "Melbourne",
         "country": "Australia",
-        "rank": 14,
+        "rank": 10,
         "tierSlot": 4
+      },
+      {
+        "cityId": "at-graz",
+        "displayName": "Graz",
+        "country": "Austria",
+        "rank": 14,
+        "tierSlot": 5
+      },
+      {
+        "cityId": "uk-london",
+        "displayName": "London",
+        "country": "United Kingdom",
+        "rank": 18,
+        "tierSlot": 6
       },
       {
         "cityId": "pt-braga",
         "displayName": "Braga",
         "country": "Portugal",
-        "rank": 16,
-        "tierSlot": 5
-      },
-      {
-        "cityId": "ee-tallinn",
-        "displayName": "Tallinn",
-        "country": "Estonia",
-        "rank": 24,
-        "tierSlot": 6
-      },
-      {
-        "cityId": "fr-lyon",
-        "displayName": "Lyon",
-        "country": "France",
-        "rank": 25,
+        "rank": 19,
         "tierSlot": 7
       },
       {
         "cityId": "fi-helsinki",
         "displayName": "Helsinki",
         "country": "Finland",
-        "rank": 28,
+        "rank": 20,
         "tierSlot": 8
+      },
+      {
+        "cityId": "ee-tallinn",
+        "displayName": "Tallinn",
+        "country": "Estonia",
+        "rank": 27,
+        "tierSlot": 9
       },
       {
         "cityId": "nz-christchurch",
         "displayName": "Christchurch",
         "country": "New Zealand",
-        "rank": 31,
-        "tierSlot": 9
-      },
-      {
-        "cityId": "it-milan",
-        "displayName": "Milan",
-        "country": "Italy",
-        "rank": 36,
+        "rank": 28,
         "tierSlot": 10
       }
     ],
     "Gamma": [
       {
-        "cityId": "dk-copenhagen",
-        "displayName": "Copenhagen",
-        "country": "Denmark",
-        "rank": 13,
+        "cityId": "fr-lyon",
+        "displayName": "Lyon",
+        "country": "France",
+        "rank": 30,
         "tierSlot": 1
+      },
+      {
+        "cityId": "tw-taipei",
+        "displayName": "Taipei",
+        "country": "Taiwan",
+        "rank": 41,
+        "tierSlot": 2
+      },
+      {
+        "cityId": "it-milan",
+        "displayName": "Milan",
+        "country": "Italy",
+        "rank": 42,
+        "tierSlot": 3
       },
       {
         "cityId": "jp-sapporo",
         "displayName": "Sapporo",
         "country": "Japan",
-        "rank": 39,
-        "tierSlot": 2
+        "rank": 44,
+        "tierSlot": 4
       },
       {
         "cityId": "ch-zurich",
         "displayName": "Zurich",
         "country": "Switzerland",
-        "rank": 41,
-        "tierSlot": 3
+        "rank": 47,
+        "tierSlot": 5
       },
       {
         "cityId": "ie-cork",
         "displayName": "Cork",
         "country": "Ireland",
-        "rank": 45,
-        "tierSlot": 4
-      },
-      {
-        "cityId": "sg-singapore",
-        "displayName": "Singapore",
-        "country": "Singapore",
-        "rank": 48,
-        "tierSlot": 5
-      },
-      {
-        "cityId": "sk-bratislava",
-        "displayName": "Bratislava",
-        "country": "Slovakia",
-        "rank": 51,
+        "rank": 49,
         "tierSlot": 6
-      },
-      {
-        "cityId": "uk-london",
-        "displayName": "London",
-        "country": "United Kingdom",
-        "rank": 53,
-        "tierSlot": 7
-      },
-      {
-        "cityId": "be-antwerp",
-        "displayName": "Antwerp",
-        "country": "Belgium",
-        "rank": 54,
-        "tierSlot": 8
-      },
-      {
-        "cityId": "pl-torun",
-        "displayName": "Torun",
-        "country": "Poland",
-        "rank": 56,
-        "tierSlot": 9
       },
       {
         "cityId": "ae-dubai",
         "displayName": "Dubai",
         "country": "United Arab Emirates",
-        "rank": 60,
+        "rank": 50,
+        "tierSlot": 7
+      },
+      {
+        "cityId": "sk-bratislava",
+        "displayName": "Bratislava",
+        "country": "Slovakia",
+        "rank": 55,
+        "tierSlot": 8
+      },
+      {
+        "cityId": "be-antwerp",
+        "displayName": "Antwerp",
+        "country": "Belgium",
+        "rank": 56,
+        "tierSlot": 9
+      },
+      {
+        "cityId": "pl-torun",
+        "displayName": "Torun",
+        "country": "Poland",
+        "rank": 58,
         "tierSlot": 10
       }
     ]
@@ -442,23 +442,23 @@
     "publicMetricLineCount": 4075,
     "observedMetricLines": 3476,
     "dataLevelCounts": {
-      "city": 1613,
-      "national": 1113,
-      "derived": 287,
+      "city": 2034,
+      "national": 531,
+      "derived": 448,
       "composite": 463,
       "missing": 599
     },
     "dataLevelShares": {
-      "city": 0.3958,
-      "national": 0.2731,
-      "derived": 0.0704,
+      "city": 0.4991,
+      "national": 0.1303,
+      "derived": 0.1099,
       "composite": 0.1136,
       "missing": 0.147
     },
     "observedDataLevelShares": {
-      "city": 0.464,
-      "national": 0.3202,
-      "derived": 0.0826,
+      "city": 0.5852,
+      "national": 0.1528,
+      "derived": 0.1289,
       "composite": 0.1332
     },
     "gradeCounts": {
