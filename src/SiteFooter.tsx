@@ -1,6 +1,7 @@
 import BrandLockup from "./BrandLockup";
 import { collaborationLogos } from "./brandAssets";
 import { pickLocale, type LocalizedRecord } from "./i18n";
+import { navGroups, navGroupLabel, navPathLabel } from "./navGroups";
 import { appHref } from "./routing";
 import { getCopy } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
@@ -260,40 +261,35 @@ export default function SiteFooter({
       </div>
 
       <div className="site-footer-bottom">
-        <nav className="topnav" aria-label={navAriaLabel}>
+        <nav className="site-footer-nav" aria-label={navAriaLabel}>
           <a href={appHref("/")} onClick={(event) => navigateLink(event, onNavigate, "/")}>
             {copy.nav.home}
           </a>
-          <a href={appHref("/about-slic")} onClick={(event) => navigateLink(event, onNavigate, "/about-slic")}>
-            {copy.nav.aboutSlic}
-          </a>
-          <a href={appHref("/rankings")} onClick={(event) => navigateLink(event, onNavigate, "/rankings")}>
-            {copy.nav.rankings}
-          </a>
-          <a href={appHref("/methodology")} onClick={(event) => navigateLink(event, onNavigate, "/methodology")}>
-            {copy.nav.methodology}
-          </a>
-          <a href={appHref("/data")} onClick={(event) => navigateLink(event, onNavigate, "/data")}>
-            {locale === "th" ? "ข้อมูล" : locale === "zh" ? "数据" : locale === "ko" ? "데이터" : locale === "ja" ? "データ" : "Data"}
-          </a>
-          <a href={appHref("/thailand")} onClick={(event) => navigateLink(event, onNavigate, "/thailand")}>
-            {copy.nav.thailand}
-          </a>
-          <a href={appHref("/ideas")} onClick={(event) => navigateLink(event, onNavigate, "/ideas")}>
-            {copy.nav.ideas}
-          </a>
-          <a href={appHref("/history")} onClick={(event) => navigateLink(event, onNavigate, "/history")}>
-            {copy.nav.history}
-          </a>
-          <a href={appHref("/awards")} onClick={(event) => navigateLink(event, onNavigate, "/awards")}>
-            {locale === "th" ? "เอกสารยื่นรางวัล" : locale === "zh" ? "投奖案卷" : locale === "ko" ? "출품 서류" : locale === "ja" ? "出品書類" : "Submissions"}
-          </a>
-          <a href="https://nonarkara.github.io/SLIC-Index-V1/" target="_blank" rel="noopener noreferrer">
-            {archiveLabels.v1}
-          </a>
-          <a href="https://nonarkara.github.io/SLIC-Index-V2/" target="_blank" rel="noopener noreferrer">
-            {archiveLabels.v2}
-          </a>
+          {navGroups.map((group) => (
+            <div className="site-footer-nav-group" key={group.id}>
+              <p className="site-footer-nav-label">{navGroupLabel(group.id, locale)}</p>
+              {group.paths.map((path) => (
+                <a
+                  key={path}
+                  href={appHref(path)}
+                  onClick={(event) => navigateLink(event, onNavigate, path)}
+                >
+                  {navPathLabel(path, locale)}
+                </a>
+              ))}
+            </div>
+          ))}
+          <div className="site-footer-nav-group site-footer-nav-group--archives">
+            <p className="site-footer-nav-label">
+              {locale === "th" ? "คลัง" : locale === "zh" ? "归档" : locale === "ko" ? "아카이브" : locale === "ja" ? "アーカイブ" : "Archives"}
+            </p>
+            <a href="https://nonarkara.github.io/SLIC-Index-V1/" target="_blank" rel="noopener noreferrer">
+              {archiveLabels.v1}
+            </a>
+            <a href="https://nonarkara.github.io/SLIC-Index-V2/" target="_blank" rel="noopener noreferrer">
+              {archiveLabels.v2}
+            </a>
+          </div>
         </nav>
         <p className="site-footer-note">{footerNote}</p>
         <p className="site-footer-vintage">{vintageNote}</p>

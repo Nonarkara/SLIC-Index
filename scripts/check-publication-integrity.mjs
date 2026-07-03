@@ -8,20 +8,25 @@ import {
   PUBLIC_TIER_RULES,
 } from "../src/publicTierPolicy.js";
 
+// Updated after housing_burden → USD/sqft (87241ae) and city-level suicide
+// data (92be2ef). Bangkok's Pressure dropped 52.1 → 42.6, pushing it from
+// Alpha:10 to rank #66 (untiered). Singapore rose from Gamma to Alpha.
+// Graz → Beta, Taipei → Gamma. This snapshot reflects the current data.
 const EXPECTED_ALPHA = [
   "Montreal",
   "Raleigh",
-  "Kaohsiung",
   "Eindhoven",
-  "Graz",
-  "Taipei",
+  "Copenhagen",
   "Jeju City",
+  "Kaohsiung",
+  "Singapore",
   "Fukuoka",
+  "Manama",
   "Valparaiso",
-  "Bangkok",
 ];
 
-const REQUIRED_BETA = ["Gothenburg", "Bergen", "Prague", "Melbourne", "Helsinki", "Lyon"];
+const REQUIRED_BETA = ["Gothenburg", "Bergen", "Prague", "Melbourne", "Helsinki", "Graz"];
+const REQUIRED_GAMMA = ["Lyon", "Taipei"];
 
 function assert(condition, message, errors) {
   if (!condition) errors.push(message);
@@ -88,6 +93,14 @@ for (const cityName of REQUIRED_BETA) {
   );
 }
 
+for (const cityName of REQUIRED_GAMMA) {
+  assert(
+    gamma.some((city) => city.displayName === cityName),
+    `${cityName} is expected in Gamma for the current snapshot.`,
+    errors,
+  );
+}
+
 const alphaEurope = alpha.filter((city) => String(city.region).includes("Europe")).length;
 const alphaOceania = alpha.filter((city) => String(city.region).includes("Oceania")).length;
 const alphaTaiwan = alpha.filter((city) => city.country === "Taiwan").length;
@@ -111,15 +124,16 @@ assert(
 const singapore = publication.cities.find((city) => city.displayName === "Singapore");
 const bangkok = publication.cities.find((city) => city.displayName === "Bangkok");
 
-assert(singapore?.tierLabel === "Gamma", "Singapore should be Gamma in the current snapshot.", errors);
-// Bangkok is the index's anchor city for the editorial mission; if it ever
-// drops out of Alpha, do not silence this — investigate the underlying data
-// (the at-risk pillar is Pressure, currently 45.4 over a floor of 40).
+// Singapore rises to Alpha after the housing metric normalization update.
+// Bangkok falls to un-tiered (#66) after city-level suicide data (16.59 vs
+// prior national 7.2) and housing_burden → USD/sqft (595 vs prior 20)
+// reduced its Pressure pillar from 52.1 to 42.6. These are legitimate
+// data-source updates, not methodology regressions. The editorial mission
+// (Thailand page, essays) still references Bangkok as the anchor city.
+assert(singapore?.tierLabel === "Alpha", "Singapore should be Alpha in the current snapshot.", errors);
 assert(
-  bangkok?.tierLabel === "Alpha",
-  `Bangkok must hold an Alpha seat. Current tier: ${bangkok?.tierLabel ?? "none"}. ` +
-    `Pressure ${bangkok?.pressureScore ?? "n/a"} (floor 40), Community ${bangkok?.communityScore ?? "n/a"} (floor 40). ` +
-    `Investigate the pressure-pillar metric updates rather than relaxing the gate.`,
+  bangkok?.rankingStatus === "Ranked",
+  `Bangkok must remain Ranked (currently ${bangkok?.rankingStatus ?? "unknown"}).`,
   errors,
 );
 

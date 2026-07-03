@@ -128,14 +128,19 @@ const publishedBoard: HomeCity[] = rankingPublication.cities
 const publishedRankedCount = publishedBoard.filter((city) => city.rankingStatus === "Ranked").length;
 const publishedWatchlistCount = rankingPublication.cities.length - publishedRankedCount;
 
-// Bangkok is the canonical worked example for the rank-vs-Alpha distinction.
-// Pull its live numbers so the bridge copy never goes stale.
+// Bangkok is the editorial anchor — pull live numbers so bridge copy never drifts.
 const bangkokWorked = rankingPublication.cities.find((c) => c.cityId === "th-bangkok");
-const bangkokRank = bangkokWorked?.rank ?? 27;
-const bangkokAlphaSlot = bangkokWorked?.tierSlot ?? 9;
-const bangkokCommunity = bangkokWorked?.communityScore?.toFixed(1) ?? "90.0";
-const bangkokPressure = bangkokWorked?.pressureScore?.toFixed(1) ?? "45.4";
+const bangkokRank = bangkokWorked?.rank ?? 66;
+const bangkokTierSlot = bangkokWorked?.tierSlot ?? null;
+const bangkokCommunity = bangkokWorked?.communityScore?.toFixed(1) ?? "70.7";
+const bangkokPressure = bangkokWorked?.pressureScore?.toFixed(1) ?? "42.6";
 const bangkokCoverage = bangkokWorked?.coverageGrade ?? "A";
+const bangkokTierSeatNote = bangkokTierSlot
+  ? `Alpha slot ${bangkokTierSlot}`
+  : "no public-tier seat";
+const bangkokTierExplain = bangkokTierSlot
+  ? "Thailand's seat is uncontested, no exclusion blocks it."
+  : "Every public-tier slot was filled by higher-ranked cities before Bangkok's turn — the rules are not gamed to force the anchor city onto the shelf.";
 const alphaCountryExclusionList = PUBLIC_TIER_RULES.alphaCountryExclusions.join(", ") || "none";
 const alphaCityExclusionList = getDisplayAlphaCityExclusions().join(", ") || "none";
 
@@ -495,11 +500,11 @@ export default function HomePage({
             <p className="v3-alpha-bridge-body">
               {t(
                 locale,
-                `It is the editorial overlay reserved for cities where the median resident actually thrives — not the top ten by pure score. Cities with higher pure rank can fail a gate (floor scores, ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}-grade coverage, country cap, editorial exclusion); cities with lower pure rank can earn a seat. Bangkok is the worked example: pure rank #${bangkokRank}, Alpha slot ${bangkokAlphaSlot}. Community ${bangkokCommunity} and Pressure ${bangkokPressure} clear the floor, coverage is ${bangkokCoverage}, Thailand's seat is uncontested, no exclusion blocks it. Travel-cost evidence strengthens the public story: Bangkok combines major global visitor pull with unusually low everyday food, transport, and lodging costs, but that evidence is context, not a hidden score boost.`,
-                `คือชั้นบรรณาธิการที่สงวนไว้ให้กับเมืองที่ผู้อยู่อาศัยมัธยฐานเจริญงอกงามจริง — ไม่ใช่ top-10 ตามคะแนนล้วน เมืองที่อันดับคะแนนสูงกว่าอาจไม่ผ่านประตู (เกณฑ์ขั้นต่ำ coverage grade ${PUBLIC_TIER_RULES.alphaMinCoverageGrade} เพดานประเทศ การกีดกันบรรณาธิการ) เมืองที่อันดับคะแนนต่ำกว่าอาจได้ที่นั่ง กรุงเทพฯ คือตัวอย่าง: อันดับล้วน #${bangkokRank} · Alpha สล็อตที่ ${bangkokAlphaSlot} · Community ${bangkokCommunity} และ Pressure ${bangkokPressure} ผ่านพื้น · coverage ${bangkokCoverage} · ที่นั่งของไทยไม่มีคู่แข่ง · ไม่มีการกีดกัน หลักฐานต้นทุนการเดินทางช่วยเสริมเรื่องเล่าสาธารณะ: กรุงเทพฯ มีแรงดึงดูดนักเดินทางระดับโลกพร้อมต้นทุนอาหาร การเดินทาง และที่พักที่ยังต่ำผิดปกติ แต่หลักฐานนี้เป็นบริบท ไม่ใช่คะแนนแฝง`,
-                `它是为中位居民真正安居的城市保留的编辑层 —— 而非按纯分排出的前 10。纯分更高的城市可能未通过门槛（底线、${PUBLIC_TIER_RULES.alphaMinCoverageGrade} 级覆盖、国家上限、编辑排除）；纯分更低的城市可能赢得席位。曼谷是范例：纯分第 ${bangkokRank} · Alpha 第 ${bangkokAlphaSlot} 席 · 社区 ${bangkokCommunity}、压力 ${bangkokPressure} 越过底线 · 覆盖 ${bangkokCoverage} · 泰国席位无人争夺 · 不在任何排除清单上。旅行成本证据强化了公开叙事：曼谷兼具全球游客吸引力与异常低的日常餐饮、交通、住宿成本，但这只是背景证据，不是隐藏加分。`,
-                `이것은 중위 거주자가 실제로 번성하는 도시를 위해 예약된 편집 레이어입니다 — 순수 점수 기준 상위 10위가 아닙니다. 순수 순위가 높은 도시도 관문(최저 점수, ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}등급 커버리지, 국가 상한, 편집 제외)에서 탈락할 수 있고, 순수 순위가 낮은 도시도 자리를 얻을 수 있습니다. 방콕이 예시입니다: 순수 순위 #${bangkokRank}, 알파 슬롯 ${bangkokAlphaSlot}. 커뮤니티 ${bangkokCommunity} 및 성장 ${bangkokPressure}이 최저선을 충족하고, 커버리지는 ${bangkokCoverage}, 태국 자리는 경쟁 없음, 제외 항목 없음. 여행 비용 증거가 공개 서사를 강화합니다: 방콕은 주요 글로벌 방문객 유인력과 이례적으로 낮은 일상 식비, 교통비, 숙박비를 결합하고 있지만, 이 증거는 맥락일 뿐 숨겨진 점수 가산이 아닙니다.`,
-                `これは、中央値の居住者が実際に繁栄している都市のために予約された編集レイヤーです——純粋なスコアによるトップ10ではありません。純粋な順位が高い都市もゲート（最低スコア、${PUBLIC_TIER_RULES.alphaMinCoverageGrade}グレードカバレッジ、国別上限、編集除外）で落ちることがあり、純粋な順位が低い都市も席を得ることができます。バンコクが実例です：純粋な順位#${bangkokRank}、アルファスロット${bangkokAlphaSlot}。コミュニティ${bangkokCommunity}と成長${bangkokPressure}が最低線をクリアし、カバレッジは${bangkokCoverage}、タイの席は争いなし、除外項目もなし。旅行コストの証拠が公開の物語を強化します：バンコクは主要なグローバル訪問者の牽引力と異常に低い日常の食費、交通費、宿泊費を組み合わせていますが、この証拠は文脈であり、隠れたスコアブーストではありません。`,
+                `It is the editorial overlay reserved for cities where the median resident actually thrives — not the top ten by pure score. Cities with higher pure rank can fail a gate (floor scores, ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}-grade coverage, country cap, editorial exclusion); cities with lower pure rank can earn a seat — or, like Bangkok, clear the floor yet hold no shelf at all. Bangkok is the anchor worked example: pure rank #${bangkokRank}, ${bangkokTierSeatNote}. Community ${bangkokCommunity} and Pressure ${bangkokPressure} clear the Alpha floor, coverage is ${bangkokCoverage}. ${bangkokTierExplain} Travel-cost evidence strengthens the public story: Bangkok combines major global visitor pull with unusually low everyday food, transport, and lodging costs, but that evidence is context, not a hidden score boost.`,
+                `คือชั้นบรรณาธิการที่สงวนไว้ให้กับเมืองที่ผู้อยู่อาศัยมัธยฐานเจริญงอกงามจริง — ไม่ใช่ top-10 ตามคะแนนล้วน เมืองที่อันดับคะแนนสูงกว่าอาจไม่ผ่านประตู (เกณฑ์ขั้นต่ำ coverage grade ${PUBLIC_TIER_RULES.alphaMinCoverageGrade} เพดานประเทศ การกีดกันบรรณาธิการ) เมืองที่อันดับคะแนนต่ำกว่าอาจได้ที่นั่ง — หรืออย่างกรุงเทพฯ ผ่านพื้นแต่ไม่มีชั้นสาธารณะเลย กรุงเทพฯ คือตัวอย่างหลัก: อันดับล้วน #${bangkokRank} · ${bangkokTierSlot ? `Alpha สล็อตที่ ${bangkokTierSlot}` : "ไม่มีชั้นสาธารณะ"} · Community ${bangkokCommunity} และ Pressure ${bangkokPressure} ผ่านพื้น Alpha · coverage ${bangkokCoverage} · ${bangkokTierSlot ? "ที่นั่งของไทยไม่มีคู่แข่ง · ไม่มีการกีดกัน" : "ทุกชั้นสาธารณะถูกเติมโดยเมืองที่อันดับสูงกว่าก่อน — กติกาไม่ถูกปรับเพื่อดันเมืองหลักขึ้นชั้น"} หลักฐานต้นทุนการเดินทางช่วยเสริมเรื่องเล่าสาธารณะ: กรุงเทพฯ มีแรงดึงดูดนักเดินทางระดับโลกพร้อมต้นทุนอาหาร การเดินทาง และที่พักที่ยังต่ำผิดปกติ แต่หลักฐานนี้เป็นบริบท ไม่ใช่คะแนนแฝง`,
+                `它是为中位居民真正安居的城市保留的编辑层 —— 而非按纯分排出的前 10。纯分更高的城市可能未通过门槛（底线、${PUBLIC_TIER_RULES.alphaMinCoverageGrade} 级覆盖、国家上限、编辑排除）；纯分更低的城市可能赢得席位 —— 或像曼谷一样，越过底线却没有公开层级席位。曼谷是锚点范例：纯分第 ${bangkokRank} · ${bangkokTierSlot ? `Alpha 第 ${bangkokTierSlot} 席` : "无公开层级席位"} · 社区 ${bangkokCommunity}、压力 ${bangkokPressure} 越过 Alpha 底线 · 覆盖 ${bangkokCoverage} · ${bangkokTierSlot ? "泰国席位无人争夺 · 不在任何排除清单上" : "所有公开层级席位已被更高排名城市占满 —— 规则不会为锚点城市破例"}。旅行成本证据强化了公开叙事：曼谷兼具全球游客吸引力与异常低的日常餐饮、交通、住宿成本，但这只是背景证据，不是隐藏加分。`,
+                `이것은 중위 거주자가 실제로 번성하는 도시를 위해 예약된 편집 레이어입니다 — 순수 점수 기준 상위 10위가 아닙니다. 순수 순위가 높은 도시도 관문(최저 점수, ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}등급 커버리지, 국가 상한, 편집 제외)에서 탈락할 수 있고, 순수 순위가 낮은 도시도 자리를 얻을 수 있습니다 —— 또는 방콕처럼 최저선은 넘지만 공개 등급 자리가 없을 수 있습니다. 방콕이 앵커 예시입니다: 순수 순위 #${bangkokRank}, ${bangkokTierSlot ? `알파 슬롯 ${bangkokTierSlot}` : "공개 등급 없음"}. 커뮤니티 ${bangkokCommunity} 및 압력 ${bangkokPressure}이 Alpha 최저선을 충족하고, 커버리지는 ${bangkokCoverage}. ${bangkokTierSlot ? "태국 자리는 경쟁 없음, 제외 항목 없음." : "모든 공개 등급 자리가 더 높은 순위의 도시로 먼저 채워졌습니다 — 앵커 도시를 억지로 올리지 않습니다."} 여행 비용 증거가 공개 서사를 강화합니다: 방콕은 주요 글로벌 방문객 유인력과 이례적으로 낮은 일상 식비, 교통비, 숙박비를 결합하고 있지만, 이 증거는 맥락일 뿐 숨겨진 점수 가산이 아닙니다.`,
+                `これは、中央値の居住者が実際に繁栄している都市のために予約された編集レイヤーです——純粋なスコアによるトップ10ではありません。純粋な順位が高い都市もゲート（最低スコア、${PUBLIC_TIER_RULES.alphaMinCoverageGrade}グレードカバレッジ、国別上限、編集除外）で落ちることがあり、純粋な順位が低い都市も席を得ることができます——またはバンコクのように、最低線をクリアしても公開ティアの席がない場合もあります。バンコクがアンカーの実例です：純粋な順位#${bangkokRank}、${bangkokTierSlot ? `アルファスロット${bangkokTierSlot}` : "公開ティアなし"}。コミュニティ${bangkokCommunity}とプレッシャー${bangkokPressure}がAlpha最低線をクリアし、カバレッジは${bangkokCoverage}。${bangkokTierSlot ? "タイの席は争いなし、除外項目もなし。" : "すべての公開ティア席がより高い順位の都市で先に埋まりました——アンカー都市を無理やり載せるルールではありません。"}旅行コストの証拠が公開の物語を強化します：バンコクは主要なグローバル訪問者の牽引力と異常に低い日常の食費、交通費、宿泊費を組み合わせていますが、この証拠は文脈であり、隠れたスコアブーストではありません。`,
               )}
             </p>
           </div>

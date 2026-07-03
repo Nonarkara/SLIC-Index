@@ -1776,6 +1776,65 @@ section[id] {
   gap: 0.75rem;
 }
 
+.site-footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  gap: 1.25rem 2rem;
+  flex: 1 1 28rem;
+}
+
+.site-footer-nav > a:first-child {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.35rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.site-footer-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  min-width: 7.5rem;
+}
+
+.site-footer-nav-label {
+  margin: 0 0 0.2rem;
+  padding-bottom: 0.35rem;
+  border-bottom: 1px solid rgba(40, 32, 20, 0.12);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+}
+
+.site-footer-nav-group a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.2rem 0;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  transition: color 160ms ease;
+}
+
+.site-footer-nav-group a:hover,
+.site-footer-nav-group a:focus-visible {
+  color: var(--text);
+}
+
 .site-footer-endnotes {
   display: grid;
   gap: 0.9rem;
@@ -1909,6 +1968,117 @@ section[id] {
 .mh-link:hover { color: var(--text); }
 .mh-link--active { color: var(--text); font-weight: 700; }
 
+/* Dropdown menus */
+.mh-dropdown {
+  position: relative;
+}
+
+.mh-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  min-height: 2.75rem;
+  padding: 0.4rem 0.55rem;
+  border: 0;
+  background: 0;
+  color: var(--text-soft);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 160ms ease, border-color 160ms ease;
+  white-space: nowrap;
+}
+
+.mh-dropdown-trigger:hover,
+.mh-dropdown-trigger--active,
+.mh-dropdown--open .mh-dropdown-trigger {
+  color: var(--text);
+}
+
+.mh-dropdown-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid currentColor;
+  opacity: 0.55;
+  transition: transform 160ms ease;
+}
+
+.mh-dropdown--open .mh-dropdown-caret {
+  transform: rotate(180deg);
+}
+
+.mh-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 0.35rem);
+  left: 50%;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  min-width: 11.5rem;
+  padding: 0.35rem 0;
+  background: rgba(248, 245, 240, 0.98);
+  border: 1px solid rgba(40, 32, 20, 0.12);
+  transform: translateX(-50%);
+  box-shadow: none;
+}
+
+.mh-dropdown-menu[hidden] {
+  display: none;
+}
+
+.mh-dropdown-link {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.55rem 0.9rem;
+  color: var(--text-soft);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 120ms ease, color 120ms ease;
+  white-space: nowrap;
+}
+
+.mh-dropdown-link:hover {
+  background: rgba(40, 32, 20, 0.04);
+  color: var(--text);
+}
+
+.mh-dropdown-link--active {
+  color: var(--text);
+  font-weight: 700;
+  background: rgba(40, 32, 20, 0.05);
+}
+
+.mh-panel-group {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-top: 0.65rem;
+  padding-top: 0.65rem;
+  border-top: 1px solid rgba(40, 32, 20, 0.08);
+}
+
+.mh-panel-group-label {
+  margin: 0 0 0.15rem;
+  padding: 0.35rem 0.8rem;
+  color: var(--text-soft);
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
 /* Right actions */
 .mh-actions {
   display: flex;
@@ -1958,7 +2128,9 @@ section[id] {
 .mh-panel-nav { display: flex; flex-direction: column; gap: 1px; }
 
 .mh-panel-link {
-  display: block;
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
   padding: 0.7rem 0.8rem;
   border: 0;
   background: 0;
@@ -9528,6 +9700,8 @@ details[open].scorecard-derived-formula summary::before {
 :is(
   .mh-link,
   .mh-panel-link,
+  .mh-dropdown-trigger,
+  .mh-dropdown-link,
   .rankings-city-row,
   .v3-city-card,
   .v3-tier-chip,
@@ -9584,7 +9758,7 @@ details[open].scorecard-derived-formula summary::before {
 .mh-nav {
   flex: 1 1 auto;
   justify-content: center;
-  gap: 0.7rem;
+  gap: 0.15rem;
 }
 
 .mh-link {
@@ -9626,6 +9800,9 @@ details[open].scorecard-derived-formula summary::before {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
 }
 
 .back-arrow {
@@ -10188,12 +10365,16 @@ body,
 /* Light/white nav text only on the homepage hero — scoped to mh--hero so
    other pages don't get invisible cream-on-cream text when scrollY < 40. */
 .mh--hero:not(.mh--scrolled) .mh-link,
+.mh--hero:not(.mh--scrolled) .mh-dropdown-trigger,
 .mh--hero:not(.mh--scrolled) .mh-edition {
   color: #f8f5f0;
 }
 
 .mh--hero:not(.mh--scrolled) .mh-link:hover,
-.mh--hero:not(.mh--scrolled) .mh-link--active {
+.mh--hero:not(.mh--scrolled) .mh-link--active,
+.mh--hero:not(.mh--scrolled) .mh-dropdown-trigger:hover,
+.mh--hero:not(.mh--scrolled) .mh-dropdown-trigger--active,
+.mh--hero:not(.mh--scrolled) .mh-dropdown--open .mh-dropdown-trigger {
   color: #fff;
   border-bottom-color: rgba(248, 245, 240, 0.72);
 }

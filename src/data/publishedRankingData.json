@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-06-20T07:45:24.649Z",
+  "updatedAt": "2026-07-03T02:31:01.754Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -80712,193 +80712,21 @@
     }
   },
   "changeSummary": {
-    "previousUpdatedAt": "2026-06-17T14:04:31.314Z",
-    "updatedAt": "2026-06-20T07:45:24.649Z",
-    "scoreChangedCount": 53,
-    "rankChangedCount": 129,
-    "tierChangedCount": 23,
+    "previousUpdatedAt": "2026-07-03T02:25:29.087Z",
+    "updatedAt": "2026-07-03T02:31:01.754Z",
+    "scoreChangedCount": 0,
+    "rankChangedCount": 0,
+    "tierChangedCount": 0,
     "rankingStatusChangedCount": 0,
-    "biggestRankMovers": [
-      {
-        "cityId": "uk-london",
-        "displayName": "London",
-        "country": "United Kingdom",
-        "previousRank": 53,
-        "currentRank": 18,
-        "delta": 35
-      },
-      {
-        "cityId": "us-new-york",
-        "displayName": "New York",
-        "country": "United States",
-        "previousRank": 49,
-        "currentRank": 16,
-        "delta": 33
-      },
-      {
-        "cityId": "bh-manama",
-        "displayName": "Manama",
-        "country": "Bahrain",
-        "previousRank": 68,
-        "currentRank": 39,
-        "delta": 29
-      },
-      {
-        "cityId": "jo-amman",
-        "displayName": "Amman",
-        "country": "Jordan",
-        "previousRank": 140,
-        "currentRank": 114,
-        "delta": 26
-      },
-      {
-        "cityId": "jo-aqaba",
-        "displayName": "Aqaba",
-        "country": "Jordan",
-        "previousRank": 138,
-        "currentRank": 112,
-        "delta": 26
-      },
-      {
-        "cityId": "tw-taipei",
-        "displayName": "Taipei",
-        "country": "Taiwan",
-        "previousRank": 17,
-        "currentRank": 41,
-        "delta": -24
-      },
-      {
-        "cityId": "bt-thimphu",
-        "displayName": "Thimphu",
-        "country": "Bhutan",
-        "previousRank": 129,
-        "currentRank": 105,
-        "delta": 24
-      },
-      {
-        "cityId": "tw-kaohsiung",
-        "displayName": "Kaohsiung",
-        "country": "Taiwan",
-        "previousRank": 5,
-        "currentRank": 26,
-        "delta": -21
-      },
-      {
-        "cityId": "sa-jeddah",
-        "displayName": "Jeddah",
-        "country": "Saudi Arabia",
-        "previousRank": 101,
-        "currentRank": 83,
-        "delta": 18
-      },
-      {
-        "cityId": "sa-khobar",
-        "displayName": "Khobar",
-        "country": "Saudi Arabia",
-        "previousRank": 102,
-        "currentRank": 84,
-        "delta": 18
-      }
-    ],
-    "tierTransitions": [
-      {
-        "cityId": "tw-kaohsiung",
-        "displayName": "Kaohsiung",
-        "country": "Taiwan",
-        "previousTierLabel": "Alpha",
-        "previousTierSlot": 3,
-        "currentTierLabel": "Alpha",
-        "currentTierSlot": 6
-      },
-      {
-        "cityId": "tw-taipei",
-        "displayName": "Taipei",
-        "country": "Taiwan",
-        "previousTierLabel": "Alpha",
-        "previousTierSlot": 6,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 2
-      },
-      {
-        "cityId": "th-bangkok",
-        "displayName": "Bangkok",
-        "country": "Thailand",
-        "previousTierLabel": "Alpha",
-        "previousTierSlot": 10,
-        "currentTierLabel": null,
-        "currentTierSlot": null
-      },
-      {
-        "cityId": "fr-lyon",
-        "displayName": "Lyon",
-        "country": "France",
-        "previousTierLabel": "Beta",
-        "previousTierSlot": 7,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 1
-      },
-      {
-        "cityId": "cl-valparaiso",
-        "displayName": "Valparaiso",
-        "country": "Chile",
-        "previousTierLabel": "Alpha",
-        "previousTierSlot": 9,
-        "currentTierLabel": "Alpha",
-        "currentTierSlot": 10
-      },
-      {
-        "cityId": "it-milan",
-        "displayName": "Milan",
-        "country": "Italy",
-        "previousTierLabel": "Beta",
-        "previousTierSlot": 10,
-        "currentTierLabel": "Gamma",
-        "currentTierSlot": 3
-      },
-      {
-        "cityId": "nl-eindhoven",
-        "displayName": "Eindhoven",
-        "country": "Netherlands",
-        "previousTierLabel": "Alpha",
-        "previousTierSlot": 4,
-        "currentTierLabel": "Alpha",
-        "currentTierSlot": 3
-      },
-      {
-        "cityId": "at-graz",
-        "displayName": "Graz",
-        "country": "Austria",
-        "previousTierLabel": "Alpha",
-        "previousTierSlot": 5,
-        "currentTierLabel": "Beta",
-        "currentTierSlot": 5
-      },
-      {
-        "cityId": "pt-braga",
-        "displayName": "Braga",
-        "country": "Portugal",
-        "previousTierLabel": "Beta",
-        "previousTierSlot": 5,
-        "currentTierLabel": "Beta",
-        "currentTierSlot": 7
-      },
-      {
-        "cityId": "ee-tallinn",
-        "displayName": "Tallinn",
-        "country": "Estonia",
-        "previousTierLabel": "Beta",
-        "previousTierSlot": 6,
-        "currentTierLabel": "Beta",
-        "currentTierSlot": 9
-      }
-    ]
+    "biggestRankMovers": [],
+    "tierTransitions": []
   },
   "qualifiedCityCount": 158,
   "integrityIssueCount": 0,
   "validCityRowCount": 163,
   "validCountryRowCount": 87,
   "publicationManifest": {
-    "generatedAt": "2026-06-20T07:45:24.649Z",
+    "generatedAt": "2026-07-03T02:31:01.754Z",
     "scorerVersion": "slic-v3.4.0",
     "tierPolicyVersion": "public-tier-v1.3.0",
     "normStatsHash": "2e1c92a28140da75e0b21564ec6a1ed0019d6b2ffcb8b14c0207ffc708e20d8c",

@@ -45,7 +45,7 @@ const rankedCities = ((publishedData.cities ?? []) as PublishedCity[]).filter((c
 const BILLI_DATA: Array<{
   name: string; b: number; s: number; tfr: number;
   labeled: boolean; hero?: boolean;
-  lx: number; ly: number; la: string;
+  lx: number; ly: number; la: "start" | "middle" | "end";
 }> = [
   { name: "New York",   b: 146, s: 66.4, tfr: 1.62, labeled: true,  lx:  9, ly:  4, la: "start" },
   { name: "Shenzhen",   b: 132, s: 43.7, tfr: 1.09, labeled: true,  lx:  0, ly: -9, la: "middle" },

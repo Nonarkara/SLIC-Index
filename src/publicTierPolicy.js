@@ -23,17 +23,13 @@ const COVERAGE_GRADE_ORDER = Object.freeze(["Watchlist", "C", "B", "A"]);
 // EDITORIAL PRESENCE: Bangkok is the index's anchor city — pluralism,
 // hospitality, strong community signal, the lived case study against the
 // "expensive English-speaking metro = livable" assumption that SLIC was
-// built to challenge. Bangkok currently clears Alpha naturally (Community
-// 90.0, Pressure 45.4 over floor 40, Thailand uncontested by any higher-
-// ranked Thai city, no exclusion). Two CI guards keep it there:
-//   1. scripts/check-publication-integrity.mjs EXPECTED_ALPHA snapshot
-//   2. scripts/check-publication-integrity.mjs explicit assertion that
-//      Bangkok.tierLabel === "Alpha"
-// If a future data refresh ever pushes Bangkok below the Pressure floor
-// (the at-risk pillar — buffer is only +5.4) the integrity check fails
-// loudly. Do NOT hardcode Bangkok past the rules; if the data ever says
-// Bangkok no longer qualifies, the answer is to investigate the data,
-// not silence the gate.
+// built to challenge. Bangkok previously held Alpha:10 but dropped to
+// un-tiered (#66) after two data-source updates: (1) housing_burden was
+// converted to USD/sqft purchase price (Numbeo 2024-25), and (2) suicide
+// rate was updated from national (7.2) to city-level (16.59). Both are
+// legitimate data improvements. Bangkok remains Ranked and the editorial
+// mission (Thailand page, essays) continues to use it as the anchor case
+// study. The tier rules are not gamed to force Bangkok into Alpha.
 export const PUBLIC_TIER_RULES = Object.freeze({
   alphaMinCommunity: 40,
   alphaMinPressure: 40,

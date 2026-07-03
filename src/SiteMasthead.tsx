@@ -1,25 +1,11 @@
 import { type MouseEvent, useCallback, useEffect, useId, useRef, useState } from "react";
 import LocaleSwitch from "./LocaleSwitch";
-import { getCopy } from "./siteCopy";
+import { navGroups, navGroupLabel, navPathLabel, type NavGroupId } from "./navGroups";
 import { appHref } from "./routing";
 import { slicLogo } from "./brandAssets";
 import type { Locale, SitePath } from "./types";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
-
-const navPaths: SitePath[] = [
-  "/rankings",
-  "/map",
-  "/compare",
-  "/side-by-side",
-  "/methodology",
-  "/data",
-  "/thailand",
-  "/ideas",
-  "/essay",
-  "/about-slic",
-  "/history",
-];
 
 const menuLabels: Record<Locale, { open: string; close: string; primary: string; mobile: string }> = {
   en: {
@@ -55,37 +41,15 @@ const menuLabels: Record<Locale, { open: string; close: string; primary: string;
 };
 
 function navLabel(path: SitePath, locale: Locale): string {
-  const copy = getCopy(locale);
-  if (path === "/") return copy.nav.home;
-  if (path === "/about-slic") return copy.nav.aboutSlic;
-  if (path === "/rankings") return copy.nav.rankings;
-  if (path === "/methodology") return copy.nav.methodology;
-  if (path === "/data") {
-    if (locale === "th") return "ข้อมูล";
-    if (locale === "zh") return "数据";
-    if (locale === "ko") return "데이터";
-    if (locale === "ja") return "データ";
-    return "Data";
-  }
-  if (path === "/ideas") return copy.nav.ideas;
-  if (path === "/essay") return copy.nav.essay;
-  if (path === "/compare") return copy.nav.compare;
-  if (path === "/side-by-side") {
-    if (locale === "th") return "เทียบเมือง";
-    if (locale === "zh") return "城市对比";
-    if (locale === "ko") return "도시 비교";
-    if (locale === "ja") return "都市比較";
-    return "Side by Side";
-  }
-  if (path === "/map") {
-    if (locale === "th") return "แผนที่";
-    if (locale === "zh") return "地图";
-    if (locale === "ko") return "지도";
-    if (locale === "ja") return "地図";
-    return "Map";
-  }
-  if (path === "/history") return copy.nav.history;
-  return copy.nav.thailand;
+  return navPathLabel(path, locale);
+}
+
+function groupLabel(groupId: NavGroupId, locale: Locale): string {
+  return navGroupLabel(groupId, locale);
+}
+
+function groupIsActive(paths: SitePath[], currentPath: SitePath): boolean {
+  return paths.some((path) => path === currentPath);
 }
 
 function navigateLink(
@@ -108,6 +72,105 @@ function navigateLink(
   onNavigate(path);
 }
 
+function NavDropdown({
+  groupId,
+  paths,
+  locale,
+  currentPath,
+  onNavigate,
+  isOpen,
+  onToggle,
+  onClose,
+}: {
+  groupId: NavGroupId;
+  paths: SitePath[];
+  locale: Locale;
+  currentPath: SitePath;
+  onNavigate: (path: SitePath) => void;
+  isOpen: boolean;
+  onToggle: () => void;
+  onClose: () => void;
+}) {
+  const menuId = useId();
+  const rootRef = useRef<HTMLDivElement>(null);
+  const active = groupIsActive(paths, currentPath);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const handlePointerDown = (event: PointerEvent) => {
+      if (!rootRef.current?.contains(event.target as Node)) {
+        onClose();
+      }
+    };
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [isOpen, onClose]);
+
+  const handleSelect = (path: SitePath) => {
+    onClose();
+    onNavigate(path);
+  };
+
+  return (
+    <div
+      ref={rootRef}
+      className={isOpen ? "mh-dropdown mh-dropdown--open" : "mh-dropdown"}
+    >
+      <button
+        type="button"
+        className={
+          active
+            ? "mh-dropdown-trigger mh-dropdown-trigger--active"
+            : "mh-dropdown-trigger"
+        }
+        aria-expanded={isOpen}
+        aria-haspopup="menu"
+        aria-controls={menuId}
+        onClick={onToggle}
+      >
+        {groupLabel(groupId, locale)}
+        <span className="mh-dropdown-caret" aria-hidden="true" />
+      </button>
+
+      <div
+        id={menuId}
+        className="mh-dropdown-menu"
+        role="menu"
+        hidden={!isOpen}
+      >
+        {paths.map((path) => (
+          <a
+            key={path}
+            href={appHref(path)}
+            role="menuitem"
+            className={
+              path === currentPath
+                ? "mh-dropdown-link mh-dropdown-link--active"
+                : "mh-dropdown-link"
+            }
+            onClick={(event) => navigateLink(event, handleSelect, path)}
+            aria-current={path === currentPath ? "page" : undefined}
+          >
+            {navLabel(path, locale)}
+          </a>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 export default function SiteMasthead({
   locale,
   currentPath,
@@ -121,6 +184,7 @@ export default function SiteMasthead({
 }) {
   const navPanelId = useId();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<NavGroupId | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const lastScrollY = useRef(0);
@@ -128,7 +192,21 @@ export default function SiteMasthead({
 
   useEffect(() => {
     setMenuOpen(false);
+    setOpenDropdown(null);
   }, [currentPath, locale]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [menuOpen]);
 
   const handleScroll = useCallback(() => {
     const y = window.scrollY;
@@ -152,6 +230,7 @@ export default function SiteMasthead({
 
   const handleNav = (path: SitePath) => {
     setMenuOpen(false);
+    setOpenDropdown(null);
     onNavigate(path);
   };
 
@@ -181,28 +260,32 @@ export default function SiteMasthead({
           onClick={(event) => navigateLink(event, onNavigate, "/")}
           aria-label={locale === "th" ? "กลับหน้าหลัก SLIC" : locale === "zh" ? "SLIC 首页" : locale === "ko" ? "SLIC 홈" : locale === "ja" ? "SLICホーム" : "SLIC home"}
         >
-          <img 
-            src={`${BASE}${slicLogo.src}`} 
-            alt={slicLogo.alt} 
-            className="mh-logo-img" 
+          <img
+            src={`${BASE}${slicLogo.src}`}
+            alt={slicLogo.alt}
+            className="mh-logo-img"
             height={32}
-            style={{ width: "auto" }} 
+            style={{ width: "auto" }}
           />
         </a>
 
         <span className="mh-edition">V3 &middot; 2026</span>
 
         <nav className="mh-nav" aria-label={labels.primary}>
-          {navPaths.map((path) => (
-            <a
-              key={path}
-              href={appHref(path)}
-              className={path === currentPath ? "mh-link mh-link--active" : "mh-link"}
-              onClick={(event) => navigateLink(event, onNavigate, path)}
-              aria-current={path === currentPath ? "page" : undefined}
-            >
-              {navLabel(path, locale)}
-            </a>
+          {navGroups.map((group) => (
+            <NavDropdown
+              key={group.id}
+              groupId={group.id}
+              paths={group.paths}
+              locale={locale}
+              currentPath={currentPath}
+              onNavigate={onNavigate}
+              isOpen={openDropdown === group.id}
+              onToggle={() =>
+                setOpenDropdown((current) => (current === group.id ? null : group.id))
+              }
+              onClose={() => setOpenDropdown(null)}
+            />
           ))}
         </nav>
 
@@ -233,16 +316,26 @@ export default function SiteMasthead({
           >
             {navLabel("/", locale)}
           </a>
-          {navPaths.map((path) => (
-            <a
-              key={path}
-              href={appHref(path)}
-              className={path === currentPath ? "mh-panel-link mh-panel-link--active" : "mh-panel-link"}
-              onClick={(event) => navigateLink(event, handleNav, path)}
-              aria-current={path === currentPath ? "page" : undefined}
-            >
-              {navLabel(path, locale)}
-            </a>
+
+          {navGroups.map((group) => (
+            <div className="mh-panel-group" key={group.id}>
+              <p className="mh-panel-group-label">{groupLabel(group.id, locale)}</p>
+              {group.paths.map((path) => (
+                <a
+                  key={path}
+                  href={appHref(path)}
+                  className={
+                    path === currentPath
+                      ? "mh-panel-link mh-panel-link--active"
+                      : "mh-panel-link"
+                  }
+                  onClick={(event) => navigateLink(event, handleNav, path)}
+                  aria-current={path === currentPath ? "page" : undefined}
+                >
+                  {navLabel(path, locale)}
+                </a>
+              ))}
+            </div>
           ))}
         </nav>
       </div>

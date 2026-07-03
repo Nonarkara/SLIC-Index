@@ -88,7 +88,7 @@ export default function SideBySidePage({
   locale: Locale;
 }) {
   // Curated starter basket: the index's argument-in-five-cities.
-  // Bangkok = the Alpha worked example (rank 27, Alpha slot 9).
+  // Bangkok = editorial anchor (rank 66, no public-tier seat).
   // Raleigh = Alpha slot 1, the structural top.
   // Singapore = the famous-but-Gamma counter-example (Community 38.8 fails Alpha floor).
   // Tokyo = the editorial-exclusion case (Beta, not Alpha despite passing floor).

@@ -20,6 +20,17 @@ function navigateLink(
   onNavigate: (path: SitePath) => void,
   path: SitePath,
 ) {
+  if (
+    event.defaultPrevented ||
+    event.button !== 0 ||
+    event.metaKey ||
+    event.ctrlKey ||
+    event.shiftKey ||
+    event.altKey
+  ) {
+    return;
+  }
+
   event.preventDefault();
   onNavigate(path);
 }
@@ -260,19 +271,19 @@ export default function AwardsPage({
       ],
       answer: t(
         locale,
-        "SLIC reframes how readers consume city rankings. The provocation — 'every ranking is a lie' — is paired with a per-metric source chain so readers can audit any score. Bangkok holds the Alpha-tier 10th seat as the editorial anchor because the median resident genuinely thrives, not because of soft power or nostalgia. The advocacy is the publication.",
-        "SLIC ปรับวิธีที่ผู้อ่านบริโภคดัชนีเมือง คำท้าทาย — 'ทุกดัชนีคือเรื่องโกหก' — มาคู่กับห่วงโซ่แหล่งที่มาต่อตัวชี้วัด ผู้อ่านตรวจสอบคะแนนได้ทุกค่า กรุงเทพฯ ครองที่นั่ง Alpha สลอตที่ 10 ในฐานะหลักทางบทบรรณาธิการ เพราะคนกรุงเทพฯ ระดับมัธยฐานเจริญงอกงามได้จริง ไม่ใช่เพราะ soft power หรือความรู้สึกหวนรำลึก การรณรงค์คือสิ่งพิมพ์เอง",
-        "SLIC 重新框定读者消费城市排名的方式。挑衅式提问 ——「每一份排名都是谎言」—— 与逐项指标来源链相配，读者可审计任意分数。曼谷占据 Alpha 层第十席作为编辑锚点，是因为中位居民真正安居，而非因为软实力或怀旧。倡导即出版物本身。",
-        "SLIC는 독자가 도시 순위를 소비하는 방식을 재구성합니다. 도발 — '모든 순위는 거짓이다' — 은 독자가 모든 점수를 감사할 수 있도록 지표별 출처 체계와 짝을 이룹니다. 방콕은 중위 거주자가 실질적으로 번영하기 때문에 Alpha 등급 10위 자리를 편집 앵커로 유지합니다. 소프트 파워나 향수 때문이 아닙니다. 옹호 자체가 출판물입니다.",
-        "SLICは読者が都市ランキングを消費する方法を再構築します。挑発——「すべてのランキングは嘘だ」——は読者が任意のスコアを監査できるよう指標別の出典チェーンと組み合わせられています。バンコクは中位の居住者が本当に繁栄しているため、ソフトパワーや郷愁ではなく編集アンカーとしてAlphaティア10位を保持します。アドボカシー自体が出版物です。",
+        "SLIC reframes how readers consume city rankings. The provocation — 'every ranking is a lie' — is paired with a per-metric source chain so readers can audit any score. Bangkok is the editorial anchor city — pure rank #66 with no public-tier seat, showing that score order and shelf placement diverge in both directions — because the median resident genuinely thrives on local income, not because of soft power or nostalgia, and because the tier rules are not gamed to force the anchor onto the shelf. The advocacy is the publication.",
+        "SLIC ปรับวิธีที่ผู้อ่านบริโภคดัชนีเมือง คำท้าทาย — 'ทุกดัชนีคือเรื่องโกหก' — มาคู่กับห่วงโซ่แหล่งที่มาต่อตัวชี้วัด ผู้อ่านตรวจสอบคะแนนได้ทุกค่า กรุงเทพฯ คือเมืองหลักทางบรรณาธิการ — อันดับล้วน #66 ไม่มีชั้นสาธารณะ แสดงให้เห็นว่าอันดับคะแนนกับการจัดชั้นแยกจากกันได้ทั้งสองทิศ — เพราะคนกรุงเทพฯ ระดับมัธยฐานเจริญงอกงามได้จริงบนรายได้ท้องถิ่น ไม่ใช่เพราะ soft power หรือความรู้สึกหวนรำลึก และเพราะกติกาชั้นไม่ถูกปรับเพื่อดันเมืองหลักขึ้นชั้น การรณรงค์คือสิ่งพิมพ์เอง",
+        "SLIC 重新框定读者消费城市排名的方式。挑衅式提问 ——「每一份排名都是谎言」—— 与逐项指标来源链相配，读者可审计任意分数。曼谷是编辑锚点城市 —— 纯分第 66 名、无公开层级席位，表明分数排序与公开层级可在两个方向上 diverge —— 因为中位居民靠本地收入真正安居，而非因为软实力或怀旧，且层级规则不会为锚点城市破例。倡导即出版物本身。",
+        "SLIC는 독자가 도시 순위를 소비하는 방식을 재구성합니다. 도발 — '모든 순위는 거짓이다' — 은 독자가 모든 점수를 감사할 수 있도록 지표별 출처 체계와 짝을 이룹니다. 방콕은 편집 앵커 도시입니다 — 순수 순위 #66, 공개 등급 없음, 점수 순서와 선반 배치가 양방향으로 갈라질 수 있음을 보여줍니다 — 중위 거주자가 현지 소득으로 실질적으로 번영하기 때문이며, 소프트 파워나 향수 때문이 아니고, 등급 규칙이 앵커를 억지로 올리지 않기 때문입니다. 옹호 자체가 출판물입니다.",
+        "SLICは読者が都市ランキングを消費する方法を再構築します。挑発——「すべてのランキングは嘘だ」——は読者が任意のスコアを監査できるよう指標別の出典チェーンと組み合わせられています。バンコクは編集アンカー都市——純粋ランク#66、公開ティアなし——スコア順位と棚配置が両方向に分岐しうることを示します——中位の居住者が現地所得で本当に繁栄しているためであり、ソフトパワーや郷愁ではなく、ティア規則がアンカーを無理やり載せないためです。アドボカシー自体が出版物です。",
       ),
       artifact: t(
         locale,
-        "Entry point: the homepage Alpha bridge + the Bangkok scorecard at /city/th-bangkok",
-        "จุดเข้า: บริดจ์ Alpha บนหน้าแรก + คะแนนกรุงเทพฯ ที่ /city/th-bangkok",
-        "切入点：首页 Alpha 桥段 + 曼谷评分卡 /city/th-bangkok",
-        "진입점: 홈페이지 Alpha 브리지 + 방콕 스코어카드 /city/th-bangkok",
-        "エントリーポイント：ホームページAlphaブリッジ＋バンコクスコアカード /city/th-bangkok",
+        "Entry point: the homepage tier bridge + the Bangkok scorecard at /city/th-bangkok",
+        "จุดเข้า: บริดจ์ชั้นบนหน้าแรก + คะแนนกรุงเทพฯ ที่ /city/th-bangkok",
+        "切入点：首页层级桥段 + 曼谷评分卡 /city/th-bangkok",
+        "진입점: 홈페이지 등급 브리지 + 방콕 스코어카드 /city/th-bangkok",
+        "エントリーポイント：ホームページのティアブリッジ＋バンコクスコアカード /city/th-bangkok",
       ),
     },
   ];
@@ -537,11 +548,11 @@ export default function AwardsPage({
       path: "/city/th-bangkok" as SitePath,
       note: t(
         locale,
-        "Bangkok anchor-city scorecard — every metric, every source URL, the Alpha argument made concrete.",
-        "ตารางคะแนนเมืองหลักกรุงเทพฯ — ทุกตัวชี้วัด ทุก URL ต้นทาง ข้อโต้แย้ง Alpha ที่ทำให้เป็นรูปธรรม",
-        "曼谷锚点城市记分卡 —— 每项指标，每个源 URL，使 Alpha 论点具体化。",
-        "방콕 앵커 도시 스코어카드 — 모든 지표, 모든 소스 URL, 구체화된 Alpha 논거.",
-        "バンコクのアンカーシティスコアカード — すべての指標、すべてのソースURL、具体化されたAlphaの主張。",
+        "Bangkok anchor-city scorecard — every metric, every source URL, the rank-vs-tier editorial argument made concrete.",
+        "ตารางคะแนนเมืองหลักกรุงเทพฯ — ทุกตัวชี้วัด ทุก URL ต้นทาง ข้อโต้แย้งบรรณาธิการเรื่องอันดับล้วนกับชั้นสาธารณะที่ทำให้เป็นรูปธรรม",
+        "曼谷锚点城市记分卡 —— 每项指标，每个源 URL，使纯分与公开层级的编辑论辩具体化。",
+        "방콕 앵커 도시 스코어카드 — 모든 지표, 모든 소스 URL, 순위 대 공개 등급 편집 논거를 구체화.",
+        "バンコクのアンカーシティスコアカード — すべての指標、すべてのソースURL、純粋ランク対公開ティアの編集論証を具体化。",
       ),
     },
     {
@@ -605,7 +616,7 @@ export default function AwardsPage({
               {numbers.map((n) => (
                 <li key={n.label}>
                   <strong>{n.value}</strong>
-                  <span style={{ marginLeft: "0.5rem", opacity: 0.7 }}>{n.label}</span>
+                  <span style={{ marginLeft: "0.5rem", color: "var(--text-soft)" }}>{n.label}</span>
                 </li>
               ))}
             </ul>
@@ -642,7 +653,7 @@ export default function AwardsPage({
                   {lens.criteria.join(" · ")}
                 </p>
                 <p style={{ marginTop: "0.75rem" }}>{lens.answer}</p>
-                <p style={{ marginTop: "0.75rem", opacity: 0.7, fontSize: "0.875rem" }}>
+                <p style={{ marginTop: "0.75rem", color: "var(--text-soft)", fontSize: "0.875rem" }}>
                   {lens.artifact}
                 </p>
                 {lens.url && (
@@ -678,7 +689,7 @@ export default function AwardsPage({
             {impactRows.map((row) => (
               <article className="paper-card" key={row.label}>
                 <p className="panel-label">{row.label}</p>
-                <p style={{ opacity: 0.7, fontFamily: "var(--font-mono)", fontSize: "0.85rem" }}>
+                <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem", color: "var(--text-soft)" }}>
                   {row.placeholder}
                 </p>
               </article>
@@ -711,7 +722,7 @@ export default function AwardsPage({
                 <p style={{ fontFamily: "var(--font-mono)", fontSize: "0.85rem" }}>
                   {row.status}
                 </p>
-                <p style={{ marginTop: "0.5rem", opacity: 0.75 }}>{row.next}</p>
+                <p style={{ marginTop: "0.5rem", color: "var(--text-soft)" }}>{row.next}</p>
               </article>
             ))}
           </div>
