@@ -11870,6 +11870,12 @@ a.essay-reference-text:hover {
     min-height: 44px !important;
     min-width: 44px !important;
   }
+  .rankings-count-toggle button {
+    min-height: 44px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
 }
 
 /* ═══════════════════════════════════════════════
