@@ -7,7 +7,7 @@
 
 ## Stack
 React 19 + TypeScript 5.8 + Vite 6.2
-**No Tailwind — custom CSS only** (src/styles/)
+**No Tailwind — custom CSS only** (single file: src/styles.css, ~12,000 lines)
 Supabase JS (visitor tracking only, no data storage)
 GitHub Pages primary deploy, Cloudflare Pages secondary
 

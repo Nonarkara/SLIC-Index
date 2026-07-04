@@ -22,9 +22,10 @@ SLIC (Smart and Liveable Cities Index) V3 — a transparent, open-source city ra
 npm run dev        # Vite dev server on port 5174
 npm run build      # vite build → dist/
 npm run preview    # Preview built site
+npm run typecheck  # tsc --noEmit — passes clean (0 errors, confirmed 2026-07-05)
 ```
 
-Build is `vite build` only — no TypeScript type-checking in build (pre-existing TS errors).
+Build is `vite build` only (no type-check gate in the build step), but `npm run typecheck` passes with zero errors as of 2026-07-05 — run it before release.
 
 ## Project Structure
 
@@ -50,10 +51,10 @@ src/
 ├── rankingsData.ts            # City scores, regions, metadata (~3100 lines)
 ├── methodologyData.ts         # Methodology content, references, equations
 ├── compareRankingsData.ts     # Competitor index comparison data
-├── scoreEngine.ts             # Absolute piecewise linear scoring
-├── slicScoringEngine.ts       # AMPI percentile scoring engine
-├── consequenceRules.ts        # Zero-sum rule enforcement
-├── styles.css                 # Complete design system (~7500 lines)
+├── publicationMath.js         # Canonical scorer: pillar weights, AMPI math, metric catalog
+├── publicTierPolicy.js        # Alpha/Beta/Gamma tier allocation rules
+├── consequenceRules.ts        # ZeroSumAllocator rule enforcement (draft/reference — not the ranking scorer)
+├── styles.css                 # Complete design system (~12,000 lines)
 └── data/
     ├── publishedRankingData.json  # 1.7MB — all 163 cities with per-metric sources
     ├── slic_city_universe.csv     # 353-city roster
