@@ -599,7 +599,7 @@ export default function ThailandPage({
                 <tr>
                   <td>Mumbai</td>
                   <td>#6</td><td>90</td><td style={{ color: "var(--text-soft)", fontStyle: "italic" }} colSpan={2}>
-                    {t(locale, "not in SLIC dataset", "ไม่อยู่ในชุดข้อมูล SLIC", "不在SLIC数据集中", "SLIC 데이터셋 미포함", "SLICデータセット未収录")}
+                    {t(locale, "not in SLIC dataset", "ไม่อยู่ในชุดข้อมูล SLIC", "不在SLIC数据集中", "SLIC 데이터셋 미포함", "SLICデータセット未収録")}
                   </td>
                   <td>2.03</td>
                 </tr>
