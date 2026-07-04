@@ -18,6 +18,7 @@ const ALLOWED_DUPLICATE_T_LITERALS = new Set([
   "Red Dot Award · Brands & Communication Design",
   "Red Dot Brands & Communication — Editorial Design",
   "SLIC 2026",
+  "TFR 2023",
 ]);
 
 const exactTermChecks = [
