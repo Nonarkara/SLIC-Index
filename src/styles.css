@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap");
 
 /*
  * CJK + Thai script overrides — workspace CLAUDE.md §0.
@@ -69,7 +69,7 @@
 :root {
   color-scheme: light;
   --font-heading: "Libre Baskerville", Georgia, serif;
-  --font-body: "Inter", -apple-system, sans-serif;
+  --font-body: "Source Sans 3", -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   --bg: #f8f5f0;
   --bg-soft: rgba(40, 32, 20, 0.03);

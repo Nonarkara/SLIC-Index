@@ -43,7 +43,7 @@ npm run test         # node --test test/*.test.mjs
 - Scoring: AMPI (Adjusted Mazziotta–Pareto Index), absolute 0–100, no imputation
 
 ## Design (from CLAUDE.md — protected, do not change)
-- Fonts: Libre Baskerville (headings), Inter (body), JetBrains Mono (data)
+- Fonts: Libre Baskerville (headings), Source Sans 3 (body), JetBrains Mono (data)
 - Palette: cream #f8f5f0 bg, dark #1c1914 text, amber #b85c28 accent
 - NO rounded corners. NO Tailwind. NO gradients. "Monocle meets Red Dot."
 

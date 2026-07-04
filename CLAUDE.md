@@ -100,7 +100,7 @@ See methodology PDF for complete source table.
 
 ## Design System (CSS)
 
-- **Fonts:** Libre Baskerville (headings), Inter (body), JetBrains Mono (data)
+- **Fonts:** Libre Baskerville (headings), Source Sans 3 (body), JetBrains Mono (data)
 - **Colors:** Cream `#f8f5f0` background, dark `#1c1914` text, amber `#b85c28` accent
 - **Dark sections:** Spider/allocator area uses inverted colors
 - **Motion:** `cubic-bezier(0.16, 1, 0.3, 1)` easing, 80–120ms transitions
