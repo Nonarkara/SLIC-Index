@@ -143,5 +143,6 @@ See `/Users/nonarkara/Projects/CLAUDE.md` §11 (The Codex Incident — Anti-Regr
 - **"Monocle meets Red Dot" type scale** — editorial typography, hairline rules, mono numerics. ZERO border-radius. ZERO gradients.
 - **EN / TH / ZH locale switch** — three languages. Do not drop any locale. Thai first-person pronoun is strictly "ผม".
 - **Published ranking data triplet** — keep `data/verified_sources/city_inputs.csv`, `src/data/publishedRankingData.json`, and `public/downloads/slic-ranked-cities-v2.csv` aligned.
+- **Tier status colors are an intentional §14 exception (approved 2026-07-05).** `--accent-cyan`, `--accent-red`, `--accent-blue` coexist with `--accent-amber` *by design* — they are semantic traffic-light encoding for the Alpha/Beta/Gamma tier badges and data-level chips, not brand decoration. This is categorical data-viz, which a ranking index legitimately needs. Do NOT "fix" them to amber-only for §14 (one-amber) compliance — collapsing tier hues would destroy information. Amber remains the sole *brand* accent; the three status colors are *data* colors.
 
 If you are about to remove, replace, or "simplify" any item above: stop, show the diff, wait for explicit approval.
