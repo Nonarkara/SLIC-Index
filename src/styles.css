@@ -5776,6 +5776,7 @@ section[id] {
   .rankings-city-row {
     padding: 7px 8px;
     gap: 6px;
+    min-height: 44px;
   }
   .rankings-pillar-bars {
     gap: 1px;
@@ -8493,7 +8494,7 @@ details[open].scorecard-derived-formula summary::before {
   width: 16px;
   height: 16px;
   border-radius: 0;
-  background: var(--accent, #fff);
+  background: #fff;
   border: 2px solid #fff;
   cursor: grab;
   transition: transform 0.15s;
@@ -8512,9 +8513,24 @@ details[open].scorecard-derived-formula summary::before {
   width: 14px;
   height: 14px;
   border-radius: 0;
-  background: var(--accent, #fff);
+  background: #fff;
   border: 2px solid #fff;
   cursor: grab;
+}
+
+@media (max-width: 768px) {
+  .spider-slider-input {
+    height: 44px;
+    top: -19px;
+  }
+  .spider-slider-input::-webkit-slider-thumb {
+    width: 26px;
+    height: 26px;
+  }
+  .spider-slider-input::-moz-range-thumb {
+    width: 26px;
+    height: 26px;
+  }
 }
 
 .spider-slider-value {
@@ -11568,6 +11584,62 @@ a.essay-reference-text:hover {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+  }
+
+  /* base rule already display:flex/inline-flex + align-items:center — min-height alone suffices */
+  .scorecard-back,
+  .sbs-chip-add,
+  .idea-toggle,
+  .mh-wordmark {
+    min-height: 44px !important;
+  }
+  .compare-slic-chip {
+    min-height: 44px !important;
+    align-items: center !important;
+  }
+  .sbs-picker-item {
+    min-height: 44px !important;
+    align-items: center;
+  }
+
+  /* base rule is not flex — needs the full centering treatment */
+  .compare-reset-btn,
+  .idea-copy-btn,
+  .rankings-reset-btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .paper-anchor-nav a,
+  .hp-thesis-link {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* icon/glyph-only controls — full 44x44 box, padding reset */
+  .sbs-chip button,
+  .sbs-picker-close {
+    min-height: 44px !important;
+    min-width: 44px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+  }
+
+  /* native <details>/<summary> disclosure toggle */
+  .scorecard-derived-formula summary {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* text input — min-height for tap area, 16px floor prevents iOS auto-zoom on focus */
+  .sbs-search {
+    min-height: 44px;
+    font-size: 16px;
   }
 }
 
