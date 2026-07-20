@@ -105,11 +105,11 @@ const PILLAR_COLORS: Record<PillarId, string> = {
 };
 
 const PILLAR_LABELS: Record<string, Record<PillarId, string>> = {
-  en: { pressure: "Growth Pressure", viability: "Viability", capability: "Capability", community: "Community", creative: "Creative" },
-  th: { pressure: "แรงกดดันการเติบโต", viability: "ความน่าอยู่", capability: "ศักยภาพ", community: "ชุมชน", creative: "ความสร้างสรรค์" },
-  zh: { pressure: "增长压力", viability: "宜居性", capability: "能力", community: "社区", creative: "创新" },
-  ko: { pressure: "성장 압력", viability: "생활 가능성", capability: "역량", community: "커뮤니티", creative: "창의성" },
-  ja: { pressure: "成長圧力", viability: "生活持続性", capability: "能力", community: "コミュニティ", creative: "創造性" },
+  en: { pressure: "Growth", viability: "Viability", capability: "Capability", community: "Community", creative: "Creative" },
+  th: { pressure: "การเติบโต", viability: "ความน่าอยู่", capability: "ศักยภาพ", community: "ชุมชน", creative: "ความสร้างสรรค์" },
+  zh: { pressure: "增长", viability: "宜居", capability: "能力", community: "社区", creative: "创新" },
+  ko: { pressure: "성장", viability: "생활가능성", capability: "역량", community: "커뮤니티", creative: "창의성" },
+  ja: { pressure: "成長", viability: "生活持続性", capability: "能力", community: "コミュニティ", creative: "創造性" },
 };
 
 const PILLAR_WEIGHTS: Record<PillarId, number> = {

@@ -306,7 +306,7 @@ const interactiveCopy: Record<
       "This workbench reranks the full {count}-city indexed field in real time. Drag the spider web, move the sliders, or use a preset to see which cities match the kind of life you actually want.",
     heroNoteTitle: "Why this is traceable",
     heroNoteBody:
-      "This is a declared ranking instrument, not a vibe list. The published board keeps one baseline score per city; this workbench lets you compare how the same five pillars behave when you change the weights.",
+      "Published city scores use AMPI (μ − σ²/μ) minus a coverage penalty. At the Balanced SLIC preset you see that official order. Once you move the spider, this workbench switches to profile fit — shape match against your weights — not a rewritten AMPI score.",
     indexedCitiesLabel: "Indexed cities",
     lockedPointsLabel: "Locked points",
     pillarsLabel: "Declared pillars",
@@ -323,10 +323,10 @@ const interactiveCopy: Record<
     consequencesTitle: "Trade-off signals",
     noConsequences: "Keep moving the weights. When your profile becomes distinctive, the main trade-offs appear here.",
     resultsTitle: "Closest matches",
-    resultsBody: "At baseline you are seeing the published SLIC order. Once you move the bars, the workbench switches into profile matching across the indexed field.",
+    resultsBody: "At baseline: official AMPI order. After you move the bars: profile fit across the indexed field — useful for preference, not a substitute for the published score.",
     bestMatchTitle: "Top current result",
     bestMatchBody: "The lead city below is the closest match to the current five-pillar profile.",
-    fitScore: "Current score",
+    fitScore: "Profile fit",
     baseRank: "Base rank",
     citiesLabel: "cities in view",
     top10: "Top 10",
@@ -355,7 +355,7 @@ const interactiveCopy: Record<
       "หน้านี้จัดอันดับใหม่แบบสดจากเมืองทั้ง {count} เมืองในสนามดัชนี ลากใยแมงมุม ขยับสไลเดอร์ หรือใช้ preset เพื่อดูว่าเมืองไหนใกล้กับชีวิตที่คุณต้องการจริง ๆ",
     heroNoteTitle: "ทำไมหน้านี้จึงไล่ย้อนกลับได้",
     heroNoteBody:
-      "หน้านี้เป็นเครื่องมือจัดอันดับที่ประกาศกรอบชัดเจน ไม่ใช่ลิสต์ตามอารมณ์ บอร์ดที่เผยแพร่เก็บคะแนนพื้นฐานหนึ่งค่าต่อเมือง ส่วนเวิร์กเบนช์นี้ให้คุณเปรียบเทียบว่า 5 เสาหลักเดียวกันตอบสนองอย่างไรเมื่อคุณเปลี่ยนน้ำหนัก",
+      "คะแนนเมืองที่เผยแพร่ใช้ AMPI (μ − σ²/μ) หักโทษ coverage ที่ค่า Balanced SLIC คุณเห็นลำดับทางการ เมื่อขยับใยแมงมุม หน้านี้สลับเป็นการจับคู่โปรไฟล์กับน้ำหนักของคุณ — ไม่ใช่การเขียนทับคะแนน AMPI",
     indexedCitiesLabel: "เมืองในสนาม",
     lockedPointsLabel: "คะแนนคงที่",
     pillarsLabel: "เสาหลัก",
@@ -372,10 +372,10 @@ const interactiveCopy: Record<
     consequencesTitle: "สัญญาณข้อแลกเปลี่ยน",
     noConsequences: "ลองขยับน้ำหนักต่อไป เมื่อโปรไฟล์ของคุณชัดขึ้น ข้อแลกเปลี่ยนหลักจะปรากฏตรงนี้",
     resultsTitle: "เมืองที่ใกล้ที่สุด",
-    resultsBody: "ที่ค่า baseline คุณกำลังเห็นลำดับ SLIC ที่เผยแพร่แล้ว เมื่อคุณขยับแถบ เวิร์กเบนช์จะเปลี่ยนเป็นการจับคู่โปรไฟล์กับสนามเมืองที่จัดทำดัชนีไว้",
+    resultsBody: "ที่ baseline: ลำดับ AMPI ทางการ หลังขยับแถบ: คะแนนจับคู่โปรไฟล์ — ใช้ดูความชอบ ไม่แทนที่คะแนนที่เผยแพร่",
     bestMatchTitle: "ผลลัพธ์นำตอนนี้",
     bestMatchBody: "เมืองด้านล่างคือเมืองที่ใกล้กับโปรไฟล์ 5 เสาหลักปัจจุบันมากที่สุด",
-    fitScore: "คะแนนปัจจุบัน",
+    fitScore: "ความพอดีโปรไฟล์",
     baseRank: "อันดับฐาน",
     citiesLabel: "เมืองในมุมมอง",
     top10: "10 อันดับ",
@@ -404,7 +404,7 @@ const interactiveCopy: Record<
       "这个工作台会对完整的 {count} 城市索引场进行实时重排。拖动蛛网图、调整滑块，或使用预设，看看哪些城市最接近你真正想要的生活。",
     heroNoteTitle: "为什么它可以被追溯",
     heroNoteBody:
-      "这是一套公开声明的方法工具，而不是一份凭感觉的榜单。已发布榜单为每座城市保留一个基线分数；这个工作台则让你比较同样五个支柱在改动权重后会如何变化。",
+      "已发布城市分数使用 AMPI（μ − σ²/μ）再减去覆盖率惩罚。在 Balanced SLIC 预设下你看到的是官方顺序；拖动蛛网后，工作台切换为画像匹配——按你的权重做形态拟合，而不是改写 AMPI。",
     indexedCitiesLabel: "索引城市",
     lockedPointsLabel: "锁定点数",
     pillarsLabel: "声明支柱",
@@ -421,10 +421,10 @@ const interactiveCopy: Record<
     consequencesTitle: "权衡信号",
     noConsequences: "继续调整权重。你的画像越鲜明，这里出现的主要权衡就越清楚。",
     resultsTitle: "最接近的匹配",
-    resultsBody: "在基线状态下你看到的是已发布的 SLIC 顺序。一旦你移动滑块，工作台就会切换成索引城市场中的画像匹配。",
+    resultsBody: "基线：官方 AMPI 顺序。移动滑块后：画像匹配——用于偏好探索，不能替代已发布分数。",
     bestMatchTitle: "当前最高结果",
     bestMatchBody: "下面领先的城市，是与当前五支柱画像最接近的结果。",
-    fitScore: "当前分数",
+    fitScore: "画像匹配度",
     baseRank: "基础排名",
     citiesLabel: "城市可见",
     top10: "前10",
@@ -451,7 +451,7 @@ const interactiveCopy: Record<
     heroTitle: "도시 목록을 내 삶에 맞게 조정하세요",
     heroIntro: "이 워크벤치는 {count}개 전체 인덱스 도시를 실시간으로 재정렬합니다. 거미줄 차트를 드래그하거나, 슬라이더를 조정하거나, 프리셋을 사용해 내가 원하는 삶에 맞는 도시를 찾아보세요.",
     heroNoteTitle: "왜 이 결과를 추적할 수 있는가",
-    heroNoteBody: "이것은 공개된 방법론에 기반한 순위 도구입니다. 발표된 순위표는 도시별로 하나의 기준 점수를 유지하며, 이 워크벤치에서는 같은 5개 기둥이 가중치 변화에 어떻게 반응하는지 비교할 수 있습니다.",
+    heroNoteBody: "발표된 도시 점수는 AMPI(μ − σ²/μ)에서 커버리지 패널티를 뺀 값입니다. Balanced SLIC 프리셋에서는 공식 순서를 보고, 스파이더를 움직이면 가중치에 대한 프로필 매칭으로 전환됩니다 — AMPI를 다시 쓰는 것이 아닙니다.",
     indexedCitiesLabel: "인덱스 도시 수",
     lockedPointsLabel: "고정 점수",
     pillarsLabel: "선언된 기둥",
@@ -467,10 +467,10 @@ const interactiveCopy: Record<
     consequencesTitle: "트레이드오프 신호",
     noConsequences: "가중치를 계속 조정하세요. 프로필이 뚜렷해질수록 주요 트레이드오프가 여기에 표시됩니다.",
     resultsTitle: "가장 근접한 매칭",
-    resultsBody: "기준 상태에서는 발표된 SLIC 순서를 보고 있습니다. 슬라이더를 움직이면 워크벤치가 인덱스 도시 전체에 걸쳐 프로필 매칭 모드로 전환됩니다.",
+    resultsBody: "기준선: 공식 AMPI 순서. 슬라이더 이동 후: 프로필 매칭 — 선호도 탐색용이며 발표된 점수를 대체하지 않습니다.",
     bestMatchTitle: "현재 최상위 결과",
     bestMatchBody: "아래 선두 도시가 현재 5개 기둥 프로필에 가장 가까운 결과입니다.",
-    fitScore: "현재 점수",
+    fitScore: "프로필 적합도",
     baseRank: "기본 순위",
     citiesLabel: "표시된 도시",
     top10: "상위 10",
@@ -497,7 +497,7 @@ const interactiveCopy: Record<
     heroTitle: "都市フィールドを自分の生活に合わせて調整",
     heroIntro: "このワークベンチは{count}都市全体をリアルタイムで再ランキングします。スパイダー図をドラッグするか、スライダーを調整するか、プリセットを使用して、本当に望む生活に合った都市を見つけてください。",
     heroNoteTitle: "なぜ追跡可能なのか",
-    heroNoteBody: "これは公開された方法論に基づくランキングツールです。公開されたボードは都市ごとに1つの基準スコアを保持しており、このワークベンチでは同じ5つの柱が重みを変えたときにどう変化するかを比較できます。",
+    heroNoteBody: "公開都市スコアはAMPI（μ − σ²/μ）からカバレッジ減点を引いた値です。Balanced SLICプリセットでは公式順位を見ます。スパイダーを動かすと、重みに対するプロファイル一致に切り替わります——AMPIの書き換えではありません。",
     indexedCitiesLabel: "インデックス都市数",
     lockedPointsLabel: "固定ポイント",
     pillarsLabel: "宣言された柱",
@@ -513,10 +513,10 @@ const interactiveCopy: Record<
     consequencesTitle: "トレードオフシグナル",
     noConsequences: "引き続き重みを調整してください。プロファイルが明確になると、主なトレードオフがここに表示されます。",
     resultsTitle: "最も近い一致",
-    resultsBody: "ベースライン状態では公開されたSLICの順序が表示されます。スライダーを動かすと、ワークベンチはインデックスフィールド全体でのプロファイルマッチングモードに切り替わります。",
+    resultsBody: "ベースライン：公式AMPI順位。スライダー移動後：プロファイル一致——好みの探索用であり、公開スコアの代替ではありません。",
     bestMatchTitle: "現在の最上位結果",
     bestMatchBody: "以下のリード都市が、現在の5柱プロファイルに最も近い結果です。",
-    fitScore: "現在のスコア",
+    fitScore: "プロファイル適合",
     baseRank: "基本ランク",
     citiesLabel: "表示中の都市",
     top10: "上位10",
@@ -954,14 +954,22 @@ export default function RankingsPage({
                   </section>
                 )}
 
-                {/* Coverage legend */}
+                {/* Coverage legend — grades are publication penalties, not decoration */}
                 <div className="coverage-legend">
-                  {locale === "en" ? "Data coverage: " : locale === "th" ? "ครอบคลุมข้อมูล: " : locale === "ko" ? "데이터 커버리지: " : locale === "ja" ? "データ網羅率: " : "数据覆盖: "}
-                  <span style={{ color: GRADE_COLORS.A }}>A</span> 75%+
+                  {locale === "en"
+                    ? "Data coverage (AMPI penalty): "
+                    : locale === "th"
+                      ? "ครอบคลุมข้อมูล (โทษ AMPI): "
+                      : locale === "ko"
+                        ? "데이터 커버리지 (AMPI 패널티): "
+                        : locale === "ja"
+                          ? "データ網羅率（AMPI減点）: "
+                          : "数据覆盖（AMPI 扣分）: "}
+                  <span style={{ color: GRADE_COLORS.A }}>A</span> 75%+ · 0
                   {" · "}
-                  <span style={{ color: GRADE_COLORS.B }}>B</span> 50–74%
+                  <span style={{ color: GRADE_COLORS.B }}>B</span> 50–74% · −5
                   {" · "}
-                  <span style={{ color: GRADE_COLORS.C }}>C</span> 35–49%
+                  <span style={{ color: GRADE_COLORS.C }}>C</span> 35–49% · −15
                 </div>
 
                 {/* City list grouped by tier */}

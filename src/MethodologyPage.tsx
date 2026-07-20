@@ -608,11 +608,11 @@ export default function MethodologyPage({
               <tbody>
                 {methodology.glossarySection.symbols.map((symbol) => (
                   <tr key={symbol.symbol}>
-                    <td>
+                    <td data-label={ui.glossarySymbol}>
                       <strong>{symbol.symbol}</strong>
                     </td>
-                    <td>{symbol.definition}</td>
-                    <td>{symbol.explanation}</td>
+                    <td data-label={ui.glossaryDefinition}>{symbol.definition}</td>
+                    <td data-label={ui.glossaryExplanation}>{symbol.explanation}</td>
                   </tr>
                 ))}
               </tbody>
@@ -748,9 +748,9 @@ export default function MethodologyPage({
               <tbody>
                 {methodology.worksheetColumns.map((column) => (
                   <tr key={column.field}>
-                    <td>{column.field}</td>
-                    <td>{column.purpose}</td>
-                    <td>{column.source}</td>
+                    <td data-label={ui.worksheetColumn}>{column.field}</td>
+                    <td data-label={ui.worksheetPurpose}>{column.purpose}</td>
+                    <td data-label={ui.worksheetSource}>{column.source}</td>
                   </tr>
                 ))}
               </tbody>

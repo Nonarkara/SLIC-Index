@@ -528,15 +528,15 @@ export default function ThailandPage({
                 <tbody>
                   {tableRows.map((province, index) => (
                     <tr key={province.id}>
-                      <td>{index + 6}</td>
-                      <td><strong>{province.nameEn}</strong><br /><small style={{ color: "var(--text-soft)" }}>{province.nameTh}</small></td>
-                      <td>{province.region}</td>
-                      <td style={{ color: scoreColor(province.scores[pillar]) }}><strong>{province.scores[pillar]}</strong></td>
-                      <td>฿{formatBaht(province.metrics.gppPerCapita)}</td>
-                      <td style={{ color: province.metrics.pm25Annual > 35 ? "var(--accent-red)" : "inherit" }}>{province.metrics.pm25Annual}</td>
-                      <td>{province.metrics.hospitalBeds}</td>
-                      <td>{province.metrics.crimeRate}</td>
-                      <td>{province.metrics.greenCoverage}%</td>
+                      <td data-label={ui.rank}>{index + 6}</td>
+                      <td data-label={ui.province}><strong>{province.nameEn}</strong><br /><small style={{ color: "var(--text-soft)" }}>{province.nameTh}</small></td>
+                      <td data-label={ui.regionColumn}>{province.region}</td>
+                      <td data-label={pillarLabels[locale][pillar]} style={{ color: scoreColor(province.scores[pillar]) }}><strong>{province.scores[pillar]}</strong></td>
+                      <td data-label={ui.gppPerCapita}>฿{formatBaht(province.metrics.gppPerCapita)}</td>
+                      <td data-label={ui.pm25} style={{ color: province.metrics.pm25Annual > 35 ? "var(--accent-red)" : "inherit" }}>{province.metrics.pm25Annual}</td>
+                      <td data-label={ui.beds}>{province.metrics.hospitalBeds}</td>
+                      <td data-label={ui.crime}>{province.metrics.crimeRate}</td>
+                      <td data-label={ui.green}>{province.metrics.greenCoverage}%</td>
                     </tr>
                   ))}
                 </tbody>
