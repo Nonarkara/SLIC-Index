@@ -351,11 +351,11 @@ export default function AwardsPage({
       label: t(locale, "Summit / conference appearances", "งานสัมมนา / เวที", "峰会 / 会议出席", "정상회의 / 학회 출연", "サミット／学会出演"),
       placeholder: t(
         locale,
-        "Confirmed: Smart City Summit & Expo Taipei, March 2026; GITEX AI Asia Singapore, April 2026. Scheduled next: LEAP EAST Hong Kong, 8–10 July 2026.",
-        "ยืนยันแล้ว: Smart City Summit & Expo ไทเป มีนาคม 2569; GITEX AI Asia สิงคโปร์ เมษายน 2569 เวทีถัดไปที่มีกำหนด: LEAP EAST ฮ่องกง 8–10 กรกฎาคม 2569",
-        "已确认：2026 年 3 月台北智慧城市峰会；2026 年 4 月新加坡 GITEX AI Asia。下一站已排期：2026 年 7 月 8–10 日香港 LEAP EAST。",
-        "확인됨: 2026년 3월 스마트시티 서밋 & 엑스포 타이베이; 2026년 4월 GITEX AI Asia 싱가포르. 다음 일정: 2026년 7월 8–10일 LEAP EAST 홍콩.",
-        "確認済み：2026年3月台北スマートシティサミット＆エキスポ；2026年4月シンガポールGITEX AI Asia。次回予定：2026年7月8–10日香港LEAP EAST。",
+        "Confirmed: Smart City Summit & Expo Taipei, March 2026; GITEX AI Asia Singapore, April 2026; LEAP EAST Hong Kong Orbital Stage, 8–10 July 2026 — FloodDash world launch.",
+        "ยืนยันแล้ว: Smart City Summit & Expo ไทเป มีนาคม 2569; GITEX AI Asia สิงคโปร์ เมษายน 2569; LEAP EAST ฮ่องกง Orbital Stage 8–10 กรกฎาคม 2569 — เปิดตัว FloodDash สู่โลก",
+        "已确认：2026 年 3 月台北智慧城市峰会；2026 年 4 月新加坡 GITEX AI Asia；2026 年 7 月 8–10 日香港 LEAP EAST Orbital Stage——FloodDash 全球发布。",
+        "확인됨: 2026년 3월 스마트시티 서밋 & 엑스포 타이베이; 2026년 4월 GITEX AI Asia 싱가포르; 2026년 7월 8–10일 LEAP EAST 홍콩 Orbital Stage — FloodDash 세계 론칭.",
+        "確認済み：2026年3月台北スマートシティサミット＆エキスポ；2026年4月シンガポールGITEX AI Asia；2026年7月8–10日香港LEAP EAST Orbital Stage——FloodDash世界ローンチ。",
       ),
     },
     {

@@ -2381,14 +2381,10 @@ section[id] {
   width: 100%;
   height: 240px;
   object-fit: cover;
+  object-position: center 42%;
   border-radius: 0;
   display: block;
-}
-
-.hp-launch-event-photo--graphic img {
-  object-fit: cover;
-  object-position: center;
-  background: #c9ff3a;
+  background: var(--bg-soft, #efeae2);
 }
 
 .hp-launch-event-meta {
@@ -2406,10 +2402,6 @@ section[id] {
   color: var(--accent-amber);
 }
 
-.hp-launch-event-tag--upcoming {
-  color: var(--text-soft);
-}
-
 .hp-launch-event-date {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -2422,10 +2414,6 @@ section[id] {
   font-size: 13px;
   line-height: 1.6;
   color: var(--text-soft);
-}
-
-.hp-launch-event--upcoming .hp-launch-event-meta p {
-  opacity: 0.7;
 }
 
 .hp-launch-reach {
@@ -2465,9 +2453,6 @@ section[id] {
 @media (max-width: 900px) {
   .hp-launch-trail-grid {
     grid-template-columns: 1fr 1fr;
-  }
-  .hp-launch-event--upcoming {
-    grid-column: 1 / -1;
   }
 }
 

@@ -581,11 +581,11 @@ export default function HomePage({
         <h2 className="hp-launch-trail-title">
           {t(
             locale,
-            "A city ranking is only useful if it enters the rooms where city decisions get made. Here is where SLIC has gone — and where it is scheduled next.",
-            "ดัชนีเมืองมีประโยชน์ก็ต่อเมื่อได้เข้าสู่ห้องที่การตัดสินใจเรื่องเมืองเกิดขึ้นจริง นี่คือที่ที่ SLIC ไปมาแล้ว — และเวทีถัดไปที่มีกำหนด",
-            "城市排名只有进入真正做城市决策的场合才有意义。这里是 SLIC 已经去过的地方，以及下一站安排。",
-            "도시 순위는 도시 결정이 이루어지는 공간에 진입해야만 유용합니다. 이곳이 SLIC가 다녀온 곳이며 — 다음으로 예정된 곳입니다.",
-            "都市ランキングは、都市の意思決定が行われる場に入って初めて役立ちます。ここがSLICが行った場所——そして次に予定されている場所です。",
+            "A city ranking is only useful if it enters the rooms where city decisions get made. Here is where SLIC has gone — Taipei, Singapore, Hong Kong.",
+            "ดัชนีเมืองมีประโยชน์ก็ต่อเมื่อได้เข้าสู่ห้องที่การตัดสินใจเรื่องเมืองเกิดขึ้นจริง นี่คือที่ที่ SLIC ไปมาแล้ว — ไทเป สิงคโปร์ ฮ่องกง",
+            "城市排名只有进入真正做城市决策的场合才有意义。这里是 SLIC 已经去过的地方——台北、新加坡、香港。",
+            "도시 순위는 도시 결정이 이루어지는 공간에 진입해야만 유용합니다. 이곳이 SLIC가 다녀온 곳입니다 — 타이베이, 싱가포르, 홍콩.",
+            "都市ランキングは、都市の意思決定が行われる場に入って初めて役立ちます。ここがSLICが行った場所——台北、シンガポール、香港です。",
           )}
         </h2>
         <div className="hp-launch-trail-grid">
@@ -625,20 +625,31 @@ export default function HomePage({
             </div>
           </div>
 
-          <div className="hp-launch-event hp-launch-event--upcoming">
-            <div className="hp-launch-event-photo hp-launch-event-photo--graphic">
-              <img src={LEAP_EAST_PHOTO} alt={t(locale, "LEAP EAST Hong Kong event card, 8–10 July 2026", "บัตรงาน LEAP EAST ฮ่องกง 8–10 กรกฎาคม 2026", "LEAP EAST 香港活动卡，2026 年 7 月 8–10 日", "LEAP EAST 홍콩 행사 카드, 2026년 7월 8–10일", "LEAP EAST香港イベントカード、2026年7月8–10日")} loading="lazy" />
+          <div className="hp-launch-event">
+            <div className="hp-launch-event-photo">
+              <img
+                src={LEAP_EAST_PHOTO}
+                alt={t(
+                  locale,
+                  "Dr Non on the Orbital Stage panel at LEAP EAST Hong Kong, July 2026",
+                  "ดร.นนท์บนเวที Orbital Stage ในงาน LEAP EAST ฮ่องกง กรกฎาคม 2026",
+                  "Non 博士在 2026 年 7 月香港 LEAP EAST Orbital Stage 论坛发言",
+                  "2026년 7월 홍콩 LEAP EAST Orbital Stage 패널의 Non 박사",
+                  "2026年7月香港LEAP EAST Orbital StageパネルのNon博士",
+                )}
+                loading="lazy"
+              />
             </div>
             <div className="hp-launch-event-meta">
-              <span className="hp-launch-event-tag hp-launch-event-tag--upcoming">{t(locale, "Hong Kong", "ฮ่องกง", "香港", "홍콩", "香港")}</span>
+              <span className="hp-launch-event-tag">{t(locale, "Hong Kong", "ฮ่องกง", "香港", "홍콩", "香港")}</span>
               <span className="hp-launch-event-date">{t(locale, "July 2026", "กรกฎาคม 2026", "2026年7月", "2026년 7월", "2026年7月")}</span>
               <p>{t(
                 locale,
-                "Scheduled next: LEAP EAST, HKCEC — Asia's leading conference for innovation leaders and investors, 8–10 July 2026.",
-                "เวทีถัดไปที่มีกำหนด: LEAP EAST, HKCEC — งานประชุมชั้นนำในเอเชียสำหรับผู้นำด้านนวัตกรรมและนักลงทุน 8–10 กรกฎาคม 2569",
-                "下一站已排期：LEAP EAST，香港会展中心——亚洲领先的创新领袖与投资者峰会，2026 年 7 月 8–10 日。",
-                "다음 예정: LEAP EAST, HKCEC — 아시아 선도 혁신 리더 및 투자자 컨퍼런스, 2026년 7월 8–10일.",
-                "次回予定：LEAP EAST、HKCEC——アジア最先端のイノベーションリーダーと投資家のカンファレンス、2026年7月8〜10日。",
+                "LEAP EAST, HKCEC — Orbital Stage panel on Asia's tech-powered transport future. FloodDash (flood.nonarkara.org) launched to the world at Asia's largest Hong Kong tech gathering.",
+                "LEAP EAST, HKCEC — แผงเวที Orbital Stage เรื่องอนาคตขนส่งด้วยเทคโนโลยีในเอเชีย เปิดตัว FloodDash (flood.nonarkara.org) สู่โลกในงานเทคที่ใหญ่ที่สุดของฮ่องกงปีนี้",
+                "LEAP EAST，香港会展中心——Orbital Stage 论坛讨论亚洲科技驱动交通未来。在香港本年度最大科技盛会上向全球发布 FloodDash（flood.nonarkara.org）。",
+                "LEAP EAST, HKCEC — Orbital Stage 패널에서 아시아의 기술 기반 교통 미래를 논의. 올해 홍콩 최대 테크 행사에서 FloodDash(flood.nonarkara.org)를 세계에 론칭.",
+                "LEAP EAST、HKCEC——Orbital Stageパネルでアジアのテクノロジー駆動の交通の未来を議論。今年の香港最大テックイベントでFloodDash（flood.nonarkara.org）を世界にローンチ。",
               )}</p>
             </div>
           </div>
@@ -652,15 +663,15 @@ export default function HomePage({
             </span>
           </div>
           <div className="hp-launch-reach-stat">
-            <span className="hp-launch-reach-number">5,000+</span>
+            <span className="hp-launch-reach-number">3</span>
             <span className="hp-launch-reach-label">
               {t(
                 locale,
-                "have seen SLIC presented live in Taipei and Singapore",
-                "ได้เห็นการนำเสนอ SLIC สดที่ไทเปและสิงคโปร์",
-                "现场观看了 SLIC 在台北与新加坡的演讲",
-                "타이베이와 싱가포르에서 SLIC 라이브 발표를 직접 관람",
-                "台北とシンガポールでSLICのライブ発表を見た人々",
+                "cities on the live trail — Taipei, Singapore, Hong Kong",
+                "เมืองบนเส้นทางสด — ไทเป สิงคโปร์ ฮ่องกง",
+                "现场行迹三城——台北、新加坡、香港",
+                "라이브 트레일 3개 도시 — 타이베이, 싱가포르, 홍콩",
+                "ライブ・トレイル3都市——台北、シンガポール、香港",
               )}
             </span>
           </div>
