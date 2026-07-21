@@ -15,6 +15,205 @@ interface TimelineEntry {
   photos: string[];
 }
 
+interface ArchiveShot {
+  src: string;
+  alt: string;
+}
+
+interface ArchiveCard {
+  url: string;
+  title: string;
+  body: string;
+  linkLabel: string;
+  shots: ArchiveShot[];
+}
+
+interface ArchiveCopy {
+  eyebrow: string;
+  heading: string;
+  intro: string;
+  cards: ArchiveCard[];
+}
+
+const ARCHIVE_URLS = {
+  v1: "https://slic-v1.nonarkara.org",
+  v2: "https://slic-v2.nonarkara.org",
+  v25: "https://slic-v25.nonarkara.org",
+} as const;
+
+const versionArchive: Record<Locale, ArchiveCopy> = {
+  en: {
+    eyebrow: "VERSION ARCHIVE",
+    heading: "Every version stays live.",
+    intro:
+      "SLIC keeps its full public history online. Each earlier version is preserved exactly as it shipped — visit them, compare them, watch the idea evolve.",
+    cards: [
+      {
+        url: ARCHIVE_URLS.v1,
+        title: "V1 — The original provocation",
+        body: "The first public board. 103 cities, one declared formula, zero black boxes.",
+        linkLabel: "Visit V1 →",
+        shots: [
+          { src: "/version-archive/v1-methodology.jpg", alt: "Screenshot of the V1 methodology page" },
+        ],
+      },
+      {
+        url: ARCHIVE_URLS.v2,
+        title: "V2 — You build the ranking",
+        body: "The interactive workbench: drag the spider, shift priorities, watch 103 cities re-rank in real time.",
+        linkLabel: "Visit V2 →",
+        shots: [
+          { src: "/version-archive/v2-workbench.jpg", alt: "Screenshot of the V2 interactive workbench" },
+          { src: "/version-archive/v2-leaderboard.jpg", alt: "Screenshot of the V2 leaderboard" },
+        ],
+      },
+      {
+        url: ARCHIVE_URLS.v25,
+        title: "V2.5 — Summit edition",
+        body: "The Smart City Summit Taipei 2026 launch build, preserved as presented on stage.",
+        linkLabel: "Visit V2.5 →",
+        shots: [],
+      },
+    ],
+  },
+  th: {
+    eyebrow: "คลังเวอร์ชัน",
+    heading: "ทุกเวอร์ชันยังเปิดใช้งานอยู่",
+    intro:
+      "SLIC เก็บประวัติสาธารณะทั้งหมดไว้ออนไลน์ ทุกเวอร์ชันก่อนหน้าถูกเก็บรักษาไว้ตรงตามที่เปิดตัว — เข้าไปดู เทียบกัน และเห็นแนวคิดที่พัฒนาขึ้นทีละขั้น",
+    cards: [
+      {
+        url: ARCHIVE_URLS.v1,
+        title: "V1 — จุดเริ่มต้นที่ท้าทาย",
+        body: "บอร์ดสาธารณะแรก 103 เมือง สูตรเดียวที่ประกาศชัด ไม่มีกล่องดำ",
+        linkLabel: "เยี่ยมชม V1 →",
+        shots: [
+          { src: "/version-archive/v1-methodology.jpg", alt: "ภาพหน้าจอหน้าระเบียบวิธีของ V1" },
+        ],
+      },
+      {
+        url: ARCHIVE_URLS.v2,
+        title: "V2 — คุณสร้างอันดับเอง",
+        body: "เวิร์กเบนช์แบบโต้ตอบ: ลากแผนภาพแมงมุม ปรับลำดับความสำคัญ แล้วดู 103 เมืองจัดอันดับใหม่แบบเรียลไทม์",
+        linkLabel: "เยี่ยมชม V2 →",
+        shots: [
+          { src: "/version-archive/v2-workbench.jpg", alt: "ภาพหน้าจอเวิร์กเบนช์แบบโต้ตอบของ V2" },
+          { src: "/version-archive/v2-leaderboard.jpg", alt: "ภาพหน้าจอกระดานจัดอันดับของ V2" },
+        ],
+      },
+      {
+        url: ARCHIVE_URLS.v25,
+        title: "V2.5 — รุ่นงานซัมมิต",
+        body: "บิลด์เปิดตัวที่งาน Smart City Summit ไทเป 2026 เก็บรักษาไว้ตรงตามที่นำเสนอบนเวที",
+        linkLabel: "เยี่ยมชม V2.5 →",
+        shots: [],
+      },
+    ],
+  },
+  zh: {
+    eyebrow: "版本存档",
+    heading: "每个版本都保持在线。",
+    intro:
+      "SLIC 将完整的公开历史保留在线上。每个早期版本都按发布时的原样保存——访问它们、比较它们，见证这个想法的演进。",
+    cards: [
+      {
+        url: ARCHIVE_URLS.v1,
+        title: "V1——最初的挑战",
+        body: "第一个公开榜单。103 座城市，一个公开公式，零黑箱。",
+        linkLabel: "访问 V1 →",
+        shots: [
+          { src: "/version-archive/v1-methodology.jpg", alt: "V1 方法说明页截图" },
+        ],
+      },
+      {
+        url: ARCHIVE_URLS.v2,
+        title: "V2——你来构建排名",
+        body: "交互式工作台：拖动蛛网图，调整优先级，实时观看 103 座城市重新排名。",
+        linkLabel: "访问 V2 →",
+        shots: [
+          { src: "/version-archive/v2-workbench.jpg", alt: "V2 交互式工作台截图" },
+          { src: "/version-archive/v2-leaderboard.jpg", alt: "V2 排行榜截图" },
+        ],
+      },
+      {
+        url: ARCHIVE_URLS.v25,
+        title: "V2.5——峰会版",
+        body: "2026 年台北智慧城市峰会的发布版本，按舞台上呈现的原样保存。",
+        linkLabel: "访问 V2.5 →",
+        shots: [],
+      },
+    ],
+  },
+  ko: {
+    eyebrow: "버전 아카이브",
+    heading: "모든 버전이 그대로 살아 있습니다.",
+    intro:
+      "SLIC는 전체 공개 이력을 온라인에 보존합니다. 모든 이전 버전은 출시된 그대로 보존되어 있습니다 — 방문하고, 비교하고, 아이디어가 어떻게 발전해 왔는지 확인해 보세요.",
+    cards: [
+      {
+        url: ARCHIVE_URLS.v1,
+        title: "V1 — 최초의 도발",
+        body: "최초의 공개 순위표. 103개 도시, 하나의 공인 공식, 블랙박스 제로.",
+        linkLabel: "V1 방문 →",
+        shots: [
+          { src: "/version-archive/v1-methodology.jpg", alt: "V1 방법론 페이지 스크린샷" },
+        ],
+      },
+      {
+        url: ARCHIVE_URLS.v2,
+        title: "V2 — 당신이 순위를 만듭니다",
+        body: "인터랙티브 워크벤치: 스파이더를 드래그하고, 우선순위를 바꾸고, 103개 도시가 실시간으로 재순위되는 것을 확인하세요.",
+        linkLabel: "V2 방문 →",
+        shots: [
+          { src: "/version-archive/v2-workbench.jpg", alt: "V2 인터랙티브 워크벤치 스크린샷" },
+          { src: "/version-archive/v2-leaderboard.jpg", alt: "V2 리더보드 스크린샷" },
+        ],
+      },
+      {
+        url: ARCHIVE_URLS.v25,
+        title: "V2.5 — 서밋 에디션",
+        body: "2026 타이베이 스마트시티 서밋 출시 빌드, 무대에서 발표된 그대로 보존.",
+        linkLabel: "V2.5 방문 →",
+        shots: [],
+      },
+    ],
+  },
+  ja: {
+    eyebrow: "バージョンアーカイブ",
+    heading: "すべてのバージョンが公開されたままです。",
+    intro:
+      "SLICは公開された全履歴をオンラインで保持しています。過去の各バージョンは公開当時のまま保存されています。訪れて、比べて、アイデアの進化をご覧ください。",
+    cards: [
+      {
+        url: ARCHIVE_URLS.v1,
+        title: "V1 — 最初の挑発",
+        body: "最初の公開ボード。103都市、一つの宣言された計算式、ブラックボックスゼロ。",
+        linkLabel: "V1を見る →",
+        shots: [
+          { src: "/version-archive/v1-methodology.jpg", alt: "V1方法論ページのスクリーンショット" },
+        ],
+      },
+      {
+        url: ARCHIVE_URLS.v2,
+        title: "V2 — あなたがランキングを作る",
+        body: "インタラクティブなワークベンチ：スパイダーをドラッグし、優先順位を変え、103都市がリアルタイムで再順位される様子を確認。",
+        linkLabel: "V2を見る →",
+        shots: [
+          { src: "/version-archive/v2-workbench.jpg", alt: "V2インタラクティブワークベンチのスクリーンショット" },
+          { src: "/version-archive/v2-leaderboard.jpg", alt: "V2リーダーボードのスクリーンショット" },
+        ],
+      },
+      {
+        url: ARCHIVE_URLS.v25,
+        title: "V2.5 — サミットエディション",
+        body: "Smart City Summit Taipei 2026 の公開ビルド。ステージで発表されたそのままの姿で保存。",
+        linkLabel: "V2.5を見る →",
+        shots: [],
+      },
+    ],
+  },
+};
+
 const timeline: Record<Locale, TimelineEntry[]> = {
   en: [
     {
@@ -296,6 +495,7 @@ export default function HistoryPage({
   locale: Locale;
 }) {
   const entries = timeline[locale];
+  const archive = versionArchive[locale];
   const heading =
     locale === "en" ? "How the SLIC Index Was Built" :
     locale === "th" ? "SLIC Index ถูกสร้างขึ้นมาอย่างไร" :
@@ -352,6 +552,48 @@ export default function HistoryPage({
                 </div>
               </article>
             ))}
+          </div>
+
+          <div className="history-archive">
+            <p className="eyebrow">{archive.eyebrow}</p>
+            <h2 className="history-archive-title">{archive.heading}</h2>
+            <p className="history-archive-intro">{archive.intro}</p>
+
+            <div className="history-archive-grid">
+              {archive.cards.map((card) => (
+                <article key={card.url} className="history-archive-card">
+                  {card.shots.length > 0 && (
+                    <a
+                      className="history-archive-shots"
+                      href={card.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {card.shots.map((shot) => (
+                        <img
+                          key={shot.src}
+                          src={resolvePhotoSrc(shot.src)}
+                          alt={shot.alt}
+                          loading="lazy"
+                          className="history-archive-shot"
+                          onError={(e) => { (e.target as HTMLElement).style.display = "none"; }}
+                        />
+                      ))}
+                    </a>
+                  )}
+                  <h3>{card.title}</h3>
+                  <p>{card.body}</p>
+                  <a
+                    className="history-archive-link"
+                    href={card.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {card.linkLabel}
+                  </a>
+                </article>
+              ))}
+            </div>
           </div>
         </section>
       </main>
