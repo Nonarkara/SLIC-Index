@@ -3,80 +3,172 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SLIC Index</title>
     <meta name="theme-color" content="#f8f5f0" />
+    <meta name="description" content="SLIC Index V3 — the page is loading." />
+    <title>SLIC Index V3</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23f8f5f0'/%3E%3Cg transform='translate(50 52)' fill='none' stroke='%23b85c28' stroke-linejoin='round'%3E%3Cpolygon points='0,-32 30.4,-9.9 18.8,25.9 -18.8,25.9 -30.4,-9.9' stroke-width='3'/%3E%3Cpolygon points='0,-21 19.9,-6.5 12.3,16.9 -12.3,16.9 -19.9,-6.5' fill='%23b85c28' fill-opacity='0.2' stroke-width='1.5'/%3E%3Ccircle cx='0' cy='-32' r='3' fill='%23b85c28' stroke='none'/%3E%3Ccircle cx='30.4' cy='-9.9' r='3' fill='%23b85c28' stroke='none'/%3E%3Ccircle cx='18.8' cy='25.9' r='3' fill='%23b85c28' stroke='none'/%3E%3Ccircle cx='-18.8' cy='25.9' r='3' fill='%23b85c28' stroke='none'/%3E%3Ccircle cx='-30.4' cy='-9.9' r='3' fill='%23b85c28' stroke='none'/%3E%3C/g%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Source+Sans+3:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" />
     <style>
-      :root { color-scheme: light; }
+      :root {
+        color-scheme: light;
+        --bg: #f8f5f0;
+        --text: #1c1914;
+        --text-soft: rgba(28, 25, 20, 0.72);
+        --text-mute: rgba(28, 25, 20, 0.55);
+        --border: rgba(28, 25, 20, 0.18);
+        --border-strong: rgba(28, 25, 20, 0.42);
+        --accent: #b85c28;
+        --accent-ink: #1a6b5a;
+        --font-heading: "Libre Baskerville", Georgia, serif;
+        --font-body: "Source Sans 3", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
       * { box-sizing: border-box; }
-      html, body { margin: 0; padding: 0; background: #f8f5f0; color: #1c1914; }
+      html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); }
       body {
         min-height: 100vh;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: var(--font-body);
+        font-size: 15px;
+        line-height: 1.6;
         padding: 2rem;
       }
       .nf-card {
-        max-width: 34rem;
+        max-width: 36rem;
         text-align: left;
-        border-top: 1px solid rgba(28, 25, 20, 0.18);
+        border-top: 1px solid var(--border-strong);
         padding-top: 2rem;
       }
       .nf-eyebrow {
-        font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-family: var(--font-mono);
         font-size: 11px;
-        letter-spacing: 0.14em;
+        font-weight: 500;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
-        color: rgba(28, 25, 20, 0.55);
-        margin: 0 0 1.5rem;
-      }
-      .nf-title {
-        font-family: "Libre Baskerville", Georgia, serif;
-        font-weight: 400;
-        font-size: clamp(1.6rem, 3vw, 2.2rem);
-        line-height: 1.2;
-        margin: 0 0 1rem;
-      }
-      .nf-body {
-        font-size: 15px;
-        line-height: 1.6;
-        color: rgba(28, 25, 20, 0.72);
-        margin: 0 0 1.5rem;
+        color: var(--text-mute);
+        margin: 0 0 1.25rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
       }
       .nf-dot {
         display: inline-block;
-        width: 6px;
-        height: 6px;
-        background: #b85c28;
-        margin-right: 8px;
-        vertical-align: 2px;
-        animation: nf-pulse 1.4s ease-in-out infinite;
+        width: 7px;
+        height: 7px;
+        background: var(--accent);
+        animation: nf-pulse 1.6s ease-in-out infinite;
       }
       @keyframes nf-pulse {
         0%, 100% { opacity: 0.35; }
         50% { opacity: 1; }
       }
+      .nf-title {
+        font-family: var(--font-heading);
+        font-weight: 400;
+        font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+        line-height: 1.18;
+        letter-spacing: -0.01em;
+        margin: 0 0 1rem;
+      }
+      .nf-body {
+        color: var(--text-soft);
+        margin: 0 0 1.75rem;
+        max-width: 32rem;
+      }
+      .nf-body strong { color: var(--text); font-weight: 600; }
+      .nf-actions {
+        display: flex;
+        align-items: center;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+        padding-top: 0.5rem;
+        border-top: 1px solid var(--border);
+      }
+      .nf-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4em;
+        font-family: var(--font-mono);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text);
+        text-decoration: none;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid transparent;
+        transition: border-color 0.15s, color 0.15s;
+      }
+      .nf-link:hover { border-bottom-color: var(--accent); }
+      .nf-link--primary { color: var(--accent); }
+      .nf-link--muted { color: var(--text-mute); }
+      .nf-foot {
+        font-family: var(--font-mono);
+        font-size: 10.5px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--text-mute);
+        margin-top: 2.5rem;
+      }
+      .noscript-box {
+        background: rgba(184, 92, 40, 0.06);
+        border-left: 2px solid var(--accent);
+        padding: 0.75rem 1rem;
+        margin-top: 1.25rem;
+        font-size: 13px;
+        color: var(--text-soft);
+      }
+      .noscript-box a { color: var(--accent); text-decoration: underline; }
     </style>
     <script>
-      var l = window.location;
-      var segments = l.pathname.split('/').filter(Boolean);
-      var repoBase = segments[0] && /^SLIC-Index$/i.test(segments[0]) ? '/' + segments[0] : '';
-      var route = l.pathname.slice(repoBase.length).replace(/^\/+/, '');
-      var payload = route + (l.search ? (route ? '&' : '') + l.search.slice(1) : '') + l.hash;
-      l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        repoBase +
-        '/?p=' + encodeURIComponent(payload)
-      );
+      // SPA route restore for direct deep-links (e.g. shared /history URLs).
+      // Rebuilds the original path inside the index.html, which the React
+      // router then mounts. Runs synchronously, before paint.
+      (function () {
+        try {
+          var l = window.location;
+          var segments = l.pathname.split('/').filter(Boolean);
+          var repoBase = segments[0] && /^SLIC-Index$/i.test(segments[0]) ? '/' + segments[0] : '';
+          var route = l.pathname.slice(repoBase.length).replace(/^\/+/, '');
+          var payload = route + (l.search ? (route ? '&' : '') + l.search.slice(1) : '') + l.hash;
+          l.replace(
+            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
+            repoBase +
+            '/?p=' + encodeURIComponent(payload)
+          );
+        } catch (err) {
+          // If anything above throws (rare), leave the static 404 in place
+          // so the reader still gets the home link below.
+        }
+      })();
     </script>
   </head>
   <body>
-    <main class="nf-card">
-      <p class="nf-eyebrow"><span class="nf-dot"></span>SLIC Index &middot; Route Restore</p>
+    <main class="nf-card" role="main">
+      <p class="nf-eyebrow"><span class="nf-dot" aria-hidden="true"></span>SLIC Index V3 &middot; Routing</p>
       <h1 class="nf-title">One moment &mdash; routing you through.</h1>
-      <p class="nf-body">The URL you opened needs the SLIC runtime to load first. You&rsquo;ll land on the right page in a second.</p>
+      <p class="nf-body">
+        The URL you opened needs the SLIC runtime to load first.
+        <strong>You&rsquo;ll land on the right page in a second.</strong>
+      </p>
+      <div class="nf-actions">
+        <a class="nf-link nf-link--primary" href="/">Open the home page</a>
+        <a class="nf-link" href="/rankings">See the 163 cities</a>
+        <a class="nf-link nf-link--muted" href="/methodology">Read the methodology</a>
+      </div>
+      <p class="nf-foot">SLIC Index V3 &middot; Built to be audited, not believed</p>
+      <noscript>
+        <div class="noscript-box">
+          JavaScript is required for the SLIC Index SPA. Static documentation is still available:
+          <a href="/downloads/slic-methodology-technical-paper-en.pdf">Methodology PDF</a> &middot;
+          <a href="/downloads/slic-ranked-cities-v2.csv">163-city CSV</a>.
+        </div>
+      </noscript>
     </main>
   </body>
 </html>

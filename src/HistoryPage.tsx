@@ -14,7 +14,17 @@ interface TimelineEntry {
   body: string;
   photos: string[];
   link?: { url: string; label: string };
+  /** Marks this as the build the reader is currently looking at. Adds a "Current" badge. */
+  current?: boolean;
 }
+
+const currentBadge: Record<Locale, string> = {
+  en: "Current build",
+  th: "เวอร์ชันปัจจุบัน",
+  zh: "当前版本",
+  ko: "현재 빌드",
+  ja: "現在のビルド",
+};
 
 interface ArchiveShot {
   src: string;
@@ -270,6 +280,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/gitex-singapore-2026-08.jpg",
         "/launch-photos/gitex-singapore-2026-09.jpg",
       ],
+      current: true,
     },
   ],
   th: [
@@ -326,6 +337,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/gitex-singapore-2026-08.jpg",
         "/launch-photos/gitex-singapore-2026-09.jpg",
       ],
+      current: true,
     },
   ],
   zh: [
@@ -382,6 +394,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/gitex-singapore-2026-08.jpg",
         "/launch-photos/gitex-singapore-2026-09.jpg",
       ],
+      current: true,
     },
   ],
   ko: [
@@ -438,6 +451,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/gitex-singapore-2026-08.jpg",
         "/launch-photos/gitex-singapore-2026-09.jpg",
       ],
+      current: true,
     },
   ],
   ja: [
@@ -494,6 +508,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/gitex-singapore-2026-08.jpg",
         "/launch-photos/gitex-singapore-2026-09.jpg",
       ],
+      current: true,
     },
   ],
 };
@@ -542,7 +557,15 @@ export default function HistoryPage({
                   <div className="history-line" />
                 </div>
                 <div className="history-content">
-                  <h2>{entry.title}</h2>
+                  <div className="history-entry-head">
+                    <h2>{entry.title}</h2>
+                    {entry.current && (
+                      <span className="history-entry-current" aria-label={currentBadge[locale]}>
+                        <span className="history-entry-current-dot" aria-hidden="true" />
+                        {currentBadge[locale]}
+                      </span>
+                    )}
+                  </div>
                   {entry.body.split("\n\n").map((para, j) => (
                     <p key={j}>{para}</p>
                   ))}
@@ -579,6 +602,14 @@ export default function HistoryPage({
             <p className="eyebrow">{archive.eyebrow}</p>
             <h2 className="history-archive-title">{archive.heading}</h2>
             <p className="history-archive-intro">{archive.intro}</p>
+            <p className="history-archive-current-note">
+              <span className="history-archive-current-note-dot" aria-hidden="true" />
+              {locale === "en" && "You are reading V3 — the three builds below are preserved exactly as they shipped."}
+              {locale === "th" && "คุณกำลังอ่าน V3 — สามเวอร์ชันด้านล่างถูกเก็บรักษาไว้ตรงตามที่เปิดตัว"}
+              {locale === "zh" && "你正在阅读 V3 —— 下面三个版本完整保留，按发布时的原貌保存。"}
+              {locale === "ko" && "현재 V3를 읽고 계십니다 — 아래 세 버전은 출시 당시 그대로 보존되어 있습니다."}
+              {locale === "ja" && "いま読んでいるのはV3です — 下の3バージョンは公開された当時のまま保存されています。"}
+            </p>
 
             <div className="history-archive-grid">
               {archive.cards.map((card) => (
