@@ -275,6 +275,10 @@ export interface MethodologyData {
   sourceTiers: SourceTier[];
   worksheetSection: MethodologySectionCopy;
   worksheetColumns: WorksheetColumn[];
+  horizonSection: MethodologySectionCopy & {
+    body: string;
+    statusLabel: string;
+  };
   referencesSection: MethodologySectionCopy;
   references: MethodologyReference[];
 }

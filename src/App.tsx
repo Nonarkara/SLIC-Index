@@ -141,12 +141,30 @@ function withBase(path: string): string {
 }
 
 function commitRoute(path: SitePath | string): SitePath {
-  const full = withBase(path);
-  if (window.location.pathname !== full) {
-    window.history.pushState({}, "", full);
+  const hashIndex = path.indexOf("#");
+  const pathnameOnly = hashIndex >= 0 ? path.slice(0, hashIndex) : path;
+  const hashId = hashIndex >= 0 ? path.slice(hashIndex + 1) : "";
+  const full = withBase(pathnameOnly);
+  const nextUrl = hashId ? `${full}#${hashId}` : full;
+
+  if (`${window.location.pathname}${window.location.hash}` !== nextUrl) {
+    window.history.pushState({}, "", nextUrl);
   }
 
-  window.scrollTo({ top: 0, behavior: "auto" });
+  if (hashId) {
+    // Lazy route chunks need a beat before #horizon (etc.) exists in the DOM.
+    window.setTimeout(() => {
+      const target = document.getElementById(hashId);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+        return;
+      }
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }, 120);
+  } else {
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
   return resolvePath(full);
 }
 
@@ -325,7 +343,9 @@ export default function App() {
   }, [locale, route]);
 
   const navigate = (path: SitePath | string) => {
-    const fullPath = withBase(path);
+    const hashIndex = path.indexOf("#");
+    const pathnameOnly = hashIndex >= 0 ? path.slice(0, hashIndex) : path;
+    const fullPath = withBase(pathnameOnly);
     const doc = document as DocumentWithViewTransition;
 
     if (doc.startViewTransition) {

@@ -89,9 +89,18 @@
   --accent-amber-text: #a04e20;
   --accent-red: #a0382a;
   --accent-blue: #2a5a8c;
-  --max-width: 1200px;
+  --max-width: 1280px;
   --radius: 0;
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Tightened spacing scale — modern editorial density */
+  --space-section: 2.5rem;
+  --space-section-lg: 3rem;
+  --gap-grid: 0.75rem;
+  --gap-grid-lg: 1rem;
+  --pad-card: 0.9rem;
+  --pad-card-lg: 1.1rem;
+  --heading-tracking: -0.018em;
+  --transition-page: 180ms;
 }
 
 * {
@@ -179,12 +188,41 @@ button {
 }
 
 .page-frame {
-  animation: page-reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
+  animation: page-enter var(--transition-page) var(--ease-spring) both;
 }
 
 @keyframes page-reveal {
-  0% { opacity: 0; transform: translateY(20px); filter: blur(10px); }
-  100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+  0% { opacity: 0; transform: translateY(12px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* View Transitions API — pairs with App.tsx startViewTransition */
+@supports (view-transition-name: none) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: var(--transition-page);
+    animation-timing-function: var(--ease-spring);
+  }
+
+  ::view-transition-old(root) {
+    animation-name: page-vt-out;
+  }
+
+  ::view-transition-new(root) {
+    animation-name: page-vt-in;
+  }
+
+  .page-frame {
+    animation: none;
+  }
+}
+
+@keyframes page-vt-out {
+  to { opacity: 0; }
+}
+
+@keyframes page-vt-in {
+  from { opacity: 0; }
 }
 
 .section {
@@ -838,7 +876,7 @@ section[id] {
 .methodology,
 .city-spotlights,
 .paper-section {
-  padding: 2rem 0 3.5rem;
+  padding: var(--space-section) 0 var(--space-section-lg);
 }
 
 .compact-heading {
@@ -1900,7 +1938,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-feature-settings: "cv11", "ss01";
-  line-height: 1.6;
+  line-height: 1.55;
 }
 
 .page-frame {
@@ -3749,13 +3787,37 @@ section[id] {
 .methodology,
 .city-spotlights,
 .paper-section {
-  padding: 1.5rem 0 3rem;
+  padding: var(--space-section) 0 var(--space-section-lg);
 }
 
 .section-heading {
   margin-bottom: 1rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
+}
+
+.methodology-horizon-card {
+  max-width: 42rem;
+  padding: var(--pad-card-lg) 1.15rem;
+  border: 1px solid var(--border);
+  background: var(--surface-soft);
+}
+
+.methodology-horizon-status {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-amber-text);
+}
+
+.methodology-horizon-body {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-soft);
 }
 
 /* ── Ideas page ── */
@@ -4298,7 +4360,7 @@ body::before {
 .page-frame {
   position: relative;
   z-index: 1;
-  animation: page-enter 240ms ease;
+  animation: page-enter var(--transition-page) var(--ease-spring) both;
 }
 
 section[id] {
@@ -5193,8 +5255,8 @@ section[id] {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 0 16px 32px;
+  gap: var(--gap-grid);
+  padding: 0 16px 28px;
 }
 .rankings-stage-readout {
   display: flex;
@@ -6727,7 +6789,7 @@ section[id] {
   width: min(1400px, calc(100% - 3rem));
   min-height: min(52svh, 480px);
   margin: 0 auto;
-  padding: 6.5rem 0 2.25rem;
+  padding: 5.75rem 0 2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -8635,8 +8697,8 @@ details[open].scorecard-derived-formula summary::before {
 .spider-slider-row {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 4px 0;
+  gap: 10px;
+  padding: 5px 0;
 }
 
 .spider-slider-dot {
@@ -8659,8 +8721,8 @@ details[open].scorecard-derived-formula summary::before {
 .spider-slider-track {
   flex: 1;
   position: relative;
-  height: 6px;
-  background: rgba(248, 245, 240, 0.08);
+  height: 5px;
+  background: rgba(248, 245, 240, 0.1);
   border-radius: 0;
   overflow: visible;
 }
@@ -8671,7 +8733,7 @@ details[open].scorecard-derived-formula summary::before {
   left: 0;
   height: 100%;
   border-radius: 0;
-  transition: width 0.1s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: width 0.12s var(--ease-spring);
   pointer-events: none;
 }
 
@@ -9631,7 +9693,7 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .page-frame {
-  animation-duration: 180ms;
+  animation-duration: var(--transition-page);
 }
 
 .mh-inner {
@@ -9849,22 +9911,30 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .hp-thesis {
-  padding: 4.5rem 0 4rem;
+  padding: var(--space-section-lg) 0 var(--space-section);
 }
 
 .hp-thesis-inner {
-  max-width: 40rem;
+  max-width: 42rem;
 }
 
 .hp-thesis-title {
   font-size: clamp(1.85rem, 3.25vw, 2.8rem);
   line-height: 1.08;
+  letter-spacing: var(--heading-tracking);
 }
 
 .hp-thesis-body {
   color: rgba(28, 25, 20, 0.76);
-  line-height: 1.75;
+  line-height: 1.6;
   opacity: 1;
+}
+
+.hp-thesis-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
 }
 
 .hp-thesis-link {
@@ -10239,6 +10309,11 @@ details[open].scorecard-derived-formula summary::before {
   .v3-spider-row:hover {
     transform: none !important;
   }
+
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
 }
 
 /* ═══════ 2.5.2 RED DOT COVER PASS — image-led first impression ═══════ */
@@ -10469,7 +10544,7 @@ body,
 
 .v3-alpha {
   border-top: 0;
-  padding: 5.2rem 0 3.6rem;
+  padding: var(--space-section-lg) 0 var(--space-section);
 }
 
 .v3-alpha-header {

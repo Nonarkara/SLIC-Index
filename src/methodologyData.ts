@@ -1192,6 +1192,15 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         "Once the city universe is loaded, these columns are filled and the model computes pillar scores, the final SLIC score, and the coverage grade.",
     },
     worksheetColumns,
+    horizonSection: {
+      eyebrow: "Horizon",
+      title: "What will this city be like in five years?",
+      summary:
+        "A colleague asked the right question: if Montreal is #1 when you look, and you want to move, invest, or build a life there, you need to know what the city will be like in five years — not only what it scores today.",
+      body:
+        "SLIC V3 answers the present. Absolute scores, open sources, no imputation. When better data arrives, ranks move. That is intentional: the board follows the city, not a frozen league table. A five-year look — projecting trajectories from the same transparent inputs — is the next capability. We will not invent fake future ranks. We will build the honest one.",
+      statusLabel: "Seeded for a future release · not scored yet",
+    },
     referencesSection: {
       eyebrow: "References",
       title: "Source library used to justify the framework",
@@ -1723,6 +1732,15 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         "เมื่อโหลดชุดเมืองแล้ว คอลัมน์เหล่านี้จะถูกเติมและโมเดลจะคำนวณคะแนนเสาหลัก คะแนน SLIC และ coverage grade ออกมา",
     },
     worksheetColumns,
+    horizonSection: {
+      eyebrow: "ขอบฟ้า",
+      title: "อีกห้าปี เมืองนี้จะเป็นอย่างไร?",
+      summary:
+        "เพื่อนร่วมงานถามคำถามที่ถูก: ถ้า Montreal เป็นที่ 1 ตอนที่คุณดู และคุณอยากย้ายไป ลงทุน หรือสร้างชีวิตที่นั่น คุณต้องรู้ว่าเมืองนั้นจะเป็นอย่างไรในอีกห้าปี — ไม่ใช่แค่คะแนนวันนี้",
+      body:
+        "SLIC V3 ตอบคำถามปัจจุบัน คะแนนแบบสัมบูรณ์ แหล่งข้อมูลเปิด ไม่มีการเติมตัวเลข เมื่อข้อมูลดีขึ้น อันดับก็ขยับ นั่นตั้งใจ: กระดานตามเมือง ไม่ใช่ตารางลีกที่แช่แข็ง มุมมองห้าปี — ฉายแนวโน้มจากอินพุตชุดเดียวกันที่โปร่งใส — คือความสามารถถัดไป เราจะไม่สร้างอันดับอนาคตปลอม เราจะสร้างอันดับที่ซื่อสัตย์",
+      statusLabel: "เพาะไว้สำหรับเวอร์ชันถัดไป · ยังไม่ให้คะแนน",
+    },
     referencesSection: {
       eyebrow: "เอกสารอ้างอิง",
       title: "คลังแหล่งข้อมูลที่รองรับกรอบนี้",
@@ -2254,6 +2272,15 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         "城市宇宙一旦确定，下面这些列会被填入，模型再计算支柱分、总分与 coverage grade。",
     },
     worksheetColumns,
+    horizonSection: {
+      eyebrow: "前瞻",
+      title: "五年后，这座城市会是什么样？",
+      summary:
+        "一位同事问对了：如果蒙特利尔今天是第 1 名，而你想搬去、投资或在那里安家，你需要知道五年后它会怎样——而不只是今天的分数。",
+      body:
+        "SLIC V3 回答的是当下。绝对计分、公开来源、不做数据填充。更好的数据到来时，排名会动。这是故意的：榜单跟着城市走，不是冻住的联赛表。五年展望——用同一套透明输入推演轨迹——是下一步能力。我们不会捏造虚假的未来排名。我们要做诚实的那一个。",
+      statusLabel: "已作为未来版本种子 · 尚未计分",
+    },
     referencesSection: {
       eyebrow: "参考资料",
       title: "支撑这套框架的来源库",
