@@ -421,13 +421,14 @@ export default function HomePage({
           <p className="hp-thesis-body">
             {t(
               locale,
-              "Five declared pillars. Twenty scored metric lines plus three visible diagnostics, each value traced back to its source. No imputation, no paid placement, no composite buried in a PDF you have to trust. Disagree with the weights? Good — drag them below and see what actually changes.",
-              "ห้าเสาหลักที่ประกาศชัด ยี่สิบ metric line ที่ให้คะแนนพร้อมสาม diagnostic ที่มองเห็นได้ ทุกค่าตรวจสอบกลับไปยังแหล่งที่มาได้ ไม่มีการเติมข้อมูล ไม่มีเมืองจ่ายเงินเพื่อเข้าร่วม ไม่มีสูตรซ่อนในไฟล์ PDF ที่ต้องเชื่อโดยดุษณี ไม่เห็นด้วยกับน้ำหนัก? ดีมาก — ลากด้านล่างแล้วดูว่าอะไรเปลี่ยน",
-              "五个公开支柱。二十条计分指标加三条可见的诊断指标，每个数值都可追溯到来源。没有数据填充，没有付费排名，没有藏在 PDF 里叫你盲目相信的公式。不同意这些权重？很好——拖动下方滑块，看看什么真的会变。",
-              "다섯 개의 선언된 기둥. 스무 개의 채점 지표와 세 개의 공개 진단 지표, 각 값은 출처까지 추적 가능합니다. 대체 데이터 없음, 유료 순위 없음, 믿어야만 하는 PDF 속 공식 없음. 가중치에 동의하지 않습니까? 좋습니다 — 아래에서 드래그해 무엇이 실제로 바뀌는지 확인하세요.",
-              "5つの宣言された柱。採点された20の指標と3つの診断指標、各値はそのソースまで追跡可能。データ補完なし、有料掲載なし、盲目的に信じなければならないPDF内の数式なし。重みに同意しませんか？良い——以下でドラッグして、実際に何が変わるか確認してください。",
+              "Five declared pillars. Twenty scored metric lines plus three visible diagnostics, each value traced back to its source. No imputation, no paid placement, no composite buried in a PDF you have to trust. Disagree with the weights? Good — drag them below and see what actually changes. When better data arrives, ranks move — that is the index following the city, not a frozen league table.",
+              "ห้าเสาหลักที่ประกาศชัด ยี่สิบ metric line ที่ให้คะแนนพร้อมสาม diagnostic ที่มองเห็นได้ ทุกค่าตรวจสอบกลับไปยังแหล่งที่มาได้ ไม่มีการเติมข้อมูล ไม่มีเมืองจ่ายเงินเพื่อเข้าร่วม ไม่มีสูตรซ่อนในไฟล์ PDF ที่ต้องเชื่อโดยดุษณี ไม่เห็นด้วยกับน้ำหนัก? ดีมาก — ลากด้านล่างแล้วดูว่าอะไรเปลี่ยน เมื่อข้อมูลดีขึ้น อันดับก็ขยับ — นั่นคือดัชนีที่ตามเมือง ไม่ใช่ตารางลีกที่แช่แข็ง",
+              "五个公开支柱。二十条计分指标加三条可见的诊断指标，每个数值都可追溯到来源。没有数据填充，没有付费排名，没有藏在 PDF 里叫你盲目相信的公式。不同意这些权重？很好——拖动下方滑块，看看什么真的会变。更好的数据到来时，排名会动——这是指数跟着城市走，不是冻住的联赛表。",
+              "다섯 개의 선언된 기둥. 스무 개의 채점 지표와 세 개의 공개 진단 지표, 각 값은 출처까지 추적 가능합니다. 대체 데이터 없음, 유료 순위 없음, 믿어야만 하는 PDF 속 공식 없음. 가중치에 동의하지 않습니까? 좋습니다 — 아래에서 드래그해 무엇이 실제로 바뀌는지 확인하세요. 더 나은 데이터가 오면 순위가 움직입니다 — 도시가 보드를 움직이는 것이며, 고정된 리그가 아닙니다.",
+              "5つの宣言された柱。採点された20の指標と3つの診断指標、各値はそのソースまで追跡可能。データ補完なし、有料掲載なし、盲目的に信じなければならないPDF内の数式なし。重みに同意しませんか？良い——以下でドラッグして、実際に何が変わるか確認してください。より良いデータが来れば順位は動きます——都市が盤を動かし、凍ったリーグ表ではない、ということです。",
             )}
           </p>
+          <div className="hp-thesis-links">
           <a
             className="hp-thesis-link"
             href={appHref("/compare")}
@@ -435,6 +436,14 @@ export default function HomePage({
           >
             {t(locale, "See how SLIC compares to EIU, Mercer, and Resonance", "เปรียบเทียบ SLIC กับ EIU, Mercer และ Resonance", "对比 SLIC 与 EIU、美世、Resonance", "SLIC와 EIU, Mercer, Resonance 비교 보기", "SLICとEIU、マーサー、レゾナンスの比較を見る")} &rarr;
           </a>
+          <a
+            className="hp-thesis-link"
+            href={appHref("/methodology#horizon")}
+            onClick={(event) => navigateLink(event, onNavigate, "/methodology#horizon")}
+          >
+            {t(locale, "Five-year horizon — seeded, not scored", "ขอบฟ้าห้าปี — เพาะไว้ ยังไม่ให้คะแนน", "五年前瞻——已播种，尚未计分", "5년 지평선 — 씨앗만, 아직 채점 없음", "5年の地平線 — 種だけ、まだ採点しない")} &rarr;
+          </a>
+          </div>
         </div>
       </section>
 

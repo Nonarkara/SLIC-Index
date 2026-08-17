@@ -13,7 +13,18 @@ interface TimelineEntry {
   title: string;
   body: string;
   photos: string[];
+  link?: { url: string; label: string };
+  /** Marks this as the build the reader is currently looking at. Adds a "Current" badge. */
+  current?: boolean;
 }
+
+const currentBadge: Record<Locale, string> = {
+  en: "Current build",
+  th: "เวอร์ชันปัจจุบัน",
+  zh: "当前版本",
+  ko: "현재 빌드",
+  ja: "現在のビルド",
+};
 
 interface ArchiveShot {
   src: string;
@@ -51,7 +62,7 @@ const versionArchive: Record<Locale, ArchiveCopy> = {
       {
         url: ARCHIVE_URLS.v1,
         title: "V1 — The original provocation",
-        body: "The first public board. 103 cities, one declared formula, zero black boxes.",
+        body: "The first public board. 100 cities, one declared formula, zero black boxes.",
         linkLabel: "Visit V1 →",
         shots: [
           { src: "/version-archive/v1-methodology.jpg", alt: "Screenshot of the V1 methodology page" },
@@ -60,7 +71,7 @@ const versionArchive: Record<Locale, ArchiveCopy> = {
       {
         url: ARCHIVE_URLS.v2,
         title: "V2 — You build the ranking",
-        body: "The interactive workbench: drag the spider, shift priorities, watch 103 cities re-rank in real time.",
+        body: "The interactive workbench: drag the spider, shift priorities, watch 157 cities re-rank in real time.",
         linkLabel: "Visit V2 →",
         shots: [
           { src: "/version-archive/v2-workbench.jpg", alt: "Screenshot of the V2 interactive workbench" },
@@ -85,7 +96,7 @@ const versionArchive: Record<Locale, ArchiveCopy> = {
       {
         url: ARCHIVE_URLS.v1,
         title: "V1 — จุดเริ่มต้นที่ท้าทาย",
-        body: "บอร์ดสาธารณะแรก 103 เมือง สูตรเดียวที่ประกาศชัด ไม่มีกล่องดำ",
+        body: "บอร์ดสาธารณะแรก 100 เมือง สูตรเดียวที่ประกาศชัด ไม่มีกล่องดำ",
         linkLabel: "เยี่ยมชม V1 →",
         shots: [
           { src: "/version-archive/v1-methodology.jpg", alt: "ภาพหน้าจอหน้าระเบียบวิธีของ V1" },
@@ -94,7 +105,7 @@ const versionArchive: Record<Locale, ArchiveCopy> = {
       {
         url: ARCHIVE_URLS.v2,
         title: "V2 — คุณสร้างอันดับเอง",
-        body: "เวิร์กเบนช์แบบโต้ตอบ: ลากแผนภาพแมงมุม ปรับลำดับความสำคัญ แล้วดู 103 เมืองจัดอันดับใหม่แบบเรียลไทม์",
+        body: "เวิร์กเบนช์แบบโต้ตอบ: ลากแผนภาพแมงมุม ปรับลำดับความสำคัญ แล้วดู 157 เมืองจัดอันดับใหม่แบบเรียลไทม์",
         linkLabel: "เยี่ยมชม V2 →",
         shots: [
           { src: "/version-archive/v2-workbench.jpg", alt: "ภาพหน้าจอเวิร์กเบนช์แบบโต้ตอบของ V2" },
@@ -119,7 +130,7 @@ const versionArchive: Record<Locale, ArchiveCopy> = {
       {
         url: ARCHIVE_URLS.v1,
         title: "V1——最初的挑战",
-        body: "第一个公开榜单。103 座城市，一个公开公式，零黑箱。",
+        body: "第一个公开榜单。100 座城市，一个公开公式，零黑箱。",
         linkLabel: "访问 V1 →",
         shots: [
           { src: "/version-archive/v1-methodology.jpg", alt: "V1 方法说明页截图" },
@@ -128,7 +139,7 @@ const versionArchive: Record<Locale, ArchiveCopy> = {
       {
         url: ARCHIVE_URLS.v2,
         title: "V2——你来构建排名",
-        body: "交互式工作台：拖动蛛网图，调整优先级，实时观看 103 座城市重新排名。",
+        body: "交互式工作台：拖动蛛网图，调整优先级，实时观看 157 座城市重新排名。",
         linkLabel: "访问 V2 →",
         shots: [
           { src: "/version-archive/v2-workbench.jpg", alt: "V2 交互式工作台截图" },
@@ -153,7 +164,7 @@ const versionArchive: Record<Locale, ArchiveCopy> = {
       {
         url: ARCHIVE_URLS.v1,
         title: "V1 — 최초의 도발",
-        body: "최초의 공개 순위표. 103개 도시, 하나의 공인 공식, 블랙박스 제로.",
+        body: "최초의 공개 순위표. 100개 도시, 하나의 공인 공식, 블랙박스 제로.",
         linkLabel: "V1 방문 →",
         shots: [
           { src: "/version-archive/v1-methodology.jpg", alt: "V1 방법론 페이지 스크린샷" },
@@ -162,7 +173,7 @@ const versionArchive: Record<Locale, ArchiveCopy> = {
       {
         url: ARCHIVE_URLS.v2,
         title: "V2 — 당신이 순위를 만듭니다",
-        body: "인터랙티브 워크벤치: 스파이더를 드래그하고, 우선순위를 바꾸고, 103개 도시가 실시간으로 재순위되는 것을 확인하세요.",
+        body: "인터랙티브 워크벤치: 스파이더를 드래그하고, 우선순위를 바꾸고, 157개 도시가 실시간으로 재순위되는 것을 확인하세요.",
         linkLabel: "V2 방문 →",
         shots: [
           { src: "/version-archive/v2-workbench.jpg", alt: "V2 인터랙티브 워크벤치 스크린샷" },
@@ -187,7 +198,7 @@ const versionArchive: Record<Locale, ArchiveCopy> = {
       {
         url: ARCHIVE_URLS.v1,
         title: "V1 — 最初の挑発",
-        body: "最初の公開ボード。103都市、一つの宣言された計算式、ブラックボックスゼロ。",
+        body: "最初の公開ボード。100都市、一つの宣言された計算式、ブラックボックスゼロ。",
         linkLabel: "V1を見る →",
         shots: [
           { src: "/version-archive/v1-methodology.jpg", alt: "V1方法論ページのスクリーンショット" },
@@ -196,7 +207,7 @@ const versionArchive: Record<Locale, ArchiveCopy> = {
       {
         url: ARCHIVE_URLS.v2,
         title: "V2 — あなたがランキングを作る",
-        body: "インタラクティブなワークベンチ：スパイダーをドラッグし、優先順位を変え、103都市がリアルタイムで再順位される様子を確認。",
+        body: "インタラクティブなワークベンチ：スパイダーをドラッグし、優先順位を変え、157都市がリアルタイムで再順位される様子を確認。",
         linkLabel: "V2を見る →",
         shots: [
           { src: "/version-archive/v2-workbench.jpg", alt: "V2インタラクティブワークベンチのスクリーンショット" },
@@ -237,13 +248,14 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2025",
       title: "Building V1 — the first public prototype",
-      body: "The SLIC Index went from spreadsheets to code. Version 1 launched as a static ranking of 103 cities across five dimensions — the first time this data was public, free, and transparent. No black boxes. No paywall. Every weight visible, every source cited. The response was immediate: city officials, urban researchers, and international organizations started asking questions. The V1 site surfaced cities such as Busan, Taipei, Fukuoka, Bangkok, and Kuching near the top of the first published board, showing how a different metric could produce a different ordering.",
+      body: "The SLIC Index went from spreadsheets to code. Version 1 launched as a static ranking of 100 cities across five dimensions — the first time this data was public, free, and transparent. No black boxes. No paywall. Every weight visible, every source cited. The response was immediate: city officials, urban researchers, and international organizations started asking questions. The V1 site surfaced cities such as Busan, Taipei, Fukuoka, Bangkok, and Kuching near the top of the first published board, showing how a different metric could produce a different ordering.",
       photos: ["DSC_2572.jpg", "IMG_3687.JPG"],
+      link: { url: ARCHIVE_URLS.v1, label: "Visit V1 →" },
     },
     {
       year: "2026",
       title: "V2 — you build the ranking",
-      body: "Version 2 opened the ranking instrument to the audience. Instead of handing people a fixed order alone, V2 puts an interactive spider diagram in your hands. Drag the five vertices. Shift your priorities. Watch cities re-rank in real time based on what matters to you. The point was not just interactivity; it was to let people interrogate the weight structure directly rather than treat the method as a black box. In March 2026, Dr. Non launched V2 as a keynote at the Smart City Summit & Expo in Taipei — the largest smart city event in Asia. 174 cities, 53 countries, 3,000+ professionals. The questions began immediately.",
+      body: "Version 2 opened the ranking instrument to the audience. Instead of handing people a fixed order alone, V2 puts an interactive spider diagram in your hands. Drag the five vertices. Shift your priorities. Watch 157 cities re-rank in real time based on what matters to you. The point was not just interactivity; it was to let people interrogate the weight structure directly rather than treat the method as a black box. In March 2026, Dr. Non launched V2 as a keynote at the Smart City Summit & Expo in Taipei — the largest smart city event in Asia. 174 exhibiting cities, 53 countries, 3,000+ professionals. The questions began immediately.",
       photos: [
         "/launch-photos/20260317094731-_DON7077.jpg",
         "/launch-photos/20260318145941_DSC09480.jpg",
@@ -251,6 +263,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/20260318145319_DSC09441.jpg",
         "/launch-photos/20260318151147_DSC09510.jpg",
       ],
+      link: { url: ARCHIVE_URLS.v2, label: "Visit V2 →" },
     },
     {
       year: "2026 · V3",
@@ -267,6 +280,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/gitex-singapore-2026-08.jpg",
         "/launch-photos/gitex-singapore-2026-09.jpg",
       ],
+      current: true,
     },
   ],
   th: [
@@ -291,13 +305,14 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2568",
       title: "สร้าง V1 — ต้นแบบสาธารณะแรก",
-      body: "SLIC Index เปลี่ยนจากสเปรดชีตเป็นโค้ด เวอร์ชัน 1 เปิดตัวเป็นการจัดอันดับ 103 เมืองใน 5 มิติ — ครั้งแรกที่ข้อมูลนี้เปิดเผยฟรีและโปร่งใส ไม่มีกล่องดำ ไม่มี paywall ทุกน้ำหนักมองเห็นได้ ทุกแหล่งอ้างอิง",
+      body: "SLIC Index เปลี่ยนจากสเปรดชีตเป็นโค้ด เวอร์ชัน 1 เปิดตัวเป็นการจัดอันดับ 100 เมืองใน 5 มิติ — ครั้งแรกที่ข้อมูลนี้เปิดเผยฟรีและโปร่งใส ไม่มีกล่องดำ ไม่มี paywall ทุกน้ำหนักมองเห็นได้ ทุกแหล่งอ้างอิง",
       photos: ["DSC_2572.jpg", "IMG_3687.JPG"],
+      link: { url: ARCHIVE_URLS.v1, label: "เยี่ยมชม V1 →" },
     },
     {
       year: "2569",
       title: "V2 — คุณสร้างอันดับเอง",
-      body: "เวอร์ชัน 2 เปลี่ยนเกม แทนที่จะให้อันดับแล้วบอกว่า 'เชื่อเรา' V2 วางแผนภาพแมงมุมแบบโต้ตอบไว้ในมือคุณ ลากจุดทั้ง 5 เปลี่ยนลำดับความสำคัญ ดู 103 เมืองจัดอันดับใหม่แบบเรียลไทม์ ในเดือนมีนาคม 2569 ดร.นนท์ เปิดตัว V2 บนเวทีหลัก Smart City Summit & Expo ไทเป — งานเมืองอัจฉริยะที่ใหญ่ที่สุดในเอเชีย",
+      body: "เวอร์ชัน 2 เปลี่ยนเกม แทนที่จะให้อันดับแล้วบอกว่า 'เชื่อเรา' V2 วางแผนภาพแมงมุมแบบโต้ตอบไว้ในมือคุณ ลากจุดทั้ง 5 เปลี่ยนลำดับความสำคัญ ดู 157 เมืองจัดอันดับใหม่แบบเรียลไทม์ ในเดือนมีนาคม 2569 ดร.นนท์ เปิดตัว V2 บนเวทีหลัก Smart City Summit & Expo ไทเป — งานเมืองอัจฉริยะที่ใหญ่ที่สุดในเอเชีย",
       photos: [
         "/launch-photos/20260317094731-_DON7077.jpg",
         "/launch-photos/20260318145941_DSC09480.jpg",
@@ -305,6 +320,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/20260318145319_DSC09441.jpg",
         "/launch-photos/20260318151147_DSC09510.jpg",
       ],
+      link: { url: ARCHIVE_URLS.v2, label: "เยี่ยมชม V2 →" },
     },
     {
       year: "2569 · V3",
@@ -321,6 +337,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/gitex-singapore-2026-08.jpg",
         "/launch-photos/gitex-singapore-2026-09.jpg",
       ],
+      current: true,
     },
   ],
   zh: [
@@ -345,13 +362,14 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2025",
       title: "构建V1——第一个公开原型",
-      body: "SLIC指数从电子表格变成了代码。版本1以103个城市五个维度的静态排名上线——这是这些数据首次公开、免费且透明。没有黑箱，没有付费墙。",
+      body: "SLIC指数从电子表格变成了代码。版本1以100个城市五个维度的静态排名上线——这是这些数据首次公开、免费且透明。没有黑箱，没有付费墙。",
       photos: ["DSC_2572.jpg", "IMG_3687.JPG"],
+      link: { url: ARCHIVE_URLS.v1, label: "访问 V1 →" },
     },
     {
       year: "2026",
       title: "V2——你来构建排名",
-      body: "版本2改变了游戏规则。V2将交互式蛛网图放在你手中。拖动五个顶点，改变你的优先级，看103个城市根据对你重要的事实时重新排名。2026年3月，Non博士在台北智慧城市峰会上作为主题演讲发布了V2——亚洲最大的智慧城市活动。",
+      body: "版本2改变了游戏规则。V2将交互式蛛网图放在你手中。拖动五个顶点，改变你的优先级，看157个城市根据对你重要的事实时重新排名。2026年3月，Non博士在台北智慧城市峰会上作为主题演讲发布了V2——亚洲最大的智慧城市活动。",
       photos: [
         "/launch-photos/20260317094731-_DON7077.jpg",
         "/launch-photos/20260318145941_DSC09480.jpg",
@@ -359,6 +377,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/20260318145319_DSC09441.jpg",
         "/launch-photos/20260318151147_DSC09510.jpg",
       ],
+      link: { url: ARCHIVE_URLS.v2, label: "访问 V2 →" },
     },
     {
       year: "2026 · V3",
@@ -375,6 +394,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/gitex-singapore-2026-08.jpg",
         "/launch-photos/gitex-singapore-2026-09.jpg",
       ],
+      current: true,
     },
   ],
   ko: [
@@ -399,8 +419,9 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2025",
       title: "V1 구축 — 최초의 공개 프로토타입",
-      body: "SLIC Index는 스프레드시트에서 코드로 전환되었습니다. 버전 1은 5개 차원에 걸쳐 103개 도시를 대상으로 한 정적 순위로 출시되었습니다. 이 데이터가 공개적으로, 무료로, 투명하게 제공된 것은 처음이었습니다. 블랙박스도 없고, 유료 장벽도 없습니다. 모든 가중치가 공개되고, 모든 출처가 인용됩니다. 반응은 즉각적이었습니다. 도시 공무원, 도시 연구자, 국제기구들이 질문을 쏟아내기 시작했습니다. V1 사이트는 부산, 타이베이, 후쿠오카, 방콕, 쿠칭 등의 도시를 최초 공개 순위표 상위에 위치시키며, 다른 지표가 다른 순서를 만들 수 있음을 보여주었습니다.",
+      body: "SLIC Index는 스프레드시트에서 코드로 전환되었습니다. 버전 1은 5개 차원에 걸쳐 100개 도시를 대상으로 한 정적 순위로 출시되었습니다. 이 데이터가 공개적으로, 무료로, 투명하게 제공된 것은 처음이었습니다. 블랙박스도 없고, 유료 장벽도 없습니다. 모든 가중치가 공개되고, 모든 출처가 인용됩니다. 반응은 즉각적이었습니다. 도시 공무원, 도시 연구자, 국제기구들이 질문을 쏟아내기 시작했습니다. V1 사이트는 부산, 타이베이, 후쿠오카, 방콕, 쿠칭 등의 도시를 최초 공개 순위표 상위에 위치시키며, 다른 지표가 다른 순서를 만들 수 있음을 보여주었습니다.",
       photos: ["DSC_2572.jpg", "IMG_3687.JPG"],
+      link: { url: ARCHIVE_URLS.v1, label: "V1 방문 →" },
     },
     {
       year: "2026",
@@ -413,6 +434,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/20260318145319_DSC09441.jpg",
         "/launch-photos/20260318151147_DSC09510.jpg",
       ],
+      link: { url: ARCHIVE_URLS.v2, label: "V2 방문 →" },
     },
     {
       year: "2026 · V3",
@@ -429,6 +451,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/gitex-singapore-2026-08.jpg",
         "/launch-photos/gitex-singapore-2026-09.jpg",
       ],
+      current: true,
     },
   ],
   ja: [
@@ -453,8 +476,9 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2025",
       title: "V1の構築 — 最初の公開プロトタイプ",
-      body: "SLICインデックスはスプレッドシートからコードへと転換しました。バージョン1は5つの次元にわたる103都市の静的ランキングとして公開されました。このデータが公開かつ無料で透明性をもって提供されたのは初めてのことです。ブラックボックスはなく、ペイウォールもありません。すべての重み付けが可視化され、すべての出典が引用されています。反応は即座でした。都市職員、都市研究者、国際機関が次々と質問を寄せ始めました。V1サイトは釜山、台北、福岡、バンコク、クチンなどの都市を最初の公開順位表の上位に位置づけ、異なる指標が異なる順序を生み出し得ることを示しました。",
+      body: "SLICインデックスはスプレッドシートからコードへと転換しました。バージョン1は5つの次元にわたる100都市の静的ランキングとして公開されました。このデータが公開かつ無料で透明性をもって提供されたのは初めてのことです。ブラックボックスはなく、ペイウォールもありません。すべての重み付けが可視化され、すべての出典が引用されています。反応は即座でした。都市職員、都市研究者、国際機関が次々と質問を寄せ始めました。V1サイトは釜山、台北、福岡、バンコク、クチンなどの都市を最初の公開順位表の上位に位置づけ、異なる指標が異なる順序を生み出し得ることを示しました。",
       photos: ["DSC_2572.jpg", "IMG_3687.JPG"],
+      link: { url: ARCHIVE_URLS.v1, label: "V1を見る →" },
     },
     {
       year: "2026",
@@ -467,6 +491,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/20260318145319_DSC09441.jpg",
         "/launch-photos/20260318151147_DSC09510.jpg",
       ],
+      link: { url: ARCHIVE_URLS.v2, label: "V2を見る →" },
     },
     {
       year: "2026 · V3",
@@ -483,6 +508,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
         "/launch-photos/gitex-singapore-2026-08.jpg",
         "/launch-photos/gitex-singapore-2026-09.jpg",
       ],
+      current: true,
     },
   ],
 };
@@ -531,7 +557,15 @@ export default function HistoryPage({
                   <div className="history-line" />
                 </div>
                 <div className="history-content">
-                  <h2>{entry.title}</h2>
+                  <div className="history-entry-head">
+                    <h2>{entry.title}</h2>
+                    {entry.current && (
+                      <span className="history-entry-current" aria-label={currentBadge[locale]}>
+                        <span className="history-entry-current-dot" aria-hidden="true" />
+                        {currentBadge[locale]}
+                      </span>
+                    )}
+                  </div>
                   {entry.body.split("\n\n").map((para, j) => (
                     <p key={j}>{para}</p>
                   ))}
@@ -549,6 +583,16 @@ export default function HistoryPage({
                       ))}
                     </div>
                   )}
+                  {entry.link && (
+                    <a
+                      className="history-entry-link"
+                      href={entry.link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {entry.link.label}
+                    </a>
+                  )}
                 </div>
               </article>
             ))}
@@ -558,6 +602,14 @@ export default function HistoryPage({
             <p className="eyebrow">{archive.eyebrow}</p>
             <h2 className="history-archive-title">{archive.heading}</h2>
             <p className="history-archive-intro">{archive.intro}</p>
+            <p className="history-archive-current-note">
+              <span className="history-archive-current-note-dot" aria-hidden="true" />
+              {locale === "en" && "You are reading V3 — the three builds below are preserved exactly as they shipped."}
+              {locale === "th" && "คุณกำลังอ่าน V3 — สามเวอร์ชันด้านล่างถูกเก็บรักษาไว้ตรงตามที่เปิดตัว"}
+              {locale === "zh" && "你正在阅读 V3 —— 下面三个版本完整保留，按发布时的原貌保存。"}
+              {locale === "ko" && "현재 V3를 읽고 계십니다 — 아래 세 버전은 출시 당시 그대로 보존되어 있습니다."}
+              {locale === "ja" && "いま読んでいるのはV3です — 下の3バージョンは公開された当時のまま保存されています。"}
+            </p>
 
             <div className="history-archive-grid">
               {archive.cards.map((card) => (

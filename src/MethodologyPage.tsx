@@ -40,6 +40,7 @@ type MethodUiCopy = {
     glossary: string;
     example: string;
     models: string;
+    horizon: string;
     references: string;
     rack: string;
     glossarySymbol: string;
@@ -77,6 +78,7 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     glossary: "Glossary",
     example: "Example",
     models: "Boundaries",
+    horizon: "Horizon",
     references: "References",
     rack: "Knowledge rack",
     glossarySymbol: "Symbol",
@@ -113,6 +115,7 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     glossary: "สัญลักษณ์",
     example: "ตัวอย่าง",
     models: "ขอบเขตวิธี",
+    horizon: "ขอบฟ้า",
     references: "อ้างอิง",
     rack: "คลังความรู้",
     glossarySymbol: "สัญลักษณ์",
@@ -149,6 +152,7 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     glossary: "符号",
     example: "示例",
     models: "方法边界",
+    horizon: "前瞻",
     references: "参考",
     rack: "知识架",
     glossarySymbol: "符号",
@@ -185,6 +189,7 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     glossary: "기호",
     example: "예시",
     models: "방법 경계",
+    horizon: "지평선",
     references: "참고문헌",
     rack: "지식 랙",
     glossarySymbol: "기호",
@@ -220,6 +225,7 @@ const methodUiCopy: LocalizedRecord<MethodUiCopy> = {
     glossary: "記号",
     example: "例",
     models: "方法の境界",
+    horizon: "地平線",
     references: "参考文献",
     rack: "ナレッジラック",
     glossarySymbol: "記号",
@@ -371,6 +377,7 @@ export default function MethodologyPage({
     { href: "#glossary", label: ui.glossary },
     { href: "#worked-example", label: ui.example },
     { href: "#models", label: ui.models },
+    { href: "#horizon", label: ui.horizon },
     { href: "#references", label: ui.references },
     { href: "#knowledge-rack", label: ui.rack },
   ];
@@ -756,6 +763,14 @@ export default function MethodologyPage({
               </tbody>
             </table>
           </div>
+        </section>
+
+        <section className="paper-section section" id="horizon">
+          {sectionSummary(methodology.horizonSection)}
+          <article className="paper-card methodology-horizon-card">
+            <p className="methodology-horizon-status">{methodology.horizonSection.statusLabel}</p>
+            <p className="methodology-horizon-body">{methodology.horizonSection.body}</p>
+          </article>
         </section>
 
         <section className="paper-section section" id="references">

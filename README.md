@@ -36,8 +36,8 @@ SLIC measures what's left after rent.
 
 | Version | What Changed | Live |
 |---------|-------------|------|
-| **[V1](https://github.com/Nonarkara/slic-landing-page)** | 103 cities. The LinkedIn provocation that started it all. | [slic-index.onrender.com](https://slic-index.onrender.com) |
-| **[V2](https://github.com/Nonarkara/slic-index-V2)** | SCSE 2026 Taipei launch. Interactive spider. 174 cities. European mayors asked to replace The Economist's index. | [GitHub Pages](https://nonarkara.github.io/slic-index-V2/) |
+| **[V1](https://github.com/Nonarkara/slic-landing-page)** | 103 cities. The LinkedIn provocation that started it all. | [GitHub Pages](https://nonarkara.github.io/SLIC-Index-V1/) |
+| **[V2](https://github.com/Nonarkara/SLIC-Index-V2)** | SCSE 2026 Taipei launch. Interactive spider. 174 cities. European mayors asked to replace The Economist's index. | [GitHub Pages](https://nonarkara.github.io/SLIC-Index-V2/) |
 | **V3** (you are here) | Op-ed redesign. 158 ranked cities + 5 watchlist (163 total). Ten-index comparison. Blind spots diagram. Watchlist transparency. AMPI absolute scoring. Public-tier overlay (Alpha/Beta/Gamma) with A-grade coverage floor for Alpha. | [slic.nonarkara.org](https://slic.nonarkara.org/) |
 
 ## Tech Stack
