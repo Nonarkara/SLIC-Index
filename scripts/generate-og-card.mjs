@@ -19,7 +19,7 @@ const html = `<!doctype html>
 <head>
 <meta charset="UTF-8"/>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=JetBrains+Mono:wght@400;500&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&family=JetBrains+Mono:wght@400;500&display=swap');
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -52,7 +52,7 @@ const html = `<!doctype html>
   }
 
   .headline {
-    font-family: 'Libre Baskerville', serif;
+    font-family: 'Space Grotesk', sans-serif;
     font-size: 84px;
     font-weight: 700;
     line-height: 0.96;
