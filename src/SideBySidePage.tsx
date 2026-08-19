@@ -5,10 +5,10 @@ import { t, localeNumberFormat } from "./i18n";
 import { rankingPublication } from "./rankingPublication";
 import SiteFooter from "./SiteFooter";
 import type { FullRankedCity, Locale, SitePath } from "./types";
+import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
+import type { PillarId } from "./pillars";
 
-type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
-const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
 
 const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   en: { pressure: "Growth", viability: "Viability", capability: "Capability", community: "Community", creative: "Creative" },
@@ -18,13 +18,6 @@ const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   ja: { pressure: "成長", viability: "生活持続性", capability: "能力", community: "コミュニティ", creative: "創造性" },
 };
 
-const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#b85c28",
-  viability: "#1a6b5a",
-  capability: "#2a5a8c",
-  community: "#8c4a2a",
-  creative: "#a0382a",
-};
 
 const allCities = getExerciseCities();
 const publishedTierById = new Map(

@@ -1,6 +1,6 @@
 import { ampi, PILLAR_ORDER } from "./publicationMath.js";
+import type { PillarId } from "./publicationMath";
 
-type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
 /**
  * AMPI score for a set of pillar values under a given weight allocation.

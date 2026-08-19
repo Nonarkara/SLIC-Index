@@ -130,11 +130,13 @@ const SpiderWebChart: FC<{
         return (
           <line
             key={pillar.id}
+            style={{ "--pillar": pillar.color } as CSSProperties}
+            className="allocator-node"
             x1={cx}
             y1={cy}
             x2={end.x}
             y2={end.y}
-            stroke={pillar.color}
+            stroke="var(--pillar-ink)"
             strokeWidth={1}
             strokeOpacity={0.34}
           />
@@ -164,13 +166,13 @@ const SpiderWebChart: FC<{
         const valueOffsetY = labelPoint.y > cy + 8 ? 16 : 12;
 
         return (
-          <g key={pillar.id}>
+          <g key={pillar.id} className="allocator-node" style={{ "--pillar": pillar.color } as CSSProperties}>
             {!hasInteracted && index === 0 && (
               <circle
                 cx={point.x}
                 cy={point.y}
                 r={14}
-                fill={pillar.color}
+                fill="var(--pillar-ink)"
                 fillOpacity={0.18}
                 className="allocator-drag-pulse"
               />
@@ -181,7 +183,7 @@ const SpiderWebChart: FC<{
                 cx={point.x}
                 cy={point.y}
                 r={22}
-                fill={pillar.color}
+                fill="var(--pillar-ink)"
                 fillOpacity={0.18}
                 filter="url(#allocatorGlow)"
               />
@@ -192,7 +194,7 @@ const SpiderWebChart: FC<{
               y1={point.y}
               x2={labelPoint.x}
               y2={labelPoint.y}
-              stroke={pillar.color}
+              stroke="var(--pillar-ink)"
               strokeOpacity={isDragging ? 0.76 : 0.28}
               strokeWidth={isDragging ? 1.4 : 1}
               strokeDasharray="3 5"
@@ -211,7 +213,7 @@ const SpiderWebChart: FC<{
               cx={point.x}
               cy={point.y}
               r={isDragging ? 14 : 11}
-              fill={pillar.color}
+              fill="var(--pillar-ink)"
               stroke="var(--bg, rgba(255,255,255,0.92))"
               strokeWidth={isDragging ? 3 : 2}
               filter={isDragging ? "url(#allocatorGlow)" : undefined}
@@ -230,7 +232,7 @@ const SpiderWebChart: FC<{
               fontSize={11.5}
               fontWeight={700}
               fontFamily="'JetBrains Mono', monospace"
-              fill={isDragging ? pillar.color : "var(--spider-label, rgba(226, 232, 240, 0.92))"}
+              fill={isDragging ? "var(--pillar-ink)" : "var(--spider-label, rgba(226, 232, 240, 0.92))"}
               letterSpacing="0.03em"
             >
               {pillar.label}
@@ -244,7 +246,7 @@ const SpiderWebChart: FC<{
               fontSize={12}
               fontWeight={800}
               fontFamily="'JetBrains Mono', monospace"
-              fill={pillar.color}
+              fill="var(--pillar-ink-text)"
             >
               {pillar.value}
             </text>
@@ -410,13 +412,13 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
         style={{ width: "100%", maxWidth: 420, display: "flex", flexDirection: "column", gap: 6 }}
       >
         {pillars.map((pillar, index) => (
-          <div key={pillar.id} className="spider-slider-row">
-            <span className="spider-slider-dot" style={{ background: pillar.color }} />
+          <div key={pillar.id} className="spider-slider-row" style={{ "--pillar": pillar.color } as CSSProperties}>
+            <span className="spider-slider-dot" />
             <span className="spider-slider-label">{pillar.label}</span>
             <div className="spider-slider-track">
               <div
                 className="spider-slider-fill"
-                style={{ width: `${(pillar.value / max) * 100}%`, background: pillar.color }}
+                style={{ width: `${(pillar.value / max) * 100}%` }}
               />
               <input
                 type="range"
@@ -426,10 +428,9 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
                 aria-label={descriptions[pillar.id] ?? pillar.label}
                 onChange={(event) => handleSliderChange(index, Number.parseInt(event.target.value, 10))}
                 className="spider-slider-input"
-                style={{ "--accent": pillar.color } as CSSProperties}
               />
             </div>
-            <span className="spider-slider-value" style={{ color: pillar.color }}>
+            <span className="spider-slider-value">
               {pillar.value}
             </span>
           </div>

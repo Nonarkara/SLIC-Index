@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import publishedData from "./data/publishedRankingData.json";
 import { displayCountry } from "./cityUtils";
 import { CITY_CONTEXT } from "./data/cityContext";
@@ -8,6 +9,8 @@ import SiteFooter from "./SiteFooter";
 import { t, localeNumberFormat } from "./i18n";
 import { PUBLIC_TIER_RULES } from "./publicTierPolicy.js";
 import type { Locale, SitePath } from "./types";
+import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
+import type { PillarId } from "./pillars";
 
 /* ── Types from enriched JSON ── */
 
@@ -94,15 +97,7 @@ interface PublishedRankingData {
   stabilityAnalysis: unknown;
 }
 
-type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
-const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#b85c28",
-  viability: "#1a6b5a",
-  capability: "#2a5a8c",
-  community: "#8c4a2a",
-  creative: "#a0382a",
-};
 
 const PILLAR_LABELS: Record<string, Record<PillarId, string>> = {
   en: { pressure: "Growth", viability: "Viability", capability: "Capability", community: "Community", creative: "Creative" },
@@ -120,7 +115,6 @@ const PILLAR_WEIGHTS: Record<PillarId, number> = {
   creative: 20,
 };
 
-const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
 
 const METRIC_LABELS: Record<Locale, Record<string, string>> = {
   en: {
@@ -1582,7 +1576,7 @@ export default function CityScorecardPage({
               {i > 0 && <span className="scorecard-equation-op">+</span>}
               <span className="scorecard-equation-weight">{(p.weight / 100).toFixed(2)}</span>
               <span className="scorecard-equation-times">&times;</span>
-              <span className="scorecard-equation-pillar" style={{ color: p.color }}>
+              <span className="scorecard-equation-pillar" style={{ "--pillar": p.color } as CSSProperties}>
                 {p.label}({p.score?.toFixed(1) ?? "?"})
               </span>
             </span>

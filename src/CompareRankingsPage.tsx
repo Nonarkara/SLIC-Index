@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type CSSProperties } from "react";
 import ZeroSumAllocator from "./ZeroSumAllocator";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import SiteFooter from "./SiteFooter";
@@ -14,10 +14,10 @@ import {
   MASTERCARD_GDCI_2019,
 } from "./compareRankingsData";
 import type { Locale, SitePath } from "./types";
+import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
+import type { PillarId } from "./pillars";
 
 /* ── Pillar config (same as HomePage) ── */
-type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
-const PILLAR_COLORS: Record<PillarId, string> = { pressure: "#b85c28", viability: "#1a6b5a", capability: "#2a5a8c", community: "#8c4a2a", creative: "#a0382a" };
 const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   en: { pressure: "Growth", viability: "Viability", capability: "Capability", community: "Community", creative: "Creative" },
   th: { pressure: "การเติบโต", viability: "ความน่าอยู่", capability: "ศักยภาพ", community: "ชุมชน", creative: "ความสร้างสรรค์" },
@@ -25,7 +25,6 @@ const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   ko: { pressure: "성장", viability: "생활가능성", capability: "역량", community: "커뮤니티", creative: "창의성" },
   ja: { pressure: "成長", viability: "生活持続性", capability: "能力", community: "コミュニティ", creative: "創造性" },
 };
-const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
 // Default state: SLIC's canonical weights (25/22/18/15/20). When users land
 // here they should see SLIC's published top 10 in the leftmost column —
 // matching what they see on the homepage and rankings page. The reset
@@ -467,7 +466,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           <div className="compare-critique-blocks">
             {INDEX_PROFILES.map((profile) => (
               <article key={profile.id} className="compare-critique-block">
-                <p className="compare-critique-eyebrow" style={{ color: profile.accentHex }}>{profile.shortName}</p>
+                <p className="compare-critique-eyebrow" style={{ "--accent-hex": profile.accentHex } as CSSProperties}>{profile.shortName}</p>
                 <h3 className="compare-critique-headline">{profile.critique.headline[locale]}</h3>
                 <p className="compare-critique-body">{profile.critique.body[locale]}</p>
               </article>
@@ -519,15 +518,15 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
             <line x1={SML} x2={SW - SMR} y1={SREF_Y} y2={SREF_Y} stroke="#b85c28" strokeWidth="1" strokeOpacity="0.35" strokeDasharray="4 4" />
             <line x1={SREF_X} x2={SREF_X} y1={SMT} y2={SH - SMB} stroke="#b85c28" strokeWidth="1" strokeOpacity="0.35" strokeDasharray="4 4" />
             {/* Quadrant labels */}
-            <text x={SML + 8} y={SMT + 15} fill="#f8f5f0" fillOpacity="0.18" fontSize="8" fontFamily="'JetBrains Mono', monospace">LIVABLE · UNDERSTATED</text>
-            <text x={SREF_X + 8} y={SMT + 15} fill="#f8f5f0" fillOpacity="0.18" fontSize="8" fontFamily="'JetBrains Mono', monospace">CAPITAL + QUALITY</text>
-            <text x={SML + 8} y={SH - SMB - 8} fill="#f8f5f0" fillOpacity="0.18" fontSize="8" fontFamily="'JetBrains Mono', monospace">LIMITED CAPITAL</text>
-            <text x={SREF_X + 8} y={SH - SMB - 8} fill="#f8f5f0" fillOpacity="0.18" fontSize="8" fontFamily="'JetBrains Mono', monospace">BILLIONAIRE FACTORIES</text>
+            <text x={SML + 8} y={SMT + 15} fill="#f8f5f0" fillOpacity="0.5" fontSize="8" fontFamily="'JetBrains Mono', monospace">LIVABLE · UNDERSTATED</text>
+            <text x={SREF_X + 8} y={SMT + 15} fill="#f8f5f0" fillOpacity="0.5" fontSize="8" fontFamily="'JetBrains Mono', monospace">CAPITAL + QUALITY</text>
+            <text x={SML + 8} y={SH - SMB - 8} fill="#f8f5f0" fillOpacity="0.5" fontSize="8" fontFamily="'JetBrains Mono', monospace">LIMITED CAPITAL</text>
+            <text x={SREF_X + 8} y={SH - SMB - 8} fill="#f8f5f0" fillOpacity="0.5" fontSize="8" fontFamily="'JetBrains Mono', monospace">BILLIONAIRE FACTORIES</text>
             {/* Dots */}
             {BILLI_DATA.map(d => (
               <circle key={d.name} cx={scX(d.b)} cy={scY(d.s)}
                 r={d.hero ? 7 : 5}
-                fill={d.hero ? "#b85c28" : "#f8f5f0"}
+                fill={d.hero ? "var(--accent-amber-on-dark)" : "#f8f5f0"}
                 fillOpacity={d.hero ? 1 : 0.55}
               />
             ))}
@@ -536,7 +535,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
               <text key={`lbl${d.name}`}
                 x={scX(d.b) + d.lx}
                 y={scY(d.s) + d.ly}
-                fill={d.hero ? "#b85c28" : "#f8f5f0"}
+                fill={d.hero ? "var(--accent-amber-on-dark)" : "#f8f5f0"}
                 fillOpacity={d.hero ? 1 : 0.7}
                 fontSize="10"
                 fontFamily="'JetBrains Mono', monospace"
@@ -547,14 +546,14 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
             ))}
             {/* Axis ticks */}
             {[0, 40, 80, 120, 155].map(b => (
-              <text key={`xt${b}`} x={scX(b)} y={SH - SMB + 16} fill="#f8f5f0" fillOpacity="0.35" fontSize="9" fontFamily="'JetBrains Mono', monospace" textAnchor="middle">{b}</text>
+              <text key={`xt${b}`} x={scX(b)} y={SH - SMB + 16} fill="#f8f5f0" fillOpacity="0.5" fontSize="9" fontFamily="'JetBrains Mono', monospace" textAnchor="middle">{b}</text>
             ))}
             {[0, 25, 50, 75, 100].map(s => (
-              <text key={`yt${s}`} x={SML - 6} y={scY(s) + 3} fill="#f8f5f0" fillOpacity="0.35" fontSize="9" fontFamily="'JetBrains Mono', monospace" textAnchor="end">{s}</text>
+              <text key={`yt${s}`} x={SML - 6} y={scY(s) + 3} fill="#f8f5f0" fillOpacity="0.5" fontSize="9" fontFamily="'JetBrains Mono', monospace" textAnchor="end">{s}</text>
             ))}
             {/* Axis captions */}
-            <text x={SW / 2} y={SH - 6} fill="#f8f5f0" fillOpacity="0.3" fontSize="9" fontFamily="'JetBrains Mono', monospace" textAnchor="middle">BILLIONAIRES (VISUAL CAPITALIST / VORONOI, 2026)</text>
-            <text x={14} y={SMT + SPH / 2} fill="#f8f5f0" fillOpacity="0.3" fontSize="9" fontFamily="'JetBrains Mono', monospace" textAnchor="middle" transform={`rotate(-90 14 ${SMT + SPH / 2})`}>SLIC SCORE</text>
+            <text x={SW / 2} y={SH - 6} fill="#f8f5f0" fillOpacity="0.5" fontSize="9" fontFamily="'JetBrains Mono', monospace" textAnchor="middle">BILLIONAIRES (VISUAL CAPITALIST / VORONOI, 2026)</text>
+            <text x={14} y={SMT + SPH / 2} fill="#f8f5f0" fillOpacity="0.5" fontSize="9" fontFamily="'JetBrains Mono', monospace" textAnchor="middle" transform={`rotate(-90 14 ${SMT + SPH / 2})`}>SLIC SCORE</text>
           </svg>
         </div>
         <p className="compare-scatter-note">
@@ -667,7 +666,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
                 <th>#</th>
                 <th>{t(locale, "Region", "ภูมิภาค", "地区", "지역", "地域")}</th>
                 <th>{t(locale, "Anchor city", "เมืองหลัก", "锚定城市", "앵커 도시", "アンカー都市")}</th>
-                <th>GDP €B <span style={{ fontWeight: 400, opacity: 0.6 }}>(2021)</span></th>
+                <th>GDP €B <span style={{ fontWeight: 400, color: "var(--text-dim)" }}>(2021)</span></th>
                 <th>{t(locale, "Corridor", "เส้นทาง", "走廊", "회랑", "回廊")}</th>
               </tr>
             </thead>

@@ -1,9 +1,9 @@
 import publishedRankingData from "./data/publishedRankingData.json";
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
+import type { PillarId } from "./publicationMath";
 
 type DataLevel = "city" | "national" | "derived" | "composite" | "missing";
-type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
 interface MetricComponent {
   key?: string;

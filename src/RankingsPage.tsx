@@ -12,10 +12,11 @@ import { appHref } from "./routing";
 import { scoreCityWithWeights } from "./scoring";
 import SiteFooter from "./SiteFooter";
 import type { FullRankedCity, Locale, SitePath } from "./types";
+import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
+import type { PillarId } from "./pillars";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
-type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
 type MatchedCity = FullRankedCity & {
   customScore: number;
@@ -25,13 +26,6 @@ type MatchedCity = FullRankedCity & {
   rankShift: number;
 };
 
-const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#b85c28",
-  viability: "#1a6b5a",
-  capability: "#2a5a8c",
-  community: "#8c4a2a",
-  creative: "#a0382a",
-};
 
 const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   en: {
@@ -117,13 +111,15 @@ function navigateLink(
   onNavigate(path);
 }
 
-const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
 
 
+// Coverage grades are publication penalties, so they have to be readable. These were
+// Tailwind's green-500 / amber-500 / orange-500, which are both off-palette (§11.11) and
+// 1.97-2.58:1 on cream. Mapped to the project's approved status colours (5.4-6.2:1).
 const GRADE_COLORS: Record<string, string> = {
-  A: "#22c55e",
-  B: "#f59e0b",
-  C: "#f97316",
+  A: "var(--accent-cyan)",
+  B: "var(--accent-amber-text)",
+  C: "var(--accent-red)",
 };
 
 const CANONICAL = publishedData.canonicalWeights as Record<PillarId, number>;

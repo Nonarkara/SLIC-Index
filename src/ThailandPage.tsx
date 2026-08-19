@@ -343,7 +343,7 @@ function formatBaht(value: number): string {
 function scoreColor(score: number): string {
   if (score >= 80) return "var(--accent-cyan)";   // excellent
   if (score >= 65) return "var(--accent-blue)";   // good
-  if (score >= 50) return "var(--accent-amber)";  // moderate
+  if (score >= 50) return "var(--accent-amber-text)";  // moderate — text variant clears AA on cream
   return "var(--accent-red)";                     // poor
 }
 
@@ -484,7 +484,7 @@ export default function ThailandPage({
                   </div>
                   <div>
                     <span>{ui.pm25}</span>
-                    <strong style={{ color: province.metrics.pm25Annual > 35 ? "var(--accent-red)" : province.metrics.pm25Annual > 25 ? "var(--accent-amber)" : "var(--accent-cyan)" }}>
+                    <strong style={{ color: province.metrics.pm25Annual > 35 ? "var(--accent-red)" : province.metrics.pm25Annual > 25 ? "var(--accent-amber-text)" : "var(--accent-cyan)" }}>
                       {province.metrics.pm25Annual} µg/m³
                     </strong>
                   </div>
@@ -582,19 +582,19 @@ export default function ThailandPage({
                 <tr>
                   <td>Singapore</td>
                   <td>#12</td><td>51</td><td>#34</td><td>62.8</td>
-                  <td style={{ color: "var(--accent-amber)" }}>1.04</td>
+                  <td style={{ color: "var(--accent-amber-text)" }}>1.04</td>
                 </tr>
                 <tr>
                   <td>Shanghai</td>
                   <td>#3</td><td>120</td><td>#107</td><td>42.3</td>
-                  <td style={{ color: "var(--accent-amber)" }}>1.09</td>
+                  <td style={{ color: "var(--accent-amber-text)" }}>1.09</td>
                 </tr>
                 <tr>
                   <td>Hong Kong</td>
                   <td>#7</td><td>88</td><td style={{ color: "var(--text-soft)", fontStyle: "italic" }} colSpan={2}>
                     {t(locale, "not in SLIC dataset", "ไม่อยู่ในชุดข้อมูล SLIC", "不在SLIC数据集中", "SLIC 데이터셋 미포함", "SLICデータセット未収録")}
                   </td>
-                  <td style={{ color: "var(--accent-amber)" }}>0.77</td>
+                  <td style={{ color: "var(--accent-amber-text)" }}>0.77</td>
                 </tr>
                 <tr>
                   <td>Mumbai</td>

@@ -12,8 +12,9 @@ import { appHref } from "./routing";
 import { scoreCityWithWeights } from "./scoring";
 import type { Locale, SitePath } from "./types";
 import { getVisitorStats } from "./visitorTracking";
+import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
+import type { PillarId } from "./pillars";
 
-type PillarId = "pressure" | "viability" | "capability" | "community" | "creative";
 
 interface HomeCity {
   cityId: string;
@@ -35,13 +36,6 @@ interface HomeCity {
   rank: number;
 }
 
-const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#b85c28",
-  viability: "#1a6b5a",
-  capability: "#2a5a8c",
-  community: "#8c4a2a",
-  creative: "#a0382a",
-};
 
 const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   en: {
@@ -81,7 +75,6 @@ const PILLAR_LABELS: Record<Locale, Record<PillarId, string>> = {
   },
 };
 
-const PILLAR_ORDER: PillarId[] = ["pressure", "viability", "capability", "community", "creative"];
 /** Canonical SLIC weights matching the published score (sum = 100). */
 const CANONICAL_WEIGHTS: Record<PillarId, number> = {
   pressure: 25,

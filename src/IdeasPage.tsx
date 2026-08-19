@@ -6,9 +6,11 @@ import type { Locale, SitePath } from "./types";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
+// Used as a text colour (line ~394), so the amber needs its text variant — plain
+// --accent-amber is 4.20:1 on cream, just under AA.
 const difficultyColors: Record<CityIdea["difficulty"], string> = {
   starter: "var(--accent-cyan)",
-  intermediate: "var(--accent-amber)",
+  intermediate: "var(--accent-amber-text)",
   advanced: "var(--accent-red)",
 };
 
