@@ -11,3 +11,8 @@ tmp/
 /photos/
 /vite.config.js
 /vite.config.d.ts
+
+# env files
+.env
+.env.*
+!.env.example
