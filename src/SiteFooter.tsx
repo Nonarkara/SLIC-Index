@@ -216,6 +216,11 @@ export default function SiteFooter({
         <div className="site-footer-brand">
           <BrandLockup eyebrow={copy.footer.eyebrow} microCopy={copy.footer.title} />
           <p className="site-footer-summary">{copy.footer.summary}</p>
+          <p className="site-footer-edition" aria-label="V3 final edition">
+            <span className="site-footer-edition-mark">FINAL EDITION</span>
+            <span>·</span>
+            <span>INDEX v3.4.0</span>
+          </p>
         </div>
 
         <article className="site-footer-card">

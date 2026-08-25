@@ -158,7 +158,7 @@ const DIAGNOSTIC_METRIC_KEYS = Object.freeze(DIAGNOSTIC_METRICS.map((metric) => 
 export const SCORED_METRIC_COUNT = SCORED_METRICS.length;
 export const DIAGNOSTIC_METRIC_COUNT = DIAGNOSTIC_METRICS.length;
 
-const METRIC_BY_KEY = Object.freeze(
+export const METRIC_BY_KEY = Object.freeze(
   Object.fromEntries(PUBLIC_METRICS.map((metric) => [metric.key, metric])),
 );
 
@@ -169,6 +169,9 @@ export function numeric(value) {
 function normalize(value, p05, p95, dir) {
   if (!numeric(value) || !numeric(p05) || !numeric(p95) || p95 === p05) {
     return null;
+  }
+  if (dir !== "positive" && dir !== "negative") {
+    throw new Error(`Invalid normalization direction: ${dir}. Must be "positive" or "negative".`);
   }
   const clamped = Math.min(Math.max(value, p05), p95);
   const raw = dir === "positive"
@@ -185,9 +188,9 @@ export function ampi(entries) {
   if (!totalWeight) return { score: null, mu: null, variance: null };
 
   const mu = valid.reduce((sum, entry) => sum + entry.score * entry.weight, 0) / totalWeight;
-  if (valid.length < 2 || mu === 0) {
+  if (valid.length < 2 || !numeric(mu) || mu === 0) {
     return {
-      score: Math.max(0, Math.min(100, mu)),
+      score: numeric(mu) ? Math.max(0, Math.min(100, mu)) : null,
       mu,
       variance: 0,
     };
@@ -197,9 +200,10 @@ export function ampi(entries) {
     (sum, entry) => sum + entry.weight * (entry.score - mu) ** 2,
     0,
   ) / totalWeight;
-  const score = Math.max(0, Math.min(100, mu - variance / mu));
 
-  return { score, mu, variance };
+  const ampiScore = Math.max(0, Math.min(100, mu - variance / Math.max(mu, 1e-10)));
+
+  return { score: ampiScore, mu, variance };
 }
 
 function roundTo(value, digits) {

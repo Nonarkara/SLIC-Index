@@ -292,7 +292,8 @@ export default function HomePage({
         </div>
         <div className="hp-opening-inner section">
           <p className="hp-kicker">
-            {t(locale, "MEASURED FOR RESIDENTS, NOT FOR BUYERS.", "วัดเพื่อผู้อยู่อาศัย ไม่ใช่เพื่อผู้ซื้อ", "为居民而量，不为买家而排。", "거주자를 위해 측정, 구매자를 위함이 아닙니다.", "購入者のためでなく、住民のために測定。")}
+            <span className="hp-kicker-mark">v3.4.0</span>
+            <span>{t(locale, "MEASURED FOR RESIDENTS, NOT FOR BUYERS.", "วัดเพื่อผู้อยู่อาศัย ไม่ใช่เพื่อผู้ซื้อ", "为居民而量，不为买家而排。", "거주자를 위해 측정, 구매자를 위함이 아닙니다.", "購入者のためでなく、住民のために測定。")}</span>
           </p>
           <p className="hp-lede">
             {t(
