@@ -104,7 +104,12 @@
   --accent-amber-on-dark: #c37448;
   --accent-red: #a0382a;
   --accent-blue: #2a5a8c;
-  --max-width: 1200px;
+  /* Page grid, declared once. The masthead band and the content column now resolve to the
+     same edges (§14.11). .section used to hardcode min(1400px, 100% - 3rem) while --max-width
+     said 1200px, so the band never met the column; .section's own <=760px variant already
+     read the token, which is the giveaway that the token was always meant to be the grid. */
+  --max-width: 1400px;
+  --page-gutter: 3rem;
   --radius: 0;
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
   /* Compactness pass — final V3 archive. Tighter than v3.4 so the page
@@ -256,7 +261,7 @@ button {
 }
 
 .section {
-  width: min(1400px, calc(100% - 3rem));
+  width: min(var(--max-width), calc(100% - var(--page-gutter)));
   margin: 0 auto;
 }
 
@@ -279,7 +284,7 @@ section[id] {
   top: 1rem;
   left: 50%;
   z-index: 100;
-  width: min(var(--max-width), calc(100% - 2rem));
+  width: min(var(--max-width), calc(100% - var(--page-gutter)));
   padding: 0.8rem 1.5rem;
   transform: translateX(-50%);
   border-radius: 0;
@@ -2032,7 +2037,7 @@ section[id] {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: min(var(--max-width), calc(100% - 2rem));
+  width: min(var(--max-width), calc(100% - var(--page-gutter)));
   margin: 0.6rem auto 0;
   padding: 0.5rem 1.2rem;
   pointer-events: auto;
@@ -2274,7 +2279,7 @@ section[id] {
 
 .mh-panel--open {
   display: block;
-  width: min(var(--max-width), calc(100% - 2rem));
+  width: min(var(--max-width), calc(100% - var(--page-gutter)));
   margin: 0.5rem auto 0;
   padding: 0.5rem;
   background: rgba(248, 245, 240, 0.97);
@@ -2356,7 +2361,8 @@ section[id] {
   display: inline-block;
   padding: 3px 8px;
   border: 1px solid currentColor;
-  opacity: 0.7;
+  /* opacity 0.7 on top of the kicker's own 0.64 cream put this at 4.23:1; the border
+     already reads it as a chip without dimming the text further. */
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.18em;
 }
@@ -4482,8 +4488,8 @@ section[id] {
 /* V3 editorial override */
 /* (Removed a duplicate :root block here. Every token in it was byte-identical to the
    canonical block at the top of this file except --max-width, which it silently flipped
-   1280px -> 1200px from 4300 lines away. The canonical block now declares 1200px directly,
-   so the rendered width is unchanged and there is one source of truth again.) */
+   1280px -> 1200px from 4300 lines away. The canonical block now declares the page grid
+   directly, so there is one source of truth again.) */
 
 body {
   background: var(--bg);
@@ -4681,7 +4687,7 @@ section[id] {
 }
 
 .site-masthead-frame {
-  width: min(var(--max-width), calc(100% - 2rem));
+  width: min(var(--max-width), calc(100% - var(--page-gutter)));
   border-radius: 0;
   border: none;
   border-bottom: 1px solid rgba(30, 40, 60, 0.08);
@@ -10710,14 +10716,6 @@ body,
   overflow-x: clip;
 }
 
-/* NOTE (audit 2026-08-19): this 1280px/2.5rem band does not align with the content
-   column, which is .section = min(1400px, 100% - 3rem). At 1440px the masthead edge sits
-   at x=80 and content at x=24. Left as-authored — picking the winning width is a visual
-   decision, not a mechanical one. See the audit note in tasks/lessons.md. */
-.mh-inner {
-  width: min(1280px, calc(100% - 2.5rem));
-}
-
 .mh--hero:not(.mh--scrolled) .mh-inner {
   color: var(--text-inverse);
   /* Translucent dark scrim — gives axe-core a contrast backdrop
@@ -11879,8 +11877,8 @@ html[lang="th"] .hp-lede {
   }
 
   .scorecard-hero--visual .scorecard-hero-shell {
-    width: calc(100vw - 2rem);
-    max-width: calc(100vw - 2rem);
+    width: min(var(--max-width), calc(100% - 1.25rem));
+    max-width: 100%;
   }
 
   .scorecard-hero--visual .scorecard-hero-split {
@@ -11927,11 +11925,13 @@ html[lang="th"] .hp-lede {
     font-size: 15px;
   }
 
+  /* These three pinned themselves to 100vw - 2rem (343px on a 375px phone) while the masthead
+     and every other .section sat at 355px, putting a third left edge on the page. They now
+     inherit .section's grid; 100vw also ignored the scrollbar. */
   .scorecard-editorial.section,
   .scorecard-overview.section,
   .scorecard-peers.section {
-    width: calc(100vw - 2rem);
-    max-width: calc(100vw - 2rem);
+    max-width: 100%;
   }
 }
 
