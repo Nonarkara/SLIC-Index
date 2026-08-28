@@ -1,4 +1,13 @@
 <!doctype html>
+<!-- SPA route-restore shim. REQUIRED for GitHub Pages, which has no _redirects
+     support: Pages serves this for unknown paths and the script below rebuilds the
+     route inside index.html.
+     Cloudflare Pages must NOT receive this file. A 404.html in the output takes
+     precedence over the `/* /index.html 200` rule in _redirects, which made every
+     deep link on slic.nonarkara.org answer 404 and flash a routing interstitial
+     (measured 2026-08-29: /rankings, /data, /methodology, /city/* all 404). The
+     `stage:cf` npm script strips it before `wrangler pages deploy`. -->
+
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
