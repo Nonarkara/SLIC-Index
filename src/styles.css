@@ -144,6 +144,10 @@ input[type="range"]:focus-visible {
 
 html {
   scroll-behavior: smooth;
+  /* Pad the body so iOS notch + home indicator never overlap text or
+     tap targets. The two values are inset (top) and auto (right/bottom/left). */
+  background-color: var(--bg);
+  background-clip: border-box;
 }
 
 body {
@@ -421,6 +425,18 @@ section[id] {
     min-height: 32px;
     min-width: 32px;
     padding: 0.25rem 0.1rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .locale-button {
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
+    padding: 0.2rem 0.05rem;
+  }
+  .mh-burger {
+    width: 1.4rem;
+    height: 1.4rem;
   }
 }
 
@@ -1849,7 +1865,7 @@ section[id] {
 .site-footer {
   display: grid;
   gap: 1.5rem;
-  padding: 1.75rem 0 4rem;
+  padding: 1.75rem 0 calc(4rem + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--border);
 }
 
@@ -2021,6 +2037,8 @@ section[id] {
   width: 100%;
   pointer-events: none;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* iPhone notch — keep the masthead inner below the dynamic island */
+  padding-top: env(safe-area-inset-top, 0px);
 }
 
 .mh--hidden {
@@ -2360,6 +2378,8 @@ section[id] {
      already reads it as a chip without dimming the text further. */
   font-variant-numeric: tabular-nums;
   letter-spacing: 0.18em;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .hp-lede {
@@ -7227,7 +7247,7 @@ section[id] {
 .scorecard-bottom-nav {
   position: sticky;
   bottom: 0;
-  padding: 12px 0;
+  padding: 12px 0 calc(12px + env(safe-area-inset-bottom, 0px));
   background: var(--bg);
   border-top: 1px solid var(--border);
   display: flex;
@@ -9262,16 +9282,18 @@ details[open].scorecard-derived-formula summary::before {
 
 .spider-slider-input {
   position: absolute;
-  top: -6px;
+  top: -14px;
   left: 0;
   width: 100%;
-  height: 18px;
+  height: 32px;
   margin: 0;
   padding: 0;
   appearance: none;
   -webkit-appearance: none;
   background: transparent;
   cursor: pointer;
+  /* Hit area extends past the track — 32px tall input over a 5px track,
+     giving the touch finger room without changing visual weight. */
 }
 
 .spider-slider-input::-webkit-slider-thumb {
@@ -10696,6 +10718,18 @@ details[open].scorecard-derived-formula summary::before {
 
 .site-footer-grid {
   gap: 1rem;
+}
+
+@media (max-width: 760px) {
+  .site-footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .site-footer-edition {
+    flex-wrap: wrap;
+    gap: 6px 8px;
+  }
 }
 
 .site-footer-brand,
