@@ -59,7 +59,7 @@ SLIC measures what's left after rent.
 
 ## License
 
-SLIC is intended for public citation, teaching, replication, and critique. Keep the source visible, preserve the declared methodology, and do not imply paid placement or endorsement.
+Released under the [MIT License](LICENSE). SLIC is intended for public citation, teaching, replication, and critique. Keep the source visible, preserve the declared methodology, and do not imply paid placement or endorsement.
 
 ---
 
