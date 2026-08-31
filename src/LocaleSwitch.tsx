@@ -19,23 +19,11 @@ export default function LocaleSwitch({
   onChange: (locale: Locale) => void;
 }) {
   return (
-    <div className="locale-switch" role="group" aria-label={localeSwitchLabel[locale]}>
-      <label className="locale-select-wrap">
-        <span className="visually-hidden">{localeSwitchLabel[locale]}</span>
-        <select
-          className="locale-select"
-          value={locale}
-          onChange={(event) => onChange(event.target.value as Locale)}
-          aria-label={localeSwitchLabel[locale]}
-        >
-          {LOCALES.map((option) => (
-            <option key={option} value={option}>
-              {localeLabels[option]}
-            </option>
-          ))}
-        </select>
-      </label>
-
+    <div
+      className="locale-switch"
+      role="group"
+      aria-label={localeSwitchLabel[locale]}
+    >
       <div className="locale-button-row">
         {LOCALES.map((option) => (
           <button
@@ -44,6 +32,7 @@ export default function LocaleSwitch({
             className={option === locale ? "locale-button active" : "locale-button"}
             onClick={() => onChange(option)}
             aria-pressed={option === locale}
+            aria-label={localeLabels[option]}
           >
             <span className="locale-label-full">{localeLabels[option]}</span>
             <span className="locale-label-short">{option.toUpperCase()}</span>

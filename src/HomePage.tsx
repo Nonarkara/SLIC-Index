@@ -187,9 +187,15 @@ export default function HomePage({
   };
   const labels = PILLAR_LABELS[locale];
 
-  const [visitors, setVisitors] = useState(12424);
+  const [visitors, setVisitors] = useState<number | null>(null);
   useEffect(() => {
-    getVisitorStats().then((stats) => setVisitors(stats.count));
+    getVisitorStats()
+      .then((stats) => setVisitors(stats.count))
+      .catch(() => {
+        // Live count unavailable — leave null so the hero omits the number
+        // rather than display a stale placeholder.
+        setVisitors(null);
+      });
   }, []);
 
   const [pillars, setPillars] = useState<PillarAllocation[]>(
@@ -275,7 +281,10 @@ export default function HomePage({
       })),
     );
 
-  const formattedVisitors = new Intl.NumberFormat(localeNumberFormat[locale]).format(visitors);
+  const formattedVisitors =
+    visitors == null
+      ? null
+      : new Intl.NumberFormat(localeNumberFormat[locale]).format(visitors);
 
   return (
     <>
@@ -361,10 +370,12 @@ export default function HomePage({
               <strong>5</strong>
               <em>{t(locale, "pillars", "เสาหลัก", "支柱", "기둥", "柱")}</em>
             </span>
-            <span className="hp-opening-stat">
-              <strong>{formattedVisitors}</strong>
-              <em>{t(locale, "visitors", "ผู้เข้าชม", "访客", "방문자", "訪問者")}</em>
-            </span>
+            {visitors != null && (
+              <span className="hp-opening-stat">
+                <strong>{formattedVisitors}</strong>
+                <em>{t(locale, "visitors", "ผู้เข้าชม", "访客", "방문자", "訪問者")}</em>
+              </span>
+            )}
           </div>
           <p className="hp-opening-credit">
             {t(

@@ -208,10 +208,18 @@ function RouteLoading({ locale }: { locale: Locale }) {
 
   return (
     <section className="route-loading section" aria-live="polite" aria-busy="true">
-      <div className="route-loading-card">
-        <p className="eyebrow">{copy.eyebrow}</p>
-        <h1>{copy.title}</h1>
-        <p>{copy.body}</p>
+      <div className="route-loading-stack" role="presentation">
+        <div className="route-loading-card">
+          <p className="eyebrow">{copy.eyebrow}</p>
+          <h1>{copy.title}</h1>
+          <p>{copy.body}</p>
+        </div>
+        <div className="route-loading-skeleton" aria-hidden="true">
+          <div className="route-loading-row route-loading-row--head" />
+          {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((index) => (
+            <div key={index} className="route-loading-row" style={{ animationDelay: `${index * 60}ms` }} />
+          ))}
+        </div>
       </div>
     </section>
   );

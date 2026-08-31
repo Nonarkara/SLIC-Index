@@ -1267,6 +1267,13 @@ export default function CityScorecardPage({
   const copy = SCORECARD_TEXT[locale];
   const rankedCities = allCities.filter((c) => c.rankingStatus === "Ranked");
   const rankedCityCount = rankedCities.length;
+  const rankedByOrder = [...rankedCities].sort((a, b) => (a.rank ?? 1e9) - (b.rank ?? 1e9));
+  const currentRankedIndex = city ? rankedByOrder.findIndex((c) => c.cityId === city.cityId) : -1;
+  const prevRanked = currentRankedIndex > 0 ? rankedByOrder[currentRankedIndex - 1] : null;
+  const nextRanked =
+    currentRankedIndex >= 0 && currentRankedIndex < rankedByOrder.length - 1
+      ? rankedByOrder[currentRankedIndex + 1]
+      : null;
 
   if (!city) {
     return (
@@ -1706,6 +1713,50 @@ export default function CityScorecardPage({
           </p>
         )}
       </section>
+
+      {/* ── Prev / Next city navigation ── */}
+      {(prevRanked || nextRanked) && (
+        <nav className="scorecard-prev-next section" aria-label={t(locale, "Adjacent ranked cities", "เมืองจัดอันดับก่อนหน้า/ถัดไป", "前后排名城市", "인접 순위 도시", "隣接ランキング都市")}>
+          {prevRanked ? (
+            <a
+              className="scorecard-prev-next-link scorecard-prev-next-link--prev"
+              href={appHref(`/city/${prevRanked.cityId}`)}
+              onClick={(event) => navigateLink(event, onNavigate, `/city/${prevRanked.cityId}`)}
+            >
+              <span className="scorecard-prev-next-direction">
+                {t(locale, "← Previous city", "← เมืองก่อนหน้า", "← 前一城市", "← 이전 도시", "← 前の都市")}
+              </span>
+              <span className="scorecard-prev-next-name">
+                #{String(prevRanked.rank).padStart(2, "0")} · {prevRanked.displayName}
+              </span>
+              <span className="scorecard-prev-next-score">
+                {prevRanked.slicScore != null ? prevRanked.slicScore.toFixed(1) : "—"}
+              </span>
+            </a>
+          ) : (
+            <span className="scorecard-prev-next-spacer" aria-hidden="true" />
+          )}
+          {nextRanked ? (
+            <a
+              className="scorecard-prev-next-link scorecard-prev-next-link--next"
+              href={appHref(`/city/${nextRanked.cityId}`)}
+              onClick={(event) => navigateLink(event, onNavigate, `/city/${nextRanked.cityId}`)}
+            >
+              <span className="scorecard-prev-next-direction">
+                {t(locale, "Next city →", "เมืองถัดไป →", "下一城市 →", "다음 도시 →", "次の都市 →")}
+              </span>
+              <span className="scorecard-prev-next-name">
+                #{String(nextRanked.rank).padStart(2, "0")} · {nextRanked.displayName}
+              </span>
+              <span className="scorecard-prev-next-score">
+                {nextRanked.slicScore != null ? nextRanked.slicScore.toFixed(1) : "—"}
+              </span>
+            </a>
+          ) : (
+            <span className="scorecard-prev-next-spacer" aria-hidden="true" />
+          )}
+        </nav>
+      )}
 
       {/* ── Sticky bottom back button ── */}
       <div className="scorecard-bottom-nav">

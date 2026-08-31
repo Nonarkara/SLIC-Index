@@ -1,5 +1,6 @@
 import { type MouseEvent, useEffect, useMemo, useState } from "react";
 import { displayCountry } from "./cityUtils";
+import { t } from "./i18n";
 import ZeroSumAllocator from "./ZeroSumAllocator";
 import type { PillarAllocation } from "./ZeroSumAllocator";
 import { evaluateConsequences } from "./consequenceRules";
@@ -969,6 +970,41 @@ export default function RankingsPage({
                 </div>
 
                 {/* City list grouped by tier */}
+                {displayResults.length === 0 ? (
+                  <div className="rankings-empty">
+                    <p className="eyebrow">{ui.resultsTitle}</p>
+                    <h3>
+                      {t(
+                        locale,
+                        "No cities match the current filters.",
+                        "ไม่มีเมืองที่ตรงกับตัวกรองปัจจุบัน",
+                        "当前筛选条件下没有城市。",
+                        "현재 필터와 일치하는 도시가 없습니다.",
+                        "現在のフィルターに一致する都市はありません。",
+                      )}
+                    </h3>
+                    <p>
+                      {t(
+                        locale,
+                        "Try a different region or a higher score range. The published board has 158 ranked cities; loosening the filter brings them back.",
+                        "ลองเปลี่ยนภูมิภาคหรือช่วงคะแนนที่กว้างขึ้น บอร์ดที่เผยแพร่มี 158 เมืองจัดอันดับ การผ่อนคลายตัวกรองจะทำให้กลับมาแสดงผล",
+                        "尝试切换地区或放宽分数范围。已发布榜单有 158 座已排名城市；放宽筛选即可让它们回来。",
+                        "다른 지역 또는 더 넓은 점수 범위를 시도해 보세요. 발표된 보드에는 158개 순위 도시가 있습니다. 필터를 완화하면 다시 표시됩니다.",
+                        "地域を変えるか、点数範囲を広げてみてください。公開ボードには158のランキング都市があります。フィルターを緩めれば戻ります。",
+                      )}
+                    </p>
+                    <button
+                      type="button"
+                      className="primary-action"
+                      onClick={() => {
+                        setRegion("All");
+                        setShowCountValue(indexedCities.length);
+                      }}
+                    >
+                      {t(locale, "Reset filters", "รีเซ็ตตัวกรอง", "重置筛选", "필터 초기화", "フィルターをリセット")}
+                    </button>
+                  </div>
+                ) : (
                 <div style={{ display: "flex", flexDirection: "column", gap: 2 }}>
                   {tierGroups.map((tier) => (
                     <div key={tier.id}>
@@ -996,9 +1032,10 @@ export default function RankingsPage({
                             className={`rankings-city-row${isTop ? " is-top" : ""}`}
                             href={appHref(`/city/${city.id}`)}
                             onClick={(event) => navigateLink(event, onNavigate, `/city/${city.id}`)}
-                            aria-label={`View ${city.name} scorecard`}
+                            aria-label={`View ${city.name} scorecard — rank #${city.customRank}, score ${city.customScore.toFixed(1)}`}
                             style={{ cursor: "pointer" }}
                           >
+                            <span className="city-rank" aria-hidden="true">#{String(city.customRank).padStart(2, "0")}</span>
                             <div style={{ minWidth: 0 }}>
                               <div className="city-name-row">
                                 <span className="city-display-name">{city.name}</span>
@@ -1012,6 +1049,7 @@ export default function RankingsPage({
                                 ))}
                               </div>
                             </div>
+                            <span className="city-row-score" aria-hidden="true">{city.customScore.toFixed(1)}</span>
                             <span className="city-tier-arrow">&#8250;</span>
                           </a>
                         );
@@ -1019,6 +1057,7 @@ export default function RankingsPage({
                     </div>
                   ))}
                 </div>
+                )}
 
                 <div className="rankings-actions">
                   <a

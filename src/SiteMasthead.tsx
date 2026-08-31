@@ -264,8 +264,8 @@ export default function SiteMasthead({
             src={`${BASE}${slicLogo.src}`}
             alt={slicLogo.alt}
             className="mh-logo-img"
-            height={32}
-            style={{ width: "auto" }}
+            width={140}
+            height={36}
           />
         </a>
 

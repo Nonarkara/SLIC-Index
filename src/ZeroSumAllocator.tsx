@@ -255,16 +255,28 @@ const SpiderWebChart: FC<{
       })}
 
       {!hasInteracted && (
-        <text
-          x={cx}
-          y={canvas - 18}
-          textAnchor="middle"
-          fontSize={11}
-          fontFamily="'JetBrains Mono', monospace"
-          fill="var(--spider-hint, rgba(226, 232, 240, 0.42))"
-        >
-          {pickLocale(ALLOCATOR_HINT, locale)}
-        </text>
+        <g className="allocator-drag-hint" aria-hidden="true">
+          <text
+            x={cx}
+            y={canvas - 28}
+            textAnchor="middle"
+            fontSize={10}
+            fontFamily="'JetBrains Mono', monospace"
+            letterSpacing="0.2em"
+            fill="rgba(248, 245, 240, 0.55)"
+          >
+            {pickLocale(ALLOCATOR_HINT, locale).toUpperCase()}
+          </text>
+          <line
+            x1={cx - 18}
+            y1={canvas - 18}
+            x2={cx + 18}
+            y2={canvas - 18}
+            stroke="rgba(184, 92, 40, 0.7)"
+            strokeWidth={1.5}
+            strokeDasharray="3 3"
+          />
+        </g>
       )}
     </svg>
   );
