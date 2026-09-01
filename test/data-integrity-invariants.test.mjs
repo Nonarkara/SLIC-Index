@@ -7,6 +7,7 @@
  */
 import test from "node:test";
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import publication from "../src/data/publishedRankingData.json" with { type: "json" };
 
 const ranked = publication.cities.filter((c) => c.rankingStatus === "Ranked");
@@ -169,5 +170,51 @@ test("invariant 16 — cityId is unique across cities[]", () => {
 test("invariant 17 — every city has a non-empty country name", () => {
   for (const c of publication.cities) {
     assert.ok(c.country && c.country.length > 0, `${c.displayName}: missing country`);
+  }
+});
+
+/* ── Declared-vs-actual disclosure ─────────────────────────────────────────────
+ * The methodology publishes a weight for every scored metric. A metric that is
+ * declared scored but produces a score for nobody is a silent lie in the weights:
+ * a reader reproducing from the published table gets different numbers.
+ * `viability_transit_access_commute` is exactly that today, and the methodology
+ * page discloses it in full ("only 7 of 158 cities have raw data ... all cities
+ * show null transit scores"). These two tests keep declaration, reality, and
+ * disclosure locked together — if transit ever activates, or another metric goes
+ * dark, the copy has to be updated in the same commit.
+ * ──────────────────────────────────────────────────────────────────────────── */
+
+const KNOWN_DORMANT = ["viability_transit_access_commute"];
+
+test("invariant 18 — the dormant metric set is exactly what the methodology discloses", () => {
+  const catalog = publication.metricCatalog;
+  const dormant = Object.entries(catalog)
+    .filter(([key, meta]) =>
+      meta.scored &&
+      !publication.cities.some((c) => c.metrics?.[key]?.score !== null && c.metrics?.[key]?.score !== undefined))
+    .map(([key]) => key)
+    .sort();
+  assert.deepEqual(
+    dormant,
+    [...KNOWN_DORMANT].sort(),
+    `Dormant scored metrics changed. Actual: [${dormant}]. Update the methodology copy ` +
+      `(methodologyData.ts) and KNOWN_DORMANT together — the published weights must never ` +
+      `claim a metric contributes when it scores for nobody.`,
+  );
+});
+
+test("invariant 19 — every dormant metric is described as inactive in the methodology copy", async () => {
+  const src = await readFile(new URL("../src/methodologyData.ts", import.meta.url), "utf8");
+  for (const key of KNOWN_DORMANT) {
+    const label = publication.metricCatalog[key]?.label;
+    assert.ok(label, `${key}: missing catalog label`);
+    const idx = src.indexOf(label);
+    assert.ok(idx > -1, `${key}: "${label}" is not documented on the methodology page`);
+    const window_ = src.slice(idx, idx + 900);
+    assert.match(
+      window_,
+      /inactive|null .*scores|not scored/i,
+      `${key}: the methodology mentions "${label}" but does not say it is inactive`,
+    );
   }
 });

@@ -106,6 +106,7 @@ export default function MapPage({
 
   return (
     <>
+      <main>
       <section className="map-page section">
         <p className="eyebrow">{t(locale, "GLOBAL MAP", "แผนที่โลก", "全球地图", "SLIC 글로벌 지도", "SLICグローバルマップ")}</p>
         <h1 className="map-title">
@@ -257,6 +258,8 @@ export default function MapPage({
           </p>
         </div>
       </section>
+
+      </main>
 
       <SiteFooter onNavigate={onNavigate} locale={locale} />
     </>

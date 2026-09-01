@@ -342,6 +342,8 @@ export default function EssayPage({
         </div>
       </header>
 
+      <main>
+
       {/* ── Body ── */}
       <article className="essay-body">
 
@@ -519,6 +521,8 @@ export default function EssayPage({
         </section>
 
       </article>
+
+      </main>
 
       <SiteFooter onNavigate={onNavigate} locale={locale} />
     </div>

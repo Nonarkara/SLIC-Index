@@ -389,6 +389,7 @@ export default function HomePage({
           </p>
         </div>
       </header>
+      <main>
 
       <section className="hp-photo-break">
         <img
@@ -844,6 +845,8 @@ export default function HomePage({
           {t(locale, "How it was built", "เบื้องหลังการสร้าง", "它是如何被建造出来的", "어떻게 만들어졌나", "どのように作られたか")}
         </a>
       </section>
+
+      </main>
 
       <SiteFooter onNavigate={onNavigate} locale={locale} />
     </>

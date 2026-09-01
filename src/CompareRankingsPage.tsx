@@ -259,6 +259,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           <p className="compare-hero-thesis">{(COMPARE_HERO[locale] ?? COMPARE_HERO.en).thesis}</p>
         </div>
       </header>
+      <main>
 
       {/* ═══════ 02. INTERACTIVE SPIDER + TABLE ═══════ */}
       <section className="compare-interactive">
@@ -721,6 +722,8 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           ))}
         </div>
       </section>
+
+      </main>
 
       <SiteFooter onNavigate={onNavigate} locale={locale} />
     </>

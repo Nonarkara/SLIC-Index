@@ -404,6 +404,8 @@ export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
               className="knowledge-rack-input"
               value={question}
               placeholder={ui.placeholder}
+              /* a placeholder is not an accessible name — it disappears on input */
+              aria-label={ui.placeholder}
               onChange={(event) => setQuestion(event.target.value)}
               rows={4}
             />

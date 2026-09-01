@@ -97,7 +97,9 @@ export async function trackVisitor(page = "/") {
 /* ── Visitor stats (Supabase primary, Google Sheets fallback) ── */
 
 export interface VisitorStats {
-  count: number;
+  /** null when no live count could be read. Never substitute a constant here — the hero
+   *  omits the stat when this is null, which is the honest outcome. */
+  count: number | null;
   countries: Array<{ country: string; pct: number }>;
 }
 
@@ -128,14 +130,19 @@ export async function getVisitorStats(): Promise<VisitorStats> {
 }
 
 async function fetchGoogleSheetsStats(): Promise<VisitorStats> {
+  // This previously fell back to a hardcoded 12424. The Apps Script sends no
+  // Access-Control-Allow-Origin header, so the request always throws and the site
+  // always rendered that constant as a live visitor count. A fabricated number is
+  // worse than no number on an index whose whole claim is that it can be audited.
   try {
     const r = await fetch(GOOGLE_SHEETS_COUNT, { mode: "cors" });
+    if (!r.ok) return { count: null, countries: [] };
     const d = await r.json();
     return {
-      count: d.count ?? 12424,
-      countries: d.countries ?? [],
+      count: typeof d.count === "number" ? d.count : null,
+      countries: Array.isArray(d.countries) ? d.countries : [],
     };
   } catch {
-    return { count: 12424, countries: [] };
+    return { count: null, countries: [] };
   }
 }
