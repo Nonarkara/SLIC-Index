@@ -163,7 +163,7 @@ export default function SideBySidePage({
                 <div key={city.id} className={`sbs-chip tier-${getTier(city)}`}>
                   <span className="sbs-chip-tier-glyph" aria-label={getTierLabel(city, locale)}>{getTierGlyph(city)}</span>
                   <span>{city.name}</span>
-                  <button type="button" onClick={() => handleRemove(idx)} aria-label={t(locale, `Remove ${city.name}`, `ลบ ${city.name}`, `移除${city.name}`, `${city.name} 제거`, `${city.name}を削除`)}>&times;</button>
+                  <button type="button" className="sbs-chip-remove" onClick={() => handleRemove(idx)} aria-label={t(locale, `Remove ${city.name}`, `ลบ ${city.name}`, `移除${city.name}`, `${city.name} 제거`, `${city.name}を削除`)}>&times;</button>
                 </div>
               ))}
               {selectedIds.length < 5 && !isAdding && (

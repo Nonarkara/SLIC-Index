@@ -404,6 +404,34 @@ section[id] {
   gap: 0.45rem;
 }
 
+/* Phone-only language control. Hidden here; the <=768px block shows it and hides the
+   button row. Both this and the <select> in LocaleSwitch.tsx were deleted together in a
+   mobile pass, which left phones with no way to change language at all — restore them
+   as a pair or remove the <=768px rule too. */
+.locale-select-wrap {
+  display: none;
+}
+
+.locale-select {
+  min-height: 44px;
+  min-width: 5.5rem;
+  padding: 0 0.65rem;
+  border: 1px solid rgba(28, 25, 20, 0.18);
+  border-radius: 0;
+  background: var(--bg, #f8f5f0);
+  color: var(--text, #1c1914);
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.locale-select:focus-visible {
+  outline: 1px solid var(--accent-amber, #b85c28);
+  outline-offset: 1px;
+}
+
 .locale-button-row {
   display: inline-flex;
   flex-wrap: wrap;
@@ -11586,6 +11614,29 @@ body,
   background: var(--border);
 }
 
+/* Remove-city control. Shipped unclassed at 12x18px — a destructive action below any
+   tap-target floor. 24px is the WCAG 2.5.8 minimum; the <=768px block takes it to 44. */
+.sbs-chip-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  min-height: 24px;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.sbs-chip-remove:hover {
+  color: var(--accent-red);
+}
+
 .sbs-chip-tier-glyph {
   font-family: var(--font-mono);
   font-size: 12px;
@@ -12515,6 +12566,8 @@ a.essay-reference-text:hover {
   --spider-slider-label: rgba(40, 32, 20, 0.78);
   --spider-track: rgba(40, 32, 20, 0.14);
   --spider-thumb: #1c1914;
+  /* Accent for the drag-hint rule under the chart; surface-aware like the rest. */
+  --spider-accent: var(--accent-amber-text);
   /* 0% = use the pillar hue as authored; dark panels raise this. */
   --pillar-lift: 0%;
 }
@@ -12530,6 +12583,7 @@ a.essay-reference-text:hover {
   --spider-slider-label: rgba(248, 245, 240, 0.7);
   --spider-track: rgba(248, 245, 240, 0.1);
   --spider-thumb: #fff;
+  --spider-accent: var(--accent-amber-on-dark);
   --pillar-text-shade: 0%;
   /* lift pillar hues toward white so they clear AA on #1c1914 (they are tuned for cream) */
   --pillar-lift: 27%;
@@ -12545,6 +12599,11 @@ a.essay-reference-text:hover {
 
   .locale-button-row {
     display: none;
+  }
+
+  .sbs-chip-remove {
+    min-width: 44px;
+    min-height: 44px;
   }
 
   .region-button,

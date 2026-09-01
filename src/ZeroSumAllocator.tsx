@@ -263,7 +263,7 @@ const SpiderWebChart: FC<{
             fontSize={10}
             fontFamily="'JetBrains Mono', monospace"
             letterSpacing="0.2em"
-            fill="rgba(248, 245, 240, 0.55)"
+            fill="var(--spider-hint)"
           >
             {pickLocale(ALLOCATOR_HINT, locale).toUpperCase()}
           </text>
@@ -272,7 +272,7 @@ const SpiderWebChart: FC<{
             y1={canvas - 18}
             x2={cx + 18}
             y2={canvas - 18}
-            stroke="rgba(184, 92, 40, 0.7)"
+            stroke="var(--spider-accent)"
             strokeWidth={1.5}
             strokeDasharray="3 3"
           />
