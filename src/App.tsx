@@ -140,6 +140,49 @@ function withBase(path: string): string {
   return `${BASE}${path}`;
 }
 
+const SITE_ORIGIN = "https://slic.nonarkara.org";
+
+/**
+ * Bare route path for canonical / og:url. Known routes keep their own path
+ * (city scorecards keep the slug); unknown and hash-only routes fold to "/".
+ * No base prefix, no query, no trailing slash except the root.
+ */
+function canonicalPath(pathname: string, route: SitePath): string {
+  if (route === "/") return "/";
+  const bare = stripBase(pathname).replace(/\/+$/, "");
+  return bare || "/";
+}
+
+/** Upsert one <head> tag: set the attribute if the element exists, create it if not. */
+function upsertHeadTag(selector: string, create: () => HTMLElement, attr: string, value: string): void {
+  let el = document.head.querySelector<HTMLElement>(selector);
+  if (!el) {
+    el = create();
+    document.head.appendChild(el);
+  }
+  if (el.getAttribute(attr) !== value) el.setAttribute(attr, value);
+}
+
+function syncRouteMeta(title: string, url: string): void {
+  upsertHeadTag(
+    'link[rel="canonical"]',
+    () => Object.assign(document.createElement("link"), { rel: "canonical" }),
+    "href",
+    url,
+  );
+  const ogMeta = (property: string) => () => {
+    const meta = document.createElement("meta");
+    meta.setAttribute("property", property);
+    return meta;
+  };
+  upsertHeadTag('meta[property="og:url"]', ogMeta("og:url"), "content", url);
+  upsertHeadTag('meta[property="og:title"]', ogMeta("og:title"), "content", title);
+  const description = document.head.querySelector('meta[name="description"]')?.getAttribute("content");
+  if (description) {
+    upsertHeadTag('meta[property="og:description"]', ogMeta("og:description"), "content", description);
+  }
+}
+
 function commitRoute(path: SitePath | string): SitePath {
   const hashIndex = path.indexOf("#");
   const pathnameOnly = hashIndex >= 0 ? path.slice(0, hashIndex) : path;
@@ -347,8 +390,10 @@ export default function App() {
     };
 
     const routeTitle = routeTitles[route]?.[locale] ?? routeTitles["/"][locale];
-    document.title = `${routeTitle} · ${localeTitlePrefix}`;
-  }, [locale, route]);
+    const title = `${routeTitle} · ${localeTitlePrefix}`;
+    document.title = title;
+    syncRouteMeta(title, `${SITE_ORIGIN}${canonicalPath(pathname, route)}`);
+  }, [locale, route, pathname]);
 
   const navigate = (path: SitePath | string) => {
     const hashIndex = path.indexOf("#");
