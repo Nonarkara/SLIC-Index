@@ -77,7 +77,7 @@ export default function RankingIntegrityBanner({ locale }: { locale: Locale }) {
   return (
     <article className="ranking-integrity-banner" role="note" aria-live="polite">
       <p className="panel-label">{copy.eyebrow}</p>
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <p>{body}</p>
       <strong>{copy.note}</strong>
       <p className="ranking-integrity-meta">{meta}</p>

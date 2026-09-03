@@ -4512,13 +4512,13 @@ section[id] {
   background: rgba(255, 100, 80, 0.06);
 }
 
-.ranking-integrity-banner h3,
+.ranking-integrity-banner h2,
 .ranking-integrity-banner p,
 .ranking-integrity-banner strong {
   margin: 0;
 }
 
-.ranking-integrity-banner h3 {
+.ranking-integrity-banner h2 {
   font-family: var(--font-heading);
   font-size: clamp(1.4rem, 2.2vw, 1.85rem);
   line-height: 1;
@@ -9546,7 +9546,7 @@ details[open].scorecard-derived-formula summary::before {
   background: #fff;
 }
 
-.compare-diff-card h4 {
+.compare-diff-card h3 {
   font-family: var(--font-heading);
   font-size: 16px;
   font-weight: 700;

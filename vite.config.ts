@@ -23,6 +23,14 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
+          // Small shared modules that must NOT be swallowed into the big data chunks.
+          // Without these, rollup hoisted publicTierPolicy.js (17 kB) into
+          // methodology-data (264 kB) and rankingPublication.ts (2 kB) into
+          // rankings-data (128 kB), so the homepage — which imports four symbols
+          // from the first and one from the second — pulled ~120 kB gzip of
+          // editorial data it never reads.
+          if (id.includes("src/publicTierPolicy") || id.includes("src/publicationMath")) return "tier-policy";
+          if (id.includes("src/rankingPublication")) return "published-data";
           // Large editorial/data modules that don't need to ship on first paint
           if (id.includes("src/rankingsData.ts")) return "rankings-data";
           if (id.includes("src/methodologyData.ts")) return "methodology-data";

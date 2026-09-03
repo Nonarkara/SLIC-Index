@@ -482,7 +482,7 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
         <h2 className="compare-section-title">{t(locale, "What SLIC measures that others refuse to ask", "สิ่งที่ SLIC วัดแต่ดัชนีอื่นไม่กล้าถาม", "SLIC衡量的是其他指数不敢问的问题", "다른 지수들이 묻기를 거부하는 것을 SLIC가 측정합니다", "他の指数が問うことを避けていることをSLICは測定します")}</h2>
         <div className="compare-diff-grid">
           {SLIC_DIFFERENCE.map((item) => (
-            <article key={item.title.en} className="compare-diff-card"><h4>{item.title[locale] ?? item.title.en}</h4><p>{item.body[locale] ?? item.body.en}</p></article>
+            <article key={item.title.en} className="compare-diff-card"><h3>{item.title[locale] ?? item.title.en}</h3><p>{item.body[locale] ?? item.body.en}</p></article>
           ))}
         </div>
         <div className="compare-diff-cta">
