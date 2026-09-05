@@ -171,10 +171,15 @@ export default function QuickSearchModal({
       });
     }
 
-    // 2. Cities
-    for (const city of rankingPublication.cities) {
+    // 2. Cities — sorted by rank so the index reads top-down by default
+    const sortedCities = [...rankingPublication.cities].sort((a, b) => {
+      const ar = a.rankingStatus === "Ranked" ? a.rank : Number.POSITIVE_INFINITY;
+      const br = b.rankingStatus === "Ranked" ? b.rank : Number.POSITIVE_INFINITY;
+      return ar - br;
+    });
+    for (const city of sortedCities) {
       const tier = city.tierLabel;
-      const isWatchlist = city.rankingStatus !== "Ranked" || city.rank === 0;
+      const isWatchlist = city.rankingStatus !== "Ranked" || !Number.isFinite(city.rank) || city.rank <= 0;
       const badgeVariant = tier === "Alpha"
         ? "alpha"
         : tier === "Beta"
@@ -185,15 +190,21 @@ export default function QuickSearchModal({
               ? "watchlist"
               : undefined;
 
-      const badge = tier ? `${tier.toUpperCase()}` : isWatchlist ? "WATCHLIST" : `#${city.rank}`;
+      const badge = tier
+        ? tier.toUpperCase()
+        : isWatchlist
+          ? "WATCHLIST"
+          : `#${city.rank}`;
 
-      const rawCitySlug = city.cityId.replace(/^[a-z]{2}-/, "");
       items.push({
         id: `city-${city.cityId}`,
         type: "city",
         title: city.displayName,
         subtitle: `${displayCountry(city.country)}${city.region ? ` · ${city.region}` : ""}`,
-        path: `/city/${rawCitySlug}`,
+        // The CityScorecardPage reads the slug from the URL — keep the
+        // full cityId (e.g. "th-bangkok") so the lookup actually finds
+        // the city. Stripping the country prefix would route to a 404.
+        path: `/city/${city.cityId}`,
         badge,
         badgeVariant,
         score: city.slicScore,
@@ -207,24 +218,43 @@ export default function QuickSearchModal({
   const filteredResults = useMemo(() => {
     const cleanQuery = query.trim().toLowerCase();
     if (!cleanQuery) {
-      // Default: show top featured pages + Alpha cities
-      return allSearchItems
-        .filter(
-          (item) =>
-            item.type === "page" ||
-            item.badgeVariant === "alpha" ||
-            item.title.toLowerCase().includes("bangkok") ||
-            item.title.toLowerCase().includes("singapore"),
-        )
-        .slice(0, 16);
+      // Default view: every page + the top 10 ranked cities. No hardcoded
+      // favourites — the index is editorial, not promotional.
+      const topTen = allSearchItems.filter(
+        (item) => item.type === "page" || (item.type === "city" && item.score !== undefined),
+      );
+      // Move all pages to the top, then the 10 highest-scoring cities.
+      const pages = topTen.filter((i) => i.type === "page");
+      const cities = topTen
+        .filter((i) => i.type === "city")
+        .sort((a, b) => (b.score ?? -1) - (a.score ?? -1))
+        .slice(0, 10);
+      return [...pages, ...cities];
     }
 
+    // Free-text: case-insensitive substring on title, subtitle, and badge.
+    // Word-boundary aware — every query token must match somewhere in the
+    // haystack (not just one of the tokens) so "bangkok thai" doesn't
+    // surface every city that happens to mention "bangkok" or "thai".
+    const tokens = cleanQuery.split(/\s+/).filter(Boolean);
     return allSearchItems
       .filter((item) => {
-        const titleMatch = item.title.toLowerCase().includes(cleanQuery);
-        const subMatch = item.subtitle.toLowerCase().includes(cleanQuery);
-        const badgeMatch = item.badge?.toLowerCase().includes(cleanQuery);
-        return titleMatch || subMatch || badgeMatch;
+        const haystack = [item.title, item.subtitle, item.badge ?? ""]
+          .join("  ")
+          .toLowerCase();
+        return tokens.every((token) => haystack.includes(token));
+      })
+      .sort((a, b) => {
+        // Title-prefix matches outrank mid-string matches; cities outrank
+        // pages because "Bangkok" is almost always a city, not a page.
+        if (a.type !== b.type) return a.type === "city" ? -1 : 1;
+        const aPrefix = a.title.toLowerCase().startsWith(tokens[0] ?? "") ? 0 : 1;
+        const bPrefix = b.title.toLowerCase().startsWith(tokens[0] ?? "") ? 0 : 1;
+        if (aPrefix !== bPrefix) return aPrefix - bPrefix;
+        if (a.type === "city" && b.type === "city") {
+          return (b.score ?? -1) - (a.score ?? -1);
+        }
+        return a.title.localeCompare(b.title);
       })
       .slice(0, 24);
   }, [allSearchItems, query]);

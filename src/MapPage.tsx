@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { geoNaturalEarth1, geoPath } from "d3-geo";
 import { feature } from "topojson-client";
 import type { Topology, GeometryCollection } from "topojson-specification";
@@ -20,6 +20,11 @@ interface PublishedCity {
   rank: number;
   rankingStatus: string;
   coverageGrade: string;
+}
+
+interface CityPoint extends PublishedCity {
+  x: number;
+  y: number;
 }
 
 const VIEW_W = 1200;
@@ -101,6 +106,25 @@ export default function MapPage({
 
   const hovered = useMemo(() => cityPoints.find((c) => c.cityId === hoveredId) ?? null, [cityPoints, hoveredId]);
 
+  // `?city=<id>` focuses the map on a specific city. From the city
+  // scorecard "View on World Map" CTA the param carries the full cityId
+  // (e.g. "th-bangkok"); accept the bare slug too for pasted links.
+  const focusedCity = useMemo<CityPoint | null>(() => {
+    if (typeof window === "undefined") return null;
+    const raw = new URLSearchParams(window.location.search).get("city")?.toLowerCase().trim();
+    if (!raw) return null;
+    const match = cityPoints.find(
+      (c) => c.cityId.toLowerCase() === raw || c.cityId.toLowerCase() === `th-${raw}` || c.cityId.toLowerCase().endsWith(`-${raw}`),
+    );
+    return match ?? null;
+  }, [cityPoints]);
+
+  // If we arrived with ?city=, the focus state should drive both the
+  // visible label AND the hover ring. Keep them in sync.
+  useEffect(() => {
+    if (focusedCity) setHoveredId(focusedCity.cityId);
+  }, [focusedCity]);
+
   const cityCount = cityPoints.length;
   const rankedCount = cityPoints.filter((city) => city.rankingStatus === "Ranked").length;
 
@@ -108,6 +132,25 @@ export default function MapPage({
     <>
       <main>
       <section className="map-page section">
+        {focusedCity && (
+          <p className="map-focus-banner" role="status">
+            <span className="map-focus-banner-dot" aria-hidden="true" />
+            {t(
+              locale,
+              `Focused on ${focusedCity.displayName}, ${focusedCity.country} — open its scorecard.`,
+              `กำลังดู ${focusedCity.displayName}, ${focusedCity.country} — เปิดสรุปคะแนน`,
+              `聚焦于 ${focusedCity.displayName}, ${focusedCity.country} — 打开评分卡`,
+              `${focusedCity.displayName}, ${focusedCity.country}에 포커스 — 스코어카드 열기`,
+              `${focusedCity.displayName}, ${focusedCity.country} にフォーカス中 — スコアカードを開く`,
+            )}{" "}
+            <a
+              href={appHref(`/city/${focusedCity.cityId}`)}
+              onClick={(e) => navigateLink(e, onNavigate, `/city/${focusedCity.cityId}`)}
+            >
+              {t(locale, "Open scorecard →", "เปิดสรุปคะแนน →", "打开评分卡 →", "스코어카드 열기 →", "スコアカードを開く →")}
+            </a>
+          </p>
+        )}
         <p className="eyebrow">{t(locale, "GLOBAL MAP", "แผนที่โลก", "全球地图", "SLIC 글로벌 지도", "SLICグローバルマップ")}</p>
         <h1 className="map-title">
           {t(
@@ -152,6 +195,7 @@ export default function MapPage({
             <g className="map-dots">
               {cityPoints.map((c) => {
                 const isHovered = c.cityId === hoveredId;
+                const isFocused = c.cityId === focusedCity?.cityId;
                 const isRanked = c.rankingStatus === "Ranked";
                 const r = isRanked ? dotRadius(c.slicScore) : 2.5;
                 const fill = isRanked ? scoreColor(c.slicScore) : "#b8ada0";
@@ -168,7 +212,18 @@ export default function MapPage({
                     onFocus={() => setHoveredId(c.cityId)}
                     onBlur={() => setHoveredId(null)}
                   >
-                    {isHovered && isRanked && (
+                    {isFocused && isRanked && (
+                      <circle
+                        cx={c.x}
+                        cy={c.y}
+                        r={r + 9}
+                        fill="none"
+                        stroke={fill}
+                        strokeWidth={1.6}
+                        strokeOpacity={0.7}
+                      />
+                    )}
+                    {isHovered && !isFocused && isRanked && (
                       <circle
                         cx={c.x}
                         cy={c.y}
@@ -182,9 +237,9 @@ export default function MapPage({
                       cy={c.y}
                       r={r}
                       fill={fill}
-                      fillOpacity={isHovered ? 1 : (isRanked ? 0.88 : 0.55)}
-                      stroke="#ffffff"
-                      strokeWidth={isRanked ? 0.8 : 0.5}
+                      fillOpacity={isHovered || isFocused ? 1 : (isRanked ? 0.88 : 0.55)}
+                      stroke={isFocused ? "#1c1914" : "#ffffff"}
+                      strokeWidth={isFocused ? 1.6 : (isRanked ? 0.8 : 0.5)}
                       style={{ cursor: "pointer", transition: "r 0.12s cubic-bezier(0.16, 1, 0.3, 1)" }}
                     >
                       <title>{tooltip}</title>

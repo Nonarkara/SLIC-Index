@@ -323,6 +323,10 @@ const SCORECARD_TEXT = {
     noDataFor: 'No data for',
     backToRankings: "Back to rankings",
     backToAllCities: "Back to rankings",
+    compareInSideBySide: "Compare in Side-by-Side",
+    viewOnWorldMap: "View on World Map",
+    shareScorecard: "Share scorecard",
+    linkCopied: "Link copied ✓",
     citiesSuffix: "cities",
     coverageSuffix: "coverage",
     exploratoryField: "Exploratory field",
@@ -390,6 +394,10 @@ const SCORECARD_TEXT = {
     noDataFor: "ไม่มีข้อมูลสำหรับ",
     backToRankings: "กลับสู่อันดับ",
     backToAllCities: "กลับสู่อันดับ",
+    compareInSideBySide: "เปรียบเทียบใน Side-by-Side",
+    viewOnWorldMap: "ดูบนแผนที่โลก",
+    shareScorecard: "คัดลอกลิงก์",
+    linkCopied: "คัดลอกลิงก์แล้ว ✓",
     citiesSuffix: "เมือง",
     coverageSuffix: "ความครอบคลุม",
     exploratoryField: "สนามทดลอง",
@@ -457,6 +465,10 @@ const SCORECARD_TEXT = {
     noDataFor: "没有以下城市的数据",
     backToRankings: "返回排名",
     backToAllCities: "返回排名",
+    compareInSideBySide: "在并排对比中比较",
+    viewOnWorldMap: "在世界地图上查看",
+    shareScorecard: "复制链接",
+    linkCopied: "链接已复制 ✓",
     citiesSuffix: "座城市",
     coverageSuffix: "覆盖度",
     exploratoryField: "探索字段",
@@ -524,6 +536,10 @@ const SCORECARD_TEXT = {
     noDataFor: "데이터가 없습니다",
     backToRankings: "순위로 돌아가기",
     backToAllCities: "순위로 돌아가기",
+    compareInSideBySide: "나란히 비교하기",
+    viewOnWorldMap: "세계 지도에서 보기",
+    shareScorecard: "링크 복사",
+    linkCopied: "링크 복사됨 ✓",
     citiesSuffix: "개 도시",
     coverageSuffix: "적용 범위",
     exploratoryField: "탐색 데이터",
@@ -591,6 +607,10 @@ const SCORECARD_TEXT = {
     noDataFor: "データがありません",
     backToRankings: "ランキングに戻る",
     backToAllCities: "ランキングに戻る",
+    compareInSideBySide: "並列比較で比較",
+    viewOnWorldMap: "世界地図で見る",
+    shareScorecard: "リンクをコピー",
+    linkCopied: "リンクをコピーしました ✓",
     citiesSuffix: "都市",
     coverageSuffix: "カバレッジ",
     exploratoryField: "探索的データ",
@@ -1327,8 +1347,11 @@ export default function CityScorecardPage({
   }, [prevRanked, nextRanked, onNavigate]);
 
   const handleCopyLink = () => {
-    const rawCitySlug = city?.cityId ? city.cityId.replace(/^[a-z]{2}-/, "") : "";
-    const url = `${window.location.origin}${appHref(`/city/${rawCitySlug || cityId}`)}`;
+    // Use the full cityId — stripping the country prefix would route to a 404
+    // because the CityScorecardPage reads the slug from the URL and matches
+    // against the published city IDs (e.g. "th-bangkok").
+    const targetCityId = city?.cityId ?? cityId;
+    const url = `${window.location.origin}${appHref(`/city/${targetCityId}`)}`;
     navigator.clipboard.writeText(url).then(() => {
       setCopied(true);
       window.setTimeout(() => setCopied(false), 2400);
@@ -1472,8 +1495,10 @@ export default function CityScorecardPage({
 
           <div className="scorecard-action-bar">
             <a
-              href={appHref(`/side-by-side`)}
-              onClick={(e) => navigateLink(e, onNavigate, `/side-by-side`)}
+              href={appHref(`/side-by-side?cities=${encodeURIComponent(city.cityId)}`)}
+              onClick={(e) =>
+                navigateLink(e, onNavigate, `/side-by-side?cities=${encodeURIComponent(city.cityId)}`)
+              }
               className="scorecard-action-btn"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -1483,12 +1508,14 @@ export default function CityScorecardPage({
                 <line x1="15" y1="15" x2="21" y2="21" />
                 <line x1="4" y1="4" x2="9" y2="9" />
               </svg>
-              <span>{locale === "th" ? "เปรียบเทียบใน Side-by-Side" : locale === "zh" ? "在并排对比中比较" : locale === "ko" ? "나란히 비교하기" : locale === "ja" ? "並列比較で比較" : "Compare in Side-by-Side"}</span>
+              <span>{copy.compareInSideBySide}</span>
             </a>
 
             <a
-              href={appHref(`/map`)}
-              onClick={(e) => navigateLink(e, onNavigate, `/map`)}
+              href={appHref(`/map?city=${encodeURIComponent(city.cityId)}`)}
+              onClick={(e) =>
+                navigateLink(e, onNavigate, `/map?city=${encodeURIComponent(city.cityId)}`)
+              }
               className="scorecard-action-btn"
             >
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -1496,7 +1523,7 @@ export default function CityScorecardPage({
                 <line x1="8" y1="2" x2="8" y2="18" />
                 <line x1="16" y1="6" x2="16" y2="22" />
               </svg>
-              <span>{locale === "th" ? "ดูบนแผนที่โลก" : locale === "zh" ? "在世界地图上查看" : locale === "ko" ? "세계 지도에서 보기" : locale === "ja" ? "世界地図で見る" : "View on World Map"}</span>
+              <span>{copy.viewOnWorldMap}</span>
             </a>
 
             <button
@@ -1508,7 +1535,7 @@ export default function CityScorecardPage({
                 <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
                 <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
               </svg>
-              <span>{copied ? (locale === "th" ? "คัดลอกลิงก์แล้ว ✓" : locale === "zh" ? "链接已复制 ✓" : locale === "ko" ? "링크 복사됨 ✓" : locale === "ja" ? "リンクをコピーしました ✓" : "Link Copied ✓") : (locale === "th" ? "คัดลอกลิงก์" : locale === "zh" ? "复制链接" : locale === "ko" ? "링크 복사" : locale === "ja" ? "リンクをコピー" : "Share Scorecard")}</span>
+              <span>{copied ? copy.linkCopied : copy.shareScorecard}</span>
             </button>
           </div>
         </div>

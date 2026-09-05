@@ -11251,6 +11251,37 @@ body,
   padding-top: 6rem;
 }
 
+.map-focus-banner {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1.25rem;
+  padding: 6px 12px 6px 10px;
+  border: 1px solid var(--border-strong);
+  background: var(--surface-soft);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.map-focus-banner-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  flex-shrink: 0;
+}
+
+.map-focus-banner a {
+  color: var(--accent-amber-text);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-left: 0.25rem;
+}
+
 .map-title {
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4vw, 2.6rem);
