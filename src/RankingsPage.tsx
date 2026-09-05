@@ -682,6 +682,16 @@ export default function RankingsPage({
   const [pillars, setPillars] = useState<PillarAllocation[]>(() => applyValuesToPillars(labels, CANONICAL));
   const [region, setRegion] = useState<string>("All");
   const [showCountValue, setShowCountValue] = useState<number>(10);
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 500);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     setPillars((current) =>
@@ -741,7 +751,19 @@ export default function RankingsPage({
     }));
   }, [isCustom, region, weights]);
 
-  const displayResults = showCountValue >= results.length ? results : results.slice(0, showCountValue);
+  const searchedResults = useMemo(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return results;
+    return results.filter(
+      (c) =>
+        c.name.toLowerCase().includes(q) ||
+        c.country.toLowerCase().includes(q) ||
+        c.region.toLowerCase().includes(q) ||
+        (c.tierLabel && c.tierLabel.toLowerCase().includes(q)),
+    );
+  }, [results, searchQuery]);
+
+  const displayResults = showCountValue >= searchedResults.length ? searchedResults : searchedResults.slice(0, showCountValue);
   const featuredCity = displayResults[0] ?? null;
 
   const activePreset = useMemo(
@@ -895,6 +917,43 @@ export default function RankingsPage({
                   </div>
 
                   <div className="rankings-filter-actions">
+                    <div className="rankings-inline-search" style={{ display: "flex", alignItems: "center", position: "relative" }}>
+                      <input
+                        type="text"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        placeholder={locale === "th" ? "ค้นหา/กรองเมือง..." : locale === "zh" ? "过滤城市..." : locale === "ko" ? "도시 필터링..." : locale === "ja" ? "都市を絞り込む..." : "Filter cities..."}
+                        style={{
+                          background: "rgba(28, 25, 20, 0.04)",
+                          border: "1px solid var(--border)",
+                          padding: "0.4rem 1.8rem 0.4rem 0.65rem",
+                          fontSize: "0.8rem",
+                          fontFamily: "var(--font-body)",
+                          color: "var(--text)",
+                          borderRadius: 0,
+                          width: "160px",
+                        }}
+                      />
+                      {searchQuery && (
+                        <button
+                          type="button"
+                          onClick={() => setSearchQuery("")}
+                          style={{
+                            position: "absolute",
+                            right: "6px",
+                            background: "none",
+                            border: "none",
+                            cursor: "pointer",
+                            fontSize: "1rem",
+                            color: "var(--text-soft)",
+                            lineHeight: 1,
+                          }}
+                          aria-label="Clear filter"
+                        >
+                          &times;
+                        </button>
+                      )}
+                    </div>
                     <div className="rankings-count-toggle">
                       {[10, 50, indexedCities.length].map((count) => (
                         <button
@@ -1079,6 +1138,17 @@ export default function RankingsPage({
           </div>
         </section>
       </main>
+
+      {showBackToTop && (
+        <button
+          type="button"
+          className="back-to-top-btn"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label={locale === "th" ? "กลับขึ้นบนสุด" : locale === "zh" ? "返回顶部" : locale === "ko" ? "맨 위로" : locale === "ja" ? "トップへ戻る" : "Back to top"}
+        >
+          ↑
+        </button>
+      )}
 
       <SiteFooter onNavigate={onNavigate} locale={locale} />
     </>

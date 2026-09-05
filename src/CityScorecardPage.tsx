@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import { type CSSProperties, useEffect, useState } from "react";
 import publishedData from "./data/publishedRankingData.json";
 import { displayCountry } from "./cityUtils";
 import { CITY_CONTEXT } from "./data/cityContext";
@@ -1291,6 +1291,50 @@ export default function CityScorecardPage({
     );
   }
 
+  const [copied, setCopied] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 400);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Keyboard navigation across ranked cities ([ / ] or ArrowLeft / ArrowRight)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const activeEl = document.activeElement;
+      const isInput =
+        activeEl instanceof HTMLInputElement ||
+        activeEl instanceof HTMLTextAreaElement ||
+        (activeEl as HTMLElement)?.isContentEditable;
+
+      if (isInput) return;
+
+      if ((e.key === "[" || e.key === "ArrowLeft") && prevRanked) {
+        e.preventDefault();
+        onNavigate(`/city/${prevRanked.cityId}`);
+      } else if ((e.key === "]" || e.key === "ArrowRight") && nextRanked) {
+        e.preventDefault();
+        onNavigate(`/city/${nextRanked.cityId}`);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [prevRanked, nextRanked, onNavigate]);
+
+  const handleCopyLink = () => {
+    const rawCitySlug = city?.cityId ? city.cityId.replace(/^[a-z]{2}-/, "") : "";
+    const url = `${window.location.origin}${appHref(`/city/${rawCitySlug || cityId}`)}`;
+    navigator.clipboard.writeText(url).then(() => {
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 2400);
+    });
+  };
+
   const pillarScores = PILLAR_ORDER.map((p) => ({
     id: p,
     score: city[pillarScoreKey(p)] as number,
@@ -1321,13 +1365,40 @@ export default function CityScorecardPage({
         {cityEditorial?.photo && <div className="scorecard-hero-scrim" aria-hidden="true" />}
 
         <div className="scorecard-hero-shell">
-          <a
-            className="scorecard-back"
-            href={appHref("/rankings")}
-            onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
-          >
-            &larr; {copy.backToRankings}
-          </a>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
+            <a
+              className="scorecard-back"
+              href={appHref("/rankings")}
+              onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
+            >
+              &larr; {copy.backToRankings}
+            </a>
+
+            {(prevRanked || nextRanked) && (
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", fontFamily: "var(--font-mono)", fontSize: "0.72rem" }}>
+                {prevRanked && (
+                  <a
+                    href={appHref(`/city/${prevRanked.cityId}`)}
+                    onClick={(e) => navigateLink(e, onNavigate, `/city/${prevRanked.cityId}`)}
+                    className="scorecard-action-btn"
+                    title={prevRanked.displayName}
+                  >
+                    &larr; #{prevRanked.rank} {prevRanked.displayName}
+                  </a>
+                )}
+                {nextRanked && (
+                  <a
+                    href={appHref(`/city/${nextRanked.cityId}`)}
+                    onClick={(e) => navigateLink(e, onNavigate, `/city/${nextRanked.cityId}`)}
+                    className="scorecard-action-btn"
+                    title={nextRanked.displayName}
+                  >
+                    #{nextRanked.rank} {nextRanked.displayName} &rarr;
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
 
           <div className="scorecard-hero-split">
             <div className="scorecard-hero-copy">
@@ -1398,6 +1469,48 @@ export default function CityScorecardPage({
               </div>
             );
           })()}
+
+          <div className="scorecard-action-bar">
+            <a
+              href={appHref(`/side-by-side`)}
+              onClick={(e) => navigateLink(e, onNavigate, `/side-by-side`)}
+              className="scorecard-action-btn"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="16 3 21 3 21 8" />
+                <line x1="4" y1="20" x2="21" y2="3" />
+                <polyline points="21 16 21 21 16 21" />
+                <line x1="15" y1="15" x2="21" y2="21" />
+                <line x1="4" y1="4" x2="9" y2="9" />
+              </svg>
+              <span>{locale === "th" ? "เปรียบเทียบใน Side-by-Side" : locale === "zh" ? "在并排对比中比较" : locale === "ko" ? "나란히 비교하기" : locale === "ja" ? "並列比較で比較" : "Compare in Side-by-Side"}</span>
+            </a>
+
+            <a
+              href={appHref(`/map`)}
+              onClick={(e) => navigateLink(e, onNavigate, `/map`)}
+              className="scorecard-action-btn"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6" />
+                <line x1="8" y1="2" x2="8" y2="18" />
+                <line x1="16" y1="6" x2="16" y2="22" />
+              </svg>
+              <span>{locale === "th" ? "ดูบนแผนที่โลก" : locale === "zh" ? "在世界地图上查看" : locale === "ko" ? "세계 지도에서 보기" : locale === "ja" ? "世界地図で見る" : "View on World Map"}</span>
+            </a>
+
+            <button
+              type="button"
+              onClick={handleCopyLink}
+              className="scorecard-action-btn"
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+              </svg>
+              <span>{copied ? (locale === "th" ? "คัดลอกลิงก์แล้ว ✓" : locale === "zh" ? "链接已复制 ✓" : locale === "ko" ? "링크 복사됨 ✓" : locale === "ja" ? "リンクをコピーしました ✓" : "Link Copied ✓") : (locale === "th" ? "คัดลอกลิงก์" : locale === "zh" ? "复制链接" : locale === "ko" ? "링크 복사" : locale === "ja" ? "リンクをコピー" : "Share Scorecard")}</span>
+            </button>
+          </div>
         </div>
       </section>
 
@@ -1768,6 +1881,23 @@ export default function CityScorecardPage({
           &larr; {copy.backToAllCities}
         </a>
       </div>
+
+      {copied && (
+        <div className="scorecard-toast" role="alert" aria-live="polite">
+          {locale === "th" ? "คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว ✓" : locale === "zh" ? "评分卡链接已复制到剪贴板 ✓" : locale === "ko" ? "스코어카드 링크가 클립보드에 복사되었습니다 ✓" : locale === "ja" ? "スコアカードのリンクをクリップボードにコピーしました ✓" : "Scorecard link copied to clipboard ✓"}
+        </div>
+      )}
+
+      {showBackToTop && (
+        <button
+          type="button"
+          className="back-to-top-btn"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          aria-label={locale === "th" ? "กลับขึ้นบนสุด" : locale === "zh" ? "返回顶部" : locale === "ko" ? "맨 위로" : locale === "ja" ? "トップへ戻る" : "Back to top"}
+        >
+          ↑
+        </button>
+      )}
 
       <SiteFooter onNavigate={onNavigate} locale={locale} />
     </>

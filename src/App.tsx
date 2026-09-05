@@ -1,5 +1,6 @@
 import { Component, type ErrorInfo, type ReactNode, Suspense, lazy, useEffect, useState } from "react";
 import SiteMasthead from "./SiteMasthead";
+import QuickSearchModal from "./QuickSearchModal";
 import { localeLabels } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
 import { trackVisitor } from "./visitorTracking";
@@ -349,6 +350,27 @@ export default function App() {
   const [pathname, setPathname] = useState<string>(() => window.location.pathname);
   const route = resolvePath(pathname);
   const [locale, setLocale] = useState<Locale>(detectLocale);
+  const [searchOpen, setSearchOpen] = useState(false);
+
+  useEffect(() => {
+    const handleGlobalKey = (e: KeyboardEvent) => {
+      const activeEl = document.activeElement;
+      const isInput =
+        activeEl instanceof HTMLInputElement ||
+        activeEl instanceof HTMLTextAreaElement ||
+        (activeEl as HTMLElement)?.isContentEditable;
+
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        setSearchOpen((prev) => !prev);
+      } else if (e.key === "/" && !searchOpen && !isInput) {
+        e.preventDefault();
+        setSearchOpen(true);
+      }
+    };
+    window.addEventListener("keydown", handleGlobalKey);
+    return () => window.removeEventListener("keydown", handleGlobalKey);
+  }, [searchOpen]);
 
   useEffect(() => {
     const syncRoute = () => {
@@ -420,6 +442,7 @@ export default function App() {
         currentPath={route}
         onLocaleChange={setLocale}
         onNavigate={navigate}
+        onOpenSearch={() => setSearchOpen(true)}
       />
       <div className="page-frame" id="main-content" key={pathname}>
         <RouteErrorBoundary locale={locale} resetKey={pathname}>
@@ -458,6 +481,12 @@ export default function App() {
         </Suspense>
         </RouteErrorBoundary>
       </div>
+      <QuickSearchModal
+        isOpen={searchOpen}
+        onClose={() => setSearchOpen(false)}
+        onNavigate={navigate}
+        locale={locale}
+      />
     </div>
   );
 }

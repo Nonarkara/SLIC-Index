@@ -176,11 +176,13 @@ export default function SiteMasthead({
   currentPath,
   onLocaleChange,
   onNavigate,
+  onOpenSearch,
 }: {
   locale: Locale;
   currentPath: SitePath;
   onLocaleChange: (locale: Locale) => void;
   onNavigate: (path: SitePath) => void;
+  onOpenSearch: () => void;
 }) {
   const navPanelId = useId();
   const [menuOpen, setMenuOpen] = useState(false);
@@ -290,6 +292,20 @@ export default function SiteMasthead({
         </nav>
 
         <div className="mh-actions">
+          <button
+            type="button"
+            className="mh-search-btn"
+            onClick={onOpenSearch}
+            aria-label={locale === "th" ? "ค้นหาด่วน (⌘K)" : locale === "zh" ? "快速搜索 (⌘K)" : locale === "ko" ? "빠른 검색 (⌘K)" : locale === "ja" ? "クイック検索 (⌘K)" : "Quick search (⌘K)"}
+            title={locale === "th" ? "ค้นหาด่วน (⌘K)" : locale === "zh" ? "快速搜索 (⌘K)" : locale === "ko" ? "빠른 검색 (⌘K)" : locale === "ja" ? "クイック検索 (⌘K)" : "Quick search (⌘K)"}
+          >
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <span className="mh-search-text">{locale === "th" ? "ค้นหา" : locale === "zh" ? "搜索" : locale === "ko" ? "검색" : locale === "ja" ? "検索" : "Search"}</span>
+            <kbd className="mh-search-kbd">⌘K</kbd>
+          </button>
           <LocaleSwitch locale={locale} onChange={onLocaleChange} />
           <button
             type="button"
@@ -307,6 +323,23 @@ export default function SiteMasthead({
       </div>
 
       <div className={menuOpen ? "mh-panel mh-panel--open" : "mh-panel"} id={navPanelId}>
+        <div className="mh-panel-search-wrap">
+          <button
+            type="button"
+            className="mh-panel-search-btn"
+            onClick={() => {
+              setMenuOpen(false);
+              onOpenSearch();
+            }}
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            <span>{locale === "th" ? "ค้นหา 163 เมืองและหน้า..." : locale === "zh" ? "搜索 163 座城市与页面..." : locale === "ko" ? "163개 도시 및 페이지 검색..." : locale === "ja" ? "163都市とページを検索..." : "Search 163 cities and pages..."}</span>
+            <kbd>⌘K</kbd>
+          </button>
+        </div>
         <nav className="mh-panel-nav" aria-label={labels.mobile}>
           <a
             href={appHref("/")}

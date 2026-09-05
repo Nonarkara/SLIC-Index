@@ -3,6 +3,7 @@ import { displayCountry } from "./cityUtils";
 import { getExerciseCities } from "./rankingsData";
 import { t, localeNumberFormat } from "./i18n";
 import { rankingPublication } from "./rankingPublication";
+import { appHref } from "./routing";
 import SiteFooter from "./SiteFooter";
 import type { FullRankedCity, Locale, SitePath } from "./types";
 import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
@@ -73,6 +74,57 @@ const announcementCopy: Record<Locale, { added: string; removed: string }> = {
   ja: { added: "比較バスケットに追加されました。", removed: "比較バスケットから削除されました。" },
 };
 
+const PRESET_BASKETS: Array<{
+  id: string;
+  label: Record<Locale, string>;
+  cityIds: string[];
+}> = [
+  {
+    id: "top-alpha",
+    label: {
+      en: "Alpha Leaders",
+      th: "ผู้นำกลุ่มอัลฟา",
+      zh: "Alpha 领军城市",
+      ko: "알파 선도 도시",
+      ja: "アルファ主要都市",
+    },
+    cityIds: ["montreal", "raleigh", "eindhoven", "copenhagen", "kaohsiung"],
+  },
+  {
+    id: "asean-thailand",
+    label: {
+      en: "Thailand & Singapore",
+      th: "ไทยและสิงคโปร์",
+      zh: "泰国与新加坡",
+      ko: "태국 및 싱가포르",
+      ja: "タイとシンガポール",
+    },
+    cityIds: ["bangkok", "singapore", "chiang-mai", "phuket", "hat-yai"],
+  },
+  {
+    id: "east-asia",
+    label: {
+      en: "East Asia Tech",
+      th: "เทคโนโลยีเอเชียตะวันออก",
+      zh: "东亚科技城市",
+      ko: "동아시아 테크 도시",
+      ja: "東アジアテック都市",
+    },
+    cityIds: ["taipei", "kaohsiung", "tokyo", "fukuoka", "incheon"],
+  },
+  {
+    id: "nordic-euro",
+    label: {
+      en: "Nordic & Europe",
+      th: "นอร์ดิกและยุโรป",
+      zh: "北欧与欧洲",
+      ko: "북유럽 및 유럽",
+      ja: "北欧とヨーロッパ",
+    },
+    cityIds: ["copenhagen", "gothenburg", "bergen", "eindhoven", "aarhus"],
+  },
+];
+
 export default function SideBySidePage({
   onNavigate,
   locale,
@@ -80,14 +132,6 @@ export default function SideBySidePage({
   onNavigate: (path: SitePath | string) => void;
   locale: Locale;
 }) {
-  // Curated starter basket: the index's argument-in-five-cities.
-  // Bangkok = editorial anchor (rank 66, no public-tier seat).
-  // Raleigh = Alpha slot 1, the structural top.
-  // Singapore = the famous-but-Gamma counter-example (Community 38.8 fails Alpha floor).
-  // Tokyo = the editorial-exclusion case (Beta, not Alpha despite passing floor).
-  // Copenhagen = the Gamma case where housing pressure outweighs civic strength.
-  // If any of these aren't in the published exercise field for some reason,
-  // fall back to whichever Alpha cities are available so the page is never blank.
   const PREFERRED_DEFAULTS = ["bangkok", "raleigh", "singapore", "tokyo", "copenhagen"];
   const defaultIds = PREFERRED_DEFAULTS
     .map((id) => allCities.find((c) => c.id === id)?.id)
@@ -97,7 +141,24 @@ export default function SideBySidePage({
     .slice(0, 5 - defaultIds.length)
     .map((c) => c.id);
   const initialIds = [...defaultIds, ...fallbackIds].slice(0, 5);
-  const [selectedIds, setSelectedIds] = useState<string[]>(initialIds);
+
+  const [selectedIds, setSelectedIds] = useState<string[]>(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      const urlCities = params.get("cities")?.split(",").map(s => s.trim().toLowerCase()) || [];
+      const cityA = params.get("cityA")?.toLowerCase();
+      const cityB = params.get("cityB")?.toLowerCase();
+      const combined = [...urlCities, cityA, cityB].filter((id): id is string => Boolean(id));
+      const valid = combined
+        .map(id => allCities.find(c => c.id === id || c.id === id.replace(/^[a-z]{2}-/, ""))?.id)
+        .filter((id): id is string => Boolean(id));
+      if (valid.length > 0) {
+        return Array.from(new Set(valid)).slice(0, 5);
+      }
+    }
+    return initialIds;
+  });
+
   const [isAdding, setIsAdding] = useState<boolean>(false);
   const [search, setSearch] = useState("");
   const [announcement, setAnnouncement] = useState<string>("");
@@ -119,6 +180,17 @@ export default function SideBySidePage({
     setSelectedIds((prev) => [...prev, newCityId]);
     setIsAdding(false);
     setSearch("");
+  };
+
+  const handleApplyPreset = (presetIds: string[]) => {
+    const valid = presetIds
+      .map(id => allCities.find(c => c.id === id)?.id)
+      .filter((id): id is string => Boolean(id))
+      .slice(0, 5);
+    if (valid.length > 0) {
+      setSelectedIds(valid);
+      setAnnouncement(t(locale, "Loaded preset comparison basket.", "โหลดตะกร้าเปรียบเทียบสำเร็จ", "已载入预设对比组合。", "사전 설정 비교 바구니를 불러왔습니다.", "プリセット比較バスケットを読み込みました。"));
+    }
   };
 
   const filteredCities = search.length >= 1
@@ -158,6 +230,34 @@ export default function SideBySidePage({
 
           <div className="sbs-basket">
             <h3 className="sbs-basket-title">{t(locale, "Your compare basket", "ตะกร้าเปรียบเทียบของคุณ", "你的比较篮子", "내 비교 바구니", "あなたの比較バスケット")}</h3>
+            
+            <div className="sbs-preset-bar" style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginBottom: "0.85rem" }}>
+              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-soft)", alignSelf: "center", textTransform: "uppercase", letterSpacing: "0.06em", marginRight: "0.2rem" }}>
+                {t(locale, "Presets:", "ชุดเปรียบเทียบ:", "预设组合：", "사전 설정:", "プリセット:")}
+              </span>
+              {PRESET_BASKETS.map((preset) => (
+                <button
+                  key={preset.id}
+                  type="button"
+                  onClick={() => handleApplyPreset(preset.cityIds)}
+                  className="exercise-preset-button"
+                  style={{ padding: "0.25rem 0.6rem", fontSize: "0.75rem", fontFamily: "var(--font-body)" }}
+                >
+                  {preset.label[locale]}
+                </button>
+              ))}
+              {selectedCities.length > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setSelectedIds([])}
+                  className="exercise-reset-button"
+                  style={{ padding: "0.25rem 0.6rem", fontSize: "0.75rem", fontFamily: "var(--font-body)" }}
+                >
+                  {t(locale, "Clear basket", "ล้างตะกร้า", "清空篮子", "바구니 비우기", "バスケットをクリア")}
+                </button>
+              )}
+            </div>
+
             <div className="sbs-basket-chips">
               {selectedCities.map((city, idx) => (
                 <div key={city.id} className={`sbs-chip tier-${getTier(city)}`}>
@@ -244,7 +344,19 @@ export default function SideBySidePage({
             {selectedCities.map((city) => (
               <div className={`sbs-column tier-border-${getTier(city)}`} key={city.id}>
                 <div className="sbs-city-header">
-                  <span className="sbs-city-name-btn" style={{cursor: "default"}}>{city.name}</span>
+                  <a
+                    href={appHref(`/city/${city.id}`)}
+                    onClick={(e) => {
+                      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                      e.preventDefault();
+                      onNavigate(`/city/${city.id}`);
+                    }}
+                    className="sbs-city-name-btn"
+                    style={{ cursor: "pointer", textDecoration: "none" }}
+                    title={t(locale, `View full ${city.name} scorecard`, `ดูสรุปคะแนน ${city.name} ทั้งหมด`, `查看 ${city.name} 完整评分卡`, `${city.name} 전체 스코어카드 보기`, `${city.name}の完全なスコアカードを表示`)}
+                  >
+                    {city.name} ↗
+                  </a>
                   {displayCountry(city.country) && <span className="sbs-city-country">{displayCountry(city.country)}</span>}
                   <span className={`sbs-city-tier tier-text-${getTier(city)}`}>{getTierLabel(city, locale)}</span>
                 </div>
