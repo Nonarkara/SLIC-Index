@@ -2,6 +2,8 @@
 
 # SLIC Index V3 — The Ranking That Disagrees
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 > "Every city ranking is a lie. Here's ours."
 
 **สร้างเมืองน่าอยู่ · Better City, Better Life.**
@@ -137,7 +139,7 @@ Absolute scoring: adding a new city does not rewrite everyone else’s history. 
 
 ## Run it / fork it
 
-One person, one laptop, Node, and this tree. Visitor tracking is optional and **not required** to rank cities or render the site.
+One person, one laptop, Node, and this tree. Visitor tracking is optional and **not required** to rank cities or render the site. How to fork the method and open a pull request is in [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ### Requirements
 
@@ -217,9 +219,15 @@ The index has no commercial relationship with any city beyond that infrastructur
 
 ## License
 
-There is no separate SPDX `LICENSE` file in this checkout. Reuse follows the publication protocol already on the live site:
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-SLIC is intended for public citation, teaching, replication, and critique. Keep the source visible, preserve the declared methodology, and do not imply paid placement or endorsement.
+This repository is licensed under the **[MIT License](LICENSE)**. Copyright © 2026 Non Arkaraprasertkul / Axiom X Co., Ltd.
+
+Fork the method, not the secrets. Clone, recalculate, criticise, and teach. API keys, visitor-tracking credentials, and unpublished worksheets are not part of the public claim.
+
+SLIC is an independent civic publication. It is not a government product, not a UN ranking, and not a ministry certification. In-kind infrastructure support is not a ranking endorsement.
+
+Reuse follows the publication protocol already on the live site: keep the source visible, preserve the declared methodology, and do not imply paid placement or endorsement. See [CONTRIBUTING.md](CONTRIBUTING.md) for how to fork the method and open a pull request, and [SECURITY.md](SECURITY.md) for how to report a vulnerability without putting secrets in issues.
 
 Underlying statistical series remain under their original publishers’ terms (World Bank, IMF, OECD, and so on). You inherit those terms when you copy raw values; you do not inherit a right to rebrand those agencies as SLIC co-authors.
 
