@@ -30,21 +30,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
   <!-- GitHub Pages SPA: restore path from 404.html redirect -->
-  <script>
-    (function () {
-      var qs = window.location.search;
-      if (qs.indexOf('?p=') === 0) {
-        var decoded = decodeURIComponent(qs.slice(3));
-        var hashIdx = decoded.indexOf('#');
-        var hash = hashIdx !== -1 ? decoded.slice(hashIdx) : '';
-        var pathAndQuery = hashIdx !== -1 ? decoded.slice(0, hashIdx) : decoded;
-        var qIdx = pathAndQuery.indexOf('&');
-        var path = '/' + (qIdx !== -1 ? pathAndQuery.slice(0, qIdx) : pathAndQuery);
-        var query = qIdx !== -1 ? '?' + pathAndQuery.slice(qIdx + 1) : '';
-        window.history.replaceState(null, null, path + query + hash);
-      }
-    })();
-  </script>
+  <script src="/route-restore.js"></script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"token": "0da324da0e204440a172088c0fafc92c"}'></script>
 </head>

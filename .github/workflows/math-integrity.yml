@@ -1,4 +1,6 @@
 name: Math Integrity
+permissions:
+  contents: read
 
 on:
   pull_request:
@@ -27,6 +29,12 @@ jobs:
 
       - name: Install Node dependencies
         run: npm ci
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
+
+      - name: Typecheck
+        run: npm run typecheck
 
       - name: Install PDF dependency
         run: python -m pip install reportlab
