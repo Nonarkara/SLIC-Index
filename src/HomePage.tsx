@@ -754,11 +754,11 @@ export default function HomePage({
           <p className="v3-spider-hint">
             {t(
               locale,
-              "Drag any pillar to reweight the model. The published board stays intact — this builds a personal comparison view using the same 20 scored metric lines.",
-              "ลากเสาหลักใดก็ได้เพื่อปรับน้ำหนัก บอร์ดที่เผยแพร่ไม่เปลี่ยน — นี่คือมุมมองเปรียบเทียบส่วนตัวจาก 20 metric line ที่ให้คะแนนชุดเดียวกัน",
-              "拖动任意支柱以调整权重。已发布榜单保持不变——这里构建的是你的个人对比视图，使用同样的 20 条计分指标。",
-              "임의의 기둥을 드래그해 모델의 가중치를 조정하세요. 발표된 순위는 그대로 유지됩니다 — 동일한 20개 채점 지표를 사용한 개인 비교 뷰를 구성합니다.",
-              "任意の柱をドラッグしてモデルの重みを調整してください。公開ボードはそのまま維持されます——同じ20の採点指標を使用した個人比較ビューを構築します。",
+              "Drag any pillar to reweight the model. The published board stays intact — this builds a personal comparison view using the same 22 scored metric lines.",
+              "ลากเสาหลักใดก็ได้เพื่อปรับน้ำหนัก บอร์ดที่เผยแพร่ไม่เปลี่ยน — นี่คือมุมมองเปรียบเทียบส่วนตัวจาก 22 metric line ที่ให้คะแนนชุดเดียวกัน",
+              "拖动任意支柱以调整权重。已发布榜单保持不变——这里构建的是你的个人对比视图，使用同样的 22 条计分指标。",
+              "임의의 기둥을 드래그해 모델의 가중치를 조정하세요. 발표된 순위는 그대로 유지됩니다 — 동일한 22개 채점 지표를 사용한 개인 비교 뷰를 구성합니다.",
+              "任意の柱をドラッグしてモデルの重みを調整してください。公開ボードはそのまま維持されます——同じ22の採点指標を使用した個人比較ビューを構築します。",
             )}
           </p>
           <div className="v3-spider-layout">

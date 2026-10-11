@@ -148,11 +148,23 @@ for (const city of ranked) {
 }
 
 const csvPath = join(root, "public/downloads/slic-ranked-cities-v2.csv");
-writeFileSync(csvPath, rows.join("\n") + "\n", "utf8");
+const csv = rows.join("\n") + "\n";
+const checkOnly = process.argv.includes("--check");
 
-console.log(`Written: ${csvPath}`);
-console.log(`Rows: ${preamble.length} # preamble + 1 header + ${rows.length - preamble.length - 1} cities = ${rows.length} lines`);
-console.log(`Columns: ${headers.length}`);
+if (checkOnly) {
+  const existing = readFileSync(csvPath, "utf8");
+  if (existing !== csv) {
+    console.error("CSV drift: public/downloads/slic-ranked-cities-v2.csv does not match publishedRankingData.json.");
+    console.error("Regenerate with: node scripts/update-csv.mjs");
+    process.exit(1);
+  }
+  console.log(`CSV matches published ranking snapshot (${ranked.length} ranked cities).`);
+} else {
+  writeFileSync(csvPath, csv, "utf8");
+  console.log(`Written: ${csvPath}`);
+  console.log(`Rows: ${preamble.length} # preamble + 1 header + ${rows.length - preamble.length - 1} cities = ${rows.length} lines`);
+  console.log(`Columns: ${headers.length}`);
+}
 
 // Spot-check Bangkok and Singapore
 const bkk = ranked.find((c) => c.cityId === "th-bangkok");

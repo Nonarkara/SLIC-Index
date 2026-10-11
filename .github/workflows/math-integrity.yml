@@ -39,6 +39,9 @@ jobs:
       - name: Install PDF dependency
         run: python -m pip install reportlab
 
+      - name: Check public CSV export
+        run: npm run check:csv
+
       - name: Rescore publication snapshot
         run: npm run rescore
 
@@ -47,6 +50,9 @@ jobs:
 
       - name: Check methodology drift
         run: npm run check:methodology
+
+      - name: Check translations
+        run: npm run check:translations
 
       - name: Run regression tests
         run: npm test

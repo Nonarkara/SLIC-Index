@@ -125,7 +125,7 @@ const copy = {
       "The source desk counts every metric-level and component-level source URL in the current published bundle.",
     metricTitle: "Metric architecture",
     metricSummary:
-      "The public score uses 20 scored metric lines across five pillars, plus 3 visible diagnostics that do not enter the aggregate.",
+      "The public score uses 22 scored metric lines across five pillars, plus 3 visible diagnostics that do not enter the aggregate.",
     coverageTitle: "Coverage and audit trail",
     coverageSummary:
       "The publication carries hashes and integrity checks so future reruns can be compared against the same model, normalization statistics, and metric catalog.",
@@ -167,7 +167,7 @@ const copy = {
       "source desk นับ URL ระดับเมตริกและระดับ component ทั้งหมดใน bundle เผยแพร่ปัจจุบัน",
     metricTitle: "โครงสร้างเมตริก",
     metricSummary:
-      "คะแนนสาธารณะใช้ 20 metric line ที่ให้คะแนนจริงใน 5 เสา พร้อม diagnostic ที่มองเห็นได้ 3 รายการซึ่งไม่เข้า aggregate",
+      "คะแนนสาธารณะใช้ 22 metric line ที่ให้คะแนนจริงใน 5 เสา พร้อม diagnostic ที่มองเห็นได้ 3 รายการซึ่งไม่เข้า aggregate",
     coverageTitle: "Coverage และ audit trail",
     coverageSummary:
       "ชุดเผยแพร่มี hash และ integrity check เพื่อให้ rerun ในอนาคตเทียบกับโมเดล normStats และ metric catalog เดิมได้",
@@ -209,7 +209,7 @@ const copy = {
       "source desk 统计当前发布包中所有指标级与组件级来源 URL。",
     metricTitle: "指标结构",
     metricSummary:
-      "公开分数使用五大支柱下的 20 条计分指标，并展示 3 条不进入总分的诊断指标。",
+      "公开分数使用五大支柱下的 22 条计分指标，并展示 3 条不进入总分的诊断指标。",
     coverageTitle: "覆盖度与审计轨迹",
     coverageSummary:
       "发布包携带哈希与完整性检查，方便未来重跑时与同一模型、normStats 与 metric catalog 对照。",
@@ -251,7 +251,7 @@ const copy = {
       "출처 데스크는 현재 발행 번들의 모든 지표 수준 및 구성 요소 수준 출처 URL을 집계합니다.",
     metricTitle: "지표 구조",
     metricSummary:
-      "공개 점수는 5개 기둥에 걸쳐 20개의 채점 지표와 합산에 포함되지 않는 3개의 진단 지표를 사용합니다.",
+      "공개 점수는 5개 기둥에 걸쳐 22개의 채점 지표와 합산에 포함되지 않는 3개의 진단 지표를 사용합니다。",
     coverageTitle: "커버리지 및 감사 추적",
     coverageSummary:
       "발행 번들은 해시와 무결성 검사를 포함하여 향후 재실행 시 동일한 모델, 정규화 통계 및 지표 카탈로그와 비교할 수 있습니다.",
@@ -293,7 +293,7 @@ const copy = {
       "ソースデスクは現行の発行バンドル内のすべての指標レベルおよびコンポーネントレベルの出典 URL を集計します。",
     metricTitle: "指標構造",
     metricSummary:
-      "公開スコアは5つの柱にわたる20本のスコアリング指標と、合計に含まれない3つの診断指標を使用します。",
+      "公開スコアは5つの柱にわたる22本のスコアリング指標と、合計に含まれない3つの診断指標を使用します。",
     coverageTitle: "カバレッジと監査証跡",
     coverageSummary:
       "発行バンドルにはハッシュと整合性チェックが含まれており、将来の再実行時に同一モデル・正規化統計・指標カタログと照合できます。",

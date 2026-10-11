@@ -81,11 +81,30 @@ function checkNativeRegisterTerms(file, content) {
   }
 }
 
+function checkIdeaTranslationKeys() {
+  const ideasData = fs.readFileSync(path.join(SRC_DIR, "ideasData.ts"), "utf8");
+  const ideasTranslations = fs.readFileSync(path.join(SRC_DIR, "ideasTranslations.ts"), "utf8");
+  const used = new Set(
+    [...ideasData.matchAll(/ideasTranslations\["([^"]+)"\]/g)].map((match) => match[1]),
+  );
+  const defined = new Set(
+    [...ideasTranslations.matchAll(/^ {2}"([^"]+)": \{/gm)].map((match) => match[1]),
+  );
+
+  for (const id of used) {
+    if (!defined.has(id)) {
+      issues.push(`ideasTranslations.ts is missing "${id}", which ideasData.ts reads at startup.`);
+    }
+  }
+}
+
 for (const file of SOURCE_FILES) {
   const content = fs.readFileSync(path.join(SRC_DIR, file), "utf8");
   checkDuplicatedCoreTranslations(file, content);
   checkNativeRegisterTerms(file, content);
 }
+
+checkIdeaTranslationKeys();
 
 if (issues.length > 0) {
   console.error("Translation checks failed:");

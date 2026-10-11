@@ -76,7 +76,7 @@ public/
 ## Scoring System
 
 - **5 pillars:** Growth (25%), Viability (22%), Capability (18%), Community (15%), Creative (20%)
-- **20 scored metrics + 3 diagnostics** (23 in metric catalog) normalized to 0–100 via fixed piecewise linear anchors
+- **22 scored metrics + 3 diagnostics** (25 in metric catalog) normalized to 0–100 via fixed piecewise linear anchors
 - **Aggregation:** Adjusted Mazziotta–Pareto Index (AMPI) — penalizes imbalance
 - **Coverage grades:** A (full), B (−5 penalty), C (−15 penalty, provisional)
 - **No imputation** — missing data is excluded, not fabricated
