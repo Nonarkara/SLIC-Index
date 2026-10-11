@@ -25,17 +25,17 @@
     "verify:math": "npm run rescore && npm run check:publication && npm run check:methodology && npm test"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.100.0",
-    "@types/react": "^19.0.10",
-    "@types/react-dom": "^19.0.4",
+    "@supabase/supabase-js": "^2.117.3",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react-swc": "^3.8.0",
     "d3-geo": "^3.1.1",
     "express": "^5.2.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
     "topojson-client": "^3.1.0",
     "typescript": "^5.8.2",
-    "vite": "^6.4.3",
+    "vite": "^6.4.4",
     "world-atlas": "^2.0.2"
   },
   "devDependencies": {
