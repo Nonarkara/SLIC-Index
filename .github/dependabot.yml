@@ -1,21 +1,36 @@
 version: 2
 updates:
+  # npm — patch + minor only. Major version bumps (TypeScript 5→7, Vite 6→8,
+  # React 19.0→19.3, etc.) require deliberate manual review and migration.
   - package-ecosystem: npm
     directory: /
     schedule:
       interval: weekly
     open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
     groups:
-      npm:
+      npm-minor:
+        applies-to: version-updates
         patterns:
           - "*"
 
+  # GitHub Actions — patch only. Major version bumps change runtime behaviour
+  # and need explicit migration (e.g. setup-node v4 → v7 changed caching).
   - package-ecosystem: github-actions
     directory: /
     schedule:
       interval: weekly
     open-pull-requests-limit: 3
+    ignore:
+      - dependency-name: "*"
+        update-types:
+          - "version-update:semver-major"
+          - "version-update:semver-minor"
     groups:
-      github-actions:
+      github-actions-patch:
+        applies-to: version-updates
         patterns:
           - "*"
