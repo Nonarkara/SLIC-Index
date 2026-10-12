@@ -37,7 +37,7 @@ jobs:
         run: npm run typecheck
 
       - name: Install PDF dependency
-        run: python -m pip install reportlab
+        run: python -m pip install reportlab pypdf
 
       - name: Check public CSV export
         run: npm run check:csv
