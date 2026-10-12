@@ -1,0 +1,23 @@
+# SLIC Index V3 — https://slic.nonarkara.org
+#
+# Allow all crawlers. The site is a public-method publication;
+# every metric and source URL is intentionally crawlable for
+# the Red Dot / DEmark / CEA submission process.
+
+User-agent: *
+Allow: /
+Disallow: /downloads/
+
+# AI crawlers welcome — methodology + 5-language editorials are
+# explicitly in scope for AI-assisted summarisation.
+User-agent: GPTBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+
+# Sitemap
+Sitemap: https://slic.nonarkara.org/sitemap.xml
