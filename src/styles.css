@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap");
 
 /*
  * CJK + Thai script overrides — workspace CLAUDE.md §0.
@@ -72,7 +72,13 @@
 /* ═══════ V3: SANZO WADA × PALETTE EDITORIAL — architectural, relational, authentic ═══════ */
 :root {
   color-scheme: light;
-  --font-heading: "Space Grotesk", "Source Sans 3", -apple-system, sans-serif;
+  /* Libre Baskerville is the documented heading face (AGENTS.md — "Monocle meets
+     Red Dot"). It was swapped for Space Grotesk in df46107, which left the
+     document claiming a font the site no longer loaded. A grotesk display face
+     is also the single most recognisable agent-built tell; the editorial serif
+     is the identity, so it goes back. Only 400/700 ship — mid-weights snap,
+     so heading rules stay on 400 or 700 deliberately. */
+  --font-heading: "Libre Baskerville", Georgia, "Times New Roman", serif;
   --font-body: "Source Sans 3", -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
 
@@ -337,7 +343,7 @@ section[id] {
   color: var(--accent-amber-text);
   font-size: 0.7rem;
   font-weight: 500;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
@@ -473,8 +479,8 @@ section[id] {
   margin: 0;
   font-family: var(--font-heading);
   font-weight: 400;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1.12;
+  letter-spacing: normal;
 }
 
 .hero-copy h1 {
@@ -679,7 +685,7 @@ section[id] {
   margin: 0.2rem 0 0;
   font-family: var(--font-heading);
   font-size: 1.4rem;
-  line-height: 1;
+  line-height: 1.12;
 }
 
 .hero-ranking-summary {
@@ -722,7 +728,7 @@ section[id] {
   font-family: var(--font-heading);
   font-size: 1.1rem;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: normal;
 }
 
 .hero-ranking-city,
@@ -775,7 +781,7 @@ section[id] {
   font-family: var(--font-heading);
   font-size: 3rem;
   font-weight: 800;
-  letter-spacing: -0.05em;
+  letter-spacing: normal;
 }
 
 .delta-badge,
@@ -813,7 +819,7 @@ section[id] {
   margin: 1rem 0 0.35rem;
   font-family: var(--font-heading);
   font-size: 2.35rem;
-  line-height: 1;
+  line-height: 1.12;
 }
 
 .leader-country,
@@ -857,7 +863,7 @@ section[id] {
   margin: 0 0 0.75rem;
   font-family: var(--font-heading);
   font-size: 2rem;
-  line-height: 0.98;
+  line-height: 1.12;
 }
 
 .sidekick-card h3,
@@ -866,7 +872,7 @@ section[id] {
 .spotlight-card h3 {
   margin: 0 0 0.5rem;
   font-family: var(--font-heading);
-  line-height: 1;
+  line-height: 1.12;
 }
 
 .sidekick-card p,
@@ -1000,7 +1006,7 @@ section[id] {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 10.5px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1057,7 +1063,7 @@ section[id] {
   margin: 0.2rem 0 0;
   font-family: var(--font-heading);
   font-size: 1.55rem;
-  line-height: 1;
+  line-height: 1.12;
 }
 
 .detail-score {
@@ -1115,7 +1121,7 @@ section[id] {
   margin: 0.2rem 0 0;
   font-family: var(--font-heading);
   font-size: 1.65rem;
-  line-height: 1;
+  line-height: 1.12;
 }
 
 .weight-chart {
@@ -1412,7 +1418,7 @@ section[id] {
   margin: 0 0 1rem;
   font-family: var(--font-heading);
   font-size: 1.4rem;
-  line-height: 1.1;
+  line-height: 1.12;
 }
 
 .pillar-note {
@@ -1489,7 +1495,7 @@ section[id] {
 .reference-card h3 {
   margin: 0 0 0.6rem;
   font-family: var(--font-heading);
-  line-height: 1.05;
+  line-height: 1.12;
 }
 
 .critique-card p,
@@ -1889,7 +1895,7 @@ section[id] {
   align-items: center;
   min-height: 2.75rem;
   padding: 0.35rem 0;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.66rem;
   font-weight: 600;
   letter-spacing: 0.08em;
@@ -1908,7 +1914,7 @@ section[id] {
   margin: 0 0 0.2rem;
   padding-bottom: 0.35rem;
   border-bottom: 1px solid rgba(40, 32, 20, 0.12);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.12em;
@@ -1921,7 +1927,7 @@ section[id] {
   align-items: center;
   min-height: 2.75rem;
   padding: 0.2rem 0;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.66rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -2033,7 +2039,7 @@ section[id] {
   font-family: var(--font-heading);
   font-size: 1.15rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: normal;
 }
 
 .mh-wordmark-sub {
@@ -2093,7 +2099,7 @@ section[id] {
   border: 0;
   background: 0;
   color: var(--text-soft);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.66rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -2149,7 +2155,7 @@ section[id] {
   min-height: 2.75rem;
   padding: 0.55rem 0.9rem;
   color: var(--text-soft);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.66rem;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -2344,8 +2350,8 @@ section[id] {
   font-family: var(--font-heading);
   font-size: clamp(2.4rem, 6vw, 4.75rem);
   font-weight: 700;
-  line-height: 1.0;
-  letter-spacing: -0.035em;
+  line-height: 1.12;
+  letter-spacing: normal;
   margin: 0 0 1.5rem;
   white-space: pre-line;
   min-height: 2.2em;
@@ -2392,7 +2398,7 @@ section[id] {
   padding: 0.6rem 1.25rem;
   background: var(--text);
   color: var(--text-inverse);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -2411,7 +2417,7 @@ section[id] {
   padding: 0.6rem 1.1rem;
   border: 1px solid var(--border-strong);
   color: var(--text);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.78rem;
   font-weight: 500;
   letter-spacing: 0.04em;
@@ -2567,7 +2573,7 @@ section[id] {
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-weight: 400;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: normal;
   color: var(--accent-amber-text);
 }
 
@@ -2617,7 +2623,7 @@ section[id] {
   font-size: clamp(1.4rem, 2.6vw, 1.95rem);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.022em;
+  letter-spacing: normal;
   margin: 0 0 1rem;
   white-space: pre-line;
 }
@@ -2801,8 +2807,8 @@ section[id] {
   margin: 0;
   font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 4.25rem);
-  line-height: 0.94;
-  letter-spacing: -0.04em;
+  line-height: 1.12;
+  letter-spacing: normal;
   max-width: 10ch;
 }
 
@@ -3117,7 +3123,7 @@ section[id] {
   margin: 0;
   font-family: var(--font-heading);
   font-size: 1.25rem;
-  line-height: 0.95;
+  line-height: 1.12;
 }
 
 .ranking-accent-chip {
@@ -3135,8 +3141,8 @@ section[id] {
 .ranking-source-title {
   font-family: var(--font-heading);
   font-size: 1.24rem;
-  line-height: 1.05;
-  letter-spacing: -0.02em;
+  line-height: 1.18;
+  letter-spacing: normal;
 }
 
 .ranking-source-foot {
@@ -3185,7 +3191,7 @@ section[id] {
   margin: 0;
   font-family: var(--font-heading);
   font-size: 1.35rem;
-  line-height: 1.08;
+  line-height: 1.12;
 }
 
 .source-desk-link {
@@ -3608,7 +3614,7 @@ section[id] {
   margin: 0;
   font-family: var(--font-heading);
   font-size: 1.35rem;
-  line-height: 1.04;
+  line-height: 1.12;
 }
 
 .formula-display-compact {
@@ -3886,7 +3892,7 @@ section[id] {
   margin: 0;
   font-family: var(--font-heading);
   font-size: 1.3rem;
-  line-height: 1.08;
+  line-height: 1.12;
 }
 
 .idea-card .city-location {
@@ -4320,7 +4326,7 @@ section[id] {
   margin: 0;
   font-family: var(--font-heading);
   font-size: clamp(1.8rem, 3.6vw, 2.6rem);
-  line-height: 1;
+  line-height: 1.12;
 }
 
 .route-loading-card p:last-child {
@@ -4537,7 +4543,7 @@ section[id] {
 .ranking-integrity-banner h2 {
   font-family: var(--font-heading);
   font-size: clamp(1.4rem, 2.2vw, 1.85rem);
-  line-height: 1;
+  line-height: 1.12;
 }
 
 .ranking-integrity-banner strong {
@@ -4909,30 +4915,47 @@ section[id] {
   width: 100%;
 }
 
+/* Left-aligned rather than centred: centring a wrapped flex row makes every
+   row ragged and leaves both edges hanging, which is the flatness tell. A left
+   edge that locks to the content column is the invisible grid doing its job. */
 .rankings-preset-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
-  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  justify-content: flex-start;
   width: 100%;
 }
 
 .rankings-preset-btn {
-  font-family: "JetBrains Mono", monospace;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
   min-height: 44px;
-  padding: 0 12px;
+  padding: 0 14px;
   display: inline-flex;
   align-items: center;
-  color: rgba(30, 40, 60, 0.65);
+  color: var(--text-soft);
   background: transparent;
-  border: 1px solid rgba(30, 40, 60, 0.12);
+  border: 1px solid var(--border);
   border-radius: 0;
   cursor: pointer;
   transition: color 0.12s, border-color 0.12s, background 0.12s;
+}
+
+/* "Reset to SLIC baseline" is a utility, not a seventh preference. It gets its
+   own weight so the six peers read as one family and it reads as the way out. */
+.rankings-preset-btn--reset {
+  color: var(--text-dim);
+  border-style: dashed;
+}
+
+.rankings-preset-btn--reset:hover {
+  color: var(--text);
+  border-color: var(--accent-amber);
+  border-style: solid;
 }
 
 .rankings-preset-btn:hover {
@@ -5367,19 +5390,22 @@ section[id] {
   line-height: 1.4;
 }
 
+/* Severity is real information, so it keeps three distinct hues — but they come
+   from the locked Wada palette rather than Tailwind's default ramp
+   (red-500 / amber-500 / blue-500), which is itself a generated-surface tell. */
 .tradeoff-card--severe {
-  border-left: 3px solid #ef4444;
-  background: rgba(239, 68, 68, 0.06);
+  border-left: 3px solid var(--accent-red);
+  background: color-mix(in srgb, var(--accent-red) 6%, var(--bg));
 }
 
 .tradeoff-card--moderate {
-  border-left: 3px solid #f59e0b;
-  background: rgba(245, 158, 11, 0.04);
+  border-left: 3px solid var(--accent-amber);
+  background: color-mix(in srgb, var(--accent-amber) 5%, var(--bg));
 }
 
 .tradeoff-card--mild {
-  border-left: 3px solid #3b82f6;
-  background: rgba(59, 130, 246, 0.04);
+  border-left: 3px solid var(--accent-blue);
+  background: color-mix(in srgb, var(--accent-blue) 5%, var(--bg));
 }
 
 .filter-bar {
@@ -5560,7 +5586,7 @@ section[id] {
   font-size: clamp(1.4rem, 2.4vw, 1.85rem);
   font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.022em;
+  letter-spacing: normal;
 }
 
 .rankings-empty p {
@@ -5692,7 +5718,7 @@ section[id] {
   font-family: var(--font-heading);
   font-size: clamp(24px, 3.5vw, 40px);
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: normal;
   margin: 0 0 8px;
 }
 
@@ -5833,8 +5859,8 @@ section[id] {
   font-family: var(--font-heading);
   font-size: clamp(40px, 7vw, 72px);
   font-weight: 400;
-  line-height: 1.0;
-  letter-spacing: -0.04em;
+  line-height: 1.18;
+  letter-spacing: normal;
   margin: 0 0 20px;
   white-space: pre-line;
   color: var(--accent-amber-text);
@@ -5944,7 +5970,7 @@ section[id] {
   font-family: var(--font-heading);
   font-size: 1.1rem;
   margin: 0 0 6px;
-  line-height: 1.1;
+  line-height: 1.12;
 }
 
 .thesis-pillar p {
@@ -6024,8 +6050,8 @@ section[id] {
   font-family: var(--font-heading);
   font-size: clamp(28px, 4vw, 44px);
   font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.18;
+  letter-spacing: normal;
   margin: 0 0 12px;
 }
 
@@ -6196,8 +6222,8 @@ section[id] {
   font-family: var(--font-heading);
   font-size: clamp(24px, 3.4vw, 36px);
   font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.18;
+  letter-spacing: normal;
   margin: 0 0 12px;
 }
 
@@ -6380,8 +6406,8 @@ section[id] {
   font-family: var(--font-heading);
   font-size: clamp(26px, 3.5vw, 42px);
   font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.12;
+  letter-spacing: normal;
   margin: 0 0 16px;
 }
 
@@ -6762,8 +6788,8 @@ section[id] {
   font-family: var(--font-heading);
   font-size: clamp(28px, 4vw, 48px);
   font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.18;
+  letter-spacing: normal;
   margin: 0;
 }
 
@@ -6793,7 +6819,7 @@ section[id] {
   font-size: clamp(42px, 6vw, 64px);
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.02em;
+  letter-spacing: normal;
   color: var(--accent-amber-text);
 }
 
@@ -6926,7 +6952,12 @@ section[id] {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(115deg, rgba(15, 12, 9, 0.85) 10%, rgba(15, 12, 9, 0.54) 42%, rgba(15, 12, 9, 0.16) 100%),
+    /* The right end carried the score, rank and dataset metadata as small
+       tracked text. At 0.16 alpha it dissolved against a bright sky once the
+       photo finished decoding — readable only while the image was still
+       loading. Raised to 0.46 so the right-hand column survives a bright
+       frame; the left stays heavy for the city name. */
+    linear-gradient(115deg, rgba(15, 12, 9, 0.88) 8%, rgba(15, 12, 9, 0.72) 45%, rgba(15, 12, 9, 0.46) 100%),
     linear-gradient(180deg, rgba(15, 12, 9, 0.12) 0%, rgba(15, 12, 9, 0.12) 38%, rgba(15, 12, 9, 0.82) 100%);
 }
 
@@ -7612,9 +7643,13 @@ details[open].scorecard-derived-formula summary::before {
   color: var(--accent-blue, #1a3a6b);
 }
 
+/* #7c3aed was the VibeCode purple — the single most-cited agent-built colour.
+   Composite metrics are a genuine third data-level, so the distinction stays;
+   the hue moves into the locked Wada palette. The chip carries its own word, so
+   colour is reinforcement rather than the only carrier. */
 .scorecard-data-badge--composite {
-  border-color: rgba(124, 58, 237, 0.3);
-  color: #7c3aed;
+  border-color: color-mix(in srgb, var(--accent-cyan) 34%, transparent);
+  color: var(--accent-cyan);
 }
 
 .scorecard-data-badge--missing {
@@ -7945,8 +7980,8 @@ details[open].scorecard-derived-formula summary::before {
   font-family: var(--font-heading);
   font-size: clamp(26px, 4.5vw, 48px);
   font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.03em;
+  line-height: 1.18;
+  letter-spacing: normal;
   margin: 0 0 16px;
 }
 
@@ -8032,8 +8067,8 @@ details[open].scorecard-derived-formula summary::before {
   font-family: var(--font-heading);
   font-size: clamp(22px, 3vw, 34px);
   font-weight: 700;
-  line-height: 1.08;
-  letter-spacing: -0.028em;
+  line-height: 1.18;
+  letter-spacing: normal;
   margin: 0;
   font-variant-numeric: tabular-nums;
 }
@@ -8149,8 +8184,8 @@ details[open].scorecard-derived-formula summary::before {
   font-family: var(--font-heading);
   font-size: 22px;
   font-weight: 700;
-  letter-spacing: -0.024em;
-  line-height: 1.1;
+  letter-spacing: normal;
+  line-height: 1.18;
   color: #fff;
   font-variant-numeric: tabular-nums;
 }
@@ -8831,8 +8866,8 @@ details[open].scorecard-derived-formula summary::before {
   font-family: var(--font-heading);
   font-size: clamp(32px, 6vw, 72px);
   font-weight: 700;
-  line-height: 1.0;
-  letter-spacing: -0.03em;
+  line-height: 1.18;
+  letter-spacing: normal;
   margin: 0 0 28px;
   white-space: pre-line;
 }
@@ -8902,7 +8937,7 @@ details[open].scorecard-derived-formula summary::before {
   font-family: var(--font-heading);
   font-size: clamp(22px, 3vw, 36px);
   font-weight: 700;
-  letter-spacing: -0.02em;
+  letter-spacing: normal;
   margin: 0 0 6px;
 }
 
@@ -9506,7 +9541,7 @@ details[open].scorecard-derived-formula summary::before {
    tuned for cream, so these names rendered at 1.96-2.03:1 — the purples were unreadable.
    Lift toward white by what the darkest hex needs; already-light hexes simply get lighter. */
 .compare-critique-eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -9519,8 +9554,8 @@ details[open].scorecard-derived-formula summary::before {
   font-family: var(--font-heading);
   font-size: clamp(22px, 3vw, 32px);
   font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.18;
+  letter-spacing: normal;
   margin: 0 0 12px;
 }
 
@@ -9709,7 +9744,7 @@ details[open].scorecard-derived-formula summary::before {
   padding: 0.4rem 0;
   border-bottom: 1px solid transparent;
   color: var(--text-soft);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.66rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -9813,7 +9848,7 @@ details[open].scorecard-derived-formula summary::before {
   margin: 0;
   min-height: 0;
   font-size: clamp(3rem, 7vw, 6.2rem);
-  line-height: 0.95;
+  line-height: 1.12;
 }
 
 .hp-deck {
@@ -10218,7 +10253,7 @@ details[open].scorecard-derived-formula summary::before {
   margin: 0.75rem 0 0;
   padding-top: 0.75rem;
   border-top: 1px solid rgba(28, 25, 20, 0.12);
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -10459,7 +10494,7 @@ body,
   max-width: 16.5ch;
   color: #fff;
   font-size: clamp(3.8rem, 5.4vw, 4.5rem);
-  line-height: 0.94;
+  line-height: 1.12;
 }
 
 .hp-deck {
@@ -10703,7 +10738,7 @@ body,
   .hp-headline {
     max-width: 7.4ch;
     font-size: 3.08rem;
-    line-height: 0.96;
+    line-height: 1.12;
     overflow-wrap: break-word;
   }
 
@@ -10952,7 +10987,7 @@ body,
 }
 
 .sbs-empty-eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -11517,7 +11552,7 @@ html[lang="th"] .hp-lede {
     max-width: min(100%, 11.4ch);
     min-height: auto;
     font-size: clamp(2.35rem, 10.8vw, 3.15rem);
-    line-height: 0.98;
+    line-height: 1.12;
     overflow-wrap: normal;
     word-break: normal;
     hyphens: none;
@@ -11647,7 +11682,7 @@ html[lang="th"] .hp-lede {
 }
 
 .essay-eyebrow {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 10px;
   letter-spacing: 0.18em;
   color: rgba(248, 245, 240, 0.55);
@@ -11659,7 +11694,7 @@ html[lang="th"] .hp-lede {
   font-family: var(--font-heading);
   font-size: clamp(2rem, 5vw, 3.6rem);
   font-weight: 400;
-  line-height: 1.08;
+  line-height: 1.18;
   color: #f8f5f0;
   margin: 0 0 0.75rem;
   letter-spacing: -0.01em;
@@ -13104,7 +13139,7 @@ a.essay-reference-text:hover {
   background: rgba(248, 245, 240, 0.08);
   border: 1px solid rgba(248, 245, 240, 0.2);
   color: #f8f5f0;
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 0.74rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;

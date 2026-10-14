@@ -866,7 +866,7 @@ export default function RankingsPage({
                     {preset.label[locale]}
                   </button>
                 ))}
-                <button type="button" className="rankings-preset-btn" onClick={handleReset}>
+                <button type="button" className="rankings-preset-btn rankings-preset-btn--reset" onClick={handleReset}>
                   {ui.resetLabel}
                 </button>
               </div>
