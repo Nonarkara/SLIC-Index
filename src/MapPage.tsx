@@ -41,16 +41,17 @@ function navigateLink(
   onNavigate(path as SitePath);
 }
 
-/** Amber → teal colour ramp driven by SLIC score 0..100. */
+/** Sanzo Wada palette ramp driven by SLIC score 0..100. */
 function scoreColor(score: number | null): string {
   if (score == null) return "#9a9088";
-  // Palette: low = warm rust, mid = amber, high = teal-green.
+  // Wada Palette: low = Wada Red (#a72144), mid-low = Raw Sienna (#8c4a2a),
+  // mid = English Red (#d96629), mid-high = Pine (#2e7868), high = Viridian (#1a6b5a).
   const clamped = Math.max(0, Math.min(100, score));
-  if (clamped >= 65) return "#1a6b5a";     // teal (strong)
-  if (clamped >= 55) return "#3a7a6a";     // teal-muted
-  if (clamped >= 45) return "#b85c28";     // amber (mid)
-  if (clamped >= 35) return "#a0382a";     // warm rust
-  return "#8c4a2a";                         // deep brown (low)
+  if (clamped >= 65) return "#1a6b5a";     // Wada Viridian (strong)
+  if (clamped >= 55) return "#2e7868";     // Wada Pine
+  if (clamped >= 45) return "#d96629";     // Wada English Red (mid)
+  if (clamped >= 35) return "#8c4a2a";     // Wada Raw Sienna
+  return "#a72144";                         // Wada Red (Dr Non signature)
 }
 
 /** Dot size by SLIC score — slightly larger for higher ranks so top cities are legible. */
@@ -283,10 +284,10 @@ export default function MapPage({
               {t(locale, "SLIC score", "คะแนน SLIC", "SLIC 分数", "SLIC 점수", "SLICスコア")}
             </span>
             <div className="map-legend-scale">
-              <span><i style={{ background: "#8c4a2a" }} /> &lt;35</span>
-              <span><i style={{ background: "#a0382a" }} /> 35–45</span>
-              <span><i style={{ background: "#b85c28" }} /> 45–55</span>
-              <span><i style={{ background: "#3a7a6a" }} /> 55–65</span>
+              <span><i style={{ background: "#a72144" }} /> &lt;35</span>
+              <span><i style={{ background: "#8c4a2a" }} /> 35–45</span>
+              <span><i style={{ background: "#d96629" }} /> 45–55</span>
+              <span><i style={{ background: "#2e7868" }} /> 55–65</span>
               <span><i style={{ background: "#1a6b5a" }} /> ≥65</span>
               <span><i style={{ background: "#b8ada0" }} /> {t(locale, "Watchlist", "เฝ้าระวัง", "观察名单", "관찰 목록", "観察リスト")}</span>
             </div>

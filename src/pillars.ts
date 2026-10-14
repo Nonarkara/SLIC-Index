@@ -21,9 +21,9 @@ export type { PillarId };
 export const PILLAR_ORDER: readonly PillarId[] = SCORER_PILLAR_ORDER;
 
 export const PILLAR_COLORS: Record<PillarId, string> = {
-  pressure: "#b85c28",
-  viability: "#1a6b5a",
-  capability: "#2a5a8c",
-  community: "#8c4a2a",
-  creative: "#a0382a",
+  pressure: "#d96629",   // Wada Plate 001 English Red
+  viability: "#1a6b5a",  // Wada Viridian / Pine
+  capability: "#12354e", // Wada Plate 002 Dark Tyrian Blue
+  community: "#8c4a2a",  // Wada Raw Sienna / Burnt Umber
+  creative: "#a72144",   // Wada Red (Dr Non signature chord)
 };

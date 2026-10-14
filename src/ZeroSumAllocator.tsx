@@ -83,21 +83,6 @@ const SpiderWebChart: FC<{
   return (
     <svg viewBox={`0 0 ${canvas} ${canvas}`} className="allocator-svg" aria-hidden="true">
       <defs>
-        <linearGradient id="allocatorRadarStroke" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="rgba(23, 201, 203, 0.95)" />
-          <stop offset="100%" stopColor="rgba(123, 167, 255, 0.95)" />
-        </linearGradient>
-        <radialGradient id="allocatorRadarFill" cx="50%" cy="40%" r="70%">
-          <stop offset="0%" stopColor="rgba(123, 167, 255, 0.28)" />
-          <stop offset="100%" stopColor="rgba(23, 201, 203, 0.06)" />
-        </radialGradient>
-        <filter id="allocatorGlow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="6" result="blur" />
-          <feMerge>
-            <feMergeNode in="blur" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
         {!hasInteracted && (
           <style>{`
             @keyframes allocatorPulse {
@@ -145,9 +130,9 @@ const SpiderWebChart: FC<{
 
       <path
         d={radarPath(cx, cy, maxR, pillars.map((pillar) => pillar.value), total)}
-        fill="url(#allocatorRadarFill)"
-        stroke="url(#allocatorRadarStroke)"
-        strokeWidth={2.5}
+        fill="rgba(249, 157, 27, 0.18)"
+        stroke="#f99d1b"
+        strokeWidth={2}
         strokeLinejoin="round"
         style={{
           pointerEvents: "none",
