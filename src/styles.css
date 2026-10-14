@@ -110,8 +110,18 @@
   /* Wada Plate 002 Dark Tyrian Blue (#12354e): structural counterweight & active controls */
   --accent-blue: #12354e;
 
-  /* Focus ring: Wada Yellow Orange */
-  --focus: #f99d1b;
+  /* Focus ring — surface-aware, WCAG 2.2 SC 1.4.11 Non-text Contrast (>=3:1).
+     Wada Yellow Orange #f99d1b is only 1.95:1 on the cream ground, so it
+     CANNOT carry a focus indicator on light surfaces. The cream ground gets
+     the deepened English Red #a04e20 (5.34:1); dark ink panels keep the
+     radiant Yellow Orange (8.75:1). Never point a focus rule back at
+     --accent-amber: it is a graphic-fill token, not an indicator token. */
+  --focus: #a04e20;
+  --focus-on-dark: #f99d1b;
+  /* Inner guard edge for the two-tone ring used on translucent scrims. */
+  --focus-on-dark-guard: #111314;
+  --focus-width: 2px;
+  --focus-offset: 2px;
 
   /* Page grid, declared once (§14.11). */
   --max-width: 1400px;
@@ -132,7 +142,10 @@
   box-sizing: border-box;
 }
 
-/* === A11y: visible keyboard focus on all interactive surfaces === */
+/* === A11y: visible keyboard focus on all interactive surfaces ===
+   WCAG 2.2 SC 1.4.11 — a focus indicator needs >=3:1 against its adjacent
+   background. --focus is 5.34:1 on the cream ground. Dark panels override
+   to --focus-on-dark (8.75:1 on ink). */
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible,
@@ -141,8 +154,8 @@ a:focus-visible,
 [role="button"]:focus-visible,
 [tabindex]:focus-visible,
 input[type="range"]:focus-visible {
-  outline: 2px solid var(--accent-amber);
-  outline-offset: 2px;
+  outline: var(--focus-width) solid var(--focus);
+  outline-offset: var(--focus-offset);
 }
 
 html {
@@ -367,8 +380,8 @@ section[id] {
 }
 
 .locale-select:focus-visible {
-  outline: 1px solid var(--accent-amber, #b85c28);
-  outline-offset: 1px;
+  outline: var(--focus-width) solid var(--focus);
+  outline-offset: var(--focus-offset);
 }
 
 .locale-button-row {
@@ -1565,8 +1578,8 @@ section[id] {
 }
 
 .knowledge-rack-input:focus {
-  outline: 2px solid rgba(30, 40, 60, 0.1);
-  outline-offset: 2px;
+  outline: var(--focus-width) solid var(--focus);
+  outline-offset: var(--focus-offset);
   border-color: var(--accent-blue);
 }
 
@@ -9646,7 +9659,7 @@ details[open].scorecard-derived-formula summary::before {
   .topnav a,
   .locale-button,
   .mh-burger):focus-visible {
-  outline: 2px solid rgba(42, 90, 140, 0.65);
+  outline: var(--focus-width) solid var(--focus);
   outline-offset: 3px;
 }
 
@@ -10306,6 +10319,20 @@ body,
      the masthead band apart from the hero photo. */
   background: rgba(28, 25, 20, 0.68);
   border-bottom-color: rgba(248, 245, 240, 0.14);
+}
+
+/* Dark scrim -> the cream-ground focus token (5.34:1) drops to ~1.6:1 here.
+   Swap to --focus-on-dark (8.75:1) for every control in the unscrolled hero
+   masthead, which is the only place the masthead sits on a photo.
+
+   The scrim is translucent, so a single-colour ring cannot guarantee 3:1
+   over an arbitrary photo: #f99d1b reads 8.86:1 over a dark frame but only
+   2.82:1 where the photo is bright. Use a two-tone ring instead — a dark
+   inner edge (0-2px) plus the light outer edge (2-4px). Whichever side the
+   photo lands on, one edge clears 3:1. Verified across black -> white. */
+.mh--hero:not(.mh--scrolled) :is(a, button, select, input, [role="button"]):focus-visible {
+  outline-color: var(--focus-on-dark);
+  box-shadow: 0 0 0 var(--focus-width) var(--focus-on-dark-guard, #111314);
 }
 
 .mh:not(.mh--scrolled) .mh-wordmark {
@@ -11318,7 +11345,7 @@ body,
 }
 
 .map-svg a:focus-visible circle {
-  outline: 2px solid var(--accent-amber);
+  outline: var(--focus-width) solid var(--focus);
   outline-offset: 2px;
 }
 
@@ -12805,6 +12832,12 @@ a.essay-reference-text:hover {
   animation: qsSlideDown 150ms var(--ease-spring);
 }
 
+/* The modal sits on #191714 — the cream-ground focus token would read at
+   ~1.6:1 here. Every control inside the card swaps to the light-on-dark ring. */
+.quick-search-card :is(a, button, select, input, [role="option"], [tabindex]):focus-visible {
+  outline-color: var(--focus-on-dark);
+}
+
 @keyframes qsSlideDown {
   from { transform: translateY(-12px) scale(0.98); opacity: 0; }
   to { transform: translateY(0) scale(1); opacity: 1; }
@@ -12831,7 +12864,16 @@ a.essay-reference-text:hover {
   color: #f8f5f0;
   font-family: var(--font-body);
   font-size: 1.02rem;
+  /* The input is borderless by design, so the focus ring is the ONLY cue that
+     the caret sits in this field. outline:none without a replacement left
+     keyboard users with no indicator at all inside a modal they opened
+     deliberately. Restore it on the dark modal surface. */
   outline: none;
+}
+
+.quick-search-input:focus-visible {
+  outline: none;
+  box-shadow: inset 0 -2px 0 0 var(--focus-on-dark);
 }
 
 .quick-search-input::placeholder {

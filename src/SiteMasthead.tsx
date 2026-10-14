@@ -3,6 +3,7 @@ import LocaleSwitch from "./LocaleSwitch";
 import { navGroups, navGroupLabel, navPathLabel, type NavGroupId } from "./navGroups";
 import { appHref } from "./routing";
 import { slicLogo } from "./brandAssets";
+import { CITY_TOTAL } from "./publicationMeta";
 import type { Locale, SitePath } from "./types";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
@@ -336,7 +337,7 @@ export default function SiteMasthead({
               <circle cx="11" cy="11" r="8" />
               <line x1="21" y1="21" x2="16.65" y2="16.65" />
             </svg>
-            <span>{locale === "th" ? "ค้นหา 163 เมืองและหน้า..." : locale === "zh" ? "搜索 163 座城市与页面..." : locale === "ko" ? "163개 도시 및 페이지 검색..." : locale === "ja" ? "163都市とページを検索..." : "Search 163 cities and pages..."}</span>
+            <span>{locale === "th" ? `ค้นหา ${CITY_TOTAL} เมืองและหน้า...` : locale === "zh" ? `搜索 ${CITY_TOTAL} 座城市与页面...` : locale === "ko" ? `${CITY_TOTAL}개 도시 및 페이지 검색...` : locale === "ja" ? `${CITY_TOTAL}都市とページを検索...` : `Search ${CITY_TOTAL} cities and pages...`}</span>
             <kbd>⌘K</kbd>
           </button>
         </div>

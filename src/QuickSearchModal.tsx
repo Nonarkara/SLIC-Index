@@ -1,6 +1,7 @@
 import { type KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import { displayCountry } from "./cityUtils";
 import { rankingPublication } from "./rankingPublication";
+import { CITY_TOTAL } from "./publicationMeta";
 import { navPathLabel } from "./navGroups";
 import type { Locale, SitePath } from "./types";
 
@@ -31,7 +32,7 @@ const searchCopy: Record<
   }
 > = {
   en: {
-    placeholder: "Search 163 cities, metrics, pages (e.g. Bangkok, Raleigh, Map)...",
+    placeholder: "Search {count} cities, metrics, pages (e.g. Bangkok, Raleigh, Map)...",
     allResults: "All Results",
     pages: "Pages & Tools",
     cities: "Cities & Scorecards",
@@ -43,7 +44,7 @@ const searchCopy: Record<
     close: "Close",
   },
   th: {
-    placeholder: "ค้นหา 163 เมือง, ตัวชี้วัด, หน้า (เช่น กรุงเทพ, เชียงใหม่, แผนที่)...",
+    placeholder: "ค้นหา {count} เมือง, ตัวชี้วัด, หน้า (เช่น กรุงเทพ, เชียงใหม่, แผนที่)...",
     allResults: "ผลการค้นหาทั้งหมด",
     pages: "หน้าและเครื่องมือ",
     cities: "เมืองและสรุปคะแนน",
@@ -55,7 +56,7 @@ const searchCopy: Record<
     close: "ปิด",
   },
   zh: {
-    placeholder: "搜索 163 座城市、指标、页面（例如：曼谷、蒙特利尔、地图）...",
+    placeholder: "搜索 {count} 座城市、指标、页面（例如：曼谷、蒙特利尔、地图）...",
     allResults: "所有结果",
     pages: "页面与工具",
     cities: "城市与评分卡",
@@ -67,7 +68,7 @@ const searchCopy: Record<
     close: "关闭",
   },
   ko: {
-    placeholder: "163개 도시, 지표, 페이지 검색 (예: 방콕, 롤리, 지도)...",
+    placeholder: "{count}개 도시, 지표, 페이지 검색 (예: 방콕, 롤리, 지도)...",
     allResults: "모든 결과",
     pages: "페이지 및 도구",
     cities: "도시 및 스코어카드",
@@ -79,7 +80,7 @@ const searchCopy: Record<
     close: "닫기",
   },
   ja: {
-    placeholder: "163都市、指標、ページを検索（例：バンコク、ローリー、マップ）...",
+    placeholder: "{count}都市、指標、ページを検索（例：バンコク、ローリー、マップ）...",
     allResults: "すべての結果",
     pages: "ページとツール",
     cities: "都市とスコアカード",
@@ -323,7 +324,7 @@ export default function QuickSearchModal({
             ref={inputRef}
             type="text"
             className="quick-search-input"
-            placeholder={copy.placeholder}
+            placeholder={copy.placeholder.replace("{count}", String(CITY_TOTAL))}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleInputKeyDown}

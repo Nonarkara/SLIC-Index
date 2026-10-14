@@ -3,6 +3,7 @@ import { collaborationLogos } from "./brandAssets";
 import { pickLocale, type LocalizedRecord } from "./i18n";
 import { navGroups, navGroupLabel, navPathLabel } from "./navGroups";
 import { appHref } from "./routing";
+import { citationLine, dataVintageLine, authorProse, SCORE_MODEL_VERSION_SHORT } from "./publicationMeta";
 import { getCopy } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
 
@@ -28,7 +29,7 @@ const footerEndnoteCopy: LocalizedRecord<{
       "SLIC is intended for public citation, teaching, replication, and critique. Keep the source visible, preserve the declared methodology, and do not imply paid placement or endorsement.",
     creditLabel: "Suggested credit",
     creditBody:
-      "Non Arkara and Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [date], plus the deployment URL used.",
+      `${authorProse("en")}, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [date], plus the deployment URL used.`,
     aiLabel: "Algorithmic and AI disclosure",
     aiBody:
       "The published board is issued from the verified SLIC workbook export. Each city is shown with one public score, five pillar values, and metric-level provenance where available.",
@@ -46,7 +47,7 @@ const footerEndnoteCopy: LocalizedRecord<{
       "SLIC ตั้งใจให้ถูกอ้างถึง ใช้ในการเรียน ทำซ้ำ และวิจารณ์ได้ในที่สาธารณะ เพียงต้องคงแหล่งที่มาและระเบียบวิธีไว้ชัดเจน และห้ามสื่อว่ามีการซื้ออันดับหรือได้รับการรับรองเป็นพิเศษ",
     creditLabel: "รูปแบบเครดิตที่แนะนำ",
     creditBody:
-      "Non Arkara และ Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [วันที่], พร้อม URL ของหน้าที่ใช้งานจริง",
+      `${authorProse("th")}, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [วันที่], พร้อม URL ของหน้าที่ใช้งานจริง`,
     aiLabel: "คำชี้แจงเรื่องอัลกอริทึมและ AI",
     aiBody:
       "บอร์ดที่เผยแพร่ถูกออกจากเวิร์กบุ๊ก SLIC ที่ผ่านการตรวจสอบแล้ว แต่ละเมืองจะแสดงด้วยคะแนนสาธารณะหนึ่งค่า ค่าเสาหลักทั้งห้า และข้อมูลแหล่งที่มาระดับเมตริกเมื่อมีพร้อม",
@@ -64,7 +65,7 @@ const footerEndnoteCopy: LocalizedRecord<{
       "SLIC 本来就允许公开引用、教学使用、复现与批评。只要保留来源、说明方法，并且不要暗示任何付费上榜或额外背书。",
     creditLabel: "建议署名",
     creditBody:
-      "Non Arkara 与 Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [访问日期]，并附上所使用页面的部署 URL。",
+      `${authorProse("zh")}, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [访问日期]，并附上所使用页面的部署 URL。`,
     aiLabel: "算法与 AI 披露",
     aiBody:
       "已发布榜单来自经过核验的 SLIC 工作簿导出。每座城市都显示一个公开分数、五个支柱数值，以及可用时的指标级来源信息。",
@@ -80,7 +81,7 @@ const footerEndnoteCopy: LocalizedRecord<{
     reuseLabel: "재사용 및 출처 표기",
     reuseBody: "SLIC는 공개 인용, 교육, 복제 및 비평을 위해 제공됩니다. 출처를 명확히 하고, 선언된 방법론을 유지하며, 유료 배치나 보증을 암시하지 마세요.",
     creditLabel: "권장 출처 표기",
-    creditBody: "Non Arkara 및 Poon Thiengburanathum 부교수, Smart and Liveable Cities Index (SLIC), 공개 순위 모델, 접속일 [date], 사용된 배포 URL 포함.",
+    creditBody: `${authorProse("ko")}, Smart and Liveable Cities Index (SLIC), 공개 순위 모델, 접속일 [date], 사용된 배포 URL 포함.`,
     aiLabel: "알고리즘 및 AI 공개",
     aiBody: "게시된 보드는 검증된 SLIC 워크북 익스포트에서 발행됩니다. 각 도시는 하나의 공개 점수, 5개의 기둥 값, 그리고 가능한 경우 지표 수준의 출처와 함께 표시됩니다.",
     liveLabel: "지속적 모델",
@@ -93,7 +94,7 @@ const footerEndnoteCopy: LocalizedRecord<{
     reuseLabel: "再利用とクレジット",
     reuseBody: "SLICは、公開引用、教育、複製、および批評を目的としています。情報源を明記し、宣言された方法論を維持し、有料の配置や推奨を暗示しないでください。",
     creditLabel: "推奨されるクレジット",
-    creditBody: "Non Arkara および Poon Thiengburanathum 准教授、Smart and Liveable Cities Index（SLIC）、公開ランキングモデル、アクセス日 [date]、および使用されたデプロイURL。",
+    creditBody: `${authorProse("ja")}、Smart and Liveable Cities Index（SLIC）、公開ランキングモデル、アクセス日 [date]、および使用されたデプロイURL。`,
     aiLabel: "アルゴリズムとAIの開示",
     aiBody: "公開されたボードは、検証済みのSLICワークブックエクスポートから発行されています。各都市は、1つの公開スコア、5つの柱の値、および可能であれば指標レベルの出所とともに表示されます。",
     liveLabel: "継続的モデル",
@@ -184,31 +185,11 @@ export default function SiteFooter({
             ? "サイトナビゲーション"
             : "Site navigation";
 
-  const vintageNote =
-    locale === "th"
-      ? "ข้อมูล: วินเทจปี 2024–2025 · เผยแพร่ครั้งล่าสุด: พฤษภาคม 2026"
-      : locale === "zh"
-        ? "数据：2024–2025 年版本 · 最后发布：2026 年 5 月"
-        : locale === "ko"
-          ? "데이터: 2024–2025 빈티지. 지표는 인덱스 v3.4.0 기준입니다."
-          : locale === "ja"
-            ? "データ：2024〜2025年ビンテージ。指標はインデックスv3.4.0の公開日時点です。"
-            : "Data: 2024–2025 vintage · Last published: May 2026";
-
-  // Juror-scannable one-line citation. Mirrors the long-form 'Suggested credit'
-  // block above but renders as a hairline-bordered mono line on every page.
-  // Year reflects publication year of V3 (2026); refresh annually if methodology
-  // version major-bumps.
-  const citation =
-    locale === "th"
-      ? "อ้างอิงเป็น: Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org"
-      : locale === "zh"
-        ? "建议引用：Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org"
-        : locale === "ko"
-          ? "인용: Non Arkara 및 Poon Thiengburanathum 부교수, Smart and Liveable Cities Index (SLIC) V3, 2026"
-          : locale === "ja"
-            ? "引用：Non Arkara およびPoon Thiengburanathum准教授、Smart and Liveable Cities Index (SLIC) V3、2026"
-            : "Cite as: Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org";
+  // Publication facts come from the bundle, never a literal. The footer used
+  // to claim "Last published: May 2026" while the data was generated 2026-07-04,
+  // and ko/ja stated a different fact again from en/th/zh. See publicationMeta.ts.
+  const vintageNote = dataVintageLine(locale);
+  const citation = citationLine(locale);
 
   return (
     <footer className="site-footer section">
@@ -219,7 +200,7 @@ export default function SiteFooter({
           <p className="site-footer-edition" aria-label="V3 final edition">
             <span className="site-footer-edition-mark">FINAL EDITION</span>
             <span>·</span>
-            <span>INDEX v3.4.0</span>
+            <span>INDEX {SCORE_MODEL_VERSION_SHORT}</span>
           </p>
         </div>
 
