@@ -367,7 +367,8 @@ export default function MethodologyPage({
   const methodology = getMethodologyData(locale);
   const [pdfOpen, setPdfOpen] = useState(false);
   const pdfLocale = locale === "th" || locale === "zh" ? locale : "en";
-  const pdfPath = `${BASE}/downloads/slic-methodology-technical-paper-${pdfLocale}.pdf`;
+  // Old CDN copies retain DENY framing headers; version this policy transition.
+  const pdfPath = `${BASE}/downloads/slic-methodology-technical-paper-${pdfLocale}.pdf?v=frame-self-20261015`;
   const officialEquation = methodology.equationSection.groups[0]?.equations[0];
   const paperAnchors = [
     { href: "#reader-guide", label: ui.guide },
