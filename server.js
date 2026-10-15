@@ -2,6 +2,7 @@ import express from "express";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
 import { readFileSync } from "node:fs";
+import { inspectPath } from "./public/request-policy.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -24,6 +25,15 @@ export function createApp(root = join(__dirname, "dist")) {
     for (const [name, value] of headers) res.setHeader(name, value);
     next();
   });
+  app.use((req, res, next) => {
+    const policy = inspectPath(req.path);
+    if (policy.status !== 200) {
+      res.setHeader("Cache-Control", "no-store");
+      res.status(policy.status).type("text").send(policy.status === 400 ? "Bad request" : "Not found");
+      return;
+    }
+    next();
+  });
 
   // Serve static files from the Vite build output
   app.use(express.static(root, { dotfiles: "deny", index: false }));
@@ -41,6 +51,11 @@ export function createApp(root = join(__dirname, "dist")) {
     }
     res.setHeader("Cache-Control", "no-cache");
     res.sendFile(join(root, "index.html"));
+  });
+  app.use((err, _req, res, _next) => {
+    const status = err.status >= 400 && err.status < 500 ? err.status : 500;
+    res.setHeader("Cache-Control", "no-store");
+    res.status(status).type("text").send(status === 500 ? "Internal server error" : "Bad request");
   });
   return app;
 }

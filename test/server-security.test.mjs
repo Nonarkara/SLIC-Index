@@ -18,12 +18,19 @@ test('static server protects routes, headers, and missing files', async () => {
       assert.equal(response.status, 200);
       assert.equal(response.headers.get('x-powered-by'), null);
       assert.equal(response.headers.get('x-content-type-options'), 'nosniff');
-      assert.equal(response.headers.get('x-frame-options'), 'DENY');
+      assert.equal(response.headers.get('x-frame-options'), 'SAMEORIGIN');
+      assert.match(response.headers.get('content-security-policy'), /frame-ancestors 'self'/);
       assert.match(response.headers.get('content-security-policy'), /object-src 'none'/);
       assert.equal(response.headers.get('cache-control'), 'no-cache');
     }
-    for (const path of ['/assets/missing.js', '/missing.png', '/.env', '/.git/config']) {
+    for (const path of ['/assets/missing.js', '/missing.png', '/.env', '/.git/config', '/%2eenv', '/%2egit%2fconfig', '/_headers', '/_worker.js']) {
       assert.equal((await fetch(base + path)).status, 404);
+    }
+    for (const path of ['/%E0%A4%A', '/%00', '/%5cconfig']) {
+      const response = await fetch(base + path);
+      assert.equal(response.status, 400);
+      assert.equal(await response.text(), 'Bad request');
+      assert.equal(response.headers.get('cache-control'), 'no-store');
     }
     assert.equal((await fetch(base + '/rankings', { headers: { Accept: 'application/json' } })).status, 404);
   } finally {

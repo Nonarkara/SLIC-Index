@@ -32,14 +32,12 @@ const VISITOR_COUNT_URL: string =
 /* ── Geolocation helper ── */
 
 interface GeoData {
-  ip: string;
   country: string;
   region: string;
   city: string;
 }
 
 const UNKNOWN_GEO: GeoData = {
-  ip: "Unknown",
   country: "Unknown",
   region: "Unknown",
   city: "Unknown",
@@ -58,11 +56,13 @@ async function fetchGeo(): Promise<GeoData> {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), GEO_TIMEOUT_MS);
   try {
-    const r = await fetch("https://ipapi.co/json/", { signal: controller.signal });
+    const r = await fetch("https://ipapi.co/json/", {
+      signal: controller.signal,
+      referrerPolicy: "no-referrer",
+    });
     if (r.ok) {
       const d = await r.json();
       return {
-        ip: d.ip ?? "Unknown",
         country: d.country_name ?? "Unknown",
         region: d.region ?? "Unknown",
         city: d.city ?? "Unknown",
@@ -78,36 +78,61 @@ async function fetchGeo(): Promise<GeoData> {
 
 /* ── Track visitor (dual-write) ── */
 
-export async function trackVisitor(page = "/") {
-  if (sessionStorage.getItem("slic_tracked")) return;
+let trackedInMemory = false;
+
+function trackingDisabled(): boolean {
+  const privacyNavigator = navigator as Navigator & { globalPrivacyControl?: boolean; msDoNotTrack?: string };
+  const privacyWindow = window as Window & { doNotTrack?: string };
+  return privacyNavigator.globalPrivacyControl === true ||
+    [navigator.doNotTrack, privacyNavigator.msDoNotTrack, privacyWindow.doNotTrack]
+      .some((value) => value === "1" || value === "yes");
+}
+
+function sanitizedUrl(value: string, originOnly = false): string {
+  try {
+    const url = new URL(value, window.location.origin);
+    if (url.protocol !== "https:" && url.protocol !== "http:") return "";
+    return originOnly ? url.origin : `${url.origin}${url.pathname}`;
+  } catch {
+    return "";
+  }
+}
+
+export async function trackVisitor(page = window.location.href) {
+  if (trackingDisabled() || trackedInMemory) return;
 
   // Mark tracked early to prevent double-fire even if writes fail
-  sessionStorage.setItem("slic_tracked", "true");
+  trackedInMemory = true;
+  try {
+    if (sessionStorage.getItem("slic_tracked")) return;
+    sessionStorage.setItem("slic_tracked", "true");
+  } catch {
+    // Storage can be denied; in-memory deduplication still bounds collection.
+  }
 
   const geo = await fetchGeo();
-  const userAgent = navigator.userAgent;
-  const referrer = document.referrer || "Direct";
+  if (trackingDisabled()) return;
+  const referrer = document.referrer ? sanitizedUrl(document.referrer, true) || "Direct" : "Direct";
+  const safePage = sanitizedUrl(page);
 
   // 1. Google Sheets (fire-and-forget, no-cors)
-  // Send the full set of fields the Apps Script can record so visits via
-  // slic.nonarkara.org are distinguishable from legacy nonarkara.github.io paths.
+  // Keep aggregate geography and sanitized navigation data only. Hostnames
+  // distinguish the custom domain from legacy GitHub Pages paths.
   // `keepalive` lets the request outlive a quick navigation away; the response
   // is opaque either way, so nothing is read back from it.
   fetch(GOOGLE_SHEETS_TRACKING, {
     method: "POST",
     mode: "no-cors",
+    referrerPolicy: "no-referrer",
     keepalive: true,
     headers: { "Content-Type": "text/plain" },
     body: JSON.stringify({
       ...geo,
-      userAgent,
       referrer,
       dashboard: "SLIC",
       hostname: window.location.hostname,
-      page: window.location.href,
+      page: safePage,
       language: navigator.language,
-      screen: `${screen.width}x${screen.height}`,
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
       v: "v3",
     }),
   }).catch(() => {});
@@ -117,13 +142,11 @@ export async function trackVisitor(page = "/") {
     supabase
       .from("visitors")
       .insert({
-        ip: geo.ip,
         country: geo.country,
         region: geo.region,
         city: geo.city,
-        user_agent: userAgent,
         referrer,
-        page,
+        page: safePage,
         version: "v3",
       })
       .then(({ error }) => {
