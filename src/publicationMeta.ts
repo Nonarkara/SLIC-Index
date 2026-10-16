@@ -152,3 +152,56 @@ export function citationLine(locale: Locale): string {
       return `Cite as: ${AUTHOR_APA} (${PUBLISHED_AT_YEAR}). ${title}. slic.nonarkara.org`;
   }
 }
+
+/**
+ * Score distribution across the ranked field.
+ *
+ * The scorecard hero used to hardcode "min 0 · median 49 · max 74" in all five
+ * locales. It happened to be correct on the day it was written, which is exactly
+ * why nothing caught it — a literal has no way to disagree with the bundle, so
+ * it cannot fail loudly, it just goes quietly stale the moment a score moves.
+ * This is the same defect class as the "May 2026" publication date, in a place
+ * nobody was watching.
+ */
+const rankedScores = publishedData.cities
+  .filter((c) => c.rankingStatus === "Ranked" && typeof c.slicScore === "number")
+  .map((c) => c.slicScore as number)
+  .sort((a, b) => a - b);
+
+/** Lowest ranked score, rounded for display. */
+export const SCORE_MIN = rankedScores.length ? Math.round(rankedScores[0]) : 0;
+
+/** Highest ranked score, rounded for display. */
+export const SCORE_MAX = rankedScores.length
+  ? Math.round(rankedScores[rankedScores.length - 1])
+  : 100;
+
+/** Median ranked score, rounded for display. */
+export const SCORE_MEDIAN = (() => {
+  if (!rankedScores.length) return 0;
+  const mid = rankedScores.length >> 1;
+  const value =
+    rankedScores.length % 2
+      ? rankedScores[mid]
+      : (rankedScores[mid - 1] + rankedScores[mid]) / 2;
+  return Math.round(value);
+})();
+
+/**
+ * The dataset band line shown under a city score. Localised template, derived
+ * numbers — the same one-fact-many-renderings contract as the vintage line.
+ */
+export function datasetBandLine(locale: Locale): string {
+  switch (locale) {
+    case "th":
+      return `ชุดข้อมูล: ต่ำสุด ${SCORE_MIN} · มัธยฐาน ${SCORE_MEDIAN} · สูงสุด ${SCORE_MAX}`;
+    case "zh":
+      return `数据集：最低 ${SCORE_MIN} · 中位 ${SCORE_MEDIAN} · 最高 ${SCORE_MAX}`;
+    case "ko":
+      return `데이터셋: 최솟값 ${SCORE_MIN} · 중앙값 ${SCORE_MEDIAN} · 최댓값 ${SCORE_MAX}`;
+    case "ja":
+      return `データセット：最小 ${SCORE_MIN} · 中央値 ${SCORE_MEDIAN} · 最大 ${SCORE_MAX}`;
+    default:
+      return `dataset: min ${SCORE_MIN} · median ${SCORE_MEDIAN} · max ${SCORE_MAX}`;
+  }
+}

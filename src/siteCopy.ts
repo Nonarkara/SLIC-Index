@@ -421,7 +421,7 @@ const siteCopy = {
       coreBoard: "심사 완료 보드",
       extendedField: "후보 도시 전체",
       liveStatus: "공개 순위 게시됨",
-      liveScope: "163개 공개 도시 / 5개 공개 지표 / 검증된 워크북 내보내기",
+      liveScope: "163개 공개 도시 / 5개 공개 기둥 / 검증된 워크북 내보내기",
       localTime: "현지 시간",
     },
     rankings: {
@@ -453,7 +453,7 @@ const siteCopy = {
         "권장 인용: Non Arkara 및 Poon Thiengburanathum 부교수, Smart and Liveable Cities Index (SLIC), 공개 순위 모델, 접근일: [접근 날짜]. 재게시 시 공개 페이지의 배포 URL을 포함하세요.",
       aiLabel: "알고리즘 및 AI 공개",
       aiBody:
-        "이 순위는 검증된 SLIC 워크북 내보내기에서 게시됩니다. 각 도시에는 공개 점수 하나, 5개의 공개 지표, 워크북 수준의 출처가 포함됩니다.",
+        "이 순위는 검증된 SLIC 워크북 내보내기에서 게시됩니다. 각 도시에는 공개 점수 하나, 5개의 공개 기둥, 워크북 수준의 출처가 포함됩니다.",
       liveLabel: "라이브 시스템 노트",
       liveBody:
         "순위는 검증된 워크북 내보내기에서 게시됩니다. 각 도시 번호는 공표된 지표 가중치, 커버리지 등급, 워크북 기반 출처를 통해 추적할 수 있습니다.",
@@ -547,7 +547,7 @@ const siteCopy = {
       coreBoard: "審査済みボード",
       extendedField: "候補都市全体",
       liveStatus: "公開ランキング公開中",
-      liveScope: "公開済み163都市 / 5つの公開指標 / 検証済みワークブックエクスポート",
+      liveScope: "公開済み163都市 / 5つの公開柱 / 検証済みワークブックエクスポート",
       localTime: "現地時刻",
     },
     rankings: {
@@ -579,7 +579,7 @@ const siteCopy = {
         "推奨引用：Non Arkara 及び Poon Thiengburanathum 准教授、Smart and Liveable Cities Index (SLIC)、公開ランキングモデル、アクセス日：[アクセス日]。再掲載時は公開ページの展開URLも含めてください。",
       aiLabel: "アルゴリズムとAIの開示",
       aiBody:
-        "このランキングは検証済みのSLICワークブックエクスポートから公開されています。各都市には公開スコア1つ、5つの公開指標、ワークブックレベルの出典があります。",
+        "このランキングは検証済みのSLICワークブックエクスポートから公開されています。各都市には公開スコア1つ、5つの公開柱、ワークブックレベルの出典があります。",
       liveLabel: "ライブシステムノート",
       liveBody:
         "ランキングは検証済みワークブックエクスポートから公開されます。各都市の数値は宣言された指標ウェイト、カバレッジグレード、ワークブック出典を通じて追跡できます。",

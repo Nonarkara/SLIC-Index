@@ -8,6 +8,7 @@ import { appHref, stripBase } from "./routing";
 import SiteFooter from "./SiteFooter";
 import { t, localeNumberFormat } from "./i18n";
 import { PUBLIC_TIER_RULES } from "./publicTierPolicy.js";
+import { datasetBandLine } from "./publicationMeta";
 import type { Locale, SitePath } from "./types";
 import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
 import type { PillarId } from "./pillars";
@@ -1312,6 +1313,18 @@ export default function CityScorecardPage({
   }
 
   const [copied, setCopied] = useState(false);
+  // The hero already carries a back link. A scorecard is a long read, so a
+  // persistent way back is worth having further down — but rendering it
+  // unconditionally in the flow just looked like the same link twice. It now
+  // reveals only once the hero has scrolled away.
+  const [showBottomNav, setShowBottomNav] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setShowBottomNav(window.scrollY > 560);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -1435,17 +1448,7 @@ export default function CityScorecardPage({
             <div className="scorecard-hero-scores">
               <div className="scorecard-slic-score">{city.slicScore?.toFixed(1) ?? "—"}</div>
               {city.slicScore != null && city.rankingStatus === "Ranked" && (
-                <p className="scorecard-score-context">
-                  {locale === "th"
-                    ? "ชุดข้อมูล: ต่ำสุด 0 · มัธยฐาน 49 · สูงสุด 74"
-                    : locale === "zh"
-                      ? "数据集：最低 0 · 中位 49 · 最高 74"
-                      : locale === "ko"
-                        ? "데이터셋: 최솟값 0 · 중앙값 49 · 최댓값 74"
-                        : locale === "ja"
-                          ? "データセット：最小 0 · 中央値 49 · 最大 74"
-                          : "dataset: min 0 · median 49 · max 74"}
-                </p>
+                <p className="scorecard-score-context">{datasetBandLine(locale)}</p>
               )}
               <div className="scorecard-rank" title={city.tierReason ?? undefined}>
                 {formatRankBand(city.tierLabel, city.rank, city.rankingStatus, locale)}
@@ -1898,16 +1901,18 @@ export default function CityScorecardPage({
         </nav>
       )}
 
-      {/* ── Sticky bottom back button ── */}
-      <div className="scorecard-bottom-nav">
-        <a
-          className="scorecard-back"
-          href={appHref("/rankings")}
-          onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
-        >
-          &larr; {copy.backToAllCities}
-        </a>
-      </div>
+      {/* Persistent way back on a long read — revealed after the hero. */}
+      {showBottomNav && (
+        <div className="scorecard-bottom-nav">
+          <a
+            className="scorecard-back"
+            href={appHref("/rankings")}
+            onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
+          >
+            &larr; {copy.backToAllCities}
+          </a>
+        </div>
+      )}
 
       {copied && (
         <div className="scorecard-toast" role="alert" aria-live="polite">
