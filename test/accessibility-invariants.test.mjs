@@ -470,3 +470,72 @@ test("city-count claims are derived from the bundle, not typed by hand", () => {
     );
   }
 });
+
+/**
+ * The Wada palette darkened two hues the old 27% lift and 10% text-shade were
+ * calibrated for. Capability (#12354e) numbers on the dark allocator fell to
+ * 3.38:1, and Pressure (#d96629) numbers on the cream rankings page fell to
+ * 3.95:1. White on the amber Beta chip was 2.13:1. These tests recompute the
+ * mixes from the live tokens and the pillar hexes, so retuning either side
+ * without the other fails here instead of on the page.
+ */
+function pillarHex(id) {
+  const source = readFileSync(path.join(ROOT, "src/pillars.ts"), "utf8");
+  const match = source.match(new RegExp(`${id}:\\s*"(#[0-9a-fA-F]{6})"`));
+  assert.ok(match, `expected a ${id} hex in pillars.ts`);
+  return hex(match[1]);
+}
+
+const mixToward = (rgb, target, amount) =>
+  rgb.map((c, i) => Math.round(c * (1 - amount) + target[i] * amount));
+
+test("amber-filled rules never set white text", () => {
+  const offenders = [];
+  for (const m of CSS.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+    const body = m[2];
+    const amberFill = /background(?:-color)?\s*:\s*var\(\s*--accent-amber\s*\)/.test(body);
+    const whiteText = /(?:^|;)\s*color\s*:\s*(#fff\b|#ffffff\b|white\b)/i.test(body);
+    if (amberFill && whiteText) offenders.push(m[1].replace(/\s+/g, " ").trim());
+  }
+  assert.deepEqual(offenders, []);
+});
+
+test("beta badge ink clears 4.5:1 on the amber chip", () => {
+  const block = CSS.match(/\.v3-tier-badge--beta\s*\{([^}]*)\}/);
+  assert.ok(block, "expected .v3-tier-badge--beta");
+  const color = block[1].match(/(?:^|;)\s*color\s*:\s*([^;]+)/);
+  assert.ok(color, "beta badge must set a color");
+  const ratio = contrast(resolveColour(color[1]), resolveColour(tokenValue("--accent-amber")));
+  assert.ok(ratio >= 4.5, `beta badge text is ${ratio.toFixed(2)}:1 on amber`);
+});
+
+test("pillar numbers clear 4.5:1 on both allocator surfaces", () => {
+  const shade = parseFloat(tokenValue("--pillar-text-shade")) / 100;
+  assert.ok(shade > 0 && shade < 1, "expected a --pillar-text-shade percentage");
+  const dark = CSS.match(/\.v3-spider-full\s*,\s*\.compare-spider-widget\s*\{([^}]*)\}/);
+  assert.ok(dark, "expected the dark allocator token block");
+  const liftDecl = dark[1].match(/--pillar-lift\s*:\s*([\d.]+)%/);
+  assert.ok(liftDecl, "dark allocator must set --pillar-lift");
+  const lift = parseFloat(liftDecl[1]) / 100;
+
+  const cream = resolveColour(tokenValue("--bg"));
+  const ink = resolveColour(tokenValue("--text"));
+  const pressureOnCream = contrast(mixToward(pillarHex("pressure"), [0, 0, 0], shade), cream);
+  const capabilityOnInk = contrast(mixToward(pillarHex("capability"), [255, 255, 255], lift), ink);
+
+  assert.ok(
+    pressureOnCream >= 4.5,
+    `pressure text on cream is ${pressureOnCream.toFixed(2)}:1 at shade ${shade}`,
+  );
+  assert.ok(
+    capabilityOnInk >= 4.5,
+    `capability text on ink is ${capabilityOnInk.toFixed(2)}:1 at lift ${lift}`,
+  );
+});
+
+test("the hero masthead search trigger is painted for the dark scrim", () => {
+  const block = CSS.match(/\.mh--hero:not\(\.mh--scrolled\) \.mh-search-btn\s*\{([^}]*)\}/);
+  assert.ok(block, "hero search button needs its own color; the base rule is cream-ground ink");
+  assert.match(block[1], /color:\s*#f8f5f0|color:\s*var\(\s*--text-inverse\s*\)/);
+  assert.ok(tokenValue("--border-inverse"), "ink controls need a defined inverse border");
+});
