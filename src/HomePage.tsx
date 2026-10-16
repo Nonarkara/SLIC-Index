@@ -600,11 +600,11 @@ export default function HomePage({
         <h2 className="hp-launch-trail-title">
           {t(
             locale,
-            "A city ranking is only useful if it enters the rooms where city decisions get made. Here is where SLIC has gone — Taipei, Singapore, Hong Kong, Shanghai, Osaka.",
-            "ดัชนีเมืองมีประโยชน์ก็ต่อเมื่อได้เข้าสู่ห้องที่การตัดสินใจเรื่องเมืองเกิดขึ้นจริง นี่คือที่ที่ SLIC ไปมาแล้ว — ไทเป สิงคโปร์ ฮ่องกง เซี่ยงไฮ้ โอซาก้า",
-            "城市排名只有进入真正做城市决策的场合才有意义。这里是 SLIC 已经去过的地方——台北、新加坡、香港、上海、大阪。",
-            "도시 순위는 도시 결정이 이루어지는 공간에 진입해야만 유용합니다. 이곳이 SLIC가 다녀온 곳입니다 — 타이베이, 싱가포르, 홍콩, 상하이, 오사카.",
-            "都市ランキングは、都市の意思決定が行われる場に入って初めて役立ちます。ここがSLICが行った場所——台北、シンガポール、香港、上海、大阪です。",
+            "A city ranking is only useful if it enters the rooms where city decisions get made. Here is where this work has gone — Taipei, Singapore, Hong Kong, Shanghai, Osaka.",
+            "ดัชนีเมืองมีประโยชน์ก็ต่อเมื่อได้เข้าสู่ห้องที่การตัดสินใจเรื่องเมืองเกิดขึ้นจริง นี่คือที่ที่งานชุดนี้ไปมาแล้ว — ไทเป สิงคโปร์ ฮ่องกง เซี่ยงไฮ้ โอซาก้า",
+            "城市排名只有进入真正做城市决策的场合才有意义。这里是这项工作已经去过的地方——台北、新加坡、香港、上海、大阪。",
+            "도시 순위는 도시 결정이 이루어지는 공간에 진입해야만 유용합니다. 이곳이 이 작업이 다녀온 곳입니다 — 타이베이, 싱가포르, 홍콩, 상하이, 오사카.",
+            "都市ランキングは、都市の意思決定が行われる場に入って初めて役立ちます。ここがこの取り組みが届いた場所——台北、シンガポール、香港、上海、大阪です。",
           )}
         </h2>
         <div className="hp-launch-trail-grid">
