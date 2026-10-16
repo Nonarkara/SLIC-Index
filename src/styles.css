@@ -2512,8 +2512,17 @@ section[id] {
 
 .hp-launch-trail-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(6, 1fr);
   gap: 2rem;
+}
+
+/* Five stops: three across, then two wider cards underneath. */
+.hp-launch-trail-grid > .hp-launch-event {
+  grid-column: span 2;
+}
+
+.hp-launch-trail-grid > .hp-launch-event:nth-child(n + 4) {
+  grid-column: span 3;
 }
 
 .hp-launch-event {
@@ -2599,11 +2608,24 @@ section[id] {
   .hp-launch-trail-grid {
     grid-template-columns: 1fr 1fr;
   }
+
+  .hp-launch-trail-grid > .hp-launch-event,
+  .hp-launch-trail-grid > .hp-launch-event:nth-child(n + 4) {
+    grid-column: auto;
+  }
+
+  .hp-launch-trail-grid > .hp-launch-event:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 600px) {
   .hp-launch-trail-grid {
     grid-template-columns: 1fr;
+  }
+
+  .hp-launch-trail-grid > .hp-launch-event:last-child:nth-child(odd) {
+    grid-column: auto;
   }
 
   .hp-launch-event-photo img {

@@ -91,6 +91,9 @@ const STAGE_PHOTO = `${BASE}/launch-photos/20260318145249_ABC01948.jpg`;
 const SHOWFLOOR_PHOTO = `${BASE}/launch-photos/20260318151147_DSC09510.jpg`;
 const GITEX_STAGE_PHOTO = `${BASE}/launch-photos/gitex-singapore-2026-02.jpg`;
 const LEAP_EAST_PHOTO = `${BASE}/launch-photos/leap-east-hong-kong-2026.png`;
+// Real stage photos, copied from the axiom.nonarkara.org repo (public/images/*.webp).
+const SHANGHAI_STAGE_PHOTO = `${BASE}/launch-photos/tomorrow-city-shanghai-2026.webp`;
+const OSAKA_STAGE_PHOTO = `${BASE}/launch-photos/osaka-asia-roundtable-2026.webp`;
 
 const severityClass: Record<string, string> = {
   severe: "tradeoff-card tradeoff-card--severe",
@@ -597,11 +600,11 @@ export default function HomePage({
         <h2 className="hp-launch-trail-title">
           {t(
             locale,
-            "A city ranking is only useful if it enters the rooms where city decisions get made. Here is where SLIC has gone — Taipei, Singapore, Hong Kong.",
-            "ดัชนีเมืองมีประโยชน์ก็ต่อเมื่อได้เข้าสู่ห้องที่การตัดสินใจเรื่องเมืองเกิดขึ้นจริง นี่คือที่ที่ SLIC ไปมาแล้ว — ไทเป สิงคโปร์ ฮ่องกง",
-            "城市排名只有进入真正做城市决策的场合才有意义。这里是 SLIC 已经去过的地方——台北、新加坡、香港。",
-            "도시 순위는 도시 결정이 이루어지는 공간에 진입해야만 유용합니다. 이곳이 SLIC가 다녀온 곳입니다 — 타이베이, 싱가포르, 홍콩.",
-            "都市ランキングは、都市の意思決定が行われる場に入って初めて役立ちます。ここがSLICが行った場所——台北、シンガポール、香港です。",
+            "A city ranking is only useful if it enters the rooms where city decisions get made. Here is where this work has gone — Taipei, Singapore, Hong Kong, Shanghai, Osaka.",
+            "ดัชนีเมืองมีประโยชน์ก็ต่อเมื่อได้เข้าสู่ห้องที่การตัดสินใจเรื่องเมืองเกิดขึ้นจริง นี่คือที่ที่งานชุดนี้ไปมาแล้ว — ไทเป สิงคโปร์ ฮ่องกง เซี่ยงไฮ้ โอซาก้า",
+            "城市排名只有进入真正做城市决策的场合才有意义。这里是这项工作已经去过的地方——台北、新加坡、香港、上海、大阪。",
+            "도시 순위는 도시 결정이 이루어지는 공간에 진입해야만 유용합니다. 이곳이 이 작업이 다녀온 곳입니다 — 타이베이, 싱가포르, 홍콩, 상하이, 오사카.",
+            "都市ランキングは、都市の意思決定が行われる場に入って初めて役立ちます。ここがこの取り組みが届いた場所——台北、シンガポール、香港、上海、大阪です。",
           )}
         </h2>
         <div className="hp-launch-trail-grid">
@@ -669,6 +672,63 @@ export default function HomePage({
               )}</p>
             </div>
           </div>
+          <div className="hp-launch-event">
+            <div className="hp-launch-event-photo">
+              <img
+                src={SHANGHAI_STAGE_PHOTO}
+                alt={t(
+                  locale,
+                  "Tomorrow.City Shanghai 2026 — FloodDash running live on the cube screen",
+                  "Tomorrow.City เซี่ยงไฮ้ 2026 — FloodDash ทำงานจริงบนจอคิวบ์",
+                  "2026 上海 Tomorrow.City —— FloodDash 在立方屏上现场运行",
+                  "2026 상하이 Tomorrow.City — 큐브 스크린에서 실시간으로 작동하는 FloodDash",
+                  "Tomorrow.City上海2026——キューブスクリーンでライブ稼働するFloodDash",
+                )}
+                loading="lazy"
+              />
+            </div>
+            <div className="hp-launch-event-meta">
+              <span className="hp-launch-event-tag">{t(locale, "Shanghai", "เซี่ยงไฮ้", "上海", "상하이", "上海")}</span>
+              <span className="hp-launch-event-date">{t(locale, "September 2026", "กันยายน 2026", "2026年9月", "2026년 9월", "2026年9月")}</span>
+              <p>{t(
+                locale,
+                "Tomorrow.City Shanghai 2026, Zhangjiang Science Hall — keynote, live demo and panel, a fourth appearance on this stage. FloodDash ran live on the cube screen.",
+                "Tomorrow.City Shanghai 2026, Zhangjiang Science Hall — keynote สาธิตสด และวงเสวนา ขึ้นเวทีนี้เป็นครั้งที่สี่ FloodDash ทำงานจริงบนจอคิวบ์",
+                "2026 上海 Tomorrow.City，张江科学会堂——主旨演讲、现场演示与圆桌，第四次登上这个舞台。FloodDash 在立方屏上现场运行。",
+                "Tomorrow.City Shanghai 2026, 장장 과학회당 — 기조연설, 라이브 데모, 패널. 이 무대 네 번째 출연. FloodDash가 큐브 스크린에서 실시간 작동.",
+                "Tomorrow.City上海2026、張江科学会堂——基調講演・ライブデモ・パネル、この舞台は4回目。FloodDashがキューブスクリーンでライブ稼働。",
+              )}</p>
+            </div>
+          </div>
+
+          <div className="hp-launch-event">
+            <div className="hp-launch-event-photo">
+              <img
+                src={OSAKA_STAGE_PHOTO}
+                alt={t(
+                  locale,
+                  "Dr Non speaking at the Osaka Asia Roundtable 2026",
+                  "ดร.นนท์ บรรยายที่งาน Osaka Asia Roundtable 2026",
+                  "Non 博士在 2026 大阪亚洲圆桌会议上发言",
+                  "2026 오사카 아시아 라운드테이블에서 발표하는 Non 박사",
+                  "大阪アジア・ラウンドテーブル2026で講演するNon博士",
+                )}
+                loading="lazy"
+              />
+            </div>
+            <div className="hp-launch-event-meta">
+              <span className="hp-launch-event-tag">{t(locale, "Osaka", "โอซาก้า", "大阪", "오사카", "大阪")}</span>
+              <span className="hp-launch-event-date">{t(locale, "October 2026", "ตุลาคม 2026", "2026年10月", "2026년 10월", "2026年10月")}</span>
+              <p>{t(
+                locale,
+                "Osaka Asia Roundtable 2026, Osaka Metropolitan University (Morinomiya) — keynote, case study and panel. DEPA flood monitoring and urban operations dashboards, live.",
+                "Osaka Asia Roundtable 2026, มหาวิทยาลัยโอซาก้าเมโทรโพลิแทน (วิทยาเขตโมริโนมิยะ) — keynote กรณีศึกษา และวงเสวนา แดชบอร์ดเฝ้าระวังน้ำท่วมและบริหารเมืองของ DEPA ทำงานจริง",
+                "2026 大阪亚洲圆桌会议，大阪公立大学（森之宫校区）——主旨演讲、国别案例与圆桌。DEPA 洪水监测与城市运营仪表盘现场运行。",
+                "Osaka Asia Roundtable 2026, 오사카 공립대학교(모리노미야) — 기조연설, 사례 발표, 패널. DEPA 홍수 모니터링 및 도시 운영 대시보드 실시간 시연.",
+                "大阪アジア・ラウンドテーブル2026、大阪公立大学（森之宮）——基調講演・事例・パネル。DEPAの洪水監視と都市運営ダッシュボードをライブで。",
+              )}</p>
+            </div>
+          </div>
         </div>
 
         <div className="hp-launch-reach">
@@ -679,15 +739,15 @@ export default function HomePage({
             </span>
           </div>
           <div className="hp-launch-reach-stat">
-            <span className="hp-launch-reach-number">3</span>
+            <span className="hp-launch-reach-number">5</span>
             <span className="hp-launch-reach-label">
               {t(
                 locale,
-                "cities on the live trail — Taipei, Singapore, Hong Kong",
-                "เมืองบนเส้นทางสด — ไทเป สิงคโปร์ ฮ่องกง",
-                "现场行迹三城——台北、新加坡、香港",
-                "라이브 트레일 3개 도시 — 타이베이, 싱가포르, 홍콩",
-                "ライブ・トレイル3都市——台北、シンガポール、香港",
+                "cities on the live trail — Taipei, Singapore, Hong Kong, Shanghai, Osaka",
+                "เมืองบนเส้นทางสด — ไทเป สิงคโปร์ ฮ่องกง เซี่ยงไฮ้ โอซาก้า",
+                "现场行迹五城——台北、新加坡、香港、上海、大阪",
+                "라이브 트레일 5개 도시 — 타이베이, 싱가포르, 홍콩, 상하이, 오사카",
+                "ライブ・トレイル5都市——台北、シンガポール、香港、上海、大阪",
               )}
             </span>
           </div>
