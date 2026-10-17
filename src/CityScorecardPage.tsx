@@ -1830,7 +1830,7 @@ export default function CityScorecardPage({
                 const cov = city[pillarCoverageKey(p)] as number | null;
                 return (
                   <div key={p} className="scorecard-transparency-stat">
-                    <strong style={{ color: PILLAR_COLORS[p] }}>{Math.round((cov ?? 0) * 100)}%</strong>
+                    <strong className="scorecard-transparency-pct" style={{ "--pillar": PILLAR_COLORS[p] } as CSSProperties}>{Math.round((cov ?? 0) * 100)}%</strong>
                     <span>{PILLAR_LABELS[locale]?.[p] ?? PILLAR_LABELS.en[p]}</span>
                   </div>
                 );

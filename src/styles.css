@@ -2467,6 +2467,40 @@ section[id] {
   overflow: hidden;
 }
 
+/* Legibility scrim. The caption is absolutely positioned over the photograph and
+   paints white on whatever the frame happens to contain — on the Taipei shot
+   that is open sky (rgb(155,198,214)), which measured 1.84:1. A text-shadow
+   softens glyph edges but contributes nothing to measured contrast, so the
+   caption band is darkened instead. Functional, not decorative: it exists so
+   the caption is readable over any photograph in the set. */
+.hp-photo-break::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 64%;
+  /* Below the caption, above the photograph. Generated content is the last
+     child, so without this the scrim composites over the text itself and
+     greys the glyphs instead of darkening what sits behind them. */
+  z-index: 1;
+  /* Calibrated against both home photographs. The opaque band is held through
+     the caption's own line box (bottom ~20% of the frame) and released above it,
+     so a caption over a bright subject still clears 4.5:1 while the upper two
+     thirds of the photograph stay untouched. */
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.84) 16%,
+    rgba(0, 0, 0, 0.62) 30%,
+    rgba(0, 0, 0, 0.26) 46%,
+    transparent 68%
+  );
+  pointer-events: none;
+}
+
+.hp-photo-caption {
+  z-index: 2;
+}
+
 .hp-photo-break-img {
   width: 100%;
   height: 46vh;
@@ -7789,6 +7823,14 @@ details[open].scorecard-derived-formula summary::before {
   line-height: 1;
 }
 
+/* Pillar coverage renders the pillar hue as TEXT on cream. Raw pressure
+   (#d96629) measures 3.27:1 and 22px/600 is not WCAG "large", so the floor is
+   4.5:1. --pillar-ink-text applies the project's existing 24% shade, which
+   puts pressure at 5.19:1 and every other pillar higher still. */
+.scorecard-transparency-pct {
+  color: var(--pillar-ink-text);
+}
+
 .scorecard-transparency-stat span {
   font-size: 11px;
   color: var(--text-dim);
@@ -8605,7 +8647,8 @@ details[open].scorecard-derived-formula summary::before {
    the hue toward white so the numbers, handles and bars clear WCAG AA. */
 .spider-slider-row,
 .allocator-node,
-.scorecard-equation-pillar {
+.scorecard-equation-pillar,
+.scorecard-transparency-pct {
   --pillar-ink: color-mix(in srgb, var(--pillar), white var(--pillar-lift));
   --pillar-ink-text: color-mix(in srgb, var(--pillar-ink), black var(--pillar-text-shade));
 }
@@ -11654,7 +11697,10 @@ html[lang="th"] .hp-lede {
   font-family: var(--font-mono);
   font-size: 11px;
   letter-spacing: 0.08em;
-  color: rgba(248, 245, 240, 0.45);
+  /* 0.45 sat at 3.98:1 over the hero photograph — under the 4.5:1 floor. This is
+     the attribution line, not decoration, and it sits on an image whose local
+     brightness varies. Matched to .essay-subtitle. */
+  color: rgba(248, 245, 240, 0.72);
   margin: 0;
   text-transform: uppercase;
 }

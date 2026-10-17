@@ -18,6 +18,23 @@ import type { PillarId } from "./pillars";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
+/**
+ * Quick-search label. Serves as both the visible placeholder and the accessible
+ * name: a placeholder on its own is not a persistent label — it disappears on
+ * the first keystroke and leaves the field unnamed for anyone who then tabs
+ * back to it (WCAG 3.3.2). One function so the two cannot drift apart.
+ */
+const cityFilterLabel = (locale: Locale): string =>
+  locale === "th"
+    ? "ค้นหา/กรองเมือง..."
+    : locale === "zh"
+      ? "过滤城市..."
+      : locale === "ko"
+        ? "도시 필터링..."
+        : locale === "ja"
+          ? "都市を絞り込む..."
+          : "Filter cities...";
+
 
 type MatchedCity = FullRankedCity & {
   customScore: number;
@@ -922,7 +939,8 @@ export default function RankingsPage({
                         type="text"
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        placeholder={locale === "th" ? "ค้นหา/กรองเมือง..." : locale === "zh" ? "过滤城市..." : locale === "ko" ? "도시 필터링..." : locale === "ja" ? "都市を絞り込む..." : "Filter cities..."}
+                        placeholder={cityFilterLabel(locale)}
+                        aria-label={cityFilterLabel(locale)}
                         style={{
                           background: "rgba(28, 25, 20, 0.04)",
                           border: "1px solid var(--border)",

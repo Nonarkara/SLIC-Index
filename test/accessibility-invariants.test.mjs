@@ -38,6 +38,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const CSS_RAW = readFileSync(path.join(ROOT, "src/styles.css"), "utf8");
+const RANKINGS = readFileSync(path.join(ROOT, "src/RankingsPage.tsx"), "utf8");
 
 /**
  * Strip CSS comments before any parsing. styles.css carries design rationale
@@ -538,4 +539,34 @@ test("the hero masthead search trigger is painted for the dark scrim", () => {
   assert.ok(block, "hero search button needs its own color; the base rule is cream-ground ink");
   assert.match(block[1], /color:\s*#f8f5f0|color:\s*var\(\s*--text-inverse\s*\)/);
   assert.ok(tokenValue("--border-inverse"), "ink controls need a defined inverse border");
+});
+
+test("the quick-search field has a label that outlives its placeholder", () => {
+  // The field had only a placeholder. Chrome derives an accessible name from
+  // it, so 4.1.2 passed, but the name vanishes the moment the user types —
+  // tab back to the field and a screen reader announces an unlabelled textbox.
+  // The label is now explicit and comes from the same function as the
+  // placeholder, so the two cannot drift apart across the five locales.
+  assert.match(
+    RANKINGS,
+    /const cityFilterLabel\s*=\s*\(\s*locale\s*:\s*Locale\s*\)/,
+    "a single localized label helper must own the quick-search wording",
+  );
+  assert.match(
+    RANKINGS,
+    /aria-label=\{cityFilterLabel\(locale\)\}/,
+    "the quick-search input needs an explicit aria-label",
+  );
+  assert.match(
+    RANKINGS,
+    /placeholder=\{cityFilterLabel\(locale\)\}/,
+    "the placeholder must come from the same helper, not a duplicated ternary",
+  );
+
+  // All five locales must be covered or the label silently falls back to English.
+  const helper = RANKINGS.slice(RANKINGS.indexOf("const cityFilterLabel"), RANKINGS.indexOf("const cityFilterLabel") + 700);
+  for (const [locale, needle] of [["th", "ค้นหา"], ["zh", "过滤"], ["ko", "도시"], ["ja", "都市"]]) {
+    assert.ok(helper.includes(`"${locale}"`), `cityFilterLabel is missing the ${locale} branch`);
+    assert.ok(helper.includes(needle), `cityFilterLabel ${locale} branch has no recognisable label`);
+  }
 });
