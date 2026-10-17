@@ -329,11 +329,13 @@ export default function AwardsPage({
       label: t(locale, "Visitor reach", "ผู้เข้าชม", "访问量", "방문자 도달", "訪問者リーチ"),
       placeholder: t(
         locale,
-        "Live visitor count appears on the homepage; geographic distribution stays internal until exported with a citable analytics snapshot.",
-        "จำนวนผู้เข้าชมแบบสดแสดงบนหน้าแรก ส่วนการกระจายเชิงภูมิศาสตร์เก็บไว้ภายในจนกว่าจะมี snapshot analytics ที่อ้างอิงได้",
-        "首页显示实时访问量；地理分布在导出可引用的分析快照前保持内部使用。",
-        "실시간 방문자 수는 홈페이지에 표시됩니다. 지리적 분포는 인용 가능한 분석 스냅샷으로 내보낼 때까지 내부 보관됩니다.",
-        "ライブ訪問者数はホームページに表示されます。地理的分布は引用可能な分析スナップショットとしてエクスポートするまで内部使用に留めます。",
+        // The homepage renders a live count only when the deployment supplies a
+        // count endpoint; none is configured, so this must not assert it is up.
+        "A live visitor count appears on the homepage only when the site is deployed with a count endpoint; the current deployment has none, so no number is shown. Geographic distribution stays internal until exported with a citable analytics snapshot.",
+        "จำนวนผู้เข้าชมแบบสดจะแสดงบนหน้าแรกเมื่อไซต์ถูก deploy พร้อม count endpoint เท่านั้น การ deploy ปัจจุบันไม่มี จึงไม่แสดงตัวเลข ส่วนการกระจายเชิงภูมิศาสตร์เก็บไว้ภายในจนกว่าจะมี snapshot analytics ที่อ้างอิงได้",
+        "实时访问量仅在站点部署了计数端点时才显示在首页；当前部署没有配置，因此不显示数字。地理分布在导出可引用的分析快照前保持内部使用。",
+        "실시간 방문자 수는 사이트에 카운트 엔드포인트가 구성된 경우에만 홈페이지에 표시됩니다. 현재 배포에는 구성되어 있지 않아 숫자가 표시되지 않습니다. 지리적 분포는 인용 가능한 분석 스냅샷으로 내보낼 때까지 내부 보관됩니다.",
+        "ライブ訪問者数は、カウントエンドポイントを設定したデプロイでのみホームページに表示されます。現在のデプロイには設定されていないため、数字は表示されません。地理的分布は引用可能な分析スナップショットとしてエクスポートするまで内部使用に留めます。",
       ),
     },
     {

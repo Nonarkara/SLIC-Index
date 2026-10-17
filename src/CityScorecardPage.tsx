@@ -1379,6 +1379,13 @@ export default function CityScorecardPage({
     label: PILLAR_LABELS[locale]?.[p] ?? PILLAR_LABELS.en[p],
   }));
   const isPublished = city.publicationStatus !== "exercise";
+
+  // Coverage grade is a closed vocabulary. Anything else in that field is a
+  // producer bug, not a grade, and must not reach the reader as one.
+  const COVERAGE_GRADES = new Set(["A", "B", "C"]);
+  const coverageGrade = COVERAGE_GRADES.has(String(city.coverageGrade ?? ""))
+    ? (city.coverageGrade as string)
+    : null;
   const cityCtx = CITY_CONTEXT[city.cityId];
   const peers = isPublished ? findComparableCities(city, rankedCities) : [];
   const cityEditorial = getCityEditorialEntry(city.cityId);
@@ -1466,11 +1473,20 @@ export default function CityScorecardPage({
                   </span>
                 )}
               </div>
-              {isPublished ? (
-                <span className={`scorecard-grade scorecard-grade--${city.coverageGrade?.toLowerCase()}`}>
-                  {city.coverageGrade} {copy.coverageSuffix}
+              {/* Coverage grade is a closed vocabulary: A full, B (-5), C (-15 provisional).
+                  tw-taichung ships coverageGrade "Watchlist" — a ranking status in a
+                  coverage field — which rendered as "WATCHLIST COVERAGE" under a
+                  `scorecard-grade--watchlist` class that no stylesheet defines, so
+                  the badge fell back to base styling with a light-theme border on a
+                  dark hero. The rank line above already says "Watchlist" and the
+                  tier bridge below explains it, so the third, wrong statement is the
+                  one to drop. Any out-of-vocabulary grade is withheld rather than
+                  rendered unstyled. */}
+              {coverageGrade ? (
+                <span className={`scorecard-grade scorecard-grade--${coverageGrade.toLowerCase()}`}>
+                  {coverageGrade} {copy.coverageSuffix}
                 </span>
-              ) : (
+              ) : isPublished ? null : (
                 <span className="scorecard-grade scorecard-grade--exercise">
                   {copy.exploratoryField}
                 </span>

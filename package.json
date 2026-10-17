@@ -17,11 +17,13 @@
     "check:methodology": "node scripts/check-methodology-drift.mjs",
     "check:translations": "node scripts/check_translations.mjs",
     "check:csv": "node scripts/update-csv.mjs --check",
+    "check:audit": "node scripts/audit-data-integrity.mjs",
+    "refresh:hashes": "node scripts/refresh-manifest-hashes.mjs",
     "fixture:benchmarks": "node scripts/update-publication-benchmark-fixture.mjs",
     "methodology:pdf": "python3 scripts/generate_methodology_pdf.py",
     "test": "node --test test/*.test.mjs",
     "verify": "npm run typecheck && npm run build && npm test",
-    "verify:release": "npm run verify && npm run check:publication && npm run check:csv && npm run check:methodology && npm run check:translations",
+    "verify:release": "npm run verify && npm run check:publication && npm run check:csv && npm run check:methodology && npm run check:translations && npm run check:audit",
     "verify:math": "npm run rescore && npm run check:publication && npm run check:methodology && npm test"
   },
   "dependencies": {
