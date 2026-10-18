@@ -9,8 +9,21 @@
 
 import { supabase } from "./supabaseClient";
 
-const GOOGLE_SHEETS_TRACKING =
-  "https://script.google.com/macros/s/AKfycbwzTwBNOseKkvkkjD-LH6B3GWrsFcwS6MTDbn7W5eb3zHxA-swtlHYuwJ3w5PAVXDhU7Q/exec";
+/**
+ * Write-side Apps Script endpoint. Unset by default, on purpose.
+ *
+ * The previous hard-coded deployment
+ * (https://script.google.com/macros/s/AKfycbwzTwBNOseKkvkkjD-LH6B3GWrsFcwS6MTDbn7W5eb3zHxA-swtlHYuwJ3w5PAVXDhU7Q/exec)
+ * answers every POST with HTTP 401 because its access setting is not
+ * "Anyone". The browser logs that 401 as a console error on every new
+ * session, no row is ever written, and the visitor's IP was still sent to
+ * ipapi.co for a geo lookup nobody stored. A failed network request cannot be
+ * silenced from JS (fetch, no-cors and sendBeacon all log it), so the only
+ * quiet option is not to make it. Set VITE_SHEETS_TRACKING_URL at build time
+ * to a deployment that accepts anonymous POSTs and tracking resumes.
+ */
+const GOOGLE_SHEETS_TRACKING: string =
+  (import.meta.env.VITE_SHEETS_TRACKING_URL as string | undefined) ?? "";
 
 /**
  * Read-side endpoint for the live visitor count. Unset by default, on purpose.
@@ -100,6 +113,8 @@ function sanitizedUrl(value: string, originOnly = false): string {
 
 export async function trackVisitor(page = window.location.href) {
   if (trackingDisabled() || trackedInMemory) return;
+  // No sink configured: make no request at all, including the geo lookup.
+  if (!GOOGLE_SHEETS_TRACKING && !supabase) return;
 
   // Mark tracked early to prevent double-fire even if writes fail
   trackedInMemory = true;
@@ -120,7 +135,7 @@ export async function trackVisitor(page = window.location.href) {
   // distinguish the custom domain from legacy GitHub Pages paths.
   // `keepalive` lets the request outlive a quick navigation away; the response
   // is opaque either way, so nothing is read back from it.
-  fetch(GOOGLE_SHEETS_TRACKING, {
+  if (GOOGLE_SHEETS_TRACKING) fetch(GOOGLE_SHEETS_TRACKING, {
     method: "POST",
     mode: "no-cors",
     referrerPolicy: "no-referrer",
