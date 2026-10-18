@@ -66,10 +66,11 @@ test('real bootstrap restores legacy routes once and stays same-origin', () => {
   }
 });
 
-function trackingHarness({ privacy = {}, storageDenial = '', geoFails = false } = {}) {
+function trackingHarness({ privacy = {}, storageDenial = '', geoFails = false, sheetsUrl = 'https://sheets.invalid/exec', supabase = true } = {}) {
   const requests = [], rows = [], stored = new Map();
   const context = {
     countUrl: 'https://count.invalid/',
+    sheetsUrl,
     navigator: { language: 'en', ...privacy },
     window: { location: new URL('https://site.invalid/city/bangkok?private=QUERY#FRAGMENT') },
     document: { referrer: 'https://referrer.invalid/private?private=REFERRER#HIDDEN' },
@@ -89,10 +90,10 @@ function trackingHarness({ privacy = {}, storageDenial = '', geoFails = false } 
       }
       return { ok: true, json: async () => ({ count: 42, countries: [] }) };
     },
-    require: () => ({ supabase: { from: () => ({
+    require: () => ({ supabase: supabase ? { from: () => ({
       insert: (row) => { rows.push(row); return Promise.resolve({ error: null }); },
       select: async () => ({ count: 42, error: null }),
-    }) } }),
+    }) } : null }),
   };
   // Preserve the throwing storage accessor while constructing the VM globals.
   const storageDescriptor = Object.getOwnPropertyDescriptor(context, 'sessionStorage');
@@ -103,7 +104,8 @@ function trackingHarness({ privacy = {}, storageDenial = '', geoFails = false } 
 
 function executeTracking(context, storageDescriptor) {
   const source = readFileSync(new URL('../src/visitorTracking.ts', import.meta.url), 'utf8')
-    .replaceAll('import.meta.env.VITE_VISITOR_COUNT_URL', 'globalThis.countUrl');
+    .replaceAll('import.meta.env.VITE_VISITOR_COUNT_URL', 'globalThis.countUrl')
+    .replaceAll('import.meta.env.VITE_SHEETS_TRACKING_URL', 'globalThis.sheetsUrl');
   const { outputText } = ts.transpileModule(source, {
     compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.CommonJS },
   });
@@ -157,4 +159,18 @@ test('storage denial and failed geo lookup do not reject or duplicate tracking',
     assert.equal(rows.length, 1);
     assert.equal(rows[0].country, 'Unknown');
   }
+});
+
+test('with no Sheets URL and no Supabase, tracking makes no request at all', async () => {
+  const { api, requests, rows } = trackingHarness({ sheetsUrl: '', supabase: false });
+  await api.trackVisitor();
+  assert.equal(requests.length, 0, 'no ipapi lookup and no POST when nothing would store the visit');
+  assert.equal(rows.length, 0);
+});
+
+test('with no Sheets URL but Supabase configured, only Supabase is written', async () => {
+  const { api, requests, rows } = trackingHarness({ sheetsUrl: '' });
+  await api.trackVisitor();
+  assert.equal(requests.filter((r) => r.options?.method === 'POST').length, 0);
+  assert.equal(rows.length, 1);
 });

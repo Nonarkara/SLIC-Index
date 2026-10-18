@@ -325,6 +325,7 @@ export default function QuickSearchModal({
             type="text"
             className="quick-search-input"
             placeholder={copy.placeholder.replace("{count}", String(CITY_TOTAL))}
+            aria-label={copy.placeholder.replace("{count}", String(CITY_TOTAL))}
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={handleInputKeyDown}
