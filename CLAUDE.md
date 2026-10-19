@@ -135,7 +135,6 @@ The `dist/` directory is committed to the repo (this is what the deploy script s
 
 ```bash
 npm run verify:release   # full gate — typecheck, build, test, check:publication, check:csv, check:methodology, check:translations, check:audit
-npm run refresh:hashes   # re-stamp publicationManifest content hashes after a re-publication
 ```
 
 ## Key Rules
@@ -151,7 +150,7 @@ npm run refresh:hashes   # re-stamp publicationManifest content hashes after a r
 
 ## Cross-Agent Sync Note
 
-- Keep `src/data/publishedRankingData.json` and `public/downloads/slic-ranked-cities-v2.csv` aligned when city metrics change. After any data edit run `npm run rescore && npm run check:csv && npm run refresh:hashes` to republish.
+- Keep `src/data/publishedRankingData.json` and `public/downloads/slic-ranked-cities-v2.csv` aligned when city metrics change. After any data edit run `npm run rescore && node scripts/update-csv.mjs` to republish. rescore re-stamps the publicationManifest hashes itself, under its own sorted-key canonicalisation — do not hand-edit them.
 - `src/cityBenchmarks.ts` currently exists as draft/reference copy and is not imported by the app. Treat edits there as non-user-facing unless the component is wired back into the UI.
 
 ---
@@ -165,7 +164,7 @@ See `/Users/nonarkara/Projects/CLAUDE.md` §11 (The Codex Incident — Anti-Regr
 - **Custom CSS only — NO Tailwind.** Do not introduce Tailwind, shadcn, or any utility-class framework. The bespoke CSS is the aesthetic.
 - **"Monocle meets Red Dot" type scale** — editorial typography, hairline rules, mono numerics. ZERO border-radius. ZERO gradients.
 - **Five-locale switch (EN / TH / ZH / KO / JA)** — five languages, not three. Do not drop any locale. Thai first-person pronoun is strictly "ผม".
-- **Published ranking data triplet** — keep `src/data/publishedRankingData.json` and `public/downloads/slic-ranked-cities-v2.csv` aligned. Their content hashes in `publicationManifest.{normStatsHash,metricCatalogHash}` must be in sync — re-run `npm run refresh:hashes` after any data edit.
+- **Published ranking data triplet** — keep `src/data/publishedRankingData.json` and `public/downloads/slic-ranked-cities-v2.csv` aligned. Their content hashes in `publicationManifest.{normStatsHash,metricCatalogHash}` are re-stamped by `npm run rescore` itself. Never hand-edit them, and never recompute them with a different serialization than the pipeline uses — the audit hashes with the same recursive key sort as rescore and will fail the build if the two disagree.
 - **Tier status colors are an intentional §14 exception (approved 2026-07-05).** `--accent-cyan`, `--accent-red`, `--accent-blue` coexist with `--accent-amber` *by design* — they are semantic traffic-light encoding for the Alpha/Beta/Gamma tier badges and data-level chips, not brand decoration. This is categorical data-viz, which a ranking index legitimately needs. Do NOT "fix" them to amber-only for §14 (one-amber) compliance — collapsing tier hues would destroy information. Amber remains the sole *brand* accent; the three status colors are *data* colors.
 
 If you are about to remove, replace, or "simplify" any item above: stop, show the diff, wait for explicit approval.
