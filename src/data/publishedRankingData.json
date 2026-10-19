@@ -1,7 +1,7 @@
 {
   "publishable": true,
   "status": "published",
-  "updatedAt": "2026-10-17T16:53:58.559Z",
+  "updatedAt": "2026-10-19T02:47:21.887Z",
   "canonicalWeights": {
     "pressure": 25,
     "viability": 22,
@@ -80712,8 +80712,8 @@
     }
   },
   "changeSummary": {
-    "previousUpdatedAt": "2026-07-04T22:43:39.881Z",
-    "updatedAt": "2026-10-17T16:53:31.609Z",
+    "previousUpdatedAt": "2026-10-19T02:47:09.408Z",
+    "updatedAt": "2026-10-19T02:47:21.887Z",
     "scoreChangedCount": 0,
     "rankChangedCount": 0,
     "tierChangedCount": 0,
@@ -80726,12 +80726,12 @@
   "validCityRowCount": 163,
   "validCountryRowCount": 87,
   "publicationManifest": {
-    "generatedAt": "2026-10-17T16:53:58.559Z",
+    "generatedAt": "2026-10-19T02:47:21.887Z",
     "scorerVersion": "slic-v3.4.0",
     "tierPolicyVersion": "public-tier-v1.3.0",
-    "normStatsHash": "284ea6ee1303c4c6464bfda76c3b9527cbe7328f2aa1feac51328b5c00e4f69c",
+    "normStatsHash": "2e1c92a28140da75e0b21564ec6a1ed0019d6b2ffcb8b14c0207ffc708e20d8c",
     "inputDataHash": "3706191cd8af3261d966520e300e6727c8a28736c16209412fcd1e9b9bf3b722",
-    "metricCatalogHash": "5d21839bd20e7813caf741d8b1bf17cb2720ec878c1a07a972c85014bcc4c708",
+    "metricCatalogHash": "3b622fe33af487bf2af65aef6bab2ee90812300e220ac991caa5da97be973532",
     "publicationHash": "5ea8390e608514ba3fddcf1968b9d97eaa2d88530eeb043fb5c439cceff91870"
   },
   "stabilityAnalysis": {

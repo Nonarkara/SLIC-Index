@@ -18,7 +18,6 @@
     "check:translations": "node scripts/check_translations.mjs",
     "check:csv": "node scripts/update-csv.mjs --check",
     "check:audit": "node scripts/audit-data-integrity.mjs",
-    "refresh:hashes": "node scripts/refresh-manifest-hashes.mjs",
     "fixture:benchmarks": "node scripts/update-publication-benchmark-fixture.mjs",
     "methodology:pdf": "python3 scripts/generate_methodology_pdf.py",
     "test": "node --test test/*.test.mjs",

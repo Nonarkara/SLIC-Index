@@ -3259,7 +3259,7 @@ section[id] {
 }
 
 .data-sources-page .hero-intro {
-  max-width: 58rem;
+  max-width: 66ch;
 }
 
 .data-sources-status-grid small {
@@ -3806,7 +3806,7 @@ section[id] {
 }
 
 .methodology-horizon-card {
-  max-width: 42rem;
+  max-width: 64ch;
   padding: var(--pad-card-lg) 1.15rem;
   border: 1px solid var(--border);
   background: var(--surface-soft);
@@ -6107,7 +6107,7 @@ section[id] {
   line-height: 1.6;
   color: var(--text-dim);
   margin: 0 0 3rem;
-  max-width: 600px;
+  max-width: 62ch;
 }
 
 .history-timeline {
@@ -6279,7 +6279,7 @@ section[id] {
   line-height: 1.6;
   color: var(--text-dim);
   margin: 0 0 1.25rem;
-  max-width: 640px;
+  max-width: 66ch;
 }
 
 .history-archive-current-note {
@@ -6915,7 +6915,7 @@ section[id] {
   margin-top: 20px;
   padding-top: 16px;
   border-top: 1px solid rgba(248, 245, 240, 0.18);
-  max-width: 78ch;
+  max-width: 70ch;
 }
 
 .scorecard-tier-bridge-headline {
@@ -11318,7 +11318,11 @@ body,
   display: inline-block;
   width: 8px;
   height: 8px;
-  border-radius: 50%;
+  /* Square, not a circle: the site has zero border-radius everywhere else,
+     including the "Current build" pip on the History page timeline. A single
+     round exception reads as an accident, and a design rule with carve-outs is
+     a rule people route around. */
+  border-radius: 0;
   background: var(--accent-cyan);
   flex-shrink: 0;
 }
@@ -11707,7 +11711,7 @@ html[lang="th"] .hp-lede {
 
 /* ── Body ── */
 .essay-body {
-  max-width: 720px;
+  max-width: 68ch;
   margin: 0 auto;
   padding: 3rem clamp(1.25rem, 5vw, 2.5rem) 4.5rem;
 }
@@ -11961,7 +11965,7 @@ a.essay-reference-text:hover {
 
 /* ── Essay abstract (non-EN locales) ── */
 .essay-abstract {
-  max-width: 680px;
+  max-width: 64ch;
   margin: 0 auto 3.5rem;
   padding: 2rem 2.5rem;
   border-left: 2px solid var(--accent-amber);

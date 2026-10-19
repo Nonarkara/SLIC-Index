@@ -216,22 +216,51 @@ else ok("integrityIssueCount is 0");
 
 /* ── 8. manifest hashes are real, not decorative ── */
 // The publicationManifest carries content hashes so future reruns can confirm
-// the bundle has not drifted. A mismatch is a WARN (not an ERROR) because the
-// hash gets re-stamped by the publication pipeline and a stale stored value
-// just means the data was edited after the last full rerun. Surface it loudly
-// so it gets fixed, but do not block shipping.
+// the bundle has not drifted.
+//
+// CANONICALISATION: must match scripts/rescore-all-cities.mjs exactly.
+// rescore hashes `JSON.stringify(stableValue(x))` — a recursive key-sorted
+// serialization — NOT plain `JSON.stringify(x)`. The two differ whenever an
+// object's keys were written in a different order than JS enumerates them, so
+// an audit that recomputes with plain JSON.stringify will disagree with the
+// pipeline that wrote the hash and report a phantom drift.
+//
+// This was a real bug: the audit (and the now-deleted refresh-manifest-hashes
+// helper) used plain JSON.stringify, rescore used sorted keys, and the two
+// fought each other — rescore reverted the helper's hash on every run, and the
+// audit validated the helper's version instead of the pipeline's. Fixed by
+// adopting rescore's stableValue() here so both sides canonicalize identically.
 const crypto = require("node:crypto");
+
+/** Recursively sort object keys so serialization is order-independent. */
+function stableValue(value) {
+  if (Array.isArray(value)) return value.map(stableValue);
+  if (value && typeof value === "object") {
+    return Object.keys(value)
+      .sort()
+      .reduce((acc, key) => {
+        acc[key] = stableValue(value[key]);
+        return acc;
+      }, {});
+  }
+  return value;
+}
+
 const sha = (s) => crypto.createHash("sha256").update(s).digest("hex");
-const normHash = sha(JSON.stringify(d.normStats ?? {}));
-if (!d.publicationManifest.normStatsHash) warn("normStatsHash is missing from publicationManifest");
+/** Hash exactly the way scripts/rescore-all-cities.mjs does. */
+const pipelineDigest = (value) => sha(JSON.stringify(stableValue(value)));
+
+const normHash = pipelineDigest(d.normStats ?? {});
+if (!d.publicationManifest.normStatsHash) err("normStatsHash is missing from publicationManifest");
 else if (d.publicationManifest.normStatsHash !== normHash) {
-  warn(`normStatsHash is stale (stored ${d.publicationManifest.normStatsHash.slice(0, 12)}…, recomputed ${normHash.slice(0, 12)}…); re-run the publication pipeline to refresh`);
-} else ok("normStatsHash reproduces from the bundle");
-const catHash = sha(JSON.stringify(d.metricCatalog ?? {}));
-if (!d.publicationManifest.metricCatalogHash) warn("metricCatalogHash is missing from publicationManifest");
+  err(`normStatsHash does not reproduce from the bundle under the pipeline's canonicalisation (stored ${d.publicationManifest.normStatsHash.slice(0, 12)}…, pipeline digest ${normHash.slice(0, 12)}…) — re-run npm run rescore`);
+} else ok("normStatsHash reproduces from the bundle (pipeline canonicalisation)");
+
+const catHash = pipelineDigest(d.metricCatalog ?? {});
+if (!d.publicationManifest.metricCatalogHash) err("metricCatalogHash is missing from publicationManifest");
 else if (d.publicationManifest.metricCatalogHash !== catHash) {
-  warn(`metricCatalogHash is stale (stored ${d.publicationManifest.metricCatalogHash.slice(0, 12)}…, recomputed ${catHash.slice(0, 12)}…); re-run the publication pipeline to refresh`);
-} else ok("metricCatalogHash reproduces from the bundle");
+  err(`metricCatalogHash does not reproduce from the bundle under the pipeline's canonicalisation (stored ${d.publicationManifest.metricCatalogHash.slice(0, 12)}…, pipeline digest ${catHash.slice(0, 12)}…) — re-run npm run rescore`);
+} else ok("metricCatalogHash reproduces from the bundle (pipeline canonicalisation)");
 
 /* ── 9. tier policy ── */
 const tierMembers = new Map();

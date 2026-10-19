@@ -197,7 +197,7 @@ export const ideasTranslations: Record<string, IdeaTranslation> = {
       ja: "OpenTripPlanner"
     },
     problem: {
-      en: "Transit agencies relied on expensive proprietary routing software, or surrendered completely to Google Maps. Neither option allowed cities to tweak routing algorithms to prioritize bike safety, lower emissions, or accommodate wheelchair accessibility seamlessly.",
+      en: "Transit agencies relied on expensive proprietary routing software, or surrendered completely to Google Maps. Neither option allowed cities to tweak routing algorithms to prioritize bike safety, lower emissions, or make wheelchair accessibility a routing input.",
       th: "หน่วยงานขนส่งต้องพึ่งพาซอฟต์แวร์จัดเส้นทางแบบปิดราคาแพง หรือยอมจำนนต่อ Google Maps ไปเลย ทั้งสองทางเลือกไม่ยอมให้เมืองปรับแต่งอัลกอริทึมให้ความสำคัญกับความปลอดภัยของจักรยาน ลดการปล่อยมลพิษ หรือรองรับวีลแชร์ได้อย่างไร้รอยต่อ",
       zh: "交通机构依赖昂贵的专有路线规划软件，或者完全向谷歌地图投降。这两种选择都不允许城市微调路线算法以优先考虑自行车安全、降低排放或无缝适配轮椅出行。",
       ko: "대중교통 기관은 비싼 상업용 라우팅 소프트웨어에 의존하거나 Google 지도에 완전히 굴복했습니다. 어떤 옵션도 자전거 안전, 탄소 배출 감소, 휠체어 접근성을 원활하게 우선시하도록 라우팅 알고리즘을 미세 조정할 수 없었습니다.",
