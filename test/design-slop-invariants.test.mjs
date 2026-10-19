@@ -163,34 +163,47 @@ test("rule 7: no fake-depth hover-lifts — cursor is the affordance", () => {
   // ANTI-SLOP.md rule 7: "No fake depth. No drop shadows that imply volume.
   // No gradients that interpolate brand colours. No hover that translates
   // the surface as if a 3D model moved." — a button rising off the page on
-  // hover is the same fake depth wearing a transition curve.
+  // hover is the same fake depth wearing a transition curve, and so is a
+  // row pushing 3px right when the cursor lands on it.
   //
-  // Two carve-outs are deliberate and named here so the rule is honest:
+  // Banned functions in :hover bodies: translate, translateX/Y/Z, translate3d,
+  // scale, scaleX/Y, matrix, rotate, rotateX/Y/Z, skew, skewX/Y, perspective.
+  // Static `transform: none` is fine.
+  //
+  // Three carve-outs are deliberate and named here so the rule is honest:
   //   1. .idea-card:hover .idea-card-photo img — cursor lands on the actual
   //      <img>, the zoom IS the affordance, the photograph is real depth.
   //   2. .v3-city-card--photo:hover .v3-city-card-img — same reasoning.
-  // If a future change wants to add a third, add it HERE first, justify it
+  //   3. .v3-cta:hover::after — this is a pseudo-element ink-fill animation,
+  //      not a surface lift; the ::after element slides in from off-screen
+  //      left to reveal a colour, the button itself never moves. The
+  //      matching @media (hover: none) block excludes it for the same
+  //      reason. Removing it would leave the CTA with no hover affordance.
+  // If a future change wants to add a fourth, add it HERE first, justify it
   // in ANTI-SLOP.md, and own the new exemption — do not slip it past this
   // gate by adding a generic "or anything else that does".
-  const HOVER_LIFT_RE = /^\s*transform\s*:\s*(translateY|scale|translate3d|translate|matrix)\s*\(/m;
+  const HOVER_TRANSFORM_CALL_RE = /^\s*transform\s*:\s*(?!none\b|inherit\b|unset\b|revert\b|initial\b)[a-zA-Z]/m;
   const CARVE_OUTS = [
     ".idea-card:hover .idea-card-photo img",
     ".v3-city-card--photo:hover .v3-city-card-img",
+    ".v3-cta:hover::after",
   ];
   const offenders = [];
   for (const m of cssNoComments.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
     const sel = m[1].trim();
     if (!/:hover\b/.test(sel)) continue;
     if (CARVE_OUTS.some((c) => sel.includes(c))) continue;
-    if (HOVER_LIFT_RE.test(m[2])) {
-      offenders.push(sel.replace(/\s+/g, " ").slice(0, 100));
+    if (HOVER_TRANSFORM_CALL_RE.test(m[2])) {
+      // Capture the offending function name for a useful error message.
+      const callMatch = m[2].match(/^\s*transform\s*:\s*([a-zA-Z][a-zA-Z0-9]*)/m);
+      offenders.push(`${callMatch ? callMatch[1] : "?"}() in ${sel.replace(/\s+/g, " ").slice(0, 90)}`);
     }
   }
   assert.deepEqual(
     offenders,
     [],
     `hover-lifts are fake depth (ANTI-SLOP.md rule 7). Cursor is the affordance — ` +
-      `do not translateY/scale the surface on :hover. Offenders:\n  ` +
+      `do not transform the surface on :hover. Offenders:\n  ` +
       offenders.join("\n  "),
   );
 });

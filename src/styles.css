@@ -5620,7 +5620,6 @@ section[id] {
 .tier-group .rankings-city-row:hover {
   background: var(--surface);
   border-left-color: var(--accent-amber);
-  transform: translateX(3px);
 }
 
 .city-tier-arrow {
@@ -5654,7 +5653,6 @@ section[id] {
 
 .rankings-city-row:hover .city-tier-arrow {
   color: var(--text);
-  transform: translateX(2px);
 }
 
 /* ── Rankings row — 480px phone adjustments ── */
@@ -10575,7 +10573,6 @@ body,
 }
 
 .v3-city-card:hover .v3-city-card-bars>div {
-  transform: scaleY(1.55);
   opacity: 1;
 }
 
