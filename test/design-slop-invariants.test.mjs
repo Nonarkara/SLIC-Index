@@ -135,6 +135,30 @@ test("rule 7: the radius token is zero and no rule reintroduces a radius", () =>
   );
 });
 
+test("rule 7: decorative elevation shadows stay at or under 3", () => {
+  // ANTI-SLOP.md hard limit #1: "<=3 drop shadows. Separate with space and
+  // rules, not shadows." Measured: 68% of slop apps had >=8 shadows and no
+  // clean app did (median 14 vs 1).
+  //
+  // Focus rings are exempt. They are WCAG requirements, not fake depth, and
+  // a gate that makes you delete a keyboard focus indicator is a gate you
+  // route around.
+  const elevation = [];
+  for (const m of cssNoComments.matchAll(/([^{}]+)\{([^{}]*box-shadow:[^}]*)\}/g)) {
+    const sel = m[1];
+    if (/:focus-visible|:focus-within/.test(sel)) continue; // focus ring, exempt
+    for (const d of m[2].matchAll(/box-shadow:\s*([^;]+)/g)) {
+      const v = d[1].trim();
+      if (v === "none" || /^(inherit|unset|revert)\b/i.test(v)) continue;
+      elevation.push(`${v.slice(0, 40)} in ${sel.trim().replace(/\s+/g, " ").slice(0, 50)}`);
+    }
+  }
+  assert.ok(
+    elevation.length <= 3,
+    `at most 3 decorative drop shadows (ANTI-SLOP.md limit #1), found ${elevation.length}:\n  ${elevation.join("\n  ")}`,
+  );
+});
+
 /* ──────────────────────────────────────────────────────────────────────
  * RULE 5 — no emoji as icons, no lazy ornaments
  * ────────────────────────────────────────────────────────────────────── */
@@ -243,7 +267,9 @@ test("rule 3: prose containers cap their measure in ch, not px", () => {
       continue;
     }
     const chars = Number(value);
-    if (chars > 75) problems.push(`${sel}: ${chars}ch is over the 75ch A4/A5 ceiling`);
+    // ANTI-SLOP.md hard limit #2: "<=65ch for prose" (measured: 64% of slop
+    // apps went over 40em; median line 61em vs 26em for clean apps).
+    if (chars > 65) problems.push(`${sel}: ${chars}ch is over the 65ch A4/A5 ceiling (ANTI-SLOP.md limit #2)`);
     if (chars < 45) problems.push(`${sel}: ${chars}ch is under the 45ch floor — the column will look ragged`);
   }
   assert.deepEqual(

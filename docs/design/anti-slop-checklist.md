@@ -1,62 +1,75 @@
-# Anti-slop pre-ship checklist (SLIC Index)
+# Anti-slop pre-ship checklist — the enforcement map
 
-The machine-checkable half of the anti-slop rules lives in
-`test/design-slop-invariants.test.mjs` and runs on every `npm test`:
+**The rules live in [`ANTI-SLOP.md`](../../ANTI-SLOP.md).** That file is the prose
+source of truth and it wins if anything here disagrees with it. This file only
+answers a narrower question: *which of those rules does a test catch, and which
+ones still need eyes on pixels?*
 
-| Rule | Enforced by test | What it locks |
-|---|---|---|
-| 3 · A4/A5 measure | `rule 3: prose containers cap their measure in ch, not px` | every prose container declares a 45–75ch measure in `ch` |
-| 4 · No AI-slop fonts | `rule 4: …` (3 tests) | no banned family in any `font-family`; ≤2 design text families; heading token is a real editorial serif |
-| 5 · No lazy ornaments | `rule 5: …` (2 tests) | no emoji-as-icon; gradients are dark ink scrims only |
-| 6 · Clear hierarchy | `rule 6: the homepage has a declared type-scale with real steps` | display clears body by ≥1.8× |
-| 7 · More slop | `rule 7: …` (2 tests) | `--radius: 0` and no rule reintroduces a radius; no marketing filler in locale prose |
+## What the test catches
 
-Three rules **cannot** be decided from source. They need eyes on pixels. Run
-this before any ship.
+`test/design-slop-invariants.test.mjs` — 10 tests, runs on every `npm test`,
+currently all green.
 
-## 1 · Boxes fit their content
+| ANTI-SLOP.md limit | Gate |
+|---|---|
+| #1 ≤3 drop shadows | `rule 7: decorative elevation shadows stay at or under 3` |
+| #2 ≤65ch for prose | `rule 3: prose containers cap their measure in ch, not px` |
+| #3 one radius or none | `rule 7: the radius token is zero and no rule reintroduces a radius` |
+| #4 ≤8 sizes, 1.5–2× step | `rule 6: the homepage has a declared type-scale with real steps` (step only) |
+| No AI-slop fonts | `rule 4: …` (3 tests — banned families, real serif heading token, ≤2 design families) |
+| No emoji-as-icon | `rule 5: no emoji is used as an icon in JSX text content` |
+| No decorative gradients | `rule 5: gradients are ink scrims over photography, not decoration` |
+| No filler copy | `rule 7: UI prose carries no marketing filler` |
+
+## What still needs a human (or a different agent)
+
+Three rules are not decidable from source. Run these before shipping.
+
+### 1 · Boxes fit their content
 - [ ] No card/panel/button noticeably wider or taller than the text inside it.
-- [ ] Padding looks proportional to its type size (roughly 0.5–1.5× line height),
-      not a fixed fat value applied everywhere.
+- [ ] Padding proportional to its type size (≈0.5–1.5× line height), not a fixed fat value.
 - [ ] No `min-height` leaving dead space under a short string.
 
-## 2 · Balanced composition
+### 2 · Balanced composition
 - [ ] Screenshot at **1440**, **1024**, **390**.
-- [ ] No heavy column beside an empty one; no orphan block floating alone.
-- [ ] Squint at each: the visual masses should balance.
+- [ ] No heavy column beside an empty one; no orphan block.
+- [ ] Squint at each — the visual masses should balance.
 
-## 6 · Clear hierarchy — something must win
-- [ ] One obvious first look (the hero number, the headline, the spider).
-      Then a clear second and third.
+### 6 · Something must win
+- [ ] One obvious first look (the hero number, the headline, the spider), then a clear second and third.
 - [ ] The squinted screenshot has a visible focal point.
-- [ ] No grid of equal-weight cards where everything shouts equally.
+- [ ] No grid of equal-weight cards.
 
-## Method
+### Method
 1. Screenshot 1440 / 1024 / 390.
-2. List every hit against rules 1, 2, 6 with the element.
+2. List every hit with the element.
 3. Fix, then re-screenshot.
-4. **A different agent or person checks the result. Never self-review** — the
-   eye that built it is the eye that misses it.
+4. **A different agent or person reviews. Never self-review** — the eye that built it is the eye that misses it.
 
-## Additions made on this codebase
+## Known deviations, recorded rather than hidden
 
-Two exemptions are deliberate and are encoded in the test comments, not left
-implicit:
+- **Rule #4 (≤8 font sizes) is not fully enforced.** The stylesheet has 16 distinct
+  `px` sizes plus 59 fluid `clamp()` steps. Fluid responsive type needs more
+  steps than a static scale, so the gate checks only the 1.5–2× step between
+  display and body. The count is tracked here rather than silently ignored.
+- **Type sizes below the prose floor** (9px, 10px, 11px micro-labels) exist for
+  mono data chips. They are below ANTI-SLOP.md's readability intent but are
+  data labels, not body copy.
 
-- **Keyboard glyphs are exempt from the emoji ban.** `⌘K` on the masthead
-  search trigger and the `↑ ↓ ↵` hints in the quick-search field are
-  accessibility affordances, not decoration. Banning them would delete real
-  keyboard guidance.
-- **Academic citations and metric names are exempt from the filler-copy ban.**
-  "Empowerment" is the actual name of the HRMI index; "Harnessing Digital
-  Connectivity for Sustainable Cities in ASEAN" is a real paper title. The
-  ban is scoped to the locale string tables — free editorial prose only —
-  because a gate that cries wolf on real source names is a gate people learn
-  to ignore.
+## Exemptions, encoded in the test body not left implicit
+
+- **Keyboard glyphs are exempt from the emoji ban.** `⌘K` on the masthead search
+  trigger and `↑ ↓ ↵` in the quick-search field are accessibility affordances,
+  not decoration. The first version of that test flagged all seven and was wrong.
+- **Focus rings are exempt from the shadow cap.** They are WCAG requirements.
+- **Citations and metric names are exempt from the filler ban.** "Empowerment" is
+  the real HRMI index name; "Conference on the Future of Europe" is a real EU
+  institution. The ban is scoped to the locale string tables. A gate that cries
+  wolf on real source names gets ignored within a week.
 
 ## Adding a rule later
 
-Prefer a test over a line of prose. If a rule genuinely cannot be decided from
-source, put it in this file and say so — do not half-enforce it in a test with
-so many carve-outs that it stops catching anything. A gate with carve-outs is
-a gate people route around.
+Prefer a test to a line of prose. If a rule genuinely cannot be decided from
+source, put it in this file and say so — do not half-enforce it with so many
+carve-outs that it stops catching anything. **A gate with carve-outs is a gate
+people route around.**

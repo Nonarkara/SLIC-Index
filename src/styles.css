@@ -3259,7 +3259,7 @@ section[id] {
 }
 
 .data-sources-page .hero-intro {
-  max-width: 66ch;
+  max-width: 65ch;
 }
 
 .data-sources-status-grid small {
@@ -6279,7 +6279,7 @@ section[id] {
   line-height: 1.6;
   color: var(--text-dim);
   margin: 0 0 1.25rem;
-  max-width: 66ch;
+  max-width: 65ch;
 }
 
 .history-archive-current-note {
@@ -6915,7 +6915,7 @@ section[id] {
   margin-top: 20px;
   padding-top: 16px;
   border-top: 1px solid rgba(248, 245, 240, 0.18);
-  max-width: 70ch;
+  max-width: 65ch;
 }
 
 .scorecard-tier-bridge-headline {
@@ -11711,7 +11711,7 @@ html[lang="th"] .hp-lede {
 
 /* ── Body ── */
 .essay-body {
-  max-width: 68ch;
+  max-width: 65ch;
   margin: 0 auto;
   padding: 3rem clamp(1.25rem, 5vw, 2.5rem) 4.5rem;
 }
@@ -13185,7 +13185,9 @@ a.essay-reference-text:hover {
   border-radius: 0;
   font-size: 1.1rem;
   cursor: pointer;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+  /* No shadow: a solid ink fill on the cream ground already separates this,
+     and the border closes it. ANTI-SLOP.md caps decorative elevation at 3 and
+     says to separate with space and rules instead. */
   transition: all 140ms var(--ease-spring);
   z-index: 900;
   opacity: 0.85;
