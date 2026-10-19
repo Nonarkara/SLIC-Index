@@ -159,6 +159,42 @@ test("rule 7: decorative elevation shadows stay at or under 3", () => {
   );
 });
 
+test("rule 7: no fake-depth hover-lifts — cursor is the affordance", () => {
+  // ANTI-SLOP.md rule 7: "No fake depth. No drop shadows that imply volume.
+  // No gradients that interpolate brand colours. No hover that translates
+  // the surface as if a 3D model moved." — a button rising off the page on
+  // hover is the same fake depth wearing a transition curve.
+  //
+  // Two carve-outs are deliberate and named here so the rule is honest:
+  //   1. .idea-card:hover .idea-card-photo img — cursor lands on the actual
+  //      <img>, the zoom IS the affordance, the photograph is real depth.
+  //   2. .v3-city-card--photo:hover .v3-city-card-img — same reasoning.
+  // If a future change wants to add a third, add it HERE first, justify it
+  // in ANTI-SLOP.md, and own the new exemption — do not slip it past this
+  // gate by adding a generic "or anything else that does".
+  const HOVER_LIFT_RE = /^\s*transform\s*:\s*(translateY|scale|translate3d|translate|matrix)\s*\(/m;
+  const CARVE_OUTS = [
+    ".idea-card:hover .idea-card-photo img",
+    ".v3-city-card--photo:hover .v3-city-card-img",
+  ];
+  const offenders = [];
+  for (const m of cssNoComments.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
+    const sel = m[1].trim();
+    if (!/:hover\b/.test(sel)) continue;
+    if (CARVE_OUTS.some((c) => sel.includes(c))) continue;
+    if (HOVER_LIFT_RE.test(m[2])) {
+      offenders.push(sel.replace(/\s+/g, " ").slice(0, 100));
+    }
+  }
+  assert.deepEqual(
+    offenders,
+    [],
+    `hover-lifts are fake depth (ANTI-SLOP.md rule 7). Cursor is the affordance — ` +
+      `do not translateY/scale the surface on :hover. Offenders:\n  ` +
+      offenders.join("\n  "),
+  );
+});
+
 /* ──────────────────────────────────────────────────────────────────────
  * RULE 5 — no emoji as icons, no lazy ornaments
  * ────────────────────────────────────────────────────────────────────── */

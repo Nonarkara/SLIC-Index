@@ -573,7 +573,6 @@ section[id] {
 .primary-action:hover,
 .secondary-action:hover,
 .mode-button:hover {
-  transform: translateY(-1px);
 }
 
 .hero-stats {
@@ -606,7 +605,6 @@ section[id] {
 .paper-card:hover,
 .sidebar-card:hover {
   border-color: var(--border-strong);
-  transform: translateY(-2px);
 }
 
 .hero-stats article {
@@ -1616,7 +1614,6 @@ section[id] {
 
 .knowledge-rack-chip:hover {
   border-color: rgba(30, 40, 60, 0.12);
-  transform: translateY(-1px);
 }
 
 .knowledge-rack-result-card {
@@ -5720,7 +5717,6 @@ section[id] {
 
 .v3-cta:hover {
   color: var(--text-inverse);
-  transform: translateY(-2px);
 }
 
 .v3-cta:hover::after {
@@ -5751,7 +5747,6 @@ section[id] {
 .v3-cta-secondary:hover {
   border-color: #fff;
   background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
 }
 
 /* Spider section — brutalist */
@@ -6792,7 +6787,6 @@ section[id] {
 .scorecard-prev-next-link:hover {
   background: var(--surface);
   border-color: var(--text);
-  transform: translateY(-1px);
 }
 
 .scorecard-prev-next-link--next {
@@ -7274,7 +7268,6 @@ section[id] {
 
 .scorecard-peer-card:hover {
   border-color: var(--accent-amber);
-  transform: translateY(-1px);
 }
 
 .scorecard-peer-rank {
@@ -8160,7 +8153,6 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .v3-city-card:hover {
-  transform: translateY(-4px);
 }
 
 .v3-city-card-name {
@@ -8275,7 +8267,6 @@ details[open].scorecard-derived-formula summary::before {
   background: var(--text);
   border-color: var(--text);
   color: var(--bg);
-  transform: translateY(-2px);
 }
 
 .v3-tier-chip:hover span {
@@ -8720,7 +8711,6 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .spider-slider-input::-webkit-slider-thumb:hover {
-  transform: scale(1.25);
 }
 
 .spider-slider-input::-webkit-slider-thumb:active {
@@ -9758,7 +9748,6 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .back-arrow:hover {
-  transform: translateY(-1px);
   border-color: rgba(40, 32, 20, 0.2);
 }
 
@@ -9953,7 +9942,6 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .v3-city-card:hover {
-  transform: translateY(-2px);
   border-color: rgba(40, 32, 20, 0.22);
 }
 
@@ -10067,7 +10055,6 @@ details[open].scorecard-derived-formula summary::before {
   background: rgba(40, 32, 20, 0.04);
   border-color: rgba(40, 32, 20, 0.24);
   color: var(--text);
-  transform: translateY(-1px);
 }
 
 .v3-tier-chip:hover .v3-tier-chip-body span {
@@ -10118,7 +10105,6 @@ details[open].scorecard-derived-formula summary::before {
 
 .v3-cta:hover,
 .v3-cta-secondary:hover {
-  transform: translateY(-1px);
 }
 
 .site-footer {
@@ -10495,7 +10481,6 @@ body,
 
 .hp-cta-primary:hover {
   opacity: 1;
-  transform: translateY(-1px);
 }
 
 .hp-cta-secondary {
@@ -13198,7 +13183,6 @@ a.essay-reference-text:hover {
   color: #1c1914;
   border-color: var(--accent-amber);
   opacity: 1;
-  transform: translateY(-2px);
 }
 
 /* Reach is a geographic record, not a row of promotional stat cards. */
