@@ -156,6 +156,7 @@ export default function QuickSearchModal({
       "/about-slic",
       "/history",
       "/awards",
+      "/traffic",
       "/exercise",
     ];
 

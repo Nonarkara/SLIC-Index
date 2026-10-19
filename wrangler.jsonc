@@ -1,0 +1,10 @@
+{
+  "name": "slic-index",
+  "pages_build_output_dir": "dist",
+  "compatibility_date": "2026-04-16",
+  "d1_databases": [{
+    "binding": "TRAFFIC_DB",
+    "database_name": "slic-traffic",
+    "database_id": "7b0de2e7-ac4b-4246-b96b-0309ede451b8"
+  }]
+}

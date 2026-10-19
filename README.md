@@ -182,7 +182,9 @@ npm run verify:math   # rescore + publication + methodology + tests
 
 ### Optional visitor tracking
 
-The ranking does not depend on analytics. If you wire tracking in a private fork, the app reads `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` (anon key only). Leave them unset and the client stays inert. Do not commit `.env` files. Do not publish service-role keys. Fork the method; keep credentials out of git.
+The ranking does not depend on analytics. Production uses the first-party `/api/traffic` Pages endpoint and a dedicated D1 binding, configured in `wrangler.jsonc`. Apply `wrangler d1 migrations apply slic-traffic --remote` before deploying. Set `TRAFFIC_SECRET` with `wrangler pages secret put TRAFFIC_SECRET --project-name slic-index`; never put it in a Vite variable or commit it. Collection is restricted to `slic.nonarkara.org`, respects DNT/GPC and stores country/day totals, not raw IPs or browsing URLs. Aggregate reads are cached for up to five minutes; `/traffic` shows the snapshot time.
+
+`src/visitorTracking.ts` is the retired Sheets/Supabase adapter, retained for private-fork compatibility and its privacy regression tests; the production application no longer imports it. Historical data is a redacted country/day snapshot, not a claimed count of unique people. See `docs/security/traffic-rebuild-2026-10-19.md` for counting rules and limitations. Do not commit `.env` files or service-role keys.
 
 ### Fork without pretending it is still SLIC
 
@@ -197,7 +199,7 @@ Custom CSS only — no Tailwind. Design tokens live in `src/styles.css`.
 - React 19 + TypeScript 5.8 + Vite 6 (no Tailwind — custom CSS only)
 - Interactive spider web allocator (custom SVG + pointer events)
 - Real-time city re-ranking with zero-sum weight allocation
-- Visitor tracking (Google Sheets + Supabase dual-write, with Cloudflare Web Analytics) — optional, not part of scoring
+- First-party session counter (Cloudflare Pages + D1) and historical worldwide reach map — separate from scoring
 - Static deployment: Cloudflare Pages (production at slic.nonarkara.org) + GitHub Pages mirror
 
 ---

@@ -13201,3 +13201,31 @@ a.essay-reference-text:hover {
   transform: translateY(-2px);
 }
 
+/* Reach is a geographic record, not a row of promotional stat cards. */
+.traffic-page { padding-top: 6rem; }
+.traffic-heading h1 { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.15; margin: 0.25em 0; }
+.traffic-heading p, .traffic-notes p { max-width: 65ch; }
+.traffic-controls { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0; }
+.traffic-controls button { width: auto; padding: 0.5em 0.8em; border: 1px solid currentColor; background: transparent; color: var(--ink, #1c1914); cursor: pointer; font: inherit; }
+.traffic-controls button[aria-pressed="true"] { background: #1c1914; color: #f8f5f0; }
+.traffic-controls button:focus-visible { outline: 2px solid #a04e20; outline-offset: 3px; }
+.traffic-summary { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.4rem; padding: 0.5rem 0; border-block: 1px solid #c9beb0; }
+.traffic-summary strong { font: 500 clamp(2rem, 4vw, 3.5rem)/1 var(--font-heading); }
+.traffic-summary p { margin: 0; max-width: 65ch; }
+.traffic-map { margin: 1rem 0 1.5rem; }
+.traffic-map svg { display: block; width: 100%; height: auto; }
+.traffic-country { stroke: #f8f5f0; stroke-width: 0.6; }
+.traffic-country--recorded:hover { stroke: #1c1914; stroke-width: 1.5; }
+.traffic-map figcaption { max-width: 65ch; padding-top: 0.5rem; }
+.traffic-detail { display: grid; grid-template-columns: minmax(15rem, 1fr) minmax(0, 1.5fr); gap: 2rem; align-items: start; }
+.traffic-detail h2 { font-size: clamp(1.5rem, 2.2vw, 2rem); }
+.traffic-detail table { width: 100%; border-collapse: collapse; }
+.traffic-detail caption { text-align: left; padding-bottom: 0.5em; }
+.traffic-detail th, .traffic-detail td { padding: 0.4em 0; border-bottom: 1px solid #d9d0c5; text-align: left; }
+.traffic-detail td { text-align: right; font-family: var(--font-mono, monospace); }
+@media (max-width: 700px) {
+  .traffic-detail { grid-template-columns: 1fr; gap: 1rem; }
+  .traffic-summary { gap: 0.5rem 1rem; }
+  .traffic-summary p { flex-basis: 100%; }
+}
+

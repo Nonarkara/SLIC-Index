@@ -18,7 +18,7 @@ export const navGroups: { id: NavGroupId; paths: SitePath[] }[] = [
   },
   {
     id: "about",
-    paths: ["/about-slic", "/history", "/awards"],
+    paths: ["/about-slic", "/history", "/awards", "/traffic"],
   },
 ];
 
@@ -27,6 +27,7 @@ export function navGroupLabel(groupId: NavGroupId, locale: Locale): string {
 }
 
 export function navPathLabel(path: SitePath, locale: Locale): string {
+  if (path === "/traffic") return { en: "Worldwide reach", th: "การเข้าชมทั่วโลก", zh: "全球访问", ko: "전 세계 방문", ja: "世界からのアクセス" }[locale];
   const copy = getCopy(locale);
   if (path === "/") return copy.nav.home;
   if (path === "/about-slic") return copy.nav.aboutSlic;

@@ -1,4 +1,5 @@
 import { inspectPath } from './request-policy.js';
+import { trafficApi } from './traffic-api.js';
 
 function failure(status, method) {
   return new Response(method === 'HEAD' ? null : status >= 500 ? 'Service unavailable' : status === 400 ? 'Bad request' : status === 405 ? 'Method not allowed' : 'Not found', {
@@ -15,9 +16,11 @@ function failure(status, method) {
 }
 
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, context) {
     const policy = inspectPath(new URL(request.url).pathname);
     if (policy.status !== 200) return failure(policy.status, request.method);
+    if (policy.path === '/api/traffic') return trafficApi(request, env, context);
+    if (policy.path === '/api' || policy.path.startsWith('/api/')) return failure(404, request.method);
     if (!['GET', 'HEAD'].includes(request.method)) return failure(405, request.method);
     let response;
     try {

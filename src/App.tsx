@@ -3,7 +3,7 @@ import SiteMasthead from "./SiteMasthead";
 import QuickSearchModal from "./QuickSearchModal";
 import { localeLabels } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
-import { trackVisitor } from "./visitorTracking";
+import { trackVisitor } from "./firstPartyTraffic";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -22,6 +22,7 @@ const CityScorecardPage = lazy(() => import("./CityScorecardPage"));
 const MapPage = lazy(() => import("./MapPage"));
 const EssayPage = lazy(() => import("./EssayPage"));
 const AwardsPage = lazy(() => import("./AwardsPage"));
+const TrafficPage = lazy(() => import("./TrafficPage"));
 
 type DocumentWithViewTransition = Document & {
   startViewTransition?: Document["startViewTransition"];
@@ -75,6 +76,7 @@ function stripBase(pathname: string): string {
 
 function resolvePath(pathname: string): SitePath {
   const bare = stripBase(pathname);
+  if (bare === "/traffic") return "/traffic";
 
   if (bare === "/about-slic") {
     return "/about-slic";
@@ -383,6 +385,9 @@ export default function App() {
 
   useEffect(() => {
     trackVisitor();
+    const retryWhenOnline = () => { void trackVisitor(); };
+    window.addEventListener('online', retryWhenOnline);
+    return () => window.removeEventListener('online', retryWhenOnline);
   }, []);
 
   useEffect(() => {
@@ -394,6 +399,7 @@ export default function App() {
     const localeTitlePrefix = localeLabels[locale];
 
     const routeTitles: Record<SitePath, Record<Locale, string>> = {
+      "/traffic": { en: "Worldwide Reach", th: "การเข้าชมจากทั่วโลก", zh: "全球访问", ko: "전 세계 방문", ja: "世界からのアクセス" },
       "/about-slic": { en: "About SLIC", th: "เกี่ยวกับ SLIC", zh: "关于 SLIC", ko: "SLIC 소개", ja: "SLICについて" },
       "/awards": { en: "SLIC Submission Dossier", th: "เอกสารยื่นรางวัล SLIC", zh: "SLIC 投奖案卷", ko: "SLIC 수상 제출 서류", ja: "SLIC 応募資料" },
       "/methodology": { en: "SLIC Methodology", th: "ระเบียบวิธี SLIC", zh: "SLIC 方法论", ko: "SLIC 방법론", ja: "SLIC 方法論" },
@@ -447,7 +453,9 @@ export default function App() {
       <div className="page-frame" id="main-content" key={pathname}>
         <RouteErrorBoundary locale={locale} resetKey={pathname}>
         <Suspense fallback={<RouteLoading locale={locale} />}>
-          {route === "/methodology" ? (
+          {route === "/traffic" ? (
+            <TrafficPage onNavigate={navigate} locale={locale} />
+          ) : route === "/methodology" ? (
             <MethodologyPage onNavigate={navigate} locale={locale} />
           ) : route === "/data" ? (
             <DataSourcesPage onNavigate={navigate} locale={locale} />

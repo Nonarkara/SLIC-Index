@@ -11,7 +11,7 @@ import { t, localeNumberFormat } from "./i18n";
 import { appHref } from "./routing";
 import { scoreCityWithWeights } from "./scoring";
 import type { Locale, SitePath } from "./types";
-import { getVisitorStats } from "./visitorTracking";
+import { getVisitorStats } from "./firstPartyTraffic";
 import { SCORE_MODEL_VERSION_SHORT } from "./publicationMeta";
 import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
 import type { PillarId } from "./pillars";
@@ -377,7 +377,7 @@ export default function HomePage({
             {visitors != null && (
               <span className="hp-opening-stat">
                 <strong>{formattedVisitors}</strong>
-                <em>{t(locale, "visitors", "ผู้เข้าชม", "访客", "방문자", "訪問者")}</em>
+                <em><a href={appHref('/traffic')}>{t(locale, "sessions since 19 Oct 2026", "เซสชันตั้งแต่ 19 ต.ค. 2026", "自2026年10月19日起的会话", "2026년 10월 19일 이후 세션", "2026年10月19日以降のセッション")}</a></em>
               </span>
             )}
           </div>

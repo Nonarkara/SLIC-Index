@@ -15,7 +15,7 @@ SLIC (Smart and Liveable Cities Index) V3 — a transparent, open-source city ra
 
 - React 19 + TypeScript 5.8 + Vite 6
 - No Tailwind — custom CSS only in `src/styles.css` (~13,000 lines, editorial "Monocle meets Red Dot" aesthetic)
-- Supabase JS for visitor tracking only (no auth, no backend)
+- First-party visitor aggregates: Pages Worker + D1; no login. Supabase is a retired optional adapter, not imported by production.
 - Cloudflare Pages deployment (root base path `/`)
 - Cloudflare Pages Worker (`public/_worker.js`) enforces edge request boundaries, returns 400 on path-traversal attempts, returns 405 on non-GET/HEAD, masks server errors
 
@@ -63,7 +63,9 @@ src/
 ├── publicationMath.js         # Canonical scorer: pillar weights, AMPI math, metric catalog
 ├── publicTierPolicy.js        # Alpha/Beta/Gamma tier allocation rules
 ├── consequenceRules.ts        # ZeroSumAllocator rule enforcement (draft/reference — not the ranking scorer)
-├── visitorTracking.ts         # Supabase-backed visitor counter (gated behind VITE_VISITOR_COUNT_URL)
+├── visitorTracking.ts         # Retired Sheets/Supabase adapter; not imported by production
+├── firstPartyTraffic.ts       # Bounded session writes and aggregate reads from /api/traffic
+├── TrafficPage.tsx            # Historical/live worldwide reach, separate counting measures
 ├── styles.css                 # Complete design system (~13,000 lines, all design tokens)
 └── data/
     ├── publishedRankingData.json   # ~1.7MB — all 163 cities with per-metric sources

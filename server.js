@@ -32,6 +32,7 @@ export function createApp(root = join(__dirname, "dist")) {
       res.status(policy.status).type("text").send(policy.status === 400 ? "Bad request" : "Not found");
       return;
     }
+    res.locals.pathPolicy = policy;
     next();
   });
 
@@ -41,11 +42,10 @@ export function createApp(root = join(__dirname, "dist")) {
   // SPA fallback — serve index.html for all non-file routes
   app.get("/{*splat}", (req, res) => {
     if (
-      req.path.split("/").some((part) => part.startsWith(".")) ||
-      req.path.startsWith("/assets/") ||
-      /\.[^/]+$/.test(req.path) ||
+      res.locals.pathPolicy.isFile ||
       !req.accepts("html")
     ) {
+      res.setHeader("Cache-Control", "no-store");
       res.status(404).type("text").send("Not found");
       return;
     }

@@ -4,10 +4,22 @@ import worker from '../public/_worker.js';
 
 test('edge rejects encoded private paths before fetching assets', async () => {
   const env = { ASSETS: { fetch() { assert.fail('Blocked path reached assets'); } } };
-  for (const [path, status] of [['/.env', 404], ['/%2eenv', 404], ['/%2egit%2fconfig', 404], ['/_worker.js', 404], ['/%E0%A4%A', 400], ['/%00', 400]]) {
+  for (const [path, status] of [['/.env', 404], ['/%2eenv', 404], ['/%2egit%2fconfig', 404], ['/_worker.js', 404], ['//_headers', 404], ['/%2f_headers', 404], ['//_worker.js', 404], ['/%2f_worker.js', 404], ['///_routes.json', 404], ['/%2f_redirects', 404], ['/%E0%A4%A', 400], ['/%00', 400]]) {
     const r = await worker.fetch(new Request('https://slic.test' + path), env);
     assert.equal(r.status, status);
     assert.equal(r.headers.get('cache-control'), 'no-store');
+  }
+});
+
+test('edge blocks traffic module source before fetching assets', async () => {
+  const env = { ASSETS: { fetch() { assert.fail('Private traffic module reached assets'); } } };
+  for (const path of ['/traffic-api.js', '/traffic-api%2ejs', '//traffic-api.js', '/%2ftraffic-api.js', '///traffic-api%2ejs', '/traffic-api.js/']) {
+    for (const method of ['GET', 'HEAD']) {
+      const response = await worker.fetch(new Request('https://slic.test' + path, { method }), env);
+      assert.equal(response.status, 404, `${method} ${path}`);
+      assert.equal(response.headers.get('cache-control'), 'no-store');
+      if (method === 'HEAD') assert.equal(await response.text(), '');
+    }
   }
 });
 

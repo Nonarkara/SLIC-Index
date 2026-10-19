@@ -5,6 +5,7 @@
 import { createRequire } from "node:module";
 import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
+import { publicationHashes, verifyPublicationHashes } from "./publication-hashes.mjs";
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const require = createRequire(join(ROOT, "noop.js"));
 const d = require(join(ROOT, "src/data/publishedRankingData.json"));
@@ -229,38 +230,15 @@ else ok("integrityIssueCount is 0");
 // helper) used plain JSON.stringify, rescore used sorted keys, and the two
 // fought each other — rescore reverted the helper's hash on every run, and the
 // audit validated the helper's version instead of the pipeline's. Fixed by
-// adopting rescore's stableValue() here so both sides canonicalize identically.
-const crypto = require("node:crypto");
-
-/** Recursively sort object keys so serialization is order-independent. */
-function stableValue(value) {
-  if (Array.isArray(value)) return value.map(stableValue);
-  if (value && typeof value === "object") {
-    return Object.keys(value)
-      .sort()
-      .reduce((acc, key) => {
-        acc[key] = stableValue(value[key]);
-        return acc;
-      }, {});
+// sharing the scorer's canonicalisation so both sides serialize identically.
+// Shared with the scorer and publication gate, including input/output projections.
+const hashErrors = verifyPublicationHashes(d);
+for (const message of hashErrors) err(message);
+for (const key of Object.keys(publicationHashes(d))) {
+  if (!hashErrors.some((message) => message.startsWith(key))) {
+    ok(`${key} reproduces from the bundle (pipeline canonicalisation)`);
   }
-  return value;
 }
-
-const sha = (s) => crypto.createHash("sha256").update(s).digest("hex");
-/** Hash exactly the way scripts/rescore-all-cities.mjs does. */
-const pipelineDigest = (value) => sha(JSON.stringify(stableValue(value)));
-
-const normHash = pipelineDigest(d.normStats ?? {});
-if (!d.publicationManifest.normStatsHash) err("normStatsHash is missing from publicationManifest");
-else if (d.publicationManifest.normStatsHash !== normHash) {
-  err(`normStatsHash does not reproduce from the bundle under the pipeline's canonicalisation (stored ${d.publicationManifest.normStatsHash.slice(0, 12)}…, pipeline digest ${normHash.slice(0, 12)}…) — re-run npm run rescore`);
-} else ok("normStatsHash reproduces from the bundle (pipeline canonicalisation)");
-
-const catHash = pipelineDigest(d.metricCatalog ?? {});
-if (!d.publicationManifest.metricCatalogHash) err("metricCatalogHash is missing from publicationManifest");
-else if (d.publicationManifest.metricCatalogHash !== catHash) {
-  err(`metricCatalogHash does not reproduce from the bundle under the pipeline's canonicalisation (stored ${d.publicationManifest.metricCatalogHash.slice(0, 12)}…, pipeline digest ${catHash.slice(0, 12)}…) — re-run npm run rescore`);
-} else ok("metricCatalogHash reproduces from the bundle (pipeline canonicalisation)");
 
 /* ── 9. tier policy ── */
 const tierMembers = new Map();

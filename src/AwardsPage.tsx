@@ -329,13 +329,11 @@ export default function AwardsPage({
       label: t(locale, "Visitor reach", "ผู้เข้าชม", "访问量", "방문자 도달", "訪問者リーチ"),
       placeholder: t(
         locale,
-        // The homepage renders a live count only when the deployment supplies a
-        // count endpoint; none is configured, so this must not assert it is up.
-        "A live visitor count appears on the homepage only when the site is deployed with a count endpoint; the current deployment has none, so no number is shown. Geographic distribution stays internal until exported with a citable analytics snapshot.",
-        "จำนวนผู้เข้าชมแบบสดจะแสดงบนหน้าแรกเมื่อไซต์ถูก deploy พร้อม count endpoint เท่านั้น การ deploy ปัจจุบันไม่มี จึงไม่แสดงตัวเลข ส่วนการกระจายเชิงภูมิศาสตร์เก็บไว้ภายในจนกว่าจะมี snapshot analytics ที่อ้างอิงได้",
-        "实时访问量仅在站点部署了计数端点时才显示在首页；当前部署没有配置，因此不显示数字。地理分布在导出可引用的分析快照前保持内部使用。",
-        "실시간 방문자 수는 사이트에 카운트 엔드포인트가 구성된 경우에만 홈페이지에 표시됩니다. 현재 배포에는 구성되어 있지 않아 숫자가 표시되지 않습니다. 지리적 분포는 인용 가능한 분석 스냅샷으로 내보낼 때까지 내부 보관됩니다.",
-        "ライブ訪問者数は、カウントエンドポイントを設定したデプロイでのみホームページに表示されます。現在のデプロイには設定されていないため、数字は表示されません。地理的分布は引用可能な分析スナップショットとしてエクスポートするまで内部使用に留めます。",
+        "Worldwide reach (/traffic) separates historical records from new first-party sessions, with country aggregates, snapshot dates and collection gaps. These are not unique people; missing traffic is not estimated. The homepage shows new sessions only when the aggregate endpoint responds.",
+        "การเข้าชมทั่วโลก (/traffic) แยกบันทึกย้อนหลังกับเซสชันใหม่ของระบบ พร้อมผลรวมระดับประเทศ วันที่ภาพรวม และช่องว่างข้อมูล ตัวเลขไม่ใช่บุคคลที่ไม่ซ้ำ และไม่ประมาณข้อมูลที่ขาด หน้าแรกแสดงเซสชันใหม่เมื่อ API ตอบกลับเท่านั้น",
+        "全球访问页 (/traffic) 将历史记录与新的第一方会话分开，标明国家汇总、快照日期和采集空白。这不是独立人数，缺失流量不作估算。首页仅在汇总端点响应时显示新会话数。",
+        "전 세계 방문 페이지 (/traffic)는 과거 기록과 새 자사 세션을 분리하고 국가 집계, 스냅샷 날짜, 수집 공백을 표시합니다. 고유 인원 수가 아니며 누락된 방문은 추산하지 않습니다. 홈페이지는 집계 API가 응답할 때만 새 세션 수를 표시합니다.",
+        "世界からのアクセス (/traffic) は過去の記録と新しい自社セッションを分け、国別集計、スナップショット日、収集の空白を示します。実人数ではなく、欠測分は推計しません。ホームには集計APIが応答した場合のみ新セッション数を表示します。",
       ),
     },
     {

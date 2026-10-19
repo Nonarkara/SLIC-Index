@@ -1,0 +1,654 @@
+{
+  "source": "SLIC Index V1/V2 Visitors",
+  "importedAt": "2026-10-19",
+  "timezone": "Asia/Bangkok",
+  "firstDay": "2026-03-10",
+  "lastDay": "2026-10-19",
+  "observedDays": 106,
+  "spanDays": 224,
+  "count": 1742,
+  "countries": [
+    {
+      "country": "Thailand",
+      "count": 669,
+      "code": "TH"
+    },
+    {
+      "country": "United States",
+      "count": 335,
+      "code": "US"
+    },
+    {
+      "country": "Unknown",
+      "count": 249,
+      "code": "ZZ"
+    },
+    {
+      "country": "Taiwan",
+      "count": 102,
+      "code": "TW"
+    },
+    {
+      "country": "Singapore",
+      "count": 99,
+      "code": "SG"
+    },
+    {
+      "country": "South Korea",
+      "count": 52,
+      "code": "KR"
+    },
+    {
+      "country": "Malaysia",
+      "count": 44,
+      "code": "MY"
+    },
+    {
+      "country": "The Netherlands",
+      "count": 16,
+      "code": "NL"
+    },
+    {
+      "country": "Switzerland",
+      "count": 15,
+      "code": "CH"
+    },
+    {
+      "country": "Indonesia",
+      "count": 15,
+      "code": "ID"
+    },
+    {
+      "country": "Serbia",
+      "count": 15,
+      "code": "RS"
+    },
+    {
+      "country": "Germany",
+      "count": 12,
+      "code": "DE"
+    },
+    {
+      "country": "Ireland",
+      "count": 12,
+      "code": "IE"
+    },
+    {
+      "country": "Hong Kong",
+      "count": 11,
+      "code": "HK"
+    },
+    {
+      "country": "India",
+      "count": 9,
+      "code": "IN"
+    },
+    {
+      "country": "United Kingdom",
+      "count": 9,
+      "code": "GB"
+    },
+    {
+      "country": "France",
+      "count": 9,
+      "code": "FR"
+    },
+    {
+      "country": "Portugal",
+      "count": 8,
+      "code": "PT"
+    },
+    {
+      "country": "Canada",
+      "count": 7,
+      "code": "CA"
+    },
+    {
+      "country": "Slovenia",
+      "count": 7,
+      "code": "SI"
+    },
+    {
+      "country": "Sweden",
+      "count": 4,
+      "code": "SE"
+    },
+    {
+      "country": "Poland",
+      "count": 4,
+      "code": "PL"
+    },
+    {
+      "country": "United Arab Emirates",
+      "count": 3,
+      "code": "AE"
+    },
+    {
+      "country": "Austria",
+      "count": 3,
+      "code": "AT"
+    },
+    {
+      "country": "Australia",
+      "count": 3,
+      "code": "AU"
+    },
+    {
+      "country": "Philippines",
+      "count": 3,
+      "code": "PH"
+    },
+    {
+      "country": "Belgium",
+      "count": 3,
+      "code": "BE"
+    },
+    {
+      "country": "Spain",
+      "count": 3,
+      "code": "ES"
+    },
+    {
+      "country": "Ukraine",
+      "count": 3,
+      "code": "UA"
+    },
+    {
+      "country": "Japan",
+      "count": 2,
+      "code": "JP"
+    },
+    {
+      "country": "Lithuania",
+      "count": 2,
+      "code": "LT"
+    },
+    {
+      "country": "Finland",
+      "count": 2,
+      "code": "FI"
+    },
+    {
+      "country": "Jordan",
+      "count": 2,
+      "code": "JO"
+    },
+    {
+      "country": "Saudi Arabia",
+      "count": 1,
+      "code": "SA"
+    },
+    {
+      "country": "Italy",
+      "count": 1,
+      "code": "IT"
+    },
+    {
+      "country": "Israel",
+      "count": 1,
+      "code": "IL"
+    },
+    {
+      "country": "Iceland",
+      "count": 1,
+      "code": "IS"
+    },
+    {
+      "country": "Venezuela",
+      "count": 1,
+      "code": "VE"
+    },
+    {
+      "country": "Nepal",
+      "count": 1,
+      "code": "NP"
+    },
+    {
+      "country": "North Macedonia",
+      "count": 1,
+      "code": "MK"
+    },
+    {
+      "country": "New Zealand",
+      "count": 1,
+      "code": "NZ"
+    },
+    {
+      "country": "Brazil",
+      "count": 1,
+      "code": "BR"
+    },
+    {
+      "country": "Chile",
+      "count": 1,
+      "code": "CL"
+    }
+  ],
+  "daily": [
+    {
+      "day": "2026-03-10",
+      "count": 1
+    },
+    {
+      "day": "2026-03-11",
+      "count": 18
+    },
+    {
+      "day": "2026-03-12",
+      "count": 26
+    },
+    {
+      "day": "2026-03-13",
+      "count": 20
+    },
+    {
+      "day": "2026-03-14",
+      "count": 18
+    },
+    {
+      "day": "2026-03-15",
+      "count": 59
+    },
+    {
+      "day": "2026-03-16",
+      "count": 91
+    },
+    {
+      "day": "2026-03-17",
+      "count": 33
+    },
+    {
+      "day": "2026-03-18",
+      "count": 47
+    },
+    {
+      "day": "2026-03-19",
+      "count": 32
+    },
+    {
+      "day": "2026-03-20",
+      "count": 33
+    },
+    {
+      "day": "2026-03-21",
+      "count": 19
+    },
+    {
+      "day": "2026-03-22",
+      "count": 29
+    },
+    {
+      "day": "2026-03-23",
+      "count": 14
+    },
+    {
+      "day": "2026-03-24",
+      "count": 39
+    },
+    {
+      "day": "2026-03-25",
+      "count": 37
+    },
+    {
+      "day": "2026-03-26",
+      "count": 77
+    },
+    {
+      "day": "2026-03-27",
+      "count": 46
+    },
+    {
+      "day": "2026-03-28",
+      "count": 10
+    },
+    {
+      "day": "2026-03-30",
+      "count": 5
+    },
+    {
+      "day": "2026-03-31",
+      "count": 64
+    },
+    {
+      "day": "2026-04-01",
+      "count": 30
+    },
+    {
+      "day": "2026-04-02",
+      "count": 85
+    },
+    {
+      "day": "2026-04-03",
+      "count": 60
+    },
+    {
+      "day": "2026-04-04",
+      "count": 65
+    },
+    {
+      "day": "2026-04-05",
+      "count": 32
+    },
+    {
+      "day": "2026-04-06",
+      "count": 51
+    },
+    {
+      "day": "2026-04-07",
+      "count": 32
+    },
+    {
+      "day": "2026-04-08",
+      "count": 19
+    },
+    {
+      "day": "2026-04-09",
+      "count": 16
+    },
+    {
+      "day": "2026-04-10",
+      "count": 13
+    },
+    {
+      "day": "2026-04-11",
+      "count": 18
+    },
+    {
+      "day": "2026-04-12",
+      "count": 13
+    },
+    {
+      "day": "2026-04-13",
+      "count": 42
+    },
+    {
+      "day": "2026-04-14",
+      "count": 21
+    },
+    {
+      "day": "2026-04-15",
+      "count": 20
+    },
+    {
+      "day": "2026-04-16",
+      "count": 30
+    },
+    {
+      "day": "2026-04-17",
+      "count": 26
+    },
+    {
+      "day": "2026-04-18",
+      "count": 9
+    },
+    {
+      "day": "2026-04-19",
+      "count": 6
+    },
+    {
+      "day": "2026-04-20",
+      "count": 29
+    },
+    {
+      "day": "2026-04-21",
+      "count": 9
+    },
+    {
+      "day": "2026-04-22",
+      "count": 11
+    },
+    {
+      "day": "2026-04-23",
+      "count": 16
+    },
+    {
+      "day": "2026-04-24",
+      "count": 14
+    },
+    {
+      "day": "2026-04-25",
+      "count": 13
+    },
+    {
+      "day": "2026-04-26",
+      "count": 7
+    },
+    {
+      "day": "2026-04-27",
+      "count": 10
+    },
+    {
+      "day": "2026-04-28",
+      "count": 20
+    },
+    {
+      "day": "2026-04-29",
+      "count": 5
+    },
+    {
+      "day": "2026-04-30",
+      "count": 6
+    },
+    {
+      "day": "2026-05-01",
+      "count": 28
+    },
+    {
+      "day": "2026-05-02",
+      "count": 3
+    },
+    {
+      "day": "2026-05-03",
+      "count": 4
+    },
+    {
+      "day": "2026-05-04",
+      "count": 13
+    },
+    {
+      "day": "2026-05-05",
+      "count": 4
+    },
+    {
+      "day": "2026-05-06",
+      "count": 12
+    },
+    {
+      "day": "2026-05-07",
+      "count": 13
+    },
+    {
+      "day": "2026-05-08",
+      "count": 11
+    },
+    {
+      "day": "2026-05-09",
+      "count": 10
+    },
+    {
+      "day": "2026-05-10",
+      "count": 5
+    },
+    {
+      "day": "2026-05-11",
+      "count": 6
+    },
+    {
+      "day": "2026-05-12",
+      "count": 3
+    },
+    {
+      "day": "2026-05-13",
+      "count": 4
+    },
+    {
+      "day": "2026-05-14",
+      "count": 1
+    },
+    {
+      "day": "2026-05-15",
+      "count": 1
+    },
+    {
+      "day": "2026-07-21",
+      "count": 22
+    },
+    {
+      "day": "2026-07-22",
+      "count": 31
+    },
+    {
+      "day": "2026-07-23",
+      "count": 3
+    },
+    {
+      "day": "2026-07-24",
+      "count": 2
+    },
+    {
+      "day": "2026-07-25",
+      "count": 1
+    },
+    {
+      "day": "2026-07-27",
+      "count": 3
+    },
+    {
+      "day": "2026-07-29",
+      "count": 2
+    },
+    {
+      "day": "2026-07-30",
+      "count": 2
+    },
+    {
+      "day": "2026-08-01",
+      "count": 1
+    },
+    {
+      "day": "2026-08-05",
+      "count": 1
+    },
+    {
+      "day": "2026-08-06",
+      "count": 1
+    },
+    {
+      "day": "2026-08-15",
+      "count": 1
+    },
+    {
+      "day": "2026-08-16",
+      "count": 2
+    },
+    {
+      "day": "2026-08-22",
+      "count": 1
+    },
+    {
+      "day": "2026-08-30",
+      "count": 1
+    },
+    {
+      "day": "2026-09-04",
+      "count": 5
+    },
+    {
+      "day": "2026-09-06",
+      "count": 1
+    },
+    {
+      "day": "2026-09-19",
+      "count": 2
+    },
+    {
+      "day": "2026-09-21",
+      "count": 3
+    },
+    {
+      "day": "2026-09-22",
+      "count": 2
+    },
+    {
+      "day": "2026-09-23",
+      "count": 1
+    },
+    {
+      "day": "2026-09-25",
+      "count": 2
+    },
+    {
+      "day": "2026-09-29",
+      "count": 2
+    },
+    {
+      "day": "2026-10-01",
+      "count": 3
+    },
+    {
+      "day": "2026-10-02",
+      "count": 10
+    },
+    {
+      "day": "2026-10-04",
+      "count": 6
+    },
+    {
+      "day": "2026-10-05",
+      "count": 4
+    },
+    {
+      "day": "2026-10-06",
+      "count": 2
+    },
+    {
+      "day": "2026-10-07",
+      "count": 4
+    },
+    {
+      "day": "2026-10-08",
+      "count": 3
+    },
+    {
+      "day": "2026-10-09",
+      "count": 6
+    },
+    {
+      "day": "2026-10-10",
+      "count": 3
+    },
+    {
+      "day": "2026-10-11",
+      "count": 4
+    },
+    {
+      "day": "2026-10-13",
+      "count": 4
+    },
+    {
+      "day": "2026-10-14",
+      "count": 2
+    },
+    {
+      "day": "2026-10-15",
+      "count": 2
+    },
+    {
+      "day": "2026-10-16",
+      "count": 4
+    },
+    {
+      "day": "2026-10-17",
+      "count": 4
+    },
+    {
+      "day": "2026-10-18",
+      "count": 20
+    },
+    {
+      "day": "2026-10-19",
+      "count": 5
+    }
+  ],
+  "excludedTestRecords": 3
+}

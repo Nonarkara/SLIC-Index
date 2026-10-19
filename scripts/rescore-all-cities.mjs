@@ -15,7 +15,7 @@
  *   node scripts/rescore-all-cities.mjs
  */
 
-import { createHash } from "node:crypto";
+import { citySnapshot, digest, inputSnapshot } from "./publication-hashes.mjs";
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -55,27 +55,6 @@ const FACTS_PATH = path.join(ROOT, "src/data/methodologyFacts.json");
 const PUBLIC_METRIC_KEYS = PUBLIC_METRICS.map((metric) => metric.key);
 const DATA_LEVEL_KEYS = ["city", "national", "derived", "composite", "missing"];
 const WORKED_EXAMPLE_PREFERRED_IDS = ["tw-kaohsiung", "us-raleigh", "tw-taipei", "ca-montreal"];
-
-function stableValue(value) {
-  if (Array.isArray(value)) {
-    return value.map((entry) => stableValue(entry));
-  }
-  if (value && typeof value === "object") {
-    return Object.keys(value)
-      .sort()
-      .reduce((accumulator, key) => {
-        accumulator[key] = stableValue(value[key]);
-        return accumulator;
-      }, {});
-  }
-  return value;
-}
-
-function digest(value) {
-  return createHash("sha256")
-    .update(JSON.stringify(stableValue(value)))
-    .digest("hex");
-}
 
 function blankLevelCounts() {
   return {
@@ -117,20 +96,6 @@ function buildObservedLevelShares(counts, denominator) {
       .filter((key) => key !== "missing")
       .map((key) => [key, share(counts[key] ?? 0, denominator)]),
   );
-}
-
-function citySnapshot(city) {
-  return {
-    cityId: city.cityId,
-    displayName: city.displayName,
-    country: city.country,
-    rankingStatus: city.rankingStatus,
-    rank: city.rank ?? 0,
-    tierLabel: city.tierLabel ?? null,
-    tierSlot: city.tierSlot ?? null,
-    slicScore: city.slicScore ?? null,
-    slicScoreExact: city.slicScoreExact ?? city.slicScore ?? null,
-  };
 }
 
 function buildChangeSummary(previousCities, nextCities, updatedAt, previousUpdatedAt) {
@@ -691,27 +656,7 @@ async function main() {
   data.canonicalWeights = PILLAR_WEIGHTS;
 
   const normStats = data.normStats ?? {};
-  const inputDataHash = digest({
-    normStats,
-    cities: data.cities.map((city) => ({
-      cityId: city.cityId,
-      metrics: Object.fromEntries(
-        PUBLIC_METRICS.map((metric) => [
-          metric.key,
-          {
-            raw: city.metrics?.[metric.key]?.raw ?? null,
-            dataLevel: city.metrics?.[metric.key]?.dataLevel ?? null,
-            components: (city.metrics?.[metric.key]?.components ?? []).map((component) => ({
-              key: component.key,
-              raw: component.raw ?? null,
-              dataLevel: component.dataLevel ?? null,
-            })),
-          },
-        ]),
-      ),
-      watchlistReason: city.watchlistReason ?? null,
-    })),
-  });
+  const inputDataHash = digest(inputSnapshot(data));
 
   let scoreChanges = 0;
 

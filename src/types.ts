@@ -4,6 +4,7 @@ export type SitePath =
   | "/"
   | "/about-slic"
   | "/awards"
+  | "/traffic"
   | "/data"
   | "/methodology"
   | "/rankings"

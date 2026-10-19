@@ -1,4 +1,5 @@
 import publication from "../src/data/publishedRankingData.json" with { type: "json" };
+import { verifyPublicationHashes } from "./publication-hashes.mjs";
 import {
   DIAGNOSTIC_METRIC_COUNT,
   SCORED_METRIC_COUNT,
@@ -30,10 +31,6 @@ const REQUIRED_GAMMA = ["Lyon", "Taipei"];
 
 function assert(condition, message, errors) {
   if (!condition) errors.push(message);
-}
-
-function isHexHash(value) {
-  return typeof value === "string" && /^[0-9a-f]{64}$/i.test(value);
 }
 
 const errors = [];
@@ -148,10 +145,7 @@ const diagnosticCount = metricCatalogEntries.filter((entry) => entry?.diagnostic
 assert(scoredCount === SCORED_METRIC_COUNT, `Expected ${SCORED_METRIC_COUNT} scored metrics, found ${scoredCount}.`, errors);
 assert(diagnosticCount === DIAGNOSTIC_METRIC_COUNT, `Expected ${DIAGNOSTIC_METRIC_COUNT} diagnostic metrics, found ${diagnosticCount}.`, errors);
 
-assert(isHexHash(publication.publicationManifest?.normStatsHash), "Missing or invalid normStatsHash.", errors);
-assert(isHexHash(publication.publicationManifest?.inputDataHash), "Missing or invalid inputDataHash.", errors);
-assert(isHexHash(publication.publicationManifest?.metricCatalogHash), "Missing or invalid metricCatalogHash.", errors);
-assert(isHexHash(publication.publicationManifest?.publicationHash), "Missing or invalid publicationHash.", errors);
+errors.push(...verifyPublicationHashes(publication));
 
 assert(publication.methodologyFacts?.workedExample != null, "methodologyFacts.workedExample is missing.", errors);
 assert(publication.stabilityAnalysis != null, "stabilityAnalysis is missing.", errors);

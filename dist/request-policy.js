@@ -6,8 +6,9 @@ export function inspectPath(pathname) {
     return { status: 400 };
   }
   if (/[\u0000-\u001f\u007f\\]/.test(path)) return { status: 400 };
+  path = path.replace(/\/{2,}/g, '/');
   if (path.split('/').some(part => part.startsWith('.')) ||
-      /^\/(?:_worker\.js|_headers|_redirects|_routes\.json)(?:\/|$)/.test(path)) {
+      /^\/(?:_worker\.js|traffic-api\.js|_headers|_redirects|_routes\.json)(?:\/|$)/.test(path)) {
     return { status: 404 };
   }
   const normalizedPath = path.replace(/\/+$/, '') || '/';
