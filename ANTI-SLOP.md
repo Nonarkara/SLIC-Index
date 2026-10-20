@@ -28,7 +28,7 @@ The measured examples come from the study below. "Slop" means the median slop or
 | 12 | Dead empty space | **No flat region over a third of the first screen**, no phone column centred on a desktop, and no blank half while loading (show the real layout skeleton or the last good data, with its time). | Up to 81% of a first screen blank. |
 | 13 | A hero with no data | **No hero over half the screen** unless it *is* the map or the number. | 18% of slop apps. |
 
-The earlier rules still apply: boxes fit their content, the composition balances, banned slop fonts are out (use Jost or Josefin/League Spartan, with Prompt/Kanit for Thai), there's one accent colour that means something, something on the page clearly wins, there's no filler copy, and there are no fake or placeholder numbers.
+The earlier rules still apply: boxes fit their content, the composition balances, banned slop fonts are out (this site uses Source Serif 4 for display, Source Sans 3 for body, JetBrains Mono for data, and IBM Plex Sans Thai / Noto Sans SC / Noto Sans KR / Noto Sans JP for the other four locales), there's one accent colour that means something, something on the page clearly wins, there's no filler copy, and there are no fake or placeholder numbers.
 
 ## Map-first "surgical table" rule
 

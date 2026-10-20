@@ -375,9 +375,9 @@ export default function MethodologyPage({
     { href: "#critique", label: ui.critique },
     { href: "#remote-sensing", label: ui.remote },
     { href: "#scoring-framework", label: ui.scoring },
+    { href: "#models", label: ui.models },
     { href: "#glossary", label: ui.glossary },
     { href: "#worked-example", label: ui.example },
-    { href: "#models", label: ui.models },
     { href: "#horizon", label: ui.horizon },
     { href: "#references", label: ui.references },
     { href: "#knowledge-rack", label: ui.rack },
@@ -601,38 +601,6 @@ export default function MethodologyPage({
           </article>
         </section>
 
-        <section className="paper-section section" id="glossary">
-          {sectionSummary(methodology.glossarySection)}
-
-          <div className="sheet-table-shell">
-            <table className="sheet-table glossary-table">
-              <thead>
-                <tr>
-                  <th>{ui.glossarySymbol}</th>
-                  <th>{ui.glossaryDefinition}</th>
-                  <th>{ui.glossaryExplanation}</th>
-                </tr>
-              </thead>
-              <tbody>
-                {methodology.glossarySection.symbols.map((symbol) => (
-                  <tr key={symbol.symbol}>
-                    <td data-label={ui.glossarySymbol}>
-                      <strong>{symbol.symbol}</strong>
-                    </td>
-                    <td data-label={ui.glossaryDefinition}>{symbol.definition}</td>
-                    <td data-label={ui.glossaryExplanation}>{symbol.explanation}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section className="paper-section section" id="worked-example">
-          {sectionSummary(methodology.workedExampleSection)}
-          <WorkedExample example={methodology.workedExampleSection.example} ui={ui} />
-        </section>
-
         <section className="paper-section section" id="models">
           {sectionSummary(methodology.modelSection)}
 
@@ -764,6 +732,38 @@ export default function MethodologyPage({
               </tbody>
             </table>
           </div>
+        </section>
+
+        <section className="paper-section section" id="glossary">
+          {sectionSummary(methodology.glossarySection)}
+
+          <div className="sheet-table-shell">
+            <table className="sheet-table glossary-table">
+              <thead>
+                <tr>
+                  <th>{ui.glossarySymbol}</th>
+                  <th>{ui.glossaryDefinition}</th>
+                  <th>{ui.glossaryExplanation}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {methodology.glossarySection.symbols.map((symbol) => (
+                  <tr key={symbol.symbol}>
+                    <td data-label={ui.glossarySymbol}>
+                      <strong>{symbol.symbol}</strong>
+                    </td>
+                    <td data-label={ui.glossaryDefinition}>{symbol.definition}</td>
+                    <td data-label={ui.glossaryExplanation}>{symbol.explanation}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section className="paper-section section" id="worked-example">
+          {sectionSummary(methodology.workedExampleSection)}
+          <WorkedExample example={methodology.workedExampleSection.example} ui={ui} />
         </section>
 
         <section className="paper-section section" id="horizon">
@@ -902,15 +902,20 @@ function ReferenceCard({
       <p className="panel-label">
         [{reference.id}] {reference.publisher}
       </p>
-      <h3>{reference.label}</h3>
+      {/* The source title IS the link. Thirty-seven entries each carrying its
+          own "References" link label was a row of repetition per entry, and
+          the title is the thing a reader would want to click anyway. */}
+      <h3>
+        {reference.url ? (
+          <a href={reference.url} target="_blank" rel="noopener noreferrer">
+            {reference.label}
+          </a>
+        ) : (
+          reference.label
+        )}
+      </h3>
       <p>{reference.note}</p>
-      {reference.url ? (
-        <a className="inline-page-link" href={reference.url} target="_blank" rel="noopener noreferrer">
-          {ui.references}
-        </a>
-      ) : (
-        <p className="reference-unlinked">{ui.localDocument}</p>
-      )}
+      {!reference.url && <p className="reference-unlinked">{ui.localDocument}</p>}
     </article>
   );
 }

@@ -119,8 +119,8 @@
   --page-gutter: 3rem;
   --radius: 0;
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  --space-section: 1.75rem;
-  --space-section-lg: 2.25rem;
+  --space-section: 1.35rem;
+  --space-section-lg: 1.65rem;
   --gap-grid: 0.6rem;
   --gap-grid-lg: 0.85rem;
   --pad-card: 0.75rem;
@@ -831,7 +831,7 @@ section[id] {
 }
 
 .paper-card {
-  padding: 1.2rem;
+  padding: 0.95rem;
   border-radius: 0;
 }
 
@@ -1329,7 +1329,7 @@ section[id] {
   display: flex;
   align-items: baseline;
   gap: 0.75rem;
-  margin-top: 0.85rem;
+  margin-top: 0.6rem;
 }
 
 .metric-taglist-label {
@@ -1467,6 +1467,77 @@ section[id] {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+}
+
+/* A bibliography is a list, not a card grid. Thirty-seven sources rendered as
+   thirty-seven bordered cards cost 9,784px on a phone — a sixth of the page —
+   and read like a dashboard of unrelated boxes. As a ruled list the same
+   thirty-seven entries cost a third of that, and the rule between them does
+   the work the borders were doing. Two columns on a wide screen because a
+   bibliography that runs the full measure is a bibliography nobody reads. */
+.reference-list {
+  display: block;
+  columns: 1;
+  column-gap: 2.75rem;
+}
+
+@media (min-width: 761px) {
+  .reference-list {
+    columns: 2;
+  }
+}
+
+.reference-card {
+  background: none;
+  border: 0;
+  border-top: 1px solid var(--border);
+  padding: 0.85rem 0 0.9rem;
+  break-inside: avoid;
+}
+
+.reference-card:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.reference-card .panel-label {
+  margin: 0 0 0.2rem;
+  font-size: 0.62rem;
+}
+
+.reference-card h3 {
+  margin: 0 0 0.3rem;
+  font-size: 1.08rem;
+}
+
+.reference-card h3 a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px solid var(--border-strong);
+}
+
+.reference-card h3 a:hover {
+  color: var(--accent-blue);
+  border-bottom-color: var(--accent-blue);
+}
+
+.reference-card p {
+  margin: 0 0 0.35rem;
+  max-width: 65ch;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.reference-card p:last-child {
+  margin-bottom: 0;
+}
+
+.reference-card .reference-unlinked {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
 }
 
 .critique-card h3,
@@ -1761,8 +1832,8 @@ section[id] {
   .sheet-table tr {
     display: flex;
     flex-direction: column;
-    gap: 0.35rem;
-    padding: 1rem 1.1rem;
+    gap: 0.3rem;
+    padding: 0.85rem 1rem;
     border-top: 1px solid var(--border);
   }
 
@@ -1778,15 +1849,18 @@ section[id] {
     line-height: 1.55;
   }
 
+  /* The label sits inline with its value rather than on a line of its own.
+     Thirty-five rows x two labels is a hundred lines of repeated column
+     header — space spent saying nothing, on a page that is already long. */
   .sheet-table td::before {
     content: attr(data-label);
-    display: block;
+    display: inline;
     font-family: var(--font-mono);
-    font-size: 0.72rem;
+    font-size: 0.7rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--text-soft);
-    margin-bottom: 0.15rem;
+    margin-right: 0.45rem;
   }
 
   .sheet-table td:first-child::before {
@@ -1797,17 +1871,59 @@ section[id] {
     font-family: var(--font-heading);
     font-size: 1.05rem;
     line-height: 1.2;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.2rem;
+  }
+
+  /* The Thailand table has nine short columns — rank, province, region, five
+     figures. Stacked one cell per line it cost 313px a row, 22,543px for
+     seventy-two provinces. As a two-up field grid the same row is under 200px
+     and still carries every figure. The three-column tables above keep the
+     stacked shape: their cells are prose, and prose in a half-width column
+     runs longer, not shorter. */
+  .ranking-table tbody tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 0.9rem;
+    row-gap: 0.3rem;
+    align-items: baseline;
+  }
+
+  .ranking-table td:first-child {
+    grid-column: 1 / -1;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    line-height: 1.55;
+    margin-bottom: 0;
+  }
+
+  .ranking-table td:first-child::before {
+    content: attr(data-label);
+    margin-right: 0.45rem;
+  }
+
+  .ranking-table td:nth-child(2) {
+    grid-column: 1 / -1;
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    line-height: 1.2;
+    margin-bottom: 0.1rem;
+  }
+
+  .ranking-table td:nth-child(2)::before {
+    content: none;
   }
 }
 
 .site-footer {
   display: grid;
-  gap: 1.6rem;
-  padding: 1.75rem 0 calc(4rem + env(safe-area-inset-bottom, 0px));
+  gap: 1.4rem;
+  padding: 1.75rem 0 calc(3rem + env(safe-area-inset-bottom, 0px));
   border-top: 1px solid var(--border);
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
   font-size: 0.9rem;
 }
 
@@ -3755,9 +3871,9 @@ section[id] {
 
 .idea-card {
   display: grid;
-  gap: 0.65rem;
+  gap: 0.5rem;
   align-content: start;
-  padding: 1.15rem;
+  padding: 1rem;
   background: var(--surface-soft);
   border: 1px solid var(--border);
   border-radius: 0;
@@ -3863,7 +3979,7 @@ section[id] {
 .idea-solution,
 .idea-impact {
   margin: 0;
-  line-height: 1.65;
+  line-height: 1.55;
   color: var(--text-soft);
 }
 
@@ -11138,15 +11254,15 @@ html[lang="th"] .hp-lede {
 
 /* ── Prose ── */
 .essay-prose {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .essay-prose p {
   font-family: var(--font-heading);
   font-size: clamp(16px, 1.9vw, 19px);
-  line-height: 1.78;
+  line-height: 1.7;
   color: var(--text);
-  margin: 0 0 1.5em;
+  margin: 0 0 1.15em;
 }
 
 .essay-prose p:last-child {
@@ -11216,7 +11332,7 @@ html[lang="th"] .hp-lede {
 
 /* ── Photos ── */
 .essay-photo {
-  margin: 2.75rem -1.25rem;
+  margin: 1.75rem -1.25rem;
   border: none;
   padding: 0;
 }
@@ -11256,8 +11372,8 @@ html[lang="th"] .hp-lede {
 
 /* ── References ── */
 .essay-references {
-  margin-top: 5rem;
-  padding-top: 2rem;
+  margin-top: 2.75rem;
+  padding-top: 1.35rem;
   border-top: 1px solid rgba(28, 25, 20, 0.12);
 }
 

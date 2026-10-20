@@ -41,6 +41,13 @@ A page is not a container for information. It is a **sequence of attention**: th
 - **Depth is earned.** A section earns vertical space by being the answer to a question the reader has. Padding is not information.
 - **Anti-slop and information delivery are the same goal.** A page that needs three screens to say one thing has failed twice: it looks like slop *and* it buries the message.
 
+**Two shapes are not negotiable**, because both were got wrong and cost a measured amount:
+
+- **A bibliography is a ruled list, not a card grid.** Thirty-seven sources as thirty-seven bordered cards cost 9,784px on a phone — a sixth of the methodology page — and read like a dashboard of unrelated boxes. They are now a single ruled list, two columns on a wide screen, with the source title as the link.
+- **A wide table on a phone is a field grid, not a stack of labels.** The Thailand table has nine short columns. Stacked one cell per line it cost 313px a row, 22,543px for seventy-two provinces. As a two-up field grid the same row is under 200px and still carries every figure. The column label sits inline with its value instead of on a line of its own — thirty-five rows of repeated column header is space spent saying nothing.
+
+**The apparatus goes last.** On the methodology page the glossary and the worked example used to sit *before* the method. They are reference material; they now come after it. The reading order is the argument, then the apparatus, then the sources.
+
 ### What the gates catch
 
 Every rule above that can be decided from source is a machine gate. They run in `npm run verify:release`, so a violation fails the build rather than being noticed in review.
@@ -51,6 +58,7 @@ Every rule above that can be decided from source is a machine gate. They run in 
 | `test/system-integrity.test.mjs` | **palette cannot fork** (a colour used twice must be a token), no self-referential token, **wordmark is live type not a raster**, no bordered control inside a bordered control, **photography is not desaturated**, no bare selector silently redefined (ratchet) |
 | `test/accessibility-invariants.test.mjs` | contrast, focus visibility, hero-masthead legibility over photography, localised labels |
 | `test/publication-hashes.test.mjs` | the scoring bundle cannot drift from its published hashes |
+| `scripts/check-layout.mjs` | **the built site in a real browser**: no horizontal overflow, no uncaught exception, no broken image, and every route actually rendered — across 15 routes × 3 widths |
 
 **The ratchet.** `system-integrity.test.mjs` refuses a NEW duplicate selector while tolerating the ones already in the file (baseline is in the test). It can only go down. If you remove a duplicate, lower the baseline in the same commit.
 
@@ -65,6 +73,9 @@ Every rule above that can be decided from source is a machine gate. They run in 
 | `scripts/css-cascade.mjs` | A real cascade model — specificity, source order, `!important`, and media queries — used by the merge tool and the fingerprint |
 | `scripts/merge-duplicate-css.mjs` | `--check` to report, `--write` to merge. Merges a group of duplicate blocks into one, or **refuses** the group when no placement is provably safe |
 | `scripts/verify-css-refactor.mjs` | `--against <dir>` drives a real browser over 15 routes × 3 widths and compares the **full computed style of every element**, including `::before`/`::after` |
+| `scripts/measure-page-height.mjs` | Reports total scroll height and the height of every section, per route, per width. **Measure before you tighten** — every spacing decision in this repo was made against these numbers |
+| `scripts/shoot-pages.mjs` | Screenshots any route at any width into a folder, for the squint test that a number cannot replace |
+| `scripts/check-layout.mjs` | The permanent gate: drives the built site in real Chrome over 15 routes × 3 widths and fails on horizontal overflow, an uncaught exception, a broken image, or a route that never rendered |
 
 **The browser is the proof; the fingerprint is not.** A cascade fingerprint buckets rules by selector text, so it evaluates each selector *in isolation*. Two selectors can only interact when they match the same element, which the fingerprint cannot see. Two real bugs came out of this, both caught by the browser and neither by the fingerprint:
 
@@ -86,7 +97,7 @@ Do not "fix" these — they were examined and kept:
 ## Tech Stack
 
 - React 19 + TypeScript 5.8 + Vite 6
-- No Tailwind — custom CSS only in `src/styles.css` (12,643 lines, editorial "Monocle meets Red Dot" aesthetic)
+- No Tailwind — custom CSS only in `src/styles.css` (12,759 lines, editorial "Monocle meets Red Dot" aesthetic)
 - First-party visitor aggregates: Pages Worker + D1; no login. Supabase is a retired optional adapter, not imported by production.
 - Cloudflare Pages deployment (root base path `/`)
 - Cloudflare Pages Worker (`public/_worker.js`) enforces edge request boundaries, returns 400 on path-traversal attempts, returns 405 on non-GET/HEAD, masks server errors
@@ -101,7 +112,7 @@ npm run typecheck         # tsc --noEmit — passes clean (0 errors)
 npm run test              # node --test — 117/117 pass
 ```
 
-The full release gate is `npm run verify:release` — typecheck + build + tests + check:publication + check:csv + check:methodology + check:translations + check:audit. Exits non-zero on any failure. The new `check:audit` runs `scripts/audit-data-integrity.mjs`, which catches identity / ranking / scoring / coverage / metric / cross-artifact / hash drift issues.
+The full release gate is `npm run verify:release` — typecheck + build + tests + check:publication + check:csv + check:methodology + check:translations + check:audit + check:layout. Exits non-zero on any failure. `check:layout` drives the built site in real Chrome, so it only means something after a build. The new `check:audit` runs `scripts/audit-data-integrity.mjs`, which catches identity / ranking / scoring / coverage / metric / cross-artifact / hash drift issues.
 
 ## Project Structure
 
@@ -138,7 +149,7 @@ src/
 ├── visitorTracking.ts         # Retired Sheets/Supabase adapter; not imported by production
 ├── firstPartyTraffic.ts       # Bounded session writes and aggregate reads from /api/traffic
 ├── TrafficPage.tsx            # Historical/live worldwide reach, separate counting measures
-├── styles.css                 # Complete design system (12,643 lines, all design tokens)
+├── styles.css                 # Complete design system (12,759 lines, all design tokens)
 └── data/
     ├── publishedRankingData.json   # ~1.7MB — all 163 cities with per-metric sources
     ├── methodologyFacts.json       # Awards-page facts (sourced from the bundle)
@@ -211,7 +222,7 @@ The `dist/` directory is committed to the repo (this is what the deploy script s
 ## Release verification
 
 ```bash
-npm run verify:release   # full gate — typecheck, build, test, check:publication, check:csv, check:methodology, check:translations, check:audit
+npm run verify:release   # full gate — typecheck, build, test, check:publication, check:csv, check:methodology, check:translations, check:audit, check:layout
 ```
 
 ## Key Rules
