@@ -2,11 +2,8 @@ import { type MouseEvent, useCallback, useEffect, useId, useRef, useState } from
 import LocaleSwitch from "./LocaleSwitch";
 import { navGroups, navGroupLabel, navPathLabel, type NavGroupId } from "./navGroups";
 import { appHref } from "./routing";
-import { slicLogo } from "./brandAssets";
 import { CITY_TOTAL } from "./publicationMeta";
 import type { Locale, SitePath } from "./types";
-
-const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
 const menuLabels: Record<Locale, { open: string; close: string; primary: string; mobile: string }> = {
   en: {
@@ -263,13 +260,8 @@ export default function SiteMasthead({
           onClick={(event) => navigateLink(event, onNavigate, "/")}
           aria-label={locale === "th" ? "กลับหน้าหลัก SLIC" : locale === "zh" ? "SLIC 首页" : locale === "ko" ? "SLIC 홈" : locale === "ja" ? "SLICホーム" : "SLIC home"}
         >
-          <img
-            src={`${BASE}${slicLogo.src}`}
-            alt={slicLogo.alt}
-            className="mh-logo-img"
-            width={140}
-            height={36}
-          />
+          <span className="mh-wordmark-main">SLIC</span>
+          <span className="mh-wordmark-sub">Index</span>
         </a>
 
         <span className="mh-edition">V3 &middot; 2026</span>

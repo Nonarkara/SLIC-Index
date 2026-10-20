@@ -124,6 +124,37 @@
   /* Wada Plate 002 Dark Tyrian Blue (#12354e): structural counterweight & active controls */
   --accent-blue: #12354e;
 
+  /* Near-ground tones. These used to be typed as raw hex at their point of use,
+     which is how the file ended up with two inks and two creams. Declare them
+     once so the ground is one decision, not forty. */
+  --surface-sunken: #f4efe7;   /* the map plane sits a step below the page */
+  --surface-raised: #fafaf8;   /* an ink chip's own text on near-white */
+  --rule-warm: #c9beb0;        /* the traffic page's table rules */
+
+  /* Ink panel used by the photographic hero. Distinct from --text on purpose:
+     it is a surface, and it has to sit darker than body ink to carry a scrim. */
+  --ink-panel: #12100d;
+
+  /* Pillar tints. Each pillar owns a hue on the dark scorecard band; typing
+     the same tint twice meant one edit could move half a band and not the
+     other. Declared once, next to the palette they belong to. */
+  --pillar-pressure-tint: #ffd0c4;
+  --pillar-viability-tint: #c7f2e1;
+  --pillar-capability-tint: #d7e7ff;
+  --pillar-community-tint: #ffd0a6;
+  --pillar-creative-tint: #ffe0bc;
+
+  /* Signal states and the deep-ink quick-search surface. */
+  --signal-warn: #b94040;
+  --signal-ok: #2d7a4a;
+  --teal-deep: #0e7c7e;
+  --ink-search: #17120d;
+
+  /* A second, warmer text step for long-form notes. --text-soft is the body
+     step; this is the caption step beneath it. */
+  --text-note: #6b6459;
+  --text-note-cool: #5c5449;
+
   /* Focus ring — surface-aware, WCAG 2.2 SC 1.4.11 Non-text Contrast (>=3:1).
      Wada Yellow Orange #f99d1b is only 1.95:1 on the cream ground, so it
      CANNOT carry a focus indicator on light surfaces. The cream ground gets
@@ -332,17 +363,11 @@ section[id] {
   letter-spacing: 0.08em;
 }
 
-.brand-mark-image {
-  padding: 0.35rem;
-  background: rgba(30, 40, 60, 0.04);
-  border: 1px solid var(--border);
-}
-
-.brand-mark-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  display: block;
+/* The footer plate is live type on ink — no raster, no border box. */
+.brand-mark--type {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .eyebrow {
@@ -383,8 +408,8 @@ section[id] {
   padding: 0 0.65rem;
   border: 1px solid rgba(28, 25, 20, 0.18);
   border-radius: 0;
-  background: var(--bg, #f8f5f0);
-  color: var(--text, #1c1914);
+  background: var(--bg);
+  color: var(--text);
   font-family: var(--font-mono, "JetBrains Mono", monospace);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
@@ -767,7 +792,7 @@ section[id] {
 .leader-card {
   padding: 1.4rem;
   border-radius: 0;
-  background: #131313;
+  background: var(--text);
   color: var(--text-inverse);
 }
 
@@ -2021,37 +2046,45 @@ section[id] {
   border-color: rgba(40, 32, 20, 0.08);
 }
 
-/* Wordmark */
+/* Wordmark — live type, not a raster.
+   The old mark was a 400x400 square PNG (blue + teal, both off-palette) squeezed
+   into a 140x36 box, which rendered as unreadable mush. Type is sharper at every
+   DPR, colourable from tokens, and adds no request. */
 .mh-wordmark {
   display: flex;
-  align-items: center;
-  gap: 0.35rem;
+  align-items: baseline;
+  gap: 0.4rem;
   border: 0;
   background: 0;
   cursor: pointer;
   padding: 0;
 }
 
-.mh-logo-img {
-  height: 36px;
-  width: 140px;
-  object-fit: contain;
-  display: block;
-}
-
 .mh-wordmark-main {
   font-family: var(--font-heading);
-  font-size: 1.15rem;
+  font-size: 1.32rem;
   font-weight: 600;
-  letter-spacing: normal;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: var(--text);
 }
 
 .mh-wordmark-sub {
   font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.12em;
+  font-size: 0.58rem;
+  line-height: 1;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  opacity: 0.4;
+  color: var(--text-soft);
+}
+
+/* Dark masthead variant — invert the type, not a plate behind it. */
+.mh--hero:not(.mh--scrolled) .mh-wordmark-main {
+  color: var(--text-inverse);
+}
+
+.mh--hero:not(.mh--scrolled) .mh-wordmark-sub {
+  color: rgba(247, 245, 239, 0.62);
 }
 
 /* Edition tag — hidden on nav-heavy layouts */
@@ -2370,7 +2403,7 @@ section[id] {
 }
 
 .hp-headline--accent {
-  color: #e8453c;
+  color: var(--accent-red);
 }
 
 .hp-headline--fading {
@@ -2382,7 +2415,7 @@ section[id] {
 .hp-deck {
   font-size: 1.05rem;
   line-height: 1.55;
-  color: #6b6459;
+  color: var(--text-note);
   max-width: 540px;
   margin: 0 0 1.25rem;
 }
@@ -2503,7 +2536,6 @@ section[id] {
   height: 46vh;
   object-fit: cover;
   object-position: center 35%;
-  filter: saturate(0.9);
 }
 
 .hp-photo-break--narrow .hp-photo-break-img {
@@ -2822,11 +2854,11 @@ section[id] {
 
 .leader-card,
 .manifesto-quote {
-  background: #1a3a6b;
+  background: var(--accent-blue);
 }
 
 .primary-action {
-  background: #1a3a6b;
+  background: var(--accent-blue);
 }
 
 .secondary-action,
@@ -2842,8 +2874,8 @@ section[id] {
 
 .mode-button.active {
   background: transparent;
-  color: #1a3a6b;
-  border-color: #1a3a6b;
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
 }
 
 .metric-fill {
@@ -3509,12 +3541,12 @@ section[id] {
 
 .spider-data-line {
   fill: none;
-  stroke: #1a3a6b;
+  stroke: var(--accent-blue);
   stroke-width: 2;
 }
 
 .spider-point {
-  fill: #1a3a6b;
+  fill: var(--accent-blue);
 }
 
 .spider-label {
@@ -3549,7 +3581,7 @@ section[id] {
 
 .spider-legend-row strong {
   font-family: var(--font-heading);
-  color: #1a3a6b;
+  color: var(--accent-blue);
 }
 
 .remote-sensing-workflow-card {
@@ -3578,7 +3610,7 @@ section[id] {
 
 .remote-sensing-stage>span {
   font-family: var(--font-heading);
-  color: #1a3a6b;
+  color: var(--accent-blue);
 }
 
 .remote-sensing-stage h3,
@@ -3661,7 +3693,7 @@ section[id] {
 }
 
 .flow-card-head span {
-  color: #1a3a6b;
+  color: var(--accent-blue);
   font-family: var(--font-heading);
   font-size: 1.05rem;
 }
@@ -3735,7 +3767,7 @@ section[id] {
 .example-final-score {
   font-family: var(--font-heading);
   line-height: 1;
-  color: #1a3a6b;
+  color: var(--accent-blue);
 }
 
 .example-input-list strong {
@@ -3989,8 +4021,8 @@ section[id] {
 
 .idea-toggle:hover,
 .idea-toggle.active {
-  border-color: #1a3a6b;
-  color: #1a3a6b;
+  border-color: var(--accent-blue);
+  color: var(--accent-blue);
 }
 
 .idea-code-block {
@@ -4019,10 +4051,10 @@ section[id] {
 
 .idea-copy-btn {
   padding: 0.3rem 0.65rem;
-  border: 1px solid #1a3a6b;
+  border: 1px solid var(--accent-blue);
   border-radius: 0;
   background: transparent;
-  color: #1a3a6b;
+  color: var(--accent-blue);
   font-size: 0.78rem;
   font-weight: 600;
   cursor: pointer;
@@ -4030,7 +4062,7 @@ section[id] {
 }
 
 .idea-copy-btn:hover {
-  background: #1a3a6b;
+  background: var(--accent-blue);
   color: var(--text-inverse);
 }
 
@@ -4516,42 +4548,31 @@ section[id] {
   border-radius: 0;
 }
 
+/* An earlier block here filled these with a solid --accent-blue plate. Three
+   definitions of one control, last-write-wins, meant nobody could tell which was
+   live. The underline treatment at the base of this file is the one that ships;
+   see also the dark-masthead override near the end. */
 .mode-button.active,
-.region-button.active,
-.locale-button.active {
+.region-button.active {
   background: var(--accent-blue);
   border-color: var(--accent-blue);
   color: var(--text-inverse);
 }
 
+/* The locale row is five hairline-underlined text controls, matching every other
+   item in this masthead. A later block in this file re-declared these with
+   `border: 1px solid var(--border)` and a tinted fill, which won by position and
+   boxed all five. The declaration above is the one that ships; this group keeps
+   only what genuinely differs (sizing), not a second opinion about the box. */
 .locale-switch {
   gap: 0.45rem;
 }
 
 .locale-button,
 .region-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.75rem;
-  padding: 0 0.75rem;
-  border: 1px solid var(--border);
-  background: rgba(30, 40, 60, 0.03);
-  color: var(--text);
   font-family: var(--font-mono);
-  font-size: 0.72rem;
   letter-spacing: 0.04em;
   cursor: pointer;
-  transition:
-    background-color 160ms ease,
-    border-color 160ms ease,
-    color 160ms ease;
-}
-
-.locale-button:hover,
-.region-button:hover {
-  background: rgba(30, 40, 60, 0.06);
-  border-color: var(--border-strong);
 }
 
 .site-masthead {
@@ -5020,9 +5041,9 @@ section[id] {
 }
 
 .rankings-preset-btn.is-active {
-  color: #1c1914;
+  color: var(--text);
   font-weight: 700;
-  border-color: #b85c28;
+  border-color: var(--accent-amber-text);
   border-bottom-width: 2px;
   padding-bottom: 6px;
 }
@@ -5173,7 +5194,7 @@ section[id] {
   font-size: 19px;
   font-weight: 600;
   line-height: 1.25;
-  color: #1c1914;
+  color: var(--text);
   margin: 0 0 6px;
 }
 
@@ -5228,7 +5249,7 @@ section[id] {
 .rankings-profile-readout strong {
   font-size: 14px;
   font-weight: 700;
-  color: #1c1914;
+  color: var(--text);
 }
 
 .rankings-profile-readout p {
@@ -5353,7 +5374,7 @@ section[id] {
   font-size: 9px;
   font-weight: 700;
   font-family: var(--font-mono);
-  color: #fafaf8;
+  color: var(--surface-raised);
   flex-shrink: 0;
 }
 
@@ -5854,14 +5875,14 @@ section[id] {
 .visitor-counter-dot {
   width: 5px;
   height: 5px;
-  background: #0e7c7e;
+  background: var(--teal-deep);
   border-radius: 0;
 }
 
 .visitor-counter-number {
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  color: #0e7c7e;
+  color: var(--teal-deep);
 }
 
 .visitor-counter-label {
@@ -6172,7 +6193,7 @@ section[id] {
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #1a6b5a;
+  color: var(--accent-cyan);
   padding: 3px 8px 3px 6px;
   border: 1px solid currentColor;
   white-space: nowrap;
@@ -6183,7 +6204,7 @@ section[id] {
   display: inline-block;
   width: 7px;
   height: 7px;
-  background: #1a6b5a;
+  background: var(--accent-cyan);
   animation: history-current-pulse 1.8s ease-in-out infinite;
 }
 
@@ -6283,7 +6304,7 @@ section[id] {
   font-size: 11px;
   font-weight: 500;
   letter-spacing: 0.06em;
-  color: #1a6b5a;
+  color: var(--accent-cyan);
   margin: 0 0 2.5rem;
   padding: 6px 10px 6px 8px;
   border: 1px solid currentColor;
@@ -6294,7 +6315,7 @@ section[id] {
   display: inline-block;
   width: 7px;
   height: 7px;
-  background: #1a6b5a;
+  background: var(--accent-cyan);
   animation: history-current-pulse 1.8s ease-in-out infinite;
 }
 
@@ -6597,7 +6618,7 @@ section[id] {
   min-height: min(52svh, 480px);
   margin: 0 0 2rem;
   padding: 0;
-  background: #17120d;
+  background: var(--ink-search);
   overflow: clip;
 }
 
@@ -6650,7 +6671,7 @@ section[id] {
 }
 
 .scorecard-hero--dark .scorecard-slic-score {
-  color: #ffd0a6;
+  color: var(--pillar-community-tint);
 }
 
 .scorecard-hero--dark .scorecard-rank {
@@ -6667,17 +6688,17 @@ section[id] {
 
 .scorecard-hero--dark .scorecard-grade--a {
   border-color: rgba(157, 224, 200, 0.4);
-  color: #c7f2e1;
+  color: var(--pillar-viability-tint);
 }
 
 .scorecard-hero--dark .scorecard-grade--b {
   border-color: rgba(255, 210, 159, 0.45);
-  color: #ffe0bc;
+  color: var(--pillar-creative-tint);
 }
 
 .scorecard-hero--dark .scorecard-grade--c {
   border-color: rgba(255, 183, 168, 0.45);
-  color: #ffd0c4;
+  color: var(--pillar-pressure-tint);
 }
 
 @media (max-width: 760px) {
@@ -6969,7 +6990,7 @@ section[id] {
 
 .scorecard-grade--exercise {
   border-color: rgba(26, 58, 107, 0.22);
-  color: var(--accent-blue, #1a3a6b);
+  color: var(--accent-blue);
 }
 
 .scorecard-hero--visual.section {
@@ -6981,7 +7002,7 @@ section[id] {
   padding: 0;
   color: var(--text-inverse);
   overflow: clip;
-  background: #17120d;
+  background: var(--ink-search);
 }
 
 .scorecard-hero-media {
@@ -7073,7 +7094,7 @@ section[id] {
 }
 
 .scorecard-hero--visual .scorecard-slic-score {
-  color: #ffd0a6;
+  color: var(--pillar-community-tint);
 }
 
 .scorecard-hero--visual .scorecard-rank {
@@ -7090,22 +7111,22 @@ section[id] {
 
 .scorecard-hero--visual .scorecard-grade--a {
   border-color: rgba(157, 224, 200, 0.4);
-  color: #c7f2e1;
+  color: var(--pillar-viability-tint);
 }
 
 .scorecard-hero--visual .scorecard-grade--b {
   border-color: rgba(255, 210, 159, 0.45);
-  color: #ffe0bc;
+  color: var(--pillar-creative-tint);
 }
 
 .scorecard-hero--visual .scorecard-grade--c {
   border-color: rgba(255, 183, 168, 0.45);
-  color: #ffd0c4;
+  color: var(--pillar-pressure-tint);
 }
 
 .scorecard-hero--visual .scorecard-grade--exercise {
   border-color: rgba(185, 215, 255, 0.4);
-  color: #d7e7ff;
+  color: var(--pillar-capability-tint);
 }
 
 @media (min-width: 1800px) {
@@ -7489,7 +7510,7 @@ details[open].scorecard-derived-formula summary::before {
 .scorecard-equation-result {
   font-size: 18px;
   font-weight: 800;
-  color: var(--accent-blue, #1a3a6b);
+  color: var(--accent-blue);
 }
 
 /* ── AMPI breakdown row ── */
@@ -7531,13 +7552,13 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .scorecard-floor-note--below {
-  color: #b94040;
-  border-color: #b94040;
+  color: var(--signal-warn);
+  border-color: var(--signal-warn);
 }
 
 .scorecard-floor-note--clears {
-  color: #2d7a4a;
-  border-color: #2d7a4a;
+  color: var(--signal-ok);
+  border-color: var(--signal-ok);
 }
 
 /* ── Pillar sections ── */
@@ -7702,7 +7723,7 @@ details[open].scorecard-derived-formula summary::before {
 
 .scorecard-data-badge--derived {
   border-color: rgba(26, 58, 107, 0.3);
-  color: var(--accent-blue, #1a3a6b);
+  color: var(--accent-blue);
 }
 
 /* #7c3aed was the VibeCode purple — the single most-cited agent-built colour.
@@ -7869,12 +7890,12 @@ details[open].scorecard-derived-formula summary::before {
 
 .scorecard-coverage-item--city {
   background: rgba(26, 107, 90, 0.08);
-  color: #1a6b5a;
+  color: var(--accent-cyan);
 }
 
 .scorecard-coverage-item--national {
   background: rgba(42, 90, 140, 0.08);
-  color: #2a5a8c;
+  color: var(--accent-blue);
 }
 
 .scorecard-coverage-item--derived {
@@ -8023,7 +8044,7 @@ details[open].scorecard-derived-formula summary::before {
 
 .v3-tier-badge--alpha {
   background: var(--text);
-  color: var(--bg);
+  color: var(--text-inverse);
 }
 
 .v3-tier-badge--beta {
@@ -8264,18 +8285,18 @@ details[open].scorecard-derived-formula summary::before {
 .v3-tier-chip:hover {
   background: var(--text);
   border-color: var(--text);
-  color: var(--bg);
+  color: var(--text-inverse);
 }
 
 .v3-tier-chip:hover span {
-  color: var(--bg);
+  color: var(--text-inverse);
 }
 
 /* 05. Spider — full experience */
 .v3-spider-full {
   padding: 3rem 0;
   background: var(--text);
-  color: var(--bg);
+  color: var(--text-inverse);
 }
 
 .v3-spider-layout {
@@ -8404,7 +8425,7 @@ details[open].scorecard-derived-formula summary::before {
 
 .v3-cta-section .v3-cta {
   background: var(--text);
-  color: var(--bg);
+  color: var(--text-inverse);
   padding: 16px 40px;
   font-size: 14px;
 }
@@ -8614,7 +8635,7 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .v3-spider-full .rankings-reset-btn {
-  color: var(--bg);
+  color: var(--text-inverse);
   border-color: rgba(248, 245, 240, 0.2);
 }
 
@@ -8783,7 +8804,7 @@ details[open].scorecard-derived-formula summary::before {
 /* 01. Hero */
 .compare-hero {
   background: var(--text);
-  color: var(--bg);
+  color: var(--text-inverse);
   padding: 8rem 0 4rem;
 }
 
@@ -8945,7 +8966,7 @@ details[open].scorecard-derived-formula summary::before {
 
 .compare-matrix-hd--slic {
   background: rgba(26, 107, 90, 0.06);
-  border-top-color: #1a6b5a;
+  border-top-color: var(--accent-cyan);
 }
 
 /* ── Rank number column ── */
@@ -9173,7 +9194,7 @@ details[open].scorecard-derived-formula summary::before {
 .compare-visits-city {
   font-family: var(--font-heading);
   font-size: 14px;
-  color: var(--ink, #1c1914);
+  color: var(--text);
   line-height: 1.25;
 }
 
@@ -9289,7 +9310,7 @@ details[open].scorecard-derived-formula summary::before {
   font-size: 11px;
   letter-spacing: 0.04em;
   line-height: 1.6;
-  color: #5c5449;
+  color: var(--text-note-cool);
 }
 
 .compare-overlap-slic {
@@ -9466,7 +9487,7 @@ details[open].scorecard-derived-formula summary::before {
 .compare-critique {
   padding: 2.25rem 0;
   background: var(--text);
-  color: var(--bg);
+  color: var(--text-inverse);
 }
 
 .compare-critique-blocks {
@@ -9563,7 +9584,7 @@ details[open].scorecard-derived-formula summary::before {
 
 .compare-diff-cta .v3-cta {
   background: var(--text);
-  color: var(--bg);
+  color: var(--text-inverse);
 }
 
 .compare-diff-cta .v3-cta-secondary {
@@ -9753,6 +9774,10 @@ details[open].scorecard-derived-formula summary::before {
   gap: 0.35rem;
 }
 
+/* The active locale used to be a solid ink block while its four siblings were
+   hairline-underlined text. That made a low-emphasis control the loudest thing
+   in the masthead — it read as an advertisement. It now matches every other
+   active nav item in this masthead: full-strength ink plus an underline. */
 .locale-button {
   min-height: 2.1rem;
   padding: 0 0.8rem;
@@ -9763,9 +9788,16 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .locale-button.active {
-  background: var(--text);
-  border-color: var(--text);
-  color: var(--bg);
+  background: transparent;
+  border-color: var(--accent-blue);
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* Dark masthead: the underline carries the active state against photography. */
+.mh--hero:not(.mh--scrolled) .locale-button.active {
+  border-bottom-color: var(--accent-amber);
+  color: var(--text-inverse);
 }
 
 .hp-opening {
@@ -10324,7 +10356,7 @@ body,
 .mh--hero:not(.mh--scrolled) .mh-link,
 .mh--hero:not(.mh--scrolled) .mh-dropdown-trigger,
 .mh--hero:not(.mh--scrolled) .mh-edition {
-  color: #f8f5f0;
+  color: var(--text-inverse);
 }
 
 .mh--hero:not(.mh--scrolled) .mh-link:hover,
@@ -10336,16 +10368,22 @@ body,
   border-bottom-color: rgba(248, 245, 240, 0.72);
 }
 
+/* The dark masthead boxed all five locale controls and filled the active one with
+   a solid cream plate, so a low-emphasis switch became the loudest object in the
+   bar. Over photography the underline carries state on its own, exactly as it
+   does on the light masthead. */
 .mh--hero:not(.mh--scrolled) .locale-button {
-  border-color: rgba(248, 245, 240, 0.36);
-  background: rgba(0, 0, 0, 0.32);
-  color: #f8f5f0;
+  border: 0;
+  border-bottom: 1px solid rgba(248, 245, 240, 0.28);
+  background: transparent;
+  color: rgba(248, 245, 240, 0.72);
 }
 
 .mh--hero:not(.mh--scrolled) .locale-button.active {
-  border-color: rgba(248, 245, 240, 0.95);
-  background: rgba(248, 245, 240, 0.95);
-  color: var(--text);
+  border-bottom-color: var(--accent-amber);
+  background: transparent;
+  color: var(--text-inverse);
+  font-weight: 600;
 }
 
 .mh--hero:not(.mh--scrolled) .mh-burger {
@@ -10363,7 +10401,7 @@ body,
 .mh--hero:not(.mh--scrolled) .mh-search-btn {
   background: rgba(0, 0, 0, 0.32);
   border-color: rgba(248, 245, 240, 0.36);
-  color: #f8f5f0;
+  color: var(--text-inverse);
 }
 
 .mh--hero:not(.mh--scrolled) .mh-search-btn:hover {
@@ -10375,7 +10413,7 @@ body,
 .mh--hero:not(.mh--scrolled) .mh-search-kbd {
   background: rgba(248, 245, 240, 0.12);
   border-color: rgba(248, 245, 240, 0.36);
-  color: #f8f5f0;
+  color: var(--text-inverse);
 }
 
 .hp-opening {
@@ -10385,7 +10423,7 @@ body,
   align-items: flex-end;
   padding: 8.8rem 0 4.5rem;
   overflow: hidden;
-  background: #12100d;
+  background: var(--ink-panel);
   color: var(--text-inverse);
   border-bottom: 1px solid rgba(18, 16, 13, 0.9);
 }
@@ -10418,7 +10456,10 @@ body,
   display: block;
   object-fit: cover;
   object-position: center 38%;
-  filter: saturate(0.92) contrast(1.04) brightness(0.82);
+  /* brightness only — the ink scrim above already does the contrast work.
+     A saturate() here was flattening every photograph toward grey, which is
+     what made the whole site read monochrome. */
+  filter: brightness(0.86);
   transform: scale(1.018);
   animation: hp-cover-drift 24s ease-out both;
 }
@@ -10520,14 +10561,13 @@ body,
 }
 
 .hp-photo-break {
-  background: #12100d;
+  background: var(--ink-panel);
 }
 
 .hp-photo-break-img {
   height: 60svh;
   min-height: 28rem;
   object-position: center 46%;
-  filter: saturate(0.92) contrast(1.02);
 }
 
 .hp-photo-break--narrow .hp-photo-break-img {
@@ -10596,8 +10636,8 @@ body,
     grid-row: span 2;
     min-height: 20.5rem;
     padding: 1.45rem;
-    background: #1c1914;
-    border-color: #1c1914;
+    background: var(--text);
+    border-color: var(--text);
     color: var(--text-inverse);
   }
 
@@ -10641,9 +10681,13 @@ body,
     gap: 0.55rem;
   }
 
-  .mh-logo-img {
-    height: 30px;
-    width: 116px;
+  .mh-wordmark-main {
+    font-size: 1.15rem;
+  }
+
+  .mh-wordmark-sub {
+    font-size: 0.54rem;
+    letter-spacing: 0.14em;
   }
 
   .mh-actions {
@@ -11327,7 +11371,7 @@ body,
 
 .map-subtitle {
   max-width: 720px;
-  color: #5c5449;
+  color: var(--text-note-cool);
   font-size: 1rem;
   line-height: 1.6;
   margin: 0 0 2rem;
@@ -11336,7 +11380,7 @@ body,
 .map-wrapper {
   position: relative;
   width: 100%;
-  background: #f4efe7;
+  background: var(--surface-sunken);
   border: 1px solid var(--border);
   border-radius: 0;
   overflow: hidden;
@@ -11346,7 +11390,7 @@ body,
   display: block;
   width: 100%;
   height: auto;
-  background: #f8f5f0;
+  background: var(--bg);
 }
 
 .map-svg a:focus-visible circle {
@@ -11404,7 +11448,7 @@ body,
   margin-top: 1.5rem;
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #6b6459;
+  color: var(--text-note);
 }
 
 .map-footer-note a {
@@ -11665,7 +11709,7 @@ html[lang="th"] .hp-lede {
   font-size: clamp(2rem, 5vw, 3.6rem);
   font-weight: 400;
   line-height: 1.18;
-  color: #f8f5f0;
+  color: var(--text-inverse);
   margin: 0 0 0.75rem;
   letter-spacing: normal;
 }
@@ -11997,7 +12041,7 @@ a.essay-reference-text:hover {
   --spider-hint: rgba(40, 32, 20, 0.66);
   --spider-slider-label: rgba(40, 32, 20, 0.78);
   --spider-track: rgba(40, 32, 20, 0.14);
-  --spider-thumb: #1c1914;
+  --spider-thumb: var(--text);
   /* Accent for the drag-hint rule under the chart; surface-aware like the rest. */
   --spider-accent: var(--accent-amber-text);
   /* 0% = use the pillar hue as authored; dark panels raise this. */
@@ -12122,7 +12166,7 @@ a.essay-reference-text:hover {
 }
 
 .compare-scatter-wrap {
-  background: #1c1914;
+  background: var(--text);
   padding: 1rem;
   margin: 2rem 0 1.5rem;
   overflow-x: auto;
@@ -12742,34 +12786,40 @@ a.essay-reference-text:hover {
 /* ═══════ MODERN SEAMLESS SEARCH & QUICK ACTIONS ═══════ */
 
 /* Masthead Quick Search trigger */
+/* The search trigger was a bordered box containing a bordered kbd chip, which is
+   a box inside a box inside a box. One border, on the control. The kbd hint is
+   text inside it, differentiated by weight and tracking rather than a second
+   rectangle. */
 .mh-search-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
   padding: 0.35rem 0.65rem;
-  background: rgba(28, 25, 20, 0.04);
-  border: 1px solid rgba(28, 25, 20, 0.15);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--border-inverse);
   border-radius: 0;
   color: var(--text-soft);
   font-family: var(--font-body);
   font-size: 0.78rem;
   cursor: pointer;
-  transition: all 120ms var(--ease-spring);
+  transition: color 120ms var(--ease-spring), border-color 120ms var(--ease-spring);
 }
 
 .mh-search-btn:hover {
-  background: rgba(28, 25, 20, 0.08);
-  border-color: var(--accent-amber);
-  color: var(--text);
+  background: transparent;
+  border-bottom-color: var(--accent-amber);
+  color: var(--text-inverse);
 }
 
 .mh-search-kbd {
   font-family: var(--font-mono);
   font-size: 0.62rem;
-  padding: 1px 4px;
-  background: rgba(28, 25, 20, 0.08);
-  border: 1px solid rgba(28, 25, 20, 0.15);
-  color: var(--text);
+  padding: 0;
+  background: none;
+  border: 0;
+  color: inherit;
+  opacity: 0.6;
   letter-spacing: 0.04em;
 }
 
@@ -12868,7 +12918,7 @@ a.essay-reference-text:hover {
   flex: 1;
   background: transparent;
   border: none;
-  color: #f8f5f0;
+  color: var(--text-inverse);
   font-family: var(--font-body);
   font-size: 1.02rem;
   /* The input is borderless by design, so the focus ring is the ONLY cue that
@@ -12925,7 +12975,7 @@ a.essay-reference-text:hover {
 .quick-search-empty-title {
   font-family: var(--font-heading);
   font-size: 1.05rem;
-  color: #f8f5f0;
+  color: var(--text-inverse);
   margin: 0 0 0.4rem;
 }
 
@@ -12991,7 +13041,7 @@ a.essay-reference-text:hover {
   font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 400;
-  color: #f8f5f0;
+  color: var(--text-inverse);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -13019,7 +13069,7 @@ a.essay-reference-text:hover {
 }
 
 .quick-search-item-score strong {
-  color: #f8f5f0;
+  color: var(--text-inverse);
   font-weight: 700;
 }
 
@@ -13110,7 +13160,7 @@ a.essay-reference-text:hover {
   padding: 0.4rem 0.8rem;
   background: rgba(248, 245, 240, 0.08);
   border: 1px solid rgba(248, 245, 240, 0.2);
-  color: #f8f5f0;
+  color: var(--text-inverse);
   font-family: var(--font-body);
   font-size: 0.74rem;
   letter-spacing: 0.04em;
@@ -13123,7 +13173,7 @@ a.essay-reference-text:hover {
 .scorecard-action-btn:hover {
   background: var(--accent-amber);
   border-color: var(--accent-amber);
-  color: #1c1914;
+  color: var(--text);
 }
 
 .scorecard-action-btn svg {
@@ -13134,8 +13184,8 @@ a.essay-reference-text:hover {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: #1c1914;
-  color: #f8f5f0;
+  background: var(--text);
+  color: var(--text-inverse);
   border: 1px solid var(--accent-amber);
   padding: 0.6rem 1.1rem;
   font-family: var(--font-mono);
@@ -13177,7 +13227,7 @@ a.essay-reference-text:hover {
 
 .back-to-top-btn:hover {
   background: var(--accent-amber);
-  color: #1c1914;
+  color: var(--text);
   border-color: var(--accent-amber);
   opacity: 1;
 }
@@ -13187,16 +13237,16 @@ a.essay-reference-text:hover {
 .traffic-heading h1 { font-family: var(--font-heading); font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.15; margin: 0.25em 0; }
 .traffic-heading p, .traffic-notes p { max-width: 65ch; }
 .traffic-controls { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 1rem 0; }
-.traffic-controls button { width: auto; padding: 0.5em 0.8em; border: 1px solid currentColor; background: transparent; color: var(--ink, #1c1914); cursor: pointer; font: inherit; }
-.traffic-controls button[aria-pressed="true"] { background: #1c1914; color: #f8f5f0; }
+.traffic-controls button { width: auto; padding: 0.5em 0.8em; border: 1px solid currentColor; background: transparent; color: var(--text); cursor: pointer; font: inherit; }
+.traffic-controls button[aria-pressed="true"] { background: var(--text); color: var(--text-inverse); }
 .traffic-controls button:focus-visible { outline: 2px solid #a04e20; outline-offset: 3px; }
-.traffic-summary { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.4rem; padding: 0.5rem 0; border-block: 1px solid #c9beb0; }
+.traffic-summary { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 1.4rem; padding: 0.5rem 0; border-block: 1px solid var(--rule-warm); }
 .traffic-summary strong { font: 500 clamp(2rem, 4vw, 3.5rem)/1 var(--font-heading); }
 .traffic-summary p { margin: 0; max-width: 65ch; }
 .traffic-map { margin: 1rem 0 1.5rem; }
 .traffic-map svg { display: block; width: 100%; height: auto; }
-.traffic-country { stroke: #f8f5f0; stroke-width: 0.6; }
-.traffic-country--recorded:hover { stroke: #1c1914; stroke-width: 1.5; }
+.traffic-country { stroke: var(--bg); stroke-width: 0.6; }
+.traffic-country--recorded:hover { stroke: var(--text); stroke-width: 1.5; }
 .traffic-map figcaption { max-width: 65ch; padding-top: 0.5rem; }
 .traffic-detail { display: grid; grid-template-columns: minmax(15rem, 1fr) minmax(0, 1.5fr); gap: 2rem; align-items: start; }
 .traffic-detail h2 { font-size: clamp(1.5rem, 2.2vw, 2rem); }
