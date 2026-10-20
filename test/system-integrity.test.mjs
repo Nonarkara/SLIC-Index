@@ -304,7 +304,7 @@ test("integrity: a bare selector is not redefined later in the file", () => {
   // This is a RATCHET: the baseline below is the count at the time the gate
   // was written. New duplicates fail. Fixing one lowers the count and the
   // baseline should be lowered with it.
-  const BASELINE = 156;
+  const BASELINE = 54;
 
   const counts = new Map();
   let depth = 0;

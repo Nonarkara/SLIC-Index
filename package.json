@@ -41,6 +41,7 @@
   },
   "devDependencies": {
     "@types/geojson": "^7946.0.16",
-    "@types/topojson-specification": "^1.0.5"
+    "@types/topojson-specification": "^1.0.5",
+    "playwright-core": "^1.58.2"
   }
 }
