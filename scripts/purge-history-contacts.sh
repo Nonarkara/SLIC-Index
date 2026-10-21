@@ -57,6 +57,22 @@ done
 say() { printf '%s\n' "$*"; }
 rule() { say "------------------------------------------------------------"; }
 
+# Does this blob contain a personal address?
+#
+# Not "grep -q". grep -q exits the moment it matches, which closes the pipe
+# and kills git cat-file with SIGPIPE. Under `set -o pipefail` the pipeline
+# then reports 141 - failure - and the blob looks clean. The race decides
+# the answer: small blobs finish writing before grep exits and get found,
+# large ones get missed. That is the worst possible failure mode for a tool
+# whose job is to find leaks, so the count is taken instead and compared.
+blob_address_count() {
+  git cat-file blob "$1" 2>/dev/null | grep -aoE "$ADDRESS_RE" | wc -l | tr -d ' '
+}
+
+blob_has_address() {
+  [ "$(blob_address_count "$1")" -gt 0 ] 2>/dev/null
+}
+
 if ! command -v git-filter-repo >/dev/null 2>&1 && ! git filter-repo --help >/dev/null 2>&1; then
   say "git-filter-repo is not installed. Install it, then run this again."
   exit 1
@@ -98,7 +114,7 @@ trap cleanup EXIT
 
 # ── 1. find the dirty blobs ─────────────────────────────────────────────────
 # node_modules/ is excluded on purpose. It used to be committed, and npm
-# package metadata carries author fields like "someone@gmail.com". Those are
+# package metadata carries author fields like a personal address on a free mailbox. Those are
 # public registry data, not a leak, and rewriting them would corrupt the
 # vendored packages for no benefit. They are counted and reported separately.
 say "Scanning every blob in every branch for personal addresses..."
@@ -107,7 +123,7 @@ say "Scanning every blob in every branch for personal addresses..."
 git rev-list --objects --all > "$WORK/objects.txt"
 while read -r sha path; do
   [ -z "${path:-}" ] && continue
-  if git cat-file blob "$sha" 2>/dev/null | grep -qaE "$ADDRESS_RE"; then
+  if blob_has_address "$sha"; then
     case "$path" in
       node_modules/*) printf '%s %s\n' "$sha" "$path" >> "$WORK/vendor.txt" ;;
       *) printf '%s %s\n' "$sha" "$path" >> "$WORK/dirty.txt" ;;
@@ -231,7 +247,7 @@ git rev-list --objects --all > "$WORK/objects-after.txt"
 while read -r sha path; do
   [ -z "${path:-}" ] && continue
   case "$path" in node_modules/*) continue ;; esac
-  if git cat-file blob "$sha" 2>/dev/null | grep -qaE "$ADDRESS_RE"; then
+  if blob_has_address "$sha"; then
     printf '%s %s\n' "$sha" "$path" >> "$WORK/after.txt"
   fi
 done < "$WORK/objects-after.txt"
