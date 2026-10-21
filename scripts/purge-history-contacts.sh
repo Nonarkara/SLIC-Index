@@ -84,23 +84,43 @@ fi
 
 WORK="$(mktemp -d /tmp/purge-contacts.XXXXXX)"
 BACKUP="$HOME/slic-index-pre-purge-$(date +%Y%m%d-%H%M%S).bundle"
-trap 'rm -rf "$WORK"' EXIT
+# Overwrite the derived address list before the work directory goes away. A
+# plain delete can be diverted to a trash folder, and the trash folder would
+# then hold the addresses the script exists to remove.
+cleanup() {
+  if [ -f "$WORK/addresses.txt" ]; then
+    : > "$WORK/addresses.txt"
+    : > "$WORK/raw-addresses.txt"
+  fi
+  rm -rf "$WORK"
+}
+trap cleanup EXIT
 
 # ── 1. find the dirty blobs ─────────────────────────────────────────────────
+# node_modules/ is excluded on purpose. It used to be committed, and npm
+# package metadata carries author fields like "someone@gmail.com". Those are
+# public registry data, not a leak, and rewriting them would corrupt the
+# vendored packages for no benefit. They are counted and reported separately.
 say "Scanning every blob in every branch for personal addresses..."
 : > "$WORK/dirty.txt"
+: > "$WORK/vendor.txt"
 git rev-list --objects --all > "$WORK/objects.txt"
 while read -r sha path; do
   [ -z "${path:-}" ] && continue
   if git cat-file blob "$sha" 2>/dev/null | grep -qaE "$ADDRESS_RE"; then
-    printf '%s %s\n' "$sha" "$path" >> "$WORK/dirty.txt"
+    case "$path" in
+      node_modules/*) printf '%s %s\n' "$sha" "$path" >> "$WORK/vendor.txt" ;;
+      *) printf '%s %s\n' "$sha" "$path" >> "$WORK/dirty.txt" ;;
+    esac
   fi
 done < "$WORK/objects.txt"
 sort -u -o "$WORK/dirty.txt" "$WORK/dirty.txt"
+sort -u -o "$WORK/vendor.txt" "$WORK/vendor.txt"
 
 DIRTY_COUNT=$(wc -l < "$WORK/dirty.txt" | tr -d ' ')
+VENDOR_COUNT=$(wc -l < "$WORK/vendor.txt" | tr -d ' ')
 if [ "$DIRTY_COUNT" -eq 0 ]; then
-  say "No personal addresses found in any blob. Nothing to do."
+  say "No personal addresses found in any blob outside node_modules. Nothing to do."
   exit 0
 fi
 
@@ -110,6 +130,12 @@ while read -r sha path; do
   n=$(git cat-file blob "$sha" | grep -aoE "$ADDRESS_RE" | sort -u | wc -l | tr -d ' ')
   say "  ${sha:0:12}  ${n} address(es)  $path"
 done < "$WORK/dirty.txt"
+
+if [ "$VENDOR_COUNT" -gt 0 ]; then
+  say ""
+  say "Skipped $VENDOR_COUNT blob(s) under node_modules/ - npm author fields,"
+  say "public registry data, not a leak."
+fi
 
 # ── 2. derive the address list ──────────────────────────────────────────────
 while read -r sha path; do
@@ -131,7 +157,7 @@ say "The list is derived at run time. It is never stored in the repository."
 printf 'MAP = {\n' >> "$WORK/swap.py"
 SWAP_N=0
 while read -r sha path; do
-  clean=$(git rev-parse "HEAD:$path" 2>/dev/null || true)
+  clean=$(git rev-parse --verify --quiet "HEAD:$path" 2>/dev/null || true)
   if [ -z "$clean" ]; then
     say "  ! no clean twin at HEAD for $path - --replace-text only"
     continue
