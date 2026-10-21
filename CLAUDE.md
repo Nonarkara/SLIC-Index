@@ -89,6 +89,20 @@ which re-extracts, re-chunks, and rewrites the built and published catalogs toge
 
 **Personal contact details never enter the corpus.** The source reports carry the contact lines of named individuals; those lines are redacted in the documents themselves, so the redaction survives a re-extraction, and `scripts/check-personal-contacts.py` fails the build if a personal address or phone number reappears anywhere in the tree. Published organisation inboxes and office switchboards are allowlisted and stay. Git history is not scanned: removing a contact from the tree does not remove it from older commits.
 
+**The tree was redacted; the history was not.** The published rack served 16 personal email addresses — alongside 27 organisation inboxes, 43 in all — from 2026-03-09 until 2026-10-21, roughly seven months. The tree is clean and production is clean, but the commits that came before still carry five dirty blobs holding 21 distinct personal addresses between them, and eight branches still point at them:
+
+| dirty blob | path | addresses |
+|---|---|---|
+| `bd3a9cafb632` | `dist/knowledge-rack/catalog/chunks.json` (the same blob as `public/knowledge-rack/catalog/chunks.json`) | 16 |
+| `844b258c1ff2` | `knowledge-rack/catalog/chunks.jsonl` | 16 |
+| `6a7c7c898260` | `knowledge-rack/text/ascn-report-2019-depa-thailand.txt` | 16 |
+| `014a00c87cfe` | `knowledge-rack/inbox/SCW2020_ThaiVer final.pdf` | 1 |
+| `adbda43f10a1` | `knowledge-rack/inbox/Smart City Week 2020 Booklet.pdf` | 1 |
+
+`scripts/purge-history-contacts.sh` rewrites them away. It swaps each dirty blob for its clean twin at HEAD, verifies that no address survives, and only then force-pushes. **It rewrites every commit SHA and force-pushes every branch, so it needs Dr Non's explicit sign-off — it has not been run.** Two things it cannot do: it cannot un-publish what was already served for seven months, and it cannot tell the named individuals their addresses were out there. Both are conversations, not commands.
+
+The blob swap is not optional. `git filter-repo --replace-text` substitutes bytes and silently does nothing on binary blobs — the two source PDFs carry a plaintext address inside compressed streams and survive a `--replace-text`-only rewrite untouched.
+
 ### What the gates catch
 
 Every rule above that can be decided from source is a machine gate. They run in `npm run verify:release`, so a violation fails the build rather than being noticed in review.
