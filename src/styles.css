@@ -950,6 +950,18 @@ section[id] {
   margin-bottom: 1.5rem;
 }
 
+/*
+ * A filter row on a phone stranded its last button alone on a line of its
+ * own. Two columns give an even block of controls.
+ */
+@media (max-width: 560px) {
+  .mode-switch {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
+  }
+}
+
 .region-switch {
   display: flex;
   flex-wrap: wrap;
@@ -1640,9 +1652,15 @@ section[id] {
   border-color: var(--accent-blue);
 }
 
+/*
+ * Three example prompts. As a wrapping flex row each button took the full
+ * width of the row and the three stacked one per line, even in a 944px
+ * band. One column in the narrow query card, three across when the card
+ * goes full width.
+ */
 .knowledge-rack-example-list {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
   gap: 0.6rem;
 }
 
@@ -1971,22 +1989,43 @@ section[id] {
   object-fit: contain;
 }
 
+/*
+ * The footer's bottom strip used to be one flex row: the navigation (the
+ * footer, for a reader) sat beside three metadata lines and was squeezed to
+ * ~41% of the width, so its seven columns broke into two ragged rows while a
+ * 713px citation line was pushed onto a row of its own.
+ *
+ * The navigation is the structure. It gets the full width and one row; the
+ * three metadata lines follow underneath, and the citation keeps the rule it
+ * was always drawn with.
+ */
 .site-footer-bottom {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 1.25rem 2.5rem;
   align-items: start;
-  justify-content: space-between;
-  gap: 1.5rem;
   padding-top: 0.75rem;
   border-top: 1px solid var(--border);
 }
 
 .site-footer-nav {
+  grid-column: 1 / -1;
   display: flex;
   flex-wrap: wrap;
   align-items: start;
   gap: 1.25rem 2rem;
-  flex: 1 1 28rem;
+}
+
+/*
+ * On a phone the seven footer columns wrapped 3 + 2 + 1, stranding the last
+ * group on a line of its own. Two columns keeps the nav an even block.
+ */
+@media (max-width: 560px) {
+  .site-footer-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem 1.5rem;
+  }
 }
 
 .site-footer-nav>a:first-child {
@@ -2995,6 +3034,19 @@ section[id] {
   padding-top: 1rem;
   border-top: 1px solid var(--border);
   font-size: 0.9rem;
+}
+
+/*
+ * On a phone the ten methodology anchors wrapped into three ragged lines
+ * with the last one stranded alone. Two columns give five even rows, and
+ * every anchor keeps its 44px tap target.
+ */
+@media (max-width: 560px) {
+  .paper-anchor-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0 1rem;
+  }
 }
 
 .paper-anchor-nav a {
@@ -4191,10 +4243,15 @@ section[id] {
   .hero-ranking-head,
   .ranking-detail-head,
   .leader-topline,
-  .weight-card-head,
-  .site-footer-bottom {
+  .weight-card-head {
     align-items: start;
     flex-direction: column;
+  }
+
+  /* The footer bottom is a grid, not a flex row: stack it in one column. */
+  .site-footer-bottom {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.9rem;
   }
 
   .world-clock-head,
@@ -4881,15 +4938,19 @@ section[id] {
   width: 100%;
 }
 
-/* Left-aligned rather than centred: centring a wrapped flex row makes every
-   row ragged and leaves both edges hanging, which is the flatness tell. A left
-   edge that locks to the content column is the invisible grid doing its job. */
+/*
+ * Six named profiles and one way out.
+ *
+ * As a free-width flex row the chips broke into three ragged lines and
+ * stranded the reset beside a peer. Six divides by two and by three, so a
+ * grid always lands an even number of chips on every row; the reset spans
+ * the full width and keeps its own size, so it reads as the utility it is
+ * rather than a seventh preference.
+ */
 .rankings-preset-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
   gap: 8px;
-  justify-content: flex-start;
   width: 100%;
 }
 
@@ -4912,10 +4973,14 @@ section[id] {
 }
 
 /* "Reset to SLIC baseline" is a utility, not a seventh preference. It gets its
-   own weight so the six peers read as one family and it reads as the way out. */
+   own weight so the six peers read as one family and it reads as the way out.
+   It also gets its own row: spanning the grid, it never lands beside a peer
+   and never leaves a hole where a seventh chip would have been. */
 .rankings-preset-btn--reset {
   color: var(--text-dim);
   border-style: dashed;
+  grid-column: 1 / -1;
+  justify-self: start;
 }
 
 .rankings-preset-btn--reset:hover {
@@ -5051,6 +5116,7 @@ section[id] {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  grid-area: actions;
 }
 
 /* ── Feature card (best match) ── */
@@ -5149,11 +5215,29 @@ section[id] {
 }
 
 /* ── Insight list / cards ── */
+/*
+ * Trade-off signals. These sit under the whole workbench, so they are a row
+ * of cards and not one 1088px-wide paragraph: each narrative is capped at
+ * 46ch, the measure the rest of the site holds its prose to.
+ */
 .rankings-insight-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 0 2rem;
   width: 100%;
+}
+
+.rankings-insight-card {
+  border-top: 1px solid var(--border);
+  padding: 0.9rem 0 0;
+}
+
+.rankings-insight-card p {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--text-soft);
+  max-width: 46ch;
+  margin: 0.4rem 0 0;
 }
 
 .rankings-insight-kicker {
@@ -5162,6 +5246,15 @@ section[id] {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.rankings-insight-card.is-moderate .rankings-insight-kicker {
+  color: var(--accent-amber-text);
+}
+
+.rankings-insight-card.is-severe .rankings-insight-kicker {
+  color: var(--accent-red);
 }
 
 .rankings-count-toggle {
@@ -5315,12 +5408,33 @@ section[id] {
   border-color: rgba(30, 40, 60, 0.2);
 }
 
+/*
+ * The filter bar is a two-row grid: the copy and the search/count controls
+ * share the first row, the region filter owns the second. As one flex row
+ * the eleven region options were crushed into the remaining column and broke
+ * into four ragged lines.
+ */
 .rankings-filter-bar {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    "copy   actions"
+    "region region";
+  gap: 0.75rem 1.5rem;
   align-items: center;
-  gap: 12px;
   margin-bottom: 16px;
+}
+
+.rankings-filter-bar > div:first-child {
+  grid-area: copy;
+}
+
+/* .rankings-filter-actions takes grid-area: actions — it is declared with
+   the element itself, in the filter-actions block above, so the element's
+   rules all live in one place. */
+
+.rankings-filter-bar > .region-switch {
+  grid-area: region;
 }
 
 /* ── Workbench: filter bar & city list (extracted from inline) ── */
@@ -7903,12 +8017,43 @@ details[open].scorecard-derived-formula summary::before {
 
 /* 03. Alpha tier — big cards */
 
+/*
+ * The Alpha header is a two-column editorial band: a lead column (tier badge
+ * above the amber aside) and a head column (display headline above the policy
+ * paragraph).
+ *
+ * The tracks MUST be proportions. They were `auto minmax(0, 1fr)`, which let
+ * the amber aside's max-content width size the first track: at 1024px the
+ * whole header collapsed into a 16px column of broken words, 2790px tall.
+ * A paragraph must never get to decide the geometry.
+ */
 .v3-alpha-header {
   margin-bottom: 2rem;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  gap: 1rem 1.4rem;
-  align-items: end;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 1.5rem 2.5rem;
+  align-items: start;
+}
+
+.v3-alpha-lead {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.85rem;
+}
+
+.v3-alpha-lead .v3-alpha-bridge {
+  margin: 0;
+}
+
+.v3-alpha-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.v3-alpha-head .v3-alpha-subtitle {
+  margin: 0;
 }
 
 .v3-tier-badge {
@@ -7954,7 +8099,7 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .v3-alpha-subtitle {
-  max-width: 54rem;
+  max-width: 34rem;
   margin: 12px 0 0;
   font-family: var(--font-body);
   font-size: 14px;
@@ -7963,7 +8108,7 @@ details[open].scorecard-derived-formula summary::before {
 }
 
 .v3-alpha-bridge {
-  max-width: 62rem;
+  max-width: 46rem;
   margin: 18px 0 0;
   padding: 16px 20px;
   background: rgba(184, 92, 40, 0.06);
@@ -7982,6 +8127,7 @@ details[open].scorecard-derived-formula summary::before {
 
 .v3-alpha-bridge-body {
   margin: 0;
+  max-width: 60ch;
   font-family: var(--font-body);
   font-size: 14.5px;
   line-height: 1.6;
@@ -9693,10 +9839,21 @@ details[open].scorecard-derived-formula summary::before {
   text-transform: none;
 }
 
+/*
+ * The Beta and Gamma bands hold ten cities each. As a wrapping flex row
+ * they broke 9 + 1, stranding the tenth chip alone on a second line. Five
+ * columns divides ten exactly: two even rows, no orphan.
+ */
 .v3-lower-tier-cities {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 0.7rem;
+}
+
+@media (max-width: 760px) {
+  .v3-lower-tier-cities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .v3-tier-chip {
@@ -9829,6 +9986,7 @@ details[open].scorecard-derived-formula summary::before {
  * 11px matches the 'panel-label' eyebrow scale (§11.7 three-size rule).
  */
 .site-footer-citation {
+  grid-column: 1 / -1;
   margin: 0.75rem 0 0;
   padding-top: 0.75rem;
   border-top: 1px solid rgba(28, 25, 20, 0.12);
@@ -10155,6 +10313,23 @@ body,
   opacity: 1;
 }
 
+.allocator-shell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.allocator-controls-hint {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--spider-hint);
+  margin: 0 0 6px;
+  text-align: center;
+}
+
 .allocator-svg {
   display: block;
   width: 100%;
@@ -10164,6 +10339,13 @@ body,
 @media (min-width: 980px) {
   .v3-alpha-grid {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  /* The workbench carries the filters and the results list. It was a 680px
+     island beside a 1120px stage, so the region filter had a third of the
+     room it needed. Match the stage width. */
+  .rankings-workbench {
+    max-width: 1120px;
   }
 
   .v3-city-card:first-child {
@@ -10328,7 +10510,7 @@ body,
   }
 
   .v3-alpha-header {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     align-items: start;
   }
 
@@ -11042,35 +11224,54 @@ html[lang="th"] .hp-lede {
     padding: 0.85rem 1rem;
   }
 
+  /*
+   * The workbench is two columns: a rail of controls on the left, the web
+   * on the right.
+   *
+   * The web and the five bars are one instrument, but they are not one
+   * block. Stacked in the chart's column, that column was 798px tall and
+   * the rail beside it 300px — which left a 490px hole under the rail, a
+   * void no one designed. So the shell dissolves: the web keeps its own
+   * column, and the bars sit in the rail, beside the thing they move. The
+   * eye travels sideways, not down and back up.
+   */
   .rankings-stage-inner {
     max-width: 1120px;
     display: grid;
     grid-template-columns: minmax(20rem, 0.72fr) minmax(0, 0.96fr);
-    grid-template-areas:
-      "presets chart"
-      "readout chart"
-      "insights chart";
+    grid-template-rows: auto auto auto auto;
     gap: 0.9rem 2rem;
-    align-items: center;
+    align-items: start;
     padding-bottom: 1.5rem;
   }
 
-  .rankings-preset-group {
-    grid-area: presets;
+  .rankings-stage .allocator-shell {
+    display: contents;
   }
 
-  .rankings-stage .allocator-shell {
-    grid-area: chart;
-    justify-self: center;
-    gap: 0.75rem !important;
+  .rankings-preset-group {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .rankings-stage .allocator-controls {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .rankings-stage .allocator-chart-frame {
+    grid-column: 2;
+    grid-row: 1 / span 3;
   }
 
   .rankings-stage-readout {
-    grid-area: readout;
+    grid-column: 1;
+    grid-row: 3;
   }
 
   .rankings-insight-list {
-    grid-area: insights;
+    grid-column: 1 / -1;
+    grid-row: 4;
     width: 100%;
   }
 }

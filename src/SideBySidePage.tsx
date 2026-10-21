@@ -229,7 +229,7 @@ export default function SideBySidePage({
           </p>
 
           <div className="sbs-basket">
-            <h3 className="sbs-basket-title">{t(locale, "Your compare basket", "ตะกร้าเปรียบเทียบของคุณ", "你的比较篮子", "내 비교 바구니", "あなたの比較バスケット")}</h3>
+            <h2 className="sbs-basket-title">{t(locale, "Your compare basket", "ตะกร้าเปรียบเทียบของคุณ", "你的比较篮子", "내 비교 바구니", "あなたの比較バスケット")}</h2>
             
             <div className="sbs-preset-bar" style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginBottom: "0.85rem" }}>
               <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-soft)", alignSelf: "center", textTransform: "uppercase", letterSpacing: "0.06em", marginRight: "0.2rem" }}>

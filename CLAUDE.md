@@ -48,6 +48,29 @@ A page is not a container for information. It is a **sequence of attention**: th
 
 **The apparatus goes last.** On the methodology page the glossary and the worked example used to sit *before* the method. They are reference material; they now come after it. The reading order is the argument, then the apparatus, then the sources.
 
+### Spatial hallucination
+
+**Spatial hallucination is when an interface invents a reason for things to occupy space, instead of arranging them around how people read, choose and act.** It is the failure mode that produces something that looks composed at first glance but cannot explain its own geometry.
+
+The test is one question: **"Why is this here, why this size, and why this far from that?"** If the answer is "the grid put it there", the layout has failed. Whitespace is intentional when it separates meaningful groups, supports reading, or establishes emphasis. It becomes spatial hallucination when it asks the reader to supply an intention the designer never had.
+
+| Family | What it looks like |
+|---|---|
+| **Unjustified gaps** | space stretched to fill a container |
+| **Orphan elements** | a photo or chip stranded beside an empty area |
+| **Scattered actions** | related buttons on different rows, or pushed to opposite edges |
+| **False hierarchy** | everything gets equal weight, so nothing helps you choose |
+| **Accidental wrapping** | navigation breaks wherever it runs out of room |
+| **Spatially expensive information** | a small decision costs a long scroll |
+
+**The geometry belongs to the content, never to the container.** The worst instance on this site was a grid track declared `auto`, which let a *paragraph's* max-content width size the column. At 1024px the whole Alpha header collapsed into a 16px-wide column of broken words, 2,790px tall, and the page carried a 2,240px dead band beside it. A track whose size comes from `auto` is a track whose size a paragraph can decide. **Use proportions (`minmax(0, Nfr)`), and let a long measure be capped by the column that holds it.**
+
+**A wrapping row must be balanced.** Nine chips on one line and the tenth alone on the next is an orphan, not a layout. When the item count divides evenly, choose the column count that divides it. And when a row holds two kinds of thing — six preferences and one way out — give the way out its own row rather than letting it land beside a peer, where it reads as a seventh preference.
+
+**The navigation is the structure.** A footer whose nav is squeezed beside a metadata line while a long citation sits alone below it is a composition failure, not a density failure. Give the navigation the full width and one row; put the metadata underneath it.
+
+**Two things side by side always leave a hole under the shorter one.** The rankings workbench put the web and its five bars in one column — 798px tall — beside a 300px rail, and the 490px void under the rail was nobody's design. The fix was not to fill the void; it was to stop insisting on the two-column shape. The web kept its own column, and the bars moved into the rail, beside the thing they move, so the eye travels sideways instead of down and back up. **When a side-by-side pair leaves a hole, ask whether the pair is really one object. If it is, split it and place each part where it is read.** A label that names one part must travel with that part: "drag a bar" belongs above the bars, not under the web.
+
 ### What the gates catch
 
 Every rule above that can be decided from source is a machine gate. They run in `npm run verify:release`, so a violation fails the build rather than being noticed in review.
@@ -59,6 +82,11 @@ Every rule above that can be decided from source is a machine gate. They run in 
 | `test/accessibility-invariants.test.mjs` | contrast, focus visibility, hero-masthead legibility over photography, localised labels |
 | `test/publication-hashes.test.mjs` | the scoring bundle cannot drift from its published hashes |
 | `scripts/check-layout.mjs` | **the built site in a real browser**: no horizontal overflow, no uncaught exception, no broken image, and every route actually rendered — across 15 routes × 3 widths |
+| `scripts/audit-spatial.mjs` | **spatial hallucination**: dead bands, orphan grid rows, accidental wrapping, clipped text, scattered actions, false hierarchy (an emphasis modifier that changes nothing visible, a skipped heading level), and cost-to-first-action — across 15 routes × 3 widths. `--check <baseline>` turns it into a gate; `--json` emits the fingerprint |
+
+**The spatial ratchet.** `audit-spatial.mjs` separates a **defect** from a **forced wrap**: a wrap is a defect when the line above had room for the item that dropped (avoidable), when it left a widow after a line of three or more (unbalanced), or when related items stacked one per line. A wrap the width genuinely forced — a tag list, a chip row on a phone — is the layout working and is reported, not failed. The gate compares a fingerprint of every finding against `scripts/spatial-baseline.json`: more lines than the baseline is a failure, fewer is a pass with a note that the baseline can be tightened. It can only go down.
+
+**The audit is a measurement, not a verdict.** It has been wrong in both directions and was corrected each time: it called a `flex-direction: column` list a "wrap"; it called two side-by-side buttons of different heights "split" because it grouped by `top` instead of by vertical overlap; it could not see SVG at all, because an SVG element's `tagName` is `"svg"` and not `"SVG"`. A detector that cannot tell stacking from wrapping will bury the real offenders in noise. **When a gate is noisy, fix the detector — but never by relaxing it into uselessness.**
 
 **The ratchet.** `system-integrity.test.mjs` refuses a NEW duplicate selector while tolerating the ones already in the file (baseline is in the test). It can only go down. If you remove a duplicate, lower the baseline in the same commit.
 
@@ -74,7 +102,9 @@ Every rule above that can be decided from source is a machine gate. They run in 
 | `scripts/merge-duplicate-css.mjs` | `--check` to report, `--write` to merge. Merges a group of duplicate blocks into one, or **refuses** the group when no placement is provably safe |
 | `scripts/verify-css-refactor.mjs` | `--against <dir>` drives a real browser over 15 routes × 3 widths and compares the **full computed style of every element**, including `::before`/`::after` |
 | `scripts/measure-page-height.mjs` | Reports total scroll height and the height of every section, per route, per width. **Measure before you tighten** — every spacing decision in this repo was made against these numbers |
-| `scripts/shoot-pages.mjs` | Screenshots any route at any width into a folder, for the squint test that a number cannot replace |
+| `scripts/shoot-pages.mjs` | Screenshots any route at any width into a folder, for the squint test that a number cannot replace. `--selector` shoots one element, `--scroll` shoots at an offset — how a spatial offender is actually judged: you have to look at the thing, not at the whole scroll |
+| `scripts/probe-box.mjs` | Dumps the box geometry of a selector — the container, its children, and the ancestor chain — plus `--band <from:to>` to find what occupies a y-range and `--at x,y` to ask the browser what is actually painted at a point |
+| `scripts/audit-spatial.mjs` | The spatial-hallucination audit. `--route`, `--width`, `--json`, `--check <baseline>`, `--write-baseline <file>` — regenerate the ratchet only from a run with zero hard findings; the tool refuses to write one otherwise |
 | `scripts/check-layout.mjs` | The permanent gate: drives the built site in real Chrome over 15 routes × 3 widths and fails on horizontal overflow, an uncaught exception, a broken image, or a route that never rendered |
 
 **The browser is the proof; the fingerprint is not.** A cascade fingerprint buckets rules by selector text, so it evaluates each selector *in isolation*. Two selectors can only interact when they match the same element, which the fingerprint cannot see. Two real bugs came out of this, both caught by the browser and neither by the fingerprint:
@@ -93,11 +123,13 @@ Do not "fix" these — they were examined and kept:
 - **The three tier hues** (`--accent-cyan`, `--accent-red`, `--accent-blue`) are categorical data-viz for the Alpha/Beta/Gamma badges. Amber is the sole *brand* accent; the three status colours are *data* colours.
 - **Photo zoom on hover** is legitimate — the cursor lands on an actual `<img>`, so the zoom *is* the affordance. Named as carve-outs in the gate.
 - **The CTA's ink-fill animation** (`.v3-cta:hover::after`) slides a pseudo-element in, not the surface. The button never moves.
+- **The mobile full-width hero CTA stack.** On a phone the hero's actions stack one per line, full width. That is the deliberate mobile pattern, not a wrap to be fixed.
+- **A forced wrap.** A tag list, a chip row, a filter row that runs out of room: the width made it happen and the layout is working. The spatial audit reports these; it does not fail them.
 
 ## Tech Stack
 
 - React 19 + TypeScript 5.8 + Vite 6
-- No Tailwind — custom CSS only in `src/styles.css` (12,759 lines, editorial "Monocle meets Red Dot" aesthetic)
+- No Tailwind — custom CSS only in `src/styles.css` (12,960 lines, editorial "Monocle meets Red Dot" aesthetic)
 - First-party visitor aggregates: Pages Worker + D1; no login. Supabase is a retired optional adapter, not imported by production.
 - Cloudflare Pages deployment (root base path `/`)
 - Cloudflare Pages Worker (`public/_worker.js`) enforces edge request boundaries, returns 400 on path-traversal attempts, returns 405 on non-GET/HEAD, masks server errors
@@ -149,7 +181,7 @@ src/
 ├── visitorTracking.ts         # Retired Sheets/Supabase adapter; not imported by production
 ├── firstPartyTraffic.ts       # Bounded session writes and aggregate reads from /api/traffic
 ├── TrafficPage.tsx            # Historical/live worldwide reach, separate counting measures
-├── styles.css                 # Complete design system (12,759 lines, all design tokens)
+├── styles.css                 # Complete design system (12,960 lines, all design tokens)
 └── data/
     ├── publishedRankingData.json   # ~1.7MB — all 163 cities with per-metric sources
     ├── methodologyFacts.json       # Awards-page facts (sourced from the bundle)
@@ -222,7 +254,7 @@ The `dist/` directory is committed to the repo (this is what the deploy script s
 ## Release verification
 
 ```bash
-npm run verify:release   # full gate — typecheck, build, test, check:publication, check:csv, check:methodology, check:translations, check:audit, check:layout
+npm run verify:release   # full gate — typecheck, build, test, check:publication, check:csv, check:methodology, check:translations, check:audit, check:layout, check:spatial
 ```
 
 ## Key Rules

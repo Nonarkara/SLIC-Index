@@ -984,18 +984,22 @@ export default function RankingsPage({
                         </button>
                       ))}
                     </div>
-                    <div className="region-switch" role="group" aria-label={ui.regionLabel}>
-                      {exerciseRegions.map((entry) => (
-                        <button
-                          key={entry}
-                          type="button"
-                          className={region === entry ? "region-button active" : "region-button"}
-                          onClick={() => setRegion(entry)}
-                        >
-                          {entry === "All" ? ui.allRegions : entry}
-                        </button>
-                      ))}
-                    </div>
+                  </div>
+
+                  {/* The region filter gets the full width of the bar. Squeezed
+                      into a column beside the copy, its eleven options broke
+                      into four ragged lines. */}
+                  <div className="region-switch" role="group" aria-label={ui.regionLabel}>
+                    {exerciseRegions.map((entry) => (
+                      <button
+                        key={entry}
+                        type="button"
+                        className={region === entry ? "region-button active" : "region-button"}
+                        onClick={() => setRegion(entry)}
+                      >
+                        {entry === "All" ? ui.allRegions : entry}
+                      </button>
+                    ))}
                   </div>
                 </div>
 

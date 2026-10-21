@@ -74,8 +74,7 @@ const SpiderWebChart: FC<{
   size?: number;
   draggingIndex: number | null;
   hasInteracted: boolean;
-  locale: Locale;
-}> = ({ pillars, total, size = 380, draggingIndex, hasInteracted, locale }) => {
+}> = ({ pillars, total, size = 380, draggingIndex, hasInteracted }) => {
   const { canvas, cx, cy, maxR, labelR } = allocatorLayout(size);
   const step = 360 / pillars.length;
   const rings = [0.25, 0.5, 0.75, 1];
@@ -238,31 +237,6 @@ const SpiderWebChart: FC<{
           </g>
         );
       })}
-
-      {!hasInteracted && (
-        <g className="allocator-drag-hint" aria-hidden="true">
-          <text
-            x={cx}
-            y={canvas - 28}
-            textAnchor="middle"
-            fontSize={10}
-            fontFamily="'JetBrains Mono', monospace"
-            letterSpacing="0.2em"
-            fill="var(--spider-hint)"
-          >
-            {pickLocale(ALLOCATOR_HINT, locale).toUpperCase()}
-          </text>
-          <line
-            x1={cx - 18}
-            y1={canvas - 18}
-            x2={cx + 18}
-            y2={canvas - 18}
-            stroke="var(--spider-accent)"
-            strokeWidth={1.5}
-            strokeDasharray="3 3"
-          />
-        </g>
-      )}
     </svg>
   );
 };
@@ -383,7 +357,13 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
   }, []);
 
   return (
-    <div className="allocator-shell" style={{ width: "100%", maxWidth: size + 208, display: "flex", flexDirection: "column", alignItems: "center", gap: 16 }}>
+    /*
+     * The shell's box model lives in CSS, not inline, because the rankings
+     * workbench dissolves the shell (`display: contents`) and places the
+     * chart and the bars in different grid areas. An inline `display: flex`
+     * would win the cascade and keep the two welded together.
+     */
+    <div className="allocator-shell" style={{ width: "100%", maxWidth: size + 208 }}>
       <div
         ref={svgRef}
         className="allocator-chart-frame"
@@ -398,16 +378,25 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
           size={size}
           draggingIndex={draggingIndex}
           hasInteracted={hasInteracted}
-          locale={locale}
         />
       </div>
 
       <div
+        className="allocator-controls"
         role="status"
         aria-live="polite"
         aria-atomic="false"
         style={{ width: "100%", maxWidth: 420, display: "flex", flexDirection: "column", gap: 6 }}
       >
+        {!hasInteracted && (
+          /*
+           * The instruction talks about a bar, so it belongs with the bars.
+           * It used to sit under the web, where it pointed at a shape and
+           * described a slider — and, in the workbench, it was a full column
+           * away from the only thing it named.
+           */
+          <p className="allocator-controls-hint">{pickLocale(ALLOCATOR_HINT, locale).toUpperCase()}</p>
+        )}
         {pillars.map((pillar, index) => (
           <div key={pillar.id} className="spider-slider-row" style={{ "--pillar": pillar.color } as CSSProperties}>
             <span className="spider-slider-dot" />
