@@ -30,7 +30,7 @@ SLIC measures what's left after rent.
 
 SLIC Index V3 is an open-source city ranking **and** an editorial site: op-ed homepage, interactive ranking, per-city scorecards, methodology with equations, and a comparison against other global indices.
 
-It is a project of **Dr Non Arkaraprasertkul** (Dr. Non Arkara in the publication credits) with **Associate Professor Poon Thiengburanathum**, built in the civic-studio practice of **Axiom X Co., Ltd.** — a one-desk civic systems lab. ReTL is the product/presentation partner on the public surface. Computing infrastructure has been supported in kind by Thai public agencies (see [Created by](#created-by)); that support is not a ranking endorsement, a UN mandate, or a paid placement.
+It is a project of **Dr Non Arkaraprasertkul** with **Associate Professor Poon Thiengburanathum**, built in the civic-studio practice of **Axiom X Co., Ltd.** — a one-desk civic systems lab. ReTL is the product/presentation partner on the public surface. Computing infrastructure has been supported in kind by Thai public agencies (see [Created by](#created-by)); that support is not a ranking endorsement, a UN mandate, or a paid placement.
 
 The site ships in **English, Thai, and Chinese** as the core publication locales (Thai first-person on the site is **ผม**). Korean and Japanese UI labels exist; long-form pages may still fall back to English.
 
@@ -73,7 +73,7 @@ SLIC is for public citation, teaching, replication, and critique. Use it to argu
 - **Imply endorsement.** Collaboration logos and in-kind infrastructure support are not a ministry, UN, or sponsor stamp on any city’s rank.
 - **Treat modelled values as measured.** National proxies, derived fields, and composites are labelled. Passing them off as city-sensor data is a lie even if the arithmetic is correct.
 
-Suggested credit, from the site footer: *Non Arkara and Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [date], plus the deployment URL used.*
+Suggested credit, from the site footer: *Non Arkaraprasertkul and Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [date], plus the deployment URL used.*
 
 ---
 
@@ -206,7 +206,7 @@ Custom CSS only — no Tailwind. Design tokens live in `src/styles.css`.
 
 ## Created by
 
-**Dr Non Arkaraprasertkul** (publication credit: **Dr. Non Arkara**) and **Associate Professor Poon Thiengburanathum**, in the civic-studio practice of **Axiom X Co., Ltd.**, with research-pipeline and presentation collaboration **Axiom × ReTL**.
+**Dr Non Arkaraprasertkul** and **Associate Professor Poon Thiengburanathum**, in the civic-studio practice of **Axiom X Co., Ltd.**, with research-pipeline and presentation collaboration **Axiom × ReTL**.
 
 In-kind computing/platform support and public-interest collaboration (logos on the site, not a rank-for-hire arrangement):
 

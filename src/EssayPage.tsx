@@ -48,7 +48,7 @@ const PHOTOS: Record<string, EssayPhoto> = {
       ko: "GITEX 아시아 2026에서의 싱가포르. 이 도시는 일반적인 기준으로는 탁월합니다. SLIC 시민 자유 복합 지수는 100점 만점에 39점입니다.",
       ja: "GITEXアジア2026のシンガポール。一般的な指標では優れた都市です。SLICの市民の自由複合スコアは100点中39点です。",
     },
-    credit: "Non Arkara / SLIC Index",
+    credit: "Non Arkaraprasertkul / SLIC Index",
   },
   governance: {
     src: "/photos/profile-roundtable.jpg",
@@ -338,7 +338,7 @@ export default function EssayPage({
           <p className="essay-eyebrow">{ui.eyebrow}</p>
           <h1 className="essay-title">{ui.title}</h1>
           <p className="essay-subtitle">{ui.subtitle}</p>
-          <p className="essay-byline">Non Arkara &nbsp;·&nbsp; 2026</p>
+          <p className="essay-byline">Non Arkaraprasertkul &nbsp;·&nbsp; 2026</p>
         </div>
       </header>
 

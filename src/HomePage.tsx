@@ -581,7 +581,7 @@ export default function HomePage({
       <section className="hp-photo-break hp-photo-break--narrow">
         <img
           src={SHOWFLOOR_PHOTO}
-          alt={t(locale, "Dr Non at Smart City Summit Taipei show floor", "ดร.นนท์ ที่บูธงาน Smart City Summit ไทเป", "Non 博士在台北智慧城市展会现场", "타이베이 스마트시티 서밋 전시장의 Non 박사", "台北スマートシティサミット会場のNon博士")}
+          alt={t(locale, "Dr Non at Smart City Summit Taipei show floor", "ดร.นน ที่บูธงาน Smart City Summit ไทเป", "Non 博士在台北智慧城市展会现场", "타이베이 스마트시티 서밋 전시장의 Non 박사", "台北スマートシティサミット会場のNon博士")}
           className="hp-photo-break-img"
           width={5997}
           height={4000}
@@ -632,7 +632,7 @@ export default function HomePage({
 
           <div className="hp-launch-event">
             <div className="hp-launch-event-photo">
-              <img src={GITEX_STAGE_PHOTO} alt={t(locale, "Dr Non, main-stage keynote at GITEX AI Asia Singapore 2026", "ดร.นนท์ ปาฐกถาเวทีหลักที่งาน GITEX AI Asia สิงคโปร์ 2026", "Non 博士在 2026 新加坡 GITEX AI Asia 主舞台发表主题演讲", "2026 싱가포르 GITEX AI Asia 메인 무대 기조연설의 Non 박사", "GITEX AI Asiaシンガポール2026メインステージで基調講演を行うNon博士")} loading="lazy" />
+              <img src={GITEX_STAGE_PHOTO} alt={t(locale, "Dr Non, main-stage keynote at GITEX AI Asia Singapore 2026", "ดร.นน ปาฐกถาเวทีหลักที่งาน GITEX AI Asia สิงคโปร์ 2026", "Non 博士在 2026 新加坡 GITEX AI Asia 主舞台发表主题演讲", "2026 싱가포르 GITEX AI Asia 메인 무대 기조연설의 Non 박사", "GITEX AI Asiaシンガポール2026メインステージで基調講演を行うNon博士")} loading="lazy" />
             </div>
             <div className="hp-launch-event-meta">
               <span className="hp-launch-event-tag">{t(locale, "Singapore", "สิงคโปร์", "新加坡", "싱가포르", "シンガポール")}</span>
@@ -655,7 +655,7 @@ export default function HomePage({
                 alt={t(
                   locale,
                   "Dr Non on the Orbital Stage panel at LEAP EAST Hong Kong, July 2026",
-                  "ดร.นนท์บนเวที Orbital Stage ในงาน LEAP EAST ฮ่องกง กรกฎาคม 2026",
+                  "ดร.นนบนเวที Orbital Stage ในงาน LEAP EAST ฮ่องกง กรกฎาคม 2026",
                   "Non 博士在 2026 年 7 月香港 LEAP EAST Orbital Stage 论坛发言",
                   "2026년 7월 홍콩 LEAP EAST Orbital Stage 패널의 Non 박사",
                   "2026年7月香港LEAP EAST Orbital StageパネルのNon博士",
@@ -712,7 +712,7 @@ export default function HomePage({
                 alt={t(
                   locale,
                   "Dr Non speaking at the Osaka Asia Roundtable 2026",
-                  "ดร.นนท์ บรรยายที่งาน Osaka Asia Roundtable 2026",
+                  "ดร.นน บรรยายที่งาน Osaka Asia Roundtable 2026",
                   "Non 博士在 2026 大阪亚洲圆桌会议上发言",
                   "2026 오사카 아시아 라운드테이블에서 발표하는 Non 박사",
                   "大阪アジア・ラウンドテーブル2026で講演するNon博士",

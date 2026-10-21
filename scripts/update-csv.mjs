@@ -92,11 +92,11 @@ const rankedCount = ranked.length;
 const watchlistCount = allCities.filter((c) => c.rankingStatus !== "Ranked").length;
 const preamble = [
   `# SLIC Index V3 — Smart and Liveable Cities Index`,
-  `# Publisher: Dr. Non Arkara & A.P. Poon Thiengburanathum (Chiang Mai University) · slic.nonarkara.org`,
+  `# Publisher: Dr Non Arkaraprasertkul & A.P. Poon Thiengburanathum (Chiang Mai University) · slic.nonarkara.org`,
   `# Methodology: https://slic.nonarkara.org/methodology · paper: /downloads/slic-methodology-technical-paper-en.pdf`,
   `# Scope: ${rankedCount} ranked + ${watchlistCount} watchlist = ${rankedCount + watchlistCount} cities · 5 pillars · 22 scored metrics + 3 diagnostics`,
   `# Score model: ${scoreModelVersion} · Tier policy: ${tierPolicyVersion} · Last updated: ${updatedAt} · License: open citation, no paid placement`,
-  `# Cite as: Arkara, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org`,
+  `# Cite as: Arkaraprasertkul, N. & Thiengburanathum, P. (2026). SLIC Index V3 — Smart and Liveable Cities Index. slic.nonarkara.org`,
 ];
 
 const rows = [...preamble, headers.join(",")];

@@ -2,7 +2,7 @@
 
 **Use:** DEmark (mandatory 1–3 min), Red Dot Round-Two material, CEA Creative Excellence supporting media.
 **Length target:** 60–90 seconds for the master cut. DEmark accepts up to 3 min if a longer cut is needed for a different submission.
-**Voice:** Dr. Non Arkara · first-person in EN; ผม in TH; matched professional register in ZH (Non to decide whether to record a ZH cut).
+**Voice:** Dr Non Arkaraprasertkul · first-person in EN; ผม in TH; matched professional register in ZH (Non to decide whether to record a ZH cut).
 **Last updated:** 2026-05-26 (Pass 3 awards-audit)
 
 ---

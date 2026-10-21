@@ -596,7 +596,7 @@ def build_story(snapshot, snapshot_stats):
     ))
     story.append(Spacer(1, 16 * mm))
     story.append(Paragraph(
-        "Dr. Non Arkara &amp; Associate Professor Poon Thiengburanathum (Chiang Mai University)",
+        "Dr Non Arkaraprasertkul &amp; Associate Professor Poon Thiengburanathum (Chiang Mai University)",
         s["cover_caption"],
     ))
     story.append(Paragraph(
@@ -873,7 +873,7 @@ def build_pdf(locale: str):
         topMargin=16 * mm,
         bottomMargin=16 * mm,
         title="SLIC Index V3 — Methodology Technical Paper",
-        author="Dr. Non Arkara & A.P. Poon Thiengburanathum (SLIC Index)",
+        author="Dr Non Arkaraprasertkul & A.P. Poon Thiengburanathum (SLIC Index)",
         subject="Smart and Liveable Cities Index — Methodology and Scoring Specification",
         creator="SLIC Index methodology engine",
     )

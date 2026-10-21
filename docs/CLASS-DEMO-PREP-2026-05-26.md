@@ -55,7 +55,7 @@ Twelve commits in two passes, each isolated for clean review.
   integrity still green.
 - **PDF metadata (#7).** The methodology paper's `/Author` field read
   "OpenAI Codex" in any PDF reader's Get Info pane. Now reads "Dr. Non
-  Arkara & A.P. Poon Thiengburanathum (SLIC Index)" with the SLIC engine
+  Arkaraprasertkul & A.P. Poon Thiengburanathum (SLIC Index)" with the SLIC engine
   as creator.
 
 ### Commit 1 — `10034b7` · methodology v1.3.0 (was 18 files uncommitted on entry)
@@ -205,7 +205,7 @@ to add a "session entry" for the audit pass, say the word in the morning.
 - [ ] Tap "Steal this idea" (Ideas). Filter to a category with no matches
   and confirm the new empty-state renders ("No matching ideas").
 - [ ] Click Methodology PDF link — should download an EN PDF dated today.
-  PDF "Get Info" → Author = Dr. Non Arkara & A.P. Poon Thiengburanathum.
+  PDF "Get Info" → Author = Dr Non Arkaraprasertkul & A.P. Poon Thiengburanathum.
 
 Pass 2 verified: build green · 21 / 21 tests pass · publication integrity
 pass · methodology drift pass · production deploy verified at 18:41 GMT
@@ -296,7 +296,7 @@ artifacts/2026-05-27-chula-vice-rector-meeting-*`
 - CSV preamble live: `curl https://slic.nonarkara.org/downloads/slic-ranked-cities-v2.csv | head -1`
   returns `# SLIC Index V3 — Smart and Liveable Cities Index`
 - Methodology PDF page count grew 10→11 (new cover page); author
-  metadata still reads "Dr. Non Arkara & A.P. Poon Thiengburanathum"
+  metadata still reads "Dr Non Arkaraprasertkul & A.P. Poon Thiengburanathum"
 - Production deployed via wrangler to slic.nonarkara.org · preview at
   https://7946a480.slic-index.pages.dev
 

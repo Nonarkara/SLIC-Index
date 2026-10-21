@@ -363,7 +363,7 @@ The SLIC Index V3 is an **exceptionally mature, multi-language, data-rich city r
 - Clear funding and editorial independence disclosure
 
 **What's Missing / Unclear:**
-- **No team/people section** — the index is led by Dr. Non Arkara and Assoc. Prof. Poon Thiengburanathum, but there are no photos, bios, or contact information. For a public-interest index, showing the faces behind it builds trust
+- **No team/people section** — the index is led by Dr Non Arkaraprasertkul and Assoc. Prof. Poon Thiengburanathum, but there are no photos, bios, or contact information. For a public-interest index, showing the faces behind it builds trust
 - **No advisory board or peer reviewers** — listing external reviewers or an academic advisory board would strengthen credibility
 - **The "Presented at" section has only 3 events but mentions "Additional appearances · tracked via the Submissions link"** — this defers to another page. A more complete list (even 6-8 events) would be better
 - **No "Press Coverage" or "Media" section** — if the index has been featured in news articles, those should be listed here
@@ -554,7 +554,7 @@ The SLIC Index V3 is an **exceptionally mature, multi-language, data-rich city r
 
 ### 6.3 Trust & Credibility Gaps
 
-1. **No team photos or bios** — The footer mentions "Dr. Non Arkara" and "Assoc. Prof. Poon" but there are no photos, bios, or contact info. Showing the humans behind the data builds trust.
+1. **No team photos or bios** — The footer mentions "Dr Non Arkaraprasertkul" and "Assoc. Prof. Poon" but there are no photos, bios, or contact info. Showing the humans behind the data builds trust.
 
 2. **No peer review log** — The methodology is strong but there's no evidence of external review. A "Peer Reviewed By" section with names and dates would be powerful.
 
@@ -581,7 +581,7 @@ The SLIC Index V3 is an **exceptionally mature, multi-language, data-rich city r
    - Effort: ~20-30 hours of sourcing and curation
 
 3. **Team & Advisory Board Section**
-   - Photos and short bios of Dr. Non Arkara and Assoc. Prof. Poon
+   - Photos and short bios of Dr Non Arkaraprasertkul and Assoc. Prof. Poon
    - 3-5 advisory board members (names, affiliations, 1-line bios)
    - Languages: EN + TH minimum; EN for all others
    - Effort: ~4-8 hours of coordination + photo session

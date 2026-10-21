@@ -230,7 +230,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2020–2022",
       title: "The question that started it all",
-      body: "Dr. Non Arkara kept running into the same problem: many global city rankings described prestige and headline prosperity more clearly than the lived conditions of ordinary residents. As a senior official at Thailand's Digital Economy Promotion Agency (depa), he had access to what most index-makers do not — ground-level feedback. Years of stakeholder meetings across Southeast Asia, policy workshops with mayors, and late-night conversations with urban planners who actually live in the cities they study led to a practical question: what if the metric focused on what remains after essential costs, not only on what flows through the economy?",
+      body: "Dr Non Arkaraprasertkul kept running into the same problem: many global city rankings described prestige and headline prosperity more clearly than the lived conditions of ordinary residents. As a senior official at Thailand's Digital Economy Promotion Agency (depa), he had access to what most index-makers do not — ground-level feedback. Years of stakeholder meetings across Southeast Asia, policy workshops with mayors, and late-night conversations with urban planners who actually live in the cities they study led to a practical question: what if the metric focused on what remains after essential costs, not only on what flows through the economy?",
       photos: ["WhatsApp Image 2023-03-17 at 05.20.05 (1).jpeg", "IMG_6651.JPG"],
     },
     {
@@ -287,19 +287,19 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2563–2565",
       title: "คำถามที่เริ่มต้นทุกอย่าง",
-      body: "ดร.นนท์ อัครา พบปัญหาเดิมซ้ำแล้วซ้ำเล่า: ดัชนีเมืองระดับโลกทุกตัวบอกแค่ว่าคนรวยอยู่ที่ไหน ไม่ใช่ว่าคนจริงๆ เติบโตที่ไหน ในฐานะผู้บริหารระดับสูงของสำนักงานส่งเสริมเศรษฐกิจดิจิทัล (depa) เขาเข้าถึงข้อมูลภาคสนามที่ผู้สร้างดัชนีส่วนใหญ่ไม่มี — ประสบการณ์จริงจากการประชุมผู้มีส่วนได้ส่วนเสียทั่วเอเชียตะวันออกเฉียงใต้",
+      body: "ดร.นน อัครประเสริฐกุล พบปัญหาเดิมซ้ำแล้วซ้ำเล่า: ดัชนีเมืองระดับโลกทุกตัวบอกแค่ว่าคนรวยอยู่ที่ไหน ไม่ใช่ว่าคนจริงๆ เติบโตที่ไหน ในฐานะผู้บริหารระดับสูงของสำนักงานส่งเสริมเศรษฐกิจดิจิทัล (depa) เขาเข้าถึงข้อมูลภาคสนามที่ผู้สร้างดัชนีส่วนใหญ่ไม่มี — ประสบการณ์จริงจากการประชุมผู้มีส่วนได้ส่วนเสียทั่วเอเชียตะวันออกเฉียงใต้",
       photos: ["WhatsApp Image 2023-03-17 at 05.20.05 (1).jpeg", "IMG_6651.JPG"],
     },
     {
       year: "2566",
       title: "เวิร์กช็อป ไวท์บอร์ด และข้อมูลจริง",
-      body: "ดัชนีถูกพัฒนาผ่านเวิร์กช็อปหลายสิบครั้ง — ไม่ใช่ในห้องประชุมกับที่ปรึกษา แต่ในเซสชันการทำงานกับเจ้าหน้าที่เมือง นักวิชาการ และผู้อยู่อาศัย ไวท์บอร์ดทีละแผ่นเต็มไปด้วยกรอบความคิดที่ถูกทดสอบกับความเป็นจริง ในเดือนมีนาคม 2566 ดร.นนท์ นำเสนอกรอบเมืองอัจฉริยะครั้งแรกที่งาน Smart City Summit ไทเป",
+      body: "ดัชนีถูกพัฒนาผ่านเวิร์กช็อปหลายสิบครั้ง — ไม่ใช่ในห้องประชุมกับที่ปรึกษา แต่ในเซสชันการทำงานกับเจ้าหน้าที่เมือง นักวิชาการ และผู้อยู่อาศัย ไวท์บอร์ดทีละแผ่นเต็มไปด้วยกรอบความคิดที่ถูกทดสอบกับความเป็นจริง ในเดือนมีนาคม 2566 ดร.นน นำเสนอกรอบเมืองอัจฉริยะครั้งแรกที่งาน Smart City Summit ไทเป",
       photos: ["IMG_4446.JPG", "FFC74093-8656-4C1A-904C-EF1B5461267D.jpeg", "Timeline photos.jpg", "LINE_ALBUM_Mini MBA 18 NOV 2023_231120_11.jpg"],
     },
     {
       year: "2567",
       title: "จากกรอบความคิดสู่สูตร",
-      body: "ห้าเสาหลักตกผลึก: การเติบโต ความน่าอยู่ ศักยภาพ ชุมชน ความสร้างสรรค์ ไม่ใช่เพราะฟังดูดีบนสไลด์ แต่เพราะทุกเวิร์กช็อปวนกลับมาที่ความตึงเครียดห้าประการเดิมเสมอ ดร.นนท์ นำสิ่งเหล่านี้ไปทดสอบที่เวที Big Tech Asia กัวลาลัมเปอร์ และฟอรัมเมืองอัจฉริยะทั่วภูมิภาค",
+      body: "ห้าเสาหลักตกผลึก: การเติบโต ความน่าอยู่ ศักยภาพ ชุมชน ความสร้างสรรค์ ไม่ใช่เพราะฟังดูดีบนสไลด์ แต่เพราะทุกเวิร์กช็อปวนกลับมาที่ความตึงเครียดห้าประการเดิมเสมอ ดร.นน นำสิ่งเหล่านี้ไปทดสอบที่เวที Big Tech Asia กัวลาลัมเปอร์ และฟอรัมเมืองอัจฉริยะทั่วภูมิภาค",
       photos: ["Smart Cities _ Nex Big Tech Event Cam B_1144.jpg", "Smart Cities _ Nex Big Tech Event Cam B_1184.jpg", "DAY1_0368.jpg", "CQW03907.jpg"],
     },
     {
@@ -312,7 +312,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2569",
       title: "V2 — คุณสร้างอันดับเอง",
-      body: "เวอร์ชัน 2 เปลี่ยนเกม แทนที่จะให้อันดับแล้วบอกว่า 'เชื่อเรา' V2 วางแผนภาพแมงมุมแบบโต้ตอบไว้ในมือคุณ ลากจุดทั้ง 5 เปลี่ยนลำดับความสำคัญ ดู 157 เมืองจัดอันดับใหม่แบบเรียลไทม์ ในเดือนมีนาคม 2569 ดร.นนท์ เปิดตัว V2 บนเวทีหลัก Smart City Summit & Expo ไทเป — งานเมืองอัจฉริยะที่ใหญ่ที่สุดในเอเชีย",
+      body: "เวอร์ชัน 2 เปลี่ยนเกม แทนที่จะให้อันดับแล้วบอกว่า 'เชื่อเรา' V2 วางแผนภาพแมงมุมแบบโต้ตอบไว้ในมือคุณ ลากจุดทั้ง 5 เปลี่ยนลำดับความสำคัญ ดู 157 เมืองจัดอันดับใหม่แบบเรียลไทม์ ในเดือนมีนาคม 2569 ดร.นน เปิดตัว V2 บนเวทีหลัก Smart City Summit & Expo ไทเป — งานเมืองอัจฉริยะที่ใหญ่ที่สุดในเอเชีย",
       photos: [
         "/launch-photos/20260317094731-_DON7077.jpg",
         "/launch-photos/20260318145941_DSC09480.jpg",
@@ -344,7 +344,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2020–2022",
       title: "一切从一个问题开始",
-      body: "Non Arkara 博士反复遇到同一个问题：每个全球城市排名都只告诉你富人住在哪里——而不是普通人在哪里能真正生活。作为泰国数字经济促进局（depa）的高级官员，他拥有大多数指数制作者没有的东西——来自东南亚各地利益相关者会议、与市长的政策研讨会、以及与真正生活在他们研究的城市中的城市规划师的深夜对话中获得的一手真实数据。",
+      body: "Non Arkaraprasertkul 博士反复遇到同一个问题：每个全球城市排名都只告诉你富人住在哪里——而不是普通人在哪里能真正生活。作为泰国数字经济促进局（depa）的高级官员，他拥有大多数指数制作者没有的东西——来自东南亚各地利益相关者会议、与市长的政策研讨会、以及与真正生活在他们研究的城市中的城市规划师的深夜对话中获得的一手真实数据。",
       photos: ["WhatsApp Image 2023-03-17 at 05.20.05 (1).jpeg", "IMG_6651.JPG"],
     },
     {
@@ -401,7 +401,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2020–2022",
       title: "모든 것을 시작한 질문",
-      body: "논 아카라(Non Arkara) 박사는 같은 문제에 반복해서 부딪혔습니다. 전 세계 도시 순위들은 대부분 일반 주민의 실제 생활 여건보다 명성과 표면적인 번영을 더 명확하게 묘사한다는 것이었습니다. 태국 디지털경제진흥원(DEPA) 고위 관계자로서 그는 대부분의 인덱스 제작자들이 갖지 못한 것 — 동남아시아 전역의 이해관계자 회의, 시장들과의 정책 워크숍, 그리고 자신이 연구하는 도시에 실제로 살고 있는 도시계획가들과의 심야 대화에서 얻은 현장 피드백 — 에 접근할 수 있었습니다. 수년간의 경험이 실질적인 질문으로 이어졌습니다. 경제를 통해 흐르는 것뿐만 아니라, 필수 비용을 제한 뒤에 남는 것에 초점을 맞춘다면 어떨까요?",
+      body: "Non Arkaraprasertkul 박사는 같은 문제에 반복해서 부딪혔습니다. 전 세계 도시 순위들은 대부분 일반 주민의 실제 생활 여건보다 명성과 표면적인 번영을 더 명확하게 묘사한다는 것이었습니다. 태국 디지털경제진흥원(DEPA) 고위 관계자로서 그는 대부분의 인덱스 제작자들이 갖지 못한 것 — 동남아시아 전역의 이해관계자 회의, 시장들과의 정책 워크숍, 그리고 자신이 연구하는 도시에 실제로 살고 있는 도시계획가들과의 심야 대화에서 얻은 현장 피드백 — 에 접근할 수 있었습니다. 수년간의 경험이 실질적인 질문으로 이어졌습니다. 경제를 통해 흐르는 것뿐만 아니라, 필수 비용을 제한 뒤에 남는 것에 초점을 맞춘다면 어떨까요?",
       photos: ["WhatsApp Image 2023-03-17 at 05.20.05 (1).jpeg", "IMG_6651.JPG"],
     },
     {
@@ -458,7 +458,7 @@ const timeline: Record<Locale, TimelineEntry[]> = {
     {
       year: "2020–2022",
       title: "すべての始まりとなった問い",
-      body: "ノン・アカラ（Non Arkara）博士は、同じ問題に繰り返し直面していました。世界の都市ランキングの多くは、一般市民の実際の生活環境よりも、名声と表面的な繁栄を明確に描写しているというものです。タイ・デジタル経済振興庁（DEPA）の上級職員として、彼はほとんどのインデックス制作者が持ち得ないもの — 東南アジア各地のステークホルダー会議、市長たちとの政策ワークショップ、そして研究対象の都市に実際に暮らす都市計画家たちとの深夜の対話から得た現場のフィードバック — にアクセスできました。何年もの経験が、ひとつの実践的な問いへと結実しました。経済を流れるものだけでなく、必須コストを差し引いた後に残るものに焦点を当てたら、どうなるでしょうか？",
+      body: "Non Arkaraprasertkul 博士は、同じ問題に繰り返し直面していました。世界の都市ランキングの多くは、一般市民の実際の生活環境よりも、名声と表面的な繁栄を明確に描写しているというものです。タイ・デジタル経済振興庁（DEPA）の上級職員として、彼はほとんどのインデックス制作者が持ち得ないもの — 東南アジア各地のステークホルダー会議、市長たちとの政策ワークショップ、そして研究対象の都市に実際に暮らす都市計画家たちとの深夜の対話から得た現場のフィードバック — にアクセスできました。何年もの経験が、ひとつの実践的な問いへと結実しました。経済を流れるものだけでなく、必須コストを差し引いた後に残るものに焦点を当てたら、どうなるでしょうか？",
       photos: ["WhatsApp Image 2023-03-17 at 05.20.05 (1).jpeg", "IMG_6651.JPG"],
     },
     {

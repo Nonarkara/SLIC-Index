@@ -153,7 +153,7 @@ SLIC framed as: provocation against city-ranking marketing economy. Every metric
 | **Value creation** | 🟡 | The site delivers value to readers, but the impact evidence — who has cited SLIC, which partners have adopted methodology, which cities have used the workbench — is not surfaced publicly. | **Fix this pass:** impact-evidence placeholders on `/awards`. |
 | **Positive impact** | 🟡 | The argument is sound but jurors will want concrete examples. Need: at least 3 named citations or partner usages on `/awards`. | **Fix this pass + Non to fill placeholders before submission.** |
 | **Sustainability / tangibility** | 🟢 | Open code + open data + multilingual + DEPA + PMU-A + CMU = enduring infrastructure, not a campaign. | Hold. Surface as `/awards` provenance band. |
-| **Thailand-to-world relevance** | 🟢 | Thai-led academic project (Dr. Non Arkara + A.P. Poon Thiengburanathum, Chiang Mai University), Thai institutional funding (DEPA + PMU-A), Bangkok as anchor city in the editorial argument, trilingual delivery. ASEAN-relevant. Exactly the CEA brief. | Hold. **The audit's top-1 SLIC strength against CEA.** |
+| **Thailand-to-world relevance** | 🟢 | Thai-led academic project (Dr Non Arkaraprasertkul + A.P. Poon Thiengburanathum, Chiang Mai University), Thai institutional funding (DEPA + PMU-A), Bangkok as anchor city in the editorial argument, trilingual delivery. ASEAN-relevant. Exactly the CEA brief. | Hold. **The audit's top-1 SLIC strength against CEA.** |
 
 ### CEA deliverables required
 

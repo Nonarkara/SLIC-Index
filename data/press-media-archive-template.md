@@ -36,7 +36,7 @@ media-archive/
       "language": "en",
       "type": "news",
       "excerpt": "A new index developed by Thai researchers is challenging established city rankings by measuring what it actually costs to build a life in a city...",
-      "quote": "\"Most city rankings evaluate cities for people who already have the money to live there. We measure for residents.\" — Dr. Non Arkara",
+      "quote": "\"Most city rankings evaluate cities for people who already have the money to live there. We measure for residents.\" — Dr Non Arkaraprasertkul",
       "tags": ["ranking", "methodology", "Thailand"],
       "reach": "print + online",
       "screenshot": "archive/bangkok-post-2026-04-15.jpg"
@@ -74,7 +74,7 @@ media-archive/
       "venue": "Nangang Exhibition Center",
       "type": "keynote",
       "title": "The City Is Not a Spreadsheet: On the Politics of Urban Measurement",
-      "speaker": "Dr. Non Arkara",
+      "speaker": "Dr Non Arkaraprasertkul",
       "audience_size": 3000,
       "audience_description": "smart city professionals, mayors, urban planners",
       "duration_minutes": 45,
@@ -117,7 +117,7 @@ media-archive/
       "pages": "145-162",
       "doi": "10.1080/...",
       "url": "https://doi.org/...",
-      "citation_context": "SLIC Index (Arkara & Thiengburanathum, 2026) offers a resident-centered alternative to traditional rankings...",
+      "citation_context": "SLIC Index (Arkaraprasertkul & Thiengburanathum, 2026) offers a resident-centered alternative to traditional rankings...",
       "citation_count": 1,
       "language": "en",
       "peer_reviewed": true,
@@ -128,7 +128,7 @@ media-archive/
 ```
 
 **How to track:**
-1. Set up Google Scholar alerts for: "SLIC Index", "Smart and Liveable Cities Index", "Arkara", "Thiengburanathum"
+1. Set up Google Scholar alerts for: "SLIC Index", "Smart and Liveable Cities Index", "Arkaraprasertkul", "Thiengburanathum"
 2. Check ResearchGate, Academia.edu, and Semantic Scholar monthly
 3. Ask co-authors and collaborators to forward citations they encounter
 
@@ -145,7 +145,7 @@ media-archive/
       "program": "The Urbanist Podcast",
       "episode": "EP-127: Measuring What Matters",
       "host": "Sarah Johnson",
-      "guest": "Dr. Non Arkara",
+      "guest": "Dr Non Arkaraprasertkul",
       "platform": "Spotify / Apple Podcasts",
       "duration_minutes": 52,
       "url": "https://open.spotify.com/episode/...",
@@ -198,7 +198,7 @@ Create a downloadable ZIP for journalists with:
 - **Headline:** "The SLIC Index: A Resident-Centered City Ranking"
 - **Subhead:** "163 cities. 5 pillars. 20 metrics. Zero paid placement."
 - **Key facts:**
-  - Developed by: Dr. Non Arkara (DEPA) & Assoc. Prof. Poon Thiengburanathum (PMU-A)
+  - Developed by: Dr Non Arkaraprasertkul (DEPA) & Assoc. Prof. Poon Thiengburanathum (PMU-A)
   - Published: 2026
   - Cities: 163 ranked + watchlist
   - Languages: English, Thai, Chinese, Korean, Japanese
@@ -231,7 +231,7 @@ Create a downloadable ZIP for journalists with:
 - Brand guidelines: colors, fonts, spacing, do's and don'ts
 
 ### Headshots
-- Dr. Non Arkara: high-res portrait, bio (150 words)
+- Dr Non Arkaraprasertkul: high-res portrait, bio (150 words)
 - Assoc. Prof. Poon Thiengburanathum: high-res portrait, bio (150 words)
 
 ---

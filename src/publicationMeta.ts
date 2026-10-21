@@ -11,9 +11,9 @@
  *   2. The same footer line stated three different facts across five locales —
  *      en/th/zh gave a date, ko said "per v3.4.0", ja said "as of the v3.4.0
  *      publication date". A reader switching languages got different facts.
- *   3. The citation line formatted authors three ways — "Arkara, N. &
- *      Thiengburanathum, P." in en/th/zh versus "Non Arkara … 부교수" and
- *      "Non Arkara … 准教授" in ko/ja, where the academic title appears in no
+ *   3. The citation line formatted authors three ways — "Arkaraprasertkul, N. &
+ *      Thiengburanathum, P." in en/th/zh versus "Non Arkaraprasertkul … 부교수" and
+ *      "Non Arkaraprasertkul … 准教授" in ko/ja, where the academic title appears in no
  *      other locale.
  *
  * The fix is structural: derive the date and the version from the bundle, and
@@ -117,17 +117,17 @@ export function dataVintageLine(locale: Locale): string {
  * independent author string per locale, and ko/ja had already drifted onto a
  * different rendering from en/th/zh.
  */
-const AUTHOR_SURNAMES = { first: "Arkara, N.", second: "Thiengburanathum, P." } as const;
+const AUTHOR_SURNAMES = { first: "Arkaraprasertkul, N.", second: "Thiengburanathum, P." } as const;
 
 export const AUTHOR_APA = `${AUTHOR_SURNAMES.first} & ${AUTHOR_SURNAMES.second}`;
 
 /** Full names as they appear in the long-form credit, per locale. */
 const AUTHOR_PROSE_NAMES: Record<Locale, string> = {
-  en: "Non Arkara and Associate Professor Poon Thiengburanathum",
-  th: "Non Arkara และ Associate Professor Poon Thiengburanathum",
-  zh: "Non Arkara 与 Associate Professor Poon Thiengburanathum",
-  ko: "Non Arkara 및 Poon Thiengburanathum 부교수",
-  ja: "Non Arkara および Poon Thiengburanathum 准教授",
+  en: "Non Arkaraprasertkul and Associate Professor Poon Thiengburanathum",
+  th: "Non Arkaraprasertkul และ Associate Professor Poon Thiengburanathum",
+  zh: "Non Arkaraprasertkul 与 Associate Professor Poon Thiengburanathum",
+  ko: "Non Arkaraprasertkul 및 Poon Thiengburanathum 부교수",
+  ja: "Non Arkaraprasertkul および Poon Thiengburanathum 准教授",
 };
 
 export const authorProse = (locale: Locale): string => AUTHOR_PROSE_NAMES[locale];

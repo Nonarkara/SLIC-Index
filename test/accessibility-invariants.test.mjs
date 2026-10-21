@@ -375,7 +375,7 @@ test("all five locales render the same publication date", async () => {
 
 test("all five locales render the same citation authors", async () => {
   const { citationLine } = await import("../src/publicationMeta.ts");
-  const canonical = "Arkara, N. & Thiengburanathum, P.";
+  const canonical = "Arkaraprasertkul, N. & Thiengburanathum, P.";
 
   for (const locale of ["en", "th", "zh", "ko", "ja"]) {
     assert.ok(

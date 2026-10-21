@@ -38,7 +38,7 @@ const footerEndnoteCopy: LocalizedRecord<{
       "Published pages reflect the current verified workbook export. When new verified data is adopted, the workbook export and the public board are updated together. City photography on the Ideas page is sourced from Unsplash under the Unsplash License; individual photographer credits appear on each photo.",
     fundingLabel: "Funding and editorial independence",
     fundingBody:
-      "Computing infrastructure and platform costs were supported in kind by DEPA (Digital Economy Promotion Agency) and PMU-A (Ministry of Higher Education, Research, Science and Innovation), Thailand. No private-sector funding. No sponsor has any influence over city scores, tier placement, or methodology. All rankings are produced solely by the declared model. This is a two-person research effort: Dr Non Arkara (lead author, smart city practitioner) and Assoc. Prof. Poon Thiengburanathum (research advisor). The index has no commercial relationship with any city, government, or private entity beyond the infrastructure support noted above.",
+      "Computing infrastructure and platform costs were supported in kind by DEPA (Digital Economy Promotion Agency) and PMU-A (Ministry of Higher Education, Research, Science and Innovation), Thailand. No private-sector funding. No sponsor has any influence over city scores, tier placement, or methodology. All rankings are produced solely by the declared model. This is a two-person research effort: Dr Non Arkaraprasertkul (lead author, smart city practitioner) and Assoc. Prof. Poon Thiengburanathum (research advisor). The index has no commercial relationship with any city, government, or private entity beyond the infrastructure support noted above.",
   },
   th: {
     eyebrow: "ข้อกำหนดการเผยแพร่",
@@ -56,7 +56,7 @@ const footerEndnoteCopy: LocalizedRecord<{
       "หน้าที่เผยแพร่สะท้อนเวิร์กบุ๊กที่ผ่านการตรวจสอบล่าสุด เมื่อมีการรับข้อมูลใหม่ที่ผ่านการตรวจสอบ เวิร์กบุ๊กและบอร์ดสาธารณะจะอัปเดตร่วมกัน ภาพถ่ายเมืองในหน้า Steal This Idea ใช้จาก Unsplash ภายใต้สัญญาอนุญาต Unsplash โดยมีเครดิตช่างภาพแสดงบนแต่ละภาพ",
     fundingLabel: "การสนับสนุนทุนและความเป็นอิสระด้านบรรณาธิการ",
     fundingBody:
-      "ค่าใช้จ่ายด้านโครงสร้างพื้นฐานการคอมพิวเตอร์และแพลตฟอร์มได้รับการสนับสนุนเป็นสิ่งของโดย DEPA (สำนักงานส่งเสริมเศรษฐกิจดิจิทัล) และ PMU-A (กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม) ประเทศไทย ไม่มีผู้สนับสนุนจากภาคเอกชน ไม่มีผู้สนับสนุนรายใดมีอิทธิพลต่อคะแนนเมือง การจัดลำดับชั้น หรือระเบียบวิธีใดๆ อันดับทั้งหมดผลิตขึ้นจากแบบจำลองที่ประกาศไว้เท่านั้น นี่คืองานวิจัยของสองคน: ดร.นนท์ อรกร (ผู้เขียนหลัก ผู้เชี่ยวชาญด้านเมืองอัจฉริยะ) และ รศ.ภูวงษ์ เทียงบุรานัม (ที่ปรึกษาการวิจัย) ดัชนีนี้ไม่มีความสัมพันธ์เชิงพาณิชย์กับเมือง รัฐบาล หรือหน่วยงานเอกชนใด นอกเหนือจากการสนับสนุนโครงสร้างพื้นฐานที่ระบุไว้ข้างต้น",
+      "ค่าใช้จ่ายด้านโครงสร้างพื้นฐานการคอมพิวเตอร์และแพลตฟอร์มได้รับการสนับสนุนเป็นสิ่งของโดย DEPA (สำนักงานส่งเสริมเศรษฐกิจดิจิทัล) และ PMU-A (กระทรวงการอุดมศึกษา วิทยาศาสตร์ วิจัยและนวัตกรรม) ประเทศไทย ไม่มีผู้สนับสนุนจากภาคเอกชน ไม่มีผู้สนับสนุนรายใดมีอิทธิพลต่อคะแนนเมือง การจัดลำดับชั้น หรือระเบียบวิธีใดๆ อันดับทั้งหมดผลิตขึ้นจากแบบจำลองที่ประกาศไว้เท่านั้น นี่คืองานวิจัยของสองคน: ดร.นน อัครประเสริฐกุล (ผู้เขียนหลัก ผู้เชี่ยวชาญด้านเมืองอัจฉริยะ) และ รศ.ภูวงษ์ เทียงบุรานัม (ที่ปรึกษาการวิจัย) ดัชนีนี้ไม่มีความสัมพันธ์เชิงพาณิชย์กับเมือง รัฐบาล หรือหน่วยงานเอกชนใด นอกเหนือจากการสนับสนุนโครงสร้างพื้นฐานที่ระบุไว้ข้างต้น",
   },
   zh: {
     eyebrow: "发布协议",
@@ -74,7 +74,7 @@ const footerEndnoteCopy: LocalizedRecord<{
       "已发布页面反映当前经过核验的工作簿导出。一旦采用新的已核验数据，工作簿导出与公开榜单会同步更新。创意页面的城市摄影来自 Unsplash，遵循 Unsplash 许可协议，每张照片均标注摄影师署名。",
     fundingLabel: "资助与编辑独立性",
     fundingBody:
-      "计算基础设施与平台费用由泰国 DEPA（数字经济促进局）及 PMU-A（高等教育、科学、研究与创新部）以实物形式提供支持。无私营部门资助。任何赞助商均不对城市评分、等级分配或方法论产生任何影响。所有排名完全由已声明的模型生成。本指数为两人研究成果：Dr Non Arkara（主笔，智慧城市从业者）与副教授 Poon Thiengburanathum（研究顾问）。除上述基础设施支持外，本指数与任何城市、政府或私营实体均无商业关系。",
+      "计算基础设施与平台费用由泰国 DEPA（数字经济促进局）及 PMU-A（高等教育、科学、研究与创新部）以实物形式提供支持。无私营部门资助。任何赞助商均不对城市评分、等级分配或方法论产生任何影响。所有排名完全由已声明的模型生成。本指数为两人研究成果：Dr Non Arkaraprasertkul（主笔，智慧城市从业者）与副教授 Poon Thiengburanathum（研究顾问）。除上述基础设施支持外，本指数与任何城市、政府或私营实体均无商业关系。",
   },
   ko: {
     eyebrow: "출판 프로토콜",
@@ -87,7 +87,7 @@ const footerEndnoteCopy: LocalizedRecord<{
     liveLabel: "지속적 모델",
     liveBody: "게시된 페이지는 현재 검증된 워크북 익스포트를 반영합니다. 새로운 검증된 데이터가 채택되면 워크북 익스포트와 공개 보드가 함께 업데이트됩니다. 아이디어 페이지의 도시 사진은 Unsplash 라이선스에 따라 Unsplash에서 제공되며, 개별 사진가의 크레딧이 각 사진에 표시됩니다.",
     fundingLabel: "자금 지원 및 편집의 독립성",
-    fundingBody: "컴퓨팅 인프라 및 플랫폼 비용은 태국 DEPA(디지털 경제 진흥원) 및 PMU-A(고등교육과학연구혁신부)의 현물 지원을 받았습니다. 민간 부문의 자금 지원은 없습니다. 어떤 후원자도 도시 점수, 등급 배치 또는 방법론에 영향을 미치지 않습니다. 모든 순위는 선언된 모델에 의해서만 생성됩니다. 이 연구는 Dr Non Arkara(수석 저자, 스마트 시티 실무자)와 Assoc. Prof. Poon Thiengburanathum(연구 고문) 두 사람의 노력으로 이루어졌습니다. 이 지수는 앞서 언급한 인프라 지원 외에는 어떤 도시, 정부 또는 민간 단체와도 상업적 관계가 없습니다.",
+    fundingBody: "컴퓨팅 인프라 및 플랫폼 비용은 태국 DEPA(디지털 경제 진흥원) 및 PMU-A(고등교육과학연구혁신부)의 현물 지원을 받았습니다. 민간 부문의 자금 지원은 없습니다. 어떤 후원자도 도시 점수, 등급 배치 또는 방법론에 영향을 미치지 않습니다. 모든 순위는 선언된 모델에 의해서만 생성됩니다. 이 연구는 Dr Non Arkaraprasertkul(수석 저자, 스마트 시티 실무자)와 Assoc. Prof. Poon Thiengburanathum(연구 고문) 두 사람의 노력으로 이루어졌습니다. 이 지수는 앞서 언급한 인프라 지원 외에는 어떤 도시, 정부 또는 민간 단체와도 상업적 관계가 없습니다.",
   },
   ja: {
     eyebrow: "出版プロトコル",
@@ -100,7 +100,7 @@ const footerEndnoteCopy: LocalizedRecord<{
     liveLabel: "継続的モデル",
     liveBody: "公開されたページは、現在検証済みのワークブックエクスポートを反映しています。新しい検証済みデータが採用されると、ワークブックエクスポートと公開ボードが共に更新されます。アイデアページの都市写真は、Unsplashライセンスの下でUnsplashから提供されており、個々の写真家のクレジットが各写真に表示されます。",
     fundingLabel: "資金提供と編集の独立性",
-    fundingBody: "コンピューティングインフラストラクチャおよびプラットフォームの費用は、タイのDEPA（デジタル経済振興庁）およびPMU-A（高等教育科学研究イノベーション省）から現物支給で支援されました。民間部門からの資金提供はありません。スポンサーが都市のスコア、ティアの配置、または方法論に影響を与えることはありません。すべてのランキングは、宣言されたモデルによってのみ作成されます。これは、Dr Non Arkara（筆頭著者、スマートシティ実務家）とAssoc. Prof. Poon Thiengburanathum（研究顧問）の2名による研究の成果です。このインデックスは、上記のインフラストラクチャの支援以外に、いかなる都市、政府、または民間企業とも商業的な関係を持っていません。",
+    fundingBody: "コンピューティングインフラストラクチャおよびプラットフォームの費用は、タイのDEPA（デジタル経済振興庁）およびPMU-A（高等教育科学研究イノベーション省）から現物支給で支援されました。民間部門からの資金提供はありません。スポンサーが都市のスコア、ティアの配置、または方法論に影響を与えることはありません。すべてのランキングは、宣言されたモデルによってのみ作成されます。これは、Dr Non Arkaraprasertkul（筆頭著者、スマートシティ実務家）とAssoc. Prof. Poon Thiengburanathum（研究顧問）の2名による研究の成果です。このインデックスは、上記のインフラストラクチャの支援以外に、いかなる都市、政府、または民間企業とも商業的な関係を持っていません。",
   },
 };
 

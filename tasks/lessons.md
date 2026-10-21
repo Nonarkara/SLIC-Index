@@ -81,7 +81,7 @@ Per §13: the same mistake never happens twice.
 - **What went wrong:** `scripts/generate_methodology_pdf.py` set the PDF
   `/Author` field to "OpenAI Codex". That metadata is visible in any PDF
   reader's Get Info pane to anyone Non shares the methodology paper with.
-- **Correct behaviour:** Author = human authors (Dr. Non Arkara & A.P. Poon
+- **Correct behaviour:** Author = human authors (Dr Non Arkaraprasertkul & A.P. Poon
   Thiengburanathum). Creator/Producer = "SLIC Index methodology engine".
   Subject line populated. Regenerated all three locale PDFs.
 - **How to recognise:** `python3 -c "from pypdf import PdfReader; print(
@@ -207,7 +207,7 @@ Per §13: the same mistake never happens twice.
 
 2. **`LocalizedRecord<T>` pattern for optional locale completeness** — `src/i18n.ts` exports `type LocalizedRecord<T> = Record<CoreLocale, T> & Partial<Record<ExtendedLocale, T>>` for cases where ko/ja are optional. Use `Record<Locale, T>` only when every locale is genuinely complete. TypeScript enforces this.
 
-3. **EssayPage multilingual strategy (the "ikigai" work)** — The essay is personal journalism by Nontawat Arkara, written in English. Full literary translation would lose voice and require a different author. Solution: native-language abstract (4 paragraphs, ~200 words each) above the English essay body, all chrome (title, subtitle, eyebrow, section headers, pull quotes, captions, references header) in user's locale, plus an honest language note. This mirrors how FT/Economist handle long-form editorial. The abstract describes: Kenny the expat, Chen the infrastructure builder, the corn vendor outside the Marriott, and SLIC's limits as a tool. CSS: `.essay-abstract`, `.essay-abstract-label`, `.essay-lang-note`.
+3. **EssayPage multilingual strategy (the "ikigai" work)** — The essay is personal journalism by Nontawat Arkaraprasertkul, written in English. Full literary translation would lose voice and require a different author. Solution: native-language abstract (4 paragraphs, ~200 words each) above the English essay body, all chrome (title, subtitle, eyebrow, section headers, pull quotes, captions, references header) in user's locale, plus an honest language note. This mirrors how FT/Economist handle long-form editorial. The abstract describes: Kenny the expat, Chen the infrastructure builder, the corn vendor outside the Marriott, and SLIC's limits as a tool. CSS: `.essay-abstract`, `.essay-abstract-label`, `.essay-lang-note`.
 
 **Pillar labels established (canonical for all future ko/ja work):**
 - Korean: Growth=성장, Viability=생활가능성, Capability=역량, Community=커뮤니티, Creative=창의성
@@ -229,7 +229,7 @@ Per §13: the same mistake never happens twice.
 
 ## 2026-06-01 · Native-speaker audit before ambassador distribution
 
-- **What went wrong:** After completing ko/ja i18n expansion across 23 files using AI translation, the output was nearly ambassador-ready but contained ~120 issues: critical meaning errors (균형=balance where "tradeoffs" was intended; 합리적인=rational where "affordable" was intended; 지속가능성=sustainability used for the Viability pillar), register errors (감사된/監査済み meaning "financially audited" used in data-validation context), domain-term errors (宜居性 is Chinese not Japanese; ケイパビリティ and クリエイティブ were business jargon where 能力 and 創造性 are the academic standard), a factual typo (author's name "Non Arkara" corrupted with Cyrillic characters in one locale), and cross-file pillar label inconsistencies (RankingsPage and CityScorecardPage used different Japanese terms for the same pillar).
+- **What went wrong:** After completing ko/ja i18n expansion across 23 files using AI translation, the output was nearly ambassador-ready but contained ~120 issues: critical meaning errors (균형=balance where "tradeoffs" was intended; 합리적인=rational where "affordable" was intended; 지속가능성=sustainability used for the Viability pillar), register errors (감사된/監査済み meaning "financially audited" used in data-validation context), domain-term errors (宜居性 is Chinese not Japanese; ケイパビリティ and クリエイティブ were business jargon where 能力 and 創造性 are the academic standard), a factual typo (author's name "Non Arkaraprasertkul" corrupted with Cyrillic characters in one locale), and cross-file pillar label inconsistencies (RankingsPage and CityScorecardPage used different Japanese terms for the same pillar).
 - **Correct behaviour:** Before showing any locale expansion to a native-speaker audience (especially ambassadors, academic peers, or award jurors), run a full audit pass with a native-speaker prompt — not just a build/typecheck pass. The audit found issues that TypeScript and the 21 invariants cannot catch: wrong register, wrong domain vocabulary, meaning inversions, cross-file inconsistencies. Treat locale expansion as two-phase: (1) machine-assisted translation pass, (2) native-register audit pass. Neither is optional.
 - **How to recognise:** Any i18n expansion > 5 files, or any locale going to a professional/formal audience, needs the audit. Symptoms: a native speaker's first reaction is hesitation rather than approval. TypeScript can be clean with 21/21 invariants passing while meaning errors remain invisible.
 

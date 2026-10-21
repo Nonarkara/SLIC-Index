@@ -47,4 +47,4 @@ A rewritten board is a fork of the argument, not “the” SLIC ranking. Do not 
 
 Use issues for method questions, data corrections with a public source, and reproducible bugs. Do not paste secrets, tokens, or unpublished worksheets into issues. See [SECURITY.md](SECURITY.md) for how to report a vulnerability.
 
-Suggested credit, from the site footer: *Non Arkara and Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [date], plus the deployment URL used.*
+Suggested credit, from the site footer: *Non Arkaraprasertkul and Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [date], plus the deployment URL used.*

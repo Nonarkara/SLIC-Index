@@ -72,7 +72,7 @@ const siteCopy = {
         "This ranking may be quoted, discussed, benchmarked, taught, or reused for editorial, research, classroom, and non-deceptive public-interest work, provided the source remains visible and no one implies paid placement or endorsement.",
       creditLabel: "Suggested credit",
       creditBody:
-        "Suggested credit: Non Arkara and Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [date of access]. Include the deployment URL of the public page when republishing.",
+        "Suggested credit: Non Arkaraprasertkul and Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [date of access]. Include the deployment URL of the public page when republishing.",
       aiLabel: "Algorithmic and AI disclosure",
       aiBody:
         "This ranking is published from the verified SLIC workbook export. Each city carries one public score, five public pillars, and workbook-level provenance.",
@@ -130,7 +130,7 @@ const siteCopy = {
         "Coverage grades, fallback proxies, and missing-data rules remain visible. High GDP alone does not determine rank.",
       collaborationLabel: "Prepared in collaboration with",
       collaboration:
-        "Created by Non Arkara and Associate Professor Poon Thiengburanathum as a SLIC product prepared in collaboration with the Ministry of Digital Economy and Society, the Digital Economy Promotion Agency, Smart City Thailand Office, and ReTL.",
+        "Created by Non Arkaraprasertkul and Associate Professor Poon Thiengburanathum as a SLIC product prepared in collaboration with the Ministry of Digital Economy and Society, the Digital Economy Promotion Agency, Smart City Thailand Office, and ReTL.",
       note:
         "Methodology, weights, and source hierarchy remain declared. The next publishable release must attach trusted source URLs, source tiers, and workbook-derived scores before reopening the public ranking as final.",
     },
@@ -198,7 +198,7 @@ const siteCopy = {
         "การจัดอันดับนี้สามารถนำไปอ้างถึง สนทนา เปรียบเทียบ ใช้ในการเรียนการสอน งานวิจัย หรือการสื่อสารสาธารณะได้ ตราบใดที่แหล่งที่มาชัดเจน และไม่มีการสื่อให้เข้าใจว่าเมืองใดจ่ายเงินเพื่อซื้ออันดับหรือได้รับการรับรองเป็นพิเศษ",
       creditLabel: "รูปแบบการให้เครดิตที่แนะนำ",
       creditBody:
-        "ตัวอย่างการให้เครดิต: Non Arkara และ Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [วันที่เข้าถึง]. เมื่อนำไปเผยแพร่ต่อควรแนบ URL ของหน้าสาธารณะที่ใช้ด้วย",
+        "ตัวอย่างการให้เครดิต: Non Arkaraprasertkul และ Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [วันที่เข้าถึง]. เมื่อนำไปเผยแพร่ต่อควรแนบ URL ของหน้าสาธารณะที่ใช้ด้วย",
       aiLabel: "คำชี้แจงเรื่องอัลกอริทึมและ AI",
       aiBody:
         "การจัดอันดับนี้เผยแพร่จากการส่งออกเวิร์กบุ๊ก SLIC ที่ผ่านการตรวจสอบแล้ว แต่ละเมืองมีคะแนนสาธารณะหนึ่งค่า 5 เสาหลักสาธารณะ และเส้นทางแหล่งที่มาระดับเวิร์กบุ๊ก",
@@ -256,7 +256,7 @@ const siteCopy = {
         "เกรดความครอบคลุม ตัวแทนข้อมูล และกติกาข้อมูลขาดหายจะถูกเปิดเผยอย่างชัดเจน GDP สูงเพียงอย่างเดียวไม่ทำให้เมืองชนะ",
       collaborationLabel: "จัดทำร่วมกับ",
       collaboration:
-        "สร้างโดย Non Arkara และ Associate Professor Poon Thiengburanathum ในฐานะผลิตภัณฑ์ SLIC ที่จัดทำร่วมกับกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม สำนักงานส่งเสริมเศรษฐกิจดิจิทัล Smart City Thailand Office และ ReTL",
+        "สร้างโดย Non Arkaraprasertkul และ Associate Professor Poon Thiengburanathum ในฐานะผลิตภัณฑ์ SLIC ที่จัดทำร่วมกับกระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม สำนักงานส่งเสริมเศรษฐกิจดิจิทัล Smart City Thailand Office และ ReTL",
       note:
         "ระเบียบวิธี น้ำหนัก และลำดับชั้นแหล่งข้อมูลยังคงประกาศอย่างชัดเจน รุ่นที่พร้อมเผยแพร่จริงต้องแนบ URL แหล่งข้อมูล ระดับแหล่งข้อมูล และคะแนนที่ได้จากเวิร์กบุ๊กก่อนเปิดอันดับสาธารณะอีกครั้งในฐานะฉบับสุดท้าย",
     },
@@ -324,7 +324,7 @@ const siteCopy = {
         "这份榜单可用于引用、讨论、教学、研究、媒体转载与公共基准比较，只要来源清楚、引用诚实，并且不暗示任何城市为排名付费或获得了额外背书。",
       creditLabel: "建议署名格式",
       creditBody:
-        "建议署名：Non Arkara 与 Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [访问日期]。转载时建议同时附上公开页面的部署 URL。",
+        "建议署名：Non Arkaraprasertkul 与 Associate Professor Poon Thiengburanathum, Smart and Liveable Cities Index (SLIC), public ranking model, accessed [访问日期]。转载时建议同时附上公开页面的部署 URL。",
       aiLabel: "算法与 AI 披露",
       aiBody:
         "本排名从经过核验的 SLIC 工作簿导出发布。每座城市都带有一个公开分数、五个公开支柱，以及工作簿层级的来源追溯。",
@@ -382,7 +382,7 @@ const siteCopy = {
         "数据覆盖等级、替代代理与缺失规则会被明确公开。高 GDP 本身不能决定名次。",
       collaborationLabel: "合作完成",
       collaboration:
-        "该项目由 Non Arkara 与 Associate Professor Poon Thiengburanathum 共同发起，作为 SLIC 产品，与 Ministry of Digital Economy and Society、Digital Economy Promotion Agency、Smart City Thailand Office、ReTL 协作完成。",
+        "该项目由 Non Arkaraprasertkul 与 Associate Professor Poon Thiengburanathum 共同发起，作为 SLIC 产品，与 Ministry of Digital Economy and Society、Digital Economy Promotion Agency、Smart City Thailand Office、ReTL 协作完成。",
       note:
         "方法、权重与来源层级保持公开。下一版只有在附齐可信来源 URL、来源层级与工作簿导出分数后，才应重新开放为最终公开榜单。",
     },
@@ -450,7 +450,7 @@ const siteCopy = {
         "이 순위는 출처가 명확하고 유료 배치나 보증을 암시하지 않는 한, 인용, 토론, 벤치마킹, 교육, 연구, 공공 이익 활동에 사용할 수 있습니다.",
       creditLabel: "권장 인용 형식",
       creditBody:
-        "권장 인용: Non Arkara 및 Poon Thiengburanathum 부교수, Smart and Liveable Cities Index (SLIC), 공개 순위 모델, 접근일: [접근 날짜]. 재게시 시 공개 페이지의 배포 URL을 포함하세요.",
+        "권장 인용: Non Arkaraprasertkul 및 Poon Thiengburanathum 부교수, Smart and Liveable Cities Index (SLIC), 공개 순위 모델, 접근일: [접근 날짜]. 재게시 시 공개 페이지의 배포 URL을 포함하세요.",
       aiLabel: "알고리즘 및 AI 공개",
       aiBody:
         "이 순위는 검증된 SLIC 워크북 내보내기에서 게시됩니다. 각 도시에는 공개 점수 하나, 5개의 공개 기둥, 워크북 수준의 출처가 포함됩니다.",
@@ -508,7 +508,7 @@ const siteCopy = {
         "커버리지 등급, 대체 프록시, 누락 데이터 규칙은 공개됩니다. 높은 GDP만으로는 순위가 결정되지 않습니다.",
       collaborationLabel: "협력하여 제작",
       collaboration:
-        "Non Arkara와 Poon Thiengburanathum 부교수가 SLIC 제품으로 디지털 경제사회부, 디지털 경제 진흥원, 태국 스마트시티 오피스, ReTL과 협력하여 제작했습니다.",
+        "Non Arkaraprasertkul과 Poon Thiengburanathum 부교수가 SLIC 제품으로 디지털 경제사회부, 디지털 경제 진흥원, 태국 스마트시티 오피스, ReTL과 협력하여 제작했습니다.",
       note:
         "방법론, 가중치, 출처 계층은 계속 공개됩니다. 다음 게시 가능한 릴리스는 최종 공개 순위로 다시 열리기 전에 신뢰할 수 있는 출처 URL, 출처 계층, 워크북 기반 점수를 첨부해야 합니다.",
     },
@@ -576,7 +576,7 @@ const siteCopy = {
         "このランキングは出典が明示され、有料掲載や保証を示唆しない限り、引用、議論、ベンチマーク、教育、研究、公共利益活動に使用できます。",
       creditLabel: "推奨引用形式",
       creditBody:
-        "推奨引用：Non Arkara 及び Poon Thiengburanathum 准教授、Smart and Liveable Cities Index (SLIC)、公開ランキングモデル、アクセス日：[アクセス日]。再掲載時は公開ページの展開URLも含めてください。",
+        "推奨引用：Non Arkaraprasertkul 及び Poon Thiengburanathum 准教授、Smart and Liveable Cities Index (SLIC)、公開ランキングモデル、アクセス日：[アクセス日]。再掲載時は公開ページの展開URLも含めてください。",
       aiLabel: "アルゴリズムとAIの開示",
       aiBody:
         "このランキングは検証済みのSLICワークブックエクスポートから公開されています。各都市には公開スコア1つ、5つの公開柱、ワークブックレベルの出典があります。",
@@ -634,7 +634,7 @@ const siteCopy = {
         "カバレッジグレード、代替プロキシ、欠損データルールは公開されます。高いGDPだけでは順位は決まりません。",
       collaborationLabel: "協力して作成",
       collaboration:
-        "Non ArkaraとPoon Thiengburanathum准教授がSLIC製品として、デジタル経済社会省、デジタル経済振興機構、タイスマートシティオフィス、ReTLと共同で作成しました。",
+        "Non ArkaraprasertkulとPoon Thiengburanathum准教授がSLIC製品として、デジタル経済社会省、デジタル経済振興機構、タイスマートシティオフィス、ReTLと共同で作成しました。",
       note:
         "方法論、重み、出典の階層は公開されています。次の公開可能なリリースは、最終的な公開ランキングとして再開する前に、信頼できる出典URL、出典層、ワークブックから導出したスコアを添付する必要があります。",
     },

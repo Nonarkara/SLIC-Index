@@ -12,14 +12,14 @@ The core team is the permanent, paid staff who produce the index annually. This 
   "core_team": [
     {
       "id": "person-001",
-      "name": "Dr. Non Arkara",
+      "name": "Dr Non Arkaraprasertkul",
       "role": "Project Director & Co-founder",
       "short_role": "Director",
-      "bio": "Dr. Non Arkara is the architect of the SLIC Index and its resident-centered methodology. He serves as the Director of Global Infrastructure and Smart City Promotion at the Digital Economy Promotion Agency (DEPA), Thailand. His background in urban technology, open data policy, and international digital diplomacy shapes the index's commitment to data transparency and methodological rigor. He has presented the SLIC methodology at Smart City Summit & Expo Taipei, GITEX AI Asia Singapore, and LEAP EAST Hong Kong.",
-      "bio_th": "ดร. นนท์ อาคารา เป็นผู้ออกแบบดัชนี SLIC และวิธีการวัดที่เน้นผู้อยู่อาศัย เขาดำรงตำแหน่งผู้อำนวยการส่งเสริมโครงสร้างพื้นฐานดิจิทัลและเมืองอัจฉริยมระดับโลก ที่สำนักงานส่งเสริมเศรษฐกิจดิจิทัล (DEPA) ประเทศไทย",
-      "bio_zh": "Non Arkara 博士是 SLIC 指數的架構師及其居民中心方法論的設計者。他擔任泰國數字經濟促進局（DEPA）全球基礎設施與智慧城市推廣總監。他在城市技術、開放數據政策和國際數字外交方面的背景塑造了指數對數據透明度和方法論嚴謹性的承諾。",
-      "bio_ko": "Non Arkara 박사는 SLIC 지수의 설계자이자 주민 중심 방법론의 창시자입니다. 그는 태국 디지털 경제 진흥청(DEPA)의 글로벌 인프라 및 스마트시티 촉광 디렉터를 역임하고 있습니다. 도시 기술, 개방 데이터 정책, 국제 디지털 외교에 대한 그의 배경은 지수의 데이터 투명성과 방법론적 엄격함에 대한 약속을 형성했습니다.",
-      "bio_ja": "Non Arkara 博士は、SLIC 指数の設計者であり、住民中心の方法論の創始者です。彼はタイ王国デジタル経済振興局（DEPA）のグローバルインフラストラクチャ・スマートシティ推進ディレクターを務めています。都市技術、オープンデータ政策、国際デジタル外交における彼の経験は、指数のデータ透明性と方法論的厳密性へのコミットメントを形作っています。",
+      "bio": "Dr Non Arkaraprasertkul is the architect of the SLIC Index and its resident-centered methodology. He serves as the Director of Global Infrastructure and Smart City Promotion at the Digital Economy Promotion Agency (DEPA), Thailand. His background in urban technology, open data policy, and international digital diplomacy shapes the index's commitment to data transparency and methodological rigor. He has presented the SLIC methodology at Smart City Summit & Expo Taipei, GITEX AI Asia Singapore, and LEAP EAST Hong Kong.",
+      "bio_th": "ดร.นน อัครประเสริฐกุล เป็นผู้ออกแบบดัชนี SLIC และวิธีการวัดที่เน้นผู้อยู่อาศัย เขาดำรงตำแหน่งผู้อำนวยการส่งเสริมโครงสร้างพื้นฐานดิจิทัลและเมืองอัจฉริยมระดับโลก ที่สำนักงานส่งเสริมเศรษฐกิจดิจิทัล (DEPA) ประเทศไทย",
+      "bio_zh": "Non Arkaraprasertkul 博士是 SLIC 指數的架構師及其居民中心方法論的設計者。他擔任泰國數字經濟促進局（DEPA）全球基礎設施與智慧城市推廣總監。他在城市技術、開放數據政策和國際數字外交方面的背景塑造了指數對數據透明度和方法論嚴謹性的承諾。",
+      "bio_ko": "Non Arkaraprasertkul 박사는 SLIC 지수의 설계자이자 주민 중심 방법론의 창시자입니다. 그는 태국 디지털 경제 진흥청(DEPA)의 글로벌 인프라 및 스마트시티 촉광 디렉터를 역임하고 있습니다. 도시 기술, 개방 데이터 정책, 국제 디지털 외교에 대한 그의 배경은 지수의 데이터 투명성과 방법론적 엄격함에 대한 약속을 형성했습니다.",
+      "bio_ja": "Non Arkaraprasertkul 博士は、SLIC 指数の設計者であり、住民中心の方法論の創始者です。彼はタイ王国デジタル経済振興局（DEPA）のグローバルインフラストラクチャ・スマートシティ推進ディレクターを務めています。都市技術、オープンデータ政策、国際デジタル外交における彼の経験は、指数のデータ透明性と方法論的厳密性へのコミットメントを形作っています。",
       "affiliation": "Digital Economy Promotion Agency (DEPA), Thailand",
       "affiliation_short": "DEPA",
       "location": "Bangkok, Thailand",
@@ -212,7 +212,7 @@ All bios and role descriptions must be translated into all 5 languages (EN, TH, 
    - "Join as a contributor" CTA
 
 2. **Home Page (Footer or "About" section):**
-   - Small line: "Developed by Dr. Non Arkara & Assoc. Prof. Poon Thiengburanathum"
+   - Small line: "Developed by Dr Non Arkaraprasertkul & Assoc. Prof. Poon Thiengburanathum"
    - Link to full team page
 
 3. **Methodology Page:**
