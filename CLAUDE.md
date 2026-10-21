@@ -71,6 +71,24 @@ The test is one question: **"Why is this here, why this size, and why this far f
 
 **Two things side by side always leave a hole under the shorter one.** The rankings workbench put the web and its five bars in one column — 798px tall — beside a 300px rail, and the 490px void under the rail was nobody's design. The fix was not to fill the void; it was to stop insisting on the two-column shape. The web kept its own column, and the bars moved into the rail, beside the thing they move, so the eye travels sideways instead of down and back up. **When a side-by-side pair leaves a hole, ask whether the pair is really one object. If it is, split it and place each part where it is read.** A label that names one part must travel with that part: "drag a bar" belongs above the bars, not under the web.
 
+### The knowledge rack
+
+The rack is the site's question box over the methodology. It answers with citations, so **the index it serves has to describe the bytes it was built from — exactly.**
+
+That is not a claim, it is a gate. `scripts/check-knowledge-rack.mjs` proves that every manifest hash matches the source on disk, that every file in the intake folder is indexed, that the built and published catalogs are the same bytes, that the manifest's word, character and chunk counts agree with the extracted text, and that the chunk stream reconstructs that text. The manifest's `sha256` field was decorative until this gate existed: when four source documents were edited, the index kept serving passages from the old bytes while the published manifest kept claiming the old hashes. **A hash has to describe bytes, not an intention.**
+
+The corpus lives in `knowledge-rack/inbox/` and is the source of truth. `knowledge-rack/library/raw/` is a byte-identical copy the build script makes; it is derived, so it is not tracked, and the privacy scan skips it — safely, because the gate proves the copy has not diverged. The published catalog is `public/knowledge-rack/catalog/`, and it is what the site serves.
+
+To change the corpus: drop the document into `knowledge-rack/inbox/`, then run
+
+```bash
+python3 scripts/build_knowledge_rack.py
+```
+
+which re-extracts, re-chunks, and rewrites the built and published catalogs together. The pipeline was deleted by a "clean repo" commit while `knowledge-rack/README.md` still told you to run it; it has been restored, and the README's command works again.
+
+**Personal contact details never enter the corpus.** The source reports carry the contact lines of named individuals; those lines are redacted in the documents themselves, so the redaction survives a re-extraction, and `scripts/check-personal-contacts.py` fails the build if a personal address or phone number reappears anywhere in the tree. Published organisation inboxes and office switchboards are allowlisted and stay. Git history is not scanned: removing a contact from the tree does not remove it from older commits.
+
 ### What the gates catch
 
 Every rule above that can be decided from source is a machine gate. They run in `npm run verify:release`, so a violation fails the build rather than being noticed in review.
@@ -83,6 +101,8 @@ Every rule above that can be decided from source is a machine gate. They run in 
 | `test/publication-hashes.test.mjs` | the scoring bundle cannot drift from its published hashes |
 | `scripts/check-layout.mjs` | **the built site in a real browser**: no horizontal overflow, no uncaught exception, no broken image, and every route actually rendered — across 15 routes × 3 widths |
 | `scripts/audit-spatial.mjs` | **spatial hallucination**: dead bands, orphan grid rows, accidental wrapping, clipped text, scattered actions, false hierarchy (an emphasis modifier that changes nothing visible, a skipped heading level), and cost-to-first-action — across 15 routes × 3 widths. `--check <baseline>` turns it into a gate; `--json` emits the fingerprint |
+| `scripts/check-knowledge-rack.mjs` | **the index describes the bytes it was built from**: every manifest hash matches the source on disk, every source in the intake folder is indexed, the built and published catalogs are the same bytes, the word/character/chunk counts agree with the extracted text, and the chunk stream reconstructs that text |
+| `scripts/check-personal-contacts.py` | no personal emails or phone numbers anywhere in the tree — published organisation inboxes and office switchboards are allowlisted |
 
 **The spatial ratchet.** `audit-spatial.mjs` separates a **defect** from a **forced wrap**: a wrap is a defect when the line above had room for the item that dropped (avoidable), when it left a widow after a line of three or more (unbalanced), or when related items stacked one per line. A wrap the width genuinely forced — a tag list, a chip row on a phone — is the layout working and is reported, not failed. The gate compares a fingerprint of every finding against `scripts/spatial-baseline.json`: more lines than the baseline is a failure, fewer is a pass with a note that the baseline can be tightened. It can only go down.
 
@@ -106,6 +126,10 @@ Every rule above that can be decided from source is a machine gate. They run in 
 | `scripts/probe-box.mjs` | Dumps the box geometry of a selector — the container, its children, and the ancestor chain — plus `--band <from:to>` to find what occupies a y-range and `--at x,y` to ask the browser what is actually painted at a point |
 | `scripts/audit-spatial.mjs` | The spatial-hallucination audit. `--route`, `--width`, `--json`, `--check <baseline>`, `--write-baseline <file>` — regenerate the ratchet only from a run with zero hard findings; the tool refuses to write one otherwise |
 | `scripts/check-layout.mjs` | The permanent gate: drives the built site in real Chrome over 15 routes × 3 widths and fails on horizontal overflow, an uncaught exception, a broken image, or a route that never rendered |
+| `scripts/check-knowledge-rack.mjs` | The rack gate: the published index describes the bytes it was built from — every manifest hash matches the source, every source is indexed, the built and published catalogs are identical, the counts agree with the extracted text, and the chunks reconstruct it |
+| `scripts/build_knowledge_rack.py` | The corpus pipeline: extracts `knowledge-rack/inbox/`, chunks it, and writes the built and published catalogs together. Restored from history after a "clean repo" commit deleted it while the README still told you to run it |
+| `scripts/check-personal-contacts.py` | No personal emails or phone numbers anywhere in the tree. Published organisation inboxes and office switchboards are allowlisted |
+| `scripts/query_knowledge_rack.py` | Ask the rack locally: retrieval only, prints the best-matching passages from the indexed documents |
 
 **The browser is the proof; the fingerprint is not.** A cascade fingerprint buckets rules by selector text, so it evaluates each selector *in isolation*. Two selectors can only interact when they match the same element, which the fingerprint cannot see. Two real bugs came out of this, both caught by the browser and neither by the fingerprint:
 

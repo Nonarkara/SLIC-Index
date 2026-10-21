@@ -7,13 +7,13 @@
     "source_path": "knowledge-rack/inbox/ASCN Report (2019) depa Thailand.pdf",
     "raw_copy_path": "knowledge-rack/library/raw/ASCN Report (2019) depa Thailand.pdf",
     "text_path": "knowledge-rack/text/ascn-report-2019-depa-thailand.txt",
-    "sha256": "f25e5c5d7a7762f241d53abecb0513b11848e7bb91ef90fc9345450a0710b6f4",
+    "sha256": "e2feaa09440dd57bb6cc260119fac233d7fc06528fc60ac40bc08e65e2e83b7c",
     "pages": 38,
-    "words": 15730,
-    "chars": 107064,
+    "words": 15651,
+    "chars": 106399,
     "chunk_count": 37,
-    "modified_at": "2025-11-03T05:20:18+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-10-21T08:13:00.236615+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "blog-posts-clean",
@@ -28,8 +28,8 @@
     "words": 233972,
     "chars": 1310391,
     "chunk_count": 1250,
-    "modified_at": "2026-02-02T07:22:32.249423+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-04-12T15:08:31.117077+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "nst-baseline-report-0",
@@ -41,11 +41,11 @@
     "text_path": "knowledge-rack/text/nst-baseline-report-0.txt",
     "sha256": "5798f6e03c67850209e72711b82da7caad286a1ff94b10d0a586a85479a28593",
     "pages": 65,
-    "words": 24912,
-    "chars": 170328,
+    "words": 24910,
+    "chars": 170326,
     "chunk_count": 65,
-    "modified_at": "2023-10-15T06:36:26+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-04-12T15:08:31.289752+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "nst-report",
@@ -57,11 +57,11 @@
     "text_path": "knowledge-rack/text/nst-report.txt",
     "sha256": "b6b3019e4127a13dc5c7069856c01a74749f03bcb7afcf9ce35888c0026de954",
     "pages": 65,
-    "words": 9978,
-    "chars": 62156,
+    "words": 9987,
+    "chars": 62165,
     "chunk_count": 47,
-    "modified_at": "2023-08-23T05:29:05+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-04-12T15:08:31.477856+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "nakhon-innovative-flood-control-updated-1",
@@ -76,8 +76,8 @@
     "words": 188,
     "chars": 1373,
     "chunk_count": 1,
-    "modified_at": "2024-02-16T11:46:02+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-04-12T15:08:31.722100+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "nakhon-nomination-depa",
@@ -92,8 +92,8 @@
     "words": 431,
     "chars": 3089,
     "chunk_count": 2,
-    "modified_at": "2023-10-16T10:38:27+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-04-12T15:08:31.728019+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "non-2021-smart-city-thailand-hitachi-review",
@@ -108,8 +108,8 @@
     "words": 3020,
     "chars": 18815,
     "chunk_count": 5,
-    "modified_at": "2023-03-04T03:46:00+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-04-12T15:08:31.749316+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "scw2020-thaiver-final",
@@ -119,13 +119,13 @@
     "source_path": "knowledge-rack/inbox/SCW2020_ThaiVer final.pdf",
     "raw_copy_path": "knowledge-rack/library/raw/SCW2020_ThaiVer final.pdf",
     "text_path": "knowledge-rack/text/scw2020-thaiver-final.txt",
-    "sha256": "7344c31b37cfa8c45c60aef03b04e506c2ebb5780f560c159d354aedd6aa8988",
+    "sha256": "817b1c004e5761e474a689e1c1957ed6eef9c52e63618eb91fe02db709b893c7",
     "pages": 110,
-    "words": 9609,
-    "chars": 132179,
+    "words": 9225,
+    "chars": 131795,
     "chunk_count": 91,
-    "modified_at": "2021-09-05T13:23:12+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-10-21T08:13:00.321028+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "smart-city-week-2020-booklet",
@@ -135,13 +135,13 @@
     "source_path": "knowledge-rack/inbox/Smart City Week 2020 Booklet.pdf",
     "raw_copy_path": "knowledge-rack/library/raw/Smart City Week 2020 Booklet.pdf",
     "text_path": "knowledge-rack/text/smart-city-week-2020-booklet.txt",
-    "sha256": "c2e02151f53b9e86fe4e55236e1daa7a2f213fa7f70ed85a2f4dbbe9dde0533b",
+    "sha256": "933c22ce76567c4b9de8e5d609e98e85510191711aa7d8b11db85b04041836bc",
     "pages": 110,
     "words": 19283,
     "chars": 128606,
     "chunk_count": 96,
-    "modified_at": "2022-03-27T17:10:37+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-10-21T08:13:00.744257+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "strategic-smart-living-expansion-roadmap",
@@ -156,8 +156,8 @@
     "words": 696,
     "chars": 4670,
     "chunk_count": 4,
-    "modified_at": "2024-03-28T01:29:16+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-04-12T15:08:33.778488+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "uk-thailand-smart-city-handbook",
@@ -172,8 +172,8 @@
     "words": 58590,
     "chars": 405017,
     "chunk_count": 157,
-    "modified_at": "2024-01-17T03:23:50+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-04-12T15:08:33.941432+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "us-depa-smart-city-primer",
@@ -183,13 +183,13 @@
     "source_path": "knowledge-rack/inbox/[US - depa] Smart City Primer.pdf",
     "raw_copy_path": "knowledge-rack/library/raw/[US - depa] Smart City Primer.pdf",
     "text_path": "knowledge-rack/text/us-depa-smart-city-primer.txt",
-    "sha256": "f729bce08f8cd6dda2a209eb03698b596440da993364d5bb27199814ac7b9dfe",
+    "sha256": "693f4a97a06ca4ce49e41f3a70a83dff6c7470f790e2c4671cde45cbd98d4945",
     "pages": 48,
-    "words": 13443,
-    "chars": 88475,
+    "words": 13442,
+    "chars": 88474,
     "chunk_count": 42,
-    "modified_at": "2025-11-29T05:19:51+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-10-21T08:13:00.802042+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "asean-smart-city-planning-guidebook-2022",
@@ -201,11 +201,11 @@
     "text_path": "knowledge-rack/text/asean-smart-city-planning-guidebook-2022.txt",
     "sha256": "254112e7616fe041196add8a7308532fac102f93efe1b929bcf1a21c132938bf",
     "pages": 123,
-    "words": 26749,
-    "chars": 178347,
+    "words": 26753,
+    "chars": 178351,
     "chunk_count": 123,
-    "modified_at": "2026-03-04T18:15:43.000968+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-04-12T15:08:34.666726+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "nakhon-si-thammarat-march31-2023",
@@ -217,11 +217,11 @@
     "text_path": "knowledge-rack/text/nakhon-si-thammarat-march31-2023.txt",
     "sha256": "4e5a699d35b9f32ffba44feefdb030ad51468b5e67fd14ee4d359e12f770d12f",
     "pages": 14,
-    "words": 360,
-    "chars": 2624,
+    "words": 361,
+    "chars": 2625,
     "chunk_count": 2,
-    "modified_at": "2023-08-02T08:34:18+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-04-12T15:08:34.776877+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   },
   {
     "doc_id": "theaseanmagazine-asean-org-non-arkaraprasertkul-phd-the-asean-magazine",
@@ -233,10 +233,10 @@
     "text_path": "knowledge-rack/text/theaseanmagazine-asean-org-non-arkaraprasertkul-phd-the-asean-magazine.txt",
     "sha256": "95615e9d4d4bc496c31ed5a3b3d06cb692860dd3e45a7045188bb7b5e02ab548",
     "pages": 5,
-    "words": 1930,
-    "chars": 12424,
+    "words": 1920,
+    "chars": 12409,
     "chunk_count": 5,
-    "modified_at": "2024-12-25T05:42:21+00:00",
-    "extracted_at": "2026-03-30T08:24:04.521836+00:00"
+    "modified_at": "2026-04-12T15:08:34.779778+00:00",
+    "extracted_at": "2026-10-21T08:14:56.517022+00:00"
   }
 ]

@@ -12,6 +12,7 @@ remove it from older commits.
 
 from __future__ import annotations
 
+import bisect
 import contextlib
 import io
 import re
@@ -83,6 +84,13 @@ PLACEHOLDER_DOMAINS = {
 ORG_PHONES = ("6620262333", "6675342880")
 
 SKIP_DIRS = {".git", "node_modules", ".vercel", "tmp", ".claude"}
+# The knowledge rack keeps a raw copy of every source document in
+# `library/raw/`. It is a byte-identical duplicate of `inbox/`, which is
+# scanned, so scanning it again extracts the text of 142MB of PDFs a second
+# time to arrive at exactly the same findings. The duplication is proved
+# byte-for-byte by scripts/check-knowledge-rack.mjs, so the skip cannot hide
+# anything the inbox scan does not already see.
+SKIP_RELATIVE_PREFIXES = ("knowledge-rack/library",)
 TEXT_EXTENSIONS = {
     ".txt",
     ".md",
@@ -153,24 +161,38 @@ def normalize_address(text: str, match: re.Match[str]) -> str:
     return address
 
 
-def find_in_text(text: str, source: str) -> list[str]:
-    findings: list[str] = []
+def find_in_text(text: str, source: str, scan_phones: bool = True) -> list[str]:
+    """Report personal contacts in a piece of text.
+
+    The line number is resolved once, at the end, and only when there is
+    something to report. Two costs were paid before: the newline offsets were
+    computed for every megabyte of every document, and the phone patterns ran
+    over the raw bytes of every PDF — where a greedy numeric pattern over
+    binary data backtracks badly. Neither was needed to decide that a
+    document is clean.
+    """
+    hits: list[tuple[int, str]] = []
     for match in EMAIL_RE.finditer(text):
         address = normalize_address(text, match)
         kind = classify_email(address)
         if kind:
-            line = text.count("\n", 0, match.start()) + 1
-            findings.append(f"{source}:{line}: {kind}: {address}")
-    seen_phones: set[str] = set()
-    for pattern in (INTL_PHONE_RE, LABELED_PHONE_RE):
-        for match in pattern.finditer(text):
-            digits = phone_digits(match.group(0))
-            if is_allowed_phone(digits) or digits in seen_phones:
-                continue
-            seen_phones.add(digits)
-            line = text.count("\n", 0, match.start()) + 1
-            findings.append(f"{source}:{line}: personal-phone: {match.group(0).strip()}")
-    return findings
+            hits.append((match.start(), f"{kind}: {address}"))
+    if scan_phones:
+        seen_phones: set[str] = set()
+        for pattern in (INTL_PHONE_RE, LABELED_PHONE_RE):
+            for match in pattern.finditer(text):
+                digits = phone_digits(match.group(0))
+                if is_allowed_phone(digits) or digits in seen_phones:
+                    continue
+                seen_phones.add(digits)
+                hits.append((match.start(), f"personal-phone: {match.group(0).strip()}"))
+    if not hits:
+        return []
+    newlines = [index for index, char in enumerate(text) if char == "\n"]
+    return [
+        f"{source}:{bisect.bisect_left(newlines, position) + 1}: {message}"
+        for position, message in hits
+    ]
 
 
 def iter_files(root: Path):
@@ -178,7 +200,10 @@ def iter_files(root: Path):
     for path in root.rglob("*"):
         if not path.is_file():
             continue
-        if any(part in SKIP_DIRS for part in path.relative_to(root).parts):
+        relative = path.relative_to(root)
+        if any(part in SKIP_DIRS for part in relative.parts):
+            continue
+        if any(str(relative).startswith(prefix) for prefix in SKIP_RELATIVE_PREFIXES):
             continue
         yield path
 
@@ -218,7 +243,7 @@ def scan_pdf(path: Path) -> list[str]:
     raw = path.read_bytes().decode("latin1", "replace")
     findings.extend(
         item
-        for item in find_in_text(raw, f"{path}:bytes")
+        for item in find_in_text(raw, f"{path}:bytes", scan_phones=False)
         if "personal-email" in item
         and any("@" + domain in item.lower() for domain in PERSONAL_DOMAINS)
     )

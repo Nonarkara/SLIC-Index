@@ -943,10 +943,10 @@ utilizing best practices in mitigating
 different problems. 
  
 Chief Smart City Officer 
-[redacted] 
+ 
 Chairman of Bandar Seri Begawan Municipal 
 Department 
-Email: [redacted]
+Email: 
 The Urban Renaissance Agency (UR)
 02 Cambodia
 Battambang
@@ -1002,9 +1002,9 @@ drainage system for the west part of the
 Sangkae River. 
  
 Chief Smart City Officer 
-[redacted] 
+ 
 Deputy Governor of Battambang Province 
-Email: [redacted] 
+Email: 
  
  
 Status of progress 
@@ -1012,12 +1012,17 @@ Battambang
 The Urban Renaissance Agency (UR)
 28 29
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
+[redacted]
+[redacted]
 
 03 Cambodia
 Phnom Penh
 Area: 693 km2 
 Population: 2.8 million 
-Population density: 693 / km2
+Population density: 693 / km
+2
 Current status of the city 
 Phnom Penh is located in southern 
 Cambodia, where the Tonie Sap 
@@ -1126,18 +1131,21 @@ with support from Asian
 Development Bank, Japan for 
 Poverty Reduction, and JICA.
 Chief Smart City Officer 
-[redacted] 
+ 
 Vice Governor of Phnom Penh 
-Email: [redacted]
+Email: 
 The Urban Renaissance Agency (UR)
 30 31
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
 
 04 Cambodia
 Siem Reap
 Area: 424.7 km2 
 Population: 268,380 
-Population density: 631.8 / km2
+Population density: 631.8 / km
+2
 Current status of the city 
 Siem Reap is the capital city of Siem 
 Reap Province in northwestern 
@@ -1189,10 +1197,9 @@ to improve planning and
 implementation.
 Status of progress 
 Chief Smart City Officer 
-[redacted] 
+ 
 Deputy Governor of Siem Reap Province 
-Email: [redacted]; 
-[redacted]
+Email: ; 
 Siem Reap
 The Urban Renaissance Agency (UR)
 05 Indonesia
@@ -1258,6 +1265,9 @@ Makassar
 The Urban Renaissance Agency (UR)
 32 33
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
+[redacted]
 
 06 Indonesia
 Banyuwangi
@@ -1350,13 +1360,15 @@ coffee, chocolate and batik
 business training, and vocational 
 schools were opened for them.
 Chief Smart City Officer 
-[redacted] 
+ 
 Head of Informatics, Communication and Encryption 
 Department of Banyuwangi Government 
-Email: [redacted]
+Email: 
 The Urban Renaissance Agency (UR)
 34 35
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
 
 07 Indonesia
 DKI Jakarta
@@ -1419,10 +1431,10 @@ thousand passengers per day before
 the program was implemented.
 Status of progress 
 Chief Smart City Officer 
-[redacted] 
+ 
 Head of Communication, lnfomatics and Statistics 
 Department of Jakarta Provincial Government 
-Email: [redacted]
+Email: 
 DKI Jakarta
 The Urban Renaissance Agency (UR)
 08 Lao PDR
@@ -1487,6 +1499,8 @@ Luang Prabang
 The Urban Renaissance Agency (UR)
 36 37
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
 
 Project 1
 Project 2
@@ -1503,15 +1517,14 @@ Two(2) local roads with total of 236
 meters long and 5.5 meters width 
 Status of progress 
 Chief Smart City Officer 
-[redacted] 
+ 
 Mayor 
-Email: [redacted] 
-[redacted]
+Email: 
 Chief Smart City Officer 
-[redacted] 
+ 
 Deputy Director of Public Works and Transport De-
 partment of Vientiane Capital 
-Email: [redacted]
+Email: 
 09 Lao PDR
 Vientiane
 Area: 130 km2 
@@ -1639,6 +1652,11 @@ Johar Bahru
 The Urban Renaissance Agency (UR)
 38 39
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
+[redacted]
+[redacted]
+[redacted]
 
 Project 2
 • IRDA is collaborating with the 
@@ -1661,9 +1679,9 @@ waste-water for non-potable
 use to supplement the 
 ever-increasing water demand.
 Chief Smart City Officer 
-[redacted] 
+ 
 Lead, Technology & Innovation 
-Email: [redacted]
+Email: 
 11 Malaysia
 Kuala Lumpur
 Area: 243 km2 
@@ -1698,10 +1716,9 @@ Kuching
 Kata Kinabalu
 The Urban Renaissance Agency (UR)
 Chief Smart City Officer 
-[redacted] 
+ 
 Executive Director (Planning) 
-Email: [redacted] 
-[redacted]
+Email: 
 Project 2: Kuala Lumpur Integrated 
 Submission System (KLIS)
 Project 3: GoKL Journey Planner
@@ -1775,6 +1792,11 @@ Status of progress
 The Urban Renaissance Agency (UR)
 40 41
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
+[redacted]
+[redacted]
+[redacted]
 
 12 Malaysia
 13 Malaysia
@@ -1834,14 +1856,14 @@ increase system efficiency
 through the proposed pilot study.
 Status of progress 
 Chief Smart City Officer 
-[redacted] 
+ 
 Director of City Planning Department, 
 Dewan Bandaraya Kata Kinabalu 
-Email: [redacted] 
-[redacted] 
+Email: 
+ 
 Town Planner, City Planning Department, 
 Dewan Bandaraya Kola Kinabalu 
-Email: [redacted]
+Email: 
 The Urban Renaissance Agency (UR)
 Current status of the city 
 Kuching is the capital city of the 
@@ -1921,14 +1943,20 @@ installation of flood detection
 equipment, subject to relevant 
 authority approval. 
 Chief Smart City Officer 
-[redacted] 
+ 
 Assistant General Manager, Head of Digital Economy, 
 Kuching Sarawak, Malaysia 
-Email: [redacted] 
+Email: 
 Status of progress 
 The Urban Renaissance Agency (UR)
 42 43
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
+[redacted]
+[redacted]
+[redacted]
+[redacted]
 
 14 Myanmar
 Nay Pyi Taw
@@ -1948,7 +1976,8 @@ the Presidential Palace and the
 headquarters of government 
 ministries are systematically 
 developed within the vast area of 
-more than 7,000 km2 site. There are 
+more than 7,000 km
+2 site. There are 
 residential, commercial, recreation 
 zones as well as international airport.
 Vision: To be a climate resilient city; 
@@ -2050,10 +2079,10 @@ will also be developed in this
 project.
 Status of progress 
 Chief Smart City Officer 
-[redacted] 
+ 
 Permanent Secretary of Nay Pyi Taw 
 Development Committee 
-Email: [redacted]
+Email: 
 15 Myanmar
 Mandalay
 Area: 285 km2 
@@ -2062,6 +2091,8 @@ Population density: 4,300 / km2
 The Urban Renaissance Agency (UR)
 44 45
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
 
 Project 2: Solid Waste and Waste 
 Water Treatment
@@ -2070,9 +2101,9 @@ through good solid waste and
 waste water management.
 Status of progress 
 Chief Smart City Officer 
-[redacted] 
+ 
 Committee Member of Mandalay City Development 
-Email: [redacted]
+Email: 
 Street light control center for energy 
 management, water and air quality 
 monitoring, water meter AMR, 
@@ -2216,13 +2247,17 @@ as a pilot project by the project
 of Multiple Risks Management 
 during extreme events in Yangon.
 Chief Smart City Officer 
-[redacted] 
+ 
 Director of Urban Planning Division and representative 
 from Yangon City Development Committee 
-Email: [redacted]
+Email: 
 The Urban Renaissance Agency (UR)
 46 47
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
+[redacted]
+[redacted]
 
 17 Philippines
 Cebu City
@@ -2307,9 +2342,9 @@ Status of progress
 Project 1
 Project 2
 Chief Smart City Officer 
-[redacted] 
+ 
 City Administrator/ CSMO 
-Email: [redacted]
+Email: 
 While Cebu City already has its 
 command center, it’ s still lacking in 
 terms of facilities and systems. There 
@@ -2319,6 +2354,8 @@ Some project is still in its study phase.
 The Urban Renaissance Agency (UR)
 48 49
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
 
 18 Philippines
 Davao City
@@ -2391,12 +2428,12 @@ included in the catalogue of the
 Davao City Government’s Big Ticket 
 Projects.
 Chief Smart City Officer 
-[redacted] 
+ 
 Head, Public Safety and Security Command Center 
-Email: [redacted] 
-[redacted] 
+Email: 
+ 
 Information Technology Officer II 
-Email: [redacted]
+Email: 
 The Urban Renaissance Agency (UR)
 19 Philippines
 Manila
@@ -2471,15 +2508,20 @@ e-Education systems are in line
 with City projects as well as future 
 additions for integration.
 Status of progress 
-Chief Smart City Officer 
-[redacted] 
-Head, Electronic Data Processing Services - Manila 
-City Hall 
-Email: [redacted] 
-[redacted]
+r 
+ 
+rocessing Services - Manila 
+City H
+ 
 The Urban Renaissance Agency (UR)
 50 51
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted][redacted]
+[redacted]
+[redacted]
+[redacted]
+[redacted]
 
 20 Singapore
 Singapore
@@ -2540,14 +2582,16 @@ interested in how we can cross-recognize our digital identity with international
 partners. 
  
 Chief Smart City Officer 
-[redacted] 
+ 
 Director (Planning & Prioritisation Directorate). Smart Nation and Digital Government Office, 
 Prime Minister’s Office 
-Email: [redacted] 
+Email: 
  
 The Urban Renaissance Agency (UR)
 52 53
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
 
 21 Thailand
 Bangkok
@@ -2602,10 +2646,10 @@ of Bang Sue Smart City. It will be
 completed by September. 
 Status of progress 
 Chief Smart City Officer 
-[redacted] 
+ 
 Deputy Director-General of Office of Transport and 
 Traffic Policy and Planning 
-Email: [redacted]
+Email: 
 Chonburi
 The Urban Renaissance Agency (UR)
 Phuket
@@ -2676,15 +2720,20 @@ from landfills to refuse derived fuel
 plants is proceeding. 
  
 Chief Smart City Officer 
-[redacted] 
+ 
 Chief, Energy Conservation Group, Energy Policy and 
 Planning Office, Ministry of Energy 
-Email: [redacted] 
+Email: 
  
 The Urban Renaissance Agency (UR)
 Bangkok
 54 55
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted] [redacted]
+[redacted]
+[redacted]
+[redacted]
+[redacted]
 
 23 Thailand
 Phuket
@@ -2748,9 +2797,9 @@ pilots involve CCTV, data platform,
 tourism and health care.
 Status of progress 
 Chief Smart City Officer 
-[redacted] 
+ 
 President / CEO, Digital Economy Promotion Agency 
-Email: [redacted]
+Email: 
 The Urban Renaissance Agency (UR)
 • Provide valuable insights to 
 businesses and start-ups in their 
@@ -2828,14 +2877,18 @@ city applications and building security
 solutions to improve information 
 security and safety.
 Chief Smart City Officer 
-[redacted] 
+ 
 Director of Da Nang Department of Information and 
 Communications 
-Email: [redacted] 
+Email: 
 The Urban Renaissance Agency (UR)
 Da Nang
 56 57
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
+[redacted]
+[redacted]
 
 25 Viet Nam
 Hanoi
@@ -2891,7 +2944,7 @@ and for capturing visual information
 to effectively coordinate transport 
 management.
 Chief Smart City Officer 
-[redacted] 
+ 
 Chairman of Hanoi People’s Committee 
 Email: vanthu@hanoi.gov.vn
 Ho Chi Minh City
@@ -2955,14 +3008,17 @@ integrated video surveillance
 systems and IP Call Centre 
 management software.
 Chief Smart City Officer 
-[redacted] 
+ 
 Vice Chairman of Ho Chi Minh City People’s 
 Committee 
-Email: [redacted] 
+Email: 
 The Urban Renaissance Agency (UR)
 Hanoi
 58 59
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back
+[redacted]
+[redacted]
+[redacted]
 
 60 61
 ASCN2019 Advancing Partnership for Sustainability Report ASCN2019 Advancing Partnership for Sustainability Report Back

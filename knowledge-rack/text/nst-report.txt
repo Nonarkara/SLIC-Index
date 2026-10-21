@@ -65,7 +65,7 @@ Chapter 6 ASSESSMENT OF TRAFFIC INDUCED VIBRATION 6-1
 6.5 Vibration Intensity and Acceptance Criteria for Historic Buildings 6-1 
 Chapter 7 SUMMARY 7-1 
 
-Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat B -1 
+Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat B - 1 
  
 LIST OF TABLES 
  
@@ -79,7 +79,7 @@ Table 4.1: Natural period of the fundamental mode of the investigated chedis 4-7
 Table 5.1: Modal frequency and effective mass 5-8 
  
 
-Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat B -2 
+Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat B - 2 
  
 LIST OF FIGURES 
  
@@ -117,7 +117,7 @@ Figure 3.2: A 3D model of the temple created from Agisoft with camera positions.
 Figure 3.3: (a) 3D model from Agisoft Photoscan (b) 3D model from LIDAR 3-3 
 Figure 3.4: The point cloud registration between the models from Agisoft and LIDAR. 3-4 
 
-Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat B -3 
+Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat B - 3 
  
 Figure 3.5: (a) Show the location of the center of the temple; (b) Angles of inclination of the top 
 and bottom parts of the temple. 3-5 
@@ -156,7 +156,7 @@ Figure 5.11: First three vibration modes in x-di 5-8
 Figure 5.12: Tilting of the model 5-9 
 Figure 5.13: Effect of model's tilting on safety factor 5-10 
 
-Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat B -4 
+Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat B - 4 
  
 Figure 6.1: Location of the vibration sensors and Rajdamnern road. 6-2 
 Figure 6.2: Arrangement of vibration sensor (1) 6-2 
@@ -170,7 +170,7 @@ Figure 6.9: Peak particle velocity for all sensors 6-8
 Figure 6.10: Occurrence rate per hour of the peak velocity at sensor number 1 6-8 
  
 
-Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat 1 -1 
+Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat 1 - 1 
  
 Chapter 1 INTRODUCTION 
  
@@ -323,7 +323,7 @@ Section Number Height (Meter)
  
  
  
-Figure 2.14: Inclination direction of Chedi Wat Phra Mahathat Woramahawihan. 
+Figure 2.14: Inclination direction of Chedi Wat Phr a Mahathat Woramahawihan. 
  
 15.77 
 o 
@@ -778,7 +778,7 @@ Chedi 22 7.50 0.10 0.10
  
  
 
-Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat 4 - 8 
+Engineering Documentation for Conservation of Wat P hra Mahathat Woramahawihan, Nakhon Si Thammarat 4 - 8 
  
  
  
@@ -1418,7 +1418,7 @@ Technical advisory, vibration, TAV-02-01-R9601.
  
  
 
-Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat 7 -1 
+Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat 7 - 1 
  
 Chapter 7 SUMMARY 
  
@@ -1455,7 +1455,7 @@ base is well below the soil bearing capacity. Moda l dynamic properties of the m
 30 modes were reported. Effect of assumed tilting angle was also investigated. 
  
 
-Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat 7 -2 
+Engineering Documentation for Conservation of Wat Phra Mahathat Woramahawihan, Nakhon Si Thammarat 7 - 2 
  
 5. Vibration induced from traffic was studied by fi eld measurement in order to assess its effects 
 to the historical site. Site characteristic was fi rstly determined by microtremor observation, and 
