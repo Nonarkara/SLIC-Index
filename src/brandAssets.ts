@@ -6,13 +6,12 @@ export interface BrandAsset {
   height: number;
 }
 
-export const slicLogo: BrandAsset = {
-  name: "SLIC Index",
-  src: "/Logos/slic-index-full.png",
-  alt: "SLIC Index logo",
-  width: 140, // Approximate horizontal ratio
-  height: 36,
-};
+// The site's own identity is not here on purpose. The masthead renders the
+// wordmark as live type; the footer renders the real SLIC Index artwork from
+// /Logos/slic-index-mark.png, keyed off its paper. The old 400×400 master
+// (slic-index-full.png) is a square raster with an opaque ground — it stays in
+// the repository for the other projects that reference it, but no surface here
+// may load it. `test/system-integrity.test.mjs` gates all of that.
 
 export const collaborationLogos: BrandAsset[] = [
   {

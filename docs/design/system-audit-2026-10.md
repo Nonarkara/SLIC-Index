@@ -39,6 +39,19 @@ then replaced by the image, and the type rules were left behind.
 file is untouched for the projects that reference it, but the web UI cannot load
 it. Type is sharper at every DPR, colourable from tokens, and costs no request.
 
+> **Amended 2026-10-21.** The masthead half of this fix stands: the brand in the
+> masthead is live type. The footer half no longer holds. The footer was left
+> carrying a black square with `SL` set in it — a placeholder for a mark the
+> site did not have — and on instruction the footer now renders the **real
+> SLIC Index artwork**, `public/Logos/slic-index-mark.png`, produced from the
+> master with its paper keyed out so it sits on the cream with no plate of its
+> own. The gate was rewritten rather than deleted: the masthead wordmark must
+> still be live type, no surface may load the square master, and the footer
+> plate must carry real transparency, match its built copy byte for byte, and
+> have no CSS background. A wordmark drawn by the designer is artwork, not type
+> — setting "SLIC" in a system font would be a different mark wearing the same
+> name.
+
 ---
 
 ## Finding 2 — The palette had forked

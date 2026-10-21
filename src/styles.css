@@ -307,25 +307,15 @@ section[id] {
   margin: 0;
 }
 
+/* The real SLIC Index wordmark, keyed off its paper so it sits on the cream
+   ground rather than inside a white plate. The black "SL" square it
+   replaced was 3.25rem on a side; the lockup is 1.58:1, so the width is set
+   and the height follows from the image's own ratio. */
 .brand-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 3.25rem;
-  height: 3.25rem;
-  border-radius: 0;
-  background: rgba(19, 19, 19, 0.92);
-  color: var(--text-inverse);
-  font-family: var(--font-body);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-}
-
-/* The footer plate is live type on ink — no raster, no border box. */
-.brand-mark--type {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: 0.04em;
+  display: block;
+  flex: none;
+  width: 4.5rem;
+  height: auto;
 }
 
 .eyebrow {

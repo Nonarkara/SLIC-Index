@@ -122,7 +122,7 @@ Every rule above that can be decided from source is a machine gate. They run in 
 | File | Gates |
 |---|---|
 | `test/design-slop-invariants.test.mjs` | banned fonts, family budget, radius = 0, ≤3 elevation shadows, no emoji-as-icon, scrim-only gradients, ≤65ch prose measure, no filler copy, type-scale step, **no fake-depth hover-lifts** |
-| `test/system-integrity.test.mjs` | **palette cannot fork** (a colour used twice must be a token), no self-referential token, **wordmark is live type not a raster**, no bordered control inside a bordered control, **photography is not desaturated**, no bare selector silently redefined (ratchet) |
+| `test/system-integrity.test.mjs` | **palette cannot fork** (a colour used twice must be a token), no self-referential token, **the masthead wordmark is live type and the footer plate is the keyed logo on no plate**, no bordered control inside a bordered control, **photography is not desaturated**, no bare selector silently redefined (ratchet) |
 | `test/accessibility-invariants.test.mjs` | contrast, focus visibility, hero-masthead legibility over photography, localised labels |
 | `test/publication-hashes.test.mjs` | the scoring bundle cannot drift from its published hashes |
 | `scripts/check-layout.mjs` | **the built site in a real browser**: no horizontal overflow, no uncaught exception, no broken image, and every route actually rendered — across 15 routes × 3 widths |
@@ -130,6 +130,7 @@ Every rule above that can be decided from source is a machine gate. They run in 
 | `scripts/check-knowledge-rack.mjs` | **the index describes the bytes it was built from**: every manifest hash matches the source on disk, every source in the intake folder is indexed, the built and published catalogs are the same bytes, the word/character/chunk counts agree with the extracted text, and the chunk stream reconstructs that text |
 | `scripts/check-personal-contacts.py` | no personal emails or phone numbers anywhere in the tree — published organisation inboxes and office switchboards are allowlisted |
 | `scripts/check-author-name.mjs` | **the author's name is one fact**: every locale's author prose and citation carry the full surname, the Thai copy carries the canonical Thai form, and no wrong form appears anywhere in the source tree |
+| `scripts/build-brand-mark.py` | derives `public/Logos/slic-index-mark.png` from the master, keys the paper off a fitted surface, and writes `scripts/brand-mark.provenance.json` — the SHA-256 of the master and of the bytes it wrote. The integrity gate checks both, so a hand-edited PNG or a changed master fails the build. **Never hand-edit the PNG; re-run the script.** |
 
 **The spatial ratchet.** `audit-spatial.mjs` separates a **defect** from a **forced wrap**: a wrap is a defect when the line above had room for the item that dropped (avoidable), when it left a widow after a line of three or more (unbalanced), or when related items stacked one per line. A wrap the width genuinely forced — a tag list, a chip row on a phone — is the layout working and is reported, not failed. The gate compares a fingerprint of every finding against `scripts/spatial-baseline.json`: more lines than the baseline is a failure, fewer is a pass with a note that the baseline can be tightened. It can only go down.
 
@@ -196,7 +197,7 @@ npm run typecheck         # tsc --noEmit — passes clean (0 errors)
 npm run test              # node --test — 117/117 pass
 ```
 
-The full release gate is `npm run verify:release` — typecheck + build + tests + check:publication + check:csv + check:methodology + check:translations + check:audit + check:layout. Exits non-zero on any failure. `check:layout` drives the built site in real Chrome, so it only means something after a build. The new `check:audit` runs `scripts/audit-data-integrity.mjs`, which catches identity / ranking / scoring / coverage / metric / cross-artifact / hash drift issues.
+The full release gate is `npm run verify:release` — typecheck + build + tests + check:publication + check:csv + check:methodology + check:translations + check:audit + check:layout + check:spatial + check:knowledge-rack + check:author-name + check:contacts. Exits non-zero on any failure. `check:layout` drives the built site in real Chrome, so it only means something after a build. The new `check:audit` runs `scripts/audit-data-integrity.mjs`, which catches identity / ranking / scoring / coverage / metric / cross-artifact / hash drift issues.
 
 ## Project Structure
 
@@ -279,7 +280,7 @@ See methodology PDF for complete source table.
 ## Branding
 
 - **Design aesthetic:** "Jony Ive meets Dieter Rams" — Red Dot Design Award quality
-- **Wordmark:** live type, not a raster. `SiteMasthead.tsx` renders `.mh-wordmark-main` / `.mh-wordmark-sub`; `BrandLockup.tsx` renders an `SL` plate. The old `public/Logos/slic-index-full.png` was a 400×400 square PNG squeezed into a 140×36 box in off-palette blue/teal — it rendered as unreadable mush. Do not reintroduce it.
+- **Wordmark:** two surfaces, two rules. `SiteMasthead.tsx` renders the brand as **live type** (`.mh-wordmark-main` / `.mh-wordmark-sub`) — sharp at every DPR, colourable from tokens. `BrandLockup.tsx` (footer only) renders the **real artwork**, `public/Logos/slic-index-mark.png`, keyed off its paper so it sits on the cream with no plate of its own. The old `public/Logos/slic-index-full.png` is a 400×400 square PNG with an opaque ground — it stays in the repo for the other projects that reference it, but no surface here may load it, and the footer plate must never get a CSS background. Do not reintroduce either failure. Gated by `test/system-integrity.test.mjs`.
 - **Tech partner:** ReTL (The Reason to Live Company) — replaced Axiom AI
 - **Collaboration logos:** UWN (PMU-A), DEPA Thailand, Smart City Thailand, ReTL
 - **Shared brand assets:** `/Users/nonarkara/Projects/_reference/brand-assets/`
@@ -306,7 +307,7 @@ The `dist/` directory is committed to the repo (this is what the deploy script s
 ## Release verification
 
 ```bash
-npm run verify:release   # full gate — typecheck, build, test, check:publication, check:csv, check:methodology, check:translations, check:audit, check:layout, check:spatial
+npm run verify:release   # full gate — typecheck, build, test, check:publication, check:csv, check:methodology, check:translations, check:audit, check:layout, check:spatial, check:knowledge-rack, check:author-name, check:contacts
 ```
 
 ## Key Rules

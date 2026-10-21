@@ -21,7 +21,10 @@
  *      public/Logos/slic-index-full.png is a 400×400 SQUARE rendered into a
  *      140×36 box, in blue and teal that are not in the palette. It rendered as
  *      unreadable mush in the masthead of every page.
- *      → "the wordmark is live type" — no image may render the brand name.
+ *      → "the masthead wordmark is live type" — the masthead carries the
+ *         brand as type. The footer carries the real artwork instead: keyed
+ *         off its paper, transparent, and sitting on the cream with no plate
+ *         of its own. Both are gated, so neither can come back silently.
  *
  *   4. Nested control borders.
  *      .mh-search-btn had a border and contained .mh-search-kbd, which had its
@@ -49,6 +52,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync, existsSync } from "node:fs";
 import { join } from "node:path";
+import { createHash } from "node:crypto";
+import { inflateSync } from "node:zlib";
 
 const ROOT = join(import.meta.dirname, "..");
 const css = readFileSync(join(ROOT, "src/styles.css"), "utf8");
@@ -170,19 +175,139 @@ test("integrity: no token is defined in terms of itself", () => {
 });
 
 /* ──────────────────────────────────────────────────────────────────────
- * GATE 2 — the wordmark is live type
+ * GATE 2 — the identity: live type in the masthead, the real logo in
+ *           the footer
  * ────────────────────────────────────────────────────────────────────── */
 
-test("integrity: the wordmark is live type, never a raster", () => {
+/** Source with block and line comments removed, so prose cannot trip a gate. */
+function stripComments(text) {
+  return text.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
+}
+
+/** SHA-256 of a file, as hex. Compared instead of the bytes themselves. */
+function sha256(file) {
+  return createHash("sha256").update(readFileSync(file)).digest("hex");
+}
+
+/**
+ * Minimal PNG probe: does this file carry real transparency?
+ *
+ * The footer brand plate has to sit on the cream ground. If the logo is
+ * re-exported with its paper background left in, the footer gets a white
+ * rectangle — the exact regression the old black plate had. Reading the
+ * alpha channel is the only way to catch that from the repository.
+ */
+function probePng(file) {
+  const buf = readFileSync(file);
+  const signature = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
+  assert.ok(
+    buf.subarray(0, 8).equals(signature),
+    `${file} must be a PNG`,
+  );
+
+  let offset = 8;
+  let header = null;
+  const idat = [];
+  while (offset + 8 <= buf.length) {
+    const length = buf.readUInt32BE(offset);
+    const type = buf.toString("ascii", offset + 4, offset + 8);
+    const data = buf.subarray(offset + 8, offset + 8 + length);
+    if (type === "IHDR") {
+      header = {
+        width: data.readUInt32BE(0),
+        height: data.readUInt32BE(4),
+        bitDepth: data[8],
+        colorType: data[9],
+        interlace: data[12],
+      };
+    } else if (type === "IDAT") {
+      idat.push(data);
+    } else if (type === "IEND") {
+      break;
+    }
+    offset += 12 + length;
+  }
+
+  assert.ok(header, `${file} has no IHDR chunk`);
+  const { width, height, bitDepth, colorType, interlace } = header;
+  assert.ok(
+    bitDepth === 8 && !interlace,
+    `${file} must be 8-bit and non-interlaced to be probed (got depth ${bitDepth}, interlace ${interlace})`,
+  );
+
+  // Channels per pixel: 1 grey, 2 grey+alpha, 3 palette, 4 RGB, 6 RGBA.
+  const channels = { 0: 1, 2: 3, 4: 2, 6: 4 }[colorType];
+  assert.ok(
+    channels,
+    `${file} is colour type ${colorType} (palette or otherwise); the probe handles grey, grey+alpha, RGB and RGBA only`,
+  );
+
+  const bytesPerPixel = channels;
+  const stride = width * bytesPerPixel;
+  const raw = inflateSync(Buffer.concat(idat));
+  const pixels = Buffer.alloc(stride * height);
+
+  for (let y = 0; y < height; y++) {
+    const filter = raw[y * (stride + 1)];
+    const line = raw.subarray(y * (stride + 1) + 1, y * (stride + 1) + 1 + stride);
+    const current = pixels.subarray(y * stride, (y + 1) * stride);
+    const previous = y > 0 ? pixels.subarray((y - 1) * stride, y * stride) : null;
+    for (let i = 0; i < stride; i++) {
+      const rawByte = line[i];
+      const a = i >= bytesPerPixel ? current[i - bytesPerPixel] : 0;
+      const b = previous ? previous[i] : 0;
+      const c = previous && i >= bytesPerPixel ? previous[i - bytesPerPixel] : 0;
+      let value;
+      switch (filter) {
+        case 0:
+          value = rawByte;
+          break;
+        case 1:
+          value = rawByte + a;
+          break;
+        case 2:
+          value = rawByte + b;
+          break;
+        case 3:
+          value = rawByte + ((a + b) >> 1);
+          break;
+        case 4: {
+          const p = a + b - c;
+          const pa = Math.abs(p - a);
+          const pb = Math.abs(p - b);
+          const pc = Math.abs(p - c);
+          value = rawByte + (pa <= pb && pa <= pc ? a : pb <= pc ? b : c);
+          break;
+        }
+        default:
+          throw new Error(`unknown PNG filter ${filter} in ${file}`);
+      }
+      current[i] = value & 0xff;
+    }
+  }
+
+  // Alpha is the last channel when the colour type carries one.
+  if (colorType !== 4 && colorType !== 6) {
+    return { width, height, colorType, hasAlpha: false, transparentPixels: 0 };
+  }
+  let transparentPixels = 0;
+  for (let i = channels - 1; i < pixels.length; i += channels) {
+    if (pixels[i] === 0) transparentPixels += 1;
+  }
+  return { width, height, colorType, hasAlpha: true, transparentPixels };
+}
+
+test("integrity: the masthead wordmark is live type, never a raster", () => {
+  // The masthead appears on every page, so it carries the brand as live type
+  // (.mh-wordmark-main / .mh-wordmark-sub): sharp at every DPR, colourable
+  // from tokens, no extra request. The old mark was a 400×400 square PNG
+  // squeezed into a 140×36 box in off-palette blue/teal — unreadable mush.
   const offenders = [];
   for (const { name, text } of tsxFiles) {
-    const code = text.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
-    // An <img> whose alt or filename marks it as the site wordmark/brand.
+    if (!/SiteMasthead/.test(name)) continue;
+    const code = stripComments(text);
     for (const m of code.matchAll(/<img\b[^>]*>/g)) {
-      const tag = m[0];
-      if (/slicLogo|logo-full|slic-index-full|wordmark/i.test(tag)) {
-        offenders.push(`${name}: ${tag.replace(/\s+/g, " ").slice(0, 90)}`);
-      }
+      offenders.push(`${name}: ${m[0].replace(/\s+/g, " ").slice(0, 90)}`);
     }
   }
   assert.deepEqual(
@@ -194,14 +319,13 @@ test("integrity: the wordmark is live type, never a raster", () => {
   );
 });
 
-test("integrity: no raster asset is used for the site identity", () => {
-  // The brand plates may exist as files (other projects reference them for
-  // docs), but the web UI must not load one as its wordmark.
+test("integrity: no surface loads the square logo master as its identity", () => {
+  // The master file stays in the repository because other projects reference
+  // it, but the web UI may not load it: it is a square raster and it carries
+  // an opaque paper ground.
   const offenders = [];
   for (const { name, text } of tsxFiles) {
-    if (!/SiteMasthead|SiteFooter|BrandLockup/.test(name)) continue;
-    // Match actual usage, not a prose mention inside a doc comment.
-    const code = text.replace(/\/\*[\s\S]*?\*\//g, "").replace(/^\s*\/\/.*$/gm, "");
+    const code = stripComments(text);
     if (/slic-index-full\.png/.test(code) || /<img[^>]*slicLogo/.test(code)) {
       offenders.push(name);
     }
@@ -209,7 +333,86 @@ test("integrity: no raster asset is used for the site identity", () => {
   assert.deepEqual(
     offenders,
     [],
-    `Masthead/footer identity must be type, not a raster:\n  ${offenders.join("\n  ")}`,
+    `No surface may load the square logo master:\n  ${offenders.join("\n  ")}`,
+  );
+});
+
+test("integrity: the footer brand plate is the keyed logo, on no plate", () => {
+  // The footer used to carry a black square with "SL" set in it — a
+  // placeholder for a mark the site did not have. It now carries the real
+  // SLIC Index wordmark, keyed off its paper so it sits on the cream ground.
+  //
+  // Three things can silently undo that, so all three are checked:
+  //   1. the plate goes back to a dark box painted by CSS;
+  //   2. the logo is re-exported with its paper background left in, and the
+  //      footer gets a white rectangle on the cream;
+  //   3. the built artifact drifts from the source, so the tree is clean
+  //      while dist/ still serves the old plate.
+  const lockup = tsxFiles.find((f) => f.name === "BrandLockup.tsx");
+  assert.ok(lockup, "BrandLockup.tsx must exist");
+
+  const code = stripComments(lockup.text);
+  const sources = [...code.matchAll(/src="([^"]+)"/g)].map((m) => m[1]);
+  assert.equal(
+    sources.length,
+    1,
+    `BrandLockup must load exactly one logo asset, found ${sources.length}: ${sources.join(", ")}`,
+  );
+  const src = sources[0];
+  assert.match(src, /^\/Logos\//, `the brand plate must live under /Logos/, got ${src}`);
+
+  const source = join(ROOT, "public", src.replace(/^\//, ""));
+  assert.ok(existsSync(source), `${src} must exist in public/`);
+
+  const png = probePng(source);
+  assert.ok(png.hasAlpha, `${src} must carry an alpha channel`);
+  assert.ok(
+    png.transparentPixels > 0,
+    `${src} must have fully transparent pixels — otherwise the footer shows a paper plate`,
+  );
+
+  // The published bytes are what the browser fetches. A tree-only gate is
+  // blind to a stale artifact; this repo has paid for that once already.
+  const built = join(ROOT, "dist", src.replace(/^\//, ""));
+  assert.ok(
+    existsSync(built),
+    `dist${src} must exist — the built site ships the plate, and CI runs npm test before npm run build`,
+  );
+  // Hashes, not the bytes themselves: assert.deepEqual on two unequal
+  // 48KB Buffers builds an enormous diff and hangs the runner instead of
+  // failing the test. A gate that hangs is worse than no gate.
+  assert.equal(
+    sha256(built),
+    sha256(source),
+    `dist${src} must be byte-identical to public${src} — run npm run build`,
+  );
+
+  // Provenance: the mark is derived, so it must say what it was derived from.
+  // A derived asset that cannot name its source is an opaque blob in the
+  // repository — and a hand-edited PNG would pass every check above.
+  const provenancePath = join(ROOT, "scripts/brand-mark.provenance.json");
+  assert.ok(
+    existsSync(provenancePath),
+    "scripts/brand-mark.provenance.json must exist — run python3 scripts/build-brand-mark.py",
+  );
+  const provenance = JSON.parse(readFileSync(provenancePath, "utf8"));
+  assert.equal(
+    provenance.outputSha256,
+    sha256(source),
+    `${src} does not match the bytes scripts/build-brand-mark.py recorded — the PNG was edited by hand, or it was re-derived without updating the record`,
+  );
+  assert.equal(
+    provenance.sourceSha256,
+    sha256(join(ROOT, "public", provenance.source.replace(/^\//, ""))),
+    `the master ${provenance.source} has changed since the mark was derived — re-run python3 scripts/build-brand-mark.py`,
+  );
+
+  // No plate of its own: the mark sits on the cream, not in a box.
+  const rule = /\.brand-mark\s*\{([^}]*)\}/.exec(masked);
+  assert.ok(rule, ".brand-mark must be defined in src/styles.css");
+  assert.ok(
+    !/background\s*:/i.test(rule[1]),
+    `.brand-mark must not paint a background — the mark sits on the cream:\n  ${rule[0]}`,
   );
 });
 
