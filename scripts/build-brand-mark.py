@@ -57,6 +57,7 @@ from PIL import Image
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 SRC = ROOT / "public/Logos/slic-index-full.png"
 OUT = ROOT / "public/Logos/slic-index-mark.png"
+OUT_MONO = ROOT / "public/Logos/slic-index-monogram.png"
 PROVENANCE = ROOT / "scripts/brand-mark.provenance.json"
 
 
@@ -163,6 +164,40 @@ mark_tight, mark_box = tight(mark, alpha)
 mark_tight.save(OUT, optimize=True)
 print(f"wrote {OUT.relative_to(ROOT)}  {mark_tight.size}  (ink box {mark_box})")
 
+# ── the monogram ───────────────────────────────────────────────────────────
+# The lockup stacks "SLIC" over "INDEX". A row of partner logos needs the
+# wordmark on its own: the "INDEX" line is tracked caps under a 389px word,
+# and at partner-strip size it turns to a grey smear.
+#
+# The divide is the widest EMPTY band of rows between the two lines — not a
+# fraction of the height. A percentage guess cut the wrong side of the word
+# and produced a monogram that still carried "INDEX".
+row_ink = (alpha > 0.5).sum(axis=1)
+ink_rows = np.where(row_ink > 0)[0]
+top, bottom = int(ink_rows[0]), int(ink_rows[-1])
+empty = row_ink <= 0
+runs = []
+x = 0
+while x < len(empty):
+    if empty[x]:
+        y = x
+        while y < len(empty) and empty[y]:
+            y += 1
+        runs.append((x, y - x))
+        x = y
+    else:
+        x += 1
+interior = [r for r in runs if r[0] > top and r[0] + r[1] <= bottom]
+if not interior:
+    raise SystemExit("no interior gap found: the lockup is one line, no monogram to cut")
+cut, _ = max(interior, key=lambda r: r[1])
+mono_alpha = alpha.copy()
+mono_alpha[cut:, :] = 0.0
+mono, mono_box = tight(mark, mono_alpha)
+mono.save(OUT_MONO, optimize=True)
+print(f"wrote {OUT_MONO.relative_to(ROOT)}  {mono.size}  (ink box {mono_box})")
+print(f"  ink rows {top}..{bottom}, cut at {cut}")
+
 # ── verify ─────────────────────────────────────────────────────────────────
 check = np.asarray(mark).astype(float)
 a = check[:, :, 3] / 255.0
@@ -181,8 +216,12 @@ PROVENANCE.write_text(
             "sourceSha256": sha256(SRC),
             "output": "/Logos/slic-index-mark.png",
             "outputSha256": sha256(OUT),
+            "monogram": "/Logos/slic-index-monogram.png",
+            "monogramSha256": sha256(OUT_MONO),
             "width": mark_tight.size[0],
             "height": mark_tight.size[1],
+            "monogramWidth": mono.size[0],
+            "monogramHeight": mono.size[1],
             "tool": "scripts/build-brand-mark.py",
         },
         indent=2,

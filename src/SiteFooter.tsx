@@ -212,25 +212,33 @@ export default function SiteFooter({
             ))}
           </ul>
         </article>
+      </div>
 
-        <article className="site-footer-card">
+      {/* The row of key supporters, across the full width of the footer.
+          It used to be a third column of the grid: four logos in four
+          bordered boxes, wrapped onto two rows, with a hole in the corner
+          and a white plate under each mark. Six marks in one line need the
+          width of the page, not the width of a column. */}
+      <section className="site-footer-supporters" aria-label={copy.footer.collaborationLabel}>
+        <div className="site-footer-supporters-text">
           <p className="panel-label">{copy.footer.collaborationLabel}</p>
           <p>{copy.footer.collaboration}</p>
-          <div className="partner-logo-strip" aria-label={copy.footer.collaborationLabel}>
-            {collaborationLogos.map((logo) => (
-              <div className="partner-logo-card" key={logo.name}>
-                <img
-                  src={`${BASE}${logo.src}`}
-                  alt={logo.alt}
-                  loading="lazy"
-                  width={logo.width}
-                  height={logo.height}
-                />
-              </div>
-            ))}
-          </div>
-        </article>
-      </div>
+        </div>
+        <div className="partner-logo-strip">
+          {collaborationLogos.map((logo) => (
+            <img
+              className="partner-logo"
+              key={logo.name}
+              src={`${BASE}${logo.src}`}
+              alt={logo.alt}
+              loading="lazy"
+              decoding="async"
+              width={logo.width}
+              height={logo.height}
+            />
+          ))}
+        </div>
+      </section>
 
       <div className="site-footer-endnotes">
         <div className="section-heading compact-heading">

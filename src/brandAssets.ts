@@ -13,33 +13,59 @@ export interface BrandAsset {
 // the repository for the other projects that reference it, but no surface here
 // may load it. `test/system-integrity.test.mjs` gates all of that.
 
+/**
+ * The row of key supporters.
+ *
+ * Every one of these is a transparent PNG keyed off its paper by
+ * `scripts/build-partner-logos.sh`, so none of them carries a white plate
+ * onto the cream ground. The sources live in `logo-sources/logos/` and are not
+ * published; the keyed marks are what the site serves.
+ *
+ * The order is the collaboration sentence's order, with the house mark last:
+ * the partners are named left to right, and SLIC closes the line as the mark
+ * that made them a row in the first place.
+ */
 export const collaborationLogos: BrandAsset[] = [
   {
-    name: "UWN (PMU-A)",
-    src: "/Logos/uwn_pmu_a_logo.jpeg",
-    alt: "UWN (PMU-A) logo",
-    width: 323,
-    height: 156,
+    name: "RCAD (รวพ.)",
+    src: "/Logos/rcad-sdw.png",
+    alt: "สำนักงานเร่งรัดการวิจัยและนวัตกรรมเพื่อเพิ่มความสามารถการแข่งขันและการพัฒนาพื้นที่ (องค์การมหาชน) — SDW",
+    width: 904,
+    height: 360,
   },
   {
-    name: "depa Thailand",
-    src: "/Logos/depa_logo.jpg",
-    alt: "Digital Economy Promotion Agency logo",
-    width: 1182,
-    height: 798,
+    name: "depa",
+    src: "/Logos/depa_logo.png",
+    alt: "depa — Digital Economy Promotion Agency",
+    width: 943,
+    height: 563,
   },
   {
-    name: "Smart City Thailand",
-    src: "/Logos/smart_city_thailand_logo.jpg",
-    alt: "Smart City Thailand Office logo",
-    width: 1182,
-    height: 1182,
+    name: "Smart City Thailand Office",
+    src: "/Logos/smart_city_thailand_logo.png",
+    alt: "Smart City Thailand Office",
+    width: 873,
+    height: 1090,
   },
   {
     name: "ReTL",
     src: "/Logos/retl_logo.png",
     alt: "ReTL — The Reason to Live Company",
-    width: 528,
-    height: 266,
+    width: 977,
+    height: 934,
+  },
+  {
+    name: "Axiom",
+    src: "/Logos/axiom_logo.png",
+    alt: "Axiom",
+    width: 1177,
+    height: 1172,
+  },
+  {
+    name: "SLIC Index",
+    src: "/Logos/slic-index-monogram.png",
+    alt: "SLIC Index",
+    width: 389,
+    height: 174,
   },
 ];

@@ -406,6 +406,11 @@ test("integrity: the footer brand plate is the keyed logo, on no plate", () => {
     sha256(join(ROOT, "public", provenance.source.replace(/^\//, ""))),
     `the master ${provenance.source} has changed since the mark was derived — re-run python3 scripts/build-brand-mark.py`,
   );
+  assert.equal(
+    provenance.monogramSha256,
+    sha256(join(ROOT, "public", provenance.monogram.replace(/^\//, ""))),
+    `${provenance.monogram} does not match the bytes scripts/build-brand-mark.py recorded`,
+  );
 
   // No plate of its own: the mark sits on the cream, not in a box.
   const rule = /\.brand-mark\s*\{([^}]*)\}/.exec(masked);
@@ -417,7 +422,74 @@ test("integrity: the footer brand plate is the keyed logo, on no plate", () => {
 });
 
 /* ──────────────────────────────────────────────────────────────────────
- * GATE 3 — no nested control borders
+ * GATE 3 — the row of key supporters
+ * ────────────────────────────────────────────────────────────────────── */
+
+test("integrity: every mark in the supporter row is keyed off its paper", () => {
+  // The row used to be four logos in four bordered boxes, each mark sitting
+  // on the white rectangle baked into its own JPEG. The boxes are gone; the
+  // plates have to go too, or the cream ground shows a rectangle under
+  // every mark and the "one line of logos" reads as a row of tiles.
+  //
+  // Keyed by `scripts/build-partner-logos.sh`; the sources live in
+  // `logo-sources/logos/` and are not published.
+  const assets = tsxFiles.find((f) => f.name === "brandAssets.ts");
+  assert.ok(assets, "brandAssets.ts must exist");
+
+  const code = stripComments(assets.text);
+  const start = code.indexOf("collaborationLogos");
+  assert.ok(start >= 0, "brandAssets.ts must export collaborationLogos");
+  const srcs = [...code.slice(start).matchAll(/src:\s*"([^"]+)"/g)].map((m) => m[1]);
+  assert.ok(srcs.length >= 4, `the row must carry its marks, found ${srcs.length}`);
+
+  const offenders = [];
+  for (const src of srcs) {
+    const file = join(ROOT, "public", src.replace(/^\//, ""));
+    if (!existsSync(file)) {
+      offenders.push(`${src} — missing from public/`);
+      continue;
+    }
+    let png;
+    try {
+      png = probePng(file);
+    } catch (error) {
+      offenders.push(`${src} — ${error.message}`);
+      continue;
+    }
+    if (!png.hasAlpha || png.transparentPixels === 0) {
+      offenders.push(
+        `${src} — carries a paper plate; key it with scripts/build-partner-logos.sh`,
+      );
+    }
+  }
+  assert.deepEqual(
+    offenders,
+    [],
+    `every mark in the row must be keyed off its paper:\n  ${offenders.join("\n  ")}`,
+  );
+});
+
+test("integrity: the supporter row carries no boxes", () => {
+  // The frames the row used to sit in were 390px wide and held a 90px logo.
+  // If a frame comes back, it brings the white plate and the void with it.
+  assert.ok(
+    !/\.partner-logo-card\b/.test(masked),
+    "the per-logo frame must not come back — .partner-logo-card is gone",
+  );
+  const rule = /\.partner-logo-strip\s*\{([^}]*)\}/.exec(masked);
+  assert.ok(rule, ".partner-logo-strip must be defined in src/styles.css");
+  assert.ok(
+    !/background\s*:/.test(rule[1]),
+    `.partner-logo-strip must not paint a background:\n  ${rule[0]}`,
+  );
+  assert.ok(
+    !/flex-wrap\s*:\s*wrap/.test(rule[1]),
+    `.partner-logo-strip must not wrap — the row is the point:\n  ${rule[0]}`,
+  );
+});
+
+/* ──────────────────────────────────────────────────────────────────────
+ * GATE 4 — no nested control borders
  * ────────────────────────────────────────────────────────────────────── */
 
 test("integrity: a bordered control does not contain another bordered control", () => {
