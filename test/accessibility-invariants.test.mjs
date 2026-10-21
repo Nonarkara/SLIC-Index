@@ -147,13 +147,13 @@ function colourFromOutlineShorthand(value) {
 
 /**
  * Dark-surface selectors must be measured against ink, not the cream ground.
- * The hero masthead sits on a translucent scrim over a photo; the search modal
- * sits on #191714. Measuring those against --bg would report a false failure
- * for a rule that is correct in context — and, worse, would hide a real one if
- * the pairing were ever wrong. Each entry names the background to test against.
+ * The masthead is not one of them any more: it used to be a translucent dark
+ * scrim over the home hero photo, so its controls were painted in cream and
+ * measured against the scrim. It is now one opaque cream band on every page,
+ * so the cream-ground rules apply to it and the hero exceptions are gone.
+ * Each entry below names the background to test against.
  */
 const DARK_SURFACES = [
-  { match: /\.mh--hero:not\(\.mh--scrolled\)/, bg: "scrim", note: "hero masthead scrim" },
   { match: /\.quick-search-card\b/, bg: "#191714", note: "search modal" },
   { match: /\.quick-search-backdrop\b/, bg: "#12100d", note: "search backdrop" },
 ];
@@ -240,32 +240,38 @@ test("every focus rule that paints an outline resolves to a >=3:1 indicator", ()
   );
 });
 
-test("the hero focus ring stays legible over a bright photo via the two-tone guard", () => {
-  // The masthead scrim is translucent, so a single-colour ring cannot hold 3:1
-  // across the whole backdrop range. The rule pairs a dark inner guard edge
-  // with the light outer edge; at least one of the two must clear 3:1 no
-  // matter how bright the photo behind the scrim is.
-  const rule = CSS.match(
-    /\.mh--hero:not\(\.mh--scrolled\)[^{]*:focus-visible\s*\{([^}]*)\}/,
-  );
-  assert.ok(rule, "expected a hero-masthead focus rule");
-  assert.match(
-    rule[1],
-    /box-shadow\s*:[^;]*var\(--focus-on-dark-guard/,
-    "the hero focus ring needs the dark inner guard edge to survive a bright photo",
+test("the masthead focus ring is the cream-ground ring, with no dark-ground twin", () => {
+  // This used to assert a two-tone focus ring: a dark inner guard edge
+  // paired with a light outer edge, so that a single-colour ring could hold
+  // 3:1 across the whole range of a photograph seen through a translucent
+  // scrim. The scrim is gone — the bar is one opaque cream band on every
+  // page — so the two-tone ring is gone with it, and the cream-ground
+  // token, checked above against --bg, is the one that applies.
+  //
+  // What must not come back: a dark-ground override anywhere in the bar.
+  // A focus ring painted for a surface that is no longer there is a ring
+  // painted for the wrong ground.
+  const darkGroundInBar = CSS.match(/[^}]*\.mh[^{]*\{[^}]*--focus-on-dark[^}]*\}/g) ?? [];
+  assert.deepEqual(
+    darkGroundInBar,
+    [],
+    "the masthead must not use a dark-ground focus token: the bar is cream on every page",
   );
 
-  // The two-tone pairing must clear 3:1 on both extremes of the backdrop.
-  const outer = resolveColour(tokenValue("--focus-on-dark"));
-  const inner = resolveColour(tokenValue("--focus-on-dark-guard"));
-  for (const [label, photo] of [["bright", [255, 255, 255]], ["dark", [0, 0, 0]]]) {
-    const bg = over(resolveColour(tokenValue("--text")), photo, 0.68);
-    const best = Math.max(contrast(outer, bg), contrast(inner, bg));
-    assert.ok(
-      best >= FOCUS_MIN,
-      `two-tone hero ring peaks at ${best.toFixed(2)}:1 over a ${label} photo`,
-    );
-  }
+  const guardInBar = CSS.match(/[^}]*\.mh[^{]*\{[^}]*focus-on-dark-guard[^}]*\}/g) ?? [];
+  assert.deepEqual(
+    guardInBar,
+    [],
+    "the masthead must not carry the two-tone guard ring: there is no scrim to guard against",
+  );
+
+  // The ring that does apply must clear 3:1 on the cream the bar is painted.
+  const focus = resolveColour(tokenValue("--focus"));
+  const ground = resolveColour(tokenValue("--bg"));
+  assert.ok(
+    contrast(focus, ground) >= FOCUS_MIN,
+    `the masthead focus ring is ${contrast(focus, ground).toFixed(2)}:1 on the cream it sits on`,
+  );
 });
 
 test("the focus ring never falls back to the graphic-fill accent token", () => {
@@ -534,11 +540,62 @@ test("pillar numbers clear 4.5:1 on both allocator surfaces", () => {
   );
 });
 
-test("the hero masthead search trigger is painted for the dark scrim", () => {
-  const block = CSS.match(/\.mh--hero:not\(\.mh--scrolled\) \.mh-search-btn\s*\{([^}]*)\}/);
-  assert.ok(block, "hero search button needs its own color; the base rule is cream-ground ink");
-  assert.match(block[1], /color:\s*#f8f5f0|color:\s*var\(\s*--text-inverse\s*\)/);
-  assert.ok(tokenValue("--border-inverse"), "ink controls need a defined inverse border");
+test("the masthead search trigger is painted for the cream ground", () => {
+  // The trigger used to carry its own colour because it sat on the dark
+  // scrim: cream ink on a translucent plate, with an inverse border. The
+  // scrim is gone, so the base rule — ink on cream — is the rule, and a
+  // control painted for a surface that is no longer there is a control
+  // painted for the wrong ground. (The quick-search modal is a genuinely
+  // dark surface and keeps its inverse ink; that one is not this one.)
+  const block = CSS.match(/\.mh-search-btn\s*\{([^}]*)\}/);
+  assert.ok(block, "expected a .mh-search-btn rule");
+  assert.doesNotMatch(
+    block[1],
+    /--text-inverse|--border-inverse/,
+    `the search trigger sits on cream, so it must not carry inverse ink:\n  ${block[0]}`,
+  );
+  assert.match(
+    block[1],
+    /color:\s*var\(--text-soft\)|color:\s*var\(--text\)/,
+    `the search trigger must be painted with the cream-ground ink:\n  ${block[0]}`,
+  );
+
+  // The hover must not turn the ink cream either: on this ground that
+  // would be a cream word on a cream band.
+  const hover = CSS.match(/\.mh-search-btn:hover\s*\{([^}]*)\}/);
+  assert.ok(hover, "expected a .mh-search-btn:hover rule");
+  assert.doesNotMatch(
+    hover[1],
+    /--text-inverse/,
+    `the search trigger must not turn cream on hover — that is the old scrim's ink:\n  ${hover[0]}`,
+  );
+});
+
+test("the masthead is one cream surface, so it needs no dark-ground focus ring", () => {
+  // The masthead used to be a translucent dark scrim over the home hero photo.
+  // A single-colour ring could not hold 3:1 across an arbitrary photo, so the
+  // scrim carried a two-tone ring of its own. The bar is now one opaque cream
+  // band on every page, so that exception is gone with the scrim — and the
+  // cream-ground token, checked above against --bg, is the one that applies.
+  const scrimRules = CSS.match(/[^}]*\.mh--hero[^}]*\{[^}]*\}/g) ?? [];
+  assert.deepEqual(
+    scrimRules,
+    [],
+    "the masthead has no hero variant left: the bar is one cream surface, so no dark-ground override may return",
+  );
+  const scrolledRules = CSS.match(/[^}]*\.mh--scrolled[^}]*\{[^}]*\}/g) ?? [];
+  assert.deepEqual(
+    scrolledRules,
+    [],
+    "the masthead has no scrolled variant left: the band is opaque cream from the first pixel",
+  );
+
+  // The band itself must be opaque: a translucent ground is what made the
+  // page title legible through it in the first place.
+  const band = CSS.match(/\.mh\s*\{([^}]*)\}/);
+  assert.ok(band, "expected a .mh rule");
+  assert.match(band[1], /background:\s*var\(--bg\)/, "the masthead band must be the opaque cream ground");
+  assert.doesNotMatch(band[1], /rgba\([^)]*0\.\d+\s*\)/, "the masthead band must not be translucent");
 });
 
 test("the quick-search field has a label that outlives its placeholder", () => {

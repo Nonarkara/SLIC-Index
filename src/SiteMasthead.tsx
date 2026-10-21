@@ -5,6 +5,8 @@ import { appHref } from "./routing";
 import { CITY_TOTAL } from "./publicationMeta";
 import type { Locale, SitePath } from "./types";
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 const menuLabels: Record<Locale, { open: string; close: string; primary: string; mobile: string }> = {
   en: {
     open: "Open navigation",
@@ -185,7 +187,6 @@ export default function SiteMasthead({
   const navPanelId = useId();
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<NavGroupId | null>(null);
-  const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const lastScrollY = useRef(0);
   const labels = menuLabels[locale];
@@ -210,7 +211,6 @@ export default function SiteMasthead({
 
   const handleScroll = useCallback(() => {
     const y = window.scrollY;
-    setScrolled(y > 40);
 
     if (y < 80) {
       setHidden(false);
@@ -236,8 +236,6 @@ export default function SiteMasthead({
 
   const classes = [
     "mh",
-    currentPath === "/" ? "mh--hero" : "",
-    scrolled ? "mh--scrolled" : "",
     hidden && !menuOpen ? "mh--hidden" : "",
     menuOpen ? "mh--open" : "",
   ]
@@ -260,8 +258,18 @@ export default function SiteMasthead({
           onClick={(event) => navigateLink(event, onNavigate, "/")}
           aria-label={locale === "th" ? "กลับหน้าหลัก SLIC" : locale === "zh" ? "SLIC 首页" : locale === "ko" ? "SLIC 홈" : locale === "ja" ? "SLICホーム" : "SLIC home"}
         >
-          <span className="mh-wordmark-main">SLIC</span>
-          <span className="mh-wordmark-sub">Index</span>
+          {/* The brand's own mark, keyed off its paper by
+              scripts/build-brand-mark.py — the same file the footer carries, so
+              the browser already has it. It is transparent: on the cream band
+              it has no plate, no cut-out edge and no paper of its own. */}
+          <img
+            className="mh-mark"
+            src={`${BASE}/Logos/slic-index-mark.png`}
+            alt="SLIC Index"
+            width={389}
+            height={247}
+            decoding="async"
+          />
         </a>
 
         <span className="mh-edition">V3 &middot; 2026</span>

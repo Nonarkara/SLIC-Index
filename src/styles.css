@@ -341,21 +341,42 @@ section[id] {
    as a pair or remove the <=768px rule too. */
 .locale-select-wrap {
   display: none;
+  position: relative;
 }
 
+/* The language control is a label, not a widget. A native select brings its
+   own box — a white card glued onto the bar — and the bar already has one
+   treatment, so the chrome comes off and the caret is drawn in the same
+   hairline as everything else. */
 .locale-select {
+  appearance: none;
+  -webkit-appearance: none;
   min-height: 44px;
-  min-width: 5.5rem;
-  padding: 0 0.65rem;
-  border: 1px solid rgba(28, 25, 20, 0.18);
+  min-width: 3.5rem;
+  padding: 0 1.15rem 0 0;
+  border: 0;
   border-radius: 0;
-  background: var(--bg);
+  background: transparent;
   color: var(--text);
   font-family: var(--font-mono, "JetBrains Mono", monospace);
   font-size: 0.72rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   cursor: pointer;
+}
+
+.locale-select-wrap::after {
+  content: "";
+  position: absolute;
+  right: 0.3rem;
+  top: 50%;
+  width: 0.4rem;
+  height: 0.4rem;
+  margin-top: -0.28rem;
+  border-right: 1px solid var(--text-soft);
+  border-bottom: 1px solid var(--text-soft);
+  transform: rotate(45deg);
+  pointer-events: none;
 }
 
 .locale-select:focus-visible {
@@ -2025,54 +2046,56 @@ section[id] {
 
 .site-footer-nav {
   grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.1rem 2rem;
   align-items: start;
-  gap: 1.25rem 2rem;
+}
+
+/* Two columns from 561px, three from 768px. The count is set by the width a
+   link run needs: a third column at 561px is 150px wide, which breaks every
+   run onto a second line and leaves the short cells stranded next to the
+   tall ones. Below 561px there is one column, and one column has nothing
+   empty in it at all. */
+@media (min-width: 561px) {
+  .site-footer-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .site-footer-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 /*
- * The footer navigation used to be a flex row of six columns. Below about
- * 1100px that row wrapped into ragged lines, and below 560px it became a
- * two-column grid in which every row took the height of its tallest cell:
- * the 44px Home link sat alone in a 211px row with 167px of nothing under
- * it, and the gap between "Data" and "About" was 190px. The links were
- * packed; the columns were not.
+ * The footer navigation is a sitemap, and a sitemap is a list of links, not
+ * a layout.
  *
- * Multi-column packs the groups without aligning them to row tracks, so no
- * cell can leave a void beneath it, and the block is a third shorter.
- * Three columns from 561px up, two below — any fewer and a label wraps.
+ * It used to print one link per 44px row, which made the groups wildly
+ * unequal: "Home" was 44px tall, "About" was 211px. Unequal groups cannot
+ * share a row without leaving a hole under the short one, so every
+ * arrangement of them had a hole in it — 167px under "Home" in the desktop
+ * row, 98px in the first column of the three-column version, 187px in the
+ * old two-column grid on a phone. The links were packed; the columns were
+ * not.
+ *
+ * So a group's links now run on one line, separated by a middot, and the
+ * group is a heading and a line of links — a block roughly the same height
+ * as every other block. Equal blocks make equal rows, and a row of equal
+ * blocks has nothing empty in it.
+ *
+ * The columns are a grid, not a row of flex items, so the reading order
+ * stays left to right: Home, Rankings, Methodology, Editorial, About,
+ * Archives.
  */
-@media (max-width: 1023px) {
-  .site-footer-nav {
-    display: block;
-    columns: 2;
-    column-gap: 2rem;
-  }
-
-  .site-footer-nav > a:first-child {
-    display: flex;
-    break-inside: avoid;
-    margin-bottom: 0.9rem;
-  }
-
-  .site-footer-nav-group {
-    break-inside: avoid;
-    margin-bottom: 0.9rem;
-  }
-}
-
-@media (min-width: 561px) and (max-width: 1023px) {
-  .site-footer-nav {
-    columns: 3;
-  }
-}
 
 .site-footer-nav>a:first-child {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-  padding: 0.35rem 0;
+  display: inline-block;
+  align-self: start;
+  max-width: 100%;
+  padding: 0.42rem 0;
   font-family: var(--font-body);
   font-size: 0.66rem;
   font-weight: 600;
@@ -2082,10 +2105,8 @@ section[id] {
 }
 
 .site-footer-nav-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.15rem;
-  min-width: 7.5rem;
+  display: block;
+  min-width: 0;
 }
 
 .site-footer-nav-label {
@@ -2109,11 +2130,11 @@ section[id] {
   color: var(--text);
 }
 
-.site-footer-nav-group a {
-  display: inline-flex;
-  align-items: center;
-  min-height: 2.75rem;
-  padding: 0.2rem 0;
+.site-footer-nav-group a:not(.site-footer-nav-label) {
+  display: inline-block;
+  max-width: 100%;
+  padding: 0.42rem 0;
+  line-height: 1.3;
   font-family: var(--font-body);
   font-size: 0.66rem;
   font-weight: 500;
@@ -2121,6 +2142,18 @@ section[id] {
   text-transform: uppercase;
   color: var(--text-soft);
   transition: color 160ms ease;
+}
+
+/* A middot between the links of a group. It is a separator, not a word, so
+   it reads the same in every language. */
+.site-footer-nav-group a:not(.site-footer-nav-label)::after {
+  content: "·";
+  margin-left: 0.55rem;
+  opacity: 0.45;
+}
+
+.site-footer-nav-group a:last-child::after {
+  content: none;
 }
 
 .site-footer-nav-group a:hover,
@@ -2164,11 +2197,20 @@ section[id] {
   width: 100%;
   pointer-events: none;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  /* The bar is ONE ground: an opaque cream band, edge to edge, the same
+     colour as the page it sits on.
+     It used to be a translucent dark plate inset inside the viewport, floating
+     over the home hero, and it carried a cream native select, a plated search
+     button, a boxed ⌘K keycap and a boxed menu — five treatments in one bar.
+     The white select glued onto a dark plate is what read as scissors-and-
+     paste: a pasted white block, on a pasted dark block, over a photo.
+     One band, one colour, and every control on it plain. */
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
   /* iPhone notch — keep the masthead inner below the dynamic island. The 0.6rem
      of air above the bar has to live inside the masthead, not as the inner's
-     top margin: as a margin it collapsed out of the masthead box, so the
-     frosted band stopped short of the top of the screen and the page slid
-     through the gap. */
+     top margin: as a margin it collapsed out of the masthead box, so the band
+     stopped short of the top of the screen and the page slid through it. */
   padding-top: calc(env(safe-area-inset-top, 0px) + 0.6rem);
 }
 
@@ -2185,34 +2227,19 @@ section[id] {
   padding: 0.55rem 0;
   pointer-events: auto;
   background: transparent;
-  border-bottom: 1px solid transparent;
-  transition: background 0.3s, border-color 0.3s, backdrop-filter 0.3s;
+  transition: background 0.3s, border-color 0.3s;
   min-height: 3.75rem;
   gap: 1rem;
 }
 
-/* The scrolled masthead is a solid band, not frosted glass. At 94% opacity
-   the page title underneath stayed legible through it — a ghost word sitting
-   under the wordmark — and the band stopped short of the top of the screen
-   as well. */
-.mh--scrolled {
-  background: var(--bg);
-}
-
-.mh--scrolled .mh-inner {
-  background: transparent;
-  border-color: rgba(40, 32, 20, 0.08);
-  border-bottom-color: rgba(40, 32, 20, 0.12);
-}
-
-/* Wordmark — live type, not a raster.
-   The old mark was a 400x400 square PNG (blue + teal, both off-palette) squeezed
-   into a 140x36 box, which rendered as unreadable mush. Type is sharper at every
-   DPR, colourable from tokens, and adds no request. */
+/* The wordmark is the brand's own artwork: the same keyed mark the footer
+   carries (public/Logos/slic-index-mark.png, produced by
+   scripts/build-brand-mark.py). It is keyed off its paper, so it has no paper
+   of its own — on the cream band it has no plate and no cut-out edge. The
+   browser already holds the file for the footer, so it costs no request. */
 .mh-wordmark {
-  display: flex;
-  align-items: baseline;
-  gap: 0.4rem;
+  display: block;
+  flex: none;
   border: 0;
   background: 0;
   cursor: pointer;
@@ -2220,31 +2247,10 @@ section[id] {
   min-width: max-content;
 }
 
-.mh-wordmark-main {
-  font-family: var(--font-heading);
-  font-size: 1.32rem;
-  font-weight: 600;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  color: var(--text);
-}
-
-.mh-wordmark-sub {
-  font-family: var(--font-mono);
-  font-size: 0.58rem;
-  line-height: 1;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--text-soft);
-}
-
-/* Dark masthead variant — invert the type, not a plate behind it. */
-.mh--hero:not(.mh--scrolled) .mh-wordmark-main {
-  color: var(--text-inverse);
-}
-
-.mh--hero:not(.mh--scrolled) .mh-wordmark-sub {
-  color: rgba(247, 245, 239, 0.62);
+.mh-mark {
+  display: block;
+  width: 4.25rem;
+  height: auto;
 }
 
 /* Edition tag — hidden on nav-heavy layouts */
@@ -2416,8 +2422,8 @@ section[id] {
   width: 2.75rem;
   height: 2.75rem;
   padding: 0;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.72);
+  border: 0;
+  background: transparent;
   cursor: pointer;
   border-radius: 0;
 }
@@ -9746,12 +9752,6 @@ details[open].scorecard-derived-formula summary::before {
   animation-duration: var(--transition-page);
 }
 
-/* Non-homepage: always show the frosted masthead — never transparent on dark pages */
-.mh:not(.mh--hero) .mh-inner {
-  background: rgba(248, 245, 240, 0.94);
-  border-bottom-color: rgba(40, 32, 20, 0.12);
-}
-
 .mh-edition {
   display: inline-flex;
   color: var(--text-soft);
@@ -10144,99 +10144,6 @@ body,
   overflow-x: clip;
 }
 
-.mh--hero:not(.mh--scrolled) .mh-inner {
-  color: var(--text-inverse);
-  /* Translucent dark scrim — gives axe-core a contrast backdrop
-     it can read (image bg is invisible to axe), and visually sets
-     the masthead band apart from the hero photo. */
-  background: rgba(28, 25, 20, 0.68);
-  border-bottom-color: rgba(248, 245, 240, 0.14);
-}
-
-/* Dark scrim -> the cream-ground focus token (5.34:1) drops to ~1.6:1 here.
-   Swap to --focus-on-dark (8.75:1) for every control in the unscrolled hero
-   masthead, which is the only place the masthead sits on a photo.
-
-   The scrim is translucent, so a single-colour ring cannot guarantee 3:1
-   over an arbitrary photo: #f99d1b reads 8.86:1 over a dark frame but only
-   2.82:1 where the photo is bright. Use a two-tone ring instead — a dark
-   inner edge (0-2px) plus the light outer edge (2-4px). Whichever side the
-   photo lands on, one edge clears 3:1. Verified across black -> white. */
-.mh--hero:not(.mh--scrolled) :is(a, button, select, input, [role="button"]):focus-visible {
-  outline-color: var(--focus-on-dark);
-  box-shadow: 0 0 0 var(--focus-width) var(--focus-on-dark-guard, #111314);
-}
-
-.mh:not(.mh--scrolled) .mh-wordmark {
-  padding: 0;
-  background: transparent;
-}
-
-/* Light/white nav text only on the homepage hero — scoped to mh--hero so
-   other pages don't get invisible cream-on-cream text when scrollY < 40. */
-.mh--hero:not(.mh--scrolled) .mh-link,
-.mh--hero:not(.mh--scrolled) .mh-dropdown-trigger,
-.mh--hero:not(.mh--scrolled) .mh-edition {
-  color: var(--text-inverse);
-}
-
-.mh--hero:not(.mh--scrolled) .mh-link:hover,
-.mh--hero:not(.mh--scrolled) .mh-link--active,
-.mh--hero:not(.mh--scrolled) .mh-dropdown-trigger:hover,
-.mh--hero:not(.mh--scrolled) .mh-dropdown-trigger--active,
-.mh--hero:not(.mh--scrolled) .mh-dropdown--open .mh-dropdown-trigger {
-  color: #fff;
-  border-bottom-color: rgba(248, 245, 240, 0.72);
-}
-
-/* The dark masthead boxed all five locale controls and filled the active one with
-   a solid cream plate, so a low-emphasis switch became the loudest object in the
-   bar. Over photography the underline carries state on its own, exactly as it
-   does on the light masthead. */
-.mh--hero:not(.mh--scrolled) .locale-button {
-  border: 0;
-  border-bottom: 1px solid rgba(248, 245, 240, 0.28);
-  background: transparent;
-  color: rgba(248, 245, 240, 0.72);
-}
-
-.mh--hero:not(.mh--scrolled) .locale-button.active {
-  border-bottom-color: var(--accent-amber);
-  color: var(--text-inverse);
-  background: transparent;
-  font-weight: 600;
-}
-
-.mh--hero:not(.mh--scrolled) .mh-burger {
-  border-color: rgba(248, 245, 240, 0.32);
-  background: rgba(0, 0, 0, 0.16);
-}
-
-.mh--hero:not(.mh--scrolled) .mh-burger span {
-  background: var(--text-inverse);
-}
-
-/* The search trigger was the one masthead control still using cream-ground
-   ink (--text-soft) after the hero flipped the nav to cream. On the 0.68
-   scrim that is ~2.3:1, and ~1:1 where the photo is dark. */
-.mh--hero:not(.mh--scrolled) .mh-search-btn {
-  background: rgba(0, 0, 0, 0.32);
-  border-color: rgba(248, 245, 240, 0.36);
-  color: var(--text-inverse);
-}
-
-.mh--hero:not(.mh--scrolled) .mh-search-btn:hover {
-  background: rgba(0, 0, 0, 0.48);
-  border-color: rgba(248, 245, 240, 0.72);
-  color: #fff;
-}
-
-.mh--hero:not(.mh--scrolled) .mh-search-kbd {
-  background: rgba(248, 245, 240, 0.12);
-  border-color: rgba(248, 245, 240, 0.36);
-  color: var(--text-inverse);
-}
-
 .hp-opening {
   min-height: 92svh;
   display: flex;
@@ -10475,15 +10382,6 @@ body,
     width: calc(100% - 1rem);
     min-height: 3.25rem;
     gap: 0.55rem;
-  }
-
-  .mh-wordmark-main {
-    font-size: 1.15rem;
-  }
-
-  .mh-wordmark-sub {
-    font-size: 0.54rem;
-    letter-spacing: 0.14em;
   }
 
   .mh-actions {
@@ -12571,22 +12469,20 @@ a.essay-reference-text:hover {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  padding: 0.35rem 0.65rem;
+  padding: 0.35rem 0;
   background: transparent;
   border: 0;
-  border-bottom: 1px solid var(--border-inverse);
   border-radius: 0;
   color: var(--text-soft);
   font-family: var(--font-body);
   font-size: 0.78rem;
   cursor: pointer;
-  transition: color 120ms var(--ease-spring), border-color 120ms var(--ease-spring);
+  transition: color 120ms var(--ease-spring);
 }
 
 .mh-search-btn:hover {
   background: transparent;
-  border-bottom-color: var(--accent-amber);
-  color: var(--text-inverse);
+  color: var(--text);
 }
 
 .mh-search-kbd {

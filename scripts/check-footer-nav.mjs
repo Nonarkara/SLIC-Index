@@ -23,6 +23,15 @@
  *   4. a wrapped line — a label that wraps onto a second line breaks the
  *      rhythm of the whole block.
  *
+ * A void is measured twice, and this is the part that was missing: a cell
+ * that is shorter than the column it stands in leaves the space BELOW it
+ * empty, and the old gate only measured the gaps BETWEEN items. The
+ * three-column layout that shipped with 98px of nothing under the first
+ * column passed the old gate, because the old gate never looked below the
+ * last item in a column. It looks now. The widths are sampled densely for
+ * the same reason: a hole that appears at 561px and not at 515px is still a
+ * hole, and four widths are not enough to find one.
+ *
  * The mobile drawer is held to the same two rules it can break: no repeated
  * word, no wrapped line.
  *
@@ -37,14 +46,23 @@ import fs from "node:fs";
 import { chromium } from "playwright-core";
 
 /** The largest empty gap a column may leave under an item. */
-const VOID_LIMIT = 48;
+const VOID_LIMIT = 36;
 
 /** The block may not be taller than one screen. A footer is the end of the
  *  page; it is not another page. */
 const MAX_NAV_SCREENS = 1;
 
 const LOCALES = ["en", "th", "zh", "ko", "ja"];
-const WIDTHS = [390, 515, 768, 1440];
+
+/**
+ * The widths are sampled densely, because a hole that appears at 561px and
+ * not at 515px is still a hole. The old gate looked at four widths, and the
+ * three-column layout that shipped with a 98px hole under its first column
+ * sailed through it.
+ */
+const WIDTHS = [
+  320, 360, 390, 430, 480, 515, 540, 561, 600, 640, 700, 768, 820, 900, 960, 1023, 1024, 1150, 1280, 1440,
+];
 
 const urlArg = process.argv.indexOf("--url");
 const LIVE = urlArg !== -1 ? process.argv[process.argv.indexOf("--url") + 1] : null;
@@ -123,31 +141,79 @@ const PROBE = () => {
     };
   });
 
-  // Group the leaves into columns by their left edge, merging edges that sit
-  // within a few pixels of each other.
-  const edges = [...new Set(leaves.map((l) => l.left))].sort((a, b) => a - b);
-  const columns = [];
-  for (const edge of edges) {
-    const last = columns[columns.length - 1];
-    if (last && edge - last.left <= 8) {
-      last.left = Math.min(last.left, edge);
-      last.items.push(...leaves.filter((l) => l.left === edge));
-    } else {
-      columns.push({ left: edge, items: leaves.filter((l) => l.left === edge) });
+  /*
+   * A void is the empty space under a block of the navigation, so the
+   * blocks are what must be measured — not the links. A group's links now
+   * run along one line, and each link in that run has its own left edge, so
+   * grouping the links by their left edge would call every link its own
+   * column and report the whole block as empty.
+   *
+   * There are two ways for a block to leave a hole, and both are measured:
+   *
+   *   1. beside it — blocks that share a row take the height of the
+   *      tallest of them, so a short one leaves a hole under itself. The
+   *      old phone grid did this: "Home" sat alone in a 211px row.
+   *   2. below the block — a column that stops short of the bottom of the
+   *      navigation. The old three-column layout did this: 98px of nothing
+   *      under its first column.
+   *
+   * The space between two rows is a gap, not a hole, and is not counted.
+   */
+  const blocks = [...nav.children].map((el) => {
+    const r = el.getBoundingClientRect();
+    return {
+      text: (el.textContent || "").trim().replace(/\s+/g, " "),
+      left: Math.round(r.left),
+      top: Math.round(r.top),
+      bottom: Math.round(r.bottom),
+    };
+  });
+
+  const groupBy = (key) => {
+    const keys = [...new Set(blocks.map((b) => b[key]))].sort((a, b) => a - b);
+    const groups = [];
+    for (const k of keys) {
+      const members = blocks.filter((b) => b[key] === k);
+      const last = groups[groups.length - 1];
+      if (last && Math.abs(last.key - k) <= 8) {
+        last.key = Math.min(last.key, k);
+        last.blocks.push(...members);
+        last.bottom = Math.max(last.bottom, ...members.map((b) => b.bottom));
+      } else {
+        groups.push({
+          key: k,
+          top: Math.min(...members.map((b) => b.top)),
+          bottom: Math.max(...members.map((b) => b.bottom)),
+          blocks: members,
+        });
+      }
     }
-  }
+    return groups;
+  };
 
   const voids = [];
-  for (const column of columns) {
-    column.items.sort((a, b) => a.top - b.top);
-    for (let i = 1; i < column.items.length; i++) {
-      const gap = column.items[i].top - column.items[i - 1].bottom;
-      voids.push({ gap, after: column.items[i - 1].text.slice(0, 30), before: column.items[i].text.slice(0, 30) });
+
+  // 1. A hole under a block that shares a row with a taller block.
+  for (const row of groupBy("top")) {
+    for (const b of row.blocks) {
+      const gap = Math.round(row.bottom) - b.bottom;
+      if (gap > 0) {
+        voids.push({ gap, after: b.text.slice(0, 30), before: "the bottom of its row" });
+      }
     }
   }
 
-  const groups = [...nav.querySelectorAll(".site-footer-nav-group")].map((g) => {
-    const labelEl = g.querySelector(".site-footer-nav-label");
+  // 2. A column that stops short of the bottom of the block.
+  for (const column of groupBy("left")) {
+    column.blocks.sort((a, b) => a.top - b.top);
+    const last = column.blocks[column.blocks.length - 1];
+    const gap = Math.round(navBox.bottom) - last.bottom;
+    if (gap > 0) {
+      voids.push({ gap, after: last.text.slice(0, 30), before: "the bottom of the block" });
+    }
+  }
+
+  const groups = [...nav.querySelectorAll(".site-footer-nav-group")].map((g) => {    const labelEl = g.querySelector(".site-footer-nav-label");
     const links = [...g.querySelectorAll("a")].filter((a) => a !== labelEl);
     return {
       label: (labelEl?.textContent || "").trim(),
@@ -162,11 +228,28 @@ const PROBE = () => {
 
   const wrapped = leaves.filter((l) => l.lines > 1).map((l) => `${l.text} (${l.lines} lines)`);
 
+  // The space between the heading of a group and its links, and between the
+  // lines of a run that wraps. A hole inside a group is a hole too.
+  const innerVoids = [];
+  for (const block of nav.children) {
+    const parts = [...block.querySelectorAll(".site-footer-nav-label, a")].map((el) => {
+      const r = el.getBoundingClientRect();
+      return { text: (el.textContent || "").trim().slice(0, 24), top: Math.round(r.top), bottom: Math.round(r.bottom) };
+    });
+    parts.sort((a, b) => a.top - b.top);
+    for (let i = 1; i < parts.length; i++) {
+      const gap = parts[i].top - parts[i - 1].bottom;
+      if (gap > 0) {
+        innerVoids.push({ gap, after: parts[i - 1].text, before: parts[i].text });
+      }
+    }
+  }
+
   return {
     navHeight: Math.round(navBox.height),
     navWidth: Math.round(navBox.width),
-    columns: columns.length,
     voids,
+    innerVoids,
     groups,
     hrefs,
     wrapped,
@@ -213,8 +296,8 @@ for (const locale of LOCALES) {
   const page = await context.newPage();
 
   for (const width of WIDTHS) {
-    await page.setViewportSize({ width, height: width > 700 ? 900 : 844 });
     try {
+      await page.setViewportSize({ width, height: width > 700 ? 900 : 844 });
       await page.goto(`${base}/`, { waitUntil: "domcontentloaded", timeout: 60000 });
       await page.waitForSelector(".site-footer-nav", { timeout: 45000 });
       await page.waitForLoadState("networkidle", { timeout: 30000 }).catch(() => {});
@@ -235,6 +318,14 @@ for (const locale of LOCALES) {
           failures.push(
             `${where}: void of ${v.gap}px under "${v.after}" (before "${v.before}") — ` +
               `a column may not leave more than ${VOID_LIMIT}px empty`,
+          );
+        }
+      }
+      for (const v of r.innerVoids || []) {
+        if (v.gap > VOID_LIMIT) {
+          failures.push(
+            `${where}: void of ${v.gap}px inside a group, under "${v.after}" (before "${v.before}") — ` +
+              `a group may not leave more than ${VOID_LIMIT}px empty`,
           );
         }
       }
@@ -279,28 +370,32 @@ for (const locale of LOCALES) {
   }
 
   // The mobile drawer, on a phone width.
-  await page.setViewportSize({ width: 390, height: 844 });
-  await page.goto(`${base}/`, { waitUntil: "domcontentloaded", timeout: 60000 });
-  await page.waitForSelector(".mh-burger", { timeout: 45000 });
-  await page.waitForTimeout(500);
-  await page.evaluate(() => document.querySelector(".mh-burger")?.click());
-  await page.waitForTimeout(500);
-  const panel = await page.evaluate(PROBE_PANEL);
-  if (panel.error) {
-    failures.push(`${locale} @390 drawer: ${panel.error}`);
-  } else {
-    for (const g of panel.groups) {
-      for (const link of g.links) {
-        if (link === g.label) {
-          failures.push(`${locale} @390 drawer: the heading "${g.label}" is repeated as one of its own links`);
+  try {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(`${base}/`, { waitUntil: "domcontentloaded", timeout: 60000 });
+    await page.waitForSelector(".mh-burger", { timeout: 45000 });
+    await page.waitForTimeout(500);
+    await page.evaluate(() => document.querySelector(".mh-burger")?.click());
+    await page.waitForTimeout(500);
+    const panel = await page.evaluate(PROBE_PANEL);
+    if (panel.error) {
+      failures.push(`${locale} @390 drawer: ${panel.error}`);
+    } else {
+      for (const g of panel.groups) {
+        for (const link of g.links) {
+          if (link === g.label) {
+            failures.push(`${locale} @390 drawer: the heading "${g.label}" is repeated as one of its own links`);
+          }
         }
       }
+      for (const w of panel.wrapped) {
+        failures.push(`${locale} @390 drawer: wrapped line — ${w}`);
+      }
     }
-    for (const w of panel.wrapped) {
-      failures.push(`${locale} @390 drawer: wrapped line — ${w}`);
-    }
+  } catch (e) {
+    failures.push(`${locale} @390 drawer: ${String(e.message || e).split("\n")[0]}`);
   }
-  await context.close();
+  await context.close().catch(() => {});
 }
 
 await browser.close();

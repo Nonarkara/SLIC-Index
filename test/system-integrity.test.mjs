@@ -21,10 +21,12 @@
  *      public/Logos/slic-index-full.png is a 400×400 SQUARE rendered into a
  *      140×36 box, in blue and teal that are not in the palette. It rendered as
  *      unreadable mush in the masthead of every page.
- *      → "the masthead wordmark is live type" — the masthead carries the
- *         brand as type. The footer carries the real artwork instead: keyed
- *         off its paper, transparent, and sitting on the cream with no plate
- *         of its own. Both are gated, so neither can come back silently.
+ *      → "the masthead carries the keyed mark" — the bar is one opaque cream
+ *         band and it carries public/Logos/slic-index-mark.png, keyed off its
+ *         paper, transparent, and sitting on the cream with no plate of its
+ *         own. The square master is still loaded by no surface, and the
+ *         footer carries the same keyed mark. Both are gated, so neither can
+ *         come back silently.
  *
  *   4. Nested control borders.
  *      .mh-search-btn had a border and contained .mh-search-kbd, which had its
@@ -297,25 +299,84 @@ function probePng(file) {
   return { width, height, colorType, hasAlpha: true, transparentPixels };
 }
 
-test("integrity: the masthead wordmark is live type, never a raster", () => {
-  // The masthead appears on every page, so it carries the brand as live type
-  // (.mh-wordmark-main / .mh-wordmark-sub): sharp at every DPR, colourable
-  // from tokens, no extra request. The old mark was a 400×400 square PNG
-  // squeezed into a 140×36 box in off-palette blue/teal — unreadable mush.
-  const offenders = [];
-  for (const { name, text } of tsxFiles) {
-    if (!/SiteMasthead/.test(name)) continue;
-    const code = stripComments(text);
-    for (const m of code.matchAll(/<img\b[^>]*>/g)) {
-      offenders.push(`${name}: ${m[0].replace(/\s+/g, " ").slice(0, 90)}`);
-    }
-  }
-  assert.deepEqual(
-    offenders,
-    [],
-    `The masthead wordmark must be live text. The old mark was a 400x400 ` +
-      `square PNG in off-palette blue/teal squeezed into a 140x36 box, which ` +
-      `rendered as unreadable mush on every page.\n  ${offenders.join("\n  ")}`,
+test("integrity: the masthead carries the keyed mark, on the band's own ground", () => {
+  // This gate used to say the opposite: that the masthead wordmark must be
+  // live type and never a raster. That was the right rule for the old bar,
+  // which painted the mark on a translucent plate over the hero photograph —
+  // a white square with a cut-out edge, pasted on.
+  //
+  // The bar is now one opaque cream band on every page, and it carries the
+  // brand's own artwork: public/Logos/slic-index-mark.png, keyed off its
+  // paper by scripts/build-brand-mark.py, the same file the footer already
+  // loads. On cream it has no plate, no edge and no paper of its own.
+  //
+  // The property the gate protects is therefore not "no raster" but "the
+  // right raster, keyed, and nothing else": one image, the keyed mark, real
+  // transparency, the bytes the build ships, and no square master.
+  const masthead = tsxFiles.find((f) => f.name === "SiteMasthead.tsx");
+  assert.ok(masthead, "SiteMasthead.tsx must exist");
+
+  const code = stripComments(masthead.text);
+  const images = [...code.matchAll(/<img\b[^>]*>/g)].map((m) => m[0].replace(/\s+/g, " "));
+  assert.equal(
+    images.length,
+    1,
+    `The masthead must carry exactly one image — the mark. Found ${images.length}:\n  ${images.join("\n  ")}`,
+  );
+  assert.match(
+    images[0],
+    /\/Logos\/slic-index-mark\.png/,
+    `The masthead must carry the keyed mark /Logos/slic-index-mark.png:\n  ${images[0]}`,
+  );
+  assert.match(images[0], /alt="[^"]+"/, `The mark must carry an alt text:\n  ${images[0]}`);
+
+  // The mark is derived, so it must still be the bytes the derivation
+  // recorded — and the bytes the build ships.
+  const source = join(ROOT, "public", "Logos/slic-index-mark.png");
+  assert.ok(existsSync(source), "public/Logos/slic-index-mark.png must exist");
+  const built = join(ROOT, "dist", "Logos/slic-index-mark.png");
+  assert.ok(
+    existsSync(built),
+    "dist/Logos/slic-index-mark.png must exist — the built site ships the mark, and CI runs npm test before npm run build",
+  );
+  assert.equal(
+    sha256(built),
+    sha256(source),
+    "dist/Logos/slic-index-mark.png must be byte-identical to public/Logos/slic-index-mark.png — run npm run build",
+  );
+
+  const provenancePath = join(ROOT, "scripts/brand-mark.provenance.json");
+  assert.ok(
+    existsSync(provenancePath),
+    "scripts/brand-mark.provenance.json must exist — run python3 scripts/build-brand-mark.py",
+  );
+  const provenance = JSON.parse(readFileSync(provenancePath, "utf8"));
+  assert.equal(
+    provenance.outputSha256,
+    sha256(source),
+    "the mark does not match the bytes scripts/build-brand-mark.py recorded — the PNG was edited by hand, or re-derived without updating the record",
+  );
+
+  const png = probePng(source);
+  assert.ok(png.hasAlpha, "the mark must carry an alpha channel");
+  assert.ok(
+    png.transparentPixels > 0,
+    "the mark must have fully transparent pixels — otherwise the masthead shows a paper plate",
+  );
+  assert.equal(png.width, provenance.width, `the mark must be ${provenance.width}px wide`);
+  assert.equal(png.height, provenance.height, `the mark must be ${provenance.height}px tall`);
+
+  // The mark sits on the band's ground. It may not carry a plate of its
+  // own, and the bar may not paint it as a background image behind text.
+  const markRule = /\.mh-mark\s*\{([^}]*)\}/.exec(masked);
+  assert.ok(markRule, ".mh-mark must be defined in src/styles.css");
+  assert.ok(
+    !/background\s*:/i.test(markRule[1]),
+    `.mh-mark must not paint a background — the mark sits on the cream:\n  ${markRule[0]}`,
+  );
+  assert.ok(
+    !/background-image|url\(/i.test(masked.slice(masked.indexOf(".mh {"), masked.indexOf(".mh-wordmark"))),
+    "the masthead must not paint a background image — one ground, one treatment",
   );
 });
 
