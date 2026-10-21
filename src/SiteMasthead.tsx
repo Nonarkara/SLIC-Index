@@ -1,6 +1,6 @@
 import { type MouseEvent, useCallback, useEffect, useId, useRef, useState } from "react";
 import LocaleSwitch from "./LocaleSwitch";
-import { navGroups, navGroupLabel, navPathLabel, type NavGroupId } from "./navGroups";
+import { navGroups, navGroupEntries, navGroupLabel, navPathLabel, type NavGroupId } from "./navGroups";
 import { appHref } from "./routing";
 import { CITY_TOTAL } from "./publicationMeta";
 import type { Locale, SitePath } from "./types";
@@ -343,26 +343,40 @@ export default function SiteMasthead({
             {navLabel("/", locale)}
           </a>
 
-          {navGroups.map((group) => (
-            <div className="mh-panel-group" key={group.id}>
-              <p className="mh-panel-group-label">{groupLabel(group.id, locale)}</p>
-              {group.paths.map((path) => (
-                <a
-                  key={path}
-                  href={appHref(path)}
-                  className={
-                    path === currentPath
-                      ? "mh-panel-link mh-panel-link--active"
-                      : "mh-panel-link"
-                  }
-                  onClick={(event) => navigateLink(event, handleNav, path)}
-                  aria-current={path === currentPath ? "page" : undefined}
-                >
-                  {navLabel(path, locale)}
-                </a>
-              ))}
-            </div>
-          ))}
+          {navGroups.map((group) => {
+            const { label, headingPath, items } = navGroupEntries(group.id, locale);
+            return (
+              <div className="mh-panel-group" key={group.id}>
+                {headingPath ? (
+                  <a
+                    className="mh-panel-group-label mh-panel-group-label--link"
+                    href={appHref(headingPath)}
+                    aria-current={headingPath === currentPath ? "page" : undefined}
+                    onClick={(event) => navigateLink(event, handleNav, headingPath)}
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  <p className="mh-panel-group-label">{label}</p>
+                )}
+                {items.map((item) => (
+                  <a
+                    key={item.path}
+                    href={appHref(item.path)}
+                    className={
+                      item.path === currentPath
+                        ? "mh-panel-link mh-panel-link--active"
+                        : "mh-panel-link"
+                    }
+                    onClick={(event) => navigateLink(event, handleNav, item.path)}
+                    aria-current={item.path === currentPath ? "page" : undefined}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            );
+          })}
         </nav>
       </div>
     </header>

@@ -23,9 +23,10 @@
     "methodology:pdf": "python3 scripts/generate_methodology_pdf.py",
     "test": "node --test test/*.test.mjs",
     "verify": "npm run typecheck && npm run build && npm test",
-    "verify:release": "npm run verify && npm run check:publication && npm run check:csv && npm run check:methodology && npm run check:translations && npm run check:audit && npm run check:layout && npm run check:spatial && npm run check:knowledge-rack && npm run check:author-name && npm run check:contacts",
+    "verify:release": "npm run verify && npm run check:publication && npm run check:csv && npm run check:methodology && npm run check:translations && npm run check:audit && npm run check:layout && npm run check:spatial && npm run check:footer-nav && npm run check:knowledge-rack && npm run check:author-name && npm run check:contacts",
     "verify:math": "npm run rescore && npm run check:publication && npm run check:methodology && npm test",
     "check:layout": "node scripts/check-layout.mjs",
+    "check:footer-nav": "node scripts/check-footer-nav.mjs",
     "check:spatial": "node scripts/audit-spatial.mjs --check scripts/spatial-baseline.json",
     "check:knowledge-rack": "node scripts/check-knowledge-rack.mjs",
     "check:author-name": "node scripts/check-author-name.mjs"

@@ -126,6 +126,7 @@ Every rule above that can be decided from source is a machine gate. They run in 
 | `test/accessibility-invariants.test.mjs` | contrast, focus visibility, hero-masthead legibility over photography, localised labels |
 | `test/publication-hashes.test.mjs` | the scoring bundle cannot drift from its published hashes |
 | `scripts/check-layout.mjs` | **the built site in a real browser**: no horizontal overflow, no uncaught exception, no broken image, and every route actually rendered — across 15 routes × 3 widths |
+| `scripts/check-footer-nav.mjs` | **the footer sitemap**: no column may leave more than 48px of empty space under an item, a heading may not repeat one of its own links, every published route must still be one click away (exactly once), no label may wrap onto a second line, and the block may never be taller than one screen — across 5 locales × 4 widths, plus the mobile drawer |
 | `scripts/audit-spatial.mjs` | **spatial hallucination**: dead bands, orphan grid rows, accidental wrapping, clipped text, scattered actions, false hierarchy (an emphasis modifier that changes nothing visible, a skipped heading level), and cost-to-first-action — across 15 routes × 3 widths. `--check <baseline>` turns it into a gate; `--json` emits the fingerprint |
 | `scripts/check-knowledge-rack.mjs` | **the index describes the bytes it was built from**: every manifest hash matches the source on disk, every source in the intake folder is indexed, the built and published catalogs are the same bytes, the word/character/chunk counts agree with the extracted text, and the chunk stream reconstructs that text |
 | `scripts/check-personal-contacts.py` | no personal emails or phone numbers anywhere in the tree — published organisation inboxes and office switchboards are allowlisted |
@@ -155,6 +156,7 @@ Every rule above that can be decided from source is a machine gate. They run in 
 | `scripts/probe-box.mjs` | Dumps the box geometry of a selector — the container, its children, and the ancestor chain — plus `--band <from:to>` to find what occupies a y-range and `--at x,y` to ask the browser what is actually painted at a point |
 | `scripts/audit-spatial.mjs` | The spatial-hallucination audit. `--route`, `--width`, `--json`, `--check <baseline>`, `--write-baseline <file>` — regenerate the ratchet only from a run with zero hard findings; the tool refuses to write one otherwise |
 | `scripts/check-layout.mjs` | The permanent gate: drives the built site in real Chrome over 15 routes × 3 widths and fails on horizontal overflow, an uncaught exception, a broken image, or a route that never rendered |
+| `scripts/check-footer-nav.mjs` | The footer-sitemap gate: drives the built site in real Chrome over 5 locales × 4 widths and fails on a void in a column, a heading repeated as its own link, a route that is no longer reachable from the footer, a wrapped label, or a navigation block taller than one screen |
 | `scripts/check-knowledge-rack.mjs` | The rack gate: the published index describes the bytes it was built from — every manifest hash matches the source, every source is indexed, the built and published catalogs are identical, the counts agree with the extracted text, and the chunks reconstruct it |
 | `scripts/build_knowledge_rack.py` | The corpus pipeline: extracts `knowledge-rack/inbox/`, chunks it, and writes the built and published catalogs together. Restored from history after a "clean repo" commit deleted it while the README still told you to run it |
 | `scripts/check-personal-contacts.py` | No personal emails or phone numbers anywhere in the tree. Published organisation inboxes and office switchboards are allowlisted |
@@ -198,7 +200,7 @@ npm run typecheck         # tsc --noEmit — passes clean (0 errors)
 npm run test              # node --test — 117/117 pass
 ```
 
-The full release gate is `npm run verify:release` — typecheck + build + tests + check:publication + check:csv + check:methodology + check:translations + check:audit + check:layout + check:spatial + check:knowledge-rack + check:author-name + check:contacts. Exits non-zero on any failure. `check:layout` drives the built site in real Chrome, so it only means something after a build. The new `check:audit` runs `scripts/audit-data-integrity.mjs`, which catches identity / ranking / scoring / coverage / metric / cross-artifact / hash drift issues.
+The full release gate is `npm run verify:release` — typecheck + build + tests + check:publication + check:csv + check:methodology + check:translations + check:audit + check:layout + check:spatial + check:footer-nav + check:knowledge-rack + check:author-name + check:contacts. Exits non-zero on any failure. `check:layout` drives the built site in real Chrome, so it only means something after a build. The new `check:audit` runs `scripts/audit-data-integrity.mjs`, which catches identity / ranking / scoring / coverage / metric / cross-artifact / hash drift issues.
 
 ## Project Structure
 
@@ -310,7 +312,7 @@ The `dist/` directory is committed to the repo (this is what the deploy script s
 ## Release verification
 
 ```bash
-npm run verify:release   # full gate — typecheck, build, test, check:publication, check:csv, check:methodology, check:translations, check:audit, check:layout, check:spatial, check:knowledge-rack, check:author-name, check:contacts
+npm run verify:release   # full gate — typecheck, build, test, check:publication, check:csv, check:methodology, check:translations, check:audit, check:layout, check:spatial, check:footer-nav, check:knowledge-rack, check:author-name, check:contacts
 ```
 
 ## Key Rules
@@ -322,6 +324,8 @@ npm run verify:release   # full gate — typecheck, build, test, check:publicati
 - No "SLIC logo" — always "SLIC Index" branding.
 - ReTL is the tech partner (not Axiom).
 - **Five locales: EN / TH / ZH / KO / JA** — do not drop any. Thai first-person pronoun is strictly "ผม".
+- **The footer navigation is a sitemap, not a layout.** Its columns are packed: no item may leave more than 48px of empty space beneath it, a heading never repeats one of its own links (the heading becomes that link instead, so the word is printed once), and every published route stays exactly one click away. `npm run check:footer-nav` fails the build otherwise.
+- **The fixed masthead is a solid band, not frosted glass.** At 94% opacity the page title underneath stayed legible through it, as a ghost word under the wordmark. The band also has to reach the top of the screen: the 0.6rem of air above the bar belongs to the masthead's padding, not to the inner bar's margin.
 - Cloudflare Worker in `public/_worker.js` enforces path-traversal block + GET/HEAD allow-list + HTML-fallback rejection. Don't bypass.
 
 ## Cross-Agent Sync Note

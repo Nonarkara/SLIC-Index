@@ -1,7 +1,7 @@
 import BrandLockup from "./BrandLockup";
 import { collaborationLogos } from "./brandAssets";
 import { pickLocale, type LocalizedRecord } from "./i18n";
-import { navGroups, navGroupLabel, navPathLabel } from "./navGroups";
+import { navGroups, navGroupEntries } from "./navGroups";
 import { appHref } from "./routing";
 import { citationLine, dataVintageLine, authorProse, SCORE_MODEL_VERSION_SHORT } from "./publicationMeta";
 import { getCopy } from "./siteCopy";
@@ -259,20 +259,33 @@ export default function SiteFooter({
           <a href={appHref("/")} onClick={(event) => navigateLink(event, onNavigate, "/")}>
             {copy.nav.home}
           </a>
-          {navGroups.map((group) => (
-            <div className="site-footer-nav-group" key={group.id}>
-              <p className="site-footer-nav-label">{navGroupLabel(group.id, locale)}</p>
-              {group.paths.map((path) => (
-                <a
-                  key={path}
-                  href={appHref(path)}
-                  onClick={(event) => navigateLink(event, onNavigate, path)}
-                >
-                  {navPathLabel(path, locale)}
-                </a>
-              ))}
-            </div>
-          ))}
+          {navGroups.map((group) => {
+            const { label, headingPath, items } = navGroupEntries(group.id, locale);
+            return (
+              <div className="site-footer-nav-group" key={group.id}>
+                {headingPath ? (
+                  <a
+                    className="site-footer-nav-label"
+                    href={appHref(headingPath)}
+                    onClick={(event) => navigateLink(event, onNavigate, headingPath)}
+                  >
+                    {label}
+                  </a>
+                ) : (
+                  <p className="site-footer-nav-label">{label}</p>
+                )}
+                {items.map((item) => (
+                  <a
+                    key={item.path}
+                    href={appHref(item.path)}
+                    onClick={(event) => navigateLink(event, onNavigate, item.path)}
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            );
+          })}
           <div className="site-footer-nav-group site-footer-nav-group--archives">
             <p className="site-footer-nav-label">
               {locale === "th" ? "คลัง" : locale === "zh" ? "归档" : locale === "ko" ? "아카이브" : locale === "ja" ? "アーカイブ" : "Archives"}

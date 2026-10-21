@@ -2032,14 +2032,39 @@ section[id] {
 }
 
 /*
- * On a phone the seven footer columns wrapped 3 + 2 + 1, stranding the last
- * group on a line of its own. Two columns keeps the nav an even block.
+ * The footer navigation used to be a flex row of six columns. Below about
+ * 1100px that row wrapped into ragged lines, and below 560px it became a
+ * two-column grid in which every row took the height of its tallest cell:
+ * the 44px Home link sat alone in a 211px row with 167px of nothing under
+ * it, and the gap between "Data" and "About" was 190px. The links were
+ * packed; the columns were not.
+ *
+ * Multi-column packs the groups without aligning them to row tracks, so no
+ * cell can leave a void beneath it, and the block is a third shorter.
+ * Three columns from 561px up, two below — any fewer and a label wraps.
  */
-@media (max-width: 560px) {
+@media (max-width: 1023px) {
   .site-footer-nav {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem 1.5rem;
+    display: block;
+    columns: 2;
+    column-gap: 2rem;
+  }
+
+  .site-footer-nav > a:first-child {
+    display: flex;
+    break-inside: avoid;
+    margin-bottom: 0.9rem;
+  }
+
+  .site-footer-nav-group {
+    break-inside: avoid;
+    margin-bottom: 0.9rem;
+  }
+}
+
+@media (min-width: 561px) and (max-width: 1023px) {
+  .site-footer-nav {
+    columns: 3;
   }
 }
 
@@ -2064,6 +2089,7 @@ section[id] {
 }
 
 .site-footer-nav-label {
+  display: block;
   margin: 0 0 0.2rem;
   padding-bottom: 0.35rem;
   border-bottom: 1px solid rgba(40, 32, 20, 0.12);
@@ -2073,6 +2099,14 @@ section[id] {
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-soft);
+}
+
+/* A heading that repeats one of its own links becomes that link, so the word
+   is printed once. It has to look like the headings beside it, not like a
+   link that happens to be bold. */
+.site-footer-nav-label:hover,
+.site-footer-nav-label:focus-visible {
+  color: var(--text);
 }
 
 .site-footer-nav-group a {
@@ -2130,8 +2164,12 @@ section[id] {
   width: 100%;
   pointer-events: none;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  /* iPhone notch — keep the masthead inner below the dynamic island */
-  padding-top: env(safe-area-inset-top, 0px);
+  /* iPhone notch — keep the masthead inner below the dynamic island. The 0.6rem
+     of air above the bar has to live inside the masthead, not as the inner's
+     top margin: as a margin it collapsed out of the masthead box, so the
+     frosted band stopped short of the top of the screen and the page slid
+     through the gap. */
+  padding-top: calc(env(safe-area-inset-top, 0px) + 0.6rem);
 }
 
 .mh--hidden {
@@ -2143,7 +2181,7 @@ section[id] {
   align-items: center;
   justify-content: space-between;
   width: min(var(--max-width), calc(100% - var(--page-gutter)));
-  margin: 0.6rem auto 0;
+  margin: 0 auto;
   padding: 0.55rem 0;
   pointer-events: auto;
   background: transparent;
@@ -2153,8 +2191,16 @@ section[id] {
   gap: 1rem;
 }
 
+/* The scrolled masthead is a solid band, not frosted glass. At 94% opacity
+   the page title underneath stayed legible through it — a ghost word sitting
+   under the wordmark — and the band stopped short of the top of the screen
+   as well. */
+.mh--scrolled {
+  background: var(--bg);
+}
+
 .mh--scrolled .mh-inner {
-  background: rgba(248, 245, 240, 0.94);
+  background: transparent;
   border-color: rgba(40, 32, 20, 0.08);
   border-bottom-color: rgba(40, 32, 20, 0.12);
 }
@@ -2336,6 +2382,7 @@ section[id] {
 }
 
 .mh-panel-group-label {
+  display: block;
   margin: 0 0 0.15rem;
   padding: 0.35rem 0.8rem;
   color: var(--text-soft);
@@ -2344,6 +2391,13 @@ section[id] {
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
+}
+
+/* A heading that repeats one of its own links becomes that link — same
+   treatment as the headings beside it, so the word is printed once. */
+.mh-panel-group-label--link:hover,
+.mh-panel-group-label--link:focus-visible {
+  color: var(--text);
 }
 
 /* Right actions */
@@ -2400,7 +2454,9 @@ section[id] {
   width: min(var(--max-width), calc(100% - var(--page-gutter)));
   margin: 0.5rem auto 0;
   padding: 0.5rem;
-  background: rgba(248, 245, 240, 0.97);
+  /* A sheet, not a pane of glass. At 97% the hero headline underneath stayed
+     legible through the drawer as a ghost. */
+  background: var(--bg);
   border: 1px solid rgba(40, 32, 20, 0.06);
   border-radius: 0;
 }
