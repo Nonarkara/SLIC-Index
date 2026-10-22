@@ -168,10 +168,26 @@ async function serveEdge(dir, port) {
 /* ── the edge checks ────────────────────────────────────────────────────── */
 
 async function auditEdge(base) {
-  const shell = fs.readFileSync(path.join(DIST, "index.html"));
+  // The reference shell: the build's own index.html locally, and — when the
+  // audit runs against a deployed site — the site's own index.html. A live
+  // audit asks "does every route serve this site?", so the site is the
+  // reference, not whatever happens to be on this machine.
+  let shell = fs.readFileSync(path.join(DIST, "index.html"));
+  if (LIVE) {
+    const index = await fetch(base + "/index.html");
+    if (index.status === 200) {
+      const raw = Buffer.from(await index.arrayBuffer());
+      shell = raw.length > 2 && raw[0] === 0x1f && raw[1] === 0x8b ? zlib.gunzipSync(raw) : raw;
+    }
+  }
   for (const route of ROUTES) {
     const r = await fetch(base + route, { redirect: "manual" });
-    const body = Buffer.from(await r.arrayBuffer());
+    const raw = Buffer.from(await r.arrayBuffer());
+    // A live server answers gzip; the shell on disk is the plain bytes. The
+    // comparison has to be between the same thing. The fetch client may have
+    // decompressed it already, so the bytes decide, not the header.
+    const gzipped = raw.length > 2 && raw[0] === 0x1f && raw[1] === 0x8b;
+    const body = gzipped ? zlib.gunzipSync(raw) : raw;
     if (r.status !== 200) {
       add("blocker", `${route} answers ${r.status} at the edge`, "A published route must be served. A direct link to it is a link a reader can send.");
       continue;
@@ -195,15 +211,19 @@ async function auditEdge(base) {
   }
 
   // The edge boundaries still hold.
-  for (const [path, expected] of [
+  const boundaries = [
     ["/.env", 404],
     ["/%2eenv", 404],
     ["/_worker.js", 404],
     ["/traffic-api.js", 404],
     ["/%00", 400],
     ["/api", 404],
-    ["/api/traffic", 503],
-  ]) {
+    // The traffic counter lives in a D1 database. On Cloudflare it answers;
+    // anywhere else there is no binding, and the endpoint answers 503 by
+    // design rather than pretending to have data.
+    ["/api/traffic", LIVE ? 200 : 503],
+  ];
+  for (const [path, expected] of boundaries) {
     const r = await fetch(base + path);
     if (r.status !== expected) add("blocker", `${path} answers ${r.status}, expected ${expected}`, "The edge boundary moved.");
   }
