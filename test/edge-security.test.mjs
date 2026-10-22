@@ -92,3 +92,25 @@ test('a client route is answered with the shell even when the asset binding 404s
     assert.equal(r.headers.get('cache-control'), 'no-store', path);
   }
 });
+
+test('a navigation request is answered with the shell too', async () => {
+  // A request that arrives from the address bar has mode "navigate". The
+  // Request constructor refuses to build from one — "invalid request mode
+  // navigate" — so code that copies the incoming request into a new Request
+  // throws. The edge did exactly that when it fetched the shell, swallowed
+  // the throw, and answered 404 for every client route in production while
+  // the test below it stayed green, because a Request built in Node is mode
+  // "cors".
+  const env = { ASSETS: { async fetch(request) {
+    const path = new URL(typeof request === 'string' ? request : request.url).pathname;
+    if (path === '/index.html') {
+      return new Response('<title>SLIC</title>', { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+    }
+    return new Response('Not found', { status: 404, headers: { 'Content-Type': 'text/plain' } });
+  } } };
+  const navigation = new Request('https://slic.test/rankings');
+  Object.defineProperty(navigation, 'mode', { value: 'navigate' });
+  const r = await worker.fetch(navigation, env);
+  assert.equal(r.status, 200);
+  assert.match(r.headers.get('content-type') ?? '', /text\/html/);
+});

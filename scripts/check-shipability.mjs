@@ -56,6 +56,7 @@ const ROUTES = [
   "/about-slic",
   "/awards",
   "/traffic",
+  "/exercise",
 ];
 
 const WIDTHS = [1440, 390];
@@ -209,6 +210,30 @@ async function auditEdge(base) {
 
   const post = await fetch(base + "/", { method: "POST" });
   if (post.status !== 405) add("blocker", `POST / answers ${post.status}`, "Only GET and HEAD are allowed.");
+}
+
+/**
+ * The sitemap is the one file a crawler reads to learn what a site has. A
+ * published route that is not in it is a page the site is not offering, and
+ * the 163 city scorecards are the pages a reader actually searches for.
+ */
+function auditSitemap() {
+  const file = path.join(DIST, "sitemap.xml");
+  if (!fs.existsSync(file)) {
+    add("blocker", "there is no sitemap", "A crawler cannot learn what the site has without one.");
+    return;
+  }
+  const xml = fs.readFileSync(file, "utf8");
+  const missing = ROUTES.filter((route) => route !== "/" && !xml.includes(`slic.nonarkara.org${route}`));
+  if (missing.length) {
+    add("blocker", `${missing.length} published route(s) are not in the sitemap`, missing.join(", "));
+  }
+  const cityPages = (xml.match(/\/city\/[^<]+<\/loc>/g) ?? []).length;
+  const data = JSON.parse(fs.readFileSync(path.join(ROOT, "src/data/publishedRankingData.json"), "utf8"));
+  const cities = Array.isArray(data) ? data.length : data.cities.length;
+  if (cityPages < cities) {
+    add("warn", `the sitemap lists ${cityPages} city pages of ${cities}`, "The city scorecards are the pages a reader searches for.");
+  }
 }
 
 /* ── the browser checks ─────────────────────────────────────────────────── */
@@ -495,6 +520,7 @@ async function phase(name, fn) {
 }
 
 await phase("edge", () => auditEdge(base));
+await phase("sitemap", () => auditSitemap());
 if (!EDGE_ONLY) {
   await phase("browser", () => auditBrowser(base));
 }
