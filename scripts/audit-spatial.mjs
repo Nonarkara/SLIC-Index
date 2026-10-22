@@ -70,6 +70,17 @@ const ROUTES = [
   "/traffic",
 ];
 
+/*
+ * The widths the gate sweeps. Three of them is a sample, and a sample is how
+ * a hole at 561px survives: the old gate looked at four widths and the
+ * three-column footer shipped with a 98px hole under its first column.
+ *
+ * The dense ladder is every 20px from 320 to 1920 — the widths a reader's
+ * window actually takes. It is slower, so it is opt-in (--dense), but the
+ * baseline is written from a dense run, which means the ratchet is measured
+ * over the whole ladder and not over three guesses.
+ */
+const DENSE_WIDTHS = Array.from({ length: 81 }, (_, i) => 320 + i * 20);
 const WIDTHS = [1440, 1024, 390];
 
 const argv = process.argv.slice(2);
@@ -84,6 +95,10 @@ const AS_JSON = argv.includes("--json");
 const STRICT = argv.includes("--strict");
 const BASELINE = arg("--check") || arg("--baseline");
 const WRITE_BASELINE = arg("--write-baseline");
+const DENSE = argv.includes("--dense");
+/** How many pages are measured at once. Six keeps the machine busy without
+ *  starving it, and each page gets its own viewport. */
+const CONCURRENCY = Number(arg("--concurrency")) || 6;
 
 function serve(dir, port) {
   return new Promise((resolve) => {
@@ -584,19 +599,34 @@ const AUDIT = () => {
 const oldServer = LIVE ? null : await serve(path.resolve("dist"), 8802);
 const base = LIVE ?? "http://localhost:8802";
 
+const widths = DENSE ? DENSE_WIDTHS : WIDTHS;
+
+const jobs = [];
+for (const width of widths) {
+  if (ONLY_WIDTH && width !== ONLY_WIDTH) continue;
+  for (const route of ROUTES) {
+    if (ONLY_ROUTE && route !== ONLY_ROUTE) continue;
+    jobs.push({ route, width });
+  }
+}
+
 const browser = await chromium.launch({ channel: "chrome", headless: true });
-const context = await browser.newContext({ viewport: { width: WIDTHS[0], height: 900 } });
-const page = await context.newPage();
+const context = await browser.newContext({ viewport: { width: widths[0], height: 900 } });
 
 const results = [];
 let hard = 0;
 let soft = 0;
 
-for (const width of WIDTHS) {
-  if (ONLY_WIDTH && width !== ONLY_WIDTH) continue;
-  await page.setViewportSize({ width, height: width > 700 ? 900 : 844 });
-  for (const route of ROUTES) {
-    if (ONLY_ROUTE && route !== ONLY_ROUTE) continue;
+/**
+ * One page, one width, one route. The measurement is the same at every
+ * width — that is the point of the dense ladder: a hole that only appears
+ * at 561px is a hole, and three widths would never have found it.
+ */
+const measure = async (job) => {
+  const { route, width } = job;
+  const page = await context.newPage();
+  try {
+        await page.setViewportSize({ width, height: width > 700 ? 900 : 844 });
     await page.goto(`${base}${route}`, { waitUntil: "domcontentloaded", timeout: 60000 });
     await page.waitForSelector(".page-shell, #root", { timeout: 45000 });
     await page.waitForLoadState("networkidle", { timeout: 30000 }).catch(() => {});
@@ -658,8 +688,26 @@ for (const width of WIDTHS) {
       for (const h of a.hierarchy) console.log(`     HIER    ${h.kind} ${h.el || ""} ${h.modifier || ""} ${h.from || ""}${h.to || ""}`);
       for (const e of a.expensive) console.log(`     COST    ${e.kind} at ${e.at}px (viewport ${e.viewport}px)`);
     }
+  } finally {
+    await page.close();
   }
-}
+};
+
+/*
+ * The pages are measured in parallel — a dense ladder is 1,215 page loads,
+ * and one at a time that is half an hour of waiting for an answer. Six at a
+ * time keeps the machine busy without starving it.
+ */
+const pool = [];
+const workers = Array.from({ length: Math.min(CONCURRENCY, jobs.length) }, async () => {
+  while (pool.length) {
+    const job = pool.shift();
+    if (!job) return;
+    await measure(job);
+  }
+});
+for (const job of jobs) pool.push(job);
+await Promise.all(workers);
 
 await browser.close();
 if (oldServer) oldServer.close();
