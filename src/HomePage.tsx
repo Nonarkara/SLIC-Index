@@ -459,6 +459,7 @@ export default function HomePage({
               "すべてのランキングには隠された前提があります。\n私たちは自分たちのものを公開しました。",
             )}
           </h2>
+          <div className="hp-thesis-support">
           <p className="hp-thesis-body">
             {t(
               locale,
@@ -484,6 +485,7 @@ export default function HomePage({
           >
             {t(locale, "Five-year horizon — seeded, not scored", "ขอบฟ้าห้าปี — เพาะไว้ ยังไม่ให้คะแนน", "五年前瞻——已播种，尚未计分", "5년 지평선 — 씨앗만, 아직 채점 없음", "5年の地平線 — 種だけ、まだ採点しない")} &rarr;
           </a>
+          </div>
           </div>
         </div>
       </section>
@@ -525,8 +527,30 @@ export default function HomePage({
 
       <section className="v3-alpha" id="tiers">
         <div className="v3-alpha-header section">
-          <div className="v3-alpha-lead">
+          <div className="v3-alpha-head">
             <span className="v3-tier-badge v3-tier-badge--alpha">&alpha; ALPHA</span>
+            <h2 className="v3-alpha-title">
+              {t(
+                locale,
+                "The publishable ten. Every number traced to a source.",
+                "สิบเมืองที่เผยแพร่ได้จริง ตัวเลขทุกค่าย้อนกลับสู่แหล่งที่มาได้",
+                "可发布的十座城市。每个数字都可追溯至来源。",
+                "발표 가능한 10개 도시. 모든 수치는 출처까지 추적 가능합니다.",
+                "公開可能な10都市。すべての数値はソースまで追跡可能です。",
+              )}
+          </h2>
+            <p className="v3-alpha-subtitle">
+              {t(
+                locale,
+                `Each country holds at most one Alpha seat, with a few exceptions for regions where SLIC has strong multi-city data (two seats for Japan and East Asia). Alpha requires both Community and Pressure scores above ${PUBLIC_TIER_RULES.alphaMinCommunity}, plus ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}-grade coverage — a liveability floor, not just a high overall score. Europe holds ${PUBLIC_TIER_RULES.maxEuropeInAlpha} Alpha seats; Oceania holds none (purchase and rental costs exceed the median-resident threshold Alpha requires). Some cities are excluded from Alpha specifically because of housing cost — not because they are bad cities, but because Alpha is reserved for cities where a person on a local salary can actually build a life. The full tier policy is published in the methodology.`,
+                `แต่ละประเทศมีที่นั่ง Alpha ได้สูงสุดหนึ่งที่ โดยมีข้อยกเว้นสำหรับภูมิภาคที่ SLIC มีข้อมูลเมืองหลายแห่งที่แข็งแกร่ง Alpha ต้องมีคะแนน Community และ Pressure เกิน ${PUBLIC_TIER_RULES.alphaMinCommunity} ทั้งคู่ พร้อม coverage grade ${PUBLIC_TIER_RULES.alphaMinCoverageGrade} — เป็นเกณฑ์ขั้นต่ำด้านความน่าอยู่ ไม่ใช่แค่คะแนนรวมสูง บางเมืองถูกกันออกจาก Alpha เพราะค่าครองชีพ ไม่ใช่เพราะเป็นเมืองแย่ แต่เพราะ Alpha สงวนไว้สำหรับเมืองที่คนมีรายได้ท้องถิ่นสามารถสร้างชีวิตได้จริง นโยบายชั้นฉบับเต็มเผยแพร่ในหน้าระเบียบวิธี`,
+                `原则上每国一个 Alpha 席位，部分地区因 SLIC 拥有多城强数据而有例外（如日本和东亚可占两席）。Alpha 要求 Community 与 Pressure 都高于 ${PUBLIC_TIER_RULES.alphaMinCommunity}，且覆盖等级达到 ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}——这是宜居门槛，不只是总分高。大洋洲不设 Alpha 席位，因为该区域的购房与租房成本超出了 Alpha 所要求的中位居民可负担线。部分城市因住房成本被排除在 Alpha 之外——不是因为它们不好，而是 Alpha 专为当地薪资水平的人也能真正安家的城市保留。完整的分层政策已在方法论页面公开。`,
+                `각 국가는 최대 하나의 알파 자리를 보유하며, SLIC가 강력한 다도시 데이터를 보유한 지역에는 일부 예외가 있습니다(일본 및 동아시아는 2석). 알파는 커뮤니티와 성장 점수 모두 ${PUBLIC_TIER_RULES.alphaMinCommunity} 이상이고 ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}등급 커버리지가 필요합니다 — 생활 가능성 기준선이며, 단순히 높은 총점이 아닙니다. 유럽은 ${PUBLIC_TIER_RULES.maxEuropeInAlpha}개 알파 자리를 보유하고, 오세아니아는 없습니다(구매 및 임대 비용이 알파가 요구하는 중위 거주자 기준선을 초과). 일부 도시는 주거 비용 때문에 알파에서 제외됩니다 — 나쁜 도시여서가 아니라, 알파는 현지 급여 수준의 사람이 실제로 삶을 구축할 수 있는 도시를 위해 예약되어 있기 때문입니다. 완전한 등급 정책은 방법론에 공개되어 있습니다.`,
+                `各国は最大1つのアルファ席を保有し、SLICが強力なマルチシティデータを持つ地域には一部例外があります（日本と東アジアは2席）。アルファはコミュニティと成長のスコアが両方${PUBLIC_TIER_RULES.alphaMinCommunity}以上、かつ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}グレードのカバレッジが必要です——生活持続性の最低基準であり、単なる高い総合スコアではありません。ヨーロッパは${PUBLIC_TIER_RULES.maxEuropeInAlpha}席のアルファ席を保有し、オセアニアは保有しません（購入・賃貸コストがアルファが要求する中央値居住者の基準を超えるため）。一部の都市は住宅コストのためにアルファから除外されます——悪い都市だからではなく、アルファは地元の給与水準の人が実際に生活を構築できる都市のために予約されているためです。完全な等級ポリシーは方法論で公開されています。`,
+              )}
+            </p>
+          </div>
+          <div className="v3-alpha-lead">
             <div className="v3-alpha-bridge">
               <p className="v3-alpha-bridge-headline">
                 {t(
@@ -550,29 +574,8 @@ export default function HomePage({
               </p>
             </div>
           </div>
-          <div className="v3-alpha-head">
-            <h2 className="v3-alpha-title">
-              {t(
-                locale,
-                "The publishable ten. Every number traced to a source.",
-                "สิบเมืองที่เผยแพร่ได้จริง ตัวเลขทุกค่าย้อนกลับสู่แหล่งที่มาได้",
-                "可发布的十座城市。每个数字都可追溯至来源。",
-                "발표 가능한 10개 도시. 모든 수치는 출처까지 추적 가능합니다.",
-                "公開可能な10都市。すべての数値はソースまで追跡可能です。",
-              )}
-          </h2>
-            <p className="v3-alpha-subtitle">
-              {t(
-                locale,
-                `Each country holds at most one Alpha seat, with a few exceptions for regions where SLIC has strong multi-city data (two seats for Japan and East Asia). Alpha requires both Community and Pressure scores above ${PUBLIC_TIER_RULES.alphaMinCommunity}, plus ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}-grade coverage — a liveability floor, not just a high overall score. Europe holds ${PUBLIC_TIER_RULES.maxEuropeInAlpha} Alpha seats; Oceania holds none (purchase and rental costs exceed the median-resident threshold Alpha requires). Some cities are excluded from Alpha specifically because of housing cost — not because they are bad cities, but because Alpha is reserved for cities where a person on a local salary can actually build a life. The full tier policy is published in the methodology.`,
-                `แต่ละประเทศมีที่นั่ง Alpha ได้สูงสุดหนึ่งที่ โดยมีข้อยกเว้นสำหรับภูมิภาคที่ SLIC มีข้อมูลเมืองหลายแห่งที่แข็งแกร่ง Alpha ต้องมีคะแนน Community และ Pressure เกิน ${PUBLIC_TIER_RULES.alphaMinCommunity} ทั้งคู่ พร้อม coverage grade ${PUBLIC_TIER_RULES.alphaMinCoverageGrade} — เป็นเกณฑ์ขั้นต่ำด้านความน่าอยู่ ไม่ใช่แค่คะแนนรวมสูง บางเมืองถูกกันออกจาก Alpha เพราะค่าครองชีพ ไม่ใช่เพราะเป็นเมืองแย่ แต่เพราะ Alpha สงวนไว้สำหรับเมืองที่คนมีรายได้ท้องถิ่นสามารถสร้างชีวิตได้จริง นโยบายชั้นฉบับเต็มเผยแพร่ในหน้าระเบียบวิธี`,
-                `原则上每国一个 Alpha 席位，部分地区因 SLIC 拥有多城强数据而有例外（如日本和东亚可占两席）。Alpha 要求 Community 与 Pressure 都高于 ${PUBLIC_TIER_RULES.alphaMinCommunity}，且覆盖等级达到 ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}——这是宜居门槛，不只是总分高。大洋洲不设 Alpha 席位，因为该区域的购房与租房成本超出了 Alpha 所要求的中位居民可负担线。部分城市因住房成本被排除在 Alpha 之外——不是因为它们不好，而是 Alpha 专为当地薪资水平的人也能真正安家的城市保留。完整的分层政策已在方法论页面公开。`,
-                `각 국가는 최대 하나의 알파 자리를 보유하며, SLIC가 강력한 다도시 데이터를 보유한 지역에는 일부 예외가 있습니다(일본 및 동아시아는 2석). 알파는 커뮤니티와 성장 점수 모두 ${PUBLIC_TIER_RULES.alphaMinCommunity} 이상이고 ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}등급 커버리지가 필요합니다 — 생활 가능성 기준선이며, 단순히 높은 총점이 아닙니다. 유럽은 ${PUBLIC_TIER_RULES.maxEuropeInAlpha}개 알파 자리를 보유하고, 오세아니아는 없습니다(구매 및 임대 비용이 알파가 요구하는 중위 거주자 기준선을 초과). 일부 도시는 주거 비용 때문에 알파에서 제외됩니다 — 나쁜 도시여서가 아니라, 알파는 현지 급여 수준의 사람이 실제로 삶을 구축할 수 있는 도시를 위해 예약되어 있기 때문입니다. 완전한 등급 정책은 방법론에 공개되어 있습니다.`,
-                `各国は最大1つのアルファ席を保有し、SLICが強力なマルチシティデータを持つ地域には一部例外があります（日本と東アジアは2席）。アルファはコミュニティと成長のスコアが両方${PUBLIC_TIER_RULES.alphaMinCommunity}以上、かつ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}グレードのカバレッジが必要です——生活持続性の最低基準であり、単なる高い総合スコアではありません。ヨーロッパは${PUBLIC_TIER_RULES.maxEuropeInAlpha}席のアルファ席を保有し、オセアニアは保有しません（購入・賃貸コストがアルファが要求する中央値居住者の基準を超えるため）。一部の都市は住宅コストのためにアルファから除外されます——悪い都市だからではなく、アルファは地元の給与水準の人が実際に生活を構築できる都市のために予約されているためです。完全な等級ポリシーは方法論で公開されています。`,
-              )}
-            </p>
-          </div>
         </div>
+
         <div className="v3-alpha-grid section">
           {tieredResults.alpha.map((city) => (
               <a

@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;600;700&family=Noto+Sans+JP:wght@400;500;600;700&display=swap");
 
 /*
  * CJK + Thai script overrides — workspace CLAUDE.md §0.
@@ -72,7 +72,12 @@
 /* ═══════ V3: SANZO WADA × PALETTE EDITORIAL — architectural, relational, authentic ═══════ */
 :root {
   color-scheme: light;
-  --font-heading: "Source Serif 4", Georgia, "Times New Roman", serif;
+  /* Jost is the Bauhaus/Bayer face — the geometric lineage Red Dot lives in,
+     and the one the design-slop gate names when it tells you what to reach for
+     instead of a slop sans. It replaces the default editorial serif + humanist
+     pairing, which is what every generated site ships. Two families only:
+     Jost for display, Source Sans 3 for text. */
+  --font-heading: "Jost", "Futura", "Century Gothic", sans-serif;
   --font-body: "Source Sans 3", -apple-system, sans-serif;
   --font-mono: "JetBrains Mono", monospace;
   --bg: #f7f5ef;
@@ -954,11 +959,24 @@ section[id] {
   font-size: 1.35rem;
 }
 
+/*
+ * Eight pillars, seven on the first line and "Culture" alone on the second.
+ * The grid gives two even rows instead of a widow.
+ */
+/*
+ * Eight pillars, seven on the first line and "Culture" alone on the second.
+ * The same answer as the region row: the buttons grow, so every line is
+ * filled and each label keeps its own width.
+ */
 .mode-switch {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
   margin-bottom: 1.5rem;
+}
+
+.mode-switch > * {
+  flex: 1 1 auto;
 }
 
 /*
@@ -973,10 +991,31 @@ section[id] {
   }
 }
 
+/*
+ * A filter row that wrapped stranded its last option on a line of its own —
+ * seven regions became 3+3+1, and the one button alone on the last line read
+ * as a mistake rather than a filter. A grid gives the row an even block: the
+ * options share the width, and the last line is as full as the width allows.
+ */
+/*
+ * A filter row that wrapped stranded its last option on a line of its own —
+ * seven regions became 3+3+1, and the one button alone on the last line read
+ * as a mistake rather than a filter.
+ *
+ * A grid was the wrong answer here: the labels are of different lengths, so
+ * equal columns either squeezed them until the words touched ("Sustainability"
+ * against "Community") or left one option stranded in a cell of its own. The
+ * buttons grow instead — every line is filled to its edges, each label keeps
+ * its own width, and no line is left with a hole beside a lone option.
+ */
 .region-switch {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem;
+}
+
+.region-switch > * {
+  flex: 1 1 auto;
 }
 
 .rankings-controls {
@@ -2989,12 +3028,40 @@ section[id] {
   padding: var(--space-section-lg) 0 var(--space-section);
 }
 
-.hp-thesis-inner {
-  max-width: 42rem;
-  margin: 0 auto;
+/* ═══════════════════════════════════════════════════════════════════════
+   THE PAGE GRID
+
+   Six columns, 2rem gutters — the same grid the launch trail already used,
+   which put column origins at 24 / 262 / 501 / 740 / 978 / 1217 inside a
+   1400px section.
+
+   Three bands ignored it. The thesis and verdict were centred inside the
+   section (max-width + margin: 0 auto), which floated them to 385px and
+   410px; the Alpha header ran its own 1.45fr/1fr ratio, which put its
+   second column at 865px. One screen therefore carried four unrelated left
+   edges — 25, 385, 410, 865 — and nothing for the eye to navigate by.
+
+   Now every band places its content on the same six columns: the lead on
+   the left axis, the support on the right. One spine, top to bottom.
+   ═══════════════════════════════════════════════════════════════════════ */
+.hp-thesis-inner,
+.hp-verdict-inner,
+.v3-alpha-header {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1.5rem 2rem;
+  align-items: start;
+}
+
+/* Thesis: the claim on the left, its support on the right. The body and the
+   links share one grid cell — as separate items they landed in two rows, and
+   the second row started below the tall title, opening a 120px hole. */
+.hp-thesis-support {
+  grid-column: 4 / span 3;
 }
 
 .hp-thesis-title {
+  grid-column: 1 / span 3;
   font-family: var(--font-heading);
   font-size: clamp(1.85rem, 3.25vw, 2.8rem);
   font-weight: 600;
@@ -3035,12 +3102,11 @@ section[id] {
   border-top: 1px solid rgba(28, 25, 20, 0.1);
 }
 
-.hp-verdict-inner {
-  max-width: 620px;
-  margin: 0 auto;
-}
-
+/* The argument reads down the left column; the anchor — the single fact the
+   band exists to land — becomes the closing pull-quote on the right, so the
+   eye finishes the band on the point rather than on the setup. */
 .hp-verdict-p {
+  grid-column: 1 / span 3;
   font-family: var(--font-heading);
   font-size: 1.02rem;
   font-weight: 400;
@@ -3057,6 +3123,8 @@ section[id] {
 }
 
 .hp-verdict-p--anchor {
+  grid-column: 4 / span 3;
+  align-self: end;
   padding-left: 0.9rem;
   border-left: 2px solid var(--accent-amber);
   font-size: 0.92rem;
@@ -3236,7 +3304,9 @@ section[id] {
 .paper-anchor-nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem 1rem;
+  /* 1rem between the anchors was 9px too wide for the row to hold together
+     on one line, and the tenth anchor was left alone on a second line. */
+  gap: 0.7rem;
   margin-top: 1.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
@@ -3248,11 +3318,11 @@ section[id] {
  * with the last one stranded alone. Two columns give five even rows, and
  * every anchor keeps its 44px tap target.
  */
-@media (max-width: 560px) {
+@media (max-width: 700px) {
   .paper-anchor-nav {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 1rem;
+    gap: 0 0.7rem;
   }
 }
 
@@ -5057,13 +5127,9 @@ section[id] {
   }
 
   .hero-actions {
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  .primary-action,
-  .secondary-action {
-    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
   }
 
   .hero-stats {
@@ -5757,6 +5823,25 @@ section[id] {
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 4px;
+}
+
+/*
+ * A CTA row has to hold together. Between 520px and 760px the three
+ * methodology calls were stretched to the full width of the column and
+ * stacked into three bars — 740px of bar for the word "Home". The buttons
+ * are sized to their labels there, and only a phone gets the full-width
+ * stack, where a 44px-tall button across the screen is the right target.
+ */
+@media (max-width: 520px) {
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .hero-actions .primary-action,
+  .hero-actions .secondary-action {
+    width: 100%;
+  }
 }
 
 .hero-actions .secondary-action {
@@ -7981,8 +8066,15 @@ details[open].scorecard-derived-formula summary::before {
   font-size: 0.8rem;
   font-weight: 500;
   line-height: 1.25;
-  min-width: 0;
-  overflow-wrap: anywhere;
+  /*
+   * The name never shrinks below its longest word. `min-width: 0` let the
+   * flex row squeeze it, and `overflow-wrap: anywhere` then let the text
+   * break inside the word — "Economic Stress" printed as "Econom / ic
+   * Stress". `min-content` keeps the word whole and lets the name wrap at
+   * the space; `break-word` still breaks a word that cannot fit at all.
+   */
+  min-width: min-content;
+  overflow-wrap: break-word;
   text-decoration: none;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
@@ -8479,27 +8571,37 @@ a.metric-plate-name:hover {
  */
 .v3-alpha-header {
   margin-bottom: 2rem;
-  display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-  gap: 1.5rem 2.5rem;
-  align-items: start;
+}
+
+/* The section's title is the lead, not the note. It used to sit in the
+   second column of a 1.45fr/1fr ratio, so the eye met a 13-line amber
+   panel before it met the headline that names the section. Title left,
+   note right — and the note fills its column instead of shrink-to-fitting
+   into the void beside it. */
+.v3-alpha-head {
+  grid-column: 1 / span 3;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+/* The badge is a label, not a banner. In a flex column it stretches to the
+   column width and became a 680px black bar; it must sit at its own width. */
+.v3-alpha-head > .v3-tier-badge {
+  align-self: flex-start;
 }
 
 .v3-alpha-lead {
+  grid-column: 4 / span 3;
+  align-self: start;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: stretch;
   gap: 0.85rem;
 }
 
 .v3-alpha-lead .v3-alpha-bridge {
   margin: 0;
-}
-
-.v3-alpha-head {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
 }
 
 .v3-alpha-head .v3-alpha-subtitle {
@@ -8559,7 +8661,7 @@ a.metric-plate-name:hover {
 
 .v3-alpha-bridge {
   max-width: 46rem;
-  margin: 18px 0 0;
+  margin: 0;
   padding: 16px 20px;
   background: rgba(184, 92, 40, 0.06);
   border-left: 2px solid var(--accent-amber);
@@ -9796,15 +9898,68 @@ a.metric-plate-name:hover {
   margin: 0 0 16px;
 }
 
+/*
+ * Ten city chips in a 492px column wrapped 3+3+3+1 — the last chip alone on
+ * its own line. A grid of even cells puts them in a block, and at the wide
+ * end of the page in one or two full rows.
+ *
+ * The column count is passed in from the page, which picks the count that
+ * DIVIDES the chips (--slic-only-cols), so the last row is never one chip
+ * short of a full line. auto-fit could not do that: it fills the first row
+ * to nine and leaves the tenth alone under a row of empty columns.
+ */
+/*
+ * The compare page's preset bar. The label and the clear action sit on one
+ * line and the presets take the row below, so nothing is ever left alone on
+ * a line of its own — the bar broke 5+1 and stranded "Clear basket" under
+ * four presets.
+ */
+.sbs-preset-bar {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.4rem 0.5rem;
+  margin-bottom: 0.85rem;
+}
+
+.sbs-preset-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.sbs-preset-clear {
+  justify-self: end;
+}
+
+.sbs-preset-list {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  gap: 0.4rem;
+}
+
 .compare-slic-exclusive-cities {
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(var(--slic-only-cols, 5), minmax(0, 1fr));
   gap: 8px;
+}
+
+/* On a phone two chips to a row keeps every row even; the chip count is
+   even in the columns the page asked for, not in the width. */
+@media (max-width: 767px) {
+  .compare-slic-exclusive-cities {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
 .compare-slic-chip {
   display: inline-flex;
   align-items: baseline;
+  flex-wrap: wrap;
+  min-width: 0;
   gap: 6px;
   padding: 10px 16px;
   background: #fff;
@@ -13374,3 +13529,43 @@ a.essay-reference-text:hover {
   .traffic-summary p { flex-basis: 100%; }
 }
 
+
+/* ═══════════════════════════════════════════════════════════════════════
+   THE PAGE GRID — narrow viewports
+
+   Above 1024px the homepage bands share the six-column grid (see the block
+   beside .hp-thesis-inner). Below it there is no room for two columns, so
+   the bands stack and the prose takes a measured single column. The cap is
+   the measure the thesis band used before the grid change, so the narrow
+   layout is the one readers already had.
+   ═══════════════════════════════════════════════════════════════════════ */
+.hp-thesis-body,
+.hp-thesis-links,
+.hp-verdict-p {
+  max-width: 42rem;
+}
+
+@media (max-width: 1024px) {
+  .hp-thesis-inner,
+  .hp-verdict-inner,
+  .v3-alpha-header {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .hp-thesis-title,
+  .hp-thesis-support,
+  .hp-thesis-body,
+  .hp-thesis-links,
+  .hp-verdict-p,
+  .hp-verdict-p--anchor,
+  .v3-alpha-head,
+  .v3-alpha-lead {
+    grid-column: 1 / -1;
+  }
+
+  /* The anchor is a pull-quote when it can sit beside the argument. Stacked,
+     it is simply the last paragraph again. */
+  .hp-verdict-p--anchor {
+    align-self: start;
+  }
+}

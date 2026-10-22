@@ -256,7 +256,7 @@ export default function MapPage({
                 <text
                   x={hovered.x + 10}
                   y={hovered.y - 10}
-                  fontFamily="'Space Grotesk', 'Source Sans 3', sans-serif"
+                  fontFamily="'Jost', 'Source Sans 3', sans-serif"
                   fontSize={13}
                   fontWeight={700}
                   fill="#1c1914"

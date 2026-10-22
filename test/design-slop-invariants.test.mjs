@@ -73,15 +73,25 @@ test("rule 4: no AI-slop font is declared in any font-family", () => {
 });
 
 test("rule 4: the design font tokens name real editorial faces", () => {
-  // The heading face must be a serif with a real weight range (the Libre
-  // Baskerville 400/700 trap snapped every display heading to Bold), and the
-  // body face must be a humanist sans, not a geometric-default slop face.
+  // The display face must be an editorial face with a real weight range. Two
+  // lineages qualify: an editorial serif (Source Serif, Libre Baskerville,
+  // Charis, Noto Serif, Spectral, Iowan, Newsreader) and Jost — the
+  // Bauhaus/Bayer geometric that this file already names when it tells you
+  // what to reach for instead of a slop sans. The old rule accepted only a
+  // serif, which made the gate's own recommended replacement impossible to
+  // install.
+  //
+  // The body face must be a humanist sans, not a geometric-default slop face.
   const heading = cssNoComments.match(/--font-heading:\s*([^;]+);/)?.[1] ?? "";
   const body = cssNoComments.match(/--font-body:\s*([^;]+);/)?.[1] ?? "";
-  assert.match(heading, /serif/i, "--font-heading must fall back to a generic serif");
   assert.ok(
-    /Source Serif|Libre Baskerville|Charis|Noto Serif|Spectral|Iowan|Newsreader/i.test(heading),
-    `--font-heading should name an editorial serif with a real weight range, got: ${heading.trim()}`,
+    /Source Serif|Libre Baskerville|Charis|Noto Serif|Spectral|Iowan|Newsreader|Jost/i.test(heading),
+    `--font-heading should name an editorial face with a real weight range, got: ${heading.trim()}`,
+  );
+  assert.match(
+    heading,
+    /serif|sans-serif|system-ui/i,
+    "--font-heading must declare a generic fallback for the face to fail over to",
   );
   assert.ok(
     /Source Sans|IBM Plex Sans|Noto Sans|IBM Plex Sans Thai/i.test(body),

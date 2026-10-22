@@ -225,6 +225,19 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
     return indices.filter((i) => i !== "SLIC").length === 0;
   }), [slicTop10, overlaps]);
 
+  /* ── How many columns the exclusive-city chips get ──
+     Ten chips on one flex row leave the tenth alone on a line of its own.
+     The column count is chosen so it DIVIDES the chips, so every row is full
+     and no link is ever stranded. The chip count changes when the weights
+     move (the spider re-ranks the top ten), so the count is derived, not
+     hard-coded to the ten that happen to be there today. */
+  const slicOnlyColumns = useMemo(() => {
+    const n = slicOnly.length;
+    if (n < 2) return 1;
+    for (const c of [5, 4, 3, 2]) if (n % c === 0) return c;
+    return n; // a prime count fits on one row rather than leaving a widow
+  }, [slicOnly.length]);
+
   /* ── MasterCard GDCI 2019 → SLIC rank lookup (published data, not custom weights) ── */
   const mastercardWithSlic = useMemo(() => {
     return MASTERCARD_GDCI_2019.map((mc) => {
@@ -428,7 +441,10 @@ export default function CompareRankingsPage({ onNavigate, locale }: { onNavigate
           <div className="compare-slic-exclusive">
             <h3>{t(locale, "Only in SLIC", "มีใน SLIC เท่านั้น", "仅在SLIC中", "SLIC 단독 등재", "SLICのみに掲載")}</h3>
             <p>{t(locale, "These cities rank in SLIC\u2019s top 10 but appear in zero establishment top-10 lists.", "เมืองเหล่านี้อยู่ใน SLIC top 10 แต่ไม่อยู่ในดัชนีสถาบันใดเลย", "这些城市在SLIC前10中但不在任何机构前10中", "이 도시들은 SLIC 상위 10위에 포함되지만 어떤 기성 지수의 상위 10위 목록에도 나타나지 않습니다.", "これらの都市はSLICトップ10にランクインしていますが、既存のどの指数のトップ10リストにも登場しません。")}</p>
-            <div className="compare-slic-exclusive-cities">
+            <div
+              className="compare-slic-exclusive-cities"
+              style={{ "--slic-only-cols": slicOnlyColumns } as CSSProperties}
+            >
               {slicOnly.map((c) => (
                 <a
                   key={c.cityId}
