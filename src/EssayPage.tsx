@@ -15,7 +15,7 @@ interface EssayPhoto {
 
 const PHOTOS: Record<string, EssayPhoto> = {
   hero: {
-    src: "/photos/city-taipei.jpg",
+    src: "/photos/city-taipei.webp",
     alt: "Taipei cityscape at dusk",
     captions: {
       en: "Taipei — ranked #1 by SLIC when equal weight is applied across all five pillars. It does not rank in any established livability index.",
@@ -27,7 +27,7 @@ const PHOTOS: Record<string, EssayPhoto> = {
     credit: "SLIC Index archive",
   },
   melbourne: {
-    src: "/photos/report-city-night.jpg",
+    src: "/photos/report-city-night.webp",
     alt: "City at night — urban architecture",
     captions: {
       en: "A city that ranks well and a city where people can afford to live are not always the same city.",
@@ -39,7 +39,7 @@ const PHOTOS: Record<string, EssayPhoto> = {
     credit: "SLIC Index archive",
   },
   singapore: {
-    src: "/launch-photos/gitex-singapore-2026-02.jpg",
+    src: "/launch-photos/gitex-singapore-2026-02.webp",
     alt: "Singapore — GITEX Asia 2026",
     captions: {
       en: "Singapore at GITEX Asia 2026. The city ranks exceptionally by conventional measures. The SLIC civic freedom composite gives it 39 out of 100.",
@@ -51,7 +51,7 @@ const PHOTOS: Record<string, EssayPhoto> = {
     credit: "Non Arkaraprasertkul / SLIC Index",
   },
   governance: {
-    src: "/photos/profile-roundtable.jpg",
+    src: "/photos/profile-roundtable.webp",
     alt: "City officials in roundtable discussion",
     captions: {
       en: "Citizen-centric governance is not a technology choice. It is a decision about whose problems the city is trying to solve.",
@@ -63,7 +63,7 @@ const PHOTOS: Record<string, EssayPhoto> = {
     credit: "SLIC Index archive",
   },
   transit: {
-    src: "/photos/report-city-transit.jpg",
+    src: "/photos/report-city-transit.webp",
     alt: "Urban transit infrastructure",
     captions: {
       en: "Transit quality is one of five pillars in the SLIC framework — scored on reach, frequency, and commute burden, not on the age of the rolling stock.",
@@ -75,7 +75,7 @@ const PHOTOS: Record<string, EssayPhoto> = {
     credit: "SLIC Index archive",
   },
   london: {
-    src: "/photos/city-london.jpg",
+    src: "/photos/city-london.webp",
     alt: "London streetscape",
     captions: {
       en: "London — £270–340 per square foot at the £350,000 price point. Ranked among the world's most livable cities. Ranked among the world's least affordable.",

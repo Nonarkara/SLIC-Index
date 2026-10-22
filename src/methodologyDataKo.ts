@@ -151,7 +151,7 @@ export const methodologyDataKo: MethodologyData = {
     figures: [
       {
         id: "process-stage-ko",
-        src: "/photos/report-people-stage.jpg",
+        src: "/photos/report-people-stage.webp",
         alt: "공공 도시 행사 중에 무대 위에 서 있는 사람들.",
         caption: "프레임워크는 사적 초안 작성을 넘어 공개적인 발표와 검증 과정에서도 살아남아야 했습니다.",
         width: 1440,
@@ -159,7 +159,7 @@ export const methodologyDataKo: MethodologyData = {
       },
       {
         id: "process-meeting-ko",
-        src: "/photos/report-people-meeting.jpg",
+        src: "/photos/report-people-meeting.webp",
         alt: "노트북과 마이크가 놓인 테이블 주변에 모여 회의를 하는 참석자들.",
         caption: "가정들은 데이터 선택과 도시 논리를 옹호해야 하는 실무 회의에서 정밀하게 검증되었습니다.",
         width: 1439,
@@ -167,7 +167,7 @@ export const methodologyDataKo: MethodologyData = {
       },
       {
         id: "process-workshop-ko",
-        src: "/photos/report-people-workshop.jpg",
+        src: "/photos/report-people-workshop.webp",
         alt: "착석한 청중에게 프레젠테이션을 하는 강사가 있는 워크숍.",
         caption: "파일럿 토론은 보기만 좋은 지표와 도시 생활을 실제로 설명할 수 있는 지표를 구분하는 데 도움이 되었습니다.",
         width: 2048,

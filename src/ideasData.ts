@@ -87,7 +87,7 @@ const getNearbyReports = async (lat, lng) => {
       ja: "github.com/mysociety/fixmystreet — オリジナルのPerl/Catalystコードベース。多数の国際フォークが存在します。Open311標準(open311.org)により都市のAPIはすぐに互換性を持ちます。",
     },
     tags: ["open311", "citizen-reporting", "maps", "leaflet", "municipality", "open-source"],
-    image: "photos/city-london.jpg",
+    image: "photos/city-london.webp",
     imageCredit: "Benjamin Davies / Unsplash",
   },
 
@@ -138,7 +138,7 @@ services:
       ja: "github.com/decidim/decidim — スター1,400以上、2016年から活発に運営。完全なドキュメントはdocs.decidim.org。ホスト型SaaS版(decidim.org)でセルフホスティング前に試用できます。",
     },
     tags: ["participatory-budgeting", "democracy", "governance", "open-source", "civic-tech"],
-    image: "photos/city-barcelona.jpg",
+    image: "photos/city-barcelona.webp",
     imageCredit: "Logan Armstrong / Unsplash",
   },
 
@@ -198,7 +198,7 @@ const getArrivals = async (stopId) => {
       ja: "github.com/OneBusAway — サーバー、Android、iOSクライアントを含む完全なmonorepo。シアトルのライブインスタンスはapi.onebusaway.org。都市を接続するにはGTFSフィードとGTFS-RT車両位置フィードが必要です。",
     },
     tags: ["transit", "GTFS-RT", "real-time", "public-transport", "mobile", "open-data"],
-    image: "photos/city-seattle-transit.jpg",
+    image: "photos/city-seattle-transit.webp",
     imageCredit: "Robert Ritchie / Unsplash",
   },
 
@@ -262,7 +262,7 @@ if __name__ == "__main__":
       ja: "openaq.org/developers — 30秒で無料APIキーを取得。github.com/openaq/openaq-apiで完全なプラットフォームソースを確認。OpenAQベースの既製都市ダッシュボードは'breathe-free/breathe'を参照。",
     },
     tags: ["air-quality", "PM2.5", "open-data", "environment", "public-health", "sensors"],
-    image: "photos/slic-overlook.jpg",
+    image: "photos/slic-overlook.webp",
   },
 
   // 5 -----------------------------------------------------------------------
@@ -310,7 +310,7 @@ cargo run --release --bin cli -- \\
       ja: "github.com/a-b-street/abstreet — スター8,000以上。ウェブ版a-b-street.github.ioはインストール不要でブラウザで動作します。都市マップデータはOpenStreetMapから自動インポートされます。",
     },
     tags: ["traffic-simulation", "urban-planning", "openstreetmap", "rust", "wasm", "mobility"],
-    image: "photos/city-seattle-streets.jpg",
+    image: "photos/city-seattle-streets.webp",
     imageCredit: "Ben Dutton / Unsplash",
   },
 
@@ -368,7 +368,7 @@ curl -u admin:district \\
       ja: "github.com/dhis2 — バックエンド、フロントエンド、Androidアプリ、ドキュメントを含むmonorepo。政府機関は無料。dhis2.orgでライブデモを確認できます。WHOとUNICEFがグローバル保健プログラムに使用中。",
     },
     tags: ["health", "HMIS", "open-source", "WHO", "data-collection", "offline-first", "GIS"],
-    image: "photos/city-oslo.jpg",
+    image: "photos/city-oslo.webp",
     imageCredit: "Christoffer Engström / Unsplash",
   },
 
@@ -424,7 +424,7 @@ curl -X POST http://localhost/api/v3/comments \\
       ja: "github.com/compdemocracy/polis — 数学サーバー、API、Reactクライアントを含む完全なプラットフォーム。pol.isのホスト版は小規模な協議に無料。台湾のvTaiwan手順書はvTaiwan.tw。",
     },
     tags: ["deliberation", "consensus", "AI", "democracy", "civic-tech", "Taiwan", "open-source"],
-    image: "photos/city-taipei.jpg",
+    image: "photos/city-taipei.webp",
     imageCredit: "jk retiza / Unsplash",
   },
 
@@ -482,7 +482,7 @@ getSensorData(13.75, 100.5).then(sensors => {
       ja: "github.com/opendata-stuttgart/sensors-software — 完全なESP8266/ESP32ファームウェア。構築ガイドはsensor.community/en/sensors/airrohr。データAPIはdata.sensor.community（認証不要）。",
     },
     tags: ["DIY", "IoT", "air-quality", "sensors", "citizen-science", "ESP8266", "open-data"],
-    image: "photos/city-stuttgart.jpg",
+    image: "photos/city-stuttgart.webp",
     imageCredit: "Bianca Ackermann / Unsplash",
   },
 
@@ -544,7 +544,7 @@ query {
       ja: "github.com/opentripplanner/OpenTripPlanner — スター2,600以上。完全なドキュメントはdocs.opentripplanner.org。ヘルシンキの実装(github.com/HSLdevcom/digitransit-ui)はOTP上に構築されたプロダクションUIを示しています。",
     },
     tags: ["multi-modal", "routing", "GTFS", "transit", "open-source", "navigation", "Java"],
-    image: "photos/city-portland.jpg",
+    image: "photos/city-portland.webp",
     imageCredit: "Adam Blank / Unsplash",
   },
 
@@ -600,7 +600,7 @@ print(f"Total consumption last 48h: {total_kwh:.2f} kWh")`,
       ja: "github.com/emoncms/emoncms — スター1,300以上。ハードウェア設計はgithub.com/openenergymonitor。ホスト型サービスemoncms.orgで無料で開始できます。完全なコミュニティフォーラムはcommunity.openenergymonitor.org。",
     },
     tags: ["energy", "IoT", "smart-grid", "monitoring", "open-hardware", "net-zero", "raspberry-pi"],
-    image: "photos/city-bristol.jpg",
+    image: "photos/city-bristol.webp",
     imageCredit: "Mikey Harris / Unsplash",
   },
 
@@ -654,7 +654,7 @@ result.routes.forEach(r =>
       ja: "github.com/VROOM-Project/vroom — C++コア（スター1,700以上）。github.com/VROOM-Project/vroom-express — Node.js RESTラッパー（Dockerで1コマンドデプロイ）。完全なドキュメントはvroom-project.org。",
     },
     tags: ["routing", "optimisation", "logistics", "waste-management", "fleet", "VRP", "open-source"],
-    image: "photos/report-city-kuching.jpg",
+    image: "photos/report-city-kuching.webp",
   },
 
   // 12 ----------------------------------------------------------------------
@@ -701,7 +701,7 @@ curl -X POST https://api.meshtastic.de/nodes \\
       ja: "github.com/freifunk — ファームウェア、マップ、ツールを含む傘組織。freifunk.netですべてのアクティブなコミュニティを確認。gluonファームウェア(github.com/freifunk-gluon/gluon)は最も広く展開されているメッシュOSです。",
     },
     tags: ["WiFi", "mesh-network", "community", "OpenWrt", "open-source", "digital-equity", "DIY"],
-    image: "photos/city-berlin.jpg",
+    image: "photos/city-berlin.webp",
     imageCredit: "Florian Wehde / Unsplash",
   },
 ];

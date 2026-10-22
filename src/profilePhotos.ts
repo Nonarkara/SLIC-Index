@@ -10,7 +10,7 @@ export interface ProfilePhoto {
 export const profilePhotos: ProfilePhoto[] = [
   {
     id: "profile-team",
-    src: "/photos/profile-team-asean.jpg",
+    src: "/photos/profile-team-asean.webp",
     alt: "A group portrait taken after a regional meeting.",
     caption: "The wider SLIC platform is built through regional collaboration, not single-author abstraction.",
     width: 2915,
@@ -18,7 +18,7 @@ export const profilePhotos: ProfilePhoto[] = [
   },
   {
     id: "profile-group",
-    src: "/photos/profile-group-depa.jpg",
+    src: "/photos/profile-group-depa.webp",
     alt: "A group gathered in front of a presentation screen after a session.",
     caption: "Programmes, pilots, and public experimentation are part of the institutional story behind the index.",
     width: 4032,

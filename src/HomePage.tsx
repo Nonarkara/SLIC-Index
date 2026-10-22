@@ -87,12 +87,12 @@ const CANONICAL_WEIGHTS: Record<PillarId, number> = {
   creative: 20,
 };
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
-const HERO_PHOTO = `${BASE}/launch-photos/20260318145941_DSC09480.jpg`;
-const METHOD_PHOTO = `${BASE}/launch-photos/20260318145319_DSC09441.jpg`;
-const STAGE_PHOTO = `${BASE}/launch-photos/20260318145249_ABC01948.jpg`;
-const SHOWFLOOR_PHOTO = `${BASE}/launch-photos/20260318151147_DSC09510.jpg`;
-const GITEX_STAGE_PHOTO = `${BASE}/launch-photos/gitex-singapore-2026-02.jpg`;
-const LEAP_EAST_PHOTO = `${BASE}/launch-photos/leap-east-hong-kong-2026.png`;
+const HERO_PHOTO = `${BASE}/launch-photos/20260318145941_DSC09480.webp`;
+const METHOD_PHOTO = `${BASE}/launch-photos/20260318145319_DSC09441.webp`;
+const STAGE_PHOTO = `${BASE}/launch-photos/20260318145249_ABC01948.webp`;
+const SHOWFLOOR_PHOTO = `${BASE}/launch-photos/20260318151147_DSC09510.webp`;
+const GITEX_STAGE_PHOTO = `${BASE}/launch-photos/gitex-singapore-2026-02.webp`;
+const LEAP_EAST_PHOTO = `${BASE}/launch-photos/leap-east-hong-kong-2026.webp`;
 // Real stage photos, copied from the axiom.nonarkara.org repo (public/images/*.webp).
 const SHANGHAI_STAGE_PHOTO = `${BASE}/launch-photos/tomorrow-city-shanghai-2026.webp`;
 const OSAKA_STAGE_PHOTO = `${BASE}/launch-photos/osaka-asia-roundtable-2026.webp`;

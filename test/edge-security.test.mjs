@@ -59,3 +59,36 @@ test('edge asset outages return a bounded failure without internals', async () =
   assert.equal(await r.text(), 'Service unavailable');
   assert.equal(r.headers.get('cache-control'), 'no-store');
 });
+
+test('a client route is answered with the shell even when the asset binding 404s it', async () => {
+  // The asset binding does not apply _redirects: it answers a path that has
+  // no file behind it with 404. The edge still has to serve the shell for a
+  // client route, because the application — not the edge — decides what
+  // /rankings means.
+  //
+  // The stub below behaves like that binding on purpose. A stub that answers
+  // everything with 200 cannot see this failure: the whole site was 404 on
+  // every route but the homepage while this file stayed green, because the
+  // tests were serving the build through a dev server that has its own
+  // fallback.
+  const env = { ASSETS: { async fetch(request) {
+    const path = new URL(request.url).pathname;
+    if (path === '/index.html') {
+      return new Response('<title>SLIC</title>', { headers: { 'Content-Type': 'text/html; charset=utf-8' } });
+    }
+    return new Response('Not found', { status: 404, headers: { 'Content-Type': 'text/plain' } });
+  } } };
+  for (const path of ['/', '/rankings', '/compare', '/city/th-bangkok', '/methodology', '/ideas', '/traffic']) {
+    const r = await worker.fetch(new Request('https://slic.test' + path), env);
+    assert.equal(r.status, 200, path);
+    assert.match(r.headers.get('content-type') ?? '', /text\/html/, path);
+    assert.equal(r.headers.get('cache-control'), 'no-cache', path);
+  }
+  // A file that does not exist is still a 404: the shell is the answer to a
+  // route, not a blanket over the whole origin.
+  for (const path of ['/assets/missing.js', '/missing.png', '/downloads/missing.pdf', '/og-card.png']) {
+    const r = await worker.fetch(new Request('https://slic.test' + path), env);
+    assert.equal(r.status, 404, path);
+    assert.equal(r.headers.get('cache-control'), 'no-store', path);
+  }
+});

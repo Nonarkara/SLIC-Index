@@ -696,7 +696,7 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
       figures: [
         {
           id: "process-stage",
-          src: "/photos/report-people-stage.jpg",
+          src: "/photos/report-people-stage.webp",
           alt: "People on stage during a public city event.",
           caption: "The framework had to survive public presentation, not just private drafting.",
           width: 1440,
@@ -704,7 +704,7 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         },
         {
           id: "process-meeting",
-          src: "/photos/report-people-meeting.jpg",
+          src: "/photos/report-people-meeting.webp",
           alt: "Participants meeting around a table with laptops and microphones.",
           caption: "Assumptions were tested in working meetings where data choices and city logic had to be defended.",
           width: 1439,
@@ -712,7 +712,7 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         },
         {
           id: "process-workshop",
-          src: "/photos/report-people-workshop.jpg",
+          src: "/photos/report-people-workshop.webp",
           alt: "A workshop with a speaker presenting to a seated audience.",
           caption: "Pilot discussions helped separate good-looking indicators from indicators that actually explain urban life.",
           width: 2048,
@@ -1301,7 +1301,7 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
       figures: [
         {
           id: "process-stage-th",
-          src: "/photos/report-people-stage.jpg",
+          src: "/photos/report-people-stage.webp",
           alt: "ผู้คนบนเวทีงานสาธารณะด้านเมือง",
           caption: "กรอบนี้ต้องอธิบายต่อสาธารณะให้รอด ไม่ใช่แค่สวยในเอกสารภายใน",
           width: 1440,
@@ -1309,7 +1309,7 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         },
         {
           id: "process-meeting-th",
-          src: "/photos/report-people-meeting.jpg",
+          src: "/photos/report-people-meeting.webp",
           alt: "การประชุมรอบโต๊ะพร้อมคอมพิวเตอร์และไมโครโฟน",
           caption: "สมมติฐานถูกตรวจในห้องทำงานที่ต้องป้องกันเหตุผลด้านข้อมูลและเหตุผลด้านเมืองพร้อมกัน",
           width: 1439,
@@ -1317,7 +1317,7 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         },
         {
           id: "process-workshop-th",
-          src: "/photos/report-people-workshop.jpg",
+          src: "/photos/report-people-workshop.webp",
           alt: "เวิร์กช็อปที่มีผู้บรรยายต่อหน้าผู้เข้าร่วม",
           caption: "การทดลองใช้ช่วยแยกตัวชี้วัดที่ดูดีออกจากตัวชี้วัดที่อธิบายชีวิตเมืองได้จริง",
           width: 2048,
@@ -1839,7 +1839,7 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
       figures: [
         {
           id: "process-stage-zh",
-          src: "/photos/report-people-stage.jpg",
+          src: "/photos/report-people-stage.webp",
           alt: "城市议题公开活动中的舞台场景。",
           caption: "这套框架必须经得起公开说明，而不只是内部自洽。",
           width: 1440,
@@ -1847,7 +1847,7 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         },
         {
           id: "process-meeting-zh",
-          src: "/photos/report-people-meeting.jpg",
+          src: "/photos/report-people-meeting.webp",
           alt: "围桌会议场景，桌上有电脑与麦克风。",
           caption: "假设在真实工作会议中被检验，数据选择与城市逻辑都要能被说明。",
           width: 1439,
@@ -1855,7 +1855,7 @@ const coreMethodologyContent: Record<CoreLocale, MethodologyData> = {
         },
         {
           id: "process-workshop-zh",
-          src: "/photos/report-people-workshop.jpg",
+          src: "/photos/report-people-workshop.webp",
           alt: "讲者面对听众进行工作坊说明。",
           caption: "试点讨论帮助我们把“看起来漂亮”的指标与真正解释城市生活的指标区分开来。",
           width: 2048,

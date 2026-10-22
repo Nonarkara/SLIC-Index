@@ -151,7 +151,7 @@ export const methodologyDataJa: MethodologyData = {
     figures: [
       {
         id: "process-stage-ja",
-        src: "/photos/report-people-stage.jpg",
+        src: "/photos/report-people-stage.webp",
         alt: "公開された都市イベントのステージ上の人々。",
         caption: "フレームワークは個人的な起草だけでなく、公開されたプレゼンテーションにも耐えなければなりませんでした。",
         width: 1440,
@@ -159,7 +159,7 @@ export const methodologyDataJa: MethodologyData = {
       },
       {
         id: "process-meeting-ja",
-        src: "/photos/report-people-meeting.jpg",
+        src: "/photos/report-people-meeting.webp",
         alt: "ノートパソコンとマイクを置いたテーブルを囲む会議の参加者。",
         caption: "仮定は、データの選択と都市のロジックを擁護しなければならない作業会議でテストされました。",
         width: 1439,
@@ -167,7 +167,7 @@ export const methodologyDataJa: MethodologyData = {
       },
       {
         id: "process-workshop-ja",
-        src: "/photos/report-people-workshop.jpg",
+        src: "/photos/report-people-workshop.webp",
         alt: "着席した聴衆にプレゼンテーションを行う講師のワークショップ。",
         caption: "パイロットディスカッションは、「見栄えの良い」指標と、実際の都市生活を説明する指標を区別するのに役立ちました。",
         width: 2048,
