@@ -56,9 +56,18 @@ export default {
       //
       // The fallback cannot be left to the platform. The shell is fetched
       // here, so the route survives whatever the binding does.
+      //
+      // The shell is fetched with a plain Request, never with the incoming
+      // one as the init. A navigation request has mode "navigate", and the
+      // Request constructor refuses to build from one — "invalid request
+      // mode navigate" — so passing the original request threw, the catch
+      // swallowed it, and every client route 404'd in production while the
+      // same code passed in the test, where a Request is mode "cors".
       if (!policy.isFile) {
         try {
-          const shell = await env.ASSETS.fetch(new Request(new URL('/index.html', request.url), request));
+          const shell = await env.ASSETS.fetch(
+            new Request(new URL('/index.html', request.url).toString(), { method: request.method }),
+          );
           if (shell.status === 200) return serve(shell);
         } catch {
           // Fall through to the bounded failure below.
