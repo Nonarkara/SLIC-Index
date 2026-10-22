@@ -15,6 +15,8 @@ import { getVisitorStats } from "./firstPartyTraffic";
 import { SCORE_MODEL_VERSION_SHORT } from "./publicationMeta";
 import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
 import type { PillarId } from "./pillars";
+import { CityBoardMark, CompareMark, GlobeMark } from "./IconMarks";
+import methodologyFacts from "./data/methodologyFacts.json";
 
 
 interface HomeCity {
@@ -124,6 +126,9 @@ const publishedBoard: HomeCity[] = rankingPublication.cities
   .sort((left, right) => left.rank - right.rank);
 const publishedRankedCount = publishedBoard.filter((city) => city.rankingStatus === "Ranked").length;
 const publishedWatchlistCount = rankingPublication.cities.length - publishedRankedCount;
+// The console quotes the model's depth from the publication bundle rather
+// than from a literal, so the strip and the methodology page cannot drift.
+const scoredMetricCount = methodologyFacts.scoredMetricCount;
 
 // Bangkok is the editorial anchor — pull live numbers so bridge copy never drifts.
 const bangkokWorked = rankingPublication.cities.find((c) => c.cityId === "th-bangkok");
@@ -334,50 +339,76 @@ export default function HomePage({
           <p className="hp-deck">
             {t(
               locale,
-              `${publishedRankedCount} ranked cities plus a ${publishedWatchlistCount}-city conflict-zone and low-coverage watchlist. One declared score per city, traced through five public pillars: pressure, viability, capability, community, and creative momentum. Alpha requires a liveability floor — no city trades its residents for its skyline.`,
-              `${publishedRankedCount} เมืองในการจัดอันดับ พร้อมรายชื่อเฝ้าระวัง ${publishedWatchlistCount} เมืองสำหรับเขตขัดแย้งและข้อมูลไม่สมบูรณ์ แต่ละเมืองมีคะแนนที่ประกาศชัดเจนหนึ่งค่า และสามารถไล่ย้อนกลับได้ผ่าน 5 เสาหลักสาธารณะ ได้แก่ แรงกดดัน ความน่าอยู่ ศักยภาพ ชุมชน และพลังสร้างสรรค์ ระดับ Alpha ต้องผ่านเกณฑ์ขั้นต่ำของความน่าอยู่ — ไม่มีเมืองใดที่ยอมแลกผู้คนกับภาพลักษณ์`,
-              `${publishedRankedCount} 座已排名城市，另设 ${publishedWatchlistCount} 座冲突区与数据覆盖观察名单城市。每座城市对应一个公开分数，可追溯到五个公开支柱：压力、宜居性、能力、社区与创造动能。Alpha 级须跨过宜居门槛——没有哪座城市能用居民换天际线。`,
-              `${publishedRankedCount}개 도시 순위 + ${publishedWatchlistCount}개 분쟁 지역 및 저커버리지 관찰 목록. 도시당 공식 선언 점수 1개, 5개 공개 기둥을 통해 추적 가능: 성장, 생활가능성, 역량, 커뮤니티, 창의적 모멘텀. 알파는 생활 가능성 기준선이 필요합니다.`,
-              `${publishedRankedCount}都市のランキングと${publishedWatchlistCount}都市の紛争地域・低カバレッジ観察リスト。都市ごとに1つの宣言スコア、5つの公開柱を通じて追跡可能：成長、生活持続性、能力、コミュニティ、創造性。アルファには生活持続性の最低基準が必要です。`,
+              `${publishedBoard.length} published cities — ${publishedRankedCount} of them ranked, plus a ${publishedWatchlistCount}-city conflict-zone and low-coverage watchlist. One declared score per city, traced through five public pillars: pressure, viability, capability, community, and creative momentum. Alpha requires a liveability floor — no city trades its residents for its skyline.`,
+              `${publishedBoard.length} เมืองที่เผยแพร่ — ${publishedRankedCount} เมืองมีอันดับ พร้อมรายชื่อเฝ้าระวัง ${publishedWatchlistCount} เมืองสำหรับเขตขัดแย้งและข้อมูลไม่สมบูรณ์ แต่ละเมืองมีคะแนนที่ประกาศชัดเจนหนึ่งค่า และสามารถไล่ย้อนกลับได้ผ่าน 5 เสาหลักสาธารณะ ได้แก่ แรงกดดัน ความน่าอยู่ ศักยภาพ ชุมชน และพลังสร้างสรรค์ ระดับ Alpha ต้องผ่านเกณฑ์ขั้นต่ำของความน่าอยู่ — ไม่มีเมืองใดที่ยอมแลกผู้คนกับภาพลักษณ์`,
+              `${publishedBoard.length} 座已发布城市 — 其中 ${publishedRankedCount} 座已排名，另设 ${publishedWatchlistCount} 座冲突区与数据覆盖观察名单城市。每座城市对应一个公开分数，可追溯到五个公开支柱：压力、宜居性、能力、社区与创造动能。Alpha 级须跨过宜居门槛——没有哪座城市能用居民换天际线。`,
+              `${publishedBoard.length}개 도시 공개 — 이 중 ${publishedRankedCount}개 도시 순위, ${publishedWatchlistCount}개 분쟁 지역 및 저커버리지 관찰 목록. 도시당 공식 선언 점수 1개, 5개 공개 기둥을 통해 추적 가능: 성장, 생활가능성, 역량, 커뮤니티, 창의적 모멘텀. 알파는 생활 가능성 기준선이 필요합니다.`,
+              `${publishedBoard.length}都市を公開 — ${publishedRankedCount}都市をランキングし、${publishedWatchlistCount}都市の紛争地域・低カバレッジ観察リスト。都市ごとに1つの宣言スコア、5つの公開柱を通じて追跡可能：成長、生活持続性、能力、コミュニティ、創造性。アルファには生活持続性の最低基準が必要です。`,
             )}
           </p>
-          <div className="hp-opening-actions">
+          {/*
+            * The console. This used to be three filled and outlined boxes
+            * stacked on the photograph, then a separate row of three
+            * statistics underneath — nine rectangles saying two things, and
+            * the reader had to scroll a third of the screen to reach the
+            * first fact about the model.
+            *
+            * It is now one strip: a mark and a label for each of the three
+            * actions, a figure and a label for each of the three facts, all
+            * on one baseline under a single rule. No box, no plate, no
+            * second row.
+            */}
+          <div className="hp-opening-console">
             <a
-              className="hp-cta-primary"
+              className="hp-console-cell hp-console-cell--action"
               href={appHref("/rankings")}
               onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
             >
-              {t(locale, `See all ${publishedRankedCount} cities`, `ดูเมืองทั้ง ${publishedRankedCount} แห่ง`, `查看全部 ${publishedRankedCount} 座城市`, `${publishedRankedCount}개 도시 모두 보기`, `全${publishedRankedCount}都市を見る`)} →
+              <span className="hp-console-mark" aria-hidden="true"><CityBoardMark /></span>
+              <span className="hp-console-label">
+                {t(locale, `See all ${publishedBoard.length} cities`, `ดูเมืองทั้ง ${publishedBoard.length} แห่ง`, `查看全部 ${publishedBoard.length} 座城市`, `${publishedBoard.length}개 도시 모두 보기`, `全${publishedBoard.length}都市を見る`)}
+              </span>
             </a>
             <a
-              className="hp-cta-secondary"
+              className="hp-console-cell hp-console-cell--action"
               href={appHref("/map")}
               onClick={(event) => navigateLink(event, onNavigate, "/map")}
             >
-              {t(locale, "Open global map", "แผนที่โลก", "打开全球地图", "글로벌 지도 열기", "グローバルマップを開く")}
+              <span className="hp-console-mark" aria-hidden="true"><GlobeMark /></span>
+              <span className="hp-console-label">
+                {t(locale, "World map", "แผนที่โลก", "全球地图", "세계 지도", "世界地図")}
+              </span>
             </a>
             <a
-              className="hp-cta-secondary"
+              className="hp-console-cell hp-console-cell--action"
               href={appHref("/compare")}
               onClick={(event) => navigateLink(event, onNavigate, "/compare")}
             >
-              {t(locale, "Compare with other indices", "เปรียบเทียบกับดัชนีอื่น", "与其他指数对比", "다른 지수와 비교", "他の指標と比較")}
+              <span className="hp-console-mark" aria-hidden="true"><CompareMark /></span>
+              <span className="hp-console-label">
+                {t(locale, "Compare indices", "เปรียบเทียบดัชนี", "对比指数", "지수 비교", "指数を比較")}
+              </span>
             </a>
-          </div>
-
-          <div className="hp-opening-stats">
-            <span className="hp-opening-stat">
-              <strong>{publishedBoard.length}</strong>
-              <em>{t(locale, "cities", "เมือง", "城市", "개 도시", "都市")}</em>
+            <span className="hp-console-cell hp-console-cell--fact">
+              <strong className="hp-console-figure">{scoredMetricCount}</strong>
+              <span className="hp-console-caption">
+                {t(locale, "metric lines", "metric line", "条计分指标", "개 metric line", "本の採点指標")}
+              </span>
             </span>
-            <span className="hp-opening-stat">
-              <strong>5</strong>
-              <em>{t(locale, "pillars", "เสาหลัก", "支柱", "기둥", "柱")}</em>
+            <span className="hp-console-cell hp-console-cell--fact">
+              <strong className="hp-console-figure">5</strong>
+              <span className="hp-console-caption">
+                {t(locale, "pillars", "เสาหลัก", "支柱", "기둥", "柱")}
+              </span>
             </span>
             {visitors != null && (
-              <span className="hp-opening-stat">
-                <strong>{formattedVisitors}</strong>
-                <em><a href={appHref('/traffic')}>{t(locale, "sessions since 19 Oct 2026", "เซสชันตั้งแต่ 19 ต.ค. 2026", "自2026年10月19日起的会话", "2026년 10월 19일 이후 세션", "2026年10月19日以降のセッション")}</a></em>
+              <span className="hp-console-cell hp-console-cell--fact">
+                <strong className="hp-console-figure">{formattedVisitors}</strong>
+                <span className="hp-console-caption">
+                  <a href={appHref("/traffic")}>
+                    {t(locale, "sessions since 19 Oct 2026", "เซสชันตั้งแต่ 19 ต.ค. 2026", "自2026年10月19日起的会话", "2026년 10월 19일 이후 세션", "2026年10月19日以降のセッション")}
+                  </a>
+                </span>
               </span>
             )}
           </div>
@@ -431,11 +462,11 @@ export default function HomePage({
           <p className="hp-thesis-body">
             {t(
               locale,
-              "Five declared pillars. Twenty scored metric lines plus three visible diagnostics, each value traced back to its source. No imputation, no paid placement, no composite buried in a PDF you have to trust. Disagree with the weights? Good — drag them below and see what actually changes. When better data arrives, ranks move — that is the index following the city, not a frozen league table.",
-              "ห้าเสาหลักที่ประกาศชัด ยี่สิบ metric line ที่ให้คะแนนพร้อมสาม diagnostic ที่มองเห็นได้ ทุกค่าตรวจสอบกลับไปยังแหล่งที่มาได้ ไม่มีการเติมข้อมูล ไม่มีเมืองจ่ายเงินเพื่อเข้าร่วม ไม่มีสูตรซ่อนในไฟล์ PDF ที่ต้องเชื่อโดยดุษณี ไม่เห็นด้วยกับน้ำหนัก? ดีมาก — ลากด้านล่างแล้วดูว่าอะไรเปลี่ยน เมื่อข้อมูลดีขึ้น อันดับก็ขยับ — นั่นคือดัชนีที่ตามเมือง ไม่ใช่ตารางลีกที่แช่แข็ง",
-              "五个公开支柱。二十条计分指标加三条可见的诊断指标，每个数值都可追溯到来源。没有数据填充，没有付费排名，没有藏在 PDF 里叫你盲目相信的公式。不同意这些权重？很好——拖动下方滑块，看看什么真的会变。更好的数据到来时，排名会动——这是指数跟着城市走，不是冻住的联赛表。",
-              "다섯 개의 선언된 기둥. 스무 개의 채점 지표와 세 개의 공개 진단 지표, 각 값은 출처까지 추적 가능합니다. 대체 데이터 없음, 유료 순위 없음, 믿어야만 하는 PDF 속 공식 없음. 가중치에 동의하지 않습니까? 좋습니다 — 아래에서 드래그해 무엇이 실제로 바뀌는지 확인하세요. 더 나은 데이터가 오면 순위가 움직입니다 — 도시가 보드를 움직이는 것이며, 고정된 리그가 아닙니다.",
-              "5つの宣言された柱。採点された20の指標と3つの診断指標、各値はそのソースまで追跡可能。データ補完なし、有料掲載なし、盲目的に信じなければならないPDF内の数式なし。重みに同意しませんか？良い——以下でドラッグして、実際に何が変わるか確認してください。より良いデータが来れば順位は動きます——都市が盤を動かし、凍ったリーグ表ではない、ということです。",
+              "Five declared pillars. Twenty-two scored metric lines plus three visible diagnostics, each value traced back to its source. No imputation, no paid placement, no composite buried in a PDF you have to trust. Disagree with the weights? Good — drag them below and see what actually changes. When better data arrives, ranks move — that is the index following the city, not a frozen league table.",
+              "ห้าเสาหลักที่ประกาศชัด ยี่สิบสอง metric line ที่ให้คะแนนพร้อมสาม diagnostic ที่มองเห็นได้ ทุกค่าตรวจสอบกลับไปยังแหล่งที่มาได้ ไม่มีการเติมข้อมูล ไม่มีเมืองจ่ายเงินเพื่อเข้าร่วม ไม่มีสูตรซ่อนในไฟล์ PDF ที่ต้องเชื่อโดยดุษณี ไม่เห็นด้วยกับน้ำหนัก? ดีมาก — ลากด้านล่างแล้วดูว่าอะไรเปลี่ยน เมื่อข้อมูลดีขึ้น อันดับก็ขยับ — นั่นคือดัชนีที่ตามเมือง ไม่ใช่ตารางลีกที่แช่แข็ง",
+              "五个公开支柱。二十二条计分指标加三条可见的诊断指标，每个数值都可追溯到来源。没有数据填充，没有付费排名，没有藏在 PDF 里叫你盲目相信的公式。不同意这些权重？很好——拖动下方滑块，看看什么真的会变。更好的数据到来时，排名会动——这是指数跟着城市走，不是冻住的联赛表。",
+              "다섯 개의 선언된 기둥. 스물두 개의 채점 지표와 세 개의 공개 진단 지표, 각 값은 출처까지 추적 가능합니다. 대체 데이터 없음, 유료 순위 없음, 믿어야만 하는 PDF 속 공식 없음. 가중치에 동의하지 않습니까? 좋습니다 — 아래에서 드래그해 무엇이 실제로 바뀌는지 확인하세요. 더 나은 데이터가 오면 순위가 움직입니다 — 도시가 보드를 움직이는 것이며, 고정된 리그가 아닙니다.",
+              "5つの宣言された柱。採点された22の指標と3つの診断指標、各値はそのソースまで追跡可能。データ補完なし、有料掲載なし、盲目的に信じなければならないPDF内の数式なし。重みに同意しませんか？良い——以下でドラッグして、実際に何が変わるか確認してください。より良いデータが来れば順位は動きます——都市が盤を動かし、凍ったリーグ表ではない、ということです。",
             )}
           </p>
           <div className="hp-thesis-links">

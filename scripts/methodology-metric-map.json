@@ -1,0 +1,502 @@
+{
+  "en": {
+    "pressure": [
+      {
+        "name": "Tax-adjusted disposable income",
+        "key": "pressure_disposable_income_ppp"
+      },
+      {
+        "name": "Housing price pressure",
+        "key": "pressure_housing_burden"
+      },
+      {
+        "name": "Household debt burden",
+        "key": "pressure_household_debt_burden"
+      },
+      {
+        "name": "Working time pressure",
+        "key": "pressure_working_time_pressure"
+      },
+      {
+        "name": "Suicide and severe mental strain",
+        "key": "pressure_suicide_mental_strain"
+      },
+      {
+        "name": "Economic Stress (Hanke Misery Index)",
+        "key": "pressure_economic_stress_hanke"
+      }
+    ],
+    "viability": [
+      {
+        "name": "Personal safety",
+        "key": "viability_personal_safety"
+      },
+      {
+        "name": "Transit access and commute burden",
+        "key": "viability_transit_access_commute"
+      },
+      {
+        "name": "Clean air",
+        "key": "viability_clean_air"
+      },
+      {
+        "name": "Water, sanitation, and utility reliability",
+        "key": "viability_water_sanitation_utility"
+      },
+      {
+        "name": "Digital infrastructure",
+        "key": "viability_digital_infrastructure"
+      }
+    ],
+    "capability": [
+      {
+        "name": "Healthcare quality",
+        "key": "capability_healthcare_quality"
+      },
+      {
+        "name": "Education quality",
+        "key": "capability_education_quality"
+      },
+      {
+        "name": "Equal opportunity and distributional fairness",
+        "key": "capability_equal_opportunity_distributional_fairness"
+      }
+    ],
+    "community": [
+      {
+        "name": "Hospitality and belonging",
+        "key": "community_hospitality_belonging"
+      },
+      {
+        "name": "Tolerance and pluralism",
+        "key": "community_tolerance_pluralism"
+      },
+      {
+        "name": "Cultural and public-life vitality",
+        "key": "community_cultural_historic_public_life_vitality"
+      },
+      {
+        "name": "Civic Freedom & Dignity",
+        "key": "community_civic_freedom_dignity"
+      }
+    ],
+    "creative": [
+      {
+        "name": "Entrepreneurial dynamism",
+        "key": "creative_entrepreneurial_dynamism"
+      },
+      {
+        "name": "Innovation and research intensity",
+        "key": "creative_innovation_research_intensity"
+      },
+      {
+        "name": "Economic vitality and productive context",
+        "key": "creative_economic_vitality_productive_context"
+      },
+      {
+        "name": "Administrative and investment friction",
+        "key": "creative_administrative_investment_friction"
+      }
+    ]
+  },
+  "th": {
+    "pressure": [
+      {
+        "name": "รายได้ใช้สอยจริงแบบ PPP หลังภาษี",
+        "key": "pressure_disposable_income_ppp"
+      },
+      {
+        "name": "แรงกดดันราคาที่อยู่อาศัย",
+        "key": "pressure_housing_burden"
+      },
+      {
+        "name": "ภาระหนี้ครัวเรือน",
+        "key": "pressure_household_debt_burden"
+      },
+      {
+        "name": "แรงกดดันจากชั่วโมงงาน",
+        "key": "pressure_working_time_pressure"
+      },
+      {
+        "name": "การฆ่าตัวตายและภาวะเครียดรุนแรง",
+        "key": "pressure_suicide_mental_strain"
+      },
+      {
+        "name": "ความตึงเครียดทางเศรษฐกิจ (Hanke Misery Index)",
+        "key": "pressure_economic_stress_hanke"
+      }
+    ],
+    "viability": [
+      {
+        "name": "ความปลอดภัยส่วนบุคคล",
+        "key": "viability_personal_safety"
+      },
+      {
+        "name": "การเข้าถึงขนส่งและภาระเวลาเดินทาง",
+        "key": "viability_transit_access_commute"
+      },
+      {
+        "name": "อากาศสะอาด",
+        "key": "viability_clean_air"
+      },
+      {
+        "name": "น้ำ สุขาภิบาล และความเสถียรของสาธารณูปโภค",
+        "key": "viability_water_sanitation_utility"
+      },
+      {
+        "name": "โครงสร้างพื้นฐานดิจิทัล",
+        "key": "viability_digital_infrastructure"
+      }
+    ],
+    "capability": [
+      {
+        "name": "คุณภาพของระบบสุขภาพ",
+        "key": "capability_healthcare_quality"
+      },
+      {
+        "name": "คุณภาพของการศึกษา",
+        "key": "capability_education_quality"
+      },
+      {
+        "name": "โอกาสที่เท่าเทียมและความเป็นธรรมในการกระจาย",
+        "key": "capability_equal_opportunity_distributional_fairness"
+      }
+    ],
+    "community": [
+      {
+        "name": "ชีวิตสาธารณะและพลังทางวัฒนธรรม",
+        "key": "community_cultural_historic_public_life_vitality"
+      },
+      {
+        "name": "การต้อนรับและความรู้สึกเป็นส่วนหนึ่ง",
+        "key": "community_hospitality_belonging"
+      },
+      {
+        "name": "ความเปิดกว้างและพหุนิยม",
+        "key": "community_tolerance_pluralism"
+      },
+      {
+        "name": "เสรีภาพพลเมืองและศักดิ์ศรี",
+        "key": "community_civic_freedom_dignity"
+      }
+    ],
+    "creative": [
+      {
+        "name": "พลวัตของผู้ประกอบการ",
+        "key": "creative_entrepreneurial_dynamism"
+      },
+      {
+        "name": "ความเข้มข้นของนวัตกรรมและการวิจัย",
+        "key": "creative_innovation_research_intensity"
+      },
+      {
+        "name": "พลังเศรษฐกิจและบริบทเชิงผลิตภาพ",
+        "key": "creative_economic_vitality_productive_context"
+      },
+      {
+        "name": "แรงเสียดทานด้านการบริหารและการลงทุน",
+        "key": "creative_administrative_investment_friction"
+      }
+    ]
+  },
+  "zh": {
+    "pressure": [
+      {
+        "name": "税后 PPP 可支配生活空间",
+        "key": "pressure_disposable_income_ppp"
+      },
+      {
+        "name": "住房价格压力",
+        "key": "pressure_housing_burden"
+      },
+      {
+        "name": "家庭债务负担",
+        "key": "pressure_household_debt_burden"
+      },
+      {
+        "name": "工时压力",
+        "key": "pressure_working_time_pressure"
+      },
+      {
+        "name": "自杀与严重心理压力",
+        "key": "pressure_suicide_mental_strain"
+      },
+      {
+        "name": "经济压力（Hanke Misery Index）",
+        "key": "pressure_economic_stress_hanke"
+      }
+    ],
+    "viability": [
+      {
+        "name": "个人安全",
+        "key": "viability_personal_safety"
+      },
+      {
+        "name": "交通可达性与通勤负担",
+        "key": "viability_transit_access_commute"
+      },
+      {
+        "name": "清洁空气",
+        "key": "viability_clean_air"
+      },
+      {
+        "name": "供水、卫生与公用事业可靠性",
+        "key": "viability_water_sanitation_utility"
+      },
+      {
+        "name": "数字基础设施",
+        "key": "viability_digital_infrastructure"
+      }
+    ],
+    "capability": [
+      {
+        "name": "医疗质量",
+        "key": "capability_healthcare_quality"
+      },
+      {
+        "name": "教育质量",
+        "key": "capability_education_quality"
+      },
+      {
+        "name": "机会平等与分配公平",
+        "key": "capability_equal_opportunity_distributional_fairness"
+      }
+    ],
+    "community": [
+      {
+        "name": "文化与公共生活活力",
+        "key": "community_cultural_historic_public_life_vitality"
+      },
+      {
+        "name": "好客与归属",
+        "key": "community_hospitality_belonging"
+      },
+      {
+        "name": "包容与多元共处",
+        "key": "community_tolerance_pluralism"
+      },
+      {
+        "name": "公民自由与尊严",
+        "key": "community_civic_freedom_dignity"
+      }
+    ],
+    "creative": [
+      {
+        "name": "创业活力",
+        "key": "creative_entrepreneurial_dynamism"
+      },
+      {
+        "name": "创新与研究强度",
+        "key": "creative_innovation_research_intensity"
+      },
+      {
+        "name": "经济活力与生产性背景",
+        "key": "creative_economic_vitality_productive_context"
+      },
+      {
+        "name": "行政与投资摩擦",
+        "key": "creative_administrative_investment_friction"
+      }
+    ]
+  },
+  "ko": {
+    "pressure": [
+      {
+        "name": "세금 조정 후 PPP 가용 소득",
+        "key": "pressure_disposable_income_ppp"
+      },
+      {
+        "name": "주택 가격 압박",
+        "key": "pressure_housing_burden"
+      },
+      {
+        "name": "가계 부채 부담",
+        "key": "pressure_household_debt_burden"
+      },
+      {
+        "name": "근로 시간 압박",
+        "key": "pressure_working_time_pressure"
+      },
+      {
+        "name": "자살 및 정신적 압박",
+        "key": "pressure_suicide_mental_strain"
+      },
+      {
+        "name": "경제적 스트레스 (Hanke 고통 지수)",
+        "key": "pressure_economic_stress_hanke"
+      }
+    ],
+    "viability": [
+      {
+        "name": "개인 안전",
+        "key": "viability_personal_safety"
+      },
+      {
+        "name": "대중교통 접근성 및 통근 시간",
+        "key": "viability_transit_access_commute"
+      },
+      {
+        "name": "깨끗한 공기",
+        "key": "viability_clean_air"
+      },
+      {
+        "name": "상하수도 및 공공설비 안정성",
+        "key": "viability_water_sanitation_utility"
+      },
+      {
+        "name": "디지털 인프라",
+        "key": "viability_digital_infrastructure"
+      }
+    ],
+    "capability": [
+      {
+        "name": "보건 의료 질",
+        "key": "capability_healthcare_quality"
+      },
+      {
+        "name": "교육 서비스의 질",
+        "key": "capability_education_quality"
+      },
+      {
+        "name": "기회 균등 및 분배 정의",
+        "key": "capability_equal_opportunity_distributional_fairness"
+      }
+    ],
+    "community": [
+      {
+        "name": "문화 및 공공 활력",
+        "key": "community_cultural_historic_public_life_vitality"
+      },
+      {
+        "name": "환대와 귀속감",
+        "key": "community_hospitality_belonging"
+      },
+      {
+        "name": "개방성과 다양성",
+        "key": "community_tolerance_pluralism"
+      },
+      {
+        "name": "시민적 자유와 존엄",
+        "key": "community_civic_freedom_dignity"
+      }
+    ],
+    "creative": [
+      {
+        "name": "기업가 정신 생동력",
+        "key": "creative_entrepreneurial_dynamism"
+      },
+      {
+        "name": "혁신 및 연구 역량",
+        "key": "creative_innovation_research_intensity"
+      },
+      {
+        "name": "경제 활력 및 생산적 맥락",
+        "key": "creative_economic_vitality_productive_context"
+      },
+      {
+        "name": "행정 및 규제 마찰",
+        "key": "creative_administrative_investment_friction"
+      }
+    ]
+  },
+  "ja": {
+    "pressure": [
+      {
+        "name": "税調整済みPPP可処分所得",
+        "key": "pressure_disposable_income_ppp"
+      },
+      {
+        "name": "住宅価格圧力",
+        "key": "pressure_housing_burden"
+      },
+      {
+        "name": "家庭債務負担",
+        "key": "pressure_household_debt_burden"
+      },
+      {
+        "name": "労働時間圧力",
+        "key": "pressure_working_time_pressure"
+      },
+      {
+        "name": "自殺と極度の心理的ストレス",
+        "key": "pressure_suicide_mental_strain"
+      },
+      {
+        "name": "経済的ストレス（ハンケ悲惨指数）",
+        "key": "pressure_economic_stress_hanke"
+      }
+    ],
+    "viability": [
+      {
+        "name": "個人安全",
+        "key": "viability_personal_safety"
+      },
+      {
+        "name": "交通アクセスと通勤負担",
+        "key": "viability_transit_access_commute"
+      },
+      {
+        "name": "清潔な空気",
+        "key": "viability_clean_air"
+      },
+      {
+        "name": "給排水・衛生とインフラ信頼性",
+        "key": "viability_water_sanitation_utility"
+      },
+      {
+        "name": "デジタルインフラ",
+        "key": "viability_digital_infrastructure"
+      }
+    ],
+    "capability": [
+      {
+        "name": "医療の質",
+        "key": "capability_healthcare_quality"
+      },
+      {
+        "name": "教育の质",
+        "key": "capability_education_quality"
+      },
+      {
+        "name": "機会均等と分配の公正",
+        "key": "capability_equal_opportunity_distributional_fairness"
+      }
+    ],
+    "community": [
+      {
+        "name": "文化的・公共的生活の活力",
+        "key": "community_cultural_historic_public_life_vitality"
+      },
+      {
+        "name": "ホスピタリティと帰属感",
+        "key": "community_hospitality_belonging"
+      },
+      {
+        "name": "包容性と多様性",
+        "key": "community_tolerance_pluralism"
+      },
+      {
+        "name": "市民の自由と尊厳",
+        "key": "community_civic_freedom_dignity"
+      }
+    ],
+    "creative": [
+      {
+        "name": "起業家精神の活力",
+        "key": "creative_entrepreneurial_dynamism"
+      },
+      {
+        "name": "イノベーションと研究の活発さ",
+        "key": "creative_innovation_research_intensity"
+      },
+      {
+        "name": "经济活力と生産的コンテキスト",
+        "key": "creative_economic_vitality_productive_context"
+      },
+      {
+        "name": "行政・投資摩擦",
+        "key": "creative_administrative_investment_friction"
+      }
+    ]
+  }
+}

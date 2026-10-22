@@ -1,0 +1,1 @@
+const t="slic-v3.4.0",o="public-tier-v1.3.0";const c={scoreModelVersion:t,tierPolicyVersion:o,scoredMetricCount:22,diagnosticMetricCount:3,cityCount:163,rankedCityCount:158,watchlistCityCount:5};export{c as m};

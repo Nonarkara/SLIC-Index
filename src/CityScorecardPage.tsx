@@ -12,6 +12,7 @@ import { datasetBandLine } from "./publicationMeta";
 import type { Locale, SitePath } from "./types";
 import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
 import type { PillarId } from "./pillars";
+import MetricPlate, { type MetricBandAnchors } from "./MetricPlate";
 
 /* ── Types from enriched JSON ── */
 
@@ -382,6 +383,7 @@ const SCORECARD_TEXT = {
     tagSimilarScale: "Similar scale",
     tagSimilarIncome: "Similar income",
     derivedFormulaLabel: "Calculation formula",
+    componentsLabel: "Components",
     derivedDiFormula: "DI_PPP = (GrossIncome × (1 − TaxRate) − Rent − Utilities − Transit − Internet − Food) ÷ PPPFactor",
     derivedGenericNote: "Calculated from city-level inputs and country benchmarks.",
     coverageBreakdownTitle: "Data level breakdown",
@@ -453,6 +455,7 @@ const SCORECARD_TEXT = {
     tagSimilarScale: "ขนาดใกล้เคียง",
     tagSimilarIncome: "รายได้ใกล้เคียง",
     derivedFormulaLabel: "สูตรคำนวณ",
+    componentsLabel: "ส่วนประกอบ",
     derivedDiFormula: "DI_PPP = (รายได้รวม × (1 − อัตราภาษี) − ค่าเช่า − ค่าสาธารณูปโภค − ค่าเดินทาง − ค่าอินเทอร์เน็ต − ค่าอาหาร) ÷ ตัวประกอบ PPP",
     derivedGenericNote: "คำนวณจากข้อมูลระดับเมืองและเกณฑ์มาตรฐานระดับประเทศ",
     coverageBreakdownTitle: "แบ่งตามระดับข้อมูล",
@@ -524,6 +527,7 @@ const SCORECARD_TEXT = {
     tagSimilarScale: "规模相似",
     tagSimilarIncome: "收入相近",
     derivedFormulaLabel: "计算公式",
+    componentsLabel: "组成部分",
     derivedDiFormula: "DI_PPP = (税前收入 × (1 − 税率) − 房租 − 水电 − 交通 − 网络 − 餐饮) ÷ PPP系数",
     derivedGenericNote: "由城市级输入数据和国家基准计算得出。",
     coverageBreakdownTitle: "数据层级分布",
@@ -595,6 +599,7 @@ const SCORECARD_TEXT = {
     tagSimilarScale: "비슷한 규모",
     tagSimilarIncome: "비슷한 소득",
     derivedFormulaLabel: "계산 공식",
+    componentsLabel: "구성 요소",
     derivedDiFormula: "DI_PPP = (총소득 × (1 − 세율) − 임대료 − 공과금 − 교통비 − 인터넷비 − 식비) ÷ PPP지수",
     derivedGenericNote: "도시 수준 입력값과 국가 기준치로부터 계산됩니다.",
     coverageBreakdownTitle: "데이터 수준별 분류",
@@ -666,6 +671,7 @@ const SCORECARD_TEXT = {
     tagSimilarScale: "規模が近い",
     tagSimilarIncome: "所得が近い",
     derivedFormulaLabel: "計算式",
+    componentsLabel: "構成要素",
     derivedDiFormula: "DI_PPP = (総収入 × (1 − 税率) − 家賃 − 光熱費 − 交通費 − インターネット代 − 食費) ÷ PPP係数",
     derivedGenericNote: "都市レベルの入力データと国家基準値から計算されます。",
     coverageBreakdownTitle: "データレベル別内訳",
@@ -689,6 +695,73 @@ function navigateLink(
 
 const publication = publishedData as unknown as PublishedRankingData;
 const pillarMetrics = publication.pillarMetrics;
+
+/*
+ * The published normalisation anchors.
+ *
+ * Every direct metric is scored on the same rule: the raw value is placed
+ * between the dataset's 5th and 95th percentile, and that position becomes
+ * the 0–100 score. `normStats` holds those two anchors and the metric's
+ * direction of goodness. A plate draws them as a band with the city's value
+ * marked on it, so the drawing *is* the formula rather than a picture of
+ * something else.
+ */
+const metricCatalog = (publication.metricCatalog ?? {}) as Record<
+  string,
+  { inputKey?: string | null; label?: string; kind?: string; components?: Array<{ key: string; weight: number }> }
+>;
+const normStats = (publication.normStats ?? {}) as Record<
+  string,
+  { p05: number | null; p95: number | null; dir: "positive" | "negative" }
+>;
+
+function anchorsFor(metricKey: string): MetricBandAnchors | null {
+  const inputKey = metricCatalog[metricKey]?.inputKey;
+  if (!inputKey) return null;
+  const stats = normStats[inputKey];
+  if (!stats) return null;
+  return { p05: stats.p05, p95: stats.p95, dir: stats.dir };
+}
+
+/*
+ * Units. Only the units the site already publishes are used — a plate never
+ * invents a unit it cannot point at.
+ */
+function formatMetricValue(
+  metricKey: string,
+  raw: number,
+  locale: Locale,
+  copy: (typeof SCORECARD_TEXT)[Locale],
+): string {
+  switch (metricKey) {
+    case "pressure_disposable_income_ppp":
+      return `$${Math.round(raw).toLocaleString(localeNumberFormat[locale])}/mo`;
+    case "pressure_housing_burden":
+      return `${raw.toFixed(1)}${copy.perSqft}`;
+    case "viability_personal_safety":
+      return `${raw.toFixed(1)} ${copy.per100k}`;
+    case "viability_clean_air":
+      return `${raw.toFixed(0)} μg/m³`;
+    case "capability_healthcare_quality":
+      return `${raw.toFixed(0)}/100`;
+    case "capability_education_quality":
+      return `${raw.toFixed(0)}${copy.pctEnrollment}`;
+    case "community_birth_rate_optimism":
+      return raw.toFixed(2);
+    case "pressure_working_time_pressure":
+      return `${raw.toFixed(1)} hrs/wk`;
+    case "viability_water_sanitation_utility":
+      return `${raw.toFixed(0)}%`;
+    case "viability_digital_infrastructure":
+      return `${raw.toFixed(0)}/100`;
+    case "viability_climate_sunlight_livability":
+      return `${raw.toFixed(0)}/100`;
+    case "pressure_economic_growth_momentum":
+      return `${raw >= 0 ? "+" : ""}${raw.toFixed(1)}%`;
+    default:
+      return raw.toLocaleString(localeNumberFormat[locale], { maximumFractionDigits: 2 });
+  }
+}
 
 /* ── Peer comparison ── */
 
@@ -1044,69 +1117,39 @@ function pillarCoverageKey(pillar: PillarId): keyof PublishedCity {
 
 /* ── Components ── */
 
-function NormBar({ score, color }: { score: number | null; color: string }) {
-  if (score === null) return <span className="scorecard-no-data">—</span>;
-  return (
-    <div className="scorecard-norm-bar">
-      <div
-        className="scorecard-norm-bar-fill"
-        style={{ width: `${Math.min(100, Math.max(0, score))}%`, background: color }}
-      />
-      <span className="scorecard-norm-bar-label">{score.toFixed(1)}</span>
-    </div>
-  );
-}
-
-function DataBadge({ level, locale }: { level: string; locale: Locale }) {
-  return (
-    <span className={`scorecard-data-badge scorecard-data-badge--${level}`}>
-      {getDataLevelLabel(level, locale)}
-    </span>
-  );
-}
-
-function MetricRow({
+function MetricFigure({
   metricKey,
   detail,
   color,
   locale,
+  weight,
 }: {
   metricKey: string;
   detail: MetricDetail;
   color: string;
   locale: Locale;
+  weight: number;
 }) {
   const label = getMetricLabel(metricKey, locale);
   const copy = SCORECARD_TEXT[locale];
   const isDiPpp = metricKey === "pressure_disposable_income_ppp";
+  const raw = detail.raw;
+  const valueText = raw === null || raw === undefined ? null : formatMetricValue(metricKey, raw, locale, copy);
+
   return (
-    <div className="scorecard-metric-row-wrapper">
-      <div className="scorecard-metric-row">
-        <div className="scorecard-metric-header">
-          <span className="scorecard-metric-name">{label}</span>
-          <DataBadge level={detail.dataLevel} locale={locale} />
-        </div>
-        <div className="scorecard-metric-value">
-          {detail.raw !== null ? (
-            <span className="scorecard-raw-value">{detail.raw.toLocaleString(localeNumberFormat[locale])}</span>
-          ) : (
-            <span className="scorecard-raw-value scorecard-raw-value--missing">—</span>
-          )}
-        </div>
-        <NormBar score={detail.score} color={color} />
-        {detail.source && detail.sourceUrl ? (
-          <a
-            className="scorecard-source-link"
-            href={detail.sourceUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {detail.source}
-          </a>
-        ) : detail.source ? (
-          <span className="scorecard-source-link">{detail.source}</span>
-        ) : null}
-      </div>
+    <MetricPlate
+      metricKey={metricKey}
+      label={label}
+      raw={raw === null || raw === undefined ? null : raw}
+      valueText={valueText}
+      score={detail.score}
+      anchors={anchorsFor(metricKey)}
+      color={color}
+      weight={weight}
+      levelTag={getDataLevelLabel(detail.dataLevel, locale)}
+      source={detail.source}
+      sourceUrl={detail.sourceUrl}
+    >
       {/* Derived metric formula disclosure */}
       {detail.dataLevel === "derived" && (
         <details className="scorecard-derived-formula">
@@ -1115,36 +1158,39 @@ function MetricRow({
         </details>
       )}
       {detail.components && detail.components.length > 0 && (
-        <div className="scorecard-metric-components">
-          {detail.components.map((comp) => (
-            <div key={comp.key} className="scorecard-component-row">
-              <span className="scorecard-component-name">{getMetricLabel(comp.key, locale)}</span>
-              <span className="scorecard-component-score">
-                {comp.score !== null ? comp.score.toFixed(1) : "—"}
-              </span>
-              <div className="scorecard-component-bar">
-                {comp.score !== null && (
-                  <div
-                    className="scorecard-component-bar-fill"
-                    style={{ width: `${Math.min(100, Math.max(0, comp.score))}%`, background: color, opacity: 0.6 }}
-                  />
+        <details className="scorecard-derived-formula">
+          <summary>{copy.componentsLabel}</summary>
+          <div className="scorecard-metric-components">
+            {detail.components.map((comp) => (
+              <div key={comp.key} className="scorecard-component-row">
+                <span className="scorecard-component-name">{getMetricLabel(comp.key, locale)}</span>
+                <span className="scorecard-component-score">
+                  {comp.score !== null ? comp.score.toFixed(1) : "—"}
+                </span>
+                <div className="scorecard-component-bar">
+                  {comp.score !== null && (
+                    <div
+                      className="scorecard-component-bar-fill"
+                      style={{ width: `${Math.min(100, Math.max(0, comp.score))}%`, background: color, opacity: 0.6 }}
+                    />
+                  )}
+                </div>
+                {/* Component source link */}
+                {comp.source && (
+                  comp.sourceUrl ? (
+                    <a className="scorecard-component-source" href={comp.sourceUrl} target="_blank" rel="noopener noreferrer">
+                      {comp.source}
+                    </a>
+                  ) : (
+                    <span className="scorecard-component-source">{comp.source}</span>
+                  )
                 )}
               </div>
-              {/* Component source link */}
-              {comp.source && (
-                comp.sourceUrl ? (
-                  <a className="scorecard-component-source" href={comp.sourceUrl} target="_blank" rel="noopener noreferrer">
-                    {comp.source}
-                  </a>
-                ) : (
-                  <span className="scorecard-component-source">{comp.source}</span>
-                )
-              )}
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </details>
       )}
-    </div>
+    </MetricPlate>
   );
 }
 
@@ -1213,10 +1259,12 @@ function PillarSection({
   pillar,
   city,
   locale,
+  index,
 }: {
   pillar: PillarId;
   city: PublishedCity;
   locale: Locale;
+  index: number;
 }) {
   const score = city[pillarScoreKey(pillar)] as number;
   const coverage = city[pillarCoverageKey(pillar)] as number | null;
@@ -1227,9 +1275,12 @@ function PillarSection({
   return (
     <div className="scorecard-pillar-section">
       <div className="scorecard-pillar-header" style={{ borderLeftColor: color }}>
-        <div>
-          <h3>{PILLAR_LABELS[locale]?.[pillar] ?? PILLAR_LABELS.en[pillar]}</h3>
-          <span className="scorecard-pillar-weight">{PILLAR_WEIGHTS[pillar]}% {SCORECARD_TEXT[locale].weightSuffix}</span>
+        <div className="scorecard-pillar-ident">
+          <span className="scorecard-pillar-index">{String(index + 1).padStart(2, "0")}</span>
+          <div>
+            <h3>{PILLAR_LABELS[locale]?.[pillar] ?? PILLAR_LABELS.en[pillar]}</h3>
+            <span className="scorecard-pillar-weight">{PILLAR_WEIGHTS[pillar]}% {SCORECARD_TEXT[locale].weightSuffix}</span>
+          </div>
         </div>
         <div className="scorecard-pillar-score" style={{ color }}>
           {score !== null ? score.toFixed(1) : "—"}
@@ -1263,11 +1314,20 @@ function PillarSection({
           {Math.round(coverage * 100)}% {SCORECARD_TEXT[locale].dataCoverageNote}
         </div>
       )}
-      <div className="scorecard-metric-list">
+      <div className="scorecard-plate-strip">
         {metrics.map((m) => {
           const detail = city.metrics?.[m.key];
           if (!detail) return null;
-          return <MetricRow key={m.key} metricKey={m.key} detail={detail} color={color} locale={locale} />;
+          return (
+            <MetricFigure
+              key={m.key}
+              metricKey={m.key}
+              detail={detail}
+              color={color}
+              locale={locale}
+              weight={m.weight ?? 0}
+            />
+          );
         })}
       </div>
     </div>
@@ -1583,111 +1643,50 @@ export default function CityScorecardPage({
         </section>
       )}
 
-      {/* ── City Overview ── */}
+      {/* ── City spec ── */}
+      {/*
+        * The overview used to be a grid of twenty boxes: the city's four
+        * identity facts, then sixteen of the same metric numbers that the
+        * pillar breakdown shows again, further down, in full. The reader
+        * scrolled past a grid of small boxes to reach the grid of parts.
+        *
+        * The spec is now one line — what kind of city this is, what state
+        * its data is in, how big it is, and how much of its country it
+        * holds. Every metric number lives in exactly one place on the page:
+        * the plate that explains it.
+        */}
       {isPublished && (
         <section className="section scorecard-overview">
           <p className="eyebrow">{copy.cityOverview}</p>
-          <div className="scorecard-overview-grid">
-            <div className="scorecard-overview-card">
-              <span className="scorecard-overview-label">{copy.type}</span>
+          <div className="scorecard-spec">
+            <span className="scorecard-spec-item">
+              <em>{copy.type}</em>
               <strong>{formatCityType(city.cityType, locale)}</strong>
-            </div>
-            <div className="scorecard-overview-card">
-              <span className="scorecard-overview-label">{copy.region}</span>
-              <strong>{city.region}</strong>
-            </div>
-            <div className="scorecard-overview-card">
-              <span className="scorecard-overview-label">{copy.dataCoverage}</span>
-              <strong>{city.coverageGrade} — {Math.round((city.overallWeightedCoverage ?? 0) * 100)}%</strong>
-            </div>
-            <div className="scorecard-overview-card">
-              <span className="scorecard-overview-label">{copy.status}</span>
+            </span>
+            <span className="scorecard-spec-item">
+              <em>{copy.status}</em>
               <strong>{formatManifestStatus(city.manifestStatus, locale)}</strong>
-            </div>
-            {city.metrics?.pressure_disposable_income_ppp?.raw !== null && city.metrics?.pressure_disposable_income_ppp?.raw !== undefined && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.disposableIncome}</span>
-                <strong>${Math.round(city.metrics.pressure_disposable_income_ppp.raw).toLocaleString(localeNumberFormat[locale])}/mo</strong>
-              </div>
-            )}
-            {city.metrics?.pressure_housing_burden?.raw !== null && city.metrics?.pressure_housing_burden?.raw !== undefined && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.housingBurden}</span>
-                <strong>{city.metrics.pressure_housing_burden.raw.toFixed(1)}{copy.perSqft}</strong>
-              </div>
-            )}
-            {city.metrics?.viability_personal_safety?.raw !== null && city.metrics?.viability_personal_safety?.raw !== undefined && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.safetyRate}</span>
-                <strong>{city.metrics.viability_personal_safety.raw.toFixed(1)} {copy.per100k}</strong>
-              </div>
-            )}
-            {city.metrics?.viability_clean_air?.raw !== null && city.metrics?.viability_clean_air?.raw !== undefined && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.airQuality}</span>
-                <strong>{city.metrics.viability_clean_air.raw.toFixed(0)} μg/m³</strong>
-              </div>
-            )}
-            {city.metrics?.capability_healthcare_quality?.raw !== null && city.metrics?.capability_healthcare_quality?.raw !== undefined && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.healthcareQuality}</span>
-                <strong>{city.metrics.capability_healthcare_quality.raw.toFixed(0)}/100</strong>
-              </div>
-            )}
-            {city.metrics?.capability_education_quality?.raw !== null && city.metrics?.capability_education_quality?.raw !== undefined && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.education}</span>
-                <strong>{city.metrics.capability_education_quality.raw.toFixed(0)}{copy.pctEnrollment}</strong>
-              </div>
+            </span>
+            {cityCtx && (
+              <span className="scorecard-spec-item">
+                <em>{copy.population}</em>
+                <strong>
+                  {cityCtx.cityPop >= 1 ? `${cityCtx.cityPop.toFixed(1)}M` : `${(cityCtx.cityPop * 1000).toFixed(0)}k`}
+                </strong>
+              </span>
             )}
             {cityCtx && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.population}</span>
-                <strong>{cityCtx.cityPop >= 1 ? `${cityCtx.cityPop.toFixed(1)}M` : `${(cityCtx.cityPop * 1000).toFixed(0)}k`}</strong>
-              </div>
-            )}
-            {cityCtx && (
-              <div className="scorecard-overview-card scorecard-overview-card--highlight">
-                <span className="scorecard-overview-label">{copy.cityShare}</span>
+              <span className="scorecard-spec-item">
+                <em>{copy.cityShare}</em>
                 <strong>{((cityCtx.cityPop / cityCtx.countryPop) * 100).toFixed(1)}%</strong>
-              </div>
+              </span>
             )}
-            {city.metrics?.community_birth_rate_optimism?.raw !== null && city.metrics?.community_birth_rate_optimism?.raw !== undefined && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.birthRate}</span>
-                <strong>{city.metrics.community_birth_rate_optimism.raw.toFixed(2)}</strong>
-              </div>
-            )}
-            {city.metrics?.pressure_working_time_pressure?.raw !== null && city.metrics?.pressure_working_time_pressure?.raw !== undefined && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.workingHours}</span>
-                <strong>{city.metrics.pressure_working_time_pressure.raw.toFixed(1)} hrs/wk</strong>
-              </div>
-            )}
-            {city.metrics?.viability_water_sanitation_utility?.raw !== null && city.metrics?.viability_water_sanitation_utility?.raw !== undefined && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.waterAccess}</span>
-                <strong>{city.metrics.viability_water_sanitation_utility.raw.toFixed(0)}%</strong>
-              </div>
-            )}
-            {city.metrics?.viability_digital_infrastructure?.raw !== null && city.metrics?.viability_digital_infrastructure?.raw !== undefined && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.broadband}</span>
-                <strong>{city.metrics.viability_digital_infrastructure.raw.toFixed(0)}/100</strong>
-              </div>
-            )}
-            {city.metrics?.viability_climate_sunlight_livability?.raw !== null && city.metrics?.viability_climate_sunlight_livability?.raw !== undefined && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.climateScore}</span>
-                <strong>{city.metrics.viability_climate_sunlight_livability.raw.toFixed(0)}/100</strong>
-              </div>
-            )}
-            {city.metrics?.pressure_economic_growth_momentum?.raw !== null && city.metrics?.pressure_economic_growth_momentum?.raw !== undefined && (
-              <div className="scorecard-overview-card">
-                <span className="scorecard-overview-label">{copy.gdpGrowth}{city.metrics.pressure_economic_growth_momentum.dataLevel === "national" ? ` ${copy.nationalData}` : ""}</span>
-                <strong>{city.metrics.pressure_economic_growth_momentum.raw >= 0 ? "+" : ""}{city.metrics.pressure_economic_growth_momentum.raw.toFixed(1)}%</strong>
-              </div>
-            )}
+            <span className="scorecard-spec-item">
+              <em>{copy.dataCoverage}</em>
+              <strong>
+                {city.coverageGrade} — {Math.round((city.overallWeightedCoverage ?? 0) * 100)}%
+              </strong>
+            </span>
           </div>
         </section>
       )}
@@ -1707,23 +1706,27 @@ export default function CityScorecardPage({
                 href={appHref(`/city/${peer.cityId}`)}
                 onClick={(e) => navigateLink(e, onNavigate, `/city/${peer.cityId}`)}
               >
-                <div className="scorecard-peer-rank">#{peer.rank}</div>
-                <div className="scorecard-peer-name">{peer.displayName}</div>
-                {displayCountry(peer.country) && <div className="scorecard-peer-country">{displayCountry(peer.country)}</div>}
-                <div className="scorecard-peer-score">{peer.slicScore.toFixed(1)}</div>
-                {(() => {
-                  const pCtx = CITY_CONTEXT[peer.cityId];
-                  return pCtx ? (
-                    <div className="scorecard-peer-pop">{pCtx.cityPop >= 1 ? `${pCtx.cityPop.toFixed(1)}M` : `${(pCtx.cityPop * 1000).toFixed(0)}k`} · {pCtx.industries.slice(0, 2).map((i) => INDUSTRY_LABELS[locale][i] ?? i).join(", ")}</div>
-                  ) : null;
-                })()}
-                {tags.length > 0 && (
-                  <div className="scorecard-peer-tags">
-                    {tags.map((tag) => (
-                      <span key={tag} className="scorecard-peer-tag">{getPeerTagLabel(tag, locale)}</span>
-                    ))}
-                  </div>
-                )}
+                <span className="scorecard-peer-ident">
+                  <span className="scorecard-peer-rank">#{peer.rank}</span>
+                  <span className="scorecard-peer-name">{peer.displayName}</span>
+                </span>
+                <span className="scorecard-peer-meta">
+                  {displayCountry(peer.country) && <span className="scorecard-peer-country">{displayCountry(peer.country)}</span>}
+                  {(() => {
+                    const pCtx = CITY_CONTEXT[peer.cityId];
+                    return pCtx ? (
+                      <span className="scorecard-peer-pop">{pCtx.cityPop >= 1 ? `${pCtx.cityPop.toFixed(1)}M` : `${(pCtx.cityPop * 1000).toFixed(0)}k`} · {pCtx.industries.slice(0, 2).map((i) => INDUSTRY_LABELS[locale][i] ?? i).join(", ")}</span>
+                    ) : null;
+                  })()}
+                  {tags.length > 0 && (
+                    <span className="scorecard-peer-tags">
+                      {tags.map((tag) => (
+                        <span key={tag} className="scorecard-peer-tag">{getPeerTagLabel(tag, locale)}</span>
+                      ))}
+                    </span>
+                  )}
+                </span>
+                <span className="scorecard-peer-score">{peer.slicScore.toFixed(1)}</span>
               </a>
             ))}
           </div>
@@ -1747,45 +1750,67 @@ export default function CityScorecardPage({
               </span>
             </span>
           ))}
+          {/*
+            * The trace has to add up.
+            *
+            * The five weighted terms sum to the WEIGHTED MEAN, not to the
+            * published score. The published score is that mean minus the
+            * imbalance adjustment and the coverage penalty, so the chain
+            * reads
+            *
+            *   0.25 x Growth(42.6) + ... = 69.2 - imbalance 4.4 - coverage 11.1 = 53.7
+            *
+            * Showing the published score at the end of the first line made
+            * the arithmetic visibly wrong: the terms did not sum to it. The
+            * deductions now sit in the same bar, labelled, so the reader can
+            * check the whole line.
+            */}
+          <span className="scorecard-equation-step">
           <span className="scorecard-equation-op">=</span>
-          <span className="scorecard-equation-result">{city.slicScore?.toFixed(1)}</span>
+          <span
+            className="scorecard-equation-result scorecard-equation-result--mean"
+            title={t(locale, "Weighted mean of the five pillars", "ค่าเฉลี่ยถ่วงน้ำหนักของ 5 เสาหลัก", "五个支柱的加权均值", "다섯 기둥의 가중 평균", "5つの柱の加重平均")}
+          >
+            {city.weightedMeanExact != null ? city.weightedMeanExact.toFixed(1) : city.slicScore?.toFixed(1)}
+          </span>
+          </span>
+          {city.weightedMeanExact != null && city.ampiExact != null && (city.weightedMeanExact - city.ampiExact) > 0.05 && (
+            <span className="scorecard-equation-step">
+              <span className="scorecard-equation-op">−</span>
+              <span className="scorecard-equation-deduction">
+                <span className="scorecard-equation-deduction-label">
+                  {t(locale, "imbalance", "ความไม่สมดุล", "不平衡", "불균형", "不均衡")}
+                </span>
+                {(city.weightedMeanExact - city.ampiExact).toFixed(1)}
+              </span>
+            </span>
+          )}
+          {city.weightedMeanExact != null && (city.coveragePenalty ?? 0) > 0 && (
+            <span className="scorecard-equation-step">
+              <span className="scorecard-equation-op">−</span>
+              <span className="scorecard-equation-deduction">
+                <span className="scorecard-equation-deduction-label">
+                  {t(locale, "coverage", "ความครอบคลุมข้อมูล", "覆盖率", "커버리지", "カバレッジ")}
+                </span>
+                {city.coveragePenalty}
+              </span>
+            </span>
+          )}
+          {city.weightedMeanExact != null && city.ampiExact != null && (
+            <span className="scorecard-equation-step">
+              <span className="scorecard-equation-op">=</span>
+              <span className="scorecard-equation-result scorecard-equation-result--published">
+                {city.slicScore?.toFixed(1)}
+              </span>
+            </span>
+          )}
         </div>
-        {city.weightedMeanExact != null && city.ampiExact != null && (
-          <div className="scorecard-ampi-breakdown">
-            <span className="scorecard-ampi-term">
-              {t(locale, "weighted mean", "ค่าเฉลี่ยถ่วงน้ำหนัก", "加权均值", "가중 평균", "加重平均")}
-              {": "}{city.weightedMeanExact.toFixed(1)}
-            </span>
-            {(city.weightedMeanExact - city.ampiExact) > 0.05 && (
-              <>
-                <span className="scorecard-ampi-op">−</span>
-                <span className="scorecard-ampi-term scorecard-ampi-term--penalty">
-                  {t(locale, "imbalance adjustment", "การปรับความไม่สมดุล", "不平衡调整", "불균형 조정", "不均衡調整")}
-                  {": "}{(city.weightedMeanExact - city.ampiExact).toFixed(1)}
-                </span>
-              </>
-            )}
-            {(city.coveragePenalty ?? 0) > 0 && (
-              <>
-                <span className="scorecard-ampi-op">−</span>
-                <span className="scorecard-ampi-term scorecard-ampi-term--penalty">
-                  {t(locale, "coverage penalty", "ค่าปรับ coverage", "覆盖率扣分", "커버리지 페널티", "カバレッジペナルティ")}
-                  {": "}{city.coveragePenalty}
-                </span>
-              </>
-            )}
-            <span className="scorecard-ampi-op">=</span>
-            <span className="scorecard-ampi-term scorecard-ampi-term--result">
-              {city.slicScore?.toFixed(1)}
-            </span>
-          </div>
-        )}
       </section>
 
       {/* ── Pillar breakdown sections ── */}
       <main className="section scorecard-pillars">
-        {PILLAR_ORDER.map((pillar) => (
-          <PillarSection key={pillar} pillar={pillar} city={city} locale={locale} />
+        {PILLAR_ORDER.map((pillar, index) => (
+          <PillarSection key={pillar} pillar={pillar} city={city} locale={locale} index={index} />
         ))}
       </main>
 

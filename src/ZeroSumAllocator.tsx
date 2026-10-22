@@ -1,4 +1,4 @@
-import { type CSSProperties, type FC, type PointerEvent as ReactPointerEvent, useCallback, useRef, useState } from "react";
+import { type CSSProperties, type FC, type PointerEvent as ReactPointerEvent, useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import { pickLocale, type LocalizedRecord } from "./i18n";
 import type { Locale } from "./types";
 
@@ -45,10 +45,23 @@ function polarToCartesian(cx: number, cy: number, r: number, angleDeg: number) {
 
 const MIN_R_FRAC = 0.14;
 
-function radarPath(cx: number, cy: number, maxR: number, values: number[], total: number): string {
+/** How close the pointer has to be to a handle, in SVG user units, to grab it. */
+const GRAB_RADIUS = 48;
+
+function radarPath(
+  cx: number,
+  cy: number,
+  maxR: number,
+  values: number[],
+  total: number,
+  override?: { index: number; x: number; y: number } | null,
+): string {
   const step = 360 / values.length;
   const minR = maxR * MIN_R_FRAC;
   const points = values.map((value, index) => {
+    if (override && override.index === index) {
+      return { x: override.x, y: override.y };
+    }
     const r = minR + (value / total) * (maxR - minR);
     return polarToCartesian(cx, cy, r, index * step);
   });
@@ -56,6 +69,17 @@ function radarPath(cx: number, cy: number, maxR: number, values: number[], total
   return `${points
     .map((point, index) => `${index === 0 ? "M" : "L"} ${point.x} ${point.y}`)
     .join(" ")} Z`;
+}
+
+/** Pointer position in SVG user units, whatever the box ends up being on screen. */
+function pointerInUserSpace(svg: SVGSVGElement, clientX: number, clientY: number) {
+  const ctm = svg.getScreenCTM();
+  if (ctm) {
+    const point = new DOMPoint(clientX, clientY).matrixTransform(ctm.inverse());
+    return { x: point.x, y: point.y };
+  }
+  const rect = svg.getBoundingClientRect();
+  return { x: clientX - rect.left, y: clientY - rect.top };
 }
 
 function clamp(value: number, min: number, max: number) {
@@ -73,15 +97,38 @@ const SpiderWebChart: FC<{
   total: number;
   size?: number;
   draggingIndex: number | null;
+  dragAngle: number | null;
   hasInteracted: boolean;
-}> = ({ pillars, total, size = 380, draggingIndex, hasInteracted }) => {
+}> = ({ pillars, total, size = 380, draggingIndex, dragAngle, hasInteracted }) => {
   const { canvas, cx, cy, maxR, labelR } = allocatorLayout(size);
   const step = 360 / pillars.length;
   const rings = [0.25, 0.5, 0.75, 1];
+  const minR = maxR * MIN_R_FRAC;
+
+  /*
+   * While a node is being pulled it sits exactly where the pointer is, so the
+   * gesture is direct: the handle never slides away along its own axis. The
+   * radius still comes from the value, so radius always encodes the number.
+   */
+  const pulledPoint =
+    draggingIndex === null || dragAngle === null
+      ? null
+      : (() => {
+          const value = pillars[draggingIndex]?.value ?? 0;
+          const r = minR + (value / total) * (maxR - minR);
+          return { index: draggingIndex, ...polarToCartesian(cx, cy, r, dragAngle) };
+        })();
 
   return (
     <svg viewBox={`0 0 ${canvas} ${canvas}`} className="allocator-svg" aria-hidden="true">
       <defs>
+        <filter id="allocatorGlow" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="6" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
         {!hasInteracted && (
           <style>{`
             @keyframes allocatorPulse {
@@ -128,7 +175,7 @@ const SpiderWebChart: FC<{
       })}
 
       <path
-        d={radarPath(cx, cy, maxR, pillars.map((pillar) => pillar.value), total)}
+        d={radarPath(cx, cy, maxR, pillars.map((pillar) => pillar.value), total, pulledPoint)}
         fill="rgba(249, 157, 27, 0.18)"
         stroke="#f99d1b"
         strokeWidth={2}
@@ -142,7 +189,10 @@ const SpiderWebChart: FC<{
       {pillars.map((pillar, index) => {
         const minR = maxR * MIN_R_FRAC;
         const r = minR + (pillar.value / total) * (maxR - minR);
-        const point = polarToCartesian(cx, cy, r, index * step);
+        const point =
+          pulledPoint && pulledPoint.index === index
+            ? { x: pulledPoint.x, y: pulledPoint.y }
+            : polarToCartesian(cx, cy, r, index * step);
         const labelPoint = polarToCartesian(cx, cy, labelR, index * step);
         const isDragging = draggingIndex === index;
         const anchor = labelAnchor(labelPoint.x, cx);
@@ -191,6 +241,7 @@ const SpiderWebChart: FC<{
               fill="transparent"
               style={{ cursor: "grab" }}
               data-index={index}
+              data-node="hit"
             />
 
             <circle
@@ -206,6 +257,7 @@ const SpiderWebChart: FC<{
                 transition: isDragging ? "none" : "r 120ms ease, stroke-width 120ms ease",
               }}
               data-index={index}
+              data-node="vertex"
             />
 
             <text
@@ -252,8 +304,52 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
   locale = "en",
 }) => {
   const [draggingIndex, setDraggingIndex] = useState<number | null>(null);
+  const [dragAngle, setDragAngle] = useState<number | null>(null);
   const [hasInteracted, setHasInteracted] = useState(false);
   const svgRef = useRef<HTMLDivElement>(null);
+  const dragAngleRef = useRef<number | null>(null);
+  const springFrameRef = useRef<number | null>(null);
+  const anchorTopRef = useRef<number | null>(null);
+
+  const stopSpring = useCallback(() => {
+    if (springFrameRef.current !== null) {
+      cancelAnimationFrame(springFrameRef.current);
+      springFrameRef.current = null;
+    }
+  }, []);
+
+  useEffect(() => stopSpring, [stopSpring]);
+
+  /* After every re-render of a pull, put the chart back where the finger left it. */
+  useLayoutEffect(() => {
+    if (draggingIndex === null || anchorTopRef.current === null) {
+      return;
+    }
+    const svg = svgRef.current?.querySelector("svg");
+    if (!svg) {
+      return;
+    }
+    const drift = svg.getBoundingClientRect().top - anchorTopRef.current;
+    if (Math.abs(drift) > 0.5) {
+      window.scrollBy({ top: drift, behavior: "instant" });
+    }
+  }, [pillars, draggingIndex]);
+
+  /* The pull is over (or the chart is gone): hand scrolling back to the browser. */
+  useEffect(() => {
+    if (draggingIndex !== null) {
+      return;
+    }
+    anchorTopRef.current = null;
+    document.documentElement.style.overflowAnchor = "";
+  }, [draggingIndex]);
+
+  useEffect(
+    () => () => {
+      document.documentElement.style.overflowAnchor = "";
+    },
+    [],
+  );
 
   const handleSliderChange = useCallback(
     (index: number, newValue: number) => {
@@ -314,16 +410,63 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
   const handlePointerDown = useCallback(
     (event: ReactPointerEvent) => {
       const target = event.target as SVGElement;
-      const index = target.getAttribute("data-index");
-      if (index !== null) {
-        setDraggingIndex(Number.parseInt(index, 10));
-        target.setPointerCapture?.(event.pointerId);
-        if (!hasInteracted) {
-          setHasInteracted(true);
+      if (!svgRef.current) {
+        return;
+      }
+
+      const svg = svgRef.current.querySelector("svg");
+      if (!svg) {
+        return;
+      }
+
+      /*
+       * The handles are close together and their generous hit circles overlap,
+       * so "what did I actually grab?" cannot be answered by the element the
+       * pointer landed on — the topmost circle often belongs to a different
+       * pillar. The nearest handle to the pointer wins, and a handle within
+       * reach is grabbed even if the pointer missed its circle. That is the
+       * difference between a chart you can pull and a chart you fight.
+       */
+      const layout = allocatorLayout(size);
+      const point = pointerInUserSpace(svg, event.clientX, event.clientY);
+      const minR = layout.maxR * MIN_R_FRAC;
+      const step = 360 / pillars.length;
+
+      let nearest = -1;
+      let nearestDistance = Number.POSITIVE_INFINITY;
+
+      pillars.forEach((pillar, index) => {
+        const r = minR + (pillar.value / total) * (layout.maxR - minR);
+        const handle = polarToCartesian(layout.cx, layout.cy, r, index * step);
+        const d = Math.hypot(handle.x - point.x, handle.y - point.y);
+        if (d < nearestDistance) {
+          nearestDistance = d;
+          nearest = index;
         }
+      });
+
+      if (nearest === -1 || nearestDistance > GRAB_RADIUS) {
+        return;
+      }
+
+      stopSpring();
+      setDraggingIndex(nearest);
+      /*
+       * The chart is the anchor. Pulling a weight rewrites tier lists above
+       * and below it, and the page reflows — on the homepage that moved the
+       * chart 86px out from under the finger mid-pull, so a 40px drag read as
+       * a jump to 100. Remember where the chart sits and hold it there until
+       * the pull ends (the browser's own scroll anchoring is off meanwhile, or
+       * it fights this and makes it worse).
+       */
+      anchorTopRef.current = svg.getBoundingClientRect().top;
+      document.documentElement.style.overflowAnchor = "none";
+      target.setPointerCapture?.(event.pointerId);
+      if (!hasInteracted) {
+        setHasInteracted(true);
       }
     },
-    [hasInteracted],
+    [hasInteracted, pillars, size, stopSpring, total],
   );
 
   const handlePointerMove = useCallback(
@@ -337,24 +480,79 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
         return;
       }
 
-      const rect = svg.getBoundingClientRect();
-      const dx = event.clientX - rect.left - rect.width / 2;
-      const dy = event.clientY - rect.top - rect.height / 2;
-      const distance = Math.sqrt(dx * dx + dy * dy);
       const layout = allocatorLayout(size);
-      const scale = rect.width / layout.canvas;
-      const minR = layout.maxR * MIN_R_FRAC * scale;
-      const usableR = layout.maxR * scale - minR;
-      const fraction = clamp((distance - minR) / usableR, 0, 1);
+      const point = pointerInUserSpace(svg, event.clientX, event.clientY);
+      const dx = point.x - layout.cx;
+      const dy = point.y - layout.cy;
+      const distance = Math.hypot(dx, dy);
+      const minR = layout.maxR * MIN_R_FRAC;
 
+      /*
+       * The radius is the number; the angle is the hand. The radius is
+       * clamped to the web so the handle stops at the outer ring instead of
+       * leaving the chart, but the angle is free — so the handle is always
+       * under the pointer, whichever way the pull goes. Reading the value off
+       * the radius means the radius always encodes it.
+       */
+      const radius = clamp(distance, minR, layout.maxR);
+      const fraction = (radius - minR) / (layout.maxR - minR);
+      const angle = (Math.atan2(dy, dx) * 180) / Math.PI + 90;
+
+      dragAngleRef.current = (angle + 360) % 360;
+      setDragAngle(dragAngleRef.current);
       handleSliderChange(draggingIndex, Math.round(fraction * total));
     },
     [draggingIndex, handleSliderChange, size, total],
   );
 
   const handlePointerUp = useCallback(() => {
-    setDraggingIndex(null);
-  }, []);
+    const index = draggingIndex;
+    const current = dragAngleRef.current;
+
+    if (index === null || current === null) {
+      dragAngleRef.current = null;
+      setDragAngle(null);
+      setDraggingIndex(null);
+      return;
+    }
+
+    const step = 360 / pillars.length;
+    const target = index * step;
+    const delta = ((target - current + 540) % 360) - 180;
+
+    if (Math.abs(delta) < 0.25) {
+      dragAngleRef.current = null;
+      setDragAngle(null);
+      setDraggingIndex(null);
+      return;
+    }
+
+    /*
+     * Let go and the handle eases back onto its own pillar axis. The radius
+     * — the value — is untouched, so nothing the pull said is lost.
+     */
+    const startedAt = performance.now();
+    const duration = 220;
+    const ease = (t: number) => 1 - (1 - t) ** 3;
+
+    const advance = (now: number) => {
+      const t = Math.min(1, (now - startedAt) / duration);
+      const angle = (current + delta * ease(t) + 360) % 360;
+      dragAngleRef.current = angle;
+      setDragAngle(angle);
+
+      if (t < 1) {
+        springFrameRef.current = requestAnimationFrame(advance);
+      } else {
+        springFrameRef.current = null;
+        dragAngleRef.current = null;
+        setDragAngle(null);
+        setDraggingIndex(null);
+      }
+    };
+
+    springFrameRef.current = requestAnimationFrame(advance);
+  }, [draggingIndex, pillars.length]);
 
   return (
     /*
@@ -370,6 +568,7 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
+        onPointerCancel={handlePointerUp}
         style={{ touchAction: "none", userSelect: "none", width: "100%", maxWidth: size + 208 }}
       >
         <SpiderWebChart
@@ -377,6 +576,7 @@ const ZeroSumAllocator: FC<ZeroSumAllocatorProps> = ({
           total={total}
           size={size}
           draggingIndex={draggingIndex}
+          dragAngle={dragAngle}
           hasInteracted={hasInteracted}
         />
       </div>

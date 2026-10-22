@@ -9,8 +9,7 @@
   "wrap:div.compare-tfr-cities": 8,
   "wrap:div.hero-actions": 3,
   "wrap:div.ideas-hero-stats": 3,
-  "wrap:div.metric-taglist": 56,
-  "wrap:div.metric-taglist.metric-taglist--secondary": 16,
+  "wrap:div.metric-taglist": 38,
   "wrap:div.mode-switch": 2,
   "wrap:div.rankings-results-meta": 2,
   "wrap:div.rankings-status-grid": 2,
@@ -19,10 +18,8 @@
   "wrap:div.sbs-basket-chips": 6,
   "wrap:div.sbs-preset-bar": 2,
   "wrap:div.scorecard-action-bar": 2,
-  "wrap:div.scorecard-ampi-breakdown": 2,
   "wrap:div.scorecard-coverage-breakdown-items": 2,
   "wrap:div.scorecard-equation-bar": 3,
-  "wrap:div.scorecard-peer-tags": 2,
   "wrap:div.scorecard-transparency-grid": 2,
   "wrap:div.traffic-summary": 2
 }

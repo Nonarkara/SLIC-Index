@@ -655,7 +655,6 @@ export default function MethodologyPage({
                     <p className="panel-label">{pillar.name}</p>
                     <h3>{pillar.weight}%</h3>
                   </div>
-                  <span className="weight-pill">{pillar.weight}%</span>
                 </div>
                 <p className="pillar-thesis">{pillar.thesis}</p>
                 <p className="pillar-justification">{pillar.justification}</p>

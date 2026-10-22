@@ -71,6 +71,16 @@ The test is one question: **"Why is this here, why this size, and why this far f
 
 **Two things side by side always leave a hole under the shorter one.** The rankings workbench put the web and its five bars in one column — 798px tall — beside a 300px rail, and the 490px void under the rail was nobody's design. The fix was not to fill the void; it was to stop insisting on the two-column shape. The web kept its own column, and the bars moved into the rail, beside the thing they move, so the eye travels sideways instead of down and back up. **When a side-by-side pair leaves a hole, ask whether the pair is really one object. If it is, split it and place each part where it is read.** A label that names one part must travel with that part: "drag a bar" belongs above the bars, not under the web.
 
+**The thing under the hand must not move.** On the homepage the spider's handle sat 18px and 53px from the finger during a pull, and one handle came to rest 125° off its axis. The drag arithmetic was right; the page was reflowing. Pulling a weight rewrites the tier lists above and below the chart, and the browser's scroll anchoring then scrolled the page 68px to keep a changing row in place, so the chart moved ~86px mid-gesture — the pointer ended up 133px from the new centre and a 40px pull read as a jump to 100. `ZeroSumAllocator` now anchors on the chart itself: it records the chart's viewport position when a pull starts, pins the page back to it after every re-render, and switches `overflow-anchor` off for the duration. It is held to 0.4px / 0.2px / 0.00° on both routes by `check:spider-drag`. The same fix covers any future cause of reflow (a lazy image, a longer list) because it measures the chart, not the cause.
+
+**Repetition is the scroll.** Measured at 390px, the three heaviest pages were heavy for one reason each. `/thailand` spent 16,450px on 67 table rows (235px each: nine equal fields, one label wrapping to make room for its own value, the score in the same type as "Region") and 933px on each of five cards (seven bars, each a header line over a track, the label and its figure touching — the header had no CSS at all). `/compare` showed the same eleven indices twice, 8,000px apart (method, then critique): 14,000px. `/ideas` dressed eleven plain labels as bordered chips that looked pressable and were not. The repairs were regrouping, not trimming: a province row is two tiers on one six-column grid (rank · name · score, then region and five figures as label-over-value, so every figure sits on the same edges in every row); a score bar is one row; each index is one card whose verdict (what it measures; the critique headline) stays visible and whose evidence folds into a native `<details>`. `/thailand` 30,530 → 22,996px, `/compare` 28,435 → 21,161px at 390. Nothing was deleted. **Not changed, deliberately:** `/methodology` (52,000px), `/awards`, `/essay` are reading surfaces whose length is prose, and which sections matter most is an editorial call, not a spatial one.
+
+**A flex row that is meant to break is still a wrap to the audit.** The first Thailand row used `flex-wrap` with a forced break between its two tiers and measured 93px; the ratchet counted it as 12 wrapped lines against an allowance of 0, correctly — it cannot tell "designed" from "accidental". A grid on a shared track is the better layout anyway and is not a wrap container.
+
+### The Thailand province dataset
+
+`src/thailandData.ts` is **hand-maintained**. It began as the output of `scripts/generate_thailand_provinces.py`, which the "Clean repo" commit (`e6ef0eb`) deleted, and has since gained five-locale editorial text the generator never produced. The restored script was run in isolation and does **not** reproduce the file (1,266 differing lines), so re-running it would silently overwrite that work — do not restore it to regenerate. Its metric values are approximations of NESDC, NSO, PCD, MOPH, Royal Thai Police and Royal Forest Dept publications: no row carries a source URL or a vintage, and no release gate covers the file. It is not part of the published 163-city board. The page's own copy still calls the work a "scaffold", which is the honest part; the numbers need an envelope (source, tier, age) before the copy is softened.
+
 ### The knowledge rack
 
 The rack is the site's question box over the methodology. It answers with citations, so **the index it serves has to describe the bytes it was built from — exactly.**
@@ -128,6 +138,8 @@ Every rule above that can be decided from source is a machine gate. They run in 
 | `scripts/check-layout.mjs` | **the built site in a real browser**: no horizontal overflow, no uncaught exception, no broken image, and every route actually rendered — across 15 routes × 3 widths |
 | `scripts/check-footer-nav.mjs` | **the footer sitemap**: a group's links run on one line, so the blocks are near-equal and no block may leave more than 36px of empty space under it — neither beside it (a hole under the short block of a row) nor below the block (a column that stops short of the bottom); a heading may not repeat one of its own links; every published route must still be one click away (exactly once); no label may wrap onto a second line; the block may never be taller than one screen — across 5 locales × 20 widths, plus the mobile drawer |
 | `scripts/check-masthead.mjs` | **the bar is one ground**: the band is opaque and is the site's own `--bg`, it reaches both edges of the viewport, and nothing inside it paints a background of its own, carries a border, or floats on a shadow — across 4 widths |
+| `scripts/check-spider-drag.mjs` | **the handle stays under the pointer**: on a real built page with a real pointer, a 40px sideways pull on a handle leaves it within 3px of the pointer, it returns to within 1° of its own pillar's axis on release without costing the pull its radius, and the five weights still total 100 — on the homepage and on `/rankings`. `scripts/mutation-spider-gate.mjs` proves it can fail |
+| `scripts/check-numbers.mjs` | **the numbers on the page are the numbers in the bundle**: recomputes all 163 cities from the raw metrics and checks the published scores, five pillars, tier counts and the counts quoted in copy across all five locales. `scripts/mutation-numbers-gate.mjs` proves it can fail |
 | `scripts/audit-spatial.mjs` | **spatial hallucination**: dead bands, orphan grid rows, accidental wrapping, clipped text, scattered actions, false hierarchy (an emphasis modifier that changes nothing visible, a skipped heading level), and cost-to-first-action — across 15 routes × 3 widths. `--check <baseline>` turns it into a gate; `--json` emits the fingerprint |
 | `scripts/check-knowledge-rack.mjs` | **the index describes the bytes it was built from**: every manifest hash matches the source on disk, every source in the intake folder is indexed, the built and published catalogs are the same bytes, the word/character/chunk counts agree with the extracted text, and the chunk stream reconstructs that text |
 | `scripts/check-personal-contacts.py` | no personal emails or phone numbers anywhere in the tree — published organisation inboxes and office switchboards are allowlisted |
@@ -200,10 +212,10 @@ npm run dev               # Vite dev server on port 5173
 npm run build             # vite build → dist/
 npm run preview           # Preview built site
 npm run typecheck         # tsc --noEmit — passes clean (0 errors)
-npm run test              # node --test — 117/117 pass
+npm run test              # node --test — 126/126 pass
 ```
 
-The full release gate is `npm run verify:release` — typecheck + build + tests + check:publication + check:csv + check:methodology + check:translations + check:audit + check:layout + check:spatial + check:footer-nav + check:masthead + check:knowledge-rack + check:author-name + check:contacts. Exits non-zero on any failure. `check:layout` drives the built site in real Chrome, so it only means something after a build. The new `check:audit` runs `scripts/audit-data-integrity.mjs`, which catches identity / ranking / scoring / coverage / metric / cross-artifact / hash drift issues.
+The full release gate is `npm run verify:release` — typecheck + build + tests + check:publication + check:csv + check:methodology + check:translations + check:audit + check:numbers + check:layout + check:spatial + check:footer-nav + check:masthead + check:spider-drag + check:knowledge-rack + check:author-name + check:contacts. Exits non-zero on any failure. `check:layout` drives the built site in real Chrome, so it only means something after a build. The new `check:audit` runs `scripts/audit-data-integrity.mjs`, which catches identity / ranking / scoring / coverage / metric / cross-artifact / hash drift issues.
 
 ## Project Structure
 
@@ -316,7 +328,7 @@ The `dist/` directory is committed to the repo (this is what the deploy script s
 ## Release verification
 
 ```bash
-npm run verify:release   # full gate — typecheck, build, test, check:publication, check:csv, check:methodology, check:translations, check:audit, check:layout, check:spatial, check:footer-nav, check:masthead, check:knowledge-rack, check:author-name, check:contacts
+npm run verify:release   # full gate — typecheck, build, test, check:publication, check:csv, check:methodology, check:translations, check:audit, check:numbers, check:layout, check:spatial, check:footer-nav, check:masthead, check:spider-drag, check:knowledge-rack, check:author-name, check:contacts
 ```
 
 ## Key Rules

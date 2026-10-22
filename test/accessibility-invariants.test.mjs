@@ -156,6 +156,8 @@ function colourFromOutlineShorthand(value) {
 const DARK_SURFACES = [
   { match: /\.quick-search-card\b/, bg: "#191714", note: "search modal" },
   { match: /\.quick-search-backdrop\b/, bg: "#12100d", note: "search backdrop" },
+  // The critique panel on /compare is ink (var(--text)) edge to edge.
+  { match: /\.compare-critique\b/, bg: "#111314", note: "critique panel" },
 ];
 
 function surfaceFor(selector) {
