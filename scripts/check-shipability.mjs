@@ -293,6 +293,11 @@ const PROBE = async () => {
     canonical: document.querySelector('link[rel="canonical"]')?.getAttribute("href") || "",
     description: document.querySelector('meta[name="description"]')?.getAttribute("content") || "",
     bytes,
+    heaviest: entries
+      .filter((e) => (e.transferSize || e.encodedBodySize || 0) > 0)
+      .sort((a, b) => (b.transferSize || b.encodedBodySize || 0) - (a.transferSize || a.encodedBodySize || 0))
+      .slice(0, 3)
+      .map((e) => `${e.name.split("/").pop()} ${Math.round((e.transferSize || e.encodedBodySize || 0) / 1024)}kB`),
     requests: entries.length + 1,
     lcp: Math.round(lcp),
     domContentLoaded: Math.round(nav?.domContentLoadedEventEnd || 0),
@@ -369,7 +374,7 @@ async function auditRoutes(browser, base) {
         if (errors.length) add("blocker", `${route} @${width} threw while loading`, errors.join(" | "));
         if (consoleErrors.length) add("warn", `${route} @${width} logged console errors`, consoleErrors.slice(0, 3).join(" | "));
         if (width === WIDTHS[0]) {
-          weights.push({ route, bytes: p.bytes, requests: p.requests, lcp: p.lcp, dcl: p.domContentLoaded });
+          weights.push({ route, bytes: p.bytes, requests: p.requests, lcp: p.lcp, dcl: p.domContentLoaded, heaviest: p.heaviest });
         }
       } catch (error) {
         add("blocker", `${route} @${width} did not load`, String(error.message || error).slice(0, 200));
@@ -390,8 +395,8 @@ async function auditRoutes(browser, base) {
     if (worst.bytes > 1_500_000) {
       add(
         "warn",
-        `${worst.route} pulls ${(worst.bytes / 1024 / 1024).toFixed(1)}MB on the first load`,
-        "That is the whole 163-city dataset, and it is modulepreloaded, so every reader pays for it before the page can paint — on a train, on a phone, on a metered connection. The dataset is the argument of the site, so it should not be cut; it should be split so a reader who opens a city page downloads that city.",
+        `${worst.route} pulls ${(worst.bytes / 1024).toFixed(0)}kB on the first load`,
+        `The heaviest of it: ${worst.heaviest.join(", ")}. A reader on a train, on a phone, on a metered connection pays all of it before the page is useful. The 163-city dataset is modulepreloaded, so every route pays for it whether or not it needs it — it is the argument of the site, so it should be split, not cut.`,
       );
     }
   }
