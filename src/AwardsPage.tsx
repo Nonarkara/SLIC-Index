@@ -643,7 +643,7 @@ export default function AwardsPage({
             </p>
           </div>
 
-          <div className="profile-card-grid">
+          <div className="profile-card-grid coda-grid">
             {lenses.map((lens) => (
               <article className="paper-card partner-card" key={lens.award + lens.category}>
                 <p className="panel-label">{lens.category}</p>
@@ -685,7 +685,7 @@ export default function AwardsPage({
             <p className="section-summary">{impactNote}</p>
           </div>
 
-          <div className="profile-card-grid">
+          <div className="profile-card-grid coda-grid">
             {impactRows.map((row) => (
               <article className="paper-card" key={row.label}>
                 <p className="panel-label">{row.label}</p>
@@ -715,7 +715,7 @@ export default function AwardsPage({
             </p>
           </div>
 
-          <div className="profile-card-grid">
+          <div className="profile-card-grid coda-grid">
             {calendarRows.map((row) => (
               <article className="paper-card" key={row.award}>
                 <p className="panel-label">{row.award}</p>
@@ -746,7 +746,7 @@ export default function AwardsPage({
             </p>
           </div>
 
-          <div className="profile-card-grid">
+          <div className="profile-card-grid coda-grid">
             {routeWalk.map((step, index) => (
               <article className="paper-card" key={step.path}>
                 <p className="panel-label">
@@ -783,7 +783,7 @@ export default function AwardsPage({
             </p>
           </div>
 
-          <div className="profile-card-grid">
+          <div className="profile-card-grid coda-grid">
             {downloads.map((d) => (
               <article className="paper-card" key={d.href}>
                 <p className="panel-label">{d.label}</p>

@@ -231,31 +231,39 @@ export default function SideBySidePage({
           <div className="sbs-basket">
             <h2 className="sbs-basket-title">{t(locale, "Your compare basket", "ตะกร้าเปรียบเทียบของคุณ", "你的比较篮子", "내 비교 바구니", "あなたの比較バスケット")}</h2>
             
-            <div className="sbs-preset-bar" style={{ display: "flex", flexWrap: "wrap", gap: "0.4rem", marginBottom: "0.85rem" }}>
-              <span style={{ fontFamily: "var(--font-mono)", fontSize: "0.72rem", color: "var(--text-soft)", alignSelf: "center", textTransform: "uppercase", letterSpacing: "0.06em", marginRight: "0.2rem" }}>
+            <div className="sbs-preset-bar">
+              <span className="sbs-preset-label">
                 {t(locale, "Presets:", "ชุดเปรียบเทียบ:", "预设组合：", "사전 설정:", "プリセット:")}
               </span>
-              {PRESET_BASKETS.map((preset) => (
-                <button
-                  key={preset.id}
-                  type="button"
-                  onClick={() => handleApplyPreset(preset.cityIds)}
-                  className="exercise-preset-button"
-                  style={{ padding: "0.25rem 0.6rem", fontSize: "0.75rem", fontFamily: "var(--font-body)" }}
-                >
-                  {preset.label[locale]}
-                </button>
-              ))}
               {selectedCities.length > 0 && (
                 <button
                   type="button"
                   onClick={() => setSelectedIds([])}
-                  className="exercise-reset-button"
+                  className="exercise-reset-button sbs-preset-clear"
                   style={{ padding: "0.25rem 0.6rem", fontSize: "0.75rem", fontFamily: "var(--font-body)" }}
                 >
                   {t(locale, "Clear basket", "ล้างตะกร้า", "清空篮子", "바구니 비우기", "バスケットをクリア")}
                 </button>
               )}
+              {/*
+                The presets are their own row. Wrapped in with the label and
+                the clear button, the row broke 5+1 and left "Clear basket"
+                alone on a line under four presets — a toolbar that had lost
+                its shape.
+              */}
+              <span className="sbs-preset-list">
+                {PRESET_BASKETS.map((preset) => (
+                  <button
+                    key={preset.id}
+                    type="button"
+                    onClick={() => handleApplyPreset(preset.cityIds)}
+                    className="exercise-preset-button"
+                    style={{ padding: "0.25rem 0.6rem", fontSize: "0.75rem", fontFamily: "var(--font-body)" }}
+                  >
+                    {preset.label[locale]}
+                  </button>
+                ))}
+              </span>
             </div>
 
             <div className="sbs-basket-chips">
@@ -340,7 +348,7 @@ export default function SideBySidePage({
               </p>
             </div>
           )}
-          <div className="sbs-grid" style={{ gridTemplateColumns: `repeat(${selectedCities.length}, 1fr)` }}>
+          <div className="sbs-grid" style={{ gridTemplateColumns: `repeat(${selectedCities.length}, minmax(280px, 1fr))` }}>
             {selectedCities.map((city) => (
               <div className={`sbs-column tier-border-${getTier(city)}`} key={city.id}>
                 <div className="sbs-city-header">

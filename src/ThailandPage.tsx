@@ -845,7 +845,7 @@ export default function ThailandPage({
             <p className="section-summary">{ui.patternsSummary}</p>
           </div>
 
-          <div className="critique-grid">
+          <div className="critique-grid coda-grid-3">
             <article className="paper-card">
               <p className="panel-label">{ui.centralLabel}</p>
               <h3>{ui.centralTitle}</h3>

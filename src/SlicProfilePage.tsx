@@ -86,7 +86,7 @@ export default function SlicProfilePage({
             <p className="section-summary">{profile.leadsSummary}</p>
           </div>
 
-          <div className="profile-card-grid">
+          <div className="profile-card-grid coda-grid">
             {profile.leads.map((lead) => (
               <PartnerCardView key={lead.name} card={lead} />
             ))}
@@ -102,7 +102,7 @@ export default function SlicProfilePage({
             <p className="section-summary">{profile.privateSummary}</p>
           </div>
 
-          <div className="profile-card-grid">
+          <div className="profile-card-grid coda-grid">
             <article className="paper-card partner-card partner-card-wide">
               {profile.privatePartner.logoSrc && (
                 <div className="partner-card-logo">
@@ -139,7 +139,7 @@ export default function SlicProfilePage({
             <p className="section-summary">{profile.techSummary}</p>
           </div>
 
-          <div className="profile-card-grid">
+          <div className="profile-card-grid coda-grid">
             {profile.techPartners.map((tech) => (
               <PartnerCardView key={tech.name} card={tech} />
             ))}
@@ -173,7 +173,7 @@ export default function SlicProfilePage({
             </p>
           </div>
 
-          <div className="profile-card-grid">
+          <div className="profile-card-grid coda-grid">
             <article className="paper-card">
               <p className="panel-label">
                 {t(locale, "April 2026", "เมษายน 2569", "2026 年 4 月", "2026년 4월", "2026年4月")}
@@ -264,7 +264,7 @@ export default function SlicProfilePage({
             <p className="section-summary">{profile.bridgeBody}</p>
           </div>
 
-          <div className="profile-card-grid">
+          <div className="profile-card-grid coda-grid">
             <a
               className="paper-card profile-logo-card"
               href={appHref("/methodology")}

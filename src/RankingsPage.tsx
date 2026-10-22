@@ -883,9 +883,6 @@ export default function RankingsPage({
                     {preset.label[locale]}
                   </button>
                 ))}
-                <button type="button" className="rankings-preset-btn rankings-preset-btn--reset" onClick={handleReset}>
-                  {ui.resetLabel}
-                </button>
               </div>
               {activePreset && (
                 <p className="rankings-preset-tagline">{activePreset.tagline[locale]}</p>
@@ -905,9 +902,25 @@ export default function RankingsPage({
                 <strong>{liveProfile.title}</strong>
                 <p>{liveProfile.body}</p>
               </div>
-              <span className={`rankings-mode-badge ${isCustom ? "is-custom" : "is-canonical"}`}>
-                {isCustom ? ui.customBadge : ui.canonicalBadge}
-              </span>
+              {/*
+                The way back belongs with the thing it undoes. The reset
+                used to be a seventh chip in the preset row, where it was
+                forced to look like a seventh preference and left a row of
+                its own with half the width empty. It resets the WEIGHTS,
+                so it sits beside the badge that says the weights are
+                custom — and it only appears when there is something to
+                reset.
+              */}
+              <div className="rankings-stage-actions">
+                <span className={`rankings-mode-badge ${isCustom ? "is-custom" : "is-canonical"}`}>
+                  {isCustom ? ui.customBadge : ui.canonicalBadge}
+                </span>
+                {isCustom && (
+                  <button type="button" className="rankings-weights-reset" onClick={handleReset}>
+                    {ui.resetLabel}
+                  </button>
+                )}
+              </div>
             </div>
 
             {consequences.length > 0 && (

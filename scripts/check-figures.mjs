@@ -129,6 +129,54 @@ const CONSOLE_PROBE = () => {
   };
 };
 
+const NAME_BREAKS = () => {
+  /*
+   * A name that breaks inside a word is a typesetting failure: "Economic
+   * Stress" printed as "Econom / ic Stress" reads as a bug, not a design.
+   * The break points are found by measuring every character of the label
+   * and looking at where the lines actually fall.
+   */
+  const broken = [];
+
+  for (const el of document.querySelectorAll(".metric-plate-name")) {
+    const node = el.firstChild;
+    if (!node || node.nodeType !== Node.TEXT_NODE) continue;
+    const text = node.textContent;
+    if (text.trim().length < 2) continue;
+
+    const range = document.createRange();
+    const lineTops = new Map();
+
+    for (let i = 0; i < text.length; i += 1) {
+      range.setStart(node, i);
+      range.setEnd(node, i + 1);
+      const rect = range.getBoundingClientRect();
+      if (rect.height === 0) continue;
+      const key = Math.round(rect.top);
+      if (!lineTops.has(key)) lineTops.set(key, []);
+      lineTops.get(key).push(i);
+    }
+
+    const lines = [...lineTops.values()].sort((a, b) => a[0] - b[0]);
+    for (let line = 0; line < lines.length - 1; line += 1) {
+      /* The space that ends a line belongs to the line, so the last
+         character that says something is the one before it. */
+      const spoken = lines[line].filter((i) => !/\s/.test(text[i]));
+      if (!spoken.length) continue;
+      const lastIndex = spoken[spoken.length - 1];
+      const next = text[lastIndex + 1];
+      if (next !== " " && next !== "-" && next !== "‐") {
+        broken.push({
+          name: text.trim(),
+          brokenWord: text.slice(Math.max(0, lastIndex - 8), lastIndex + 2).trim(),
+        });
+      }
+    }
+  }
+
+  return broken;
+};
+
 const CITY_PROBE = () => {
   const plates = [...document.querySelectorAll(".metric-plate")];
   const parsed = plates.map((el) => {
@@ -457,6 +505,16 @@ try {
   await page.goto(`${base}/city/${CITY}`, { waitUntil: "networkidle" });
   await page.waitForSelector(".metric-plate", { timeout: 15000 });
   checkCity(await page.evaluate(CITY_PROBE), { scored, city });
+
+  /* No label may break inside a word, at any width the gate measures. */
+  for (const width of [1440, 1024, 390]) {
+    await page.setViewportSize({ width, height: width > 700 ? 900 : 844 });
+    await page.waitForTimeout(400);
+    const broken = await page.evaluate(NAME_BREAKS);
+    for (const item of broken) {
+      fail(`/city/${CITY} @${width}: the name "${item.name}" breaks inside a word ("${item.brokenWord}")`);
+    }
+  }
 
   await browser.close();
 } catch (error) {

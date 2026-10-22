@@ -27,7 +27,7 @@
     "verify:math": "npm run rescore && npm run check:publication && npm run check:methodology && npm test",
     "check:layout": "node scripts/check-layout.mjs",
     "check:footer-nav": "node scripts/check-footer-nav.mjs",
-    "check:spatial": "node scripts/audit-spatial.mjs --check scripts/spatial-baseline.json",
+    "check:spatial": "node scripts/audit-spatial.mjs --dense --check scripts/spatial-baseline.json",
     "check:knowledge-rack": "node scripts/check-knowledge-rack.mjs",
     "check:author-name": "node scripts/check-author-name.mjs",
     "check:masthead": "node scripts/check-masthead.mjs",
@@ -35,8 +35,9 @@
     "check:spider-drag": "node scripts/check-spider-drag.mjs",
     "check:figures": "node scripts/check-figures.mjs",
     "check:clearance": "node scripts/check-clearance.mjs",
-    "check:mutations": "node scripts/mutation-layout-gates.mjs && node scripts/mutation-numbers-gate.mjs && node scripts/mutation-spider-gate.mjs",
-    "check:shipability": "node scripts/check-shipability.mjs"
+    "check:mutations": "node scripts/mutation-layout-gates.mjs && node scripts/mutation-numbers-gate.mjs && node scripts/mutation-spider-gate.mjs && node scripts/mutation-figures-gates.mjs && node scripts/mutation-spatial-gate.mjs",
+    "check:shipability": "node scripts/check-shipability.mjs",
+    "check:spatial:fast": "node scripts/audit-spatial.mjs --check scripts/spatial-baseline.json"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.100.0",

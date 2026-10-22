@@ -87,6 +87,15 @@ const cases = [
     replace: "{(p.weight / 120).toFixed(2)}",
   },
   {
+    name: "the plate name breaks inside a word again",
+    gate: "check-figures.mjs",
+    file: cssFile,
+    find: `  min-width: min-content;
+  overflow-wrap: break-word;`,
+    replace: `  min-width: 0;
+  overflow-wrap: anywhere;`,
+  },
+  {
     name: "the city page crowds the band again: 5.5rem under a 72px band",
     gate: "check-clearance.mjs",
     file: cssFile,

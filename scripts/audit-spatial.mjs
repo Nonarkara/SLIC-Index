@@ -96,6 +96,14 @@ const STRICT = argv.includes("--strict");
 const BASELINE = arg("--check") || arg("--baseline");
 const WRITE_BASELINE = arg("--write-baseline");
 const DENSE = argv.includes("--dense");
+/*
+ * `--step N` measures every Nth width of the dense ladder. The full ladder
+ * is what the baseline is written from and what the gate runs, but while a
+ * fix is still in progress the same instrument at a coarser pitch finds
+ * the offender four times faster. It is the same measurement, sampled
+ * more thinly — the gate never runs on it.
+ */
+const STEP = arg("--step") ? Number(arg("--step")) : null;
 /** How many pages are measured at once. Six keeps the machine busy without
  *  starving it, and each page gets its own viewport. */
 const CONCURRENCY = Number(arg("--concurrency")) || 6;
@@ -161,7 +169,15 @@ const AUDIT = () => {
         return smaller > 0 && overlap > smaller * 0.5;
       });
       if (!line) {
-        line = { top, bottom, items: [] };
+        /*
+         * The line carries the container's width, because that is what
+         * the slack is measured against. Without it `lineSlack` returned
+         * NaN, and every rule that reads the slack — the avoidable wrap,
+         * the hole beside a widow — was silently dead: NaN compares
+         * false against everything. The audit reported "0 hard findings"
+         * for a layout with a chip stranded in 89% of a row.
+         */
+        line = { top, bottom, items: [], containerW: box.containerW };
         lines.push(line);
       }
       line.items.push(box);
@@ -372,10 +388,20 @@ const AUDIT = () => {
         ? lineSlack(lines[lines.length - 2], gap).slack >= last.items[0].outer + gap
         : false;
     const interactiveCount = kids.filter((k) => /^(a|button)$/i.test(k.tagName)).length;
-    // A stranded CONTROL: an action row — a menu, a filter, a button bar —
-    // whose last line holds one button while the first held several. A tag
-    // list wrapping raggedly is not this; a menu that strands a link is.
-    const unbalanced = widow && interactiveCount >= 2 && lines[0].items.length >= 3;
+    /*
+     * A stranded CONTROL: an action row — a menu, a filter, a button bar —
+     * whose last line holds one button while the first held several. A tag
+     * list wrapping raggedly is not this; a menu that strands a link is.
+     *
+     * What makes it a defect is the HOLE the lone button leaves beside it,
+     * not the count on the line. A row whose last button grew to fill the
+     * line has no hole in it — it is a justified row, like a justified
+     * paragraph, and there is nothing to fix. A row that leaves 85% of its
+     * width empty beside the last option has a hole, and that is the defect.
+     */
+    const lastHole = lineSlack(last, gap).slack;
+    const unbalanced =
+      widow && interactiveCount >= 2 && lines[0].items.length >= 3 && lastHole > containerW * 0.15;
     // Related items stacked one per line, each stretched to the full width
     // of a band that could have held them side by side. The width has to
     // matter, or this is just a list in a narrow column.
@@ -405,6 +431,107 @@ const AUDIT = () => {
           h: Math.round(r.height),
         };
       }),
+    });
+  }
+
+  /* ── 3b. a grid that strands one item ───────────────────────────────── */
+  /*
+   * A grid does not wrap, so the wrap rules never saw it. But a grid whose
+   * last row holds one item leaves the rest of that row empty — the same
+   * hole a wrapped row leaves, drawn in cells instead of lines. Ten cities
+   * in three columns is 3+3+3+1: the last city sits in a third of the
+   * width with two empty cells beside it.
+   *
+   * The rule is the same one the wrap rules use: the hole is the defect.
+   * A row that holds one item and leaves a fifth of the container empty
+   * beside it is a hole, whether the item is a filter chip or a written
+   * rule. The first version of this family only looked at grids of
+   * controls, on the reasoning that a magazine grid with one card in its
+   * last row is editorial rhythm. That reasoning did not survive contact
+   * with the measurement: a lone card in a three-column grid leaves the
+   * same two empty cells a lone chip does, and the reader cannot tell the
+   * difference from a mistake. Every grid counts now.
+   */
+  const stranded = [];
+  for (const el of all) {
+    const cs = getComputedStyle(el);
+    if (cs.display !== "grid") continue;
+    const kids = [...el.children].filter((k) => {
+      const r = k.getBoundingClientRect();
+      return r.width > 1 && r.height > 1;
+    });
+    if (kids.length < 2) continue;
+
+    /*
+     * A child with `display: contents` is not a cell — its own children
+     * are, and they are the ones in the grid's rows. Counting the shell
+     * as one cell invents a strand that is not on the page. The rankings
+     * stage dissolves its allocator shell this way, and the shell is not a
+     * row of that grid. The check has to look at every child, not at the
+     * ones with a box: a `display: contents` child has no box at all, so
+     * the visible-children filter would have dropped it before this ran.
+     */
+    if ([...el.children].some((k) => getComputedStyle(k).display === "contents")) continue;
+
+    const tracks = cs.gridTemplateColumns.split(" ").map((v) => parseFloat(v) || 0);
+    const columns = tracks.filter((v) => v > 0).length;
+    if (columns < 2) continue;
+
+    const rowTracks = cs.gridTemplateRows.split(" ").map((v) => parseFloat(v) || 0);
+    const box = el.getBoundingClientRect();
+    const contentTop = box.top + (parseFloat(cs.paddingTop) || 0);
+    const rowGap = parseFloat(cs.rowGap) || 0;
+    const bands = [];
+    let acc = 0;
+    for (const h of rowTracks) {
+      bands.push([contentTop + acc, contentTop + acc + h]);
+      acc += h + rowGap;
+    }
+    if (!bands.length) continue;
+
+    /*
+     * Which row does an item belong to? Not by its top: an item that is
+     * vertically centred in its row starts lower than its neighbours, and
+     * reading that as a new row invents a strand that is not there. The item
+     * belongs to the band it overlaps MOST.
+     */
+    const rows_ = new Map();
+    for (const k of kids) {
+      const r = k.getBoundingClientRect();
+      let best = -1;
+      let bestOverlap = 0;
+      for (let bi = 0; bi < bands.length; bi++) {
+        const [a, b] = bands[bi];
+        const overlap = Math.min(b, r.bottom) - Math.max(a, r.top);
+        if (overlap > bestOverlap) {
+          bestOverlap = overlap;
+          best = bi;
+        }
+      }
+      if (best === -1) best = 0;
+      if (!rows_.has(best)) rows_.set(best, []);
+      rows_.get(best).push(k);
+    }
+
+    const ordered = [...rows_.entries()].sort((a, b) => a[0] - b[0]);
+    const lastRow = ordered[ordered.length - 1];
+    if (!lastRow || lastRow[1].length !== 1) continue;
+
+    const itemWidth = lastRow[1][0].getBoundingClientRect().width;
+    const containerWidth = box.width;
+    const hole = containerWidth - itemWidth;
+    if (hole < containerWidth * 0.2) continue;
+
+    const controls = kids.filter((k) => /^(a|button)$/i.test(k.tagName)).length;
+    stranded.push({
+      el: describe(el),
+      columns,
+      items: kids.length,
+      hole: Math.round(hole),
+      containerW: Math.round(containerWidth),
+      kind: controls >= 2 && controls >= kids.length * 0.6 ? "control" : "content",
+      rows: ordered.map(([, items]) => items.length),
+      text: (lastRow[1][0].textContent || "").replace(/\s+/g, " ").trim().slice(0, 28),
     });
   }
 
@@ -586,6 +713,7 @@ const AUDIT = () => {
     deadBands: deadBands.slice(0, 8),
     orphans: orphans.slice(0, 10),
     wrapped: wrapped.slice(0, 10),
+    stranded: stranded.slice(0, 10),
     clipped: clipped.slice(0, 8),
     scattered: scattered.slice(0, 8),
     hierarchy: hierarchy.slice(0, 8),
@@ -599,7 +727,20 @@ const AUDIT = () => {
 const oldServer = LIVE ? null : await serve(path.resolve("dist"), 8802);
 const base = LIVE ?? "http://localhost:8802";
 
-const widths = DENSE ? DENSE_WIDTHS : WIDTHS;
+/*
+ * `--width` selects a width to measure, and it is a width the ladder
+ * does not have to contain. The mutation proof measures one page at one
+ * width — 560px, say — and a filter that only picked from the three
+ * default widths would have measured nothing at all and reported "0 hard
+ * findings" for a page it never opened.
+ */
+const widths = ONLY_WIDTH
+  ? [ONLY_WIDTH]
+  : DENSE
+    ? DENSE_WIDTHS
+    : STEP
+      ? DENSE_WIDTHS.filter((w) => (w - 320) % STEP === 0)
+      : WIDTHS;
 
 const jobs = [];
 for (const width of widths) {
@@ -610,12 +751,66 @@ for (const width of widths) {
   }
 }
 
+/*
+ * A run that was asked to measure something and measured nothing must say
+ * so. The first version of this guard compared the number of results with
+ * the number of jobs, and a filter that matched no route made both zero —
+ * so the audit reported "0 hard finding(s)" for a sweep that never
+ * opened a page. Zero jobs is a mistake in the request, not a result.
+ */
+if (jobs.length === 0) {
+  console.error(`\n✗ the audit was asked to measure ${ONLY_ROUTE ?? "every route"} at ${ONLY_WIDTH ?? "every width"} and matched no page.`);
+  process.exit(1);
+}
+
 const browser = await chromium.launch({ channel: "chrome", headless: true });
 const context = await browser.newContext({ viewport: { width: widths[0], height: 900 } });
 
 const results = [];
 let hard = 0;
 let soft = 0;
+
+/**
+ * One classification, used by the count, the printout and the fingerprint.
+ *
+ * The count and the fingerprint used to be computed in two places, and the
+ * gate could therefore bless a finding the count did not see: a hard
+ * finding whose signature happened to sit under a soft allowance was
+ * counted as tolerable. A hard finding is never tolerable, and the
+ * fingerprint has to know which is which.
+ *
+ *   hard — a defect: dead band, orphan, clipped text, false hierarchy,
+ *          the h1 below the fold, a wrap the width did not force, a split
+ *          of actions with room to spare, a grid that strands one item.
+ *   soft — the layout working: a tag list that wrapped because the phone
+ *          is 390px wide, a chip row that broke where it had to.
+ */
+const classify = (a) => {
+  const hard = [];
+  const soft = [];
+  for (const d of a.deadBands) hard.push(`dead:${d.above}`);
+  for (const o of a.orphans) hard.push(`orphan:${o.parent}`);
+  for (const c of a.clipped) hard.push(`clip:${c.el}`);
+  for (const h of a.hierarchy) hard.push(`hier:${h.kind}:${h.el || ""}`);
+  for (const e of a.expensive || []) {
+    if (e.kind === "h1-below-fold") hard.push(`cost:${e.kind}`);
+    else soft.push(`cost:${e.kind}`);
+  }
+  for (const w of a.wrapped || []) {
+    const key = `wrap:${w.el}`;
+    if (w.avoidable || w.unbalanced || w.stacked) hard.push(`${key}:${w.lines}`);
+    else soft.push(`${key}:${w.lines}`);
+  }
+  for (const g of a.stranded || []) hard.push(`stray:${g.el}:${g.columns}c/${g.items}i`);
+  for (const s of a.scattered || []) {
+    const key = `scatter:${s.el}`;
+    if (s.kind === "split") {
+      if (s.avoidable) hard.push(`${key}:${s.lines}`);
+      else soft.push(`${key}:${s.lines}`);
+    } else soft.push(`${key}:${s.kind}`);
+  }
+  return { hard, soft, hardCount: hard.length, softCount: soft.length };
+};
 
 /**
  * One page, one width, one route. The measurement is the same at every
@@ -638,24 +833,21 @@ const measure = async (job) => {
     // widow after a line of three or more, or one related item per line.
     // A wrap the width forced (a tag list, a chip row on a phone) is the
     // layout working.
-    const badWraps = a.wrapped.filter((w) => w.avoidable || w.unbalanced || w.stacked);
-    const okWraps = a.wrapped.filter((w) => !w.avoidable);
-    const splits = a.scattered.filter((s) => s.kind === "split");
-    const badSplits = splits.filter((s) => s.avoidable);
-    const okSplits = splits.filter((s) => !s.avoidable);
-    const edges = a.scattered.filter((s) => s.kind === "edges");
-    const foldCost = a.expensive.filter((e) => e.kind === "h1-below-fold");
-    const deepCost = a.expensive.filter((e) => e.kind === "first-action-below-fold");
-
-    const hardCount =
-      a.deadBands.length + a.orphans.length + a.clipped.length + a.hierarchy.length + foldCost.length + badWraps.length + badSplits.length;
-    const softCount = okWraps.length + okSplits.length + edges.length + deepCost.length;
+    const { hard: hardKeys, soft: softKeys, hardCount, softCount } = classify(a);
     hard += hardCount;
     soft += softCount;
-    results.push({ route, width, ...a, hardCount, softCount });
+    results.push({ route, width, ...a, hardCount, softCount, hardKeys, softKeys });
 
     if (!AS_JSON) {
       const mark = hardCount ? "!!" : softCount ? " ~ " : "ok";
+      const badWraps = a.wrapped.filter((w) => w.avoidable || w.unbalanced || w.stacked);
+      const okWraps = a.wrapped.filter((w) => !w.avoidable);
+      const splits = a.scattered.filter((s) => s.kind === "split");
+      const badSplits = splits.filter((s) => s.avoidable);
+      const okSplits = splits.filter((s) => !s.avoidable);
+      const edges = a.scattered.filter((s) => s.kind === "edges");
+      const foldCost = a.expensive.filter((e) => e.kind === "h1-below-fold");
+      const deepCost = a.expensive.filter((e) => e.kind === "first-action-below-fold");
       console.log(
         `\n${mark} ${route} @${width}  height=${a.totalHeight}px (${a.screens} screens)  ` +
           `h1@${a.heroTop} action@${a.actionTop}  ` +
@@ -679,6 +871,9 @@ const measure = async (job) => {
         );
       }
       for (const c of a.clipped) console.log(`     CLIP    ${c.el} "${c.text}" ${c.sw}x${c.sh} in ${c.cw}x${c.ch}`);
+      for (const g of a.stranded || []) {
+        console.log(`     STRAY   ${g.el} strands "${g.text}" in a ${g.columns}-column grid, ${g.hole}px of empty row beside it`);
+      }
       for (const s of badSplits) {
         console.log(`     SPLIT   ${s.el} has ${s.actions} actions across ${s.lines} lines with room to spare (container ${s.containerW}px)`);
         console.log(`             ${s.children.map((c) => `${c.w}px "${c.text}"`).join("  |  ")}`);
@@ -698,48 +893,61 @@ const measure = async (job) => {
  * and one at a time that is half an hour of waiting for an answer. Six at a
  * time keeps the machine busy without starving it.
  */
-const pool = [];
-const workers = Array.from({ length: Math.min(CONCURRENCY, jobs.length) }, async () => {
+const pool = jobs.slice();
+const workers = Array.from({ length: Math.min(CONCURRENCY, pool.length) }, async () => {
   while (pool.length) {
     const job = pool.shift();
     if (!job) return;
     await measure(job);
   }
 });
-for (const job of jobs) pool.push(job);
 await Promise.all(workers);
+
+/*
+ * A sweep that measured nothing must never look like a sweep that found
+ * nothing. The first version of this pool started its workers before the
+ * jobs were queued, so every worker found an empty queue and returned, and
+ * the audit reported "0 hard finding(s), 0 soft" for 81 widths it had never
+ * opened. A count that does not match the work asked for is a failure, not
+ * a result.
+ */
+if (results.length !== jobs.length) {
+  console.error(
+    `\n✗ the audit measured ${results.length} of ${jobs.length} page loads — that is not a result, it is a hole.`,
+  );
+  await browser.close();
+  if (oldServer) oldServer.close();
+  process.exit(1);
+}
 
 await browser.close();
 if (oldServer) oldServer.close();
 
 /**
- * A fingerprint of every finding, so a gate can tell "the known set" from
+ * A fingerprint of the findings, so a gate can tell "the known set" from
  * "something new".
  *
- *   dead:    how many dead bands
- *   orphan:  how many padded-out grid items
- *   clip:    how many clipped texts
- *   hier:    heading-level defects
- *   cost:    content pushed below the fold
- *   wrap:    TOTAL LINES a selector wraps into across the site — so a wrap
- *            that gets worse fails, even though its count is unchanged
- *   scatter: TOTAL LINES the actions of a selector are split across
+ * The fingerprint is split in two, and the split is the point:
+ *
+ *   hard — a defect. A grid that strands a card and a tag list that
+ *          wrapped on a phone used to share one key, so a hard finding
+ *          could hide inside a soft allowance and the gate would bless
+ *          it. Hard findings are now their own map, and the gate refuses
+ *          the run outright if there is one.
+ *   soft — the layout working, at a count the baseline ratchets. The
+ *          number is the TOTAL LINES a selector wraps into across the
+ *          site, so a wrap that gets worse fails even though its count
+ *          of offenders is unchanged.
  */
 const fingerprint = (results) => {
-  const fp = {};
-  const bump = (key, by = 1) => {
-    fp[key] = (fp[key] || 0) + by;
-  };
+  const hard = {};
+  const soft = {};
   for (const r of results) {
-    for (const d of r.deadBands) bump(`dead:${d.above}`);
-    for (const o of r.orphans) bump(`orphan:${o.parent}`);
-    for (const c of r.clipped) bump(`clip:${c.el}`);
-    for (const h of r.hierarchy) bump(`hier:${h.kind}:${h.el || ""}`);
-    for (const e of r.expensive) bump(`cost:${e.kind}`);
-    for (const w of r.wrapped) bump(`wrap:${w.el}`, w.lines);
-    for (const s of r.scattered) bump(`scatter:${s.el}`, s.lines);
+    for (const key of r.hardKeys || []) hard[key] = (hard[key] || 0) + 1;
+    for (const key of r.softKeys || []) soft[key] = (soft[key] || 0) + 1;
   }
-  return Object.fromEntries(Object.entries(fp).sort(([a], [b]) => a.localeCompare(b)));
+  const sort = (o) => Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
+  return { hard: sort(hard), soft: sort(soft) };
 };
 
 if (AS_JSON) {
@@ -757,8 +965,20 @@ if (WRITE_BASELINE) {
     process.exit(1);
   }
   const now = fingerprint(results);
-  fs.writeFileSync(WRITE_BASELINE, `${JSON.stringify(now, null, 2)}\n`);
-  console.log(`\n✓ wrote baseline → ${WRITE_BASELINE} (${Object.keys(now).length} signature(s))`);
+  fs.writeFileSync(
+    WRITE_BASELINE,
+    `${JSON.stringify(
+      {
+        schema: "spatial-v2",
+        ladder: DENSE ? "320-1920 step 20 (81 widths)" : `widths ${widths.join(", ")}`,
+        hard: 0,
+        soft: now.soft,
+      },
+      null,
+      2,
+    )}\n`,
+  );
+  console.log(`\n✓ wrote baseline → ${WRITE_BASELINE} (${Object.keys(now.soft).length} soft signature(s))`);
 }
 
 if (BASELINE) {
@@ -767,20 +987,36 @@ if (BASELINE) {
   const now = fingerprint(results);
   const violations = [];
   const improved = [];
-  for (const [key, count] of Object.entries(now)) {
-    const allowed = base[key] ?? 0;
+
+  /*
+   * A hard finding is never tolerated.
+   *
+   * The old gate compared one fingerprint against one baseline, so a
+   * defect that happened to share a signature with a tolerated wrap was
+   * blessed by the wrap's allowance. The two are now separate maps, and
+   * the gate refuses the run outright when the defect map is not empty.
+   * A baseline is a record of what the layout *already tolerates* — the
+   * wraps the width genuinely forced. It is not a permission slip.
+   */
+  if (Object.keys(now.hard).length) {
+    for (const [key, count] of Object.entries(now.hard)) {
+      violations.push(`${key}: ${count} — a defect, not a tolerated wrap`);
+    }
+  }
+  for (const [key, count] of Object.entries(now.soft)) {
+    const allowed = base.soft?.[key] ?? 0;
     if (count > allowed) violations.push(`${key}: ${count} now, ${allowed} allowed — got worse`);
     else if (count < allowed) improved.push(`${key}: ${count} now, ${allowed} allowed — improved`);
   }
-  for (const [key, allowed] of Object.entries(base)) {
-    if (!(key in now)) improved.push(`${key}: gone — drop it from the baseline`);
+  for (const [key, allowed] of Object.entries(base.soft ?? {})) {
+    if (!(key in now.soft)) improved.push(`${key}: gone — drop it from the baseline`);
   }
   if (violations.length) {
     console.error(`\n✗ spatial gate failed (${violations.length} violation(s)):`);
     for (const v of violations) console.error(`   ${v}`);
     process.exit(1);
   }
-  console.log(`\n✓ spatial gate passed — ${Object.keys(now).length} known finding signature(s) within baseline.`);
+  console.log(`\n✓ spatial gate passed — 0 defects, ${Object.keys(now.soft).length} tolerated signature(s) within baseline.`);
   if (improved.length) {
     console.log(`  (${improved.length} signature(s) improved — the baseline can be tightened)`);
     for (const i of improved) console.log(`   ${i}`);

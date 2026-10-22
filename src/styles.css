@@ -1073,7 +1073,9 @@ section[id] {
 
 .ranking-card-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Five cards: three columns ends 3+2, two columns ended with one card
+     alone in half a row. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -1588,13 +1590,45 @@ section[id] {
 .profile-card-grid,
 .profile-program-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /*
+   * Two columns, not three.
+   *
+   * These grids hold two, three, four, five, seven and nine cards across
+   * the page, and they carry cards that already span two of the three
+   * columns. In three columns a card that spans two leaves a third of
+   * the row empty beside it, and a list of four ends 3+1. In two columns
+   * the spanning cards take the whole row, and every list ends on a full
+   * row.
+   */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
 }
 
 .profile-program-card-wide,
 .profile-logo-card {
   grid-column: span 2;
+}
+
+/*
+ * The coda.
+ *
+ * A grid of N items in C columns leaves a row of N % C items at the end.
+ * When that remainder is one, the last card sits alone in a row of empty
+ * cells — the same hole a wrapped row leaves, drawn in cells instead of
+ * lines. The last card takes the full width instead, so the row is full
+ * and the list ends on a deliberate note rather than on a stray.
+ *
+ * `:nth-child(3n + 1)` is the arithmetic of the grid: the last child is in
+ * that position exactly when the count leaves one over. An even list
+ * matches nothing and keeps its plain rows, so the rule corrects itself
+ * when the content changes.
+ */
+.coda-grid > :last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+
+.coda-grid-3 > :last-child:nth-child(3n + 1) {
+  grid-column: 1 / -1;
 }
 
 .critique-grid,
@@ -1607,6 +1641,30 @@ section[id] {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1rem;
+}
+
+/*
+ * Three, not two.
+ *
+ * These lists hold three or five cards. In two columns a list of five
+ * ends 2+2+1, with the fifth card alone in half the row; in three
+ * columns the same five end 3+2, and a list of three ends 3 in a single
+ * row. Three columns also give the cards a narrower measure, which is
+ * what prose wants.
+ */
+.equation-grid,
+.critique-grid,
+.pillar-detail-grid,
+.weight-legend,
+.source-tier-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* The protocol list is thirteen cards of running prose. Three columns
+   cannot hold thirteen without a stray, five can, and five is also the
+   narrowest measure that still reads as a card. */
+.rule-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
 /* A bibliography is a list, not a card grid. Thirty-seven sources rendered as
@@ -1788,7 +1846,15 @@ section[id] {
  */
 .knowledge-rack-example-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  /*
+   * Three suggested questions, one per row.
+   *
+   * `auto-fit` gave them two columns and a half, and three columns
+   * would squeeze a 70-character question into a 160px column. The
+   * query card is narrow and the questions are long: one per row is the
+   * only arrangement that gives both a full line of text.
+   */
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.6rem;
 }
 
@@ -1840,7 +1906,9 @@ section[id] {
 
 .pillar-detail-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Five cards: three columns ends 3+2, two columns ended with one card
+     alone in half a row. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
 }
 
@@ -3299,28 +3367,42 @@ section[id] {
   object-fit: contain;
 }
 
+/*
+ * The methodology's ten section anchors.
+ *
+ * The row needs 693px in English and 655px in Thai — Thai is the second
+ * widest of the five locales — so a strip that holds them all needs a
+ * container of at least 700px. Below that the strip wrapped and left the
+ * tenth anchor alone on a second line, with five sixths of the row
+ * empty beside it.
+ *
+ * The column is not the window: the copy column is 625px at a 1140px
+ * window and 802px at a 1440px one, because the hero is a two-column
+ * grid whose fractions change with the layout. So the break is a
+ * container query on the column that holds the anchors, not a media
+ * query on the window — a media query got this wrong for a year and
+ * left the tenth anchor alone at exactly the widths where the column
+ * narrowed.
+ */
+.methodology-copy {
+  container-type: inline-size;
+}
+
 .paper-anchor-nav {
-  display: flex;
-  flex-wrap: wrap;
-  /* 1rem between the anchors was 9px too wide for the row to hold together
-     on one line, and the tenth anchor was left alone on a second line. */
-  gap: 0.7rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 0.7rem;
   margin-top: 1.5rem;
   padding-top: 1rem;
   border-top: 1px solid var(--border);
   font-size: 0.9rem;
 }
 
-/*
- * On a phone the ten methodology anchors wrapped into three ragged lines
- * with the last one stranded alone. Two columns give five even rows, and
- * every anchor keeps its 44px tap target.
- */
-@media (max-width: 700px) {
+@container (min-width: 700px) {
   .paper-anchor-nav {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0 0.7rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
   }
 }
 
@@ -3797,7 +3879,8 @@ section[id] {
 
 .ranking-diagnostic-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Three diagnostics: one row of three, not two and a stray. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.55rem 0.8rem;
 }
 
@@ -5211,22 +5294,50 @@ section[id] {
 
 .rankings-preset-group {
   width: 100%;
+  /*
+   * A container query, because the grid's own width is what decides how
+   * many chips fit — not the window. The stage is a two-column layout on
+   * a desktop, so the same window gives the chip row two different widths
+   * on two different pages.
+   */
+  container-type: inline-size;
 }
 
 /*
- * Six named profiles and one way out.
+ * Six named profiles, and the column count has to divide six.
  *
- * As a free-width flex row the chips broke into three ragged lines and
- * stranded the reset beside a peer. Six divides by two and by three, so a
- * grid always lands an even number of chips on every row; the reset spans
- * the full width and keeps its own size, so it reads as the utility it is
- * rather than a seventh preference.
+ * As a free-width flex row the chips broke into three ragged lines. As a
+ * grid of `auto-fit` columns they broke a different way: four columns
+ * hold four chips and leave two on the next row, five columns leave one
+ * chip alone on a row of its own with two thirds of the width empty. Six
+ * divides by one, two, three and six, so the row uses one of those and
+ * every row is full. The reset used to be a seventh chip here, which is
+ * why the row could never be made to divide — it is not a preference,
+ * and it now sits with the weights it resets.
  */
 .rankings-preset-row {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(10.5rem, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 8px;
   width: 100%;
+}
+
+@container (min-width: 344px) {
+  .rankings-preset-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container (min-width: 520px) {
+  .rankings-preset-row {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@container (min-width: 1048px) {
+  .rankings-preset-row {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
 }
 
 .rankings-preset-btn {
@@ -5247,21 +5358,40 @@ section[id] {
   transition: color 0.12s, border-color 0.12s, background 0.12s;
 }
 
-/* "Reset to SLIC baseline" is a utility, not a seventh preference. It gets its
-   own weight so the six peers read as one family and it reads as the way out.
-   It also gets its own row: spanning the grid, it never lands beside a peer
-   and never leaves a hole where a seventh chip would have been. */
-.rankings-preset-btn--reset {
+/* "Reset to SLIC baseline" is a utility, not a seventh preference. It sits
+   with the weights it resets — beside the badge that says the weights are
+   custom — and it only appears when there is something to reset. */
+.rankings-weights-reset {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  min-height: 32px;
+  padding: 0 12px;
+  display: inline-flex;
+  align-items: center;
   color: var(--text-dim);
-  border-style: dashed;
-  grid-column: 1 / -1;
-  justify-self: start;
+  background: transparent;
+  border: 1px dashed rgba(30, 40, 60, 0.24);
+  border-radius: 0;
+  cursor: pointer;
+  transition: color 0.12s, border-color 0.12s;
 }
 
-.rankings-preset-btn--reset:hover {
+.rankings-weights-reset:hover {
   color: var(--text);
   border-color: var(--accent-amber);
   border-style: solid;
+}
+
+/* The badge and the way back are one group: the badge says the state, the
+   button acts on it, and neither belongs on the other side of the stage. */
+.rankings-stage-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
 }
 
 .rankings-preset-btn:hover {
@@ -8693,9 +8823,19 @@ a.metric-plate-name:hover {
   color: var(--text-soft);
 }
 
+/*
+ * The Alpha board: ten cities.
+ *
+ * `auto-fill` filled the row with as many 260px cards as would fit, and at
+ * the widths between the phone and the desktop the count landed on three:
+ * 3+3+3+1, with the tenth city alone in the first column of the last row
+ * and two thirds of that row empty. Ten divides by one, two and five, so
+ * the row uses one of those — one column on a phone, two below the
+ * desktop breakpoint, and the five-column bento above it.
+ */
 .v3-alpha-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 5px;
 }
 
@@ -9918,6 +10058,8 @@ a.metric-plate-name:hover {
   align-items: center;
   gap: 0.4rem 0.5rem;
   margin-bottom: 0.85rem;
+  /* The bar's own width decides how many presets fit — not the window. */
+  container-type: inline-size;
 }
 
 .sbs-preset-label {
@@ -9932,11 +10074,33 @@ a.metric-plate-name:hover {
   justify-self: end;
 }
 
+/*
+ * Four presets, and the column count has to divide four.
+ *
+ * `auto-fit` landed on three columns in the middle of the range, and four
+ * presets in three columns is 3+1: the last preset sat alone with two
+ * thirds of the row empty. Four divides by one, two and four, so the row
+ * uses one of those — and a container query is what says which, because the
+ * bar is a column of a two-column page and the same window gives it two
+ * different widths.
+ */
 .sbs-preset-list {
   grid-column: 1 / -1;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(8.5rem, 1fr));
+  grid-template-columns: minmax(0, 1fr);
   gap: 0.4rem;
+}
+
+@container (min-width: 279px) {
+  .sbs-preset-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@container (min-width: 600px) {
+  .sbs-preset-list {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
 }
 
 .compare-slic-exclusive-cities {
@@ -9995,7 +10159,9 @@ a.metric-plate-name:hover {
 
 .compare-meth-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  /* Eleven cards: three columns ends 3+3+3+2, two columns ended with a
+     single card and half a row of nothing. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   /* A card is as tall as its own content. An opened card must not stretch the
      closed ones beside it to match. */
@@ -10248,7 +10414,9 @@ a.metric-plate-name:hover {
 
 .compare-diff-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  /* Six cards: three columns ends 3+3. Five columns left the sixth
+     alone in a row of five. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin-bottom: 2.5rem;
 }
@@ -11579,11 +11747,17 @@ body,
   transition: width 0.3s;
 }
 
-@media (max-width: 900px) {
-  .sbs-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-  }
-}
+/*
+ * The comparison keeps its columns.
+ *
+ * Under 900px the grid was re-fitted with `auto-fit`, which turned five
+ * compared cities into 2+2+1: the fifth column sat alone under four,
+ * with half the row empty, and the comparison stopped being a comparison.
+ * A side-by-side page that cannot fit its columns side by side should
+ * scroll them, which is what the overflow on this grid is for — so the
+ * columns keep their identity and their minimum width, and the row
+ * scrolls under the reader's thumb.
+ */
 
 @media (max-width: 600px) {
   .sbs-pillar-row {

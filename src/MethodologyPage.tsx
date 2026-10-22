@@ -492,7 +492,7 @@ export default function MethodologyPage({
         <section className="paper-section section" id="critique">
           {sectionSummary(methodology.critiqueSection)}
 
-          <div className="critique-grid">
+          <div className="critique-grid coda-grid-3">
             {methodology.critiques.map((critique) => (
               <article className="paper-card critique-card" key={critique.title}>
                 <p className="panel-label">{methodology.critiqueSection.eyebrow}</p>
