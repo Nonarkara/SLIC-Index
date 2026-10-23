@@ -10669,6 +10669,11 @@ a.metric-plate-name:hover {
   align-items: baseline;
   justify-content: space-between;
   gap: 0.75rem;
+  /* The name line is as tall as the lead's larger name, so the place line
+     below it sits on one line across the whole board and the bars below
+     that sit on one line too. The lead keeps the bigger name; it does not
+     get to push its own label down a line. */
+  min-height: 2.06rem;
 }
 
 .v3-city-card-name {
@@ -10686,13 +10691,26 @@ a.metric-plate-name:hover {
   text-transform: uppercase;
 }
 
+/* The place line: one line per card — the country, or the region where the
+   country is withheld on editorial grounds. Every card carries the same
+   number of lines, so the text block stands at the same height in all ten
+   and every bar in the board ends on one line. */
+.v3-city-card-place {
+  display: block;
+}
+
 .v3-city-card-region {
   font-size: 0.72rem;
   letter-spacing: 0.02em;
   text-transform: none;
-  /* Two lines are reserved whether the region takes one or two, so a card
-     whose region wraps does not push its neighbours' bars down. */
-  min-height: 2lh;
+  /* No reservation here. The bars are anchored to the foot of the card, so a
+     region that wraps to two lines cannot push a neighbour's bars out of
+     line — it only makes the row taller, and the row is as tall as its
+     tallest card. Reserving a blank second line for every card instead
+     put a hole under every short region, and a second hole under the one
+     card whose country label is withheld (Kaohsiung, listed without a
+     country on editorial grounds): 42px of void against its row-mates'
+     17px, for a line of text that was never going to be printed. */
 }
 
 /*
@@ -11052,7 +11070,11 @@ body,
   color: inherit;
   position: relative;
   text-decoration: none;
-  min-height: 11rem;
+  /* No minimum height. The card is as tall as its content, and the grid row
+     is as tall as its tallest card; the bars are anchored to the foot, so
+     every bar in a row still ends on one line. A floor here would not make
+     the cards equal — the grid already does that — it would only add blank
+     space under every card whose text is short. */
   border-radius: 0;
 }
 

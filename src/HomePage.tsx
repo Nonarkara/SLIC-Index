@@ -594,8 +594,23 @@ export default function HomePage({
                 <span className="v3-city-card-name">{city.displayName}</span>
                 <span className="v3-city-card-score">{city.customScore.toFixed(1)}</span>
               </div>
-              {displayCountry(city.country) && <span className="v3-city-card-country">{displayCountry(city.country)}</span>}
-              <span className="v3-city-card-region">{city.region}</span>
+              {/* One place line per card. It was two — the country, then the
+                  region — and a card whose country is withheld on editorial
+                  grounds (Kaohsiung, listed without one) then carried one line
+                  less than its neighbours, so its label floated alone above a
+                  gap while the others filled theirs. The region is a UN
+                  statistical grouping whose names run to three lines
+                  ("Western, Northern, and Southern Europe"), which made its
+                  row taller than the rest; the country is the fact a reader
+                  uses to place a city, so the country is the line, and the
+                  region stands in only where the country cannot be printed. */}
+              <span className="v3-city-card-place">
+                {displayCountry(city.country) ? (
+                  <span className="v3-city-card-country">{displayCountry(city.country)}</span>
+                ) : (
+                  <span className="v3-city-card-region">{city.region}</span>
+                )}
+              </span>
               <div className="v3-city-card-bars">
                 {PILLAR_ORDER.map((pillar) => (
                   <div
