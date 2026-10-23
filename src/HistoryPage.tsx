@@ -1,11 +1,19 @@
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
+import { thumbSrc } from "./thumbs";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 const PHOTO_BASE = `${BASE}/history-photos/`;
 
-function resolvePhotoSrc(photo: string) {
-  return photo.startsWith("/") ? `${BASE}${photo}` : `${PHOTO_BASE}${photo}`;
+/*
+ * The timeline draws a 240×160 strip of photographs and the archive cards a
+ * 284×180 one. The files behind them were 1600px wide — six times the pixels
+ * the page can show — and the strip sits inside the browser's lazy-load
+ * threshold, so the route paid 1.5 MB before the reader scrolled.
+ */
+function resolvePhotoSrc(photo: string, width: number) {
+  const source = photo.startsWith("/") ? `${BASE}${photo}` : `${PHOTO_BASE}${photo}`;
+  return thumbSrc(source, width);
 }
 
 interface TimelineEntry {
@@ -574,7 +582,7 @@ export default function HistoryPage({
                       {entry.photos.map((photo) => (
                         <img
                           key={photo}
-                          src={resolvePhotoSrc(photo)}
+                          src={resolvePhotoSrc(photo, 480)}
                           alt={`${entry.title} — ${entry.year}`}
                           loading="lazy"
                           className="history-photo"
@@ -624,7 +632,7 @@ export default function HistoryPage({
                       {card.shots.map((shot) => (
                         <img
                           key={shot.src}
-                          src={resolvePhotoSrc(shot.src)}
+                          src={resolvePhotoSrc(shot.src, 640)}
                           alt={shot.alt}
                           loading="lazy"
                           className="history-archive-shot"

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { pickLocale, type LocalizedRecord } from "./i18n";
 import type { KnowledgeRackChunk, KnowledgeRackDocument, Locale } from "./types";
 
@@ -17,6 +17,8 @@ const rackUiCopy: LocalizedRecord<{
     passages: string;
     examples: string;
     noResults: string;
+    /** Shown before the reader has asked anything — the corpus is not loaded yet. */
+    idle: string;
     resultLabel: string;
     excerpt: string;
     sourceType: string;
@@ -38,6 +40,7 @@ const rackUiCopy: LocalizedRecord<{
     passages: "Passages indexed",
     examples: "Try one of these prompts",
     noResults: "No strong matches yet. Try a more specific question or a key phrase from the source documents.",
+    idle: "The indexed source library is one question away. Ask the rack and it will search {count} passages.",
     resultLabel: "Matched passage",
     excerpt: "Excerpt",
     sourceType: "Type",
@@ -63,6 +66,7 @@ const rackUiCopy: LocalizedRecord<{
     passages: "จำนวนข้อความย่อย",
     examples: "ลองใช้คำถามตัวอย่าง",
     noResults: "ยังไม่พบข้อความที่ตรงพอ ลองถามให้เฉพาะเจาะจงขึ้น หรือใช้คำสำคัญจากเอกสารต้นฉบับ",
+    idle: "ชั้นข้อมูลต้นทางที่จัดทำไว้อยู่ห่างเพียงคำถามเดียว ถามชั้นข้อมูลนี้แล้วระบบจะค้นหาข้อความทั้ง {count} ช่วง",
     resultLabel: "ข้อความที่ตรง",
     excerpt: "ข้อความย่อ",
     sourceType: "ประเภท",
@@ -88,6 +92,7 @@ const rackUiCopy: LocalizedRecord<{
     passages: "已索引段落",
     examples: "试试这些问题",
     noResults: "暂时没有足够强的匹配。请尝试更具体的问题或直接使用资料中的关键词。",
+    idle: "已编目的原始资料库只差一个问题。向资料库提问，它将检索 {count} 段 passages。",
     resultLabel: "匹配段落",
     excerpt: "摘录",
     sourceType: "类型",
@@ -112,6 +117,7 @@ const rackUiCopy: LocalizedRecord<{
     passages: "색인된 단락",
     examples: "다음 프롬프트 중 하나를 시도해보세요",
     noResults: "강력한 일치 항목이 아직 없습니다. 더 구체적인 질문을 하거나 소스 문서의 핵심 구문을 시도해보세요.",
+    idle: "색인된 원본 자료는 질문 한 번이면 닿습니다. 자료에 질문하면 {count}개 구절을 검색합니다.",
     resultLabel: "일치하는 단락",
     excerpt: "발췌",
     sourceType: "유형",
@@ -136,6 +142,7 @@ const rackUiCopy: LocalizedRecord<{
     passages: "インデックスされた段落",
     examples: "これらのプロンプトのいずれかを試してください",
     noResults: "まだ強力な一致がありません。より具体的な質問をするか、ソースドキュメントのキーフレーズを試してください。",
+    idle: "索引済みの一次資料は質問ひとつで届きます。問いかければ {count} 件の抜粋を検索します。",
     resultLabel: "一致した段落",
     excerpt: "抜粋",
     sourceType: "タイプ",
@@ -286,6 +293,8 @@ export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
   const [results, setResults] = useState<Array<KnowledgeRackChunk & { score: number }>>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  /** Whether the reader has asked anything yet — the two empty states differ. */
+  const [searched, setSearched] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -313,10 +322,34 @@ export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
     };
   }, []);
 
+  const passageCount = useMemo(
+    () => documents.reduce((sum, document) => sum + (document.chunk_count ?? 0), 0),
+    [documents],
+  );
+
   const docLookup = useMemo(
     () => new Map(documents.map((document) => [document.doc_id, document])),
     [documents],
   );
+
+  /**
+   * The corpus is 3.3 MB of text — 1,927 passages of the source library.
+   * The methodology page used to fetch all of it on arrival, to answer a
+   * question nobody had asked yet: 977 kB before the reader could read a word
+   * of the methodology. It is fetched when the reader shows intent to search,
+   * and the passages count comes from the manifest, which is 10 kB.
+   */
+  const prefetching = useRef(false);
+
+  function prefetchChunks(): void {
+    if (prefetching.current || chunks) {
+      return;
+    }
+    prefetching.current = true;
+    void ensureChunks().catch(() => {
+      prefetching.current = false;
+    });
+  }
 
   async function ensureChunks(): Promise<KnowledgeRackChunk[]> {
     if (chunks) {
@@ -341,6 +374,7 @@ export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
 
     setLoading(true);
     setError(null);
+    setSearched(true);
     try {
       const loadedChunks = await ensureChunks();
       setResults(scoreChunks(nextQuestion, loadedChunks).slice(0, 5));
@@ -352,16 +386,16 @@ export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
   }
 
   useEffect(() => {
-    runSearch(question);
-    // We only want the initial seeded query to populate once the panel mounts.
+    // Nothing is searched on arrival. The corpus is 3.3 MB of text and the
+    // reader has not asked anything yet; asking is what fetches it.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     const nextQuestion = pickLocale(rackUiCopy, locale).searchExamples[0];
     setQuestion(nextQuestion);
-    runSearch(nextQuestion);
-    // Locale changes should reseed the visible prompt and the initial retrieval.
+    // The prompt is reseeded; the corpus is not refetched for it. The reader
+    // asks, and the rack answers.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [locale]);
 
@@ -382,7 +416,7 @@ export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
         </article>
         <article className="paper-card knowledge-rack-metric">
           <p className="panel-label">{ui.passages}</p>
-          <strong>{chunks?.length ?? "…"}</strong>
+          <strong>{documents.length ? passageCount : "…"}</strong>
         </article>
         <article className="paper-card knowledge-rack-note">
           <p className="panel-label">{ui.examples}</p>
@@ -395,9 +429,11 @@ export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
           <p className="panel-label">{ui.promptLabel}</p>
           <form
             className="knowledge-rack-form"
+            onPointerEnter={prefetchChunks}
+            onFocus={prefetchChunks}
             onSubmit={(event) => {
               event.preventDefault();
-              runSearch(question);
+              void runSearch(question);
             }}
           >
             <textarea
@@ -420,9 +456,10 @@ export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
                 key={example}
                 type="button"
                 className="knowledge-rack-chip"
+                onPointerEnter={prefetchChunks}
                 onClick={() => {
                   setQuestion(example);
-                  runSearch(example);
+                  void runSearch(example);
                 }}
               >
                 {example}
@@ -436,7 +473,7 @@ export default function KnowledgeRackPanel({ locale }: { locale: Locale }) {
 
           {!error && !results.length && !loading ? (
             <article className="paper-card">
-              <p>{ui.noResults}</p>
+              <p>{searched ? ui.noResults : ui.idle.replace("{count}", String(passageCount))}</p>
             </article>
           ) : null}
 

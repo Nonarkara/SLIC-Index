@@ -1,6 +1,7 @@
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
 import { getEssayBodyCopy } from "./essayBodyCopy";
+import { thumbSrc } from "./thumbs";
 
 // ── Photo metadata ──────────────────────────────────────────────────────────
 // Captions are locale-keyed so every reader encounters the editorial frame
@@ -285,7 +286,8 @@ function Pull({ children }: { children: React.ReactNode }) {
 function Photo({ photo, locale }: { photo: EssayPhoto; locale: Locale }) {
   return (
     <figure className="essay-photo">
-      <img src={photo.src} alt={photo.alt} loading="lazy" />
+      {/* The card is 477px wide; the file behind it was 1600px. */}
+      <img src={thumbSrc(photo.src, 960)} alt={photo.alt} loading="lazy" />
       <figcaption>
         <span className="essay-photo-caption">{photo.captions[locale]}</span>
         {photo.credit && <span className="essay-photo-credit">{photo.credit}</span>}

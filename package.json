@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "vite",
     "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "prebuild": "node scripts/derive-publication-facts.mjs",
     "build": "vite build",
     "deploy": "npm run build && wrangler pages deploy dist --project-name slic-index --branch main",
     "deploy:gh": "npm run build && cp deploy/gh-pages-404.html dist/404.html && npx gh-pages -d dist",
@@ -23,7 +24,7 @@
     "methodology:pdf": "python3 scripts/generate_methodology_pdf.py",
     "test": "node --test test/*.test.mjs",
     "verify": "npm run typecheck && npm run build && npm test",
-    "verify:release": "npm run verify && npm run check:publication && npm run check:csv && npm run check:methodology && npm run check:translations && npm run check:audit && npm run check:layout && npm run check:spatial && npm run check:footer-nav && npm run check:masthead && npm run check:knowledge-rack && npm run check:author-name && npm run check:contacts && npm run check:numbers && npm run check:figures && npm run check:spider-drag && npm run check:clearance && npm run check:shipability",
+    "verify:release": "npm run verify && npm run check:facts && npm run check:thumbs && npm run check:publication && npm run check:csv && npm run check:methodology && npm run check:translations && npm run check:audit && npm run check:layout && npm run check:spatial && npm run check:footer-nav && npm run check:masthead && npm run check:knowledge-rack && npm run check:author-name && npm run check:contacts && npm run check:numbers && npm run check:figures && npm run check:spider-drag && npm run check:clearance && npm run check:payload && npm run check:shipability",
     "verify:math": "npm run rescore && npm run check:publication && npm run check:methodology && npm test",
     "check:layout": "node scripts/check-layout.mjs",
     "check:footer-nav": "node scripts/check-footer-nav.mjs",
@@ -35,8 +36,11 @@
     "check:spider-drag": "node scripts/check-spider-drag.mjs",
     "check:figures": "node scripts/check-figures.mjs",
     "check:clearance": "node scripts/check-clearance.mjs",
-    "check:mutations": "node scripts/mutation-layout-gates.mjs && node scripts/mutation-numbers-gate.mjs && node scripts/mutation-spider-gate.mjs && node scripts/mutation-figures-gates.mjs && node scripts/mutation-spatial-gate.mjs",
+    "check:mutations": "node scripts/mutation-layout-gates.mjs && node scripts/mutation-numbers-gate.mjs && node scripts/mutation-spider-gate.mjs && node scripts/mutation-figures-gates.mjs && node scripts/mutation-spatial-gate.mjs && node scripts/mutation-payload-gate.mjs",
     "check:shipability": "node scripts/check-shipability.mjs",
+    "check:facts": "node scripts/derive-publication-facts.mjs --check",
+    "check:thumbs": "node scripts/generate-thumbnails.mjs --check",
+    "check:payload": "node scripts/check-payload.mjs",
     "check:spatial:fast": "node scripts/audit-spatial.mjs --check scripts/spatial-baseline.json"
   },
   "dependencies": {

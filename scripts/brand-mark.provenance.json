@@ -2,12 +2,12 @@
   "source": "/Logos/slic-index-full.png",
   "sourceSha256": "ad1153a94abf035478d7cc6e78409d1d018c289cbfb6592396b568636f4c172d",
   "output": "/Logos/slic-index-mark.png",
-  "outputSha256": "c32fbc4f64f1a54926080b2d10275384eb8e1a9ebb17c84de59233f5ea50d07f",
+  "outputSha256": "ca03ee4e3a4b4e57588bf24deff2d13c09f7b2036ac7b4d0075f5e8cf74c988c",
   "monogram": "/Logos/slic-index-monogram.png",
-  "monogramSha256": "c6d281595ffa4e65bbd53f65c4549d18d8231a0f335d8568ef932d6ddff8dded",
-  "width": 389,
-  "height": 247,
-  "monogramWidth": 389,
-  "monogramHeight": 174,
+  "monogramSha256": "dff3e00795f7db4f8b771e4fc7d7a69e95910ec103ec3289eb0d2ac4949e5987",
+  "width": 160,
+  "height": 102,
+  "monogramWidth": 336,
+  "monogramHeight": 150,
   "tool": "scripts/build-brand-mark.py"
 }

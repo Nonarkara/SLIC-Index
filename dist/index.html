@@ -10,8 +10,15 @@
        An @import cannot start until the CSS has been fetched and parsed, so the
        display face arrived one round trip after the page and the headline
        repainted in the fallback. The preconnects above are already paying for
-       the handshake; this makes the request happen in parallel with the CSS. -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&amp;family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=IBM+Plex+Sans+Thai:wght@400;500;600;700&amp;family=Noto+Sans+SC:wght@400;500;600;700&amp;family=Noto+Sans+KR:wght@400;500;600;700&amp;family=Noto+Sans+JP:wght@400;500;600;700&amp;display=swap" />
+       the handshake; this makes the request happen in parallel with the CSS.
+
+       The request itself is per-locale. Asking Google Fonts for the three CJK
+       families the site supports produced a 1.29 MB stylesheet of unicode-range
+       rules that every reader downloaded, on every route, to read a page in a
+       script they may not even be reading. src/bootFonts.ts requests the Latin
+       faces plus the one script family the reader's locale needs, and runs
+       before the app so the first paint waits for the right stylesheet rather
+       than the wrong one. -->
   <title>SLIC Index V3 — Smart and Liveable Cities Index</title>
   <meta name="description"
     content="163 cities across 5 pillars. AMPI scoring with no imputation. Every metric traces to a source URL. Five languages. A city ranking built to be audited, not believed." />
@@ -39,11 +46,10 @@
   <script src="/route-restore.js"></script>
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js"
     data-cf-beacon='{"token": "0da324da0e204440a172088c0fafc92c"}'></script>
-  <script type="module" crossorigin src="/assets/index-B9b6dSAD.js"></script>
+  <script type="module" crossorigin src="/assets/index-DgbdQrfM.js"></script>
   <link rel="modulepreload" crossorigin href="/assets/react-vendor-BlnbqNNn.js">
   <link rel="modulepreload" crossorigin href="/assets/site-copy-Brogg2DH.js">
-  <link rel="modulepreload" crossorigin href="/assets/published-data-H_-66dHn.js">
-  <link rel="stylesheet" crossorigin href="/assets/index-CfC3LZVv.css">
+  <link rel="stylesheet" crossorigin href="/assets/index-DQ3g1JHE.css">
 </head>
 
 <body>

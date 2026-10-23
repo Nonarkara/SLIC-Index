@@ -22,8 +22,8 @@ export default function BrandLockup({
         className="brand-mark"
         src="/Logos/slic-index-mark.png"
         alt="SLIC Index"
-        width={389}
-        height={247}
+        width={160}
+        height={102}
         loading="lazy"
         decoding="async"
       />

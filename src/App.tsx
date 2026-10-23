@@ -1,9 +1,10 @@
 import { Component, type ErrorInfo, type ReactNode, Suspense, lazy, useEffect, useState } from "react";
 import SiteMasthead from "./SiteMasthead";
-import QuickSearchModal from "./QuickSearchModal";
 import { localeLabels } from "./siteCopy";
 import type { Locale, SitePath } from "./types";
 import { trackVisitor } from "./firstPartyTraffic";
+import { detectLocale, localeMap } from "./locale";
+import { applyWebFonts } from "./webFonts";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -23,48 +24,19 @@ const MapPage = lazy(() => import("./MapPage"));
 const EssayPage = lazy(() => import("./EssayPage"));
 const AwardsPage = lazy(() => import("./AwardsPage"));
 const TrafficPage = lazy(() => import("./TrafficPage"));
+/*
+ * The search modal is the only thing in the shell that reaches the 163-city
+ * dataset, and the dataset is 1.9 MB of JSON. Loaded eagerly it sat in the
+ * entry graph, so every route — the map, the traffic counter, the essay —
+ * preloaded 107 kB of compressed city data it never read. It is loaded when
+ * the reader asks for it instead, and the backdrop appears at once so the
+ * keystroke is never swallowed.
+ */
+const QuickSearchModal = lazy(() => import("./QuickSearchModal"));
 
 type DocumentWithViewTransition = Document & {
   startViewTransition?: Document["startViewTransition"];
 };
-
-const localeMap: Record<Locale, string> = {
-  en: "en",
-  th: "th",
-  zh: "zh-CN",
-  ko: "ko",
-  ja: "ja",
-};
-
-function detectLocale(): Locale {
-  if (typeof window === "undefined") {
-    return "en";
-  }
-
-  const savedLocale = window.localStorage.getItem("slic-locale");
-  if (savedLocale === "en" || savedLocale === "th" || savedLocale === "zh" || savedLocale === "ko" || savedLocale === "ja") {
-    return savedLocale;
-  }
-
-  const candidates = [navigator.language, ...navigator.languages]
-    .filter(Boolean)
-    .map((value) => value.toLowerCase());
-
-  if (candidates.some((value) => value.startsWith("th"))) {
-    return "th";
-  }
-  if (candidates.some((value) => value.startsWith("zh"))) {
-    return "zh";
-  }
-  if (candidates.some((value) => value.startsWith("ko"))) {
-    return "ko";
-  }
-  if (candidates.some((value) => value.startsWith("ja"))) {
-    return "ja";
-  }
-
-  return "en";
-}
 
 /** Strip the Vite base prefix so route matching uses bare paths. */
 function stripBase(pathname: string): string {
@@ -393,6 +365,10 @@ export default function App() {
   useEffect(() => {
     window.localStorage.setItem("slic-locale", locale);
     document.documentElement.lang = localeMap[locale];
+    // The reader's script follows their locale: a Thai reader gets the Thai
+    // face now, not on a later visit. The boot script already chose it for
+    // the first paint; this keeps it true when the reader switches.
+    applyWebFonts(locale);
   }, [locale]);
 
   useEffect(() => {
@@ -489,12 +465,22 @@ export default function App() {
         </Suspense>
         </RouteErrorBoundary>
       </div>
-      <QuickSearchModal
-        isOpen={searchOpen}
-        onClose={() => setSearchOpen(false)}
-        onNavigate={navigate}
-        locale={locale}
-      />
+      {searchOpen && (
+        <Suspense
+          fallback={
+            <div className="quick-search-loading" aria-hidden="true">
+              <div className="quick-search-card quick-search-loading-card">Loading search</div>
+            </div>
+          }
+        >
+          <QuickSearchModal
+            isOpen={searchOpen}
+            onClose={() => setSearchOpen(false)}
+            onNavigate={navigate}
+            locale={locale}
+          />
+        </Suspense>
+      )}
     </div>
   );
 }

@@ -13314,6 +13314,34 @@ a.essay-reference-text:hover {
   animation: qsFadeIn 120ms var(--ease-spring);
 }
 
+.quick-search-loading {
+  position: fixed;
+  inset: 0;
+  background: rgba(18, 16, 13, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 9999;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: clamp(2rem, 8vh, 5rem) 1rem 2rem;
+}
+
+/* The search bundle is fetched when the reader asks to search, so the
+   backdrop has to exist before the module arrives. Without it the keystroke
+   looked swallowed and the reader pressed it again. The card is the modal's
+   own card — the ground, the border and the elevation are the modal's, so
+   the thing that arrives is the thing that was promised. */
+.quick-search-loading-card {
+  padding: 1rem 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(248, 245, 240, 0.6);
+}
+
 @keyframes qsFadeIn {
   from { opacity: 0; }
   to { opacity: 1; }

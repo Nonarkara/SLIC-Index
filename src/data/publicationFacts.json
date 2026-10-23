@@ -1,0 +1,11 @@
+{
+  "generatedAt": "2026-10-19T02:47:21.887Z",
+  "scorerVersion": "slic-v3.4.0",
+  "tierPolicyVersion": "public-tier-v1.3.0",
+  "cityTotal": 163,
+  "cityRanked": 158,
+  "cityWatchlist": 5,
+  "scoreMin": 0,
+  "scoreMedian": 49,
+  "scoreMax": 74
+}

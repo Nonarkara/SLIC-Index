@@ -396,7 +396,7 @@ async function auditRoutes(browser, base) {
       add(
         "warn",
         `${worst.route} pulls ${(worst.bytes / 1024).toFixed(0)}kB on the first load`,
-        `The heaviest of it: ${worst.heaviest.join(", ")}. A reader on a train, on a phone, on a metered connection pays all of it before the page is useful. The 163-city dataset is modulepreloaded, so every route pays for it whether or not it needs it — it is the argument of the site, so it should be split, not cut.`,
+        `The heaviest of it: ${worst.heaviest.join(", ")}. A reader on a train, on a phone, on a metered connection pays all of it before the page is useful. The bytes are the size of the pictures the page shows and the code the page runs — the fix is to serve what the page can display, not to serve more of it.`,
       );
     }
   }

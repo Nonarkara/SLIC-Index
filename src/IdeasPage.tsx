@@ -3,6 +3,7 @@ import { cityIdeas, ideaCategories } from "./ideasData";
 import type { CityIdea } from "./ideasData";
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
+import { thumbSrc } from "./thumbs";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -378,7 +379,7 @@ export default function IdeasPage({
                 {idea.image && (
                   <div className="idea-card-photo">
                     <img
-                      src={`${BASE}/${idea.image}`}
+                      src={thumbSrc(`${BASE}/${idea.image}`, 960)}
                       alt={`${idea.city} — ${idea.title[locale]}`}
                       loading="lazy"
                     />

@@ -161,6 +161,21 @@ def tight(img, alpha_map):
 
 
 mark_tight, mark_box = tight(mark, alpha)
+
+# The mark is painted at 68px in the masthead and 72px in the footer. The
+# master it is cut from is 400×400, so the cut is 389px wide — and 389px of
+# file for 68px of mark is 5.7× more pixels than any screen can show, for a
+# file the reader downloads on every route. The artwork is delivered at the
+# size it is used: 160px, which is 2× the masthead's box.
+#
+# This is not a thumbnail made at request time. The mark is derived artwork,
+# and what ships is the derived bytes — so the size is part of the derivation
+# and the provenance below records it.
+MARK_WIDTH = 160
+if mark_tight.size[0] > MARK_WIDTH:
+    height = max(1, round(mark_tight.size[1] * MARK_WIDTH / mark_tight.size[0]))
+    mark_tight = mark_tight.resize((MARK_WIDTH, height), Image.LANCZOS)
+
 mark_tight.save(OUT, optimize=True)
 print(f"wrote {OUT.relative_to(ROOT)}  {mark_tight.size}  (ink box {mark_box})")
 
@@ -194,6 +209,16 @@ cut, _ = max(interior, key=lambda r: r[1])
 mono_alpha = alpha.copy()
 mono_alpha[cut:, :] = 0.0
 mono, mono_box = tight(mark, mono_alpha)
+
+# The monogram is painted at 122px in the footer's supporter row and at 161px
+# on a profile card. The cut is 389px wide, which is more than three times
+# either box — so the delivery size is part of the derivation, exactly as it
+# is for the wordmark above.
+MONOGRAM_WIDTH = 336
+if mono.size[0] > MONOGRAM_WIDTH:
+    height = max(1, round(mono.size[1] * MONOGRAM_WIDTH / mono.size[0]))
+    mono = mono.resize((MONOGRAM_WIDTH, height), Image.LANCZOS)
+
 mono.save(OUT_MONO, optimize=True)
 print(f"wrote {OUT_MONO.relative_to(ROOT)}  {mono.size}  (ink box {mono_box})")
 print(f"  ink rows {top}..{bottom}, cut at {cut}")

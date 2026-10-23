@@ -18,12 +18,18 @@
  *
  * The fix is structural: derive the date and the version from the bundle, and
  * localise only the template. One fact, five renderings, no hardcoded dates.
+ *
+ * The facts themselves live in src/data/publicationFacts.json, which
+ * scripts/derive-publication-facts.mjs writes from the published bundle. They
+ * used to be read out of the bundle at runtime — which put 1.9 MB of city
+ * data in the entry graph, so every route preloaded it to print a count in a
+ * search placeholder.
  */
 
 // The import attribute keeps this module loadable by Node's native TS stripping
 // as well as by Vite, so the test suite can import it directly and assert on the
 // real rendered strings instead of re-implementing the derivation.
-import publishedData from "./data/publishedRankingData.json" with { type: "json" };
+import facts from "./data/publicationFacts.json" with { type: "json" };
 import type { Locale } from "./types";
 
 interface Manifest {
@@ -32,7 +38,7 @@ interface Manifest {
   tierPolicyVersion: string;
 }
 
-const manifest = (publishedData.publicationManifest ?? {}) as Partial<Manifest>;
+const manifest = facts as Partial<Manifest>;
 
 /** Fallback only if the bundle ever ships without a manifest. */
 const FALLBACK_GENERATED_AT = "2026-07-04T00:00:00.000Z";
@@ -55,11 +61,9 @@ export const SCORE_MODEL_VERSION_SHORT = SCORE_MODEL_VERSION.replace(/^slic-/, "
 export const TIER_POLICY_VERSION = manifest.tierPolicyVersion ?? "public-tier-v1.3.0";
 
 /** City counts straight from the bundle, so no page can claim a stale total. */
-export const CITY_TOTAL = publishedData.cities.length;
-export const CITY_RANKED = publishedData.cities.filter(
-  (c) => c.rankingStatus === "Ranked",
-).length;
-export const CITY_WATCHLIST = CITY_TOTAL - CITY_RANKED;
+export const CITY_TOTAL = facts.cityTotal;
+export const CITY_RANKED = facts.cityRanked;
+export const CITY_WATCHLIST = facts.cityWatchlist;
 
 /** Month name in each locale, from the UTC publication instant. */
 function publishedMonthLabel(locale: Locale): string {
@@ -163,29 +167,14 @@ export function citationLine(locale: Locale): string {
  * This is the same defect class as the "May 2026" publication date, in a place
  * nobody was watching.
  */
-const rankedScores = publishedData.cities
-  .filter((c) => c.rankingStatus === "Ranked" && typeof c.slicScore === "number")
-  .map((c) => c.slicScore as number)
-  .sort((a, b) => a - b);
-
 /** Lowest ranked score, rounded for display. */
-export const SCORE_MIN = rankedScores.length ? Math.round(rankedScores[0]) : 0;
+export const SCORE_MIN = facts.scoreMin;
 
 /** Highest ranked score, rounded for display. */
-export const SCORE_MAX = rankedScores.length
-  ? Math.round(rankedScores[rankedScores.length - 1])
-  : 100;
+export const SCORE_MAX = facts.scoreMax;
 
 /** Median ranked score, rounded for display. */
-export const SCORE_MEDIAN = (() => {
-  if (!rankedScores.length) return 0;
-  const mid = rankedScores.length >> 1;
-  const value =
-    rankedScores.length % 2
-      ? rankedScores[mid]
-      : (rankedScores[mid - 1] + rankedScores[mid]) / 2;
-  return Math.round(value);
-})();
+export const SCORE_MEDIAN = facts.scoreMedian;
 
 /**
  * The dataset band line shown under a city score. Localised template, derived

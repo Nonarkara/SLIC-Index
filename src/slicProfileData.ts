@@ -63,7 +63,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         name: "DEPA",
         role: "Digital Economy Promotion Agency of Thailand",
         body: "Thailand's national digital-economy agency under the Ministry of Digital Economy and Society. Sets the smart-city policy frame, funds the index publication, and provides the public-sector legitimacy that keeps the board usable for city governments.",
-        logoSrc: "/Logos/depa_logo.png",
+        logoSrc: "/thumbs/256/Logos/depa_logo.png",
         url: DEPA_URL,
       },
       {
@@ -136,7 +136,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         name: "DEPA",
         role: "สำนักงานส่งเสริมเศรษฐกิจดิจิทัล",
         body: "หน่วยงานด้านเศรษฐกิจดิจิทัลระดับชาติของไทย ภายใต้กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม วางกรอบนโยบายเมืองอัจฉริยะ สนับสนุนทุนการเผยแพร่ดัชนี และให้ความชอบธรรมภาครัฐที่ทำให้บอร์ดใช้งานได้จริงกับผู้บริหารเมือง",
-        logoSrc: "/Logos/depa_logo.png",
+        logoSrc: "/thumbs/256/Logos/depa_logo.png",
         url: DEPA_URL,
       },
       {
@@ -209,7 +209,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         name: "DEPA",
         role: "泰国数字经济促进局",
         body: "泰国数字经济与社会部下属的国家级数字经济机构。负责设定智慧城市政策框架、资助指数发布，并提供使榜单对城市政府可用的公共部门合法性。",
-        logoSrc: "/Logos/depa_logo.png",
+        logoSrc: "/thumbs/256/Logos/depa_logo.png",
         url: DEPA_URL,
       },
       {
@@ -282,7 +282,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         name: "DEPA",
         role: "태국 디지털경제진흥원",
         body: "디지털경제사회부 산하 태국 국가 디지털경제 기관입니다. 스마트시티 정책 프레임을 수립하고, 인덱스 발행을 지원하며, 도시 정부가 순위표를 실질적으로 활용할 수 있도록 공공 부문의 정당성을 부여합니다.",
-        logoSrc: "/Logos/depa_logo.png",
+        logoSrc: "/thumbs/256/Logos/depa_logo.png",
         url: DEPA_URL,
       },
       {
@@ -355,7 +355,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         name: "DEPA",
         role: "タイ・デジタル経済振興庁",
         body: "デジタル経済社会省傘下のタイ国家デジタル経済機関です。スマートシティ政策のフレームを策定し、インデックスの発行を資金援助し、都市政府が順位表を実際に活用できるよう公共部門としての正当性を提供しています。",
-        logoSrc: "/Logos/depa_logo.png",
+        logoSrc: "/thumbs/256/Logos/depa_logo.png",
         url: DEPA_URL,
       },
       {

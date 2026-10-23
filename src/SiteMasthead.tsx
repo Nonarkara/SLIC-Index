@@ -266,8 +266,8 @@ export default function SiteMasthead({
             className="mh-mark"
             src={`${BASE}/Logos/slic-index-mark.png`}
             alt="SLIC Index"
-            width={389}
-            height={247}
+            width={160}
+            height={102}
             decoding="async"
           />
         </a>
