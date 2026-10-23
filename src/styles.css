@@ -8924,7 +8924,11 @@ a.metric-plate-name:hover {
   display: flex;
   gap: 2px;
   height: 4px;
-  margin-top: 0.15rem;
+  /* The bars are the baseline of the card: they sit at its foot whatever the
+     region line above them does, so every card in a row ends on the same
+     line. A grid that stretched its rows put the bar wherever the text ran
+     out, and three bars in one row sat three pixels apart. */
+  margin-top: auto;
 }
 
 .v3-city-card-bars>div {
@@ -10686,6 +10690,9 @@ a.metric-plate-name:hover {
   font-size: 0.72rem;
   letter-spacing: 0.02em;
   text-transform: none;
+  /* Two lines are reserved whether the region takes one or two, so a card
+     whose region wraps does not push its neighbours' bars down. */
+  min-height: 2lh;
 }
 
 /*
@@ -11030,9 +11037,9 @@ body,
 }
 
 .v3-city-card {
-  display: grid;
+  display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.55rem;
   padding: 1.1rem 1.1rem 1rem;
   background: rgba(255, 255, 255, 0.68);
   border: 1px solid var(--border);
@@ -11045,7 +11052,7 @@ body,
   color: inherit;
   position: relative;
   text-decoration: none;
-  min-height: 10rem;
+  min-height: 11rem;
   border-radius: 0;
 }
 
@@ -11092,11 +11099,24 @@ body,
     max-width: 1120px;
   }
 
+  /*
+   * The board is ten cities. Ten divides by five and by two, so five
+   * columns and two rows is the only arrangement in which every row is
+   * full — and it is the arrangement the law already asks for: when the
+   * item count divides evenly, choose the column count that divides it.
+   *
+   * The lead city used to span two columns and two rows: four cells to
+   * carry the same five facts a single cell carries (rank, name, score,
+   * country, region, the five pillars), and a hole in the last row where
+   * the tenth city should have been — 549 × 166 pixels of nothing at the
+   * end of the row, which is where the eye falls off the board.
+   *
+   * The lead keeps the black ground and the larger name. It is still the
+   * first thing the eye meets. It simply takes one cell, like every other
+   * city, because that is what a cell is.
+   */
   .v3-city-card:first-child {
-    grid-column: span 2;
-    grid-row: span 2;
-    min-height: 20.5rem;
-    padding: 1.45rem;
+    padding: 1.1rem 1.1rem 1rem;
     background: var(--text);
     border-color: var(--text);
     color: var(--text-inverse);
@@ -11119,13 +11139,13 @@ body,
   }
 
   .v3-city-card:first-child .v3-city-card-name {
-    max-width: 7.5ch;
-    font-size: 2.8rem;
-    line-height: 0.96;
+    max-width: none;
+    font-size: 1.9rem;
+    line-height: 1;
   }
 
   .v3-city-card:first-child .v3-city-card-score {
-    font-size: 1.35rem;
+    font-size: 1.05rem;
   }
 }
 
