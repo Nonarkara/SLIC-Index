@@ -18,7 +18,7 @@ function navigateLink(
 
 function PartnerCardView({ card }: { card: PartnerCard }) {
   return (
-    <article className="paper-card partner-card">
+    <article className="partner-card">
       {card.logoSrc && (
         <div className="partner-card-logo">
           <img src={`${BASE}${card.logoSrc}`} alt={`${card.name} logo`} loading="lazy" />
@@ -103,7 +103,7 @@ export default function SlicProfilePage({
           </div>
 
           <div className="profile-card-grid coda-grid">
-            <article className="paper-card partner-card partner-card-wide">
+            <article className="partner-card partner-card-wide">
               {profile.privatePartner.logoSrc && (
                 <div className="partner-card-logo">
                   <img

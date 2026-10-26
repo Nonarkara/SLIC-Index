@@ -94,7 +94,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         name: "Axiom",
         role: "AI strategy and comprehension",
         body: "Axiom designs the AI-assisted research pipeline — how models read public sources, how provenance is tracked, how prompts and data flows stay auditable. The goal is not to automate judgement but to scale the reading work so humans can focus on the judgement.",
-        logoSrc: "/Logos/axiom_logo.png",
+        logoSrc: "/Logos/axiom-icon-512.png",
         url: AXIOM_URL,
       },
       {
@@ -167,7 +167,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         name: "Axiom",
         role: "กลยุทธ์และความเข้าใจด้าน AI",
         body: "Axiom ออกแบบกระบวนการวิจัยที่มี AI ช่วย วิธีที่โมเดลอ่านแหล่งข้อมูลสาธารณะ วิธีติดตามที่มาของข้อมูล และวิธีรักษา prompt และข้อมูลให้ตรวจสอบย้อนได้ เป้าหมายไม่ใช่การแทนที่ดุลยพินิจ แต่ขยายงานอ่านเพื่อให้มนุษย์โฟกัสที่การตัดสินใจ",
-        logoSrc: "/Logos/axiom_logo.png",
+        logoSrc: "/Logos/axiom-icon-512.png",
         url: AXIOM_URL,
       },
       {
@@ -240,7 +240,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         name: "Axiom",
         role: "AI 策略与理解",
         body: "Axiom 设计 AI 辅助的研究流水线——模型如何阅读公共来源、如何追踪数据出处、prompt 与数据流如何保持可审计。目标不是把判断自动化，而是扩大阅读工作的规模，让人类专注于判断。",
-        logoSrc: "/Logos/axiom_logo.png",
+        logoSrc: "/Logos/axiom-icon-512.png",
         url: AXIOM_URL,
       },
       {
@@ -313,7 +313,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         name: "Axiom",
         role: "AI 전략 및 이해",
         body: "Axiom은 AI 보조 연구 파이프라인을 설계합니다. 모델이 공공 출처를 읽는 방법, 출처를 추적하는 방법, 프롬프트와 데이터 흐름이 감사 가능한 상태를 유지하는 방법을 포함합니다. 목표는 판단을 자동화하는 것이 아니라 독해 작업을 확장하여 인간이 판단에 집중할 수 있도록 하는 것입니다.",
-        logoSrc: "/Logos/axiom_logo.png",
+        logoSrc: "/Logos/axiom-icon-512.png",
         url: AXIOM_URL,
       },
       {
@@ -386,7 +386,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
         name: "Axiom",
         role: "AI戦略・理解",
         body: "AxiomはAI支援の研究パイプラインを設計しています。モデルが公開情報源を読む方法、出典を追跡する方法、プロンプトとデータフローが監査可能な状態を維持する方法が含まれます。目標は判断を自動化することではなく、読解作業を拡張して人間が判断に集中できるようにすることです。",
-        logoSrc: "/Logos/axiom_logo.png",
+        logoSrc: "/Logos/axiom-icon-512.png",
         url: AXIOM_URL,
       },
       {

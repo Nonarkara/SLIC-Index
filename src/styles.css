@@ -4861,6 +4861,16 @@ section[id] {
   border: 1px solid var(--border);
 }
 
+/* Partner marks on About SLIC sit on the page. Spacing comes from the grid
+   gap, not from a tile: no fill, no border, no padding. Award pages that
+   still reuse .partner-card keep .paper-card and are not this rule. */
+.partner-card:not(.paper-card) {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
 .hero-stats article,
 .sidekick-card,
 .signal-card,
