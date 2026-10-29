@@ -3158,8 +3158,10 @@ section[id] {
   min-height: 24px;
   padding-top: 0.15rem;
   padding-bottom: 0.15rem;
-  border-bottom: 1px solid rgba(184, 92, 40, 0.25);
-  transition: border-color 160ms ease, color 160ms ease;
+  text-decoration: underline;
+  text-decoration-color: rgba(184, 92, 40, 0.35);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 160ms ease, color 160ms ease;
 }
 
 /* Verdict — the editorial claim that connects the Alpha ten */
@@ -9498,7 +9500,41 @@ a.metric-plate-name:hover {
 /* Phone */
 @media (max-width: 480px) {
   .v3-alpha-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .v3-city-card {
+    padding: 0.72rem 0.75rem 0.65rem;
+    gap: 0.32rem;
+  }
+
+  .v3-city-card-name {
+    font-size: 1.15rem;
+    line-height: 1.1;
+  }
+
+  .v3-city-card-score {
+    font-size: 0.95rem;
+  }
+
+  .v3-city-card-topline {
+    min-height: auto;
+    gap: 0.35rem;
+  }
+
+  .v3-city-card-meta {
+    font-size: 0.6rem;
+  }
+
+  .v3-city-card-country,
+  .v3-city-card-region {
+    font-size: 0.62rem;
+  }
+
+  .v3-city-card-bars {
+    margin-top: 0.35rem;
+    height: 3px;
   }
 
   .v3-lower-tier-cities {
@@ -10654,7 +10690,7 @@ a.metric-plate-name:hover {
 
 .hp-thesis-link:hover {
   opacity: 1;
-  border-bottom-color: currentColor;
+  text-decoration-color: currentColor;
 }
 
 .v3-alpha-grid {
@@ -11349,13 +11385,30 @@ body,
     min-height: 24rem;
   }
 
+  .hp-thesis {
+    padding: 1.5rem 0 1rem;
+  }
+
+  .hp-verdict {
+    padding: 1.25rem 0 1.5rem;
+  }
+
+  .hp-verdict-p {
+    margin: 0 auto 0.75rem;
+  }
+
+  .hp-verdict-p--mid {
+    margin-bottom: 0.85rem;
+  }
+
   .v3-alpha {
-    padding: 3.25rem 0 2.3rem;
+    padding: 1.75rem 0 1.5rem;
   }
 
   .v3-alpha-header {
     grid-template-columns: minmax(0, 1fr);
     align-items: start;
+    margin-bottom: 1.25rem;
   }
 
   .v3-alpha-title {
@@ -11364,11 +11417,22 @@ body,
   }
 
   .v3-alpha-grid {
-    grid-template-columns: 1fr;
-    gap: 0.6rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.5rem;
   }
 
   .v3-city-card {
+    min-height: auto;
+    padding: 0.75rem 0.85rem 0.7rem;
+    gap: 0.35rem;
+  }
+
+  .v3-city-card-name {
+    font-size: 1.18rem;
+    line-height: 1.1;
+  }
+
+  .v3-city-card-topline {
     min-height: auto;
   }
 

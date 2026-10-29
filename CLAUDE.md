@@ -31,12 +31,14 @@ Read [ANTI-SLOP.md](ANTI-SLOP.md) before touching any visual. It is the prose so
 10. **No filler copy.** No "seamlessly", "revolutionise", "unlock the power", "cutting-edge", "supercharge". The locale string tables are the copy a reader actually reads.
 11. **No AI-slop fonts.** Inter, Poppins, Montserrat, Roboto, Open Sans, Lato, DM Sans, Space Grotesk, Geist, Plus Jakarta Sans, Manrope, Nunito are banned. Editorial faces only.
 12. **Palette discipline.** Cream ground, ink text, amber accent, plus the three Wada tier hues (categorical data, not brand decoration). One ink, one cream, one blue. A colour used more than once is a token.
+13. **Scroll reward and zero attention bleed.** Every scroll must deliver immediate signal. No far-apart text islands floating across dead vertical space. Repetitive boilerplate labels inside repeated cards are banned (subtract them). Card grids on mobile must be dense and proportional (e.g. 2-column or high-density field rows, never single-column stretched monoliths that waste screen height).
 
 ### Information hierarchy — the reason the rules exist
 
 A page is not a container for information. It is a **sequence of attention**: the reader's eye should meet the most important thing first, then the next, and so on, without scrolling past it to find out what mattered.
 
 - **Order by importance, not by habit.** Lead with the finding, not the apparatus. A reader who stops after the first screen should have got the point.
+- **The page does not bleed attention.** An interface fails when scrolling asks for attention without giving anything back. Spacing paragraphs far apart with arbitrary rules, wrapping every data point in its own bloated card, repeating boilerplate status labels (e.g. "Published board" on every card), and stretching cards into endless single-column mobile stacks dilutes engagement. Scrolling down must immediately reward the reader with addictive, dense information, comparisons, or interactive levers.
 - **Condense.** Every section that can lose 20% of its height without losing its point should. Excess scrolling is a composition failure, not a content failure.
 - **Depth is earned.** A section earns vertical space by being the answer to a question the reader has. Padding is not information.
 - **Anti-slop and information delivery are the same goal.** A page that needs three screens to say one thing has failed twice: it looks like slop *and* it buries the message.

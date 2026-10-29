@@ -628,7 +628,6 @@ export default function HomePage({
               >
               <span className="v3-city-card-meta">
                 <span className="v3-city-card-rank">#{String(city.rank).padStart(2, "0")}</span>
-                <span>{t(locale, "Published board", "บอร์ดที่เผยแพร่", "已发布榜单", "발표된 순위", "公開ボード")}</span>
               </span>
               <div className="v3-city-card-topline">
                 <span className="v3-city-card-name">{city.displayName}</span>

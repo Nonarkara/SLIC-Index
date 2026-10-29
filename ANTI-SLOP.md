@@ -27,8 +27,20 @@ The measured examples come from the study below. "Slop" means the median slop or
 | 11 | Gradients, gradient text, glass blur | **0 decorative gradients, 0 gradient text, 0 glass.** | 27% of slop apps. |
 | 12 | Dead empty space | **No flat region over a third of the first screen**, no phone column centred on a desktop, and no blank half while loading (show the real layout skeleton or the last good data, with its time). | Up to 81% of a first screen blank. |
 | 13 | A hero with no data | **No hero over half the screen** unless it *is* the map or the number. | 18% of slop apps. |
+| 14 | Attention bleed & scroll waste (diluted density) | **Every scroll must deliver immediate signal.** No far-apart text islands floating across dead vertical space. Repetitive boilerplate labels inside repeated cards are banned (subtract them). Card grids on mobile must be dense and proportional (e.g. 2-column or high-density field rows, never single-column stretched monoliths that waste screen height). | Slop apps spread sparse text over 15,000px of scrolling. Clean apps group arguments tightly and keep data within 1–2 scrolls. |
 
 The earlier rules still apply: boxes fit their content, the composition balances, banned slop fonts are out (this site uses Source Serif 4 for display, Source Sans 3 for body, JetBrains Mono for data, and IBM Plex Sans Thai / Noto Sans SC / Noto Sans KR / Noto Sans JP for the other four locales), there's one accent colour that means something, something on the page clearly wins, there's no filler copy, and there are no fake or placeholder numbers.
+
+## Density and the scroll-reward law: the page does not bleed attention
+
+An interface fails when scrolling asks for attention without giving anything back. AI slop spreads small amounts of information across vast vertical distances — spacing paragraphs far apart with arbitrary rules, wrapping every data point in its own bloated card, repeating boilerplate status labels, and stretching cards into endless single-column mobile stacks.
+
+The reader gets bored when a scroll reveals only more blank margins and sparse prose.
+
+1. **Scrolls must be addictive and rewarding**: every scroll down should reveal ranked data, interactive levers, dense comparisons, or sharp insights — not isolated prose islands.
+2. **No repetitive card boilerplate**: If 10 cards say "Published board" or "Metric", subtract the label. The section heading already established the context.
+3. **Dense mobile grids**: Ten items must not stack into ten 150px cards wasting 1,500px of scrolling. A balanced 2-column grid or compact table delivers the entire set in one screenful.
+4. **Contained frames, zero page bleed**: Keep clean, deliberate margins so content never feels uncontained or bleeding off the glass.
 
 ## Map-first "surgical table" rule
 
