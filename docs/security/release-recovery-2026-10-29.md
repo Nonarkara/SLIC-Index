@@ -32,8 +32,8 @@ production sources or dist.
 ## Evidence And Limits
 The all-city rendered tests and their four mutants pass. The isolated numbers
 mutation catches all five cases. The five-city browser figures check passes.
-The initial final-scope unit run passed 138 tests; the full release pipeline and
-remaining isolated mutation checks must finish before deployment is cleared.
+The final-scope unit run passed 138 tests. The completed release and isolated
+mutation results are recorded below; no earlier interrupted run is counted.
 
 Actual CUA captures of the corrected Bangkok trace at 1440x900, 1024x900,
 390x844 and the working 1280x720 viewport retain the full qualification and
@@ -50,6 +50,10 @@ independent screenshot pass found the equations legible and unclipped. It also
 noted a pre-existing collision between the Growth weight and score at phone
 width, outside the changed equation. Whole-site visual perfection, institutional
 endorsement and independent empirical validation are not established here.
+The unchanged Bangkok editorial narrative also retains older numeric copy
+(SLIC 53.7 and Community 70.7 versus the current 53.5 and 68.4). That editorial
+refresh is separate from the repaired formula; a passing equation gate does not
+certify all prose on the site.
 
 ## Release Verification, 30 October
 `npm run verify:release` completed with exit 0: 138 tests passed; integrity audit
@@ -62,8 +66,34 @@ Payload and shipability both reported zero blockers and zero warnings.
 The publication JSON remains byte-identical to cf03a81. All three regenerated
 public PDFs match their dist copies byte-for-byte. The release build passed the
 five-city figures gate and the pointer/axis spider checks. Isolated numbers
-mutations caught 5/5 intended defects; the additional figures/clearance mutations
-are still running in the separate copy and are not counted as passed yet.
+mutations caught 5/5 intended defects.
 
-Live-byte verification and the remaining mutation results are appended after
-they complete.
+## Mutation Closure
+The first eight-case figures/clearance batch exited 1, reporting 7/8 caught.
+The wrong-plate-score case was not a clean proof, and its original harness did
+not retain enough diagnostics to classify the cause. Do not call that batch
+green or presume the cause was machine load.
+
+The harness now retains failure diagnostics and supports a bounded `--case 4`
+retry without changing the default case set or its rejection criteria. That
+isolated retry exited 0 and reported 1/1 caught: a displayed 27.8 was rejected
+against the published 22.8. All eight distinct cases therefore have a named
+intended failure, but there was no single 8/8 clean batch. The four rendered
+equation mutants and all five numbers mutations also passed. Invalid case
+selection is rejected before any source write. The temporary copy was restored;
+none of these mutations touched the release sources or dist.
+
+## Live Verification
+Runtime release dfc866e was pushed and deployed to Cloudflare Pages at
+https://743b9c6f.slic-index.pages.dev and https://slic.nonarkara.org.
+The custom-domain homepage and all three methodology PDFs returned 200 and
+matched the tested build byte-for-byte. The GitHub Pages mirror revision
+78c3f9411ccf271ef73867820fc22cdb6228e6fe carries the same index bytes; its
+404 shim was added only to an isolated mirror staging directory, never dist.
+
+A real browser on the custom domain displayed Bangkok's 57.75 mean, 4.27
+imbalance and 53.5 published score. Bangkok, Taichung and traffic routes returned
+200. Repeated-slash and encoded private paths, the private traffic module and a
+new nonexistent JS asset returned 404/no-store. DELETE returned 405; a
+cross-origin traffic write returned 403; a DNT write returned 204 without
+collection. No valid synthetic visitor session was written by these probes.

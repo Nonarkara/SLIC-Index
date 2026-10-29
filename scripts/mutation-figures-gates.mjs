@@ -8,6 +8,7 @@
  * rebuild in the middle because these gates read markup as well as style.
  *
  *   node scripts/mutation-figures-gates.mjs
+ *   node scripts/mutation-figures-gates.mjs --case 4  # bounded retry of one case
  */
 import { readFileSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
@@ -125,6 +126,12 @@ const cases = [
 ];
 
 const results = [];
+const caseArg = process.argv.indexOf("--case");
+const caseNumber = caseArg < 0 ? null : Number(process.argv[caseArg + 1]);
+if (caseNumber !== null && (!Number.isInteger(caseNumber) || caseNumber < 1 || caseNumber > cases.length)) {
+  throw new Error(`--case must name a case from 1 to ${cases.length}`);
+}
+const selectedCases = caseNumber === null ? cases : [cases[caseNumber - 1]];
 
 /*
  * A mutation script that is killed half-way through must not leave the
@@ -146,7 +153,7 @@ for (const signal of ["SIGINT", "SIGTERM", "SIGHUP"]) {
 process.on("exit", restore);
 
 try {
-for (const c of cases) {
+for (const c of selectedCases) {
   const original = originals[c.file];
   if (!original.includes(c.find)) {
     console.error(`MISSED  ${c.name} — the anchor text is not in ${c.file} any more`);
@@ -171,6 +178,7 @@ for (const c of cases) {
   results.push({ name: c.name, caught, first });
   console.log(`${caught ? "CAUGHT " : "MISSED "} ${c.name}`);
   if (caught && first) console.log(`        ${first.slice(0, 160)}`);
+  if (!caught) console.log(`        exit ${r.code}; diagnostics:\n${r.out.slice(-6000)}`);
 }
 } finally {
   restore();
