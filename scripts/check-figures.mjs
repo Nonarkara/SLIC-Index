@@ -232,6 +232,8 @@ const CITY_PROBE = () => {
     deductions,
     mean,
     published,
+    denominator: document.querySelector(".scorecard-equation-denominator")?.textContent?.trim() ?? null,
+    floor: document.querySelector(".scorecard-equation-floor")?.textContent?.trim() ?? null,
     legacy,
     plateCount: parsed.length,
     nameCount: document.querySelectorAll(".metric-plate-name").length,
@@ -430,36 +432,51 @@ function checkCity(result, { scored, city }) {
     fail(`/city/${CITY}: the old duplicate presentation is still on the page (${result.legacy.join(", ")})`);
   }
 
-  /* The trace adds up. */
-  if (result.terms.length !== 5) {
-    fail(`/city/${CITY}: the score trace has ${result.terms.length} terms, expected 5`);
+  checkTrace(result, city);
+}
+
+function checkTrace(result, city) {
+  const route = `/city/${city.cityId}`;
+  const weights = loadPublished().data.canonicalWeights;
+  const observed = Object.entries(weights).filter(([pillar]) => Number.isFinite(city[`${pillar}Score`]));
+  const observedWeight = observed.reduce((sum, [, weight]) => sum + weight, 0) / 100;
+  const denominator = result.denominator == null ? 1 : Number(result.denominator);
+  if (denominator !== observedWeight) fail(`${route}: the trace omits or misstates its observed-weight denominator`);
+  if (result.terms.length !== observed.length) {
+    fail(`${route}: the score trace has ${result.terms.length} terms, expected ${observed.length} observed pillars`);
   } else {
-    const sum = result.terms.reduce((total, t) => total + t.weight * t.value, 0);
+    for (const [index, [pillar, weight]] of observed.entries()) {
+      if (result.terms[index].weight !== weight / 100 || Math.abs(result.terms[index].value - city[`${pillar}Score`]) > 0.05) {
+        fail(`${route}: a rendered pillar or weight differs from the publication`);
+      }
+    }
+    const sum = result.terms.reduce((total, t) => total + t.weight * t.value, 0) / denominator;
     const printedMean = Number.parseFloat(result.mean);
-    // Five terms rounded to 1 decimal place can diverge from the exact mean
-    // by up to 0.05 (sum of rounded terms) + 0.05 (rounding of exact mean) = 0.10.
-    // Bangkok's divergence is 57.8 - 57.738 = 0.062, well within the mathematical bound.
-    if (!Number.isFinite(printedMean) || Math.abs(sum - printedMean) > 0.07) {
+    if (!Number.isFinite(printedMean) || Math.abs(sum - printedMean) > 0.06) {
       fail(
-        `/city/${CITY}: the trace's terms add up to ${sum.toFixed(3)}, the page prints ${result.mean}`,
+        `${route}: the trace's terms add up to ${sum.toFixed(3)}, the page prints ${result.mean}`,
       );
     }
     const deducted = result.deductions.reduce((total, d) => total + d.value, 0);
     const printedPublished = Number.parseFloat(result.published);
+    const needsFloor = city.ampiExact - (city.coveragePenalty ?? 0) < 0;
+    const expectedFloor = needsFloor ? `max(0, ${(city.ampiExact - (city.coveragePenalty ?? 0)).toFixed(2)})` : null;
+    if (result.floor !== expectedFloor) fail(`${route}: the zero-floor step is missing or incorrect`);
     if (Number.isFinite(printedMean) && Number.isFinite(printedPublished)) {
-      if (Math.abs(printedMean - deducted - printedPublished) > 0.06) {
+      const end = needsFloor ? Math.max(0, printedMean - deducted) : printedMean - deducted;
+      if (Math.abs(end - printedPublished) > 0.06) {
         fail(
-          `/city/${CITY}: the trace reads ${result.mean} − ${deducted.toFixed(1)} = ${result.published}, which is not what it says`,
+          `${route}: the trace reads ${result.mean} − ${deducted.toFixed(1)} = ${result.published}, which is not what it says`,
         );
       }
     }
     if (city && Number.isFinite(printedPublished) && Math.abs(printedPublished - city.slicScore) > 0.05) {
       fail(
-        `/city/${CITY}: the trace ends at ${result.published}, the published score is ${city.slicScore}`,
+        `${route}: the trace ends at ${result.published}, the published score is ${city.slicScore}`,
       );
     }
     notes.push(
-      `/city/${CITY}: ${result.plateCount} plates, the trace adds up (${result.terms.map((t) => `${t.weight}×${t.value}`).join(" + ")} = ${result.mean})`,
+      `${route}: the trace adds up (${result.terms.map((t) => `${t.weight}×${t.value}`).join(" + ")}) / ${denominator} = ${result.mean}`,
     );
   }
 }
@@ -516,6 +533,14 @@ try {
     for (const item of broken) {
       fail(`/city/${CITY} @${width}: the name "${item.name}" breaks inside a word ("${item.brokenWord}")`);
     }
+  }
+
+  for (const cityId of ["tw-taichung", "ws-apia", "pg-port-moresby", "eg-alexandria"]) {
+    const other = loadPublished().data.cities.find(city => city.cityId === cityId);
+    if (!other) throw new Error(`Trace fixture missing: ${cityId}`);
+    await page.goto(`${base}/city/${cityId}`, { waitUntil: "networkidle" });
+    await page.waitForSelector(".scorecard-equation-result--published", { timeout: 15000 });
+    checkTrace(await page.evaluate(CITY_PROBE), other);
   }
 
   await browser.close();

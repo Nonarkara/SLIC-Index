@@ -13,6 +13,7 @@ import type { Locale, SitePath } from "./types";
 import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
 import type { PillarId } from "./pillars";
 import MetricPlate, { type MetricBandAnchors } from "./MetricPlate";
+import ScoreTraceEquation from "./ScoreTraceEquation";
 
 /* ── Types from enriched JSON ── */
 
@@ -1739,72 +1740,18 @@ export default function CityScorecardPage({
         <p className="scorecard-equation-note">
           {isPublished ? copy.publishedScoreNote : copy.exploratoryScoreNote}
         </p>
-        <div className="scorecard-equation-bar">
-          {pillarScores.map((p, i) => (
-            <span key={p.id} className="scorecard-equation-term">
-              {i > 0 && <span className="scorecard-equation-op">+</span>}
-              <span className="scorecard-equation-weight">{(p.weight / 100).toFixed(2)}</span>
-              <span className="scorecard-equation-times">&times;</span>
-              <span className="scorecard-equation-pillar" style={{ "--pillar": p.color } as CSSProperties}>
-                {p.label}({p.score?.toFixed(1) ?? "?"})
-              </span>
-            </span>
-          ))}
-          {/*
-            * The trace has to add up.
-            *
-            * The five weighted terms sum to the WEIGHTED MEAN, not to the
-            * published score. The published score is that mean minus the
-            * imbalance adjustment and the coverage penalty, so the chain
-            * reads
-            *
-            *   0.25 x Growth(42.6) + ... = 69.2 - imbalance 4.4 - coverage 11.1 = 53.7
-            *
-            * Showing the published score at the end of the first line made
-            * the arithmetic visibly wrong: the terms did not sum to it. The
-            * deductions now sit in the same bar, labelled, so the reader can
-            * check the whole line.
-            */}
-          <span className="scorecard-equation-step">
-          <span className="scorecard-equation-op">=</span>
-          <span
-            className="scorecard-equation-result scorecard-equation-result--mean"
-            title={t(locale, "Weighted mean of the five pillars", "ค่าเฉลี่ยถ่วงน้ำหนักของ 5 เสาหลัก", "五个支柱的加权均值", "다섯 기둥의 가중 평균", "5つの柱の加重平均")}
-          >
-            {city.weightedMeanExact != null ? city.weightedMeanExact.toFixed(1) : city.slicScore?.toFixed(1)}
-          </span>
-          </span>
-          {city.weightedMeanExact != null && city.ampiExact != null && (city.weightedMeanExact - city.ampiExact) > 0.05 && (
-            <span className="scorecard-equation-step">
-              <span className="scorecard-equation-op">−</span>
-              <span className="scorecard-equation-deduction">
-                <span className="scorecard-equation-deduction-label">
-                  {t(locale, "imbalance", "ความไม่สมดุล", "不平衡", "불균형", "不均衡")}
-                </span>
-                {(city.weightedMeanExact - city.ampiExact).toFixed(1)}
-              </span>
-            </span>
-          )}
-          {city.weightedMeanExact != null && (city.coveragePenalty ?? 0) > 0 && (
-            <span className="scorecard-equation-step">
-              <span className="scorecard-equation-op">−</span>
-              <span className="scorecard-equation-deduction">
-                <span className="scorecard-equation-deduction-label">
-                  {t(locale, "coverage", "ความครอบคลุมข้อมูล", "覆盖率", "커버리지", "カバレッジ")}
-                </span>
-                {city.coveragePenalty}
-              </span>
-            </span>
-          )}
-          {city.weightedMeanExact != null && city.ampiExact != null && (
-            <span className="scorecard-equation-step">
-              <span className="scorecard-equation-op">=</span>
-              <span className="scorecard-equation-result scorecard-equation-result--published">
-                {city.slicScore?.toFixed(1)}
-              </span>
-            </span>
-          )}
-        </div>
+        <ScoreTraceEquation
+          pillars={pillarScores}
+          mean={city.weightedMeanExact}
+          ampi={city.ampiExact}
+          penalty={city.coveragePenalty}
+          published={city.slicScore}
+          labels={{
+            mean: t(locale, "Weighted mean of observed pillars", "ค่าเฉลี่ยถ่วงน้ำหนักของเสาหลักที่มีข้อมูล", "有数据支柱的加权均值", "관측된 기둥의 가중 평균", "観測された柱の加重平均"),
+            imbalance: t(locale, "imbalance", "ความไม่สมดุล", "不平衡", "불균형", "不均衡"),
+            coverage: t(locale, "coverage", "ความครอบคลุมข้อมูล", "覆盖率", "커버리지", "カバレッジ"),
+          }}
+        />
       </section>
 
       {/* ── Pillar breakdown sections ── */}

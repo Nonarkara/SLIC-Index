@@ -16,7 +16,7 @@ import { execFileSync } from "node:child_process";
 const ROOT = resolve(import.meta.dirname, "..");
 const cssFile = join(ROOT, "src", "styles.css");
 const plateFile = join(ROOT, "src", "MetricPlate.tsx");
-const scorecardFile = join(ROOT, "src", "CityScorecardPage.tsx");
+const scorecardFile = join(ROOT, "src", "ScoreTraceEquation.tsx");
 
 const originals = {
   [cssFile]: readFileSync(cssFile, "utf8"),
@@ -44,6 +44,7 @@ function build() {
 const cases = [
   {
     name: "the console becomes a stack of rows again",
+    expect: /opening console is display:|console is not one row|cells do not share a line/,
     gate: "check-figures.mjs",
     file: cssFile,
     find: `.hp-opening-console {
@@ -56,6 +57,7 @@ const cases = [
   },
   {
     name: "the console cells paint a box of their own",
+    expect: /console cell paints its own/,
     gate: "check-figures.mjs",
     file: cssFile,
     find: `.hp-console-cell {
@@ -67,6 +69,7 @@ const cases = [
   },
   {
     name: "the band lies: the marker is drawn in the middle instead of where the formula puts it",
+    expect: /draws its marker at/,
     gate: "check-figures.mjs",
     file: plateFile,
     find: "style={{ left: `${(fraction * 100).toFixed(2)}%`, background: color }}",
@@ -74,6 +77,7 @@ const cases = [
   },
   {
     name: "the plate prints a score that is not the published score",
+    expect: /prints the score .*published score/,
     gate: "check-figures.mjs",
     file: plateFile,
     find: '{score === null ? "—" : score.toFixed(1)}',
@@ -81,6 +85,7 @@ const cases = [
   },
   {
     name: "the trace stops adding up: the weights are printed wrong",
+    expect: /rendered pillar or weight differs|trace's terms add up/,
     gate: "check-figures.mjs",
     file: scorecardFile,
     find: "{(p.weight / 100).toFixed(2)}",
@@ -88,6 +93,7 @@ const cases = [
   },
   {
     name: "the plate name breaks inside a word again",
+    expect: /breaks inside a word/,
     gate: "check-figures.mjs",
     file: cssFile,
     find: `  min-width: min-content;
@@ -97,6 +103,7 @@ const cases = [
   },
   {
     name: "the city page crowds the band again: 5.5rem under a 72px band",
+    expect: /\/city\/th-bangkok @\d+: the first line sits/,
     gate: "check-clearance.mjs",
     file: cssFile,
     find: "  padding: 7rem 0 2rem;",
@@ -104,6 +111,7 @@ const cases = [
   },
   {
     name: "the map page crowds the band again: 6rem under a 72px band",
+    expect: /\/map @\d+: the first line sits/,
     gate: "check-clearance.mjs",
     file: cssFile,
     find: `.map-page {
@@ -153,7 +161,7 @@ for (const c of cases) {
   restored = false;
   build();
 
-  const caught = r.code !== 0;
+  const caught = r.code !== 0 && c.expect.test(r.out) && !/the gate could not run:|could not measure/.test(r.out);
   const first = (
     r.out.split("\n").find((l) => l.trim().startsWith("FAIL ")) ||
     r.out.split("\n").find((l) => /FAILURE|FAILED/.test(l)) ||

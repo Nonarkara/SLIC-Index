@@ -7932,7 +7932,7 @@ details[open].scorecard-derived-formula summary::before {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 4px 6px;
+  gap: 4px 4px;
   font-family: var(--font-mono);
   font-size: 13px;
 }
@@ -7940,7 +7940,7 @@ details[open].scorecard-derived-formula summary::before {
 .scorecard-equation-term {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: 2px;
 }
 
 /* An operator and the number it acts on are one unit. A break may fall
@@ -7968,7 +7968,7 @@ details[open].scorecard-derived-formula summary::before {
 
 .scorecard-equation-op {
   color: var(--text-dim);
-  margin: 0 3px;
+  margin: 0 2px;
 }
 
 .scorecard-equation-result {
@@ -8014,11 +8014,11 @@ details[open].scorecard-derived-formula summary::before {
 @media (max-width: 1100px) {
   .scorecard-equation-bar {
     font-size: 11px;
-    gap: 4px 4px;
+    gap: 4px 3px;
   }
 
   .scorecard-equation-op {
-    margin: 0 2px;
+    margin: 0 1px;
   }
 
   .scorecard-equation-result {

@@ -104,7 +104,7 @@ SCORED_METRICS = [
         "pressure",
         "Suicide and severe mental strain",
         4,
-        "Public-health strain proxy; higher severe-strain burden scores worse. Weight raised v3.5 to amplify mental-health misery (explicitly omitted by macroeconomic indices).",
+        "Public-health strain proxy; higher severe-strain burden scores worse. The declared weight follows the published metric catalog.",
         "suicide rate or equivalent severe-strain proxy",
     ),
     MetricDef(
@@ -208,7 +208,7 @@ SCORED_METRICS = [
         "community",
         "Civic freedom and dignity",
         4,
-        "Composite: 0.4 × HRMI Empowerment + 0.3 × Freedom House FIW + 0.3 × V-Dem Liberal Democracy Index (×100). Higher = more civic freedom. Added v3.5 as the lived-dignity counterweight to macroeconomic stress metrics.",
+        "Composite: 0.4 × HRMI Empowerment + 0.3 × Freedom House FIW + 0.3 × V-Dem Liberal Democracy Index (×100). Higher = more civic freedom. This measures a different construct from macroeconomic stress.",
         "HRMI Empowerment score, Freedom House FIW total, V-Dem Liberal Democracy Index",
     ),
     MetricDef(
@@ -624,21 +624,21 @@ def build_story(snapshot, snapshot_stats):
 
     # ── Cover page ───────────────────────────────────────────────────────────
     story.append(Spacer(1, 28 * mm))
-    story.append(Paragraph("RESEARCHGATE PREPRINT &middot; WORKING PAPER SERIES", s["cover_eyebrow"]))
+    story.append(Paragraph("SLIC INDEX &middot; PROJECT TECHNICAL PAPER", s["cover_eyebrow"]))
     story.append(Paragraph("The SLIC Index", s["cover_title"]))
-    story.append(Paragraph("A Non-Compensatory Measurement System for Global Urban Well-Being and Structural Resilience", s["cover_subtitle"]))
+    story.append(Paragraph("An Imbalance-Penalized Measurement System for Global Urban Well-Being and Structural Resilience", s["cover_subtitle"]))
     story.append(Paragraph(
         '&ldquo;Every city ranking is a lie. Here&rsquo;s ours &mdash; public methodology, public data, reproducible code, no paid placement.&rdquo;',
         s["cover_provocation"],
     ))
     story.append(Spacer(1, 16 * mm))
     story.append(Paragraph("Dr Non Arkaraprasertkul", s["cover_author"]))
-    story.append(Paragraph("Senior Expert in Smart City Promotion, Digital Economy Promotion Agency (depa), Thailand<br/>Fellow, Lincoln Institute of Land Policy &middot; Associate, Harvard Asia Center", s["cover_affil"]))
+    story.append(Paragraph("Lead author &middot; SLIC Index", s["cover_affil"]))
     story.append(Paragraph("Associate Professor Poon Thiengburanathum, Ph.D.", s["cover_author"]))
-    story.append(Paragraph("Director, Urban Studies Lab, Department of Civil Engineering, Chiang Mai University<br/>Deputy Director, Program Management Unit for Area-based Development (PMU-A)", s["cover_affil"]))
+    story.append(Paragraph("Research advisor &middot; Chiang Mai University", s["cover_affil"]))
     story.append(Spacer(1, 12 * mm))
     story.append(Paragraph(
-        f"{total_count} metropolitan areas &middot; {ranked_count} ranked &middot; {watch_count} watchlist &middot; 5 pillars &middot; {SCORED_COUNT} scored indicators + {DIAGNOSTIC_COUNT} diagnostics",
+        f"{total_count} cities &middot; {ranked_count} ranked &middot; {watch_count} watchlist &middot; 5 pillars &middot; {SCORED_COUNT} scored indicators + {DIAGNOSTIC_COUNT} diagnostics",
         s["cover_caption"],
     ))
     story.append(Paragraph(
@@ -654,27 +654,31 @@ def build_story(snapshot, snapshot_stats):
     # ── Page 2: Abstract + Citation + Summary facts ─────────────────────────
     story.append(Spacer(1, 8 * mm))
     story.append(Paragraph("The Smart and Liveable Cities (SLIC) Index", s["title"]))
-    story.append(Paragraph("Methodology Technical Paper (Version 3.5)", s["subtitle"]))
+    story.append(Paragraph(f"Methodology Technical Paper &middot; Score model {score_model}", s["subtitle"]))
     story.append(Paragraph(
         "<b>Suggested Citation:</b> Arkaraprasertkul, N., &amp; Thiengburanathum, P. (2026). "
-        "<i>The Smart and Liveable Cities (SLIC) Index: A Non-Compensatory Urban Index Combining Macroeconomic Stability with Lived Dignity</i> "
-        "(Methodology Technical Paper V3.5). ResearchGate Preprint. DOI: 10.13140/RG.2.2.SLIC.2026",
+        "<i>The Smart and Liveable Cities (SLIC) Index: An Imbalance-Penalized Urban Index Combining Macroeconomic Stability with Lived Dignity</i> "
+        f"(Methodology Technical Paper; score model {score_model}; snapshot {updated_at}). "
+        "SLIC Index. https://slic.nonarkara.org/methodology. Project technical paper; not independently peer reviewed.",
         s["citation_box"],
     ))
     story.append(Paragraph("Abstract", s["abstract_head"]))
     story.append(paragraph(
-        "Most contemporary global city rankings rely on arithmetic or geometric aggregation models that suffer from severe compensatory bias: "
-        "runaway macroeconomic growth or capital-intensive infrastructure scores can easily mask acute housing unaffordability, excessive working hours, "
-        "and deteriorating civic freedoms. The Smart and Liveable Cities (SLIC) Index provides an open, auditable alternative designed around non-compensatory principles. "
-        "Drawing upon the Adjusted Mazziotta-Pareto Index (AMPI), SLIC penalizes cross-pillar imbalance (&mu; &minus; &sigma;&sup2;/&mu;) so that cities with critical weaknesses "
-        "cannot mask their deficiencies behind one stellar dimension. Furthermore, SLIC enforces an explicit, step-wise penalty for missing observations (Grades A, B, C) "
-        "rather than opaque statistical imputation. Evaluated across 163 worldwide metropolitan areas over five structural pillars (Growth 25%, Viability 22%, Capability 18%, "
-        "Community 15%, Creative 20%) and 4,193 verified empirical observations, SLIC highlights resilient, human-scale metropolitan areas (such as Montreal, Raleigh, Eindhoven, "
-        "and Kaohsiung) that successfully balance productive momentum with daily liveability.",
+        "The Smart and Liveable Cities (SLIC) Index is an open, reproducible model of urban liveability. "
+        "Drawing upon the Adjusted Mazziotta-Pareto Index (AMPI), SLIC penalizes cross-pillar imbalance "
+        "(&mu; &minus; &sigma;&sup2;/&mu;). This reduces compensation between pillars; it does not eliminate it. "
+        "Public tier floors and country quotas are separate from the numerical score. SLIC also applies "
+        "declared coverage penalties and withholds a ranking where coverage is insufficient. "
+        f"The published snapshot contains {total_count} cities, including {ranked_count} ranked cities and {watch_count} watchlist entries, "
+        "across five pillars (Growth 25%, Viability 22%, Capability 18%, Community 15%, Creative 20%). "
+        "Inputs include city measurements, national proxies, derived quantities and composites. "
+        "Matching an input to the source register establishes traceability, not independent empirical validation. "
+        "Registered source dates are not independently verified observation periods. The results describe this "
+        "declared model and its limitations, not a certification of a city's quality or institutional endorsement.",
         s["abstract_body"],
     ))
     story.append(paragraph(
-        "<b>Keywords:</b> Smart Cities, Urban Liveability, Adjusted Mazziotta-Pareto Index (AMPI), Non-Compensatory Aggregation, Urban Informatics.<br/>"
+        "<b>Keywords:</b> Smart Cities, Urban Liveability, Adjusted Mazziotta-Pareto Index (AMPI), Imbalance Penalty, Urban Informatics.<br/>"
         "<b>JEL Classification:</b> R00, R11, I31, H41, O18",
         s["small"],
     ))
@@ -703,10 +707,13 @@ def build_story(snapshot, snapshot_stats):
         "\n"
         "P_p(c) = sum observed alpha_(p,m) * q_m(c) / sum observed alpha_(p,m)\n"
         "\n"
-        "mu(c)  = (25 Pressure + 22 Viability + 18 Capability + 15 Community + 20 Creative) / 100\n"
-        "var(c) = (25(Pressure-mu)^2 + 22(Viability-mu)^2 + 18(Capability-mu)^2 +\n"
-        "          15(Community-mu)^2 + 20(Creative-mu)^2) / 100\n"
-        "AMPI(c) = mu(c) - var(c)/mu(c)\n"
+        "O(c) = pillars with observed scores; w = (25, 22, 18, 15, 20)\n"
+        "W(c) = sum over O(c) of w_p\n"
+        "mu(c) = sum over O(c) of w_p * P_p(c) / W(c)\n"
+        "var(c) = sum over O(c) of w_p * (P_p(c)-mu(c))^2 / W(c)\n"
+        "No observed pillars: no numeric mean or AMPI\n"
+        "AMPI(c) = clamp(mu(c) - var(c)/max(mu(c), 1e-10), 0, 100)\n"
+        "All-zero observed scores: mu = var = AMPI = 0\n"
         "SLIC(c) = max(0, AMPI(c) - coverage_penalty(c))",
         s["mono"],
     ))

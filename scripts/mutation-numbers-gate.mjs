@@ -44,8 +44,13 @@ const MUTATIONS = [
   {
     name: "a published city score no longer matches its own pillar scores",
     file: "src/data/publishedRankingData.json",
-    from: '"slicScore": 53.7',
-    to: '"slicScore": 63.7',
+    mutate(original) {
+      const publication = JSON.parse(original);
+      const city = publication.cities.find(city => city.cityId === "th-bangkok");
+      if (!city || !Number.isFinite(city.slicScore)) throw new Error("Bangkok score fixture missing");
+      city.slicScore += 10;
+      return JSON.stringify(publication, null, 2) + "\n";
+    },
   },
   {
     name: "the published board's city count is misstated",
@@ -66,12 +71,12 @@ let allCaught = true;
 
 for (const mutation of MUTATIONS) {
   const original = read(mutation.file);
-  if (!original.includes(mutation.from)) {
+  if (!mutation.mutate && !original.includes(mutation.from)) {
     results.push({ name: mutation.name, caught: false, note: "mutation anchor not found — the source has moved" });
     allCaught = false;
     continue;
   }
-  write(mutation.file, original.replace(mutation.from, mutation.to));
+  write(mutation.file, mutation.mutate ? mutation.mutate(original) : original.replace(mutation.from, mutation.to));
   const outcome = run();
   write(mutation.file, original);
   const caught = !outcome.passed;
