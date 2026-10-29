@@ -17,6 +17,7 @@ import { PILLAR_COLORS, PILLAR_NAMES, PILLAR_ORDER } from "./pillars";
 import type { PillarId } from "./pillars";
 import { CityBoardMark, CompareMark, GlobeMark } from "./IconMarks";
 import methodologyFacts from "./data/methodologyFacts.json";
+import { thumbSrc } from "./thumbs";
 
 
 interface HomeCity {
@@ -87,15 +88,15 @@ const CANONICAL_WEIGHTS: Record<PillarId, number> = {
   creative: 20,
 };
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
-const HERO_PHOTO = `${BASE}/launch-photos/20260318145941_DSC09480.webp`;
-const METHOD_PHOTO = `${BASE}/launch-photos/20260318145319_DSC09441.webp`;
-const STAGE_PHOTO = `${BASE}/launch-photos/20260318145249_ABC01948.webp`;
-const SHOWFLOOR_PHOTO = `${BASE}/launch-photos/20260318151147_DSC09510.webp`;
-const GITEX_STAGE_PHOTO = `${BASE}/launch-photos/gitex-singapore-2026-02.webp`;
-const LEAP_EAST_PHOTO = `${BASE}/launch-photos/leap-east-hong-kong-2026.webp`;
+const HERO_PHOTO = thumbSrc(`${BASE}/launch-photos/20260318145941_DSC09480.webp`, 960);
+const METHOD_PHOTO = thumbSrc(`${BASE}/launch-photos/20260318145319_DSC09441.webp`, 960);
+const STAGE_PHOTO = thumbSrc(`${BASE}/launch-photos/20260318145249_ABC01948.webp`, 960);
+const SHOWFLOOR_PHOTO = thumbSrc(`${BASE}/launch-photos/20260318151147_DSC09510.webp`, 960);
+const GITEX_STAGE_PHOTO = thumbSrc(`${BASE}/launch-photos/gitex-singapore-2026-02.webp`, 960);
+const LEAP_EAST_PHOTO = thumbSrc(`${BASE}/launch-photos/leap-east-hong-kong-2026.webp`, 960);
 // Real stage photos, copied from the axiom.nonarkara.org repo (public/images/*.webp).
-const SHANGHAI_STAGE_PHOTO = `${BASE}/launch-photos/tomorrow-city-shanghai-2026.webp`;
-const OSAKA_STAGE_PHOTO = `${BASE}/launch-photos/osaka-asia-roundtable-2026.webp`;
+const SHANGHAI_STAGE_PHOTO = thumbSrc(`${BASE}/launch-photos/tomorrow-city-shanghai-2026.webp`, 960);
+const OSAKA_STAGE_PHOTO = thumbSrc(`${BASE}/launch-photos/osaka-asia-roundtable-2026.webp`, 960);
 
 const severityClass: Record<string, string> = {
   severe: "tradeoff-card tradeoff-card--severe",

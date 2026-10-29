@@ -703,7 +703,7 @@ async function main() {
     city.overallWeightedCoverage = r2(scored.overallCoverage);
     city.coverageGrade = scored.coverageGrade;
     city.slicScoreExact = r4(scored.slicScore);
-    city.slicScore = r1(scored.slicScore);
+    city.slicScore = r1(city.slicScoreExact);
 
     if (city.watchlistReason) {
       city.rankingStatus = "Watchlist";

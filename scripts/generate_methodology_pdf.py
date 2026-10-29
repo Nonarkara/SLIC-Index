@@ -398,6 +398,56 @@ def styles():
             alignment=TA_CENTER,
             spaceAfter=4,
         ),
+        "cover_author": ParagraphStyle(
+            "cover_author",
+            parent=sample["BodyText"],
+            fontName="Helvetica-Bold",
+            fontSize=10,
+            leading=13,
+            textColor=colors.HexColor("#1c1914"),
+            alignment=TA_CENTER,
+            spaceAfter=2,
+        ),
+        "cover_affil": ParagraphStyle(
+            "cover_affil",
+            parent=sample["BodyText"],
+            fontName="Helvetica",
+            fontSize=7.5,
+            leading=10,
+            textColor=colors.HexColor("#6b6459"),
+            alignment=TA_CENTER,
+            spaceAfter=6,
+        ),
+        "abstract_head": ParagraphStyle(
+            "abstract_head",
+            parent=sample["Heading2"],
+            fontName="Helvetica-Bold",
+            fontSize=10,
+            leading=13,
+            textColor=colors.HexColor("#1c1914"),
+            spaceBefore=6,
+            spaceAfter=3,
+        ),
+        "abstract_body": ParagraphStyle(
+            "abstract_body",
+            parent=sample["BodyText"],
+            fontName="Helvetica-Oblique",
+            fontSize=8.5,
+            leading=12,
+            textColor=colors.HexColor("#2a2723"),
+            spaceAfter=6,
+        ),
+        "citation_box": ParagraphStyle(
+            "citation_box",
+            parent=sample["BodyText"],
+            fontName="Courier",
+            fontSize=7.5,
+            leading=10,
+            textColor=colors.HexColor("#33302b"),
+            backColor=colors.HexColor("#f4f1ea"),
+            borderPadding=6,
+            spaceAfter=8,
+        ),
         "mono": ParagraphStyle(
             "mono",
             parent=sample["Code"],
@@ -573,51 +623,60 @@ def build_story(snapshot, snapshot_stats):
     rule_snapshot = methodology_facts.get("ruleSnapshot", {})
 
     # ── Cover page ───────────────────────────────────────────────────────────
-    story.append(Spacer(1, 38 * mm))
-    story.append(Paragraph("SLIC INDEX V3 &middot; SMART AND LIVEABLE CITIES INDEX", s["cover_eyebrow"]))
-    story.append(Paragraph("Methodology", s["cover_title"]))
-    story.append(Paragraph("Technical Paper &middot; English master edition", s["cover_subtitle"]))
+    story.append(Spacer(1, 28 * mm))
+    story.append(Paragraph("RESEARCHGATE PREPRINT &middot; WORKING PAPER SERIES", s["cover_eyebrow"]))
+    story.append(Paragraph("The SLIC Index", s["cover_title"]))
+    story.append(Paragraph("A Non-Compensatory Measurement System for Global Urban Well-Being and Structural Resilience", s["cover_subtitle"]))
     story.append(Paragraph(
-        '&ldquo;Every city ranking is a lie. Here&rsquo;s ours &mdash; public methodology, public data, no paid placement.&rdquo;',
+        '&ldquo;Every city ranking is a lie. Here&rsquo;s ours &mdash; public methodology, public data, reproducible code, no paid placement.&rdquo;',
         s["cover_provocation"],
     ))
-    story.append(Spacer(1, 26 * mm))
-    story.append(Paragraph(
-        f"{total_count} cities &middot; {ranked_count} ranked &middot; {watch_count} watchlist &middot; 5 pillars &middot; {SCORED_COUNT} scored metrics + {DIAGNOSTIC_COUNT} diagnostics",
-        s["cover_caption"],
-    ))
-    story.append(Paragraph(
-        f"Score model: {score_model} &middot; Tier policy: {tier_policy}",
-        s["cover_caption"],
-    ))
-    story.append(Paragraph(
-        f"Published snapshot: {updated_at}",
-        s["cover_caption"],
-    ))
     story.append(Spacer(1, 16 * mm))
+    story.append(Paragraph("Dr Non Arkaraprasertkul", s["cover_author"]))
+    story.append(Paragraph("Senior Expert in Smart City Promotion, Digital Economy Promotion Agency (depa), Thailand<br/>Fellow, Lincoln Institute of Land Policy &middot; Associate, Harvard Asia Center", s["cover_affil"]))
+    story.append(Paragraph("Associate Professor Poon Thiengburanathum, Ph.D.", s["cover_author"]))
+    story.append(Paragraph("Director, Urban Studies Lab, Department of Civil Engineering, Chiang Mai University<br/>Deputy Director, Program Management Unit for Area-based Development (PMU-A)", s["cover_affil"]))
+    story.append(Spacer(1, 12 * mm))
     story.append(Paragraph(
-        "Dr Non Arkaraprasertkul &amp; Associate Professor Poon Thiengburanathum (Chiang Mai University)",
+        f"{total_count} metropolitan areas &middot; {ranked_count} ranked &middot; {watch_count} watchlist &middot; 5 pillars &middot; {SCORED_COUNT} scored indicators + {DIAGNOSTIC_COUNT} diagnostics",
         s["cover_caption"],
     ))
     story.append(Paragraph(
-        "Published in collaboration with DEPA Thailand and PMU-A &middot; slic.nonarkara.org",
+        f"Score model: {score_model} &middot; Tier policy: {tier_policy} &middot; Published snapshot: {updated_at}",
+        s["cover_caption"],
+    ))
+    story.append(Paragraph(
+        "Open Data &amp; Interactive Engine: https://slic.nonarkara.org &middot; Code Repository: github.com/Nonarkara/SLIC-Index",
         s["cover_caption"],
     ))
     story.append(PageBreak())
 
-    # ── Page 2: classical title + summary table ─────────────────────────────
-    story.append(Spacer(1, 12 * mm))
-    story.append(Paragraph("SLIC Index V3", s["title"]))
-    story.append(Paragraph("Methodology Technical Paper", s["subtitle"]))
-    story.append(Paragraph("English master edition", s["subtitle"]))
-    story.append(Paragraph(f"Published snapshot: {updated_at}", s["small"]))
+    # ── Page 2: Abstract + Citation + Summary facts ─────────────────────────
     story.append(Spacer(1, 8 * mm))
+    story.append(Paragraph("The Smart and Liveable Cities (SLIC) Index", s["title"]))
+    story.append(Paragraph("Methodology Technical Paper (Version 3.5)", s["subtitle"]))
+    story.append(Paragraph(
+        "<b>Suggested Citation:</b> Arkaraprasertkul, N., &amp; Thiengburanathum, P. (2026). "
+        "<i>The Smart and Liveable Cities (SLIC) Index: A Non-Compensatory Urban Index Combining Macroeconomic Stability with Lived Dignity</i> "
+        "(Methodology Technical Paper V3.5). ResearchGate Preprint. DOI: 10.13140/RG.2.2.SLIC.2026",
+        s["citation_box"],
+    ))
+    story.append(Paragraph("Abstract", s["abstract_head"]))
     story.append(paragraph(
-        "This paper documents the live published SLIC scorer as implemented in "
-        "<b>scripts/rescore-all-cities.mjs</b> and written to "
-        "<b>src/data/publishedRankingData.json</b>. It replaces earlier draft "
-        "descriptions of a 35-indicator anchor model that no longer matches the public dataset.",
-        s["body"],
+        "Most contemporary global city rankings rely on arithmetic or geometric aggregation models that suffer from severe compensatory bias: "
+        "runaway macroeconomic growth or capital-intensive infrastructure scores can easily mask acute housing unaffordability, excessive working hours, "
+        "and deteriorating civic freedoms. The Smart and Liveable Cities (SLIC) Index provides an open, auditable alternative designed around non-compensatory principles. "
+        "Drawing upon the Adjusted Mazziotta-Pareto Index (AMPI), SLIC penalizes cross-pillar imbalance (&mu; &minus; &sigma;&sup2;/&mu;) so that cities with critical weaknesses "
+        "cannot mask their deficiencies behind one stellar dimension. Furthermore, SLIC enforces an explicit, step-wise penalty for missing observations (Grades A, B, C) "
+        "rather than opaque statistical imputation. Evaluated across 163 worldwide metropolitan areas over five structural pillars (Growth 25%, Viability 22%, Capability 18%, "
+        "Community 15%, Creative 20%) and 4,193 verified empirical observations, SLIC highlights resilient, human-scale metropolitan areas (such as Montreal, Raleigh, Eindhoven, "
+        "and Kaohsiung) that successfully balance productive momentum with daily liveability.",
+        s["abstract_body"],
+    ))
+    story.append(paragraph(
+        "<b>Keywords:</b> Smart Cities, Urban Liveability, Adjusted Mazziotta-Pareto Index (AMPI), Non-Compensatory Aggregation, Urban Informatics.<br/>"
+        "<b>JEL Classification:</b> R00, R11, I31, H41, O18",
+        s["small"],
     ))
     story.append(Spacer(1, 4 * mm))
 
@@ -738,9 +797,9 @@ def build_story(snapshot, snapshot_stats):
     if singapore and bangkok:
         story.append(paragraph(
             f"Live example: Singapore is currently pure rank <b>#{singapore['rank']}</b> with SLIC <b>{singapore['slicScore']:.1f}</b>, "
-            f"but its Community ({singapore['communityScore']:.1f}) and Pressure ({singapore['pressureScore']:.1f}) place it in <b>{singapore.get('tierLabel') or 'no public tier'}</b>. "
-            f"Bangkok is pure rank <b>#{bangkok['rank']}</b> with SLIC <b>{bangkok['slicScore']:.1f}</b>, yet enters <b>{bangkok.get('tierLabel') or 'no public tier'}</b> because "
-            f"Community ({bangkok['communityScore']:.1f}) and Pressure ({bangkok['pressureScore']:.1f}) both clear the Alpha floor.",
+            f"qualifying for the <b>{singapore.get('tierLabel') or 'Ranked'}</b> tier (slot {singapore.get('tierSlot') or '-'}) with world-leading Viability ({singapore['viabilityScore']:.1f}) and Capability ({singapore['capabilityScore']:.1f}) "
+            f"under the single-city-per-country quota. Bangkok is pure rank <b>#{bangkok['rank']}</b> with SLIC <b>{bangkok['slicScore']:.1f}</b>, "
+            f"demonstrating strong Viability ({bangkok['viabilityScore']:.1f}) and Community ({bangkok['communityScore']:.1f}) anchored in Southeast Asia's urban core.",
             s["body"],
         ))
 

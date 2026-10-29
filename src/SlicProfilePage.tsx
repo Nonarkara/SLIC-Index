@@ -4,6 +4,7 @@ import { OFFICIAL_SLIC_URL, slicProfileData, type PartnerCard } from "./slicProf
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
 import { t } from "./i18n";
+import { thumbSrc } from "./thumbs";
 
 const BASE = import.meta.env.BASE_URL.replace(/\/$/, "");
 
@@ -21,7 +22,7 @@ function PartnerCardView({ card }: { card: PartnerCard }) {
     <article className="paper-card partner-card">
       {card.logoSrc && (
         <div className="partner-card-logo">
-          <img src={`${BASE}${card.logoSrc}`} alt={`${card.name} logo`} loading="lazy" />
+          <img src={thumbSrc(`${BASE}${card.logoSrc}`, 128)} alt={`${card.name} logo`} loading="lazy" />
         </div>
       )}
       <p className="panel-label">{card.role}</p>
@@ -107,7 +108,7 @@ export default function SlicProfilePage({
               {profile.privatePartner.logoSrc && (
                 <div className="partner-card-logo">
                   <img
-                    src={`${BASE}${profile.privatePartner.logoSrc}`}
+                    src={thumbSrc(`${BASE}${profile.privatePartner.logoSrc}`, 128)}
                     alt={`${profile.privatePartner.name} logo`}
                     loading="lazy"
                   />

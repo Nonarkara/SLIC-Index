@@ -1,11 +1,11 @@
 {
   "schemaVersion": 3,
-  "publicationGeneratedAt": "2026-10-29T08:06:32.615Z",
+  "publicationGeneratedAt": "2026-10-29T13:00:57.991Z",
   "sourceRegisters": [
     "data/verified_sources/city_inputs.csv",
     "data/verified_sources/country_context.csv"
   ],
-  "publicationSha256": "0f75913c5c8867f79b39eaaf7ec48fa7136c6e63070cf7b2feff3db1ac223ccb",
+  "publicationSha256": "3263a730b59686f85eef1b4039e8d5e344525cb7ed669c4891c1302ceaec84f9",
   "registerSha256": {
     "city_inputs.csv": "33b99c4c2aceb7809dd320c45ab492f00b23efefcfd37c4bf75ab7d04594f5d7",
     "country_context.csv": "4d06b16561493d3072c8fe20894080f494c044eb02765329f8525246333048bc"

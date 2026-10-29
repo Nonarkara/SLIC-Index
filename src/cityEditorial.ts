@@ -395,6 +395,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "au-brisbane": {
+    heroLine: cityEditorialTranslations["au-brisbane"].heroLine,
+    intro: cityEditorialTranslations["au-brisbane"].intro,
     photo: {
       fileName: "Brisbane CBD seen from Kangaroo Point, 2024, 01 (2).jpg",
       credit: "Chris Olszewski",
@@ -402,6 +404,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "at-vienna": {
+    heroLine: cityEditorialTranslations["at-vienna"].heroLine,
+    intro: cityEditorialTranslations["at-vienna"].intro,
     photo: {
       fileName: "Schoenbrunn philharmoniker 2012.jpg",
       credit: "Superbass",
@@ -409,6 +413,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "au-melbourne": {
+    heroLine: cityEditorialTranslations["au-melbourne"].heroLine,
+    intro: cityEditorialTranslations["au-melbourne"].intro,
     photo: {
       fileName: "Melbourne skyline sor.jpg",
       credit: "Melbpal",
@@ -416,6 +422,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "bh-manama": {
+    heroLine: cityEditorialTranslations["bh-manama"].heroLine,
+    intro: cityEditorialTranslations["bh-manama"].intro,
     photo: {
       fileName: "Manama, Bahrain Decembre 2014.jpg",
       credit: "Wadiia",
@@ -423,6 +431,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "au-adelaide": {
+    heroLine: cityEditorialTranslations["au-adelaide"].heroLine,
+    intro: cityEditorialTranslations["au-adelaide"].intro,
     photo: {
       fileName: "Adelaide skyline, December 2022 b.jpg",
       credit: "File:Adelaide skyline, December 2022.jpg: Ardash Muradian from Australia derivative work: Georgfotoart",
@@ -430,6 +440,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "ca-toronto": {
+    heroLine: cityEditorialTranslations["ca-toronto"].heroLine,
+    intro: cityEditorialTranslations["ca-toronto"].intro,
     photo: {
       fileName: "Toronto Skyline from Snake Island, February 28 2026 (08).jpg",
       credit: "Dillan Payne",
@@ -458,6 +470,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "jp-hiroshima": {
+    heroLine: cityEditorialTranslations["jp-hiroshima"].heroLine,
+    intro: cityEditorialTranslations["jp-hiroshima"].intro,
     photo: {
       fileName: "Atomic Bomb Dome and Motoyaso River, Hiroshima, Northwest view 20190417 1.jpg",
       credit: "DXR",
@@ -479,6 +493,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "ca-vancouver": {
+    heroLine: cityEditorialTranslations["ca-vancouver"].heroLine,
+    intro: cityEditorialTranslations["ca-vancouver"].intro,
     photo: {
       fileName: "Vancouver harbour skyline (44723845851).jpg",
       credit: "dronepicr",
@@ -556,6 +572,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "jp-sapporo": {
+    heroLine: cityEditorialTranslations["jp-sapporo"].heroLine,
+    intro: cityEditorialTranslations["jp-sapporo"].intro,
     photo: {
       fileName: "SapporoCity Skylines2020.jpg",
       credit: "Nryate",
@@ -626,6 +644,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "nz-christchurch": {
+    heroLine: cityEditorialTranslations["nz-christchurch"].heroLine,
+    intro: cityEditorialTranslations["nz-christchurch"].intro,
     photo: {
       fileName: "The \"Brill\" Tram 178.New Regent St Christchurch. (11510530335).jpg",
       credit: "Bernard Spragg. NZ from Christchurch, New Zealand",
@@ -668,6 +688,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "au-hobart": {
+    heroLine: cityEditorialTranslations["au-hobart"].heroLine,
+    intro: cityEditorialTranslations["au-hobart"].intro,
     photo: {
       fileName: "Franklin Wharf 2015 b (cropped).jpg",
       credit: "File:Franklin Wharf 2015.jpg: Michael fromholtz derivative work: Georgfotoart",
@@ -689,6 +711,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "nz-dunedin": {
+    heroLine: cityEditorialTranslations["nz-dunedin"].heroLine,
+    intro: cityEditorialTranslations["nz-dunedin"].intro,
     photo: {
       fileName: "Dunedin-Nueva Zelanda01.JPG",
       credit: "Diego Delso",
@@ -703,6 +727,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "nz-wellington": {
+    heroLine: cityEditorialTranslations["nz-wellington"].heroLine,
+    intro: cityEditorialTranslations["nz-wellington"].intro,
     photo: {
       fileName: "Seddon Statue in Parliament Grounds.jpg",
       credit: "russellstreet",
@@ -738,6 +764,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "fi-helsinki": {
+    heroLine: cityEditorialTranslations["fi-helsinki"].heroLine,
+    intro: cityEditorialTranslations["fi-helsinki"].intro,
     photo: {
       fileName: "Suomenlinna (cropped).jpg",
       credit: "Michal Pise, Michal.Pise",
@@ -1137,6 +1165,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "se-gothenburg": {
+    heroLine: cityEditorialTranslations["se-gothenburg"].heroLine,
+    intro: cityEditorialTranslations["se-gothenburg"].intro,
     photo: {
       fileName: "Göteborg 2503 stitch (28573994096).jpg",
       credit: "Bengt Nyman from Vaxholm, Sweden",
@@ -1151,6 +1181,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "ie-cork": {
+    heroLine: cityEditorialTranslations["ie-cork"].heroLine,
+    intro: cityEditorialTranslations["ie-cork"].intro,
     photo: {
       fileName: "University College Cork - geograph.org.uk - 41771.jpg",
       credit: "raps",
@@ -1200,6 +1232,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "no-bergen": {
+    heroLine: cityEditorialTranslations["no-bergen"].heroLine,
+    intro: cityEditorialTranslations["no-bergen"].intro,
     photo: {
       fileName: "Bergen panorama at night - panoramio (1).jpg",
       credit: "TomasEE",
@@ -1221,6 +1255,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "uk-london": {
+    heroLine: cityEditorialTranslations["uk-london"].heroLine,
+    intro: cityEditorialTranslations["uk-london"].intro,
     photo: {
       fileName: "London Skyline (125508655).jpeg",
       credit: "Ilya Grigorik",
@@ -1228,6 +1264,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "us-new-york": {
+    heroLine: cityEditorialTranslations["us-new-york"].heroLine,
+    intro: cityEditorialTranslations["us-new-york"].intro,
     photo: {
       fileName: "View of Empire State Building from Rockefeller Center New York City dllu (cropped).jpg",
       credit: "Dllu",
@@ -1235,6 +1273,8 @@ const ALPHA_CITY_EDITORIAL: Record<string, CityEditorialSeed> = {
     },
   },
   "cz-prague": {
+    heroLine: cityEditorialTranslations["cz-prague"].heroLine,
+    intro: cityEditorialTranslations["cz-prague"].intro,
     photo: {
       fileName: "Prague (6365119737).jpg",
       credit: "Moyan Brenn from Italy",
