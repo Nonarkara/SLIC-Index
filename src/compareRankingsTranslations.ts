@@ -155,6 +155,8 @@ export const compareTranslations: Record<string, CompareTranslation> = {
       }
     }
   },
+  // Edition evidence: https://www.worldsbestcities.com/methodology/ (2025 text indexed).
+  // The URL now redirects to a different edition/region; do not infer 2025 weights from it.
   "resonance": {
     focus: {
       en: "\"Place Power\u2122\" for visitors, investors, and residents \u2014 marketing-friendly attractiveness powered by Instagram and TripAdvisor.",
@@ -172,32 +174,32 @@ export const compareTranslations: Record<string, CompareTranslation> = {
         ja: "訪問者、投資家、住民にとっての都市の総合的な魅力を測定する。"
       },
       actualMeasure: {
-        en: "Perception-driven PR for city brands. Mixes big data (Google search trends, Instagram hashtags, TripAdvisor sentiment) with official stats and ~22,000 resident surveys. \"Lovability\" \u2014 measured by social media sentiment \u2014 is a core pillar. High real estate values count as prosperity, not as an affordability crisis. Great for mayors chasing FDI and TikTok fame.",
-        th: "การทำ PR ขับเคลื่อนด้วยภาพลักษณ์แบรนด์เมือง ผสมผสาน Big Data (เทรนด์ค้นหาของ Google, แฮชแท็ก Instagram, ความรู้สึกบน TripAdvisor) เข้ากับสถิติทางการและแบบสำรวจคนในพื้นที่ ~22,000 คน \"Lovability\" — วัดจากความรู้สึกบนโซเชียล — เป็นเสาหลัก ราคาอสังหาฯ ที่สูงถือเป็นความรุ่งเรือง ไม่ใช่วิกฤตการเข้าถึง เหมาะมากสำหรับนายกเทศมนตรีที่วิ่งตามเม็ดเงินลงทุนและชื่อเสียงบน TikTok",
-        zh: "由认知驱动的城市品牌公关。将大数据（谷歌搜索趋势、Instagram 标签、TripAdvisor 情绪）与官方统计数据和约 22,000 份居民调查相结合。“可爱度”——通过社交媒体情绪衡量——是一个核心支柱。高昂的房地产价值被视为繁荣，而不是负担能力危机。非常适合追求外国直接投资 (FDI) 和 TikTok 知名度的市长。",
-        ko: "인지도 중심의 도시 브랜드 PR. 빅 데이터(Google 검색 트렌드, Instagram 해시태그, TripAdvisor 감성)를 공식 통계 및 약 22,000명의 거주자 설문 조사와 혼합합니다. 소셜 미디어 감성으로 측정되는 '호감도(Lovability)'가 핵심 기둥입니다. 높은 부동산 가치는 번영으로 간주되며, 감당할 수 없는 위기로 보지 않습니다. FDI와 TikTok의 명성을 쫓는 시장들에게 좋습니다.",
-        ja: "認知主導の都市ブランドPR。ビッグデータ（Googleの検索トレンド、Instagramのハッシュタグ、TripAdvisorの感情）と、公式統計や約22,000人の住民調査を組み合わせています。ソーシャルメディアの感情で測定される「愛らしさ（Lovability）」が中核となる柱です。高い不動産価値は繁栄としてカウントされ、手頃さの危機としてはカウントされません。FDIやTikTokの名声を追い求める市長に最適です。"
+        en: "The 2025 edition combines city statistics, online ratings and an Ipsos preference survey across Livability, Lovability and Prosperity. Its published methodology includes housing affordability; it is not simply a reward for expensive property. This is an attractiveness model for several audiences, not a household budget. Exact indicator weights and the net effect of a price change are not established here.",
+        th: "ฉบับปี 2025 รวมสถิติเมือง การให้คะแนนออนไลน์ และแบบสำรวจความชอบของ Ipsos ผ่าน Livability, Lovability และ Prosperity ระเบียบวิธีที่เผยแพร่มีความสามารถในการจ่ายค่าที่อยู่อาศัย ไม่ใช่ให้รางวัลอสังหาฯ ราคาแพงอย่างเดียว นี่คือแบบจำลองความน่าดึงดูดสำหรับหลายกลุ่ม ไม่ใช่งบครัวเรือน ที่นี่ยังไม่ได้ยืนยันน้ำหนักรายตัวหรือผลสุทธิของการเปลี่ยนราคา",
+        zh: "2025 年版结合城市统计、在线评分和 Ipsos 偏好调查，形成宜居性、吸引力与繁荣三个维度。公布的方法包含住房负担能力，并非单纯奖励高房价。这是面向多类受众的城市吸引力模型，不是家庭预算。此处未核实各指标的确切权重或价格变化的净影响。",
+        ko: "2025년판은 도시 통계, 온라인 평가, Ipsos 선호도 조사를 Livability, Lovability, Prosperity로 결합합니다. 공개 방법론에는 주거비 부담 능력이 포함되므로 비싼 부동산에 단순히 보상하는 모델은 아닙니다. 여러 집단을 위한 도시 매력도 모델이지 가계 예산은 아닙니다. 개별 지표의 정확한 가중치와 가격 변화의 순효과는 여기서 확인되지 않았습니다.",
+        ja: "2025年版は都市統計、オンライン評価、Ipsosの選好調査をLivability、Lovability、Prosperityに組み合わせています。公開方法論には住宅の負担可能性が含まれ、単純に高額な不動産を評価するものではありません。複数の対象者に向けた都市の魅力のモデルであり、家計簿ではありません。各指標の正確なウェイトや価格変動の純効果は、ここでは確認していません。"
       },
       categories: {
-        en: ["Livability: infrastructure, safety, cleanliness, healthcare", "Lovability: cultural buzz, social media sentiment, tourist reviews", "Prosperity: economy, jobs, real estate values, tourism receipts"],
-        th: ["Livability: โครงสร้างพื้นฐาน, ความปลอดภัย, ความสะอาด, สาธารณสุข", "Lovability: กระแสวัฒนธรรม, ความรู้สึกบนโซเชียล, รีวิวนักท่องเที่ยว", "Prosperity: เศรษฐกิจ, การจ้างงาน, มูลค่าอสังหาริมทรัพย์, รายได้จากการท่องเที่ยว"],
-        zh: ["宜居性：基础设施、安全、清洁度、医疗保健", "可爱度：文化热度、社交媒体情绪、游客评论", "繁荣度：经济、就业、房地产价值、旅游收入"],
-        ko: ["살기 좋은 정도(Livability): 인프라, 안전, 청결, 의료", "호감도(Lovability): 문화적 화제성, 소셜 미디어 감성, 관광객 리뷰", "번영(Prosperity): 경제, 일자리, 부동산 가치, 관광 수입"],
-        ja: ["住みやすさ（Livability）：インフラ、安全性、清潔さ、医療", "愛らしさ（Lovability）：文化的な話題、ソーシャルメディアの感情、観光客のレビュー", "繁栄（Prosperity）：経済、雇用、不動産価値、観光収入"]
+        en: ["Livability: living conditions, including housing affordability","Lovability: cultural and visitor appeal","Prosperity: economic opportunity and human capital"],
+        th: ["Livability: สภาพการใช้ชีวิต รวมความสามารถในการจ่ายค่าที่อยู่อาศัย","Lovability: เสน่ห์ทางวัฒนธรรมและต่อผู้มาเยือน","Prosperity: โอกาสทางเศรษฐกิจและทุนมนุษย์"],
+        zh: ["宜居性：生活条件，包括住房负担能力","吸引力：文化与游客吸引力","繁荣：经济机会与人力资本"],
+        ko: ["Livability: 주거비 부담 능력을 포함한 생활 조건","Lovability: 문화 및 방문 매력","Prosperity: 경제적 기회와 인적 자본"],
+        ja: ["Livability：住宅の負担可能性を含む生活条件","Lovability：文化と訪問先としての魅力","Prosperity：経済的機会と人的資本"]
       },
       dataInputs: {
-        en: ["Big data: Google search trends, Instagram hashtags, TripAdvisor reviews", "Resident surveys (~22,000 people)", "Official economic statistics", "Real estate market data (high prices = high score)"],
-        th: ["Big data: เทรนด์ค้นหาของ Google, แฮชแท็ก Instagram, รีวิว TripAdvisor", "แบบสำรวจผู้อยู่อาศัย (ประมาณ 22,000 คน)", "สถิติเศรษฐกิจอย่างเป็นทางการ", "ข้อมูลตลาดอสังหาริมทรัพย์ (ราคาสูง = คะแนนสูง)"],
-        zh: ["大数据：谷歌搜索趋势、Instagram 标签、TripAdvisor 评论", "居民调查（约 22,000 人）", "官方经济统计数据", "房地产市场数据（高房价 = 高评分）"],
-        ko: ["빅 데이터: Google 검색 트렌드, Instagram 해시태그, TripAdvisor 리뷰", "거주자 설문 조사 (약 22,000명)", "공식 경제 통계", "부동산 시장 데이터 (높은 가격 = 높은 점수)"],
-        ja: ["ビッグデータ：Google検索トレンド、Instagramハッシュタグ、TripAdvisorレビュー", "住民アンケート（約22,000人）", "公式の経済統計", "不動産市場データ（価格が高い＝スコアが高い）"]
+        en: ["City statistics and online ratings","Ipsos preference survey","2025 housing measures include price-to-income ratio and rent","Edition-specific methodology; exact weights not verified here"],
+        th: ["สถิติเมืองและการให้คะแนนออนไลน์","แบบสำรวจความชอบของ Ipsos","ตัววัดที่อยู่อาศัยปี 2025 มีอัตราราคาต่อรายได้และค่าเช่า","ระเบียบวิธีเฉพาะฉบับ ยังไม่ได้ยืนยันน้ำหนักที่แน่นอนที่นี่"],
+        zh: ["城市统计与在线评分","Ipsos 偏好调查","2025 年住房指标包括房价收入比和租金","方法因版本而异；此处未核实确切权重"],
+        ko: ["도시 통계 및 온라인 평가","Ipsos 선호도 조사","2025년 주거 지표에는 가격 대비 소득 비율과 임대료 포함","판본별 방법론이며 정확한 가중치는 여기서 미확인"],
+        ja: ["都市統計とオンライン評価","Ipsosの選好調査","2025年の住宅指標には価格所得比と家賃を含む","版ごとの方法論であり、正確なウェイトはここでは未確認"]
       },
       blindSpots: {
-        en: ["Affordability for non-wealthy residents", "Inequality as a feature (high real estate = high score)", "Overtourism damage to resident quality of life", "Working conditions and labour protections", "Climate vulnerability and environmental justice"],
-        th: ["ความสามารถในการจับจ่ายของคนที่ไม่ร่ำรวย", "ความเหลื่อมล้ำถูกมองเป็นฟีเจอร์ (อสังหาฯ แพง = คะแนนสูง)", "ความเสียหายจากนักท่องเที่ยวล้นเมืองต่อคุณภาพชีวิตผู้อยู่อาศัย", "สภาพการทำงานและการคุ้มครองแรงงาน", "ความเปราะบางต่อสภาพภูมิอากาศและความยุติธรรมทางสิ่งแวดล้อม"],
-        zh: ["非富有居民的负担能力", "不平等作为一种特征（高房价 = 高分）", "过度旅游对居民生活质量的破坏", "工作条件和劳工保护", "气候脆弱性和环境正义"],
-        ko: ["비부유층 거주자의 주거 비용 감당 능력", "특징으로서의 불평등 (높은 부동산 가치 = 높은 점수)", "과잉 관광이 거주자의 삶의 질에 미치는 피해", "근로 조건 및 노동 보호", "기후 취약성 및 환경 정의"],
-        ja: ["裕福でない住民にとっての手頃さ", "特徴としての不平等（高い不動産＝高いスコア）", "オーバーツーリズムによる住民の生活の質への被害", "労働条件と労働者保護", "気候の脆弱性と環境正義"]
+        en: ["An attractiveness score is not resident disposable income","Housing measures do not describe every household's budget","Visitor appeal can diverge from resident experience","Working conditions and labour protections need separate examination","Environmental burdens can vary within a city"],
+        th: ["คะแนนความน่าดึงดูดไม่ใช่รายได้ใช้สอยของผู้อยู่อาศัย","ตัววัดที่อยู่อาศัยไม่ได้อธิบายงบทุกครัวเรือน","เสน่ห์ต่อผู้มาเยือนอาจต่างจากประสบการณ์ผู้อยู่อาศัย","สภาพการทำงานและสิทธิแรงงานต้องพิจารณาแยก","ภาระสิ่งแวดล้อมอาจต่างกันภายในเมือง"],
+        zh: ["吸引力得分不等于居民可支配收入","住房指标不能描述每个家庭的预算","游客吸引力可能不同于居民体验","工作条件与劳动保障需另行考察","城市内部的环境负担可能不同"],
+        ko: ["매력도 점수는 주민의 가처분소득이 아님","주거 지표는 모든 가계의 예산을 설명하지 않음","방문 매력과 주민 경험은 다를 수 있음","근로 조건과 노동 보호는 별도 검토 필요","도시 내 환경 부담은 지역별로 다를 수 있음"],
+        ja: ["魅力のスコアは住民の可処分所得ではない","住宅指標は全世帯の家計を表すものではない","訪問先の魅力と住民の経験は異なり得る","労働条件と労働者保護は別途検討が必要","環境負荷は都市内でも異なり得る"]
       },
       audienceNote: {
         en: "City marketing boards, tourism authorities, real estate investors, and mayors chasing FDI.",
@@ -216,11 +218,11 @@ export const compareTranslations: Record<string, CompareTranslation> = {
         ja: "見世物は住みやすさではない"
       },
       body: {
-        en: "Resonance flips the script toward spectacle and capital flow. London/NYC/Paris top because they score high on \"lovability\" (Instagram reels, tourist queues) and prosperity (sky-high real estate as a proxy for success). Dubai and Singapore rank high because authoritarian efficiency + investment flows = \"attractive.\" The ranking rewards overtourism, gentrification, and inequality-as-feature. It\u2019s the only major index where making a city more expensive literally improves its score. Numbeo\u2019s crowdsourced approach is more transparent but equally flawed \u2014 academics call its crime/safety indices \"worthless\" due to non-representative sampling.",
-        th: "Resonance พลิกเกมไปทางความตระการตาและกระแสทุน ลอนดอน/นิวยอร์ก/ปารีส ติดอันดับท็อปเพราะได้คะแนน \"lovability\" สูง (Instagram reels, คิวนักท่องเที่ยว) และ prosperity (อสังหาฯ ราคาเสียดฟ้าถูกมองว่าเป็นตัวแทนของความสำเร็จ) ดูไบและสิงคโปร์อยู่อันดับสูงเพราะประสิทธิภาพแบบเผด็จการ + กระแสการลงทุน = \"น่าดึงดูด\" การจัดอันดับนี้ให้รางวัลแก่นักท่องเที่ยวล้นเมือง การแทนที่คนจนด้วยคนรวย (gentrification) และมองความเหลื่อมล้ำว่าเป็นฟีเจอร์ เป็นดัชนีเดียวที่การทำให้เมืองแพงขึ้นจะช่วยเพิ่มคะแนนให้เมือง วิธี crowdsource ของ Numbeo นั้นโปร่งใสกว่าก็จริงแต่ก็บกพร่องพอๆ กัน นักวิชาการเรียกตัวชี้วัดอาชญากรรม/ความปลอดภัยของ Numbeo ว่า \"ไร้ค่า\" เพราะกลุ่มตัวอย่างไม่เป็นตัวแทนของประชากร",
-        zh: "Resonance 将剧本转向了奇观和资本流动。伦敦/纽约/巴黎位居榜首，因为它们在“可爱度”（Instagram reels、游客排队）和繁荣度（天价房地产作为成功的标志）上得分很高。迪拜和新加坡排名靠前，是因为威权效率 + 投资流量 = “具有吸引力”。该排名奖励了过度旅游、士绅化以及将不平等作为一种特征。这是唯一一个让城市变得更贵反而能切实提高其得分的主要指数。Numbeo 的众包方法更透明，但也同样存在缺陷——学者们称其犯罪/安全指数“毫无价值”，因为其抽样不具代表性。",
-        ko: "Resonance는 볼거리와 자본 흐름으로 방향을 바꿉니다. 런던/뉴욕/파리가 1위를 차지한 이유는 '호감도'(Instagram 릴스, 관광객 대기열)와 번영(성공의 지표로서 치솟는 부동산)에서 높은 점수를 받았기 때문입니다. 두바이와 싱가포르가 상위권인 이유는 권위주의적 효율성 + 투자 흐름 = '매력적'이기 때문입니다. 이 순위는 과잉 관광, 젠트리피케이션, 특징으로서의 불평등에 보상을 제공합니다. 도시를 더 비싸게 만드는 것이 말 그대로 점수를 향상시키는 유일한 주요 지수입니다. Numbeo의 크라우드소싱 접근 방식은 더 투명하지만 마찬가지로 결함이 있습니다. 학자들은 대표성 없는 표본 추출로 인해 그들의 범죄/안전 지수가 '무가치하다'고 부릅니다.",
-        ja: "Resonanceは、見世物と資本の流れに焦点を当てています。ロンドン、ニューヨーク、パリがトップなのは、「愛らしさ」（Instagramのリール、観光客の行列）と繁栄（成功の代名詞としての法外な不動産）のスコアが高いためです。ドバイとシンガポールが上位にランクされるのは、権威主義的な効率性＋投資の流入＝「魅力的」だからです。このランキングは、オーバーツーリズム、ジェントリフィケーション、そして特徴としての不平等を高く評価しています。都市をより高価にすることが文字通りスコアを向上させる唯一の主要な指標です。Numbeoのクラウドソーシングによるアプローチはより透明性がありますが、同様に欠陥があります。学者たちは、代表性のないサンプリングのため、その犯罪・安全指数を「無価値」と呼んでいます。"
+        en: "City attractiveness is not the same question as what residents have left after rent. Resonance's 2025 edition includes housing affordability, so the critique cannot be that it ignores housing or that higher prices automatically improve its score. The narrower concern is how a blended score for living, visiting and economic opportunity represents people on local wages. A city can appeal to visitors and investors while some households face severe budget pressure. Read the housing indicators alongside the composite rather than infer an individual living standard from a city's position. The current methodology page may describe another year or region; it is not proof of the 2025 weights or of a causal price-to-score effect.",
+        th: "ความน่าดึงดูดของเมืองไม่ใช่คำถามเดียวกับเงินที่คนในเมืองเหลือหลังจ่ายค่าเช่า ฉบับปี 2025 ของ Resonance มีความสามารถในการจ่ายค่าที่อยู่อาศัย จึงไม่ควรวิจารณ์ว่าไม่สนใจที่อยู่อาศัยหรือราคาที่สูงขึ้นเพิ่มคะแนนโดยอัตโนมัติ ประเด็นที่แคบกว่าคือคะแนนผสมเพื่อการอยู่อาศัย การท่องเที่ยว และโอกาสเศรษฐกิจสะท้อนคนรับค่าจ้างท้องถิ่นอย่างไร เมืองอาจดึงดูดผู้มาเยือนและนักลงทุนในขณะที่บางครัวเรือนเผชิญงบตึงตัว ควรอ่านตัววัดที่อยู่อาศัยคู่กับคะแนนรวม ไม่อนุมานมาตรฐานชีวิตรายคนจากอันดับ หน้าระเบียบวิธีปัจจุบันอาจเป็นอีกปีหรือภูมิภาค ไม่ใช่หลักฐานน้ำหนักปี 2025 หรือเหตุและผลระหว่างราคากับคะแนน",
+        zh: "城市吸引力与居民付完房租后还剩多少钱不是同一个问题。Resonance 的 2025 年版包含住房负担能力，不能据此批评其忽略住房，也不能声称涨价会自动提高得分。更具体的问题是，混合居住、旅游与经济机会的评分如何反映领取当地工资的人。城市可以吸引游客和投资者，同时部分家庭仍承受严重预算压力。应将住房指标与综合得分一起阅读，而非从排名推断个人生活水平。当前的方法论页面可能属于其他年份或地区，不能证明 2025 年的权重或价格与得分的因果关系。",
+        ko: "도시 매력도와 주민이 임대료를 내고 남는 돈은 같은 질문이 아닙니다. Resonance의 2025년판은 주거비 부담 능력을 포함하므로 주거를 무시한다거나 가격 상승이 자동으로 점수를 높인다고 비판할 수는 없습니다. 더 구체적인 쟁점은 생활, 방문, 경제적 기회를 합친 점수가 현지 임금을 받는 사람을 어떻게 나타내는가입니다. 방문객과 투자자에게 매력적인 도시에서도 일부 가계는 큰 예산 압박을 겪을 수 있습니다. 도시 순위에서 개인의 생활 수준을 추론하지 말고 주거 지표와 종합 점수를 함께 읽어야 합니다. 현재 방법론 페이지는 다른 연도나 지역일 수 있어 2025년 가중치나 가격과 점수의 인과관계를 입증하지 않습니다.",
+        ja: "都市の魅力と、住民が家賃を払った後に残るお金は別の問いです。Resonanceの2025年版は住宅の負担可能性を含むため、住宅を無視しているとも、値上がりで自動的にスコアが上がるとも批判できません。より限定した論点は、居住、訪問、経済的機会を合わせた評価が地元の賃金で暮らす人をどう表すかです。訪問者や投資家に魅力的な都市でも、一部の世帯は厳しい家計圧力に直面し得ます。順位から個人の生活水準を推測せず、住宅指標と総合スコアを併せて読む必要があります。現在の方法論ページは別の年や地域のものかもしれず、2025年のウェイトや価格とスコアの因果関係の証拠にはなりません。"
       }
     }
   },

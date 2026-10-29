@@ -3178,7 +3178,7 @@ section[id] {
   font-weight: 400;
   line-height: 1.6;
   color: var(--text);
-  margin: 0 0 1.1rem;
+  margin: 0 auto 1.1rem;
 }
 
 .hp-verdict-p--mid {
@@ -3705,6 +3705,18 @@ section[id] {
   font-size: 0.82rem;
   line-height: 1.45;
 }
+
+.evidence-source-counts { margin: 0; }
+.evidence-source-counts > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) max-content;
+  gap: 1rem;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--border);
+  align-items: baseline;
+}
+.evidence-source-counts dt { font-weight: 600; }
+.evidence-source-counts dd { margin: 0; font-family: var(--font-mono); }
 
 .data-manifest-card .hero-ranking-summary {
   max-width: 100%;
@@ -8922,8 +8934,8 @@ a.metric-plate-name:hover {
 
 .v3-city-card-bars {
   display: flex;
-  gap: 2px;
-  height: 4px;
+  gap: 3px;
+  height: 5px;
   /* The bars are the baseline of the card: they sit at its foot whatever the
      region line above them does, so every card in a row ends on the same
      line. A grid that stretched its rows put the bar wherever the text ran
@@ -8931,13 +8943,24 @@ a.metric-plate-name:hover {
   margin-top: auto;
 }
 
-.v3-city-card-bars>div {
+/* One track per pillar, on a 0–100 scale. The five segments used to be
+   `flex: 1`, which set their basis to zero and threw away the score that
+   was written into each one's width: every card on the board drew the same
+   five equal stripes, which is to say the row told the reader nothing. */
+.v3-city-card-bar {
+  position: relative;
   flex: 1;
-  height: 100%;
+  background: var(--border);
+}
+
+.v3-city-card-bar-fill {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
   opacity: 0.9;
-  border-radius: 0;
-  transform-origin: left center;
-  transition: transform 180ms ease, opacity 180ms ease;
+  transition: opacity 180ms ease;
 }
 
 /* 04. Beta + Gamma — compact chip rows */
@@ -10638,6 +10661,44 @@ a.metric-plate-name:hover {
   gap: 0.85rem;
 }
 
+/* The board's key. It sits directly above the cards it decodes, on the same
+   left edge, so a reader meets the names before the colours they name. */
+.v3-alpha-key {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem 1.05rem;
+  margin: 0 auto 1.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.v3-alpha-key-lead {
+  color: var(--text-dim);
+}
+
+.v3-alpha-key-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  white-space: nowrap;
+}
+
+.v3-alpha-key-swatch {
+  flex: none;
+  width: 16px;
+  height: 5px;
+}
+
+.v3-alpha-key-note {
+  color: var(--text-dim);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+
 .v3-city-card::before {
   content: "";
   position: absolute;
@@ -11082,7 +11143,7 @@ body,
   font-size: 1.42rem;
 }
 
-.v3-city-card:hover .v3-city-card-bars>div {
+.v3-city-card:hover .v3-city-card-bar-fill {
   opacity: 1;
 }
 
@@ -11146,6 +11207,12 @@ body,
 
   .v3-city-card:first-child::before {
     height: 4px;
+  }
+
+  /* The empty part of a track on the black lead card is ink-light, not the
+     cream-ink hairline the other cards use. */
+  .v3-city-card:first-child .v3-city-card-bar {
+    background: var(--border-inverse);
   }
 
   .v3-city-card:first-child .v3-city-card-meta,
@@ -13262,8 +13329,7 @@ a.essay-reference-text:hover {
   .v3-city-card--photo:hover .v3-city-card-img,
   .v3-city-card:hover,
   .v3-tier-chip:hover,
-  .back-arrow:hover,
-  .v3-city-card:hover .v3-city-card-bars>div {
+  .back-arrow:hover {
     transform: none;
   }
 }

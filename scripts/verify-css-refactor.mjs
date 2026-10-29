@@ -248,7 +248,7 @@ const newServer = await serve(newDir, NEW_PORT);
 const oldOrigin = `http://localhost:${OLD_PORT}`;
 const newOrigin = `http://localhost:${NEW_PORT}`;
 
-const browser = await chromium.launch({ channel: "chrome", headless: true });
+const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({ viewport: { width: WIDTHS[0], height: VIEWPORT_HEIGHT } });
 
 // Hermetic: only the two local builds are allowed to load. Google Fonts and

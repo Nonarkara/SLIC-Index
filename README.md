@@ -20,7 +20,7 @@ Those counts are snapshot-sensitive. They can disagree with other listings in th
 | CSV download | `public/downloads/slic-ranked-cities-v2.csv` | **158 ranked rows** (watchlist omitted) |
 | Universe roster | `src/data/slic_city_universe.csv` | **352** candidate cities (353 lines including header) |
 
-SLIC is the first city ranking that admits what it measures and why. EIU calculates hardship pay for expats. Mercer does the same for HR departments. Resonance measures Instagram buzz. Monocle curates lifestyle for the already-rich. Yonsei counts smart city apps without asking if they help anyone.
+SLIC states what it measures and why, with a different editorial priority from the indices it compares. EIU and Mercer serve international-assignment decisions alongside their broader quality-of-life comparisons. Resonance combines city statistics and perceptions of attractiveness; its 2025 edition includes housing affordability, not just online buzz. Monocle offers an editorial view of urban life. These are different frames, not evidence that SLIC was the first to explain its method.
 
 SLIC measures what's left after rent.
 
@@ -32,7 +32,7 @@ SLIC Index V3 is an open-source city ranking **and** an editorial site: op-ed ho
 
 It is a project of **Dr Non Arkaraprasertkul** with **Associate Professor Poon Thiengburanathum**, built in the civic-studio practice of **Axiom X Co., Ltd.** — a one-desk civic systems lab. ReTL is the product/presentation partner on the public surface. Computing infrastructure has been supported in kind by Thai public agencies (see [Created by](#created-by)); that support is not a ranking endorsement, a UN mandate, or a paid placement.
 
-The site ships in **English, Thai, and Chinese** as the core publication locales (Thai first-person on the site is **ผม**). Korean and Japanese UI labels exist; long-form pages may still fall back to English.
+The site offers **five locales: English, Thai, Chinese, Korean, and Japanese** (Thai first-person on the site is **ผม**). Locale availability does not mean complete long-form translation: some pages, particularly in Korean and Japanese, may still fall back to English.
 
 ### What makes V3 different
 
@@ -41,7 +41,7 @@ The site ships in **English, Thai, and Chinese** as the core publication locales
 - **Blind spots diagram** — checkmark grid showing what each index measures. SLIC is the only one that covers all eight dimensions.
 - **Interactive spider** — drag to rebuild SLIC's top 10 based on your priorities. The other indices stay frozen.
 - **Watchlist transparency** — war zones and cities with insufficient data are on our watchlist, not quietly dropped.
-- **Multilingual** — English, Thai, Chinese. Every piece of core copy.
+- **Multilingual** — English, Thai, Chinese, Korean, and Japanese UI; long-form translation coverage varies, with English fallbacks where needed.
 
 The manga banner above is editorial art for the civic brief (housing, jobs, health, mobility, environment). The **published scoring schema** is the five pillars below, not those five illustration panels.
 
@@ -55,7 +55,7 @@ Serious civic systems should run on **one Mac / one person**. This repo is a sta
 
 There is **no black-box ranking**. Each city scorecard carries per-metric `source`, `sourceUrl`, and `dataLevel`. Missing values are excluded, not imputed. Coverage grades (A / B / C) and a watchlist make thin evidence visible. If two files in this repo disagree about how many cities exist, both figures are listed — we do not invent a third.
 
-The audience is bilingual where the work is bilingual. The public site is **ไทย / English** (and 中文). This README is English-first so forks worldwide can run it; the Thai lines that belong here stay here.
+The public interface offers **ไทย / English / 中文 / 한국어 / 日本語**, with English fallbacks where long-form translation is incomplete. This README is English-first so forks worldwide can run it; the Thai lines that belong here stay here.
 
 Honesty labels matter more than a glossy composite. A city-level measurement is not the same thing as a national proxy, a derived term, or a declared composite. SLIC names those layers instead of pretending every cell is a sensor in the street.
 
@@ -143,7 +143,8 @@ One person, one laptop, Node, and this tree. Visitor tracking is optional and **
 
 ### Requirements
 
-- **Node.js 20+** (GitHub Actions on this repo uses Node 22)
+- **Node.js 22**, with current minor/patch updates, to match GitHub Actions
+- **Python 3.12**, the CI version, for derived source metadata and release checks
 - npm (lockfile is `package-lock.json` — use `npm ci` for a clean install)
 
 You do **not** need Supabase, Wrangler, or any secret to develop locally.
@@ -171,14 +172,24 @@ Optional: `npm start` serves the already-built `dist/` with Express (default por
 ```bash
 npm run check:publication
 npm run check:methodology
+npm run check:provenance # exact source-register matching; unknown dates stay unknown
 npm run verify:math   # rescore + publication + methodology + tests
 ```
 
 `npm run rescore` rewrites the published snapshot from raw metric rows. Run it only when you intend to change scores. After a data edit, keep these three aligned:
 
 - `data/verified_sources/city_inputs.csv`
+- `data/verified_sources/country_context.csv` (national-scope inputs)
 - `src/data/publishedRankingData.json`
 - `public/downloads/slic-ranked-cities-v2.csv`
+
+`npm run build` also derives the downloadable input-level evidence register and
+checks provenance metadata. After a reviewed register correction, run
+`python3 scripts/reconcile-source-provenance.py --apply`, `npm run rescore`, then
+`node scripts/update-csv.mjs` before building. Only exact matches get registered
+source dates; these dates are not independently verified observation periods.
+See [the reconciliation audit](docs/evidence-reconciliation-2026-10-25.md) for the
+matching contract and unresolved inputs.
 
 ### Optional visitor tracking
 

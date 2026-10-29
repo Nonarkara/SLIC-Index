@@ -282,7 +282,7 @@ const expected = expectedPaths();
 const oldServer = LIVE ? null : await serve(path.resolve("dist"), 8804);
 const base = LIVE ?? "http://localhost:8804";
 
-const browser = await chromium.launch({ channel: "chrome", headless: true });
+const browser = await chromium.launch({ headless: true });
 const failures = [];
 let checked = 0;
 

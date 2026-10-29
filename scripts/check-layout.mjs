@@ -125,7 +125,7 @@ const PROBE = () => {
 const oldServer = LIVE ? null : await serve(path.resolve("dist"), 8802);
 const base = LIVE ?? "http://localhost:8802";
 
-const browser = await chromium.launch({ channel: "chrome", headless: true });
+const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({ viewport: { width: WIDTHS[0], height: 900 } });
 const page = await context.newPage();
 

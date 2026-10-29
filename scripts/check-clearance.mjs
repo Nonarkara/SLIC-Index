@@ -143,7 +143,6 @@ try {
 
   const launch = () =>
     chromium.launch({
-      executablePath: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
     });
 
   let browser = await launch();

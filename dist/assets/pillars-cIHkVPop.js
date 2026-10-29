@@ -1,0 +1,1 @@
+import{c as a}from"./tier-policy-C-PRm4XV.js";const t=a,e={pressure:"#d96629",viability:"#1a6b5a",capability:"#12354e",community:"#8c4a2a",creative:"#a72144"},s={pressure:"Pressure",viability:"Viability",capability:"Capability",community:"Community",creative:"Creative"};export{t as P,e as a,s as b};

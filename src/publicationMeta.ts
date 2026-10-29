@@ -91,22 +91,21 @@ export function publishedMonth(locale: Locale): string {
 }
 
 /**
- * The data-vintage line. The vintage year range is a publication decision and
- * lives here once; every locale renders the same sentence shape.
+ * Source years vary; the build/publication date is not an observation date.
  */
 export function dataVintageLine(locale: Locale): string {
   const month = publishedMonthLabel(locale);
   switch (locale) {
     case "th":
-      return `ข้อมูล: วินเทจปี 2024–2025 · เผยแพร่ล่าสุด: ${month}`;
+      return `ข้อมูลจากหลายปี · เผยแพร่ล่าสุด: ${month}`;
     case "zh":
-      return `数据：2024–2025 年版本 · 最后发布：${month}`;
+      return `数据来自不同年份 · 最后发布：${month}`;
     case "ko":
-      return `데이터: 2024–2025 빈티지 · 최종 공개: ${month}`;
+      return `여러 연도의 자료 · 최종 공개: ${month}`;
     case "ja":
-      return `データ：2024〜2025年ビンテージ · 最終公開：${month}`;
+      return `複数年のデータ · 最終公開：${month}`;
     default:
-      return `Data: 2024–2025 vintage · Last published: ${month}`;
+      return `Mixed-year evidence · Last published: ${month}`;
   }
 }
 

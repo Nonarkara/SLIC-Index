@@ -45,6 +45,10 @@
     "wrap:div.scorecard-equation-bar:3": 7,
     "wrap:div.scorecard-equation-bar:4": 2,
     "wrap:div.scorecard-transparency-grid:2": 13,
-    "wrap:div.traffic-summary:2": 20
+    "wrap:div.traffic-summary:2": 20,
+    "wrap:p.v3-alpha-key.section:2": 29,
+    "wrap:p.v3-alpha-key.section:3": 9,
+    "wrap:p.v3-alpha-key.section:4": 5,
+    "wrap:p.v3-alpha-key.section:5": 1
   }
 }

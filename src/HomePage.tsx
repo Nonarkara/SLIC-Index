@@ -13,7 +13,7 @@ import { scoreCityWithWeights } from "./scoring";
 import type { Locale, SitePath } from "./types";
 import { getVisitorStats } from "./firstPartyTraffic";
 import { SCORE_MODEL_VERSION_SHORT } from "./publicationMeta";
-import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
+import { PILLAR_COLORS, PILLAR_NAMES, PILLAR_ORDER } from "./pillars";
 import type { PillarId } from "./pillars";
 import { CityBoardMark, CompareMark, GlobeMark } from "./IconMarks";
 import methodologyFacts from "./data/methodologyFacts.json";
@@ -545,8 +545,8 @@ export default function HomePage({
                 `Each country holds at most one Alpha seat, with a few exceptions for regions where SLIC has strong multi-city data (two seats for Japan and East Asia). Alpha requires both Community and Pressure scores above ${PUBLIC_TIER_RULES.alphaMinCommunity}, plus ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}-grade coverage — a liveability floor, not just a high overall score. Europe holds ${PUBLIC_TIER_RULES.maxEuropeInAlpha} Alpha seats; Oceania holds none (purchase and rental costs exceed the median-resident threshold Alpha requires). Some cities are excluded from Alpha specifically because of housing cost — not because they are bad cities, but because Alpha is reserved for cities where a person on a local salary can actually build a life. The full tier policy is published in the methodology.`,
                 `แต่ละประเทศมีที่นั่ง Alpha ได้สูงสุดหนึ่งที่ โดยมีข้อยกเว้นสำหรับภูมิภาคที่ SLIC มีข้อมูลเมืองหลายแห่งที่แข็งแกร่ง Alpha ต้องมีคะแนน Community และ Pressure เกิน ${PUBLIC_TIER_RULES.alphaMinCommunity} ทั้งคู่ พร้อม coverage grade ${PUBLIC_TIER_RULES.alphaMinCoverageGrade} — เป็นเกณฑ์ขั้นต่ำด้านความน่าอยู่ ไม่ใช่แค่คะแนนรวมสูง บางเมืองถูกกันออกจาก Alpha เพราะค่าครองชีพ ไม่ใช่เพราะเป็นเมืองแย่ แต่เพราะ Alpha สงวนไว้สำหรับเมืองที่คนมีรายได้ท้องถิ่นสามารถสร้างชีวิตได้จริง นโยบายชั้นฉบับเต็มเผยแพร่ในหน้าระเบียบวิธี`,
                 `原则上每国一个 Alpha 席位，部分地区因 SLIC 拥有多城强数据而有例外（如日本和东亚可占两席）。Alpha 要求 Community 与 Pressure 都高于 ${PUBLIC_TIER_RULES.alphaMinCommunity}，且覆盖等级达到 ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}——这是宜居门槛，不只是总分高。大洋洲不设 Alpha 席位，因为该区域的购房与租房成本超出了 Alpha 所要求的中位居民可负担线。部分城市因住房成本被排除在 Alpha 之外——不是因为它们不好，而是 Alpha 专为当地薪资水平的人也能真正安家的城市保留。完整的分层政策已在方法论页面公开。`,
-                `각 국가는 최대 하나의 알파 자리를 보유하며, SLIC가 강력한 다도시 데이터를 보유한 지역에는 일부 예외가 있습니다(일본 및 동아시아는 2석). 알파는 커뮤니티와 성장 점수 모두 ${PUBLIC_TIER_RULES.alphaMinCommunity} 이상이고 ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}등급 커버리지가 필요합니다 — 생활 가능성 기준선이며, 단순히 높은 총점이 아닙니다. 유럽은 ${PUBLIC_TIER_RULES.maxEuropeInAlpha}개 알파 자리를 보유하고, 오세아니아는 없습니다(구매 및 임대 비용이 알파가 요구하는 중위 거주자 기준선을 초과). 일부 도시는 주거 비용 때문에 알파에서 제외됩니다 — 나쁜 도시여서가 아니라, 알파는 현지 급여 수준의 사람이 실제로 삶을 구축할 수 있는 도시를 위해 예약되어 있기 때문입니다. 완전한 등급 정책은 방법론에 공개되어 있습니다.`,
-                `各国は最大1つのアルファ席を保有し、SLICが強力なマルチシティデータを持つ地域には一部例外があります（日本と東アジアは2席）。アルファはコミュニティと成長のスコアが両方${PUBLIC_TIER_RULES.alphaMinCommunity}以上、かつ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}グレードのカバレッジが必要です——生活持続性の最低基準であり、単なる高い総合スコアではありません。ヨーロッパは${PUBLIC_TIER_RULES.maxEuropeInAlpha}席のアルファ席を保有し、オセアニアは保有しません（購入・賃貸コストがアルファが要求する中央値居住者の基準を超えるため）。一部の都市は住宅コストのためにアルファから除外されます——悪い都市だからではなく、アルファは地元の給与水準の人が実際に生活を構築できる都市のために予約されているためです。完全な等級ポリシーは方法論で公開されています。`,
+                `각 국가는 최대 하나의 알파 자리를 보유하며, SLIC가 강력한 다도시 데이터를 보유한 지역에는 일부 예외가 있습니다(일본 및 동아시아는 2석). 알파는 Community와 Pressure 점수 모두 ${PUBLIC_TIER_RULES.alphaMinCommunity} 이상이고 ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}등급 커버리지가 필요합니다 — 생활 가능성 기준선이며, 단순히 높은 총점이 아닙니다. 유럽은 ${PUBLIC_TIER_RULES.maxEuropeInAlpha}개 알파 자리를 보유하고, 오세아니아는 없습니다(구매 및 임대 비용이 알파가 요구하는 중위 거주자 기준선을 초과). 일부 도시는 주거 비용 때문에 알파에서 제외됩니다 — 나쁜 도시여서가 아니라, 알파는 현지 급여 수준의 사람이 실제로 삶을 구축할 수 있는 도시를 위해 예약되어 있기 때문입니다. 완전한 등급 정책은 방법론에 공개되어 있습니다.`,
+                `各国は最大1つのアルファ席を保有し、SLICが強力なマルチシティデータを持つ地域には一部例外があります（日本と東アジアは2席）。アルファはCommunityと Pressure のスコアが両方${PUBLIC_TIER_RULES.alphaMinCommunity}以上、かつ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}グレードのカバレッジが必要です——生活持続性の最低基準であり、単なる高い総合スコアではありません。ヨーロッパは${PUBLIC_TIER_RULES.maxEuropeInAlpha}席のアルファ席を保有し、オセアニアは保有しません（購入・賃貸コストがアルファが要求する中央値居住者の基準を超えるため）。一部の都市は住宅コストのためにアルファから除外されます——悪い都市だからではなく、アルファは地元の給与水準の人が実際に生活を構築できる都市のために予約されているためです。完全な等級ポリシーは方法論で公開されています。`,
               )}
             </p>
           </div>
@@ -567,14 +567,53 @@ export default function HomePage({
                   locale,
                   `It is the editorial overlay reserved for cities where the median resident actually thrives — not the top ten by pure score. Cities with higher pure rank can fail a gate (floor scores, ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}-grade coverage, country cap, editorial exclusion); cities with lower pure rank can earn a seat — or, like Bangkok, clear the floor yet hold no shelf at all. Bangkok is the anchor worked example: pure rank #${bangkokRank}, ${bangkokTierSeatNote}. Community ${bangkokCommunity} and Pressure ${bangkokPressure} clear the Alpha floor, coverage is ${bangkokCoverage}. ${bangkokTierExplain} Travel-cost evidence strengthens the public story: Bangkok combines major global visitor pull with unusually low everyday food, transport, and lodging costs, but that evidence is context, not a hidden score boost.`,
                   `คือชั้นบรรณาธิการที่สงวนไว้ให้กับเมืองที่ผู้อยู่อาศัยมัธยฐานเจริญงอกงามจริง — ไม่ใช่ top-10 ตามคะแนนล้วน เมืองที่อันดับคะแนนสูงกว่าอาจไม่ผ่านประตู (เกณฑ์ขั้นต่ำ coverage grade ${PUBLIC_TIER_RULES.alphaMinCoverageGrade} เพดานประเทศ การกีดกันบรรณาธิการ) เมืองที่อันดับคะแนนต่ำกว่าอาจได้ที่นั่ง — หรืออย่างกรุงเทพฯ ผ่านพื้นแต่ไม่มีชั้นสาธารณะเลย กรุงเทพฯ คือตัวอย่างหลัก: อันดับล้วน #${bangkokRank} · ${bangkokTierSlot ? `Alpha สล็อตที่ ${bangkokTierSlot}` : "ไม่มีชั้นสาธารณะ"} · Community ${bangkokCommunity} และ Pressure ${bangkokPressure} ผ่านพื้น Alpha · coverage ${bangkokCoverage} · ${bangkokTierSlot ? "ที่นั่งของไทยไม่มีคู่แข่ง · ไม่มีการกีดกัน" : "ทุกชั้นสาธารณะถูกเติมโดยเมืองที่อันดับสูงกว่าก่อน — กติกาไม่ถูกปรับเพื่อดันเมืองหลักขึ้นชั้น"} หลักฐานต้นทุนการเดินทางช่วยเสริมเรื่องเล่าสาธารณะ: กรุงเทพฯ มีแรงดึงดูดนักเดินทางระดับโลกพร้อมต้นทุนอาหาร การเดินทาง และที่พักที่ยังต่ำผิดปกติ แต่หลักฐานนี้เป็นบริบท ไม่ใช่คะแนนแฝง`,
-                  `它是为中位居民真正安居的城市保留的编辑层 —— 而非按纯分排出的前 10。纯分更高的城市可能未通过门槛（底线、${PUBLIC_TIER_RULES.alphaMinCoverageGrade} 级覆盖、国家上限、编辑排除）；纯分更低的城市可能赢得席位 —— 或像曼谷一样，越过底线却没有公开层级席位。曼谷是锚点范例：纯分第 ${bangkokRank} · ${bangkokTierSlot ? `Alpha 第 ${bangkokTierSlot} 席` : "无公开层级席位"} · 社区 ${bangkokCommunity}、压力 ${bangkokPressure} 越过 Alpha 底线 · 覆盖 ${bangkokCoverage} · ${bangkokTierSlot ? "泰国席位无人争夺 · 不在任何排除清单上" : "所有公开层级席位已被更高排名城市占满 —— 规则不会为锚点城市破例"}。旅行成本证据强化了公开叙事：曼谷兼具全球游客吸引力与异常低的日常餐饮、交通、住宿成本，但这只是背景证据，不是隐藏加分。`,
-                  `이것은 중위 거주자가 실제로 번성하는 도시를 위해 예약된 편집 레이어입니다 — 순수 점수 기준 상위 10위가 아닙니다. 순수 순위가 높은 도시도 관문(최저 점수, ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}등급 커버리지, 국가 상한, 편집 제외)에서 탈락할 수 있고, 순수 순위가 낮은 도시도 자리를 얻을 수 있습니다 —— 또는 방콕처럼 최저선은 넘지만 공개 등급 자리가 없을 수 있습니다. 방콕이 앵커 예시입니다: 순수 순위 #${bangkokRank}, ${bangkokTierSlot ? `알파 슬롯 ${bangkokTierSlot}` : "공개 등급 없음"}. 커뮤니티 ${bangkokCommunity} 및 압력 ${bangkokPressure}이 Alpha 최저선을 충족하고, 커버리지는 ${bangkokCoverage}. ${bangkokTierSlot ? "태국 자리는 경쟁 없음, 제외 항목 없음." : "모든 공개 등급 자리가 더 높은 순위의 도시로 먼저 채워졌습니다 — 앵커 도시를 억지로 올리지 않습니다."} 여행 비용 증거가 공개 서사를 강화합니다: 방콕은 주요 글로벌 방문객 유인력과 이례적으로 낮은 일상 식비, 교통비, 숙박비를 결합하고 있지만, 이 증거는 맥락일 뿐 숨겨진 점수 가산이 아닙니다.`,
-                  `これは、中央値の居住者が実際に繁栄している都市のために予約された編集レイヤーです——純粋なスコアによるトップ10ではありません。純粋な順位が高い都市もゲート（最低スコア、${PUBLIC_TIER_RULES.alphaMinCoverageGrade}グレードカバレッジ、国別上限、編集除外）で落ちることがあり、純粋な順位が低い都市も席を得ることができます——またはバンコクのように、最低線をクリアしても公開ティアの席がない場合もあります。バンコクがアンカーの実例です：純粋な順位#${bangkokRank}、${bangkokTierSlot ? `アルファスロット${bangkokTierSlot}` : "公開ティアなし"}。コミュニティ${bangkokCommunity}とプレッシャー${bangkokPressure}がAlpha最低線をクリアし、カバレッジは${bangkokCoverage}。${bangkokTierSlot ? "タイの席は争いなし、除外項目もなし。" : "すべての公開ティア席がより高い順位の都市で先に埋まりました——アンカー都市を無理やり載せるルールではありません。"}旅行コストの証拠が公開の物語を強化します：バンコクは主要なグローバル訪問者の牽引力と異常に低い日常の食費、交通費、宿泊費を組み合わせていますが、この証拠は文脈であり、隠れたスコアブーストではありません。`,
+                  `它是为中位居民真正安居的城市保留的编辑层 —— 而非按纯分排出的前 10。纯分更高的城市可能未通过门槛（底线、${PUBLIC_TIER_RULES.alphaMinCoverageGrade} 级覆盖、国家上限、编辑排除）；纯分更低的城市可能赢得席位 —— 或像曼谷一样，越过底线却没有公开层级席位。曼谷是锚点范例：纯分第 ${bangkokRank} · ${bangkokTierSlot ? `Alpha 第 ${bangkokTierSlot} 席` : "无公开层级席位"} · Community ${bangkokCommunity}、Pressure ${bangkokPressure} 越过 Alpha 底线 · 覆盖 ${bangkokCoverage} · ${bangkokTierSlot ? "泰国席位无人争夺 · 不在任何排除清单上" : "所有公开层级席位已被更高排名城市占满 —— 规则不会为锚点城市破例"}。旅行成本证据强化了公开叙事：曼谷兼具全球游客吸引力与异常低的日常餐饮、交通、住宿成本，但这只是背景证据，不是隐藏加分。`,
+                  `이것은 중위 거주자가 실제로 번성하는 도시를 위해 예약된 편집 레이어입니다 — 순수 점수 기준 상위 10위가 아닙니다. 순수 순위가 높은 도시도 관문(최저 점수, ${PUBLIC_TIER_RULES.alphaMinCoverageGrade}등급 커버리지, 국가 상한, 편집 제외)에서 탈락할 수 있고, 순수 순위가 낮은 도시도 자리를 얻을 수 있습니다 —— 또는 방콕처럼 최저선은 넘지만 공개 등급 자리가 없을 수 있습니다. 방콕이 앵커 예시입니다: 순수 순위 #${bangkokRank}, ${bangkokTierSlot ? `알파 슬롯 ${bangkokTierSlot}` : "공개 등급 없음"}. Community ${bangkokCommunity} 및 Pressure ${bangkokPressure}이 Alpha 최저선을 충족하고, 커버리지는 ${bangkokCoverage}. ${bangkokTierSlot ? "태국 자리는 경쟁 없음, 제외 항목 없음." : "모든 공개 등급 자리가 더 높은 순위의 도시로 먼저 채워졌습니다 — 앵커 도시를 억지로 올리지 않습니다."} 여행 비용 증거가 공개 서사를 강화합니다: 방콕은 주요 글로벌 방문객 유인력과 이례적으로 낮은 일상 식비, 교통비, 숙박비를 결합하고 있지만, 이 증거는 맥락일 뿐 숨겨진 점수 가산이 아닙니다.`,
+                  `これは、中央値の居住者が実際に繁栄している都市のために予約された編集レイヤーです——純粋なスコアによるトップ10ではありません。純粋な順位が高い都市もゲート（最低スコア、${PUBLIC_TIER_RULES.alphaMinCoverageGrade}グレードカバレッジ、国別上限、編集除外）で落ちることがあり、純粋な順位が低い都市も席を得ることができます——またはバンコクのように、最低線をクリアしても公開ティアの席がない場合もあります。バンコクがアンカーの実例です：純粋な順位#${bangkokRank}、${bangkokTierSlot ? `アルファスロット${bangkokTierSlot}` : "公開ティアなし"}。Community ${bangkokCommunity}と Pressure ${bangkokPressure}がAlpha最低線をクリアし、カバレッジは${bangkokCoverage}。${bangkokTierSlot ? "タイの席は争いなし、除外項目もなし。" : "すべての公開ティア席がより高い順位の都市で先に埋まりました——アンカー都市を無理やり載せるルールではありません。"}旅行コストの証拠が公開の物語を強化します：バンコクは主要なグローバル訪問者の牽引力と異常に低い日常の食費、交通費、宿泊費を組み合わせていますが、この証拠は文脈であり、隠れたスコアブーストではありません。`,
                 )}
               </p>
             </div>
           </div>
         </div>
+
+        {/* The key for the bars below. They used to be five equal segments of
+            five colours — `flex: 1` overrode the score written into each
+            one's width, so every city drew exactly the same stripe and the
+            row said nothing at all. Now each segment is one pillar's score
+            on a 0-100 track, and this line says which colour is which
+            pillar, so the profile can be read rather than admired. */}
+        <p className="v3-alpha-key section">
+          <span className="v3-alpha-key-lead">
+            {t(
+              locale,
+              "Pillar scores, 0–100, left to right:",
+              "คะแนนเสาหลัก 0–100 จากซ้ายไปขวา:",
+              "支柱得分（0–100），从左到右：",
+              "기둥 점수(0–100), 왼쪽에서 오른쪽으로:",
+              "柱のスコア（0–100）、左から右に：",
+            )}
+          </span>
+          {PILLAR_ORDER.map((pillar) => (
+            <span className="v3-alpha-key-item" key={pillar}>
+              <span
+                className="v3-alpha-key-swatch"
+                style={{ background: PILLAR_COLORS[pillar] }}
+                aria-hidden="true"
+              />
+              <span>{PILLAR_NAMES[pillar]}</span>
+            </span>
+          ))}
+          <span className="v3-alpha-key-note">
+            {t(
+              locale,
+              "the rule above each card is its strongest pillar",
+              "เส้นด้านบนของแต่ละการ์ดคือเสาหลักที่แข็งแรงที่สุดของเมืองนั้น",
+              "每张卡片上方的色条是该城市得分最高的支柱",
+              "각 카드 위의 색 줄은 그 도시의 가장 높은 기둥입니다",
+              "各カード上部の線は、その都市で最も高い柱です",
+            )}
+          </span>
+        </p>
 
         <div className="v3-alpha-grid section">
           {tieredResults.alpha.map((city) => (
@@ -611,17 +650,25 @@ export default function HomePage({
                   <span className="v3-city-card-region">{city.region}</span>
                 )}
               </span>
-              <div className="v3-city-card-bars">
+              <div className="v3-city-card-bars" aria-hidden="true">
                 {PILLAR_ORDER.map((pillar) => (
-                  <div
-                    key={pillar}
-                    style={{
-                      width: `${city[`${pillar}Score` as keyof typeof city] as number}%`,
-                      background: PILLAR_COLORS[pillar],
-                    }}
-                  />
+                  <span className="v3-city-card-bar" key={pillar}>
+                    <span
+                      className="v3-city-card-bar-fill"
+                      style={{
+                        width: `${city[`${pillar}Score` as keyof typeof city] as number}%`,
+                        background: PILLAR_COLORS[pillar],
+                      }}
+                    />
+                  </span>
                 ))}
               </div>
+              {/* The bars are read by eye; a screen reader gets the numbers. */}
+              <span className="visually-hidden">
+                {PILLAR_ORDER.map((pillar) =>
+                  `${PILLAR_NAMES[pillar]} ${(city[`${pillar}Score` as keyof typeof city] as number).toFixed(1)}`,
+                ).join(" · ")}
+              </span>
             </a>
           ))}
         </div>

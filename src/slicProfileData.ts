@@ -44,32 +44,32 @@ interface SlicProfileContent {
 
 export const slicProfileData: Record<Locale, SlicProfileContent> = {
   en: {
-    eyebrow: "A DEPA × PMU-A project",
-    title: "SLIC Index is published by DEPA and PMU-A",
+    eyebrow: "Independent research · credited infrastructure support",
+    title: "SLIC Index is an independent two-person research publication",
     intro:
-      "The Smart and Liveable Cities Index is a joint public-interest initiative of the Digital Economy Promotion Agency of Thailand (DEPA) and the Program Management Unit for Area Based Development (PMU-A). It measures cities on what it actually costs to build a life there, with a transparent methodology and open data.",
+      "The Smart and Liveable Cities Index is a public-interest research publication by Dr Non Arkaraprasertkul and Associate Professor Poon Thiengburanathum. It compares the costs and conditions of building a life in a city through a declared model. The project credits DEPA and PMU-A for in-kind computing infrastructure and platform support, not agency publication or endorsement.",
     summaryTitle: "Why this framing",
     summary: [
-      "DEPA brings ministerial authority and a national digital-economy mandate under the Ministry of Digital Economy and Society.",
-      "PMU-A brings research funding and an area-based remit covering provincial and municipal development across Thailand.",
+      "DEPA is credited by the project for in-kind infrastructure support; its digital-economy remit does not make this an official agency ranking.",
+      "PMU-A is also credited for in-kind infrastructure support. That credit does not establish a research grant, commissioning authority, or academic-review process for this publication.",
       "Methodology, weights, scoring, and provenance are all published openly — no paid placement, no sponsor influence on rank.",
     ],
-    leadsLabel: "Who leads this",
-    leadsTitle: "Two public-sector principals",
+    leadsLabel: "Credited public-sector support",
+    leadsTitle: "Two agencies credited for infrastructure support",
     leadsSummary:
-      "SLIC Index is commissioned and governed jointly. Both principals carry public accountability for the methodology and the published board.",
+      "The two researchers retain responsibility for the methodology and published board. The project credits the agencies below for in-kind support. Agency-approved commissioning, governance, publishing, or independent-review records have not been supplied here; these roles are not claimed on the basis of logos or event participation.",
     leads: [
       {
         name: "DEPA",
         role: "Digital Economy Promotion Agency of Thailand",
-        body: "Thailand's national digital-economy agency under the Ministry of Digital Economy and Society. Sets the smart-city policy frame, funds the index publication, and provides the public-sector legitimacy that keeps the board usable for city governments.",
+        body: "Digital Economy Promotion Agency of Thailand, under the Ministry of Digital Economy and Society. The project credits DEPA for in-kind computing infrastructure and platform support. Its name and mark identify that credited support, not responsibility for publication, approval of the methodology, or endorsement of a city's rank.",
         logoSrc: "/thumbs/256/Logos/depa_logo.png",
         url: DEPA_URL,
       },
       {
         name: "PMU-A",
         role: "Program Management Unit for Area Based Development",
-        body: "Thailand's area-based research programme manager under NXPO. Funds the underlying research, sets coverage priorities at provincial and municipal scale, and ensures the index is anchored in independent academic review.",
+        body: "Program Management Unit for Area Based Development, a Thai area-based research funding body. The project credits PMU-A for in-kind computing infrastructure and platform support. This is not evidence of a grant for the index, authority over city coverage, or an independent academic review; those claims would require a citable record.",
         logoSrc: "/Logos/uwn_pmu_a_logo.jpeg",
         url: PMUA_URL,
       },
@@ -77,18 +77,18 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     privateLabel: "Private-sector delivery partner",
     privateTitle: "SLIC — the build, not the brochure",
     privateSummary:
-      "SLIC is the private-sector consulting partner that turns the mandate into a working product. The reason we work with SLIC is philosophical: they prefer to show rather than tell, prototype rather than debate, and build rather than procure.",
+      "SLIC is the consulting and implementation practice surrounding the index, not an agency-mandated delivery arm. Its working approach is to show a usable prototype, test it against the public brief, and make the method inspectable rather than substitute a brochure for a working product.",
     privatePartner: {
       name: "SLIC",
       role: "Consulting and implementation partner",
-      body: "SLIC is our delivery arm on the private side. They have the access and the judgement we need — but more importantly, they share a working ethic the public sector often lacks: ship a prototype before the meeting, not after; build the thing rather than write a tender for someone else to build it later; let the product speak before the slide deck does. SLIC also carries its own broader smart-city consulting, education, and ecosystem work, which sits around the index but does not control it.",
+      body: "SLIC's broader smart-city consulting, education, and ecosystem work provides context for the index's implementation. The working ethic is practical: bring a prototype to the meeting, test the product before presenting it, and let readers inspect the declared method. That surrounding practice does not establish a public-sector contract or mandate. The researchers remain accountable for publication decisions; consulting work is not a route to paid inclusion, a change of weights, or a preferred rank.",
       logoSrc: "/Logos/slic-index-monogram.png",
       url: OFFICIAL_SLIC_URL,
     },
     techLabel: "Technology partners",
     techTitle: "Axiom × ReTL — AI with humans in the loop",
     techSummary:
-      "The index is built on AI comprehension of how AI can help us gather and analyse city data at scale. Humans stay in the loop so the result remains neutral, unbiased, comprehensive, understandable, reviewable, observable, and presentable from a human perspective.",
+      "AI can assist reading and analysis of public city data, but the researchers remain accountable for source selection, stated weights, and publication decisions. Known national proxies and coverage gaps limit the model. Human review makes choices open to challenge; it does not guarantee neutrality, complete coverage, or freedom from bias.",
     techPartners: [
       {
         name: "Axiom",
@@ -107,7 +107,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     publicationLabel: "Publication context",
     publicationTitle: "A public-interest index, published in the open.",
     publicationSummary:
-      "The pages you see here — live board, methodology, Thailand track, scoring workbook — are the published outputs of the joint DEPA × PMU-A project. The photos below show the public process: convening, dialogue, review, and the institutional work that sits behind the board.",
+      "The live board, methodology, Thailand track, and scoring workbook are outputs of this independent research publication. The photos below document convening, dialogue, and the public presentation of the work. They preserve the project's history, but do not themselves establish agency commissioning, publishing authority, endorsement, or independent academic review.",
     resourceLabel: "Resources",
     resourcesTitle: "Go deeper",
     bridgeBody:
@@ -117,32 +117,32 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     methodologyLabel: "Open the methodology paper",
   },
   th: {
-    eyebrow: "โครงการร่วม DEPA × PMU-A",
-    title: "SLIC Index เผยแพร่โดย DEPA และ PMU-A",
+    eyebrow: "งานวิจัยอิสระ · ระบุผู้สนับสนุนโครงสร้างพื้นฐาน",
+    title: "SLIC Index เป็นสิ่งพิมพ์งานวิจัยอิสระของนักวิจัยสองคน",
     intro:
-      "ดัชนี Smart and Liveable Cities Index เป็นความร่วมมือเพื่อสาธารณะระหว่างสำนักงานส่งเสริมเศรษฐกิจดิจิทัล (DEPA) และหน่วยบริหารและจัดการทุนด้านการพัฒนาระดับพื้นที่ (PMU-A) วัดเมืองจากต้นทุนที่ต้องจ่ายจริงในการสร้างชีวิต ด้วยระเบียบวิธีโปร่งใสและข้อมูลเปิด",
+      "ดัชนี Smart and Liveable Cities Index เป็นสิ่งพิมพ์งานวิจัยเพื่อสาธารณะโดย ดร.นน อัครประเสริฐกุล และ Associate Professor Poon Thiengburanathum เปรียบเทียบต้นทุนและเงื่อนไขการใช้ชีวิตในเมืองผ่านแบบจำลองที่ประกาศไว้ โครงการระบุว่า DEPA และ PMU-A สนับสนุนโครงสร้างพื้นฐานคอมพิวเตอร์และแพลตฟอร์มในรูปแบบที่ไม่ใช่ตัวเงิน ไม่ใช่ผู้เผยแพร่หรือรับรองอันดับ",
     summaryTitle: "ทำไมต้องจัดกรอบแบบนี้",
     summary: [
-      "DEPA มีอำนาจเชิงนโยบายและภารกิจด้านเศรษฐกิจดิจิทัลระดับชาติภายใต้กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม",
-      "PMU-A มีทุนวิจัยและภารกิจเชิงพื้นที่ครอบคลุมการพัฒนาระดับจังหวัดและเทศบาลทั่วประเทศ",
+      "โครงการระบุว่า DEPA สนับสนุนโครงสร้างพื้นฐานในรูปแบบที่ไม่ใช่ตัวเงิน ภารกิจด้านเศรษฐกิจดิจิทัลของหน่วยงานไม่ได้ทำให้ดัชนีนี้เป็นอันดับทางการของหน่วยงาน",
+      "โครงการระบุว่า PMU-A สนับสนุนโครงสร้างพื้นฐานเช่นกัน เครดิตนี้ไม่ได้ยืนยันทุนวิจัย การว่าจ้าง หรือกระบวนการทบทวนทางวิชาการของสิ่งพิมพ์นี้",
       "ระเบียบวิธี น้ำหนัก คะแนน และแหล่งอ้างอิงเปิดเผยทั้งหมด ไม่มีตำแหน่งที่ซื้อได้ ไม่มีอิทธิพลของผู้สนับสนุนต่ออันดับ",
     ],
-    leadsLabel: "ผู้นำโครงการ",
-    leadsTitle: "สองหน่วยงานหลักภาครัฐ",
+    leadsLabel: "หน่วยงานภาครัฐที่โครงการให้เครดิต",
+    leadsTitle: "สองหน่วยงานที่ระบุว่าสนับสนุนโครงสร้างพื้นฐาน",
     leadsSummary:
-      "SLIC Index ถูกมอบหมายและกำกับดูแลร่วมกัน ทั้งสองหน่วยงานรับผิดชอบสาธารณะต่อระเบียบวิธีและบอร์ดที่เผยแพร่",
+      "นักวิจัยสองคนรับผิดชอบระเบียบวิธีและบอร์ดที่เผยแพร่ โครงการให้เครดิตหน่วยงานด้านล่างสำหรับการสนับสนุนที่ไม่ใช่ตัวเงิน ยังไม่มีเอกสารที่หน่วยงานอนุมัติเกี่ยวกับการว่าจ้าง การกำกับดูแล การเผยแพร่ หรือการทบทวนอย่างอิสระที่ส่งมาให้ใช้อ้างอิง จึงไม่อ้างบทบาทเหล่านี้จากโลโก้หรือการร่วมกิจกรรม",
     leads: [
       {
         name: "DEPA",
         role: "สำนักงานส่งเสริมเศรษฐกิจดิจิทัล",
-        body: "หน่วยงานด้านเศรษฐกิจดิจิทัลระดับชาติของไทย ภายใต้กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม วางกรอบนโยบายเมืองอัจฉริยะ สนับสนุนทุนการเผยแพร่ดัชนี และให้ความชอบธรรมภาครัฐที่ทำให้บอร์ดใช้งานได้จริงกับผู้บริหารเมือง",
+        body: "สำนักงานส่งเสริมเศรษฐกิจดิจิทัล ภายใต้กระทรวงดิจิทัลเพื่อเศรษฐกิจและสังคม โครงการให้เครดิต DEPA สำหรับการสนับสนุนโครงสร้างพื้นฐานคอมพิวเตอร์และแพลตฟอร์มที่ไม่ใช่ตัวเงิน ชื่อและตราระบุการสนับสนุนตามที่โครงการแจ้ง ไม่ได้แสดงความรับผิดชอบในการเผยแพร่ การอนุมัติระเบียบวิธี หรือการรับรองอันดับเมือง",
         logoSrc: "/thumbs/256/Logos/depa_logo.png",
         url: DEPA_URL,
       },
       {
         name: "PMU-A",
         role: "หน่วยบริหารและจัดการทุนด้านการพัฒนาระดับพื้นที่",
-        body: "หน่วยบริหารจัดการทุนวิจัยเชิงพื้นที่ภายใต้ สอวช. สนับสนุนทุนวิจัยพื้นฐานของดัชนี กำหนดลำดับความสำคัญของพื้นที่ทั้งระดับจังหวัดและเทศบาล และทำให้ดัชนีมีรากวิชาการที่ผ่านการทบทวนอย่างอิสระ",
+        body: "หน่วยบริหารและจัดการทุนด้านการพัฒนาระดับพื้นที่ เป็นหน่วยงานบริหารทุนวิจัยเชิงพื้นที่ของไทย โครงการให้เครดิต PMU-A สำหรับโครงสร้างพื้นฐานคอมพิวเตอร์และแพลตฟอร์มที่สนับสนุนโดยไม่ใช่ตัวเงิน ข้อความนี้ไม่ใช่หลักฐานของทุนดัชนี อำนาจกำหนดพื้นที่ หรือการทบทวนทางวิชาการอย่างอิสระ บทบาทเหล่านั้นต้องมีเอกสารอ้างอิง",
         logoSrc: "/Logos/uwn_pmu_a_logo.jpeg",
         url: PMUA_URL,
       },
@@ -150,18 +150,18 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     privateLabel: "พันธมิตรส่งมอบภาคเอกชน",
     privateTitle: "SLIC — สร้างจริง ไม่ใช่แค่โบรชัวร์",
     privateSummary:
-      "SLIC คือที่ปรึกษาภาคเอกชนที่เปลี่ยนภารกิจให้กลายเป็นสินค้าใช้งานได้จริง เราเลือกทำงานกับ SLIC ด้วยเหตุผลเชิงปรัชญา พวกเขาแสดงแทนพูด ทำต้นแบบแทนการถกเถียง และสร้างเองแทนการจัดซื้อจัดจ้าง",
+      "SLIC คืองานให้คำปรึกษาและพัฒนาระบบที่อยู่รอบดัชนี ไม่ใช่ฝ่ายส่งมอบตามคำสั่งของหน่วยงาน แนวทางคือทำต้นแบบที่ใช้งานได้ ทดสอบกับโจทย์สาธารณะ และเปิดระเบียบวิธีให้ตรวจสอบ แทนการใช้โบรชัวร์แทนผลิตภัณฑ์ที่ทำงานจริง",
     privatePartner: {
       name: "SLIC",
       role: "พันธมิตรให้คำปรึกษาและส่งมอบ",
-      body: "SLIC คือฝ่ายส่งมอบของเราในภาคเอกชน พวกเขามีเครือข่ายและดุลยพินิจที่เราต้องการ แต่สิ่งสำคัญกว่าคือจริยธรรมการทำงานที่ภาครัฐมักขาด คือส่ง prototype ก่อนประชุม ไม่ใช่หลัง ลงมือสร้างเองแทนการเขียน TOR ให้คนอื่นสร้างทีหลัง ให้ตัวสินค้าพูดก่อนสไลด์ SLIC มีงานที่ปรึกษาเมืองอัจฉริยะ การศึกษา และระบบนิเวศของตัวเอง ซึ่งอยู่รอบ ๆ ดัชนีแต่ไม่ควบคุมดัชนี",
+      body: "งานที่ปรึกษาเมืองอัจฉริยะ การศึกษา และระบบนิเวศของ SLIC เป็นบริบทของการพัฒนาดัชนี หลักปฏิบัติคือนำต้นแบบเข้าประชุม ทดสอบผลิตภัณฑ์ก่อนนำเสนอ และให้ผู้อ่านตรวจสอบระเบียบวิธีที่ประกาศไว้ งานที่อยู่รอบดัชนีไม่ได้ยืนยันว่ามีสัญญาหรือคำสั่งจากภาครัฐ นักวิจัยยังรับผิดชอบการตัดสินใจเผยแพร่ งานที่ปรึกษาไม่ใช่ช่องทางซื้อการรวมเมือง เปลี่ยนน้ำหนัก หรือเลือกอันดับที่ต้องการ",
       logoSrc: "/Logos/slic-index-monogram.png",
       url: OFFICIAL_SLIC_URL,
     },
     techLabel: "พันธมิตรด้านเทคโนโลยี",
     techTitle: "Axiom × ReTL — AI ที่มีมนุษย์อยู่ในวงจร",
     techSummary:
-      "ดัชนีนี้สร้างบนความเข้าใจของ AI ว่า AI จะช่วยเรารวบรวมและวิเคราะห์ข้อมูลเมืองในขนาดใหญ่ได้อย่างไร โดยมนุษย์ยังอยู่ในวงจรเพื่อรักษาความเป็นกลาง ไร้อคติ ครอบคลุม เข้าใจง่าย ตรวจทานได้ สังเกตได้ และดูดีจากสายตามนุษย์",
+      "AI ช่วยอ่านและวิเคราะห์ข้อมูลเมืองสาธารณะได้ แต่นักวิจัยยังรับผิดชอบการเลือกแหล่งข้อมูล น้ำหนักที่ประกาศ และการตัดสินใจเผยแพร่ ตัวแทนระดับประเทศและช่องว่างของข้อมูลเป็นข้อจำกัดของแบบจำลอง การตรวจทานโดยมนุษย์เปิดให้โต้แย้งทางเลือกเหล่านี้ ไม่ได้รับประกันความเป็นกลาง ความครอบคลุมทั้งหมด หรือการปราศจากอคติ",
     techPartners: [
       {
         name: "Axiom",
@@ -180,7 +180,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     publicationLabel: "บริบทของสิ่งพิมพ์",
     publicationTitle: "ดัชนีเพื่อสาธารณะ เผยแพร่อย่างเปิดเผย",
     publicationSummary:
-      "หน้าที่ท่านเห็น ทั้งบอร์ดแบบสด ระเบียบวิธี เส้นทางประเทศไทย และเวิร์กบุ๊กคะแนน คือผลลัพธ์ที่เผยแพร่ของโครงการ DEPA × PMU-A ภาพด้านล่างแสดงกระบวนการสาธารณะ การประชุม การสนทนา การทบทวน และงานเชิงสถาบันที่อยู่เบื้องหลังบอร์ด",
+      "บอร์ดแบบสด ระเบียบวิธี เส้นทางประเทศไทย และเวิร์กบุ๊กคะแนนเป็นผลลัพธ์ของสิ่งพิมพ์งานวิจัยอิสระนี้ ภาพด้านล่างบันทึกการประชุม การสนทนา และการนำเสนองานต่อสาธารณะ โดยรักษาประวัติของโครงการไว้ แต่ภาพไม่ได้ยืนยันการว่าจ้าง อำนาจเผยแพร่ การรับรองจากหน่วยงาน หรือการทบทวนทางวิชาการอย่างอิสระ",
     resourceLabel: "ทรัพยากร",
     resourcesTitle: "ลงลึกเพิ่มเติม",
     bridgeBody:
@@ -190,32 +190,32 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     methodologyLabel: "เปิดหน้าระเบียบวิธี",
   },
   zh: {
-    eyebrow: "DEPA × PMU-A 共同项目",
-    title: "SLIC Index 由 DEPA 与 PMU-A 共同发布",
+    eyebrow: "独立研究 · 注明基础设施支持",
+    title: "SLIC Index 是两位研究者的独立研究出版物",
     intro:
-      "智慧宜居城市指数是泰国数字经济促进局（DEPA）与区域发展项目管理机构（PMU-A）共同发起的公共利益项目，以透明方法与公开数据衡量一座城市真正需要多少代价才能在其中建立生活。",
+      "智慧宜居城市指数是 Dr Non Arkaraprasertkul 与副教授 Poon Thiengburanathum 的公共利益研究出版物，通过已声明的模型比较城市生活的成本与条件。项目将计算基础设施与平台的实物支持归功于 DEPA 和 PMU-A；这不代表两机构负责出版或认可排名。",
     summaryTitle: "为何如此定位",
     summary: [
-      "DEPA 在数字经济与社会部之下，承担国家级数字经济的政策权威与授权。",
-      "PMU-A 提供研究经费与区域授权，覆盖泰国省级与市级发展议题。",
+      "项目将基础设施实物支持归功于 DEPA；该机构的数字经济职责并不使本指数成为官方机构排名。",
+      "项目也将基础设施实物支持归功于 PMU-A。这项致谢不证明本出版物获得研究拨款、委托授权或学术评审。",
       "方法、权重、评分与数据来源全部公开——没有付费上榜，没有赞助方影响排名。",
     ],
-    leadsLabel: "谁在主导",
-    leadsTitle: "两个公共部门主体",
+    leadsLabel: "项目致谢的公共部门支持",
+    leadsTitle: "两家获基础设施支持致谢的机构",
     leadsSummary:
-      "SLIC Index 由双方共同委托与治理，两个主体对方法论与公开榜单共同承担公共责任。",
+      "两位研究者对方法论和公开榜单负责。项目感谢以下机构的实物支持。目前尚未收到经机构批准的委托、治理、出版或独立评审记录，因此不根据标志或活动参与推断这些角色。",
     leads: [
       {
         name: "DEPA",
         role: "泰国数字经济促进局",
-        body: "泰国数字经济与社会部下属的国家级数字经济机构。负责设定智慧城市政策框架、资助指数发布，并提供使榜单对城市政府可用的公共部门合法性。",
+        body: "泰国数字经济促进局，隶属数字经济与社会部。项目将计算基础设施和平台的实物支持归功于 DEPA。其名称和标志表示项目所述的支持，而非出版责任、方法论批准或对城市排名的认可。",
         logoSrc: "/thumbs/256/Logos/depa_logo.png",
         url: DEPA_URL,
       },
       {
         name: "PMU-A",
         role: "区域发展项目管理机构",
-        body: "隶属 NXPO 的区域型研究经费管理机构。资助指数的基础研究，设定省级与市级的覆盖优先级，并确保指数锚定于独立学术评审之中。",
+        body: "区域发展项目管理机构，是泰国区域研究资助机构。项目将计算基础设施和平台的实物支持归功于 PMU-A。这不构成本指数获得拨款、机构决定城市覆盖范围或进行独立学术评审的证据；这些说法需要可引用的记录。",
         logoSrc: "/Logos/uwn_pmu_a_logo.jpeg",
         url: PMUA_URL,
       },
@@ -223,18 +223,18 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     privateLabel: "私营部门交付伙伴",
     privateTitle: "SLIC — 做出来的，不是写出来的",
     privateSummary:
-      "SLIC 是把授权变成能用的产品的私营部门咨询伙伴。我们选择 SLIC 的理由是理念一致：他们宁愿做给你看，不愿反复辩论；宁愿先做原型，不愿先写采购。",
+      "SLIC 是围绕指数开展咨询与实施的实践，而非获得机构授权的交付部门。其方式是展示可用原型，围绕公共议题进行测试，并让方法可供检查，而不是以宣传册取代实际运行的产品。",
     privatePartner: {
       name: "SLIC",
       role: "咨询与实施伙伴",
-      body: "SLIC 是我们在私营侧的交付团队。他们拥有我们需要的资源与判断力，更重要的是他们有公共部门常常缺失的工作态度——在开会之前就把原型发出来，而不是开完再做；亲手建，而不是写一份 TOR 等别人建；让产品先说话，再谈幻灯片。SLIC 自身也承担更广泛的智慧城市咨询、教育与生态建设工作，这些工作围绕指数但不主导指数。",
+      body: "SLIC 的智慧城市咨询、教育与生态建设工作构成指数实施的背景。工作方式是带着原型开会、展示前测试产品，并让读者检查已声明的方法。这些相关业务不证明存在公共部门合同或授权。研究者仍对出版决定负责；咨询业务不是付费上榜、改变权重或获得指定排名的途径。",
       logoSrc: "/Logos/slic-index-monogram.png",
       url: OFFICIAL_SLIC_URL,
     },
     techLabel: "技术合作伙伴",
     techTitle: "Axiom × ReTL — 带人在回路的 AI",
     techSummary:
-      "本指数建立在对 AI 如何帮助我们在大规模上收集与分析城市数据的理解之上。人类始终在回路中，以保持结果中立、无偏见、全面、可理解、可复核、可观察，并且在人的视角下值得一看。",
+      "AI 可以协助阅读与分析城市公共数据，但研究者仍对来源选择、声明的权重和出版决定负责。已知的国家级代理数据和覆盖缺口限制了模型。人工审查使这些选择可以被质疑，并不保证中立、全面覆盖或没有偏见。",
     techPartners: [
       {
         name: "Axiom",
@@ -253,7 +253,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     publicationLabel: "发布语境",
     publicationTitle: "公共利益指数，公开发布。",
     publicationSummary:
-      "你所看到的这些页面——实时榜单、方法论、泰国分榜、评分工作簿——都是 DEPA × PMU-A 共同项目的公开输出。下方图片展示的是其背后的公共过程：召集、对话、评审，以及支撑榜单的机构性工作。",
+      "实时榜单、方法论、泰国分榜和评分工作簿是本独立研究出版物的成果。下方照片记录了会议、对话及公开展示，保留项目历史，但照片本身不能证明机构委托、出版授权、认可或独立学术评审。",
     resourceLabel: "资源",
     resourcesTitle: "深入阅读",
     bridgeBody:
@@ -263,32 +263,32 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     methodologyLabel: "打开方法论文件",
   },
   ko: {
-    eyebrow: "DEPA × PMU-A 공동 프로젝트",
-    title: "SLIC Index는 DEPA와 PMU-A가 공동 발행합니다",
+    eyebrow: "독립 연구 · 명시된 인프라 지원",
+    title: "SLIC Index는 두 연구자의 독립 연구 출판물입니다",
     intro:
-      "스마트 앤 리버블 시티 인덱스(Smart and Liveable Cities Index)는 태국 디지털경제진흥원(DEPA)과 지역기반개발사업관리기구(PMU-A)가 공동으로 추진하는 공공이익 사업입니다. 도시에서 실제로 생활을 꾸리는 데 드는 비용을 기준으로 도시를 평가하며, 투명한 방법론과 공개 데이터를 기반으로 합니다.",
+      "Smart and Liveable Cities Index는 Dr Non Arkaraprasertkul과 Poon Thiengburanathum 부교수의 공익 연구 출판물입니다. 선언된 모델로 도시 생활의 비용과 조건을 비교합니다. 프로젝트는 DEPA와 PMU-A의 컴퓨팅 인프라 및 플랫폼 현물 지원을 명시하며, 이는 기관의 발행이나 순위 보증을 뜻하지 않습니다.",
     summaryTitle: "이 접근 방식의 의미",
     summary: [
-      "DEPA는 디지털경제사회부 산하에서 국가 디지털경제 정책 권한과 임무를 수행합니다.",
-      "PMU-A는 연구 자금과 태국 전역의 광역 및 기초 지방자치단체 개발을 아우르는 지역 기반 임무를 담당합니다.",
+      "프로젝트는 DEPA의 인프라 현물 지원을 명시합니다. 기관의 디지털경제 업무가 이 지수를 공식 기관 순위로 만들지는 않습니다.",
+      "프로젝트는 PMU-A의 인프라 현물 지원도 명시합니다. 이 표기는 본 출판물의 연구비 지원, 위탁 권한 또는 학술 검토 절차를 입증하지 않습니다.",
       "방법론, 가중치, 점수, 출처는 모두 공개됩니다. 유료 게재는 없으며, 후원자가 순위에 영향을 미치지 않습니다.",
     ],
-    leadsLabel: "주관 기관",
-    leadsTitle: "두 개의 공공기관",
+    leadsLabel: "프로젝트가 명시한 공공부문 지원",
+    leadsTitle: "인프라 지원에 대해 명시된 두 기관",
     leadsSummary:
-      "SLIC Index는 두 기관이 공동으로 위탁하고 운영합니다. 두 주관 기관 모두 방법론과 발행된 순위표에 대해 공적 책임을 집니다.",
+      "두 연구자가 방법론과 공개 순위표에 책임을 집니다. 프로젝트는 아래 기관의 현물 지원을 명시합니다. 기관이 승인한 위탁, 운영, 발행 또는 독립 검토 기록은 아직 제공되지 않았습니다. 로고나 행사 참여를 근거로 그러한 역할을 주장하지 않습니다.",
     leads: [
       {
         name: "DEPA",
         role: "태국 디지털경제진흥원",
-        body: "디지털경제사회부 산하 태국 국가 디지털경제 기관입니다. 스마트시티 정책 프레임을 수립하고, 인덱스 발행을 지원하며, 도시 정부가 순위표를 실질적으로 활용할 수 있도록 공공 부문의 정당성을 부여합니다.",
+        body: "디지털경제사회부 산하 태국 디지털경제진흥원입니다. 프로젝트는 DEPA의 컴퓨팅 인프라 및 플랫폼 현물 지원을 명시합니다. 이름과 로고는 프로젝트가 밝힌 지원을 가리키며, 발행 책임, 방법론 승인 또는 도시 순위 보증을 뜻하지 않습니다.",
         logoSrc: "/thumbs/256/Logos/depa_logo.png",
         url: DEPA_URL,
       },
       {
         name: "PMU-A",
         role: "지역기반개발사업관리기구",
-        body: "NXPO 산하 태국의 지역 기반 연구비 관리 기관입니다. 인덱스의 기초 연구를 지원하고, 광역 및 기초 지방자치단체 단위의 커버리지 우선순위를 설정하며, 독립적인 학술 검토를 통해 인덱스의 학문적 토대를 확보합니다.",
+        body: "지역기반개발사업관리기구는 태국의 지역 연구비 관리 기관입니다. 프로젝트는 PMU-A의 컴퓨팅 인프라 및 플랫폼 현물 지원을 명시합니다. 이는 지수 연구비, 도시 범위 결정 권한 또는 독립 학술 검토의 증거가 아닙니다. 그러한 주장은 인용 가능한 기록이 필요합니다.",
         logoSrc: "/Logos/uwn_pmu_a_logo.jpeg",
         url: PMUA_URL,
       },
@@ -296,18 +296,18 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     privateLabel: "민간 부문 이행 파트너",
     privateTitle: "SLIC — 브로슈어가 아닌 실제 구현",
     privateSummary:
-      "SLIC는 공공 위임 사항을 실제로 작동하는 제품으로 전환하는 민간 부문 컨설팅 파트너입니다. SLIC와 협력하는 이유는 철학적인 데 있습니다. 그들은 말하기보다 보여주고, 논쟁하기보다 프로토타입을 만들며, 조달하기보다 직접 구축합니다.",
+      "SLIC는 지수 주변의 컨설팅 및 구현 실무이며 기관의 위임을 받은 이행 부서가 아닙니다. 작동하는 프로토타입을 제시하고 공익적 과제에 맞춰 시험하며, 브로슈어로 제품을 대신하지 않고 방법을 검토할 수 있게 하는 접근입니다.",
     privatePartner: {
       name: "SLIC",
       role: "컨설팅 및 이행 파트너",
-      body: "SLIC는 민간 측의 이행 파트너입니다. 그들은 우리가 필요로 하는 접근성과 판단력을 보유하고 있습니다. 더 중요한 것은 공공 부문에서 흔히 부족한 업무 윤리를 공유한다는 점입니다. 회의 후가 아니라 회의 전에 프로토타입을 발송하고, 나중에 누군가 만들도록 발주서를 작성하는 대신 직접 구축하며, 슬라이드보다 제품이 먼저 말하게 합니다. SLIC는 자체적인 스마트시티 컨설팅, 교육, 생태계 구축 업무도 수행하며, 이는 인덱스 주변에 있지만 인덱스를 통제하지는 않습니다.",
+      body: "SLIC의 스마트시티 컨설팅, 교육 및 생태계 업무는 지수 구현의 배경입니다. 회의에 프로토타입을 가져오고, 발표 전에 제품을 시험하며, 독자가 선언된 방법을 살펴보도록 하는 실무 방식입니다. 관련 업무가 공공부문 계약이나 위임을 입증하지는 않습니다. 발행 결정은 연구자가 책임지며, 컨설팅은 유료 포함, 가중치 변경 또는 원하는 순위를 얻는 경로가 아닙니다.",
       logoSrc: "/Logos/slic-index-monogram.png",
       url: OFFICIAL_SLIC_URL,
     },
     techLabel: "기술 파트너",
     techTitle: "Axiom × ReTL — 인간이 루프 안에 있는 AI",
     techSummary:
-      "이 인덱스는 AI가 도시 데이터를 대규모로 수집·분석하는 데 어떻게 기여할 수 있는지에 대한 이해 위에 구축되었습니다. 결과가 중립적이고 편향 없이 포괄적이며, 이해 가능하고 검토·관찰 가능하며 인간의 관점에서 제시될 수 있도록 인간이 루프 안에 머뭅니다.",
+      "AI는 도시 공개 데이터의 독해와 분석을 도울 수 있지만 출처 선택, 명시된 가중치 및 발행 결정은 연구자가 책임집니다. 알려진 국가 단위 대리 지표와 데이터 공백이 모델을 제한합니다. 인간의 검토는 선택에 이의를 제기할 수 있게 할 뿐, 중립성이나 완전한 포괄성, 편향 부재를 보장하지 않습니다.",
     techPartners: [
       {
         name: "Axiom",
@@ -326,7 +326,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     publicationLabel: "발행 맥락",
     publicationTitle: "공공이익 인덱스, 공개적으로 발행됩니다.",
     publicationSummary:
-      "이 페이지들 — 실시간 순위표, 방법론, 태국 트랙, 점수 산정 워크북 — 은 DEPA × PMU-A 공동 프로젝트의 발행 결과물입니다. 아래 사진들은 공개 과정을 보여줍니다. 회의 소집, 대화, 검토, 그리고 순위표를 뒷받침하는 기관적 작업들입니다.",
+      "실시간 순위표, 방법론, 태국 트랙 및 점수 워크북은 이 독립 연구 출판물의 결과물입니다. 아래 사진은 회의, 대화 및 공개 발표를 기록하며 프로젝트의 역사를 보존합니다. 사진 자체가 기관 위탁, 발행 권한, 보증 또는 독립 학술 검토를 입증하지는 않습니다.",
     resourceLabel: "리소스",
     resourcesTitle: "더 깊이 살펴보기",
     bridgeBody:
@@ -336,32 +336,32 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     methodologyLabel: "방법론 문서 열기",
   },
   ja: {
-    eyebrow: "DEPA × PMU-A 共同プロジェクト",
-    title: "SLIC IndexはDEPAとPMU-Aが共同で発行しています",
+    eyebrow: "独立研究 · 明記されたインフラ支援",
+    title: "SLIC Indexは二人の研究者による独立した研究出版物です",
     intro:
-      "スマート・アンド・リバブル・シティーズ・インデックス（Smart and Liveable Cities Index）は、タイ・デジタル経済振興庁（DEPA）と地域基盤開発プログラム管理機構（PMU-A）が共同で推進する公益的な取り組みです。透明な方法論と公開データを基に、都市で実際に生活を築くためにかかるコストを基準として都市を評価します。",
+      "Smart and Liveable Cities Indexは、Dr Non ArkaraprasertkulとPoon Thiengburanathum准教授による公益的な研究出版物です。明示したモデルで都市生活の費用と条件を比較します。プロジェクトはDEPAとPMU-Aによる計算インフラとプラットフォームの現物支援を明記していますが、機関による発行や順位の保証を意味しません。",
     summaryTitle: "このフレーミングの意義",
     summary: [
-      "DEPAはデジタル経済社会省のもと、国家レベルのデジタル経済に関する政策的権限と使命を担っています。",
-      "PMU-Aはタイ全土の広域・基礎自治体レベルの開発を対象とする研究資金と地域密着型の使命を持っています。",
+      "プロジェクトはDEPAのインフラ現物支援を明記しています。同機関のデジタル経済分野の役割によって、本指数が公式の機関ランキングになるわけではありません。",
+      "プロジェクトはPMU-Aのインフラ現物支援も明記しています。この謝辞は本出版物の研究助成、委託権限、学術審査の手続きを証明しません。",
       "方法論、ウェイト、スコア、出典はすべて公開されています。有料掲載はなく、スポンサーが順位に影響を与えることもありません。",
     ],
-    leadsLabel: "主管機関",
-    leadsTitle: "二つの公共機関",
+    leadsLabel: "プロジェクトが明記する公共部門の支援",
+    leadsTitle: "インフラ支援に謝意を示す二つの機関",
     leadsSummary:
-      "SLIC Indexは両機関が共同で委託・運営しています。両主管機関ともに方法論と公開された順位表に対して公的な説明責任を負います。",
+      "方法論と公開順位表には二人の研究者が責任を負います。プロジェクトは以下の機関による現物支援を明記しています。機関が承認した委託、運営、発行、独立審査の記録はまだ提供されていません。ロゴや行事への参加からこれらの役割を主張することはしません。",
     leads: [
       {
         name: "DEPA",
         role: "タイ・デジタル経済振興庁",
-        body: "デジタル経済社会省傘下のタイ国家デジタル経済機関です。スマートシティ政策のフレームを策定し、インデックスの発行を資金援助し、都市政府が順位表を実際に活用できるよう公共部門としての正当性を提供しています。",
+        body: "デジタル経済社会省傘下のタイ・デジタル経済振興庁です。プロジェクトはDEPAによる計算インフラとプラットフォームの現物支援を明記しています。名称とロゴはプロジェクトが述べる支援を示し、発行責任、方法論の承認、都市順位の保証を意味しません。",
         logoSrc: "/thumbs/256/Logos/depa_logo.png",
         url: DEPA_URL,
       },
       {
         name: "PMU-A",
         role: "地域基盤開発プログラム管理機構",
-        body: "NXPO傘下のタイの地域型研究資金管理機関です。インデックスの基礎研究に資金を提供し、広域・基礎自治体レベルのカバレッジ優先事項を設定し、独立した学術審査によってインデックスの学術的根拠を確保します。",
+        body: "地域基盤開発プログラム管理機構は、タイの地域研究助成機関です。プロジェクトはPMU-Aによる計算インフラとプラットフォームの現物支援を明記しています。これは指数への研究助成、対象都市を決める権限、独立した学術審査の証拠ではありません。そうした主張には引用可能な記録が必要です。",
         logoSrc: "/Logos/uwn_pmu_a_logo.jpeg",
         url: PMUA_URL,
       },
@@ -369,18 +369,18 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     privateLabel: "民間部門の実施パートナー",
     privateTitle: "SLIC — パンフレットではなく、実際の構築",
     privateSummary:
-      "SLICは、公共の使命を実際に機能する製品へと転換する民間コンサルティングパートナーです。SLICと協力する理由は哲学的なものです。彼らは語るより示し、議論するよりプロトタイプを作り、調達するより自ら構築します。",
+      "SLICは指数を取り巻くコンサルティングと実装の実務であり、機関から委任された実施部門ではありません。動作するプロトタイプを示し、公益的な課題に照らして試し、パンフレットで製品を代替せず、方法を確認できるようにする姿勢です。",
     privatePartner: {
       name: "SLIC",
       role: "コンサルティング・実施パートナー",
-      body: "SLICは民間側の実施パートナーです。必要なアクセスと判断力を持ち、さらに重要なことに、公共部門がしばしば欠く仕事倫理を共有しています。会議の後ではなく前にプロトタイプを送付し、後で誰かに作らせる発注書を書く代わりに自ら構築し、スライドよりも製品を先に語らせます。SLICは独自のスマートシティコンサルティング、教育、エコシステム構築の業務も担っており、それらはインデックスの周囲に位置しますが、インデックスを制御するものではありません。",
+      body: "SLICのスマートシティのコンサルティング、教育、エコシステム形成は指数の実装の背景にあります。会議にプロトタイプを持参し、発表前に製品を試し、読者が明示された方法を確認できるようにする実務です。周辺業務は公共部門の契約や委任を証明しません。研究者は発行判断に責任を持ち、コンサルティングは有料掲載、ウェイト変更、希望する順位を得る経路ではありません。",
       logoSrc: "/Logos/slic-index-monogram.png",
       url: OFFICIAL_SLIC_URL,
     },
     techLabel: "テクノロジーパートナー",
     techTitle: "Axiom × ReTL — 人間がループ内にいるAI",
     techSummary:
-      "このインデックスは、AIが大規模な都市データの収集・分析をどのように支援できるかという理解の上に構築されています。結果が中立で偏りなく包括的であり、理解・検証・観察可能で、人間の視点から提示できるよう、人間は常にループ内に留まります。",
+      "AIは都市の公開データの読解と分析を支援できますが、出典の選択、明示したウェイト、発行判断には研究者が責任を負います。既知の国レベルの代理指標やデータの欠落がモデルを制限します。人による検討は選択への異議を可能にするもので、中立性、完全な網羅性、偏りのなさを保証しません。",
     techPartners: [
       {
         name: "Axiom",
@@ -399,7 +399,7 @@ export const slicProfileData: Record<Locale, SlicProfileContent> = {
     publicationLabel: "発行の文脈",
     publicationTitle: "公益インデックス、公開で発行。",
     publicationSummary:
-      "ここに掲載されているページ — ライブ順位表、方法論、タイランドトラック、スコアリングワークブック — はすべてDEPA × PMU-A共同プロジェクトの公開成果物です。下の写真は、順位表の背後にある公開プロセス — 召集、対話、審査、機関的な取り組み — を示しています。",
+      "ライブ順位表、方法論、タイランドトラック、スコアリングワークブックは、この独立した研究出版物の成果です。下の写真は会合、対話、公開発表を記録し、プロジェクトの歴史を残します。ただし写真自体は機関の委託、発行権限、保証、独立した学術審査を証明しません。",
     resourceLabel: "リソース",
     resourcesTitle: "さらに深く読む",
     bridgeBody:

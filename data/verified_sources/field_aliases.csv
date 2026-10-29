@@ -1,0 +1,3 @@
+publication_input_key,register_field,reason,declared_on
+gdp_per_capita_ppp_context,gdp_per_capita_ppp,"Same World Bank WDI GDP per capita PPP series. The register stores it under the shorter field name; the publication input carries the _context suffix because the series is used as context rather than as a headline metric.",2026-10-28
+gini_coefficient_context,gini_coefficient,"Same World Bank WDI Gini index series. The register stores it under the shorter field name; the publication input carries the _context suffix because the series is used as context rather than as a headline metric.",2026-10-28

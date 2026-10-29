@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 3,
+  "publicationGeneratedAt": "2026-10-29T08:06:32.615Z",
+  "sourceRegisters": [
+    "data/verified_sources/city_inputs.csv",
+    "data/verified_sources/country_context.csv"
+  ],
+  "publicationSha256": "0f75913c5c8867f79b39eaaf7ec48fa7136c6e63070cf7b2feff3db1ac223ccb",
+  "registerSha256": {
+    "city_inputs.csv": "33b99c4c2aceb7809dd320c45ab492f00b23efefcfd37c4bf75ab7d04594f5d7",
+    "country_context.csv": "4d06b16561493d3072c8fe20894080f494c044eb02765329f8525246333048bc"
+  },
+  "fieldAliases": {
+    "gdp_per_capita_ppp_context": "gdp_per_capita_ppp",
+    "gini_coefficient_context": "gini_coefficient"
+  },
+  "aliasResolvedInputCount": 254,
+  "inputCount": 4193,
+  "datedInputCount": 4013,
+  "undatedInputCount": 180,
+  "registerStatusCounts": {
+    "matched": 4187,
+    "exempt": 6,
+    "unregistered": 0,
+    "ambiguous": 0,
+    "value-mismatch": 0,
+    "source-mismatch": 0,
+    "proxy-conflict": 0,
+    "scope-mismatch": 0
+  },
+  "exemptInputCount": 6,
+  "exemptions": {
+    "uk-london|equal_opportunity_raw": "OECD social mobility index. The published score is a per-country figure read from the OECD's Broken Elevator report; the cited page does not carry the score, so the register cannot re-read it and will not assert it. Note also that this input carries a different construct for these three cities than for the 133 cities that carry the World Bank Gini — see docs/inclusion-evidence-reconciliation-2026-10-28.md.",
+    "us-new-york|equal_opportunity_raw": "OECD social mobility index. The published score is a per-country figure read from the OECD's Broken Elevator report; the cited page does not carry the score, so the register cannot re-read it and will not assert it. Note also that this input carries a different construct for these three cities than for the 133 cities that carry the World Bank Gini — see docs/inclusion-evidence-reconciliation-2026-10-28.md.",
+    "jp-tokyo|equal_opportunity_raw": "OECD social mobility index. The published score is a per-country figure read from the OECD's Broken Elevator report; the cited page does not carry the score, so the register cannot re-read it and will not assert it. Note also that this input carries a different construct for these three cities than for the 133 cities that carry the World Bank Gini — see docs/inclusion-evidence-reconciliation-2026-10-28.md.",
+    "uk-london|investment_signal_raw": "Dealroom VC deal density index. A commercial index whose figure is not publicly re-readable from the cited page, so the register cannot assert it. Note also that this input carries a different construct for these three cities than for the 154 cities that carry the World Bank FDI series — see docs/inclusion-evidence-reconciliation-2026-10-28.md.",
+    "us-new-york|investment_signal_raw": "Crunchbase / PitchBook VC deal density index. A commercial index whose figure is not publicly re-readable from the cited page, so the register cannot assert it. Note also that this input carries a different construct for these three cities than for the 154 cities that carry the World Bank FDI series — see docs/inclusion-evidence-reconciliation-2026-10-28.md.",
+    "jp-tokyo|investment_signal_raw": "Crunchbase / Dealroom VC deal density index. A commercial index whose figure is not publicly re-readable from the cited page, so the register cannot assert it. Note also that this input carries a different construct for these three cities than for the 154 cities that carry the World Bank FDI series — see docs/inclusion-evidence-reconciliation-2026-10-28.md."
+  },
+  "earliestRegisteredDate": "2010-12-31",
+  "latestRegisteredDate": "2026-10-28",
+  "registeredYearCounts": {
+    "2010": 2,
+    "2013": 2,
+    "2014": 2,
+    "2015": 4,
+    "2016": 6,
+    "2017": 9,
+    "2018": 27,
+    "2019": 51,
+    "2020": 177,
+    "2021": 210,
+    "2022": 279,
+    "2023": 860,
+    "2024": 1890,
+    "2025": 328,
+    "2026": 166
+  },
+  "nationalProxyInputCount": 1874,
+  "dateMeaning": "Dates recorded in the source registers; not independently verified observation periods. Exact value, source URL, source title and unambiguous city/input identity must match; explicitly national inputs may match their own country's national-scope register row when no city row exists. A declared field alias names a second field for the same measurement and still requires the value, source URL and source title to match exactly. Missing dates remain unknown."
+}

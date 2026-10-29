@@ -1,4 +1,6 @@
 import publishedRankingData from "./data/publishedRankingData.json";
+import evidence from "./data/evidenceSummary.json";
+import { appHref } from "./routing";
 import SiteFooter from "./SiteFooter";
 import type { Locale, SitePath } from "./types";
 import type { PillarId } from "./publicationMath";
@@ -329,6 +331,39 @@ const dataLevelLabels: Record<Locale, Record<DataLevel, string>> = {
   ja: { city: "都市レベル", national: "国家レベル", derived: "派生", composite: "複合", missing: "データなし" },
 };
 
+const evidenceCopy = {
+  en: {
+    title: "Source dates and traceability", dated: "Inputs with a registered date", unknown: "Inputs with no matched date", unmatched: "Inputs absent from the register", mismatch: "Input values that disagree",
+    summary: "An exact match links a published raw input to one register row by city or declared national scope, field, value, source URL and title. It is not independent verification of the measurement.",
+    note: "These are dates recorded in the input register, not verified observation periods. Undated and mismatching inputs remain unknown. National proxies are not city measurements; coverage grades measure availability, not local specificity.",
+    download: "Download the input-level evidence register (JSON)", range: "Registered date range (matched inputs only)",
+  },
+  th: {
+    title: "วันที่และการติดตามแหล่งข้อมูล", dated: "อินพุตที่มีวันที่ในทะเบียน", unknown: "อินพุตที่ไม่มีวันที่ตรงกัน", unmatched: "อินพุตที่ไม่มีในทะเบียน", mismatch: "ค่าอินพุตที่ไม่ตรงกัน",
+    summary: "จับคู่อินพุตเผยแพร่กับแถวเดียวในทะเบียนด้วยเมืองหรือขอบเขตประเทศที่ประกาศ ฟิลด์ ค่า URL และชื่อแหล่งข้อมูล ไม่ใช่การตรวจยืนยันการวัดโดยอิสระ",
+    note: "วันที่เหล่านี้บันทึกในทะเบียนอินพุต ไม่ใช่ช่วงเวลาที่วัดซึ่งตรวจยืนยันแล้ว รายการไม่มีวันที่หรือไม่ตรงกันยังถือว่าไม่ทราบ ตัวแทนระดับประเทศไม่ใช่การวัดระดับเมือง เกรดความครอบคลุมวัดความพร้อมของข้อมูล ไม่ใช่ความเฉพาะเจาะจงระดับท้องถิ่น",
+    download: "ดาวน์โหลดทะเบียนหลักฐานระดับอินพุต (JSON)", range: "ช่วงวันที่ในทะเบียน (เฉพาะรายการที่ตรงกัน)",
+  },
+  zh: {
+    title: "来源日期与可追溯性", dated: "有登记日期的输入", unknown: "无匹配日期的输入", unmatched: "登记表中缺失的输入", mismatch: "数值不一致的输入",
+    summary: "精确匹配以城市或已声明的国家范围、字段、数值、来源网址和标题将已发布输入关联到唯一登记行。这不代表对测量的独立验证。",
+    note: "这些是输入登记表记载的日期，并非经核实的观测期间。缺少日期或不匹配的输入仍属未知。国家代理不等于城市测量，覆盖等级反映数据可用性而非地方特异性。",
+    download: "下载输入级证据登记表（JSON）", range: "登记日期范围（仅匹配输入）",
+  },
+  ko: {
+    title: "출처 날짜와 추적 가능성", dated: "등록 날짜가 있는 입력", unknown: "일치하는 날짜가 없는 입력", unmatched: "등록부에 없는 입력", mismatch: "값이 일치하지 않는 입력",
+    summary: "도시 또는 명시된 국가 범위, 필드, 값, 출처 URL과 제목이 모두 일치할 때 공개 입력을 등록부의 한 행과 연결합니다. 측정의 독립 검증을 뜻하지 않습니다.",
+    note: "입력 등록부에 기록된 날짜이며 검증된 관측 기간이 아닙니다. 날짜가 없거나 불일치하는 입력은 미상입니다. 국가 대리값은 도시 측정이 아니며, 커버리지 등급은 지역 특이성이 아닌 자료 가용성을 나타냅니다.",
+    download: "입력별 근거 등록부 다운로드 (JSON)", range: "등록 날짜 범위 (일치한 입력만)",
+  },
+  ja: {
+    title: "出典の日付と追跡可能性", dated: "登録日付のある入力", unknown: "一致する日付のない入力", unmatched: "登録簿にない入力", mismatch: "値が一致しない入力",
+    summary: "都市または明示された国の範囲、項目、値、出典URLと題名が一致した場合のみ、公開入力を登録簿の一つの行と関連付けます。測定の独立検証を意味しません。",
+    note: "入力登録簿に記された日付であり、検証済みの観測期間ではありません。日付欠落や不一致は不明のままです。国の代理値は都市の測定ではなく、カバレッジ等級は地域性ではなくデータの利用可能性を示します。",
+    download: "入力別の証拠登録簿をダウンロード（JSON）", range: "登録日付の範囲（一致した入力のみ）",
+  },
+};
+
 function isObserved(metric?: MetricComponent) {
   return metric?.raw != null || metric?.scoreExact != null || metric?.score != null;
 }
@@ -447,6 +482,7 @@ export default function DataSourcesPage({
   locale: Locale;
 }) {
   const ui = copy[locale];
+  const evidenceUi = evidenceCopy[locale];
   const nf = numberFormat(locale);
   const provenance = publication.diagnostics?.provenance;
   const scoreModel = publication.diagnostics?.scoreModel;
@@ -525,6 +561,28 @@ export default function DataSourcesPage({
             </article>
           </div>
         </header>
+
+        <section className="paper-section section" id="source-traceability">
+          <div className="section-heading">
+            <div><p className="eyebrow">{ui.eyebrow}</p><h2>{evidenceUi.title}</h2></div>
+            <p className="section-summary">{evidenceUi.summary}</p>
+          </div>
+          <div className="ranking-fine-print-layout">
+            <dl className="evidence-source-counts">
+              {[
+                [evidenceUi.dated, evidence.datedInputCount],
+                [evidenceUi.unknown, evidence.undatedInputCount],
+                [evidenceUi.unmatched, evidence.registerStatusCounts.unregistered ?? 0],
+                [evidenceUi.mismatch, evidence.registerStatusCounts['value-mismatch'] ?? 0],
+              ].map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{nf.format(Number(value))}</dd></div>)}
+            </dl>
+            <div className="ranking-fine-print-copy">
+              <p>{evidenceUi.range}: {evidence.earliestRegisteredDate} / {evidence.latestRegisteredDate}</p>
+              <p>{evidenceUi.note}</p>
+              <a href={appHref('/downloads/slic-evidence-register.json')} download>{evidenceUi.download}</a>
+            </div>
+          </div>
+        </section>
 
         <section className="paper-section section">
           <div className="section-heading">

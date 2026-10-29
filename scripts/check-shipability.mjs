@@ -326,7 +326,7 @@ async function launchBrowser(attempts = 3) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt++) {
     try {
-      return await chromium.launch({ channel: "chrome", timeout: 120000 });
+      return await chromium.launch({ timeout: 120000 });
     } catch (error) {
       lastError = error;
       console.log(`  (browser launch attempt ${attempt} failed — ${String(error.message || error).split("\n")[0]})`);

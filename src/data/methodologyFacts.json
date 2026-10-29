@@ -48,24 +48,24 @@
       "cityId": "sg-singapore",
       "displayName": "Singapore",
       "country": "Singapore",
-      "rank": 34,
+      "rank": 33,
       "tierLabel": "Alpha",
       "tierSlot": 7,
       "rankingStatus": "Ranked",
       "coverageGrade": "A",
-      "slicScore": 62.8,
-      "slicScoreExact": 62.8412,
+      "slicScore": 63.3,
+      "slicScoreExact": 63.2824,
       "pressureScore": 44.1,
       "pressureScoreExact": 44.1076,
       "viabilityScore": 90.4,
       "viabilityScoreExact": 90.377,
       "capabilityScore": 94.1,
       "capabilityScoreExact": 94.1479,
-      "communityScore": 45.7,
-      "communityScoreExact": 45.7432,
+      "communityScore": 47.4,
+      "communityScoreExact": 47.4217,
       "creativeScore": 73.3,
       "creativeScoreExact": 73.3339,
-      "tierReason": "Placed on the Alpha shelf: Community 45.7 and Pressure 44.1 both clear the Alpha threshold, coverage is A, and this is Singapore's first representative at this tier."
+      "tierReason": "Placed on the Alpha shelf: Community 47.4 and Pressure 44.1 both clear the Alpha threshold, coverage is A, and this is Singapore's first representative at this tier."
     },
     "bangkok": {
       "cityId": "th-bangkok",
@@ -76,16 +76,16 @@
       "tierSlot": null,
       "rankingStatus": "Ranked",
       "coverageGrade": "A",
-      "slicScore": 53.7,
-      "slicScoreExact": 53.7232,
+      "slicScore": 53.5,
+      "slicScoreExact": 53.4855,
       "pressureScore": 42.6,
       "pressureScoreExact": 42.5936,
       "viabilityScore": 76.6,
       "viabilityScoreExact": 76.6463,
       "capabilityScore": 68.2,
       "capabilityScoreExact": 68.2098,
-      "communityScore": 70.7,
-      "communityScoreExact": 70.7202,
+      "communityScore": 68.4,
+      "communityScoreExact": 68.3672,
       "creativeScore": 38.5,
       "creativeScoreExact": 38.5414,
       "tierReason": "Not placed on a public shelf — all tier slots were filled by higher-ranking cities."
@@ -94,23 +94,23 @@
       "cityId": "jp-tokyo",
       "displayName": "Tokyo",
       "country": "Japan",
-      "rank": 48,
+      "rank": 54,
       "tierLabel": null,
       "tierSlot": null,
       "rankingStatus": "Ranked",
       "coverageGrade": "A",
-      "slicScore": 60.4,
-      "slicScoreExact": 60.4476,
+      "slicScore": 59.5,
+      "slicScoreExact": 59.4554,
       "pressureScore": 49,
       "pressureScoreExact": 49.0144,
       "viabilityScore": 94.2,
       "viabilityScoreExact": 94.2412,
-      "capabilityScore": 72.9,
-      "capabilityScoreExact": 72.8762,
-      "communityScore": 73,
-      "communityScoreExact": 73.0065,
-      "creativeScore": 44.2,
-      "creativeScoreExact": 44.1791,
+      "capabilityScore": 70.5,
+      "capabilityScoreExact": 70.5321,
+      "communityScore": 73.9,
+      "communityScoreExact": 73.9467,
+      "creativeScore": 42.1,
+      "creativeScoreExact": 42.1086,
       "tierReason": "Japan is already on the public board — Fukuoka holds the Alpha seat. Each country occupies one slot per tier to keep the board geographically diverse."
     }
   },
@@ -123,7 +123,7 @@
       "pressure": 66.8,
       "viability": 86.5,
       "capability": 90.6,
-      "community": 65.4,
+      "community": 62.9,
       "creative": 37
     },
     "safety": {
@@ -177,11 +177,11 @@
       "scoreRounded": 66.8
     },
     "overall": {
-      "weightedMeanExact": 69.2309,
-      "weightedVarianceExact": 358.7729,
-      "ampiExact": 64.0486,
-      "slicScoreExact": 64.0486,
-      "slicScoreRounded": 64,
+      "weightedMeanExact": 68.8616,
+      "weightedVarianceExact": 362.4025,
+      "ampiExact": 63.5988,
+      "slicScoreExact": 63.5988,
+      "slicScoreRounded": 63.6,
       "coverageExact": 0.8,
       "coverageRounded": 0.8,
       "coverageGrade": "A",
@@ -209,8 +209,8 @@
       {
         "pillar": "community",
         "weight": 15,
-        "scoreExact": 65.3637,
-        "scoreRounded": 65.4
+        "scoreExact": 62.9014,
+        "scoreRounded": 62.9
       },
       {
         "pillar": "creative",
@@ -261,14 +261,14 @@
         "cityId": "tw-kaohsiung",
         "displayName": "Kaohsiung",
         "country": "Taiwan",
-        "rank": 26,
+        "rank": 31,
         "tierSlot": 6
       },
       {
         "cityId": "sg-singapore",
         "displayName": "Singapore",
         "country": "Singapore",
-        "rank": 34,
+        "rank": 33,
         "tierSlot": 7
       },
       {
@@ -309,16 +309,16 @@
         "tierSlot": 2
       },
       {
-        "cityId": "cz-prague",
-        "displayName": "Prague",
-        "country": "Czechia",
-        "rank": 8,
-        "tierSlot": 3
-      },
-      {
         "cityId": "au-melbourne",
         "displayName": "Melbourne",
         "country": "Australia",
+        "rank": 9,
+        "tierSlot": 3
+      },
+      {
+        "cityId": "cz-prague",
+        "displayName": "Prague",
+        "country": "Czechia",
         "rank": 10,
         "tierSlot": 4
       },
@@ -326,72 +326,72 @@
         "cityId": "at-graz",
         "displayName": "Graz",
         "country": "Austria",
-        "rank": 14,
+        "rank": 13,
         "tierSlot": 5
-      },
-      {
-        "cityId": "uk-london",
-        "displayName": "London",
-        "country": "United Kingdom",
-        "rank": 18,
-        "tierSlot": 6
       },
       {
         "cityId": "pt-braga",
         "displayName": "Braga",
         "country": "Portugal",
-        "rank": 19,
+        "rank": 18,
+        "tierSlot": 6
+      },
+      {
+        "cityId": "uk-london",
+        "displayName": "London",
+        "country": "United Kingdom",
+        "rank": 20,
         "tierSlot": 7
       },
       {
         "cityId": "fi-helsinki",
         "displayName": "Helsinki",
         "country": "Finland",
-        "rank": 20,
+        "rank": 22,
         "tierSlot": 8
-      },
-      {
-        "cityId": "ee-tallinn",
-        "displayName": "Tallinn",
-        "country": "Estonia",
-        "rank": 27,
-        "tierSlot": 9
       },
       {
         "cityId": "nz-christchurch",
         "displayName": "Christchurch",
         "country": "New Zealand",
+        "rank": 26,
+        "tierSlot": 9
+      },
+      {
+        "cityId": "fr-lyon",
+        "displayName": "Lyon",
+        "country": "France",
         "rank": 28,
         "tierSlot": 10
       }
     ],
     "Gamma": [
       {
-        "cityId": "fr-lyon",
-        "displayName": "Lyon",
-        "country": "France",
+        "cityId": "ee-tallinn",
+        "displayName": "Tallinn",
+        "country": "Estonia",
         "rank": 30,
         "tierSlot": 1
       },
       {
-        "cityId": "tw-taipei",
-        "displayName": "Taipei",
-        "country": "Taiwan",
-        "rank": 41,
+        "cityId": "jp-sapporo",
+        "displayName": "Sapporo",
+        "country": "Japan",
+        "rank": 42,
         "tierSlot": 2
       },
       {
         "cityId": "it-milan",
         "displayName": "Milan",
         "country": "Italy",
-        "rank": 42,
+        "rank": 43,
         "tierSlot": 3
       },
       {
-        "cityId": "jp-sapporo",
-        "displayName": "Sapporo",
-        "country": "Japan",
-        "rank": 44,
+        "cityId": "tw-taipei",
+        "displayName": "Taipei",
+        "country": "Taiwan",
+        "rank": 45,
         "tierSlot": 4
       },
       {
@@ -402,17 +402,17 @@
         "tierSlot": 5
       },
       {
-        "cityId": "ie-cork",
-        "displayName": "Cork",
-        "country": "Ireland",
-        "rank": 49,
-        "tierSlot": 6
-      },
-      {
         "cityId": "ae-dubai",
         "displayName": "Dubai",
         "country": "United Arab Emirates",
         "rank": 50,
+        "tierSlot": 6
+      },
+      {
+        "cityId": "ie-cork",
+        "displayName": "Cork",
+        "country": "Ireland",
+        "rank": 51,
         "tierSlot": 7
       },
       {
@@ -426,7 +426,7 @@
         "cityId": "be-antwerp",
         "displayName": "Antwerp",
         "country": "Belgium",
-        "rank": 56,
+        "rank": 57,
         "tierSlot": 9
       },
       {
@@ -442,22 +442,22 @@
     "publicMetricLineCount": 4075,
     "observedMetricLines": 3476,
     "dataLevelCounts": {
-      "city": 2034,
-      "national": 531,
+      "city": 452,
+      "national": 2113,
       "derived": 448,
       "composite": 463,
       "missing": 599
     },
     "dataLevelShares": {
-      "city": 0.4991,
-      "national": 0.1303,
+      "city": 0.1109,
+      "national": 0.5185,
       "derived": 0.1099,
       "composite": 0.1136,
       "missing": 0.147
     },
     "observedDataLevelShares": {
-      "city": 0.5852,
-      "national": 0.1528,
+      "city": 0.13,
+      "national": 0.6079,
       "derived": 0.1289,
       "composite": 0.1332
     },

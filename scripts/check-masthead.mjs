@@ -129,7 +129,7 @@ const PROBE = () => {
 const oldServer = LIVE ? null : await serve(path.resolve("dist"), 8806);
 const base = LIVE ?? "http://localhost:8806";
 
-const browser = await chromium.launch({ channel: "chrome", headless: true });
+const browser = await chromium.launch({ headless: true });
 const failures = [];
 let checked = 0;
 

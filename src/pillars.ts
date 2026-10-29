@@ -27,3 +27,29 @@ export const PILLAR_COLORS: Record<PillarId, string> = {
   community: "#8c4a2a",  // Wada Raw Sienna / Burnt Umber
   creative: "#a72144",   // Wada Red (Dr Non signature chord)
 };
+
+/**
+ * The five pillar names, as the published method states them.
+ *
+ * Two conventions are in play on this site and they are not the same thing:
+ *
+ *   - the published method — the methodology page, the PDF, the tier floors,
+ *     the tier policy — names the pillars in Latin, in every locale;
+ *   - the interactive surfaces — the scorecard plates, the rankings filters,
+ *     the compare page — label the first pillar "Growth" in their own local
+ *     words, so a Thai reader reads "การเติบโต" where the method says
+ *     "Pressure".
+ *
+ * The board follows the method, because the board prints the tier floors
+ * directly above it and a key that renamed them would contradict the
+ * sentence next to it. The open question — which way the two conventions
+ * should be reconciled site-wide — is one decision, and this table is the
+ * one place it would be made.
+ */
+export const PILLAR_NAMES: Record<PillarId, string> = {
+  pressure: "Pressure",
+  viability: "Viability",
+  capability: "Capability",
+  community: "Community",
+  creative: "Creative",
+};

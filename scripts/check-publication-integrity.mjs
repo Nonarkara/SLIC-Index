@@ -26,8 +26,8 @@ const EXPECTED_ALPHA = [
   "Valparaiso",
 ];
 
-const REQUIRED_BETA = ["Gothenburg", "Bergen", "Prague", "Melbourne", "Helsinki", "Graz"];
-const REQUIRED_GAMMA = ["Lyon", "Taipei"];
+const REQUIRED_BETA = ["Gothenburg", "Bergen", "Prague", "Melbourne", "Helsinki", "Graz", "Lyon"];
+const REQUIRED_GAMMA = ["Taipei"];
 
 function assert(condition, message, errors) {
   if (!condition) errors.push(message);

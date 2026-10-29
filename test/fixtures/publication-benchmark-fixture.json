@@ -1,5 +1,5 @@
 {
-  "generatedFromPublicationHash": "5ea8390e608514ba3fddcf1968b9d97eaa2d88530eeb043fb5c439cceff91870",
+  "generatedFromPublicationHash": "65eca3690897e69b556c5b7b5f64301f1d3d740254a592fdc24e8d378d8e7cb4",
   "scorerVersion": "slic-v3.4.0",
   "tierPolicyVersion": "public-tier-v1.3.0",
   "benchmarkCities": [
@@ -12,12 +12,12 @@
       "tierLabel": "Alpha",
       "tierSlot": 2,
       "coverageGrade": "A",
-      "slicScore": 71.7,
-      "slicScoreExact": 71.6564,
+      "slicScore": 71.8,
+      "slicScoreExact": 71.8006,
       "pressureScoreExact": 77.5754,
       "viabilityScoreExact": 81.6158,
       "capabilityScoreExact": 74.4266,
-      "communityScoreExact": 63.2065,
+      "communityScoreExact": 63.9698,
       "creativeScoreExact": 61.4682
     },
     {
@@ -30,11 +30,11 @@
       "tierSlot": 1,
       "coverageGrade": "A",
       "slicScore": 73.9,
-      "slicScoreExact": 73.8829,
+      "slicScoreExact": 73.9458,
       "pressureScoreExact": 69.72,
       "viabilityScoreExact": 94.8555,
       "capabilityScoreExact": 84.0357,
-      "communityScoreExact": 81.6489,
+      "communityScoreExact": 82.1177,
       "creativeScoreExact": 54.1239
     },
     {
@@ -42,16 +42,16 @@
       "displayName": "Kaohsiung",
       "country": "Taiwan",
       "rankingStatus": "Ranked",
-      "rank": 26,
+      "rank": 31,
       "tierLabel": "Alpha",
       "tierSlot": 6,
       "coverageGrade": "A",
-      "slicScore": 64,
-      "slicScoreExact": 64.0486,
+      "slicScore": 63.6,
+      "slicScoreExact": 63.5988,
       "pressureScoreExact": 66.7711,
       "viabilityScoreExact": 86.4751,
       "capabilityScoreExact": 90.5846,
-      "communityScoreExact": 65.3637,
+      "communityScoreExact": 62.9014,
       "creativeScoreExact": 37.0191
     },
     {
@@ -59,16 +59,16 @@
       "displayName": "Singapore",
       "country": "Singapore",
       "rankingStatus": "Ranked",
-      "rank": 34,
+      "rank": 33,
       "tierLabel": "Alpha",
       "tierSlot": 7,
       "coverageGrade": "A",
-      "slicScore": 62.8,
-      "slicScoreExact": 62.8412,
+      "slicScore": 63.3,
+      "slicScoreExact": 63.2824,
       "pressureScoreExact": 44.1076,
       "viabilityScoreExact": 90.377,
       "capabilityScoreExact": 94.1479,
-      "communityScoreExact": 45.7432,
+      "communityScoreExact": 47.4217,
       "creativeScoreExact": 73.3339
     },
     {
@@ -80,12 +80,12 @@
       "tierLabel": null,
       "tierSlot": null,
       "coverageGrade": "A",
-      "slicScore": 53.7,
-      "slicScoreExact": 53.7232,
+      "slicScore": 53.5,
+      "slicScoreExact": 53.4855,
       "pressureScoreExact": 42.5936,
       "viabilityScoreExact": 76.6463,
       "capabilityScoreExact": 68.2098,
-      "communityScoreExact": 70.7202,
+      "communityScoreExact": 68.3672,
       "creativeScoreExact": 38.5414
     },
     {
@@ -93,17 +93,17 @@
       "displayName": "Tokyo",
       "country": "Japan",
       "rankingStatus": "Ranked",
-      "rank": 48,
+      "rank": 54,
       "tierLabel": null,
       "tierSlot": null,
       "coverageGrade": "A",
-      "slicScore": 60.4,
-      "slicScoreExact": 60.4476,
+      "slicScore": 59.5,
+      "slicScoreExact": 59.4554,
       "pressureScoreExact": 49.0144,
       "viabilityScoreExact": 94.2412,
-      "capabilityScoreExact": 72.8762,
-      "communityScoreExact": 73.0065,
-      "creativeScoreExact": 44.1791
+      "capabilityScoreExact": 70.5321,
+      "communityScoreExact": 73.9467,
+      "creativeScoreExact": 42.1086
     }
   ]
 }

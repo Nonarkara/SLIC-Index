@@ -1,0 +1,26 @@
+{
+  "source": "Freedom House — Freedom in the World",
+  "edition": 2024,
+  "sourceUrl": "https://freedomhouse.org/sites/default/files/2024-02/Aggregate_Category_and_Subcategory_Scores_FIW_2003-2024.xlsx",
+  "sourceFile": "fiw.xlsx",
+  "sourceFileSha256": "d6ac861af6e7dcea7e870e39ddbcd2925730a653c1466f8992a7d0005f53be88",
+  "sourceFileBytes": 363560,
+  "retrievedAt": "2026-10-28",
+  "extractFile": "fiw2024-totals.csv",
+  "extractSha256": "2a437a55566ba2e264e87e6ba5b53fe143d7d41a7624e07cc42a382d6ff18490",
+  "countryCount": 210,
+  "notScoredByProvider": [
+    "puerto rico"
+  ],
+  "crossCheck": {
+    "sourceFile": "fiw2025.xlsx",
+    "sourceFileSha256": "0fb17ecbce5330d7c83410bc87b22249c2b35ae97d94e4b5de49e48ef4ac0230",
+    "disagreements": [
+      {
+        "country": "eastern donbas",
+        "primary": 3,
+        "cross_check": 2
+      }
+    ]
+  }
+}

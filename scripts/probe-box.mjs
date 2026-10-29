@@ -41,7 +41,7 @@ function serve(dir, port) {
 
 const PORT = 8800 + Math.floor(Math.random() * 90);
 const server = await serve(path.resolve("dist"), PORT);
-const browser = await chromium.launch({ channel: "chrome", headless: true });
+const browser = await chromium.launch({ headless: true });
 const context = await browser.newContext({ viewport: { width: widths[0], height: 900 } });
 const page = await context.newPage();
 
