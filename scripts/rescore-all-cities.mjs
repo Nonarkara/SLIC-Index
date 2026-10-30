@@ -98,6 +98,17 @@ function buildObservedLevelShares(counts, denominator) {
   );
 }
 
+function publicationBody(data) {
+  const copy = JSON.parse(JSON.stringify(data));
+  delete copy.updatedAt;
+  // The changelog records the last edition. It is not itself an edition: a
+  // second rescore would otherwise replace a real delta with an empty one and
+  // stamp a new clock for a ranking that did not move.
+  delete copy.changeSummary;
+  if (copy.publicationManifest) delete copy.publicationManifest.generatedAt;
+  return copy;
+}
+
 function buildChangeSummary(previousCities, nextCities, updatedAt, previousUpdatedAt) {
   const previousById = new Map((previousCities ?? []).map((city) => [city.cityId, city]));
   let scoreChangedCount = 0;
@@ -793,8 +804,27 @@ async function main() {
     publicationHash: digest(data.cities.map((city) => citySnapshot(city))),
   };
 
-  await writeFile(DATA_PATH, JSON.stringify(data, null, 2) + "\n");
-  await writeFile(FACTS_PATH, JSON.stringify(data.methodologyFacts, null, 2) + "\n");
+  // The evidence summary hashes these bytes. A rescore that changes no score,
+  // rank, tier, diagnostic or manifest payload must not advance the publication
+  // clock or rewrite the changelog: the CI build time is not a new edition, and
+  // rewriting it makes every committed evidence artifact look stale. A real
+  // change still stamps updatedAt and still fails the evidence check until the
+  // artifacts are regenerated.
+  const publicationUnchanged = digest(publicationBody(previousData)) === digest(publicationBody(data));
+  if (publicationUnchanged) {
+    console.log("Publication snapshot unchanged; kept the existing timestamp.");
+  } else {
+    await writeFile(DATA_PATH, JSON.stringify(data, null, 2) + "\n");
+  }
+
+  const factsText = JSON.stringify(data.methodologyFacts, null, 2) + "\n";
+  let previousFacts = "";
+  try {
+    previousFacts = await readFile(FACTS_PATH, "utf8");
+  } catch {
+    previousFacts = "";
+  }
+  if (factsText !== previousFacts) await writeFile(FACTS_PATH, factsText);
 
   const displayRanked = rankedWithTiers.slice().sort((left, right) => left.rank - right.rank);
   console.log(`Rescored ${data.cities.length} cities.`);
