@@ -610,6 +610,8 @@ def header_footer(canvas, doc):
 def build_story(snapshot, snapshot_stats):
     s = styles()
     story = []
+    evidence = json.loads((ROOT / "src/data/evidenceSummary.json").read_text())
+    history = json.loads((ROOT / "src/data/traffic-history.json").read_text())
     updated_at = snapshot.get("updatedAt", "snapshot timestamp unavailable")
     methodology_facts = snapshot.get("methodologyFacts", {})
     score_model = methodology_facts.get("scoreModelVersion", "slic-v3")
@@ -626,16 +628,16 @@ def build_story(snapshot, snapshot_stats):
     story.append(Spacer(1, 28 * mm))
     story.append(Paragraph("SLIC INDEX &middot; PROJECT TECHNICAL PAPER", s["cover_eyebrow"]))
     story.append(Paragraph("The SLIC Index", s["cover_title"]))
-    story.append(Paragraph("An Imbalance-Penalized Measurement System for Global Urban Well-Being and Structural Resilience", s["cover_subtitle"]))
+    story.append(Paragraph("Publishing an Auditable City Index: Methods and Lessons from Six Months in Public", s["cover_subtitle"]))
     story.append(Paragraph(
         '&ldquo;Every city ranking is a lie. Here&rsquo;s ours &mdash; public methodology, public data, reproducible code, no paid placement.&rdquo;',
         s["cover_provocation"],
     ))
     story.append(Spacer(1, 16 * mm))
+    story.append(Paragraph("Associate Professor Poon Thiengburanathum", s["cover_author"]))
+    story.append(Paragraph("Faculty of Engineering, Chiang Mai University<br/>Research and Innovation Acceleration Agency for Competitiveness and Area Development (RCAD), Thailand", s["cover_affil"]))
     story.append(Paragraph("Dr Non Arkaraprasertkul", s["cover_author"]))
-    story.append(Paragraph("Lead author &middot; SLIC Index", s["cover_affil"]))
-    story.append(Paragraph("Associate Professor Poon Thiengburanathum, Ph.D.", s["cover_author"]))
-    story.append(Paragraph("Research advisor &middot; Chiang Mai University", s["cover_affil"]))
+    story.append(Paragraph("Digital Economy Promotion Agency of Thailand", s["cover_affil"]))
     story.append(Spacer(1, 12 * mm))
     story.append(Paragraph(
         f"{total_count} cities &middot; {ranked_count} ranked &middot; {watch_count} watchlist &middot; 5 pillars &middot; {SCORED_COUNT} scored indicators + {DIAGNOSTIC_COUNT} diagnostics",
@@ -656,8 +658,8 @@ def build_story(snapshot, snapshot_stats):
     story.append(Paragraph("The Smart and Liveable Cities (SLIC) Index", s["title"]))
     story.append(Paragraph(f"Methodology Technical Paper &middot; Score model {score_model}", s["subtitle"]))
     story.append(Paragraph(
-        "<b>Suggested Citation:</b> Arkaraprasertkul, N., &amp; Thiengburanathum, P. (2026). "
-        "<i>The Smart and Liveable Cities (SLIC) Index: An Imbalance-Penalized Urban Index Combining Macroeconomic Stability with Lived Dignity</i> "
+        "<b>Suggested Citation:</b> Thiengburanathum, P., &amp; Arkaraprasertkul, N. (2026). "
+        "<i>Publishing an Auditable City Index: Methods and Lessons from Six Months in Public</i> "
         f"(Methodology Technical Paper; score model {score_model}; snapshot {updated_at}). "
         "SLIC Index. https://slic.nonarkara.org/methodology. Project technical paper; not independently peer reviewed.",
         s["citation_box"],
@@ -674,7 +676,13 @@ def build_story(snapshot, snapshot_stats):
         "Inputs include city measurements, national proxies, derived quantities and composites. "
         "Matching an input to the source register establishes traceability, not independent empirical validation. "
         "Registered source dates are not independently verified observation periods. The results describe this "
-        "declared model and its limitations, not a certification of a city's quality or institutional endorsement.",
+        "declared model and its limitations, not a certification of a city's quality or institutional endorsement. "
+        "This retrospective examines what public operation revealed about maintaining that agreement between data, code and explanation. "
+        f"Of {evidence['inputCount']:,} raw or component inputs, {evidence['registerStatusCounts']['matched']:,} match register rows, "
+        f"{evidence['exemptInputCount']} are declared exceptions and {evidence['undatedInputCount']} lack matched dates. "
+        "Correction records identify geographic-scope mislabelling, inconsistent hash canonicalization and misleading displayed arithmetic. "
+        "The principal lesson is procedural: public reproducibility requires explicit treatment of proxies, exceptions and corrections, "
+        "not merely publication of an aggregation formula. No causal claim about urban outcomes or reader behavior is made.",
         s["abstract_body"],
     ))
     story.append(paragraph(
@@ -695,6 +703,72 @@ def build_story(snapshot, snapshot_stats):
     story.append(make_table(summary_rows, [95 * mm, 70 * mm], s))
     story.append(PageBreak())
 
+    story.append(Paragraph("Publication as a method: a retrospective", s["h1"]))
+    for heading, body in [
+        ("Study design and chronology",
+         "This is a retrospective technical case study of a publicly accessible ranking instrument, not an evaluation of city-policy effects. "
+         "The project's chronology records a March 2026 Taipei launch of V2. The six-month framing describes the subsequent period of public development; "
+         "it is not an exact anniversary, a six-month visitor panel or a longitudinal sample of city outcomes. "
+         f"The numerical analysis below refers to the frozen publication dated {updated_at}, not to observations all collected on that date. "
+         "The unit of analysis is the publication pipeline: its inputs, declared transformations, interfaces and correction records."),
+        ("What the records establish",
+         f"The source-register audit accounts for {evidence['inputCount']:,} non-null raw inputs or component inputs. "
+         f"It matches {evidence['registerStatusCounts']['matched']:,} to register rows and declares {evidence['exemptInputCount']} exemptions; "
+         f"{evidence['datedInputCount']:,} have registered dates and {evidence['undatedInputCount']} do not. "
+         "These counts are traceability results, not counts of independent city measurements. National proxies and repeated country values are not independent observations. "
+         "The exemptions include commercial investment measures and social-mobility measures that cannot be reread from the cited public pages. "
+         "Those exceptions also expose construct differences: a Gini coefficient and a social-mobility index do not measure the same thing, "
+         "nor do national FDI and city venture-capital deal density. Register completeness does not resolve that comparability problem."),
+        ("Public reach, with an incomplete denominator",
+         f"The archived V1/V2 visitor snapshot contains {history['count']:,} records between {history['firstDay']} and {history['lastDay']}: "
+         f"{history['observedDays']} days with records within a {history['spanDays']}-day calendar span. "
+         "The archive may include repeat visits and automated traffic. Missing days are unobserved, not zeros, and no missing traffic is imputed. "
+         "The replacement first-party counter measures acknowledged browser-tab sessions and is reported separately. "
+         "Neither source establishes unique people, endorsement, methodological understanding or policy uptake. "
+         "Worldwide access is evidence of distribution, not evidence that the instrument improved a decision."),
+        ("Corrections as findings about the instrument",
+         "The October reconciliation documented country-level proxies labelled as city evidence. Correcting those labels did not itself change raw values or rankings. "
+         "Later source adoption can change scores and therefore requires a separate publication, not a cosmetic metadata patch. "
+         "A second failure concerned canonical hashes: scripts using different object-key orders disagreed about identical data. "
+         "A shared canonical payload now makes those checks reproducible, but unsigned hashes prove internal consistency, not source authenticity. "
+         "A third failure was visible arithmetic: rounded pillar terms could disagree with a separately rounded mean. "
+         "The repair retained the original tolerance, increased intermediate display precision, and made missing-pillar renormalization and the zero floor explicit. "
+         "These incidents show why an open formula alone is insufficient: provenance labels, executable code and what a reader can actually recompute must agree."),
+        ("Interpretation and limits",
+         "SLIC's contribution in this case is a contestable publication workflow: readers can inspect assumptions and explore alternative weights. "
+         "That is a design affordance, not a measured behavioral result. No controlled comparison, representative user study or independent validation of all inputs is reported here. "
+         "Changing weights does not repair incompatible constructs, stale observation periods, national-to-city transfer or uneven source coverage. "
+         "The imbalance penalty reduces compensation between dimensions; it cannot establish that the chosen dimensions are sufficient. "
+         "Country quotas and tier floors express editorial choices rather than statistical discoveries. "
+         "The next evaluation should independently audit a stratified input sample, distinguish source dates from observation periods, "
+         "test rankings under defensible proxy substitutions and normalization choices, and observe whether readers interpret the score and missingness correctly."),
+        ("Evidence available for replication",
+         "The archived visitor aggregates are in src/data/traffic-history.json; current traceability counts are in src/data/evidenceSummary.json and the downloadable input register. "
+         "The source registers, declared exemptions and aliases are in data/verified_sources/. "
+         "The reconciliation and release records are docs/evidence-reconciliation-2026-10-25.md, "
+         "docs/inclusion-evidence-reconciliation-2026-10-28.md and docs/security/release-recovery-2026-10-29.md. "
+         "The public repository supplies the scoring implementation and regression tests. These records permit inspection of the reported corrections; "
+         "they do not substitute for checking the underlying providers or their redistribution terms."),
+    ]:
+        story.append(Paragraph(heading, s["h2"]))
+        story.append(paragraph(body, s["body"]))
+    story.append(Paragraph("Acknowledgements", s["h1"]))
+    story.append(paragraph(
+        "The authors thank Mr. Vichate Tantiwanich, Chairman of the Board of Smart and Livable City Co., Ltd., "
+        "for proposing the original idea for this benchmark. His question helped frame the project: "
+        "what matters in everyday urban life, and whose priorities does a city ranking represent? "
+        "Rather than treating the preferences of a particular social class as a universal standard, "
+        "the project makes its choices of indicators and weights explicit and open to challenge. "
+        "This acknowledgement credits the originating idea; responsibility for the methods, interpretations "
+        "and remaining errors rests with the authors. It does not imply his endorsement of individual city rankings.",
+        s["body"],
+    ))
+    story.append(paragraph(
+        "Role reference: Asia Aviation, biography of Mr. Vichate Tantiwanich, "
+        "https://www.aavplc.com/en/leadership/thai-airasia/board-of-directors/175/mr-vichate-tantiwanich "
+        "(accessed 4 November 2026). The account of the project's originating idea is the authors' acknowledgement.",
+        s["small"],
+    ))
     story.append(Paragraph("1. Published method", s["h1"]))
     story.append(paragraph(
         "SLIC has five public pillars. Within each pillar, observed scored metrics are combined by weighted mean. "
@@ -939,7 +1013,7 @@ def build_pdf(locale: str):
         topMargin=16 * mm,
         bottomMargin=16 * mm,
         title="SLIC Index V3 — Methodology Technical Paper",
-        author="Dr Non Arkaraprasertkul & A.P. Poon Thiengburanathum (SLIC Index)",
+        author="Poon Thiengburanathum & Non Arkaraprasertkul",
         subject="Smart and Liveable Cities Index — Methodology and Scoring Specification",
         creator="SLIC Index methodology engine",
     )

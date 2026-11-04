@@ -14,7 +14,12 @@ from pypdf import PdfReader
 model = json.loads(Path('src/data/publishedRankingData.json').read_text())['publicationManifest']['scorerVersion']
 for locale in ('en', 'th', 'zh'):
     reader = PdfReader(f'public/downloads/slic-methodology-technical-paper-{locale}.pdf')
-    text = ' '.join(page.extract_text() for page in reader.pages[:3])
+    text = ' '.join(' '.join(page.extract_text() for page in reader.pages).split())
+    assert text.index('Associate Professor Poon Thiengburanathum') < text.index('Dr Non Arkaraprasertkul'), locale
+    assert 'Faculty of Engineering' in text and 'RCAD' in text, locale
+    assert 'Digital Economy Promotion Agency of Thailand' in text, locale
+    assert 'Vichate Tantiwanich' in text, locale
+    assert 'responsibility for the methods' in text, locale
     assert model in text, locale
     assert 'not independently peer reviewed' in text, locale
     assert 'not independent empirical validation' in text, locale
