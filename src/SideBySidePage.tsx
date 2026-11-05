@@ -1,3 +1,4 @@
+import { ExternalLinkMark } from "./IconMarks";
 import { useState } from "react";
 import { displayCountry } from "./cityUtils";
 import { getExerciseCities } from "./rankingsData";
@@ -363,7 +364,8 @@ export default function SideBySidePage({
                     style={{ cursor: "pointer", textDecoration: "none" }}
                     title={t(locale, `View full ${city.name} scorecard`, `ดูสรุปคะแนน ${city.name} ทั้งหมด`, `查看 ${city.name} 完整评分卡`, `${city.name} 전체 스코어카드 보기`, `${city.name}の完全なスコアカードを表示`)}
                   >
-                    {city.name} ↗
+                    {city.name}
+                    <ExternalLinkMark />
                   </a>
                   {displayCountry(city.country) && <span className="sbs-city-country">{displayCountry(city.country)}</span>}
                   <span className={`sbs-city-tier tier-text-${getTier(city)}`}>{getTierLabel(city, locale)}</span>

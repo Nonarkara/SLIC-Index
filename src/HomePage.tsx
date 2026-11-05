@@ -881,6 +881,7 @@ export default function HomePage({
                   <strong>{city.displayName}</strong>
                   {displayCountry(city.country) && <span>{displayCountry(city.country)}</span>}
                 </span>
+                <span className="v3-tier-chip-score">{city.customScore.toFixed(1)}</span>
               </a>
             ))}
           </div>
@@ -901,6 +902,7 @@ export default function HomePage({
                   <strong>{city.displayName}</strong>
                   {displayCountry(city.country) && <span>{displayCountry(city.country)}</span>}
                 </span>
+                <span className="v3-tier-chip-score">{city.customScore.toFixed(1)}</span>
               </a>
             ))}
           </div>

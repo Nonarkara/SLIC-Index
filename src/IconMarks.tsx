@@ -52,3 +52,22 @@ export function CompareMark() {
     </svg>
   );
 }
+
+/**
+ * An arrow leaving a box. Used for "opens somewhere else".
+ *
+ * This was a typed "↗" before. The arrow was a real symbol, but a typed
+ * symbol is still a character in the text flow: it takes the line's font, it
+ * cannot be sized or aligned with the mark beside it, and it reads as an
+ * emoji to any linter that counts pictographs. Drawn, it belongs to the same
+ * set as the other marks and inherits the cell's colour.
+ */
+export function ExternalLinkMark() {
+  return (
+    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.1" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M11.4 2.9h5.7v5.7" />
+      <path d="M17.1 2.9 9.6 10.4" />
+      <path d="M15.4 11.9v4.6a1.6 1.6 0 0 1-1.6 1.6H3.9a1.6 1.6 0 0 1-1.6-1.6V6.2a1.6 1.6 0 0 1 1.6-1.6h4.6" />
+    </svg>
+  );
+}

@@ -79,8 +79,10 @@ export default function RankingIntegrityBanner({ locale }: { locale: Locale }) {
       <p className="panel-label">{copy.eyebrow}</p>
       <h2>{title}</h2>
       <p>{body}</p>
-      <strong>{copy.note}</strong>
-      <p className="ranking-integrity-meta">{meta}</p>
+      <div className="ranking-integrity-foot">
+        <strong>{copy.note}</strong>
+        <p className="ranking-integrity-meta">{meta}</p>
+      </div>
     </article>
   );
 }
