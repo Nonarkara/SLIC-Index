@@ -1,3 +1,4 @@
+import { ExternalLinkMark } from "./IconMarks";
 import { type KeyboardEvent as ReactKeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import { displayCountry } from "./cityUtils";
 import { rankingPublication } from "./rankingPublication";
@@ -371,7 +372,7 @@ export default function QuickSearchModal({
                   >
                     <div className="quick-search-item-main">
                       <span className="quick-search-item-type">
-                        {item.type === "page" ? "↗" : "●"}
+                        {item.type === "page" ? <ExternalLinkMark /> : "●"}
                       </span>
                       <div className="quick-search-item-text">
                         <span className="quick-search-item-title">{item.title}</span>

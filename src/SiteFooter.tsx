@@ -165,7 +165,7 @@ export default function SiteFooter({
 
   const archiveLabels =
     locale === "th"
-      ? { v1: "คลัง V1 ↗", v2: "คลัง V2 ↗", v25: "คลัง V2.5 ↗" }
+      ? { v1: "คลัง V1 ↗", v2: "คลัง V2 ↗", v25: "คลัง V2 ↗.5" }
       : locale === "zh"
         ? { v1: "V1 归档 ↗", v2: "V2 归档 ↗", v25: "V2.5 归档 ↗" }
         : locale === "ko"
