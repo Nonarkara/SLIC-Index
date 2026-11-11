@@ -11,9 +11,12 @@ test('edge rejects encoded private paths before fetching assets', async () => {
   }
 });
 
-test('edge blocks traffic module source before fetching assets', async () => {
-  const env = { ASSETS: { fetch() { assert.fail('Private traffic module reached assets'); } } };
-  for (const path of ['/traffic-api.js', '/traffic-api%2ejs', '//traffic-api.js', '/%2ftraffic-api.js', '///traffic-api%2ejs', '/traffic-api.js/']) {
+test('edge blocks worker helper modules before fetching assets', async () => {
+  const env = { ASSETS: { fetch() { assert.fail('Worker helper reached assets'); } } };
+  const paths = ['traffic-api', 'request-policy'].flatMap(name => [
+    `/${name}.js`, `/${name}%2ejs`, `//${name}.js`, `/%2f${name}.js`, `///${name}%2ejs`, `/${name}.js/`,
+  ]);
+  for (const path of paths) {
     for (const method of ['GET', 'HEAD']) {
       const response = await worker.fetch(new Request('https://slic.test' + path, { method }), env);
       assert.equal(response.status, 404, `${method} ${path}`);

@@ -44,6 +44,11 @@ The reader gets bored when a scroll reveals only more blank margins and sparse p
 
 ## Map-first "surgical table" rule
 
+The [SLIC decision-geometry checklist](docs/design/decision-geometry.md) translates
+the three supplied design references into project checks. Use it with the
+existing spatial, clearance and accessibility gates; do not trade away a
+qualification or a working instrument to hit a scroll target.
+
 On any map or data product the map is the operating table, and everything else is an instrument at its edge.
 - The map or data takes **≥60% of the first desktop screen** and the first full screen on a phone. Clean apps averaged 89%, slop apps 41%.
 - Panels are compact, collapsible and sized to their content, docked at the edges. Nothing covers the map on load.

@@ -64,7 +64,7 @@ export async function trafficApi(request, env, context) {
     try {
       const day = new Date().toISOString().slice(0, 10);
       const cutoff = new Date(Date.now() - 2 * 86400000).toISOString().slice(0, 10);
-      const token = await digest(env.TRAFFIC_SECRET, `session:${day}:${body.session}`);
+      const token = await digest(env.TRAFFIC_SECRET, `session:${day}:${body.session.toLowerCase()}`);
       const budget = await digest(env.TRAFFIC_SECRET, `budget:${day}:${ip}`);
       const country = /^[A-Z]{2}$/.test(request.cf?.country || '') && request.cf.country !== 'XX' ? request.cf.country : 'ZZ';
       // The conditional insert and trigger execute atomically; retries never increment totals.

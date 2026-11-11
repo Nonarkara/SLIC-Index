@@ -216,6 +216,7 @@ async function auditEdge(base) {
     ["/%2eenv", 404],
     ["/_worker.js", 404],
     ["/traffic-api.js", 404],
+    ["/request-policy.js", 404],
     ["/%00", 400],
     ["/api", 404],
     // The traffic counter lives in a D1 database. On Cloudflare it answers;
@@ -307,12 +308,61 @@ const PROBE = async () => {
 async function auditBrowser(base) {
   const browser = await launchBrowser();
   try {
+    await auditWorkbench(browser, base);
     await auditRoutes(browser, base);
     await auditLocales(browser, base);
     await auditNavigation(browser, base);
     await auditLinks(browser, base);
   } finally {
     await browser.close().catch(() => {});
+  }
+}
+
+async function auditWorkbench(browser, base) {
+  const { cities } = JSON.parse(fs.readFileSync(path.join(ROOT, "src/data/publishedRankingData.json"), "utf8"));
+  const ranked = cities.filter(city => city.rankingStatus === "Ranked");
+  const expected = new Map(ranked.map(city => [city.cityId, [city.rank, city.slicScore.toFixed(1), (city.tierLabel ?? "Contenders").toUpperCase()]]));
+  for (const [width, height] of [[390, 844], [1024, 768], [1440, 900]]) {
+    const context = await browser.newContext({ viewport: { width, height }, locale: "en-GB" });
+    try {
+      const page = await context.newPage();
+      await page.goto(base + "/rankings", { waitUntil: "domcontentloaded" });
+      const presets = page.locator(".rankings-preset-btn");
+      await presets.first().waitFor();
+      await page.evaluate(() => document.fonts.ready);
+      const first = await presets.first().boundingBox();
+      const chart = await page.locator(".allocator-chart-frame").boundingBox();
+      if (!first || !chart || first.y + first.height > height * 0.55 || chart.y > height * (width < 900 ? 0.8 : 0.55)) {
+        add("blocker", `Rankings @${width} buries the workbench`, `First preset ends at ${Math.round((first?.y ?? 0) + (first?.height ?? 0))}px; chart starts at ${Math.round(chart?.y ?? 0)}px in ${height}px.`);
+      }
+      if (width !== 1440) continue;
+      await page.locator(".rankings-count-toggle button").last().click();
+      const readRows = () => page.locator(".rankings-city-row").evaluateAll(rows => rows.map(row => [
+        new URL(row.href).pathname.split("/").pop(),
+        Number(row.querySelector(".city-rank").textContent.slice(1)),
+        row.querySelector(".city-row-score").textContent,
+        row.parentElement.querySelector(".v3-tier-badge").textContent.trim().split(/\s+/).at(-1),
+      ]));
+      const checkRows = async (state) => {
+        const rows = await readRows();
+        const mismatches = rows.filter(([id, ...values]) => JSON.stringify(values) !== JSON.stringify(expected.get(id)));
+        if (new Set(rows.map(([id]) => id)).size !== ranked.length || rows.length !== ranked.length || mismatches.length) {
+          add("blocker", `Rankings ${state} differs from the publication`, `${rows.length}/${ranked.length} rows, ${mismatches.length} score, rank or tier mismatches. First: ${JSON.stringify(mismatches[0])}.`);
+        }
+      };
+      await checkRows("at baseline");
+      const publishedRows = JSON.stringify(await readRows());
+      await presets.nth(1).click();
+      if (await page.locator(".rankings-mode-badge.is-custom").count() !== 1 ||
+          await page.locator(".ranking-integrity-banner").count() !== 0 ||
+          JSON.stringify(await readRows()) === publishedRows) {
+        add("blocker", "Rankings preset did not enter distinct profile-fit mode", "Custom rows must change without carrying the published ranking disclosure.");
+      }
+      await presets.first().click();
+      await checkRows("after reset");
+    } finally {
+      await context.close();
+    }
   }
 }
 

@@ -10,7 +10,6 @@ import { allocatePublicTiers, assignPureScoreRanks } from "./publicTierPolicy.js
 import RankingIntegrityBanner from "./RankingIntegrityBanner";
 import { exerciseRegions, getExerciseCities } from "./rankingsData";
 import { appHref } from "./routing";
-import { scoreCityWithWeights } from "./scoring";
 import SiteFooter from "./SiteFooter";
 import type { FullRankedCity, Locale, SitePath } from "./types";
 import { PILLAR_COLORS, PILLAR_ORDER } from "./pillars";
@@ -147,6 +146,7 @@ const CANONICAL = publishedData.canonicalWeights as Record<PillarId, number>;
 // is the watchlist signal: rank=0 means the city was held off the public
 // board for missing pillars or special status.
 const indexedCities = getExerciseCities().filter((city) => city.globalRank > 0);
+const publishedIdsByRank = new Map(publishedData.cities.filter(city => city.rank > 0).map(city => [city.rank, city.cityId]));
 
 const PRESETS: Array<{
   id: string;
@@ -316,14 +316,13 @@ const interactiveCopy: Record<
   en: {
     heroEyebrow: "Preference engine",
     heroTitle: "Tune the city field to your life",
-    heroIntro:
-      "This workbench reranks the full {count}-city indexed field in real time. Drag the spider web, move the sliders, or use a preset to see which cities match the kind of life you actually want.",
+    heroIntro: "Drag the web, move a slider, or choose a preset to rerank {count} cities.",
     heroNoteTitle: "Why this is traceable",
     heroNoteBody:
       "Published city scores use AMPI (μ − σ²/μ) minus a coverage penalty. The Balanced SLIC preset ranks on the same AMPI, before the coverage penalty is applied, so a penalised city can sit a place or two from its published rank. Once you move the spider, this workbench switches to profile fit — shape match against your weights — not a rewritten AMPI score.",
     indexedCitiesLabel: "Indexed cities",
     lockedPointsLabel: "Locked points",
-    pillarsLabel: "Declared pillars",
+    pillarsLabel: "Pillars",
     allocatorTitle: "Shape your ideal profile",
     allocatorHint: "Zero-sum allocator: total stays at 100 while every move changes the field.",
     presetTitle: "Quick profiles",
@@ -562,23 +561,6 @@ const severityLabel: Record<Locale, Record<FiredConsequence["severity"], string>
   ja: { mild: "軽微なシグナル", moderate: "重要なトレードオフ", severe: "強い警告" },
 };
 
-/**
- * AMPI across pillars — matches the published SLIC aggregation.
- *
- *   μ    = weighted mean of pillar scores (with user-chosen weights)
- *   σ²   = weighted variance
- *   AMPI = μ − σ²/μ   (penalises pillar imbalance)
- */
-function scoreCity(city: Pick<FullRankedCity, "scores">, weights: Record<PillarId, number>) {
-  return scoreCityWithWeights({
-    pressure: city.scores.pressure,
-    viability: city.scores.viability,
-    capability: city.scores.capability,
-    community: city.scores.community,
-    creative: city.scores.creative,
-  }, weights);
-}
-
 function clamp(value: number, min: number, max: number) {
   return Math.min(Math.max(value, min), max);
 }
@@ -741,15 +723,21 @@ export default function RankingsPage({
 
   const results = useMemo<MatchedCity[]>(() => {
     const filteredCities = region === "All" ? indexedCities : indexedCities.filter((city) => city.region === region);
-    const scoredCities = (isCustom
-      ? filteredCities.map((city) => ({
-          ...city,
-          customScore: profileMatchScore(city, weights).score,
-        }))
-      : filteredCities.map((city) => ({
-          ...city,
-          customScore: Math.round(scoreCity(city, CANONICAL) * 10) / 10,
-        }))) as Array<FullRankedCity & { customScore: number }>;
+    if (!isCustom) {
+      // Filtering the publication must not rewrite its scores, ranks or tier quotas.
+      return filteredCities.map((city) => ({
+        ...city,
+        customScore: city.scores.slic,
+        customRank: city.globalRank,
+        computedTierLabel: city.tierLabel,
+        computedTierSlot: city.tierSlot,
+        rankShift: 0,
+      }));
+    }
+    const scoredCities = filteredCities.map((city) => ({
+      ...city,
+      customScore: profileMatchScore(city, weights).score,
+    }));
 
     const rankedCities = assignPureScoreRanks(scoredCities, {
       scoreKey: "customScore",
@@ -764,7 +752,7 @@ export default function RankingsPage({
 
     return tieredCities.map((city) => ({
       ...city,
-      rankShift: isCustom ? city.globalRank - city.customRank : 0,
+      rankShift: city.globalRank - city.customRank,
     }));
   }, [isCustom, region, weights]);
 
@@ -864,8 +852,6 @@ export default function RankingsPage({
             </article>
           </div>
         </div>
-
-        <RankingIntegrityBanner locale={locale} />
       </header>
 
       <main>
@@ -1032,10 +1018,10 @@ export default function RankingsPage({
                         <h3>
                           {featuredCity.name}{displayCountry(featuredCity.country) ? `, ${displayCountry(featuredCity.country)}` : ""}
                         </h3>
-                        <p>{ui.bestMatchBody}</p>
+                        {isCustom && <p>{ui.bestMatchBody}</p>}
                       </div>
                       <div className="rankings-feature-score">
-                        <span>{ui.fitScore}</span>
+                        <span>{isCustom ? ui.fitScore : t(locale, "Published SLIC score", "คะแนน SLIC ที่เผยแพร่", "已发布 SLIC 分数", "공개 SLIC 점수", "公開 SLIC スコア")}</span>
                         <strong>{featuredCity.customScore.toFixed(1)}</strong>
                         <small>
                           {ui.baseRank} #{featuredCity.globalRank}
@@ -1112,6 +1098,7 @@ export default function RankingsPage({
                         </small>
                       </div>
                       {tier.cities.map((city) => {
+                        const scorecardPath = `/city/${publishedIdsByRank.get(city.globalRank) ?? city.id}`;
                         const pillarScores = {
                           pressure: city.scores.pressure,
                           viability: city.scores.viability,
@@ -1124,8 +1111,8 @@ export default function RankingsPage({
                           <a
                             key={city.id}
                             className={`rankings-city-row${isTop ? " is-top" : ""}`}
-                            href={appHref(`/city/${city.id}`)}
-                            onClick={(event) => navigateLink(event, onNavigate, `/city/${city.id}`)}
+                            href={appHref(scorecardPath)}
+                            onClick={(event) => navigateLink(event, onNavigate, scorecardPath)}
                             aria-label={`View ${city.name} scorecard — rank #${city.customRank}, score ${city.customScore.toFixed(1)}`}
                             style={{ cursor: "pointer" }}
                           >
@@ -1172,6 +1159,11 @@ export default function RankingsPage({
             </div>
           </div>
         </section>
+        {!isCustom && (
+          <section className="section">
+            <RankingIntegrityBanner locale={locale} />
+          </section>
+        )}
       </main>
 
       {showBackToTop && (

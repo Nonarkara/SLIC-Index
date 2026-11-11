@@ -47,8 +47,10 @@ test('traffic writes validate origin, method, payload size and content', async (
 
 test('actual SQLite trigger deduplicates sessions and limits network abuse atomically', async () => {
   const { env, sql } = database();
-  const body = JSON.stringify({ session: crypto.randomUUID() });
-  for (let i = 0; i < 3; i++) assert.equal((await trafficApi(post({ body }), env)).status, 204);
+  const session = 'abcdefab-1234-4567-abcd-abcdefabcdef';
+  for (const token of [session, session, session.toUpperCase()]) {
+    assert.equal((await trafficApi(post({ body: JSON.stringify({ session: token }) }), env)).status, 204);
+  }
   assert.equal(sql.prepare('SELECT SUM(count) AS n FROM traffic_daily').get().n, 1);
   for (let i = 0; i < 65; i++) await trafficApi(post(), env);
   assert.equal(sql.prepare('SELECT SUM(count) AS n FROM traffic_daily').get().n, 60);
