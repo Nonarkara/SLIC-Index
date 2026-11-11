@@ -928,7 +928,7 @@ export default function RankingsPage({
               <div className="rankings-results-shell">
                 <div className="rankings-filter-bar">
                   <div>
-                    <p className="eyebrow">{ui.resultsTitle}</p>
+                    <h2 className="eyebrow">{ui.resultsTitle}</h2>
                     <p className="rankings-results-copy">{ui.resultsBody}</p>
                   </div>
 
