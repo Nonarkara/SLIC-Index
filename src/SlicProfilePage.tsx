@@ -244,7 +244,7 @@ export default function SlicProfilePage({
                 key={photo.id}
               >
                 <img
-                  src={`${BASE}${photo.src}`}
+                  src={thumbSrc(`${BASE}${photo.src}`, 960)}
                   alt={photo.alt}
                   loading="lazy"
                   width={photo.width}

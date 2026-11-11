@@ -15,6 +15,7 @@ publication hashes and methodology downloads were not changed.
 | Reading order | On a 390 px phone the first preset started below the fold, at 868 px. A citation note preceded the instrument. | Align the opening to the workbench, make the figures a strip, and place the citation note after published results only. See [decision geometry](../../design/decision-geometry.md) for budgets and viewport measurements. |
 | Traffic replay | The UUID validator accepted upper and lower case but the HMAC treated those spellings as different sessions. | Normalize before hashing; exercise both spellings against the SQLite trigger in one day. |
 | Worker assets | The production edge served `/request-policy.js` as public JavaScript. It carried no secret, but was not a client asset. | Block its direct, encoded and repeated-slash forms before asset fetch. Check GET and HEAD locally and check the deployed route. |
+| About gallery | Two 1,600 px photos were drawn at 410 px, 3.9× the display width. | Use the existing 960 px versions, with the same aspect ratios, captions and alt text. Keep the originals. |
 
 The data audit recomputes all 163 published cities; 158 are ranked and five
 are on the watchlist. Source reconciliation covers 4,187 of 4,193 inputs
