@@ -102,6 +102,35 @@ const PROBE = () => {
     }
   }
 
+  // Text that is painted past the right edge of the viewport is text the
+  // reader cannot read. The document is clipped (html and body are
+  // overflow: hidden), so scrollWidth never reports it and the check above
+  // stays green. An idea card once ran 24px past a phone's edge and cut the
+  // end off every sentence while this gate passed. The only legitimate way
+  // for text to sit past the edge is inside a scroller that is itself inside
+  // the viewport (a wide table in overflow-x: auto).
+  const clippedText = [];
+  const inScroller = (el) => {
+    for (let p = el.parentElement; p && p !== document.body; p = p.parentElement) {
+      const o = getComputedStyle(p).overflowX;
+      if ((o === "auto" || o === "scroll") && p.getBoundingClientRect().right <= clientWidth + 1) return true;
+    }
+    return false;
+  };
+  for (const el of document.querySelectorAll("body *")) {
+    if (!/[^\s]/.test([...el.childNodes].filter((n) => n.nodeType === 3).map((n) => n.nodeValue).join(""))) continue;
+    const cs = getComputedStyle(el);
+    if (cs.display === "none" || cs.visibility === "hidden") continue;
+    const r = el.getBoundingClientRect();
+    if (r.width === 0 || r.height === 0 || r.right <= clientWidth + 1) continue;
+    if (inScroller(el)) continue;
+    clippedText.push(
+      `${el.tagName.toLowerCase()}.${String(el.className).replace(/\s+/g, ".").slice(0, 50)} ` +
+        `right=${Math.round(r.right)} (viewport ${clientWidth}) "${(el.textContent || "").trim().slice(0, 30)}"`,
+    );
+    if (clippedText.length >= 6) break;
+  }
+
   const brokenImages = [];
   for (const img of document.images) {
     if (!img.complete) continue; // still loading (lazy) — not broken
@@ -116,6 +145,7 @@ const PROBE = () => {
     clientWidth,
     scrollWidth,
     overflow,
+    clippedText,
     brokenImages,
     textLength: text.length,
     headings: document.querySelectorAll("h1, h2").length,
@@ -154,6 +184,12 @@ for (const width of WIDTHS) {
         failures.push(
           `${route} @${width}: horizontal overflow — document is ${r.scrollWidth}px wide in a ${r.clientWidth}px viewport\n` +
             r.overflow.map((o) => `      ${o}`).join("\n"),
+        );
+      }
+      if (r.clippedText.length) {
+        failures.push(
+          `${route} @${width}: text painted past the viewport edge and clipped\n` +
+            r.clippedText.map((o) => `      ${o}`).join("\n"),
         );
       }
       if (pageErrors.length) {
