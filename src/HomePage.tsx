@@ -135,7 +135,7 @@ const scoredMetricCount = methodologyFacts.scoredMetricCount;
 const bangkokWorked = rankingPublication.cities.find((c) => c.cityId === "th-bangkok");
 const bangkokRank = bangkokWorked?.rank ?? 66;
 const bangkokTierSlot = bangkokWorked?.tierSlot ?? null;
-const bangkokCommunity = bangkokWorked?.communityScore?.toFixed(1) ?? "70.7";
+const bangkokCommunity = bangkokWorked?.communityScore?.toFixed(1) ?? "68.4";
 const bangkokPressure = bangkokWorked?.pressureScore?.toFixed(1) ?? "42.6";
 const bangkokCoverage = bangkokWorked?.coverageGrade ?? "A";
 const bangkokTierSeatNote = bangkokTierSlot
@@ -516,11 +516,11 @@ export default function HomePage({
           <p className="hp-verdict-p hp-verdict-p--anchor">
             {t(
               locale,
-              "Singapore scores 94.1 on Capability. No city in this dataset comes close. It is Gamma tier. That single fact tells you more about what SLIC is measuring than any equation we could publish.",
-              "สิงคโปร์ได้คะแนน Capability 94.1 ไม่มีเมืองใดในชุดข้อมูลนี้เทียบได้ แต่สิงคโปร์อยู่ใน Gamma tier ข้อเท็จจริงประการเดียวนี้บอกอะไรเกี่ยวกับสิ่งที่ SLIC วัดได้มากกว่าสมการใดๆ ที่เราจะเผยแพร่",
-              "新加坡的能力得分是94.1，数据集中无出其右。但它是Gamma级。这一个事实，比我们能发布的任何方程式都更能说明SLIC在衡量什么。",
-              "싱가포르의 역량 점수는 94.1입니다. 이 데이터셋의 어떤 도시도 근접하지 못합니다. 그럼에도 싱가포르는 감마 등급입니다. 이 하나의 사실이, 우리가 발표할 수 있는 어떤 방정식보다 SLIC가 무엇을 측정하는지를 더 잘 말해줍니다.",
-              "シンガポールの能力スコアは94.1です。このデータセットで近い都市はありません。それでもシンガポールはガンマ級です。この一つの事実が、私たちが発表できるどんな方程式よりも、SLICが何を測っているかを雄弁に物語っています。",
+              "Dubai scores 75.7 on Pressure and 76.7 on Capability — yet lands in Gamma tier because Community sits at 37.8, below the 40 floor. That single fact tells you more about what SLIC is measuring than any equation we could publish.",
+              "ดูไบได้คะแนน Pressure 75.7 และ Capability 76.7 — แต่ลงเอยใน Gamma tier เพราะ Community อยู่ที่ 37.8 ต่ำกว่าเกณฑ์ขั้นต่ำ 40 ข้อเท็จจริงประการเดียวนี้บอกอะไรเกี่ยวกับสิ่งที่ SLIC วัดได้มากกว่าสมการใดๆ ที่เราจะเผยแพร่",
+              "迪拜在压力维度得 75.7 分、能力维度得 76.7 分——却落入 Gamma 级，因为社区维度仅 37.8 分，低于 40 分底线。这一个事实，比我们能发布的任何方程式都更能说明 SLIC 在衡量什么。",
+              "두바이는 압력 75.7점, 역량 76.7점을 받았지만 커뮤니티가 37.8점으로 기준선 40에 미치지 못해 감마 등급에 머뭅니다. 이 하나의 사실이, 우리가 발표할 수 있는 어떤 방정식보다 SLIC가 무엇을 측정하는지를 더 잘 말해줍니다.",
+              "ドバイは圧力75.7点、能力76.7点を記録しながらも、コミュニティが基準線40を下回る37.8点にとどまるためガンマ級に入ります。この一つの事実が、私たちが発表できるどんな方程式よりも、SLICが何を測っているかを雄弁に物語っています。",
             )}
           </p>
         </div>

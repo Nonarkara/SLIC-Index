@@ -151,26 +151,28 @@ export default function SlicProfilePage({
           <div className="section-heading">
             <div>
               <p className="eyebrow">
-                {locale === "th"
-                  ? "นำเสนอที่"
-                  : locale === "zh"
-                    ? "曾经出席"
-                    : "Presented at"}
+                {t(locale, "Presented at", "นำเสนอที่", "曾经出席", "발표 무대", "発表実績")}
               </p>
               <h2>
-                {locale === "th"
-                  ? "เวทีและงานที่ SLIC ออกตัวจริงต่อสาธารณะ"
-                  : locale === "zh"
-                    ? "SLIC 公开亮相的舞台与活动"
-                    : "Stages and venues SLIC has appeared on"}
+                {t(
+                  locale,
+                  "Stages and venues SLIC has appeared on",
+                  "เวทีและงานที่ SLIC ออกตัวจริงต่อสาธารณะ",
+                  "SLIC 公开亮相的舞台与活动",
+                  "SLIC이 공식 발표한 무대와 행사",
+                  "SLICが公式発表したステージと会場",
+                )}
               </h2>
             </div>
             <p className="section-summary">
-              {locale === "th"
-                ? "เหตุการณ์ที่ตรวจสอบได้ของ SLIC บนเวทีสาธารณะ ใช้เป็นหลักฐานสำหรับการยื่นรางวัล เหตุการณ์ใหม่จะเพิ่มเข้ามาเมื่อตรวจสอบและบันทึกได้แล้ว"
-                : locale === "zh"
-                  ? "SLIC 在公开舞台上的可核验出席。作为投奖佐证使用。新事件经核验后再补入。"
-                  : "Verified public appearances of SLIC. Used as evidence in award submissions. New events land here only after they are confirmed and recorded."}
+              {t(
+                locale,
+                "Verified public appearances of SLIC. Used as evidence in award submissions. New events land here only after they are confirmed and recorded.",
+                "เหตุการณ์ที่ตรวจสอบได้ของ SLIC บนเวทีสาธารณะ ใช้เป็นหลักฐานสำหรับการยื่นรางวัล เหตุการณ์ใหม่จะเพิ่มเข้ามาเมื่อตรวจสอบและบันทึกได้แล้ว",
+                "SLIC 在公开舞台上的可核验出席。作为投奖佐证使用。新事件经核验后再补入。",
+                "SLIC의 검증된 공개 발표 기록입니다. 어워드 출품 증빙으로 활용되며, 새로운 행사는 확인 및 기록 후에만 추가됩니다.",
+                "SLICの検証済み公開発表記録です。アワード応募の証憑として使用され、新しいイベントは確認・記録後にのみ追加されます。",
+              )}
             </p>
           </div>
 
@@ -220,11 +222,7 @@ export default function SlicProfilePage({
                 href={appHref("/history")}
                 onClick={(event) => navigateLink(event, onNavigate, "/history")}
               >
-                {locale === "th"
-                  ? "เปิดเส้นทางการพัฒนา"
-                  : locale === "zh"
-                    ? "查看发展历程"
-                    : "Open the journey timeline"}
+                {t(locale, "Open the journey timeline", "เปิดเส้นทางการพัฒนา", "查看发展历程", "개발 여정 타임라인 열기", "開発の軌跡タイムラインを開く")}
               </a>
             </article>
           </div>
@@ -293,25 +291,20 @@ export default function SlicProfilePage({
               onClick={(event) => navigateLink(event, onNavigate, "/awards")}
             >
               <p className="panel-label">
-                {locale === "th"
-                  ? "การยื่นรางวัล"
-                  : locale === "zh"
-                    ? "投奖"
-                    : "Submissions"}
+                {t(locale, "Submissions", "การยื่นรางวัล", "投奖", "어워드 출품", "アワード応募")}
               </p>
               <h3>
-                {locale === "th"
-                  ? "เอกสารยื่นรางวัล SLIC"
-                  : locale === "zh"
-                    ? "SLIC 投奖案卷"
-                    : "SLIC Submission Dossier"}
+                {t(locale, "SLIC Submission Dossier", "เอกสารยื่นรางวัล SLIC", "SLIC 投奖案卷", "SLIC 어워드 출품 자료집", "SLIC アワード応募ドシエ")}
               </h3>
               <p>
-                {locale === "th"
-                  ? "หน้าเดียวสำหรับกรรมการ Red Dot, DEmark และ CEA Creative Excellence ครอบคลุมเกณฑ์ ระเบียบวิธี และไฟล์ที่เกี่ยวข้องทั้งหมด"
-                  : locale === "zh"
-                    ? "评审一页通览 —— Red Dot、DEmark、CEA 创造卓越奖：标准、方法、所有工件。"
-                    : "One page for Red Dot, DEmark, and CEA Creative Excellence jurors — criteria, methodology answer, every artifact."}
+                {t(
+                  locale,
+                  "One page for Red Dot, DEmark, and CEA Creative Excellence jurors — criteria, methodology answer, every artifact.",
+                  "หน้าเดียวสำหรับกรรมการ Red Dot, DEmark และ CEA Creative Excellence ครอบคลุมเกณฑ์ ระเบียบวิธี และไฟล์ที่เกี่ยวข้องทั้งหมด",
+                  "评审一页通览 —— Red Dot、DEmark、CEA 创造卓越奖：标准、方法、所有工件。",
+                  "Red Dot, DEmark, CEA Creative Excellence 심사위원을 위한 단일 페이지 — 심사 기준, 방법론 답변, 모든 산출물을 담았습니다.",
+                  "Red Dot、DEmark、CEA Creative Excellence審査員向けの単一ページ — 審査基準、方法論の回答、すべての成果物を収録しています。",
+                )}
               </p>
             </a>
           </div>

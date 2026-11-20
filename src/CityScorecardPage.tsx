@@ -1469,9 +1469,10 @@ export default function CityScorecardPage({
         {cityEditorial?.photo && <div className="scorecard-hero-scrim" aria-hidden="true" />}
 
         <div className="scorecard-hero-shell">
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.5rem" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: "0.75rem 0.5rem", marginBottom: "1.5rem" }}>
             <a
               className="scorecard-back"
+              style={{ marginBottom: 0 }}
               href={appHref("/rankings")}
               onClick={(event) => navigateLink(event, onNavigate, "/rankings")}
             >
@@ -1479,7 +1480,7 @@ export default function CityScorecardPage({
             </a>
 
             {(prevRanked || nextRanked) && (
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "0.4rem", fontFamily: "var(--font-mono)", fontSize: "0.72rem" }}>
+              <div style={{ display: "inline-flex", flexWrap: "wrap", alignItems: "center", gap: "0.4rem", maxWidth: "100%", fontFamily: "var(--font-mono)", fontSize: "0.72rem" }}>
                 {prevRanked && (
                   <a
                     href={appHref(`/city/${prevRanked.cityId}`)}
