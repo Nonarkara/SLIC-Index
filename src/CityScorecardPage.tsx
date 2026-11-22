@@ -1762,94 +1762,104 @@ export default function CityScorecardPage({
         ))}
       </main>
 
-      {/* ── Highlights ── */}
-      {city.highlights && (city.highlights.strongest || city.highlights.weakest) && (
-        <section className="section scorecard-highlights">
-          <p className="eyebrow">{copy.whatStandsOut}</p>
-          <div className="scorecard-highlight-grid">
-            {city.highlights.strongest && (
-              <div className="scorecard-highlight-card scorecard-highlight-card--strong">
-                <span className="scorecard-highlight-label">{copy.highestMetric}</span>
-                <strong>{getMetricLabel(city.highlights.strongest, locale)}</strong>
-                <span className="scorecard-highlight-score">
-                  {city.metrics?.[city.highlights.strongest]?.score?.toFixed(1) ?? "—"}
-                </span>
-              </div>
-            )}
-            {city.highlights.weakest && (
-              <div className="scorecard-highlight-card scorecard-highlight-card--weak">
-                <span className="scorecard-highlight-label">{copy.lowestMetric}</span>
-                <strong>{getMetricLabel(city.highlights.weakest, locale)}</strong>
-                <span className="scorecard-highlight-score">
-                  {city.metrics?.[city.highlights.weakest]?.score?.toFixed(1) ?? "—"}
-                </span>
-              </div>
-            )}
-          </div>
-        </section>
-      )}
-
-      {/* ── Data transparency ── */}
-      <section className="section scorecard-transparency">
-        <p className="eyebrow">{copy.dataTransparency}</p>
-        {isPublished ? (
-          <>
-            <div className="scorecard-transparency-grid">
-              <div className="scorecard-transparency-stat">
-                <strong>{Math.round((city.overallWeightedCoverage ?? 0) * 100)}%</strong>
-                <span>{copy.overallCoverage}</span>
-              </div>
-              {PILLAR_ORDER.map((p) => {
-                const cov = city[pillarCoverageKey(p)] as number | null;
-                return (
-                  <div key={p} className="scorecard-transparency-stat">
-                    <strong className="scorecard-transparency-pct" style={{ "--pillar": PILLAR_COLORS[p] } as CSSProperties}>{Math.round((cov ?? 0) * 100)}%</strong>
-                    <span>{PILLAR_LABELS[locale]?.[p] ?? PILLAR_LABELS.en[p]}</span>
-                  </div>
-                );
-              })}
-            </div>
-            {/* Coverage breakdown by data level */}
-            {(() => {
-              const counts: Record<string, number> = { city: 0, national: 0, derived: 0, missing: 0 };
-              Object.values(city.metrics ?? {}).forEach((m) => {
-                const lvl = m.dataLevel ?? "missing";
-                counts[lvl] = (counts[lvl] ?? 0) + 1;
-              });
-              const items: Array<{ key: string; label: string; count: number }> = [
-                { key: "city",     label: copy.coverageCityDirect,    count: counts.city ?? 0 },
-                { key: "national", label: copy.coverageNationalProxy, count: counts.national ?? 0 },
-                { key: "derived",  label: copy.coverageDerived,       count: counts.derived ?? 0 },
-                { key: "missing",  label: copy.coverageMissing,       count: counts.missing ?? 0 },
-              ].filter((i) => i.count > 0);
-              return (
-                <div className="scorecard-coverage-breakdown">
-                  <span className="scorecard-coverage-breakdown-title">{copy.coverageBreakdownTitle}</span>
-                  <div className="scorecard-coverage-breakdown-items">
-                    {items.map((i) => (
-                      <span key={i.key} className={`scorecard-coverage-item scorecard-coverage-item--${i.key}`}>
-                        {i.count} {i.label}
+      {/* ── Highlights + Data transparency (compact two-column band) ── */}
+      {(() => {
+        const hasHighlights = Boolean(city.highlights && (city.highlights.strongest || city.highlights.weakest));
+        return (
+          <div className={hasHighlights ? "section scorecard-meta-band scorecard-meta-band--split" : "section scorecard-meta-band"}>
+            {hasHighlights && city.highlights && (
+              <section className="scorecard-highlights">
+                <p className="eyebrow">{copy.whatStandsOut}</p>
+                <div className="scorecard-highlight-grid">
+                  {city.highlights.strongest && (
+                    <div className="scorecard-highlight-card scorecard-highlight-card--strong">
+                      <div className="scorecard-highlight-meta">
+                        <span className="scorecard-highlight-label">{copy.highestMetric}</span>
+                        <strong>{getMetricLabel(city.highlights.strongest, locale)}</strong>
+                      </div>
+                      <span className="scorecard-highlight-score">
+                        {city.metrics?.[city.highlights.strongest]?.score?.toFixed(1) ?? "—"}
                       </span>
-                    ))}
-                  </div>
+                    </div>
+                  )}
+                  {city.highlights.weakest && (
+                    <div className="scorecard-highlight-card scorecard-highlight-card--weak">
+                      <div className="scorecard-highlight-meta">
+                        <span className="scorecard-highlight-label">{copy.lowestMetric}</span>
+                        <strong>{getMetricLabel(city.highlights.weakest, locale)}</strong>
+                      </div>
+                      <span className="scorecard-highlight-score">
+                        {city.metrics?.[city.highlights.weakest]?.score?.toFixed(1) ?? "—"}
+                      </span>
+                    </div>
+                  )}
                 </div>
-              );
-            })()}
-            <p className="scorecard-transparency-note">
-              {copy.transparencyNote}
-            </p>
-          </>
-        ) : (
-          <p className="scorecard-transparency-note">
-            {copy.transparencyPending}
-          </p>
-        )}
-      </section>
+              </section>
+            )}
+
+            <section className="scorecard-transparency">
+              <p className="eyebrow">{copy.dataTransparency}</p>
+              {isPublished ? (
+                <>
+                  <div className="scorecard-transparency-grid">
+                    <div className="scorecard-transparency-stat">
+                      <strong>{Math.round((city.overallWeightedCoverage ?? 0) * 100)}%</strong>
+                      <span>{copy.overallCoverage}</span>
+                    </div>
+                    {PILLAR_ORDER.map((p) => {
+                      const cov = city[pillarCoverageKey(p)] as number | null;
+                      return (
+                        <div key={p} className="scorecard-transparency-stat">
+                          <strong className="scorecard-transparency-pct" style={{ "--pillar": PILLAR_COLORS[p] } as CSSProperties}>{Math.round((cov ?? 0) * 100)}%</strong>
+                          <span>{PILLAR_LABELS[locale]?.[p] ?? PILLAR_LABELS.en[p]}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  {/* Coverage breakdown by data level */}
+                  {(() => {
+                    const counts: Record<string, number> = { city: 0, national: 0, derived: 0, missing: 0 };
+                    Object.values(city.metrics ?? {}).forEach((m) => {
+                      const lvl = m.dataLevel ?? "missing";
+                      counts[lvl] = (counts[lvl] ?? 0) + 1;
+                    });
+                    const items: Array<{ key: string; label: string; count: number }> = [
+                      { key: "city",     label: copy.coverageCityDirect,    count: counts.city ?? 0 },
+                      { key: "national", label: copy.coverageNationalProxy, count: counts.national ?? 0 },
+                      { key: "derived",  label: copy.coverageDerived,       count: counts.derived ?? 0 },
+                      { key: "missing",  label: copy.coverageMissing,       count: counts.missing ?? 0 },
+                    ].filter((i) => i.count > 0);
+                    return (
+                      <div className="scorecard-coverage-breakdown">
+                        <span className="scorecard-coverage-breakdown-title">{copy.coverageBreakdownTitle}</span>
+                        <div className="scorecard-coverage-breakdown-items">
+                          {items.map((i) => (
+                            <span key={i.key} className={`scorecard-coverage-item scorecard-coverage-item--${i.key}`}>
+                              {i.count} {i.label}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })()}
+                  <p className="scorecard-transparency-note">
+                    {copy.transparencyNote}
+                  </p>
+                </>
+              ) : (
+                <p className="scorecard-transparency-note">
+                  {copy.transparencyPending}
+                </p>
+              )}
+            </section>
+          </div>
+        );
+      })()}
 
       {/* ── Prev / Next city navigation ── */}
       {(prevRanked || nextRanked) && (
         <nav className="scorecard-prev-next section" aria-label={t(locale, "Adjacent ranked cities", "เมืองจัดอันดับก่อนหน้า/ถัดไป", "前后排名城市", "인접 순위 도시", "隣接ランキング都市")}>
-          {prevRanked ? (
+          {prevRanked && (
             <a
               className="scorecard-prev-next-link scorecard-prev-next-link--prev"
               href={appHref(`/city/${prevRanked.cityId}`)}
@@ -1865,10 +1875,8 @@ export default function CityScorecardPage({
                 {prevRanked.slicScore != null ? prevRanked.slicScore.toFixed(1) : "—"}
               </span>
             </a>
-          ) : (
-            <span className="scorecard-prev-next-spacer" aria-hidden="true" />
           )}
-          {nextRanked ? (
+          {nextRanked && (
             <a
               className="scorecard-prev-next-link scorecard-prev-next-link--next"
               href={appHref(`/city/${nextRanked.cityId}`)}
@@ -1884,8 +1892,6 @@ export default function CityScorecardPage({
                 {nextRanked.slicScore != null ? nextRanked.slicScore.toFixed(1) : "—"}
               </span>
             </a>
-          ) : (
-            <span className="scorecard-prev-next-spacer" aria-hidden="true" />
           )}
         </nav>
       )}
