@@ -22,7 +22,7 @@ function PartnerCardView({ card }: { card: PartnerCard }) {
     <article className="paper-card partner-card">
       {card.logoSrc && (
         <div className="partner-card-logo">
-          <img src={thumbSrc(`${BASE}${card.logoSrc}`, 128)} alt={`${card.name} logo`} loading="lazy" />
+          <img src={thumbSrc(`${BASE}${card.logoSrc}`, 128)} alt={`${card.name} logo`} />
         </div>
       )}
       <p className="panel-label">{card.role}</p>
@@ -110,7 +110,6 @@ export default function SlicProfilePage({
                   <img
                     src={thumbSrc(`${BASE}${profile.privatePartner.logoSrc}`, 128)}
                     alt={`${profile.privatePartner.name} logo`}
-                    loading="lazy"
                   />
                 </div>
               )}

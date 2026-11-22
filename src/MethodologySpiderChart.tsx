@@ -27,8 +27,8 @@ export default function MethodologySpiderChart({
   data: SpiderDatum[];
   locale: Locale;
 }) {
-  const centerX = 170;
-  const centerY = 160;
+  const centerX = 210;
+  const centerY = 170;
   const maxRadius = 112;
   const levels = [0.2, 0.4, 0.6, 0.8, 1];
   const angles = data.map((_, index) => -Math.PI / 2 + (index * Math.PI * 2) / data.length);
@@ -45,11 +45,8 @@ export default function MethodologySpiderChart({
     ),
   );
 
-  const levelLabels = locale === "th"
-    ? ["20", "40", "60", "80", "100"]
-    : locale === "zh"
-      ? ["20", "40", "60", "80", "100"]
-      : ["20", "40", "60", "80", "100"];
+  void locale;
+  const levelLabels = ["20", "40", "60", "80", "100"];
 
   return (
     <article className="paper-card methodology-balance-card">
@@ -59,7 +56,7 @@ export default function MethodologySpiderChart({
       <div className="methodology-spider-shell">
         <svg
           className="methodology-spider"
-          viewBox="0 0 340 320"
+          viewBox="0 0 420 340"
           role="img"
           aria-label={title}
         >
@@ -94,7 +91,13 @@ export default function MethodologySpiderChart({
             return (
               <g key={datum.label}>
                 <circle className="spider-point" cx={point.x} cy={point.y} r="4.5" />
-                <text className="spider-label" x={labelPoint.x} y={labelPoint.y}>
+                <text
+                  className="spider-label"
+                  x={labelPoint.x}
+                  y={labelPoint.y}
+                  textAnchor="middle"
+                  dominantBaseline="middle"
+                >
                   {datum.label}
                 </text>
               </g>

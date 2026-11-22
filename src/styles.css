@@ -122,8 +122,8 @@
   --page-gutter: 3rem;
   --radius: 0;
   --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
-  --space-section: 1.35rem;
-  --space-section-lg: 1.65rem;
+  --space-section: 0.9rem;
+  --space-section-lg: 1rem;
   --gap-grid: 0.6rem;
   --gap-grid-lg: 0.85rem;
   --pad-card: 0.75rem;
@@ -469,7 +469,7 @@ section[id] {
   grid-template-columns: minmax(0, 1.18fr) minmax(320px, 0.82fr);
   gap: 1.5rem;
   align-items: start;
-  padding: 2.25rem 0 1.25rem;
+  padding: 1rem 0 1.25rem;
 }
 
 .hero-copy h1,
@@ -1089,7 +1089,7 @@ section[id] {
 
 .rankings-top,
 .rankings-table-section {
-  padding: 1.5rem 0 3rem;
+  padding: 1rem 0 1.5rem;
 }
 
 .ranking-card-grid {
@@ -6283,7 +6283,7 @@ section[id] {
 
 /* Spider section — brutalist */
 .v3-spider-section {
-  padding: 3rem 0;
+  padding: 2rem 0;
   border-top: 2px solid var(--accent-cyan);
   border-bottom: 1px solid var(--border);
 }
@@ -6790,8 +6790,8 @@ section[id] {
 
 /* ── Version archive (History page) ── */
 .history-archive {
-  margin-top: 1rem;
-  padding-top: 3rem;
+  margin-top: 0.75rem;
+  padding-top: 1.75rem;
   border-top: 1px solid var(--border-strong);
 }
 
@@ -8532,7 +8532,7 @@ a.metric-plate-name:hover {
 .scorecard-transparency {
   border-top: 1px solid var(--border);
   padding-top: 2rem;
-  padding-bottom: 3rem;
+  padding-bottom: 1.75rem;
 }
 
 .scorecard-transparency-grid {
@@ -9108,7 +9108,7 @@ a.metric-plate-name:hover {
 
 /* 05. Spider — full experience */
 .v3-spider-full {
-  padding: 3rem 0;
+  padding: 1.75rem 0;
   background: var(--text);
   color: var(--text-inverse);
 }
@@ -9232,7 +9232,7 @@ a.metric-plate-name:hover {
 
 /* 06. CTA section */
 .v3-cta-section {
-  padding: 3rem 0;
+  padding: 1.75rem 0;
   display: flex;
   gap: 0.9rem;
   flex-wrap: wrap;
@@ -9656,7 +9656,7 @@ a.metric-plate-name:hover {
 .compare-hero {
   background: var(--text);
   color: var(--text-inverse);
-  padding: 8rem 0 4rem;
+  padding: 8rem 0 2.5rem;
 }
 
 .compare-hero-inner {
@@ -9697,7 +9697,7 @@ a.metric-plate-name:hover {
 
 /* 02. Interactive spider + table */
 .compare-interactive {
-  padding: 2.25rem 0;
+  padding: 1.75rem 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -10106,7 +10106,7 @@ a.metric-plate-name:hover {
 
 /* 03. Overlap analysis */
 .compare-overlap {
-  padding: 2.25rem 0;
+  padding: 1.75rem 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -10180,8 +10180,8 @@ a.metric-plate-name:hover {
 }
 
 .compare-slic-exclusive {
-  margin-top: 2rem;
-  padding: 2rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
   background: rgba(26, 107, 90, 0.04);
   border-left: 4px solid var(--accent-cyan);
 }
@@ -10318,7 +10318,7 @@ a.metric-plate-name:hover {
 
 /* 04. Methodology cards */
 .compare-methodology {
-  padding: 2.25rem 0;
+  padding: 1.5rem 0;
   border-bottom: 1px solid var(--border);
 }
 
@@ -10633,7 +10633,7 @@ a.metric-plate-name:hover {
 /* Compare responsive */
 @media (max-width: 768px) {
   .compare-hero {
-    padding: 7rem 0 3rem;
+    padding: 7rem 0 2rem;
   }
 
   .compare-hero-title {
@@ -11718,7 +11718,7 @@ body,
   border: 1px solid var(--border);
   border-radius: 0;
   padding: 1.5rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   position: relative;
 }
 
@@ -12479,7 +12479,7 @@ html[lang="th"] .hp-lede {
 .essay-body {
   max-width: 65ch;
   margin: 0 auto;
-  padding: 3rem clamp(1.25rem, 5vw, 2.5rem) 4.5rem;
+  padding: 3rem clamp(1.25rem, 5vw, 2.5rem) 2.5rem;
 }
 
 /* ── Prose ── */
@@ -12653,8 +12653,8 @@ a.essay-reference-text:hover {
 
 /* ── Further reading ── */
 .essay-further {
-  margin-top: 4rem;
-  padding-top: 2rem;
+  margin-top: 2.25rem;
+  padding-top: 1.5rem;
   border-top: 1px solid rgba(28, 25, 20, 0.12);
 }
 
@@ -13095,7 +13095,7 @@ a.essay-reference-text:hover {
 
 /* ECONOMIC CORRIDOR SECTION (CompareRankingsPage) */
 .compare-corridor-section {
-  padding: 2.25rem 0;
+  padding: 1.75rem 0 1rem;
   border-top: 1px solid var(--border);
 }
 
