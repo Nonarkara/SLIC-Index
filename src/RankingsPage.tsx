@@ -270,8 +270,6 @@ const interactiveCopy: Record<
     heroEyebrow: string;
     heroTitle: string;
     heroIntro: string;
-    heroNoteTitle: string;
-    heroNoteBody: string;
     indexedCitiesLabel: string;
     lockedPointsLabel: string;
     pillarsLabel: string;
@@ -317,9 +315,6 @@ const interactiveCopy: Record<
     heroEyebrow: "Preference engine",
     heroTitle: "Tune the city field to your life",
     heroIntro: "Drag the web, move a slider, or choose a preset to rerank {count} cities.",
-    heroNoteTitle: "Why this is traceable",
-    heroNoteBody:
-      "Published city scores use AMPI (μ − σ²/μ) minus a coverage penalty. The Balanced SLIC preset ranks on the same AMPI, before the coverage penalty is applied, so a penalised city can sit a place or two from its published rank. Once you move the spider, this workbench switches to profile fit — shape match against your weights — not a rewritten AMPI score.",
     indexedCitiesLabel: "Indexed cities",
     lockedPointsLabel: "Locked points",
     pillarsLabel: "Pillars",
@@ -335,8 +330,8 @@ const interactiveCopy: Record<
       "Growth captures economic momentum and residual room after essentials. Reweighting here changes emphasis for comparison; it does not rewrite the published workbook score.",
     consequencesTitle: "Trade-off signals",
     noConsequences: "Keep moving the weights. When your profile becomes distinctive, the main trade-offs appear here.",
-    resultsTitle: "Closest matches",
-    resultsBody: "At baseline: official AMPI order. After you move the bars: profile fit across the indexed field — useful for preference, not a substitute for the published score.",
+    resultsTitle: "City results",
+    resultsBody: "Balanced SLIC shows published ranks and scores, including coverage penalties. Other weights show profile fit, not published scores.",
     bestMatchTitle: "Top current result",
     bestMatchBody: "The lead city below is the closest match to the current five-pillar profile.",
     fitScore: "Profile fit",
@@ -366,9 +361,6 @@ const interactiveCopy: Record<
     heroTitle: "จูนสนามเมืองให้เข้ากับชีวิตของคุณ",
     heroIntro:
       "หน้านี้จัดอันดับใหม่แบบสดจากเมืองทั้ง {count} เมืองในสนามดัชนี ลากใยแมงมุม ขยับสไลเดอร์ หรือใช้ preset เพื่อดูว่าเมืองไหนใกล้กับชีวิตที่คุณต้องการจริง ๆ",
-    heroNoteTitle: "ทำไมหน้านี้จึงไล่ย้อนกลับได้",
-    heroNoteBody:
-      "คะแนนเมืองที่เผยแพร่ใช้ AMPI (μ − σ²/μ) หักโทษ coverage ที่ค่า Balanced SLIC จัดอันดับด้วย AMPI ชุดเดียวกันก่อนหักโทษ coverage ดังนั้นเมืองที่ถูกหักโทษอาจอยู่ต่างจากอันดับที่เผยแพร่หนึ่งถึงสองอันดับ เมื่อขยับใยแมงมุม หน้านี้สลับเป็นการจับคู่โปรไฟล์กับน้ำหนักของคุณ — ไม่ใช่การเขียนทับคะแนน AMPI",
     indexedCitiesLabel: "เมืองในสนาม",
     lockedPointsLabel: "คะแนนคงที่",
     pillarsLabel: "เสาหลัก",
@@ -384,8 +376,8 @@ const interactiveCopy: Record<
       "Growth สะท้อนโมเมนตัมทางเศรษฐกิจและพื้นที่รายได้หลังจ่ายสิ่งจำเป็น การปรับน้ำหนักที่นี่เป็นการเปลี่ยนมุมเปรียบเทียบเท่านั้น ไม่ได้เขียนทับคะแนนจากเวิร์กบุ๊กที่เผยแพร่",
     consequencesTitle: "สัญญาณข้อแลกเปลี่ยน",
     noConsequences: "ลองขยับน้ำหนักต่อไป เมื่อโปรไฟล์ของคุณชัดขึ้น ข้อแลกเปลี่ยนหลักจะปรากฏตรงนี้",
-    resultsTitle: "เมืองที่ใกล้ที่สุด",
-    resultsBody: "ที่ baseline: ลำดับ AMPI ทางการ หลังขยับแถบ: คะแนนจับคู่โปรไฟล์ — ใช้ดูความชอบ ไม่แทนที่คะแนนที่เผยแพร่",
+    resultsTitle: "ผลการจัดอันดับเมือง",
+    resultsBody: "Balanced SLIC แสดงอันดับและคะแนนที่เผยแพร่ โดยหักคะแนนตามความครอบคลุมของข้อมูลแล้ว เมื่อใช้น้ำหนักอื่น ผลที่เห็นคือคะแนนความตรงกับโปรไฟล์ ไม่ใช่คะแนนที่เผยแพร่",
     bestMatchTitle: "ผลลัพธ์นำตอนนี้",
     bestMatchBody: "เมืองด้านล่างคือเมืองที่ใกล้กับโปรไฟล์ 5 เสาหลักปัจจุบันมากที่สุด",
     fitScore: "ความพอดีโปรไฟล์",
@@ -415,9 +407,6 @@ const interactiveCopy: Record<
     heroTitle: "把城市场域调到适合你的生活",
     heroIntro:
       "这个工作台会对完整的 {count} 城市索引场进行实时重排。拖动蛛网图、调整滑块，或使用预设，看看哪些城市最接近你真正想要的生活。",
-    heroNoteTitle: "为什么它可以被追溯",
-    heroNoteBody:
-      "已发布城市分数使用 AMPI（μ − σ²/μ）再减去覆盖率惩罚。Balanced SLIC 预设按同一个 AMPI 排序，但尚未扣除覆盖率惩罚，因此受罚城市可能与已发布名次相差一至两位。拖动蛛网后，工作台切换为画像匹配——按你的权重做形态拟合，而不是改写 AMPI。",
     indexedCitiesLabel: "索引城市",
     lockedPointsLabel: "锁定点数",
     pillarsLabel: "声明支柱",
@@ -433,8 +422,8 @@ const interactiveCopy: Record<
       "Growth 反映的是经济动能，以及扣除必要开支后的剩余空间。这里的权重调整只会改变比较视角，不会改写已发布的工作簿分数。",
     consequencesTitle: "权衡信号",
     noConsequences: "继续调整权重。你的画像越鲜明，这里出现的主要权衡就越清楚。",
-    resultsTitle: "最接近的匹配",
-    resultsBody: "基线：官方 AMPI 顺序。移动滑块后：画像匹配——用于偏好探索，不能替代已发布分数。",
+    resultsTitle: "城市排名结果",
+    resultsBody: "Balanced SLIC 显示已发布的排名和分数，分数已计入数据覆盖率扣分。使用其他权重时，结果是偏好匹配度，而非已发布分数。",
     bestMatchTitle: "当前最高结果",
     bestMatchBody: "下面领先的城市，是与当前五支柱画像最接近的结果。",
     fitScore: "画像匹配度",
@@ -463,8 +452,6 @@ const interactiveCopy: Record<
     heroEyebrow: "선호도 엔진",
     heroTitle: "도시 목록을 내 삶에 맞게 조정하세요",
     heroIntro: "이 워크벤치는 {count}개 전체 인덱스 도시를 실시간으로 재정렬합니다. 거미줄 차트를 드래그하거나, 슬라이더를 조정하거나, 프리셋을 사용해 내가 원하는 삶에 맞는 도시를 찾아보세요.",
-    heroNoteTitle: "왜 이 결과를 추적할 수 있는가",
-    heroNoteBody: "발표된 도시 점수는 AMPI(μ − σ²/μ)에서 커버리지 패널티를 뺀 값입니다. Balanced SLIC 프리셋은 동일한 AMPI로 정렬하되 커버리지 패널티를 적용하기 전의 값이라, 패널티가 있는 도시는 게시된 순위와 한두 자리 다를 수 있습니다. 스파이더를 움직이면 가중치에 대한 프로필 매칭으로 전환됩니다 — AMPI를 다시 쓰는 것이 아닙니다.",
     indexedCitiesLabel: "인덱스 도시 수",
     lockedPointsLabel: "고정 점수",
     pillarsLabel: "선언된 기둥",
@@ -479,8 +466,8 @@ const interactiveCopy: Record<
     methodologyBody: "성장은 경제적 모멘텀과 필수 지출 후 여유분을 반영합니다. 여기서 가중치를 재조정해도 발표된 워크북 점수는 변경되지 않습니다.",
     consequencesTitle: "트레이드오프 신호",
     noConsequences: "가중치를 계속 조정하세요. 프로필이 뚜렷해질수록 주요 트레이드오프가 여기에 표시됩니다.",
-    resultsTitle: "가장 근접한 매칭",
-    resultsBody: "기준선: 공식 AMPI 순서. 슬라이더 이동 후: 프로필 매칭 — 선호도 탐색용이며 발표된 점수를 대체하지 않습니다.",
+    resultsTitle: "도시 순위 결과",
+    resultsBody: "Balanced SLIC은 공개 순위와 데이터 충족도 감점을 반영한 공개 점수를 보여 줍니다. 다른 가중치를 적용하면 공개 점수 대신 프로필 적합도가 표시됩니다.",
     bestMatchTitle: "현재 최상위 결과",
     bestMatchBody: "아래 선두 도시가 현재 5개 기둥 프로필에 가장 가까운 결과입니다.",
     fitScore: "프로필 적합도",
@@ -509,8 +496,6 @@ const interactiveCopy: Record<
     heroEyebrow: "プリファレンスエンジン",
     heroTitle: "都市フィールドを自分の生活に合わせて調整",
     heroIntro: "このワークベンチは{count}都市全体をリアルタイムで再ランキングします。スパイダー図をドラッグするか、スライダーを調整するか、プリセットを使用して、本当に望む生活に合った都市を見つけてください。",
-    heroNoteTitle: "なぜ追跡可能なのか",
-    heroNoteBody: "公開都市スコアはAMPI（μ − σ²/μ）からカバレッジ減点を引いた値です。Balanced SLICプリセットは同じAMPIで並べ替えますが、カバレッジ減点を適用する前のため、減点のある都市は公開順位と1〜2位ずれることがあります。スパイダーを動かすと、重みに対するプロファイル一致に切り替わります——AMPIの書き換えではありません。",
     indexedCitiesLabel: "インデックス都市数",
     lockedPointsLabel: "固定ポイント",
     pillarsLabel: "宣言された柱",
@@ -525,8 +510,8 @@ const interactiveCopy: Record<
     methodologyBody: "成長は経済的モメンタムと必要経費後の余裕を反映します。ここでの重みの調整は公開されたワークブックスコアを変更しません。",
     consequencesTitle: "トレードオフシグナル",
     noConsequences: "引き続き重みを調整してください。プロファイルが明確になると、主なトレードオフがここに表示されます。",
-    resultsTitle: "最も近い一致",
-    resultsBody: "ベースライン：公式AMPI順位。スライダー移動後：プロファイル一致——好みの探索用であり、公開スコアの代替ではありません。",
+    resultsTitle: "都市の順位結果",
+    resultsBody: "Balanced SLIC では公開順位と、データ網羅率による減点を反映した公開スコアを表示します。重みを変えると、公開スコアではなくプロファイル適合度を表示します。",
     bestMatchTitle: "現在の最上位結果",
     bestMatchBody: "以下のリード都市が、現在の5柱プロファイルに最も近い結果です。",
     fitScore: "プロファイル適合",

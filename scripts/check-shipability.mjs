@@ -453,6 +453,13 @@ async function auditRoutes(browser, base) {
 }
 
 async function auditLocales(browser, base) {
+  const rankingsTerms = {
+    en: ["published ranks and scores", "coverage penalties", "profile fit"],
+    th: ["คะแนนที่เผยแพร่", "ความครอบคลุมของข้อมูล", "ความตรงกับโปรไฟล์"],
+    zh: ["已发布的排名和分数", "数据覆盖率扣分", "偏好匹配度"],
+    ko: ["공개 순위", "데이터 충족도 감점", "프로필 적합도"],
+    ja: ["公開順位", "データ網羅率による減点", "プロファイル適合度"],
+  };
   // The five locales, on the pages where the copy is heaviest.
   for (const [locale, browserLocale] of LOCALES) {
     for (const route of ["/", "/rankings", "/city/th-bangkok"]) {
@@ -469,6 +476,12 @@ async function auditLocales(browser, base) {
           add("blocker", `${route} in ${locale} declares lang="${p.lang}"`, "The page is not in the language it claims to be.");
         }
         if (p.h1s.length === 0 || p.h1s[0].length < 4) add("blocker", `${route} in ${locale} did not render a heading`, "The locale is empty.");
+        if (route === "/rankings") {
+          const explanation = await page.locator(".rankings-results-copy").innerText();
+          if (!rankingsTerms[locale].every(term => explanation.includes(term))) {
+            add("blocker", `Rankings in ${locale} omits a scoring distinction`, explanation);
+          }
+        }
         if (errors.length) add("blocker", `${route} in ${locale} threw while loading`, errors.join(" | "));
       } catch (error) {
         add("blocker", `${route} in ${locale} did not load`, String(error.message || error).slice(0, 200));
