@@ -26,6 +26,18 @@ tmp/
 /Photos (Protocol Beta)/
 /Photos history of development/
 /photos/
+/launch-photos/
+/Logos/SLIC logo.jpg
+/Logos/depa_logo.jpg
+/Logos/slic-index-120.png
+/Logos/slic-index-full.png
+/Logos/smart_city_thailand_logo.jpg
+/Logos/uwn_pmu_a_logo.jpeg
+/output/pdf/
+/output/spreadsheet/*
+!/output/spreadsheet/analyst_source_cleanup_report.md
+!/output/spreadsheet/country_context_world_bank_seed_report.md
+!/output/spreadsheet/economist_reference.csv
 /knowledge-rack/library/
 
 /vite.config.js

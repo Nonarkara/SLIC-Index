@@ -167,6 +167,12 @@ npm test             # publication / regression tests
 
 Optional: `npm start` serves the already-built `dist/` with Express (default port `10000`).
 
+Keep published assets in `public/` and release artifacts in the tracked
+`dist/` bundle. The active source registers and knowledge-rack inbox stay
+in Git for reproducibility. Raw launch originals and obsolete local exports
+are not part of the checkout; the public WebP photos and current downloads
+are. Removing a file from the current tree does not erase it from Git history.
+
 ### Integrity (before you trust a number you changed)
 
 ```bash

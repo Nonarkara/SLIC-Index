@@ -1,6 +1,6 @@
 # Country Context World Bank Seed Report
 
-This report records the latest non-null World Bank WDI observation selected from the local exports under `output/spreadsheet/`.
+This report records the latest non-null World Bank WDI observation selected from the [archived local exports](https://github.com/Nonarkara/SLIC-Index/tree/f6eeecc/output/spreadsheet).
 
 ## gdp_per_capita_ppp
 - Imported rows: 62/63

@@ -398,7 +398,7 @@ export default function ThailandPage({
             <p className="rankings-filter-note">{copy.thailand.note}</p>
           </div>
 
-          <div className="rankings-controls">
+          <div className="rankings-controls thailand-filters">
             <div className="rankings-filter-group">
               <div>
                 <p className="panel-label">{ui.scope}</p>
@@ -408,22 +408,22 @@ export default function ThailandPage({
                 </div>
               </div>
 
-              <p className="panel-label">{ui.region}</p>
-              <div className="region-switch" role="group" aria-label={t(locale, "Region filter", "กรองตามภูมิภาค", "地区筛选", "지역 필터", "地域フィルター")}>
-                <button type="button" className={region === "All" ? "region-button active" : "region-button"} onClick={() => setRegion("All")}>{ui.allRegions}</button>
-                {thailandRegions.map((r) => (
-                  <button key={r} type="button" className={region === r ? "region-button active" : "region-button"} onClick={() => setRegion(r)}>{r}</button>
-                ))}
-              </div>
             </div>
 
-            <div>
-              <p className="panel-label">{ui.sortBy}</p>
-              <div className="mode-switch" role="group" aria-label={t(locale, "Pillar filter", "กรองตามเสาหลัก", "支柱筛选", "기둥 필터", "柱フィルター")}>
-                {(Object.keys(pillarLabels[locale]) as ScorePillar[]).map((p) => (
-                  <button key={p} type="button" className={p === pillar ? "mode-button active" : "mode-button"} onClick={() => setPillar(p)}>{pillarLabels[locale][p]}</button>
-                ))}
-              </div>
+            <div className="thailand-filter-fields">
+              <label>
+                <span className="panel-label">{ui.region}</span>
+                <select value={region} onChange={(event) => setRegion(event.target.value)}>
+                  <option value="All">{ui.allRegions}</option>
+                  {thailandRegions.map((r) => <option key={r} value={r}>{r}</option>)}
+                </select>
+              </label>
+              <label>
+                <span className="panel-label">{ui.sortBy}</span>
+                <select value={pillar} onChange={(event) => setPillar(event.target.value as ScorePillar)}>
+                  {Object.entries(pillarLabels[locale]).map(([key, label]) => <option key={key} value={key}>{label}</option>)}
+                </select>
+              </label>
             </div>
           </div>
         </div>
